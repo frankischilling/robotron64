@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.bin binary
+*.z64 binary
+*.n64 binary

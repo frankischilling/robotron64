@@ -1,0 +1,12 @@
+[
+  {
+    "name": "func_80000450",
+    "rom": 4176,
+    "vram": 2147484752,
+    "size": 16,
+    "source": "src/game/math.c",
+    "object": "build/us/math.o",
+    "section": ".text",
+    "evidence": "docs/matching.md"
+  }
+]

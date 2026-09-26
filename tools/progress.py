@@ -1,0 +1,55 @@
+"""Measure compiled function bytes; unknown totals remain unknown."""
+
+import json
+import subprocess
+import tempfile
+from pathlib import Path
+from rom import ROOT, validate
+from verify import compare
+
+
+def measure():
+    target = (ROOT / "baseroms/us/baserom.z64").read_bytes()
+    validate(target)
+    rebuilt = (ROOT / "build/us/robotron64.z64").read_bytes()
+    compare(target, rebuilt)
+    elf = ROOT / "build/us/robotron64.elf"
+    symbols = {}
+    for line in subprocess.check_output(["mips-linux-gnu-nm", "-S", str(elf)], text=True).splitlines():
+        parts = line.split()
+        if len(parts) == 4:
+            symbols[parts[3]] = (int(parts[0], 16), int(parts[1], 16))
+    functions = json.loads((ROOT / "config/functions.json").read_text())
+    matches = []
+    ranges = []
+    for function in functions:
+        name, start, size = function["name"], function["rom"], function["size"]
+        if symbols.get(name) != (function["vram"], size):
+            raise ValueError(f"Linked symbol address/size mismatch: {name}")
+        end = start + size
+        if start < 0 or size <= 0 or end > len(target) or any(start < b and a < end for a, b in ranges):
+            raise ValueError(f"Invalid/overlapping function range: {name}")
+        ranges.append((start, end))
+        with tempfile.TemporaryDirectory() as directory:
+            section = Path(directory) / "function.bin"
+            subprocess.run(["mips-linux-gnu-objcopy", "-O", "binary", "-j", function["section"],
+                            str(ROOT / function["object"]), str(section)], check=True)
+            compare(target[start:end], section.read_bytes())
+        matches.append({"name": name, "bytes": size})
+    return {
+        "matched_c_functions": len(matches),
+        "matched_c_bytes": sum(item["bytes"] for item in matches),
+        "total_code_bytes": None,
+        "total_functions": None,
+        "matching_code_percent": None,
+        "unclassified_fallback_bytes": len(target) - sum(item["bytes"] for item in matches),
+        "whole_rom_matches": True,
+        "functions": matches,
+        "note": "Fallback bytes include header, boot, code, data and assets; ROM equality is not source completion.",
+    }
+
+
+if __name__ == "__main__":
+    report = json.dumps(measure(), indent=2) + "\n"
+    (ROOT / "build/us/progress.json").write_text(report)
+    print(report, end="")
