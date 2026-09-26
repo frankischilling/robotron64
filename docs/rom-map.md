@@ -10,6 +10,10 @@ Offsets refer to the normalized big-endian ROM. The supplied file is byte-swappe
 | `0x001050–0x001060` | Multiply, return, delay slot | Integer-square function at `0x80000450`, confirmed |
 | `0x001060` onward | Instructions and control flow | More executable code; full boundaries pending |
 
+SDK instruction sequences have been identified at ROM `0x68160`, `0x68180`, and `0x690C0`; see [libultra evidence](libultra.md). Graphics microcode strings occur at `0x96E80` and `0x97680`; see [graphics evidence](graphics.md). These observations do not establish segment boundaries.
+
+The CRC32 of bytes `0x40..0x1000` is `0x90BB6CB5`. CIC identification remains pending confirmation against an authoritative boot-code reference. Header CRC1 and CRC2 are recorded in `config/target.json`; they have not yet been independently recomputed using a CIC-specific algorithm.
+
 Startup clears `0x1003B0` bytes starting at `0x80097290`, ending at `0x80197640` exclusive. This is strongly supported as the BSS range. It sets the stack pointer to `0x8013A280` and transfers control to `0x80048170`. These addresses come directly from the entry instructions.
 
 The initial executable mapping is `VRAM = ROM + 0x7FFFF400`. Its extent still needs analysis. No claim is made yet about overlays, compression, asset formats, or the boundary between code and initialized data.

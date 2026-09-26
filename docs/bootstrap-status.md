@@ -7,8 +7,12 @@ Completed locally:
 - Created the public repository and bootstrap branch.
 - Installed Git identity and commit-message guards.
 - Added byte-order normalization and strict target validation.
-- Disassembled startup and identified a small multiplication function.
+- Built a deterministic extraction, assembler, linker, and binary comparison pipeline.
+- Matched the multiplication function at `0x80000450` using both IDO 5.3 and 7.1.
+- Verified full ROM equality after clean extraction and build.
+- Added automated object-byte progress checks and public tooling tests.
+- Identified three SDK assembly sequences and two embedded graphics microcode version strings.
 
-The build, extraction layout, compiler comparison, matching C, automated progress, and CI are still pending. No function has been claimed matching. Total executable bytes and function count are unknown.
+One C function contributes 16 matched bytes. The rest remains extracted fallback. Total executable bytes and function count are unknown. Public CI configuration is present; its hosted result must be checked after push. Full segment discovery, original compiler identification, SDK version, and subsystem analysis remain open.
 
-Reference study started with the current repository pages for [SM64](https://github.com/n64decomp/sm64), [Ocarina of Time](https://github.com/zeldaret/oot), [Majora's Mask](https://github.com/zeldaret/mm), and [Perfect Dark](https://github.com/n64decomp/perfect_dark). Detailed source and build-system inspection is still pending. No code has been copied from them.
+See [reference study](reference-study.md) for the inspected source trees, build systems, extraction tools, linker organization, compiler handling, and progress/CI approaches. No implementation code has been copied from them.
