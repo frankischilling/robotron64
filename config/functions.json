@@ -4,9 +4,54 @@
     "rom": 4176,
     "vram": 2147484752,
     "size": 16,
-    "source": "src/game/math.c",
-    "object": "build/us/math.o",
-    "section": ".text",
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/matching.md"
+  },
+  {
+    "name": "func_80000460",
+    "rom": 4192,
+    "vram": 2147484768,
+    "size": 184,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/matching.md"
+  },
+  {
+    "name": "func_80000518",
+    "rom": 4376,
+    "vram": 2147484952,
+    "size": 80,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/matching.md"
+  },
+  {
+    "name": "func_80000568",
+    "rom": 4456,
+    "vram": 2147485032,
+    "size": 60,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/matching.md"
+  },
+  {
+    "name": "func_800005A4",
+    "rom": 4516,
+    "vram": 2147485092,
+    "size": 60,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
     "evidence": "docs/matching.md"
   }
 ]

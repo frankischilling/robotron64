@@ -3,7 +3,7 @@ PYTHON := python3
 CROSS := mips-linux-gnu-
 IDO := .local/toolchain/5.3/cc
 BASEROM ?= baseroms/us/baserom.z64
-CFLAGS := -O2 -G 0 -non_shared -mips2 -32
+CFLAGS := -O2 -G 0 -non_shared -mips1 -32
 
 .PHONY: all setup toolchain verify progress clean test
 all: build/us/robotron64.z64
@@ -23,11 +23,11 @@ build/us/extracted/.stamp: $(BASEROM) tools/extract.py tools/rom.py config/targe
 build/us/fallback.o: build/us/extracted/.stamp
 	$(CROSS)as -EB -32 -march=vr4300 -o $@ build/us/extracted/fallback.s
 
-build/us/math.o: src/game/math.c $(IDO) Makefile
+build/us/text.o: src/game/text.c $(IDO) Makefile
 	mkdir -p $(@D)
 	$(IDO) -c $(CFLAGS) -o $@ $<
 
-build/us/robotron64.elf: build/us/fallback.o build/us/math.o linker_scripts/us.ld
+build/us/robotron64.elf: build/us/fallback.o build/us/text.o linker_scripts/us.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
 build/us/robotron64.z64: build/us/robotron64.elf

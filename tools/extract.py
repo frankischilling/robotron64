@@ -8,7 +8,7 @@ REGIONS = (
     ("header", 0, 0x40),
     ("ipl3", 0x40, 0x1000),
     ("entry", 0x1000, 0x1050),
-    ("remainder", 0x1060, 0x800000),
+    ("remainder", 0x11e0, 0x800000),
 )
 
 

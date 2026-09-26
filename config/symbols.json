@@ -1,8 +1,72 @@
 [
-  {"name": "_start", "rom": "0x1000", "vram": "0x80000400", "status": "confirmed entry point"},
-  {"name": "func_80000450", "rom": "0x1050", "vram": "0x80000450", "status": "matching C"},
-  {"name": "func_80048170", "rom": "0x48d70", "vram": "0x80048170", "status": "startup transfer target"},
-  {"name": "__osDisableInt", "rom": "0x68160", "vram": "0x80067560", "status": "SDK instruction sequence identified"},
-  {"name": "__osRestoreInt", "rom": "0x68180", "vram": "0x80067580", "status": "SDK instruction sequence identified"},
-  {"name": "osGetCount", "rom": "0x690c0", "vram": "0x800684c0", "status": "SDK instruction sequence identified"}
+  {
+    "name": "_start",
+    "rom": "0x1000",
+    "vram": "0x80000400",
+    "status": "confirmed entry point"
+  },
+  {
+    "name": "func_80000450",
+    "rom": "0x1050",
+    "vram": "0x80000450",
+    "status": "matching C"
+  },
+  {
+    "name": "func_80048170",
+    "rom": "0x48d70",
+    "vram": "0x80048170",
+    "status": "startup transfer target"
+  },
+  {
+    "name": "__osDisableInt",
+    "rom": "0x68160",
+    "vram": "0x80067560",
+    "status": "SDK instruction sequence identified"
+  },
+  {
+    "name": "__osRestoreInt",
+    "rom": "0x68180",
+    "vram": "0x80067580",
+    "status": "SDK instruction sequence identified"
+  },
+  {
+    "name": "osGetCount",
+    "rom": "0x690c0",
+    "vram": "0x800684c0",
+    "status": "SDK instruction sequence identified"
+  },
+  {
+    "name": "func_80000460",
+    "rom": "0x1060",
+    "vram": "0x80000460",
+    "status": "matching C"
+  },
+  {
+    "name": "func_80000518",
+    "rom": "0x1118",
+    "vram": "0x80000518",
+    "status": "matching C"
+  },
+  {
+    "name": "func_80000568",
+    "rom": "0x1168",
+    "vram": "0x80000568",
+    "status": "matching C"
+  },
+  {
+    "name": "func_800005A4",
+    "rom": "0x11a4",
+    "vram": "0x800005a4",
+    "status": "matching C"
+  },
+  {
+    "name": "D_80072B40",
+    "vram": "0x80072b40",
+    "status": "confirmed lowercase lookup table address"
+  },
+  {
+    "name": "D_80072BA8",
+    "vram": "0x80072ba8",
+    "status": "confirmed digit lookup table address"
+  }
 ]

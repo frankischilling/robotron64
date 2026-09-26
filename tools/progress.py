@@ -33,8 +33,16 @@ def measure():
         with tempfile.TemporaryDirectory() as directory:
             section = Path(directory) / "function.bin"
             subprocess.run(["mips-linux-gnu-objcopy", "-O", "binary", "-j", function["section"],
-                            str(ROOT / function["object"]), str(section)], check=True)
-            compare(target[start:end], section.read_bytes())
+                            str(elf), str(section)], check=True)
+            offset = function["vram"] - function["section_vram"]
+            compare(target[start:end], section.read_bytes()[offset:offset + size])
+            object_symbols = subprocess.check_output(
+                ["mips-linux-gnu-nm", "-S", str(ROOT / function["object"])], text=True)
+            expected_symbol = (offset, size, "T", name)
+            parsed = [line.split() for line in object_symbols.splitlines()]
+            if not any((int(p[0], 16), int(p[1], 16), p[2], p[3]) == expected_symbol
+                       for p in parsed if len(p) == 4):
+                raise ValueError(f"Compiled object symbol mismatch: {name}")
         matches.append({"name": name, "bytes": size})
     return {
         "matched_c_functions": len(matches),
