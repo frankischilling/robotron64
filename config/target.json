@@ -1,0 +1,13 @@
+{
+  "name": "Robotron 64 (USA), header revision 0",
+  "size": 8388608,
+  "sha1": "44d158bc2aeefb111a620b61e043b2703e6c5808",
+  "sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "md5": "5698757883a6f46fe5b4c9b6e780b480",
+  "internal_name": "ROBOTRON-64",
+  "game_id": "NRXE",
+  "revision": 0,
+  "entry_point": "0x80000400",
+  "header_crc1": "0xac8e4b32",
+  "header_crc2": "0xe7b47326"
+}
