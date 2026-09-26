@@ -122,5 +122,22 @@
     "rom": "0x48ea0",
     "vram": "0x800482a0",
     "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "func_800005E0",
+    "rom": "0x11e0",
+    "vram": "0x800005e0",
+    "status": "matching C; see docs/text.md"
+  },
+  {
+    "name": "func_8000060C",
+    "rom": "0x120c",
+    "vram": "0x8000060c",
+    "status": "matching C; see docs/text.md"
+  },
+  {
+    "name": "D_800B6FF8",
+    "vram": "0x800b6ff8",
+    "status": "8040-byte cleared buffer; structure unknown"
   }
 ]

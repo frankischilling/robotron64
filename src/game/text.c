@@ -65,3 +65,40 @@ void func_800005A4(unsigned char *text)
         text++;
     }
 }
+
+extern unsigned char D_800B6FF8[];
+extern void *func_8003B694(void *destination, int value, int count);
+
+void func_800005E0(void)
+{
+    func_8003B694(D_800B6FF8, 0, 0x1F68);
+}
+
+int func_8000060C(int character)
+{
+    if (character >= 'A' && character <= 'Z') {
+        return (character & 31) + 96;
+    }
+    if (!((character >= 'a' && character <= 'z') ||
+        (character >= '0' && character <= '9') ||
+        (character >= 170 && character <= 179))) {
+        switch (character) {
+        case '/': character = ':'; break;
+        case '=': character = '['; break;
+        case '%': character = ']'; break;
+        case '-': character = 220; break;
+        case '?': character = '_'; break;
+        case '!': character = '\\'; break;
+        case '.': character = '^'; break;
+        case ',': character = 'Z'; break;
+        case '*': character = '`'; break;
+        case '"': case '#': case '\'': case '+': case ':': case '@':
+            character = ':'; break;
+        case ' ': case '\\': return -2;
+        case 23: case '&': case ';': case '[': case '^': case '_': case 149:
+            break;
+        default: return -1;
+        }
+    }
+    return character;
+}

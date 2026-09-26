@@ -65,5 +65,27 @@
     "section": ".text_start",
     "section_vram": 2147484752,
     "evidence": "docs/matching.md"
+  },
+  {
+    "name": "func_800005E0",
+    "rom": 4576,
+    "vram": 2147485152,
+    "size": 44,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text.md"
+  },
+  {
+    "name": "func_8000060C",
+    "rom": 4620,
+    "vram": 2147485196,
+    "size": 324,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text.md"
   }
 ]

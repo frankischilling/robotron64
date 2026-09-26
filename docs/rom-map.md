@@ -10,7 +10,8 @@ Offsets refer to the normalized big-endian ROM. The supplied file is byte-swappe
 | `0x001038–0x001050` | All zero bytes | Entry alignment padding, reconstructed |
 | `0x001050–0x001060` | Multiply, return, delay slot | Integer-square function at `0x80000450`, confirmed |
 | `0x001060–0x0011E0` | Linked C bytes match original | Character lookup and conversion helpers, confirmed |
-| `0x0011E0` onward | Instructions and control flow | More executable code; full boundaries pending |
+| `0x0011E0..0x001350` | Linked C bytes match original | Buffer clear and character normalization, confirmed |
+| `0x001350` onward | Instructions and control flow | More executable code; full boundaries pending |
 
 SDK instruction sequences have been identified at ROM `0x68160`, `0x68180`, and `0x690C0`; see [libultra evidence](libultra.md). Graphics microcode strings occur at `0x96E80` and `0x97680`; see [graphics evidence](graphics.md). These observations do not establish segment boundaries.
 
@@ -24,3 +25,5 @@ The initial executable mapping is `VRAM = ROM + 0x7FFFF400`. Its extent still ne
 
 The four instructions at `0x80000450` multiply the argument by itself with `multu`, return the low 32 bits through `v0`, and return to the caller. Signedness of the source parameter is not established by this alone.
 `config/analysis.json` now records a candidate CPU range ending at ROM `0x70040` and the RSP boot region `0x70040..0x70110`. See [executable inventory](executable-inventory.md) for task-pointer and RSP instruction evidence, commands, and provisional counts.
+
+The 168-byte character-normalization jump table at ROM `0x90278..0x90320` is now generated from C. See [text evidence](text.md).

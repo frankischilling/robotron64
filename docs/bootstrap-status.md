@@ -13,7 +13,7 @@ Completed locally:
 - Added automated object-byte progress checks and public tooling tests.
 - Identified three SDK assembly sequences and two embedded graphics microcode version strings.
 
-Five C functions contribute 400 matched bytes. Most remaining ROM content uses extracted fallback. Total executable bytes and function count are unknown. Public tooling CI passed for the initial pipeline. Full segment discovery, project-wide compiler identification, SDK version, and subsystem analysis remain open.
+Seven C functions contribute 768 matched bytes; see [text matching evidence](text.md) for the two latest functions and generated jump table. Most remaining ROM content uses extracted fallback. Total executable bytes and function count are unknown. Public tooling CI passed for the initial pipeline. Full segment discovery, project-wide compiler identification, SDK version, and subsystem analysis remain open.
 
 Follow-up work reconstructs the 56-byte boot entry as symbolic assembly plus 24 alignment bytes. Its measured assembly bytes are separate from C progress. Startup tracing identifies the first two thread handoffs; the excluded C candidate still differs in two local-buffer stack offsets. See [startup evidence](startup.md).
 
