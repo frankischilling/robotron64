@@ -68,5 +68,59 @@
     "name": "D_80072BA8",
     "vram": "0x80072ba8",
     "status": "confirmed digit lookup table address"
+  },
+  {
+    "name": "osInitialize",
+    "rom": "0x60850",
+    "vram": "0x8005fc50",
+    "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "osPiRawReadIo",
+    "rom": "0x60ae0",
+    "vram": "0x8005fee0",
+    "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "osCreateThread",
+    "rom": "0x60b40",
+    "vram": "0x8005ff40",
+    "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "osStartThread",
+    "rom": "0x60c90",
+    "vram": "0x80060090",
+    "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "osCreatePiManager",
+    "rom": "0x60de0",
+    "vram": "0x800601e0",
+    "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "osSetThreadPri",
+    "rom": "0x60f70",
+    "vram": "0x80060370",
+    "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "osCreateMesgQueue",
+    "rom": "0x61050",
+    "vram": "0x80060450",
+    "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "func_80048204",
+    "rom": "0x48e04",
+    "vram": "0x80048204",
+    "status": "behavior supported; see docs/startup.md"
+  },
+  {
+    "name": "func_800482A0",
+    "rom": "0x48ea0",
+    "vram": "0x800482a0",
+    "status": "behavior supported; see docs/startup.md"
   }
 ]

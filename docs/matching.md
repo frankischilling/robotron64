@@ -2,9 +2,11 @@
 
 Run `make setup`, `make -j4`, `make verify`, and `make progress` from Linux or WSL2. A clean rebuild starts with `make clean`. This removes generated build files, leaving the user-provided baserom and downloaded toolchain intact.
 
-The linker replaces ROM bytes `0x1050..0x11E0` with compiled C. Other ranges come from validated local extraction. `make verify` compares the complete output byte for byte and reports its SHA-256. ROM equality at this stage proves reconstruction of the bootstrap layout; most bytes still depend on binary fallback.
+The linker replaces ROM bytes `0x1050..0x11E0` with compiled C. Reconstructed entry assembly and alignment bytes supply `0x1000..0x1050`. Other ranges come from validated local extraction. `make verify` compares the complete output byte for byte and reports its SHA-256. ROM equality at this stage proves reconstruction of the bootstrap layout; most bytes still depend on binary fallback.
 
 `make progress` checks linked and input-object symbol addresses and sizes, extracts the linked text section, and compares each function's bytes to its target range. Using linked bytes resolves the width-table relocations before comparison. It fails on overlaps, wrong symbol sizes, or byte differences. Unknown code totals and percentages are represented as JSON null, never guessed from ROM size.
+
+Assembly has separate function and byte counters. The 56-byte entry routine contributes no matching-C bytes; its 24 alignment bytes are unmeasured. `unmeasured_rom_bytes` includes those bytes and all extracted fallback. Excluded candidates such as `src/boot/startup.c` do not contribute to matching progress, even when a local experiment matches part of a candidate.
 
 For a selected ROM range:
 

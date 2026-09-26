@@ -10,4 +10,6 @@ The target contains these instruction sequences from the non-iQue assembly in SM
 
 These identify behavior and conventional SDK names. They do not identify a libultra release: small assembly routines are shared between releases. They remain binary fallback and are not counted as matching C.
 
+The [startup investigation](startup.md) adds behavior-supported names for OS initialization, raw PI reads, thread creation/start/priority changes, the PI manager, and message queue initialization. Those larger SDK routines have not yet been recompiled for exact comparison.
+
 References inspected: [disable interrupts](https://github.com/n64decomp/sm64/blob/9921382a68bb0c865e5e45eb594d9c64db59b1af/lib/asm/__osDisableInt.s), [restore interrupts](https://github.com/n64decomp/sm64/blob/9921382a68bb0c865e5e45eb594d9c64db59b1af/lib/asm/__osRestoreInt.s), and [read count](https://github.com/n64decomp/sm64/blob/9921382a68bb0c865e5e45eb594d9c64db59b1af/lib/asm/osGetCount.s). No implementation was copied into this project.

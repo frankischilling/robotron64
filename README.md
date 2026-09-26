@@ -47,3 +47,5 @@ Progress is generated in `build/us/progress.json` from linked-byte comparisons a
 Track work through GitHub Issues and submit coherent branches through pull requests. Matching claims require compiled-byte comparisons. Local ROM verification is authoritative; commercial ROM data must never enter Git or public CI artifacts.
 
 `config/` records the target and symbols; `src/` contains reconstructed C; `linker_scripts/` places compiled and extracted regions; `tools/` contains project tooling; and `docs/` records binary evidence and uncertainties. See [the ROM map](docs/rom-map.md) and [bootstrap status](docs/bootstrap-status.md).
+
+The [startup investigation](docs/startup.md) records the reconstructed assembly entry and thread handoff. The Makefile explicitly selects integrated source files. `src/boot/startup.c` remains an excluded, nonmatching research candidate.
