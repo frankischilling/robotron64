@@ -23,3 +23,4 @@ Startup clears `0x1003B0` bytes starting at `0x80097290`, ending at `0x80197640`
 The initial executable mapping is `VRAM = ROM + 0x7FFFF400`. Its extent still needs analysis. No claim is made yet about overlays, compression, asset formats, or the boundary between code and initialized data.
 
 The four instructions at `0x80000450` multiply the argument by itself with `multu`, return the low 32 bits through `v0`, and return to the caller. Signedness of the source parameter is not established by this alone.
+`config/analysis.json` now records a candidate CPU range ending at ROM `0x70040` and the RSP boot region `0x70040..0x70110`. See [executable inventory](executable-inventory.md) for task-pointer and RSP instruction evidence, commands, and provisional counts.

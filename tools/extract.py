@@ -7,7 +7,9 @@ from rom import ROOT, normalize, validate
 REGIONS = (
     ("header", 0, 0x40),
     ("ipl3", 0x40, 0x1000),
-    ("remainder", 0x11e0, 0x800000),
+    ("cpu_fallback", 0x11e0, 0x70040),
+    ("rsp_boot", 0x70040, 0x70110),
+    ("remainder", 0x70110, 0x800000),
 )
 
 

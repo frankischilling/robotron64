@@ -17,8 +17,11 @@ SECTIONS
         build/us/entry.o(.text)
     }
     .text_start 0x80000450 : AT(0x1050) { build/us/text.o(.text) }
+    .cpu_fallback 0x800005E0 : AT(0x11E0) { build/us/fallback.o(.rom_cpu_fallback) }
+    /* CPU-visible storage address. The RSP executes this at 0x04001000. */
+    .rsp_boot 0x8006F440 : AT(0x70040) { build/us/fallback.o(.rom_rsp_boot) }
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
-    .remainder 0x90000000 : AT(0x11e0) { build/us/fallback.o(.rom_remainder) }
+    .remainder 0x90000000 : AT(0x70110) { build/us/fallback.o(.rom_remainder) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -29,5 +32,7 @@ ASSERT(SIZEOF(.header) == 0x40, "header size changed")
 ASSERT(SIZEOF(.ipl3) == 0xfc0, "IPL3 size changed")
 ASSERT(SIZEOF(.entry) == 0x50, "entry size changed")
 ASSERT(SIZEOF(.text_start) == 0x190, "initial text functions size changed")
-ASSERT(SIZEOF(.remainder) == 0x7fee20, "fallback size changed")
+ASSERT(SIZEOF(.cpu_fallback) == 0x6ee60, "CPU fallback size changed")
+ASSERT(SIZEOF(.rsp_boot) == 0xd0, "RSP boot size changed")
+ASSERT(SIZEOF(.remainder) == 0x78fef0, "fallback size changed")
 ASSERT(SIZEOF(.unexpected) == 0, "unmapped input data")

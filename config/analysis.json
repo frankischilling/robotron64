@@ -1,0 +1,14 @@
+{
+  "cpu": {
+    "rom_start": 4096,
+    "rom_end": 458816,
+    "vram_start": 2147484672,
+    "status": "candidate contiguous CPU executable range; internal boundaries need review"
+  },
+  "rsp_boot": {
+    "rom_start": 458816,
+    "rom_end": 459024,
+    "vram_start": 67112960,
+    "status": "task setup uses start 0x8006F440 and size 0xD0; RSP disassembly confirms boot behavior"
+  }
+}

@@ -49,3 +49,4 @@ Track work through GitHub Issues and submit coherent branches through pull reque
 `config/` records the target and symbols; `src/` contains reconstructed C; `linker_scripts/` places compiled and extracted regions; `tools/` contains project tooling; and `docs/` records binary evidence and uncertainties. See [the ROM map](docs/rom-map.md) and [bootstrap status](docs/bootstrap-status.md).
 
 The [startup investigation](docs/startup.md) records the reconstructed assembly entry and thread handoff. The Makefile explicitly selects integrated source files. `src/boot/startup.c` remains an excluded, nonmatching research candidate.
+`make analysis-setup` and `make analyze` generate an optional local disassembly and provisional function inventory. See [executable inventory](docs/executable-inventory.md); these estimates do not contribute to matching percentages.

@@ -5,7 +5,7 @@ IDO := .local/toolchain/5.3/cc
 BASEROM ?= baseroms/us/baserom.z64
 CFLAGS := -O2 -G 0 -non_shared -mips1 -32
 
-.PHONY: all setup toolchain verify progress clean test
+.PHONY: all setup toolchain verify progress clean test analysis-setup analyze
 all: build/us/robotron64.z64
 
 setup: toolchain
@@ -45,6 +45,13 @@ progress: verify
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v
+
+analysis-setup:
+	$(PYTHON) -m venv .venv
+	.venv/bin/python -m pip install -r requirements-analysis.txt
+
+analyze:
+	.venv/bin/python tools/analyze.py
 
 clean:
 	$(PYTHON) -c 'import shutil; shutil.rmtree("build", ignore_errors=True)'
