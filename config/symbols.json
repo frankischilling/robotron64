@@ -139,5 +139,22 @@
     "name": "D_800B6FF8",
     "vram": "0x800b6ff8",
     "status": "8040-byte cleared buffer; structure unknown"
+  },
+  {
+    "name": "func_80000750",
+    "rom": "0x1350",
+    "vram": "0x80000750",
+    "status": "matching C; creates a 3D text object; see docs/text.md"
+  },
+  {
+    "name": "D_800B1BE8",
+    "vram": "0x800b1be8",
+    "status": "88-byte character-indexed resource records; partial layout in src/game/text.c"
+  },
+  {
+    "name": "D_8008F620",
+    "vram": "0x8008f620",
+    "rom": "0x90220",
+    "status": "invalid 3D-string character diagnostic"
   }
 ]

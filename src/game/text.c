@@ -102,3 +102,62 @@ int func_8000060C(int character)
     }
     return character;
 }
+
+/* Partial layout established by the 88-byte stride and accessed fields. */
+typedef struct TextGlyphResource {
+    unsigned char unk00;
+    unsigned char kind;
+    unsigned char unk02[10];
+    int scale;
+    unsigned char unk10[24];
+    short *indices;
+    unsigned char unk2C[44];
+} TextGlyphResource;
+
+extern TextGlyphResource D_800B1BE8[];
+extern char D_8008F620[];
+extern void func_8001C0D0(char *format, ...);
+extern int func_8003921C(int kind, int value, int enabled, TextGlyphResource *resource);
+extern int func_80039E1C(int object, int value);
+extern int func_8003947C(int object, int index);
+extern void func_800399E4(int object, float scale);
+extern void func_80039DCC(int object, int value);
+extern int func_80039E0C(int object, int mode);
+extern void func_80039E5C(int object, int value);
+extern void func_80039E80(int object, int value);
+
+/* The fourth argument starts as a flag, then holds the created object index. */
+int func_80000750(int character, int scale, int mode, int object)
+{
+    TextGlyphResource *resource;
+    int normalized;
+
+    if (object) {
+        object = 1;
+    }
+    normalized = func_8000060C(character);
+    if (normalized == -1) {
+        func_8001C0D0(D_8008F620, character);
+    } else if (normalized == -2) {
+        return -1;
+    }
+    resource = &D_800B1BE8[normalized];
+    object = func_8003921C(resource->kind, 0, object, resource);
+    if (object != -1) {
+        switch (character) {
+        case '&': func_80039E1C(object, 13); break;
+        case ';': func_80039E1C(object, 11); break;
+        case 149: func_80039E1C(object, 12); break;
+        default: func_80039E1C(object, character); break;
+        }
+        func_8003947C(object, resource->indices[0]);
+        func_800399E4(object, (resource->scale * 4 * scale) / 40960.0f);
+        func_80039DCC(object, 105);
+        if (mode == 11) {
+            func_80039E0C(object, mode);
+        }
+        func_80039E5C(object, 0);
+        func_80039E80(object, 24);
+    }
+    return object;
+}

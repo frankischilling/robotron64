@@ -87,5 +87,16 @@
     "section": ".text_start",
     "section_vram": 2147484752,
     "evidence": "docs/text.md"
+  },
+  {
+    "name": "func_80000750",
+    "rom": 4944,
+    "vram": 2147485520,
+    "size": 456,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text.md"
   }
 ]

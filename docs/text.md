@@ -20,7 +20,7 @@
 | 23, `&`, `;`, `[`, `^`, `_`, 149 | unchanged |
 | other codes | -1 |
 
-These values come from branch targets and immediate loads, including the 42-entry jump table at ROM `0x90278` / RAM `0x8008F678`. They establish numeric behavior; glyph appearance and caller interpretation of negative results still need investigation.
+These values come from branch targets and immediate loads, including the 42-entry jump table at ROM `0x90278` / RAM `0x8008F678`. They establish numeric behavior; glyph appearance still needs investigation. The first caller's treatment of negative results is documented below.
 
 ## Matching evidence
 
@@ -28,6 +28,20 @@ IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32` reproduces both functions and the
 
 The current source file represents only part of the original compilation unit. IDO rounds its `.rodata` to 176 bytes, while the next original table immediately follows these 168 bytes. `tools/trim_padding.py` reduces the section's declared size by eight zero padding bytes before linking. It checks that the tail is zero and smaller than 16 bytes, and refuses to remove bytes touched by symbols or relocations. It updates the section symbol's size along with the section header. Instructions, table entries, and relocations are unchanged. The raw compiler object remains at `build/us/text.raw.o` for inspection. This temporary layout step can disappear when the source unit's remaining read-only data is reconstructed.
 
-`make progress` checks each function's linked address, size, compiled-object symbol, and bytes. The full ROM comparison also verifies the generated table. Current C progress is seven functions and 768 bytes, up from five functions and 400 bytes. The table is not counted as code. Total code and data percentages remain unknown.
+`make progress` checks each function's linked address, size, compiled-object symbol, and bytes. The full ROM comparison also verifies the generated table. The normalization work raised C progress from five functions and 400 bytes to seven functions and 768 bytes; the subsequent object-creation match is documented below. The table is not counted as code. Total code and data percentages remain unknown.
 
 A clean extraction and build matches all 8,388,608 target bytes with SHA-256 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`. Padding-tool tests use synthetic ELF input and run without a commercial ROM.
+
+## 3D text object creation
+
+`func_80000750` (ROM `0x1350`, 456 bytes) normalizes a character and creates an object using a character-indexed resource record. The diagnostic at ROM `0x90220` explicitly describes an invalid character for a 3D string, supporting the subsystem interpretation. Function names remain address-based until more callers and interfaces are understood.
+
+The record stride is 88 bytes. This function accesses an unsigned byte at offset `0x01`, a signed integer at `0x0C`, and a pointer at `0x28` whose first signed halfword becomes an object index parameter. `TextGlyphResource` represents those fields and keeps the unexamined portions as padding. The type does not claim the full original resource layout.
+
+The fourth argument becomes a boolean before object allocation. The compiled source reuses that argument for the returned object index. With separate flag and object variables, IDO emitted the same instruction count but a different stack frame. Reusing the argument and declaring the resource pointer before the normalized-character local reproduces the original 48-byte frame and spill offsets.
+
+The caller distinguishes the normalizer's negative results: `-2` returns `-1` immediately, while `-1` invokes the diagnostic and then continues to index the resource table at `-1`. The reconstruction preserves this latter behavior. Whether the diagnostic returns at runtime still requires tracing its implementation.
+
+For successful allocation, the function changes object codes for `&`, `;`, and character 149 to 13, 11, and 12 respectively. It reads the first signed resource index, computes `(resource->scale * 4 * scale) / 40960.0f`, and calls the object's configuration helpers. Mode 11 invokes `func_80039E0C` with the object and mode. The callee stores both incoming arguments to their stack slots and returns zero; this establishes the otherwise unobvious second argument. The visible effect of the other property setters remains to be traced.
+
+The new function matches all 456 bytes with the existing IDO flags. The partial object's text section ends eight bytes before its compiler-aligned size, so the existing checked padding tool also reduces `.text` to `0x4C8`. The function's instructions and relocations remain unchanged. Full ROM verification and per-function symbol/byte checks pass. Current C progress is eight functions and 1,224 bytes; assembly progress remains 56 bytes.
