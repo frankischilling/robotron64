@@ -3,14 +3,18 @@ OUTPUT_FORMAT("elf32-tradbigmips")
 ENTRY(_start)
 D_80072B40 = 0x80072B40;
 D_80072BA8 = 0x80072BA8;
+__bss_start = 0x80097290;
+__bss_size = 0x1003B0;
+__bss_end = __bss_start + __bss_size;
+__initial_stack_top = 0x8013A280;
+func_80048170 = 0x80048170;
 
 SECTIONS
 {
     .header 0 : AT(0) { build/us/fallback.o(.rom_header) }
     .ipl3 0x40 : AT(0x40) { build/us/fallback.o(.rom_ipl3) }
     .entry 0x80000400 : AT(0x1000) {
-        _start = .;
-        build/us/fallback.o(.rom_entry)
+        build/us/entry.o(.text)
     }
     .text_start 0x80000450 : AT(0x1050) { build/us/text.o(.text) }
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */

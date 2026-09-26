@@ -27,7 +27,11 @@ build/us/text.o: src/game/text.c $(IDO) Makefile
 	mkdir -p $(@D)
 	$(IDO) -c $(CFLAGS) -o $@ $<
 
-build/us/robotron64.elf: build/us/fallback.o build/us/text.o linker_scripts/us.ld
+build/us/entry.o: src/boot/entry.s
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+
+build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/entry.o linker_scripts/us.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
 build/us/robotron64.z64: build/us/robotron64.elf

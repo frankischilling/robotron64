@@ -23,6 +23,8 @@ def measure():
     matches = []
     ranges = []
     for function in functions:
+        if function.get("language", "C") not in {"C", "assembly"}:
+            raise ValueError(f"Unsupported source language: {function['name']}")
         name, start, size = function["name"], function["rom"], function["size"]
         if symbols.get(name) != (function["vram"], size):
             raise ValueError(f"Linked symbol address/size mismatch: {name}")
@@ -43,17 +45,21 @@ def measure():
             if not any((int(p[0], 16), int(p[1], 16), p[2], p[3]) == expected_symbol
                        for p in parsed if len(p) == 4):
                 raise ValueError(f"Compiled object symbol mismatch: {name}")
-        matches.append({"name": name, "bytes": size})
+        matches.append({"name": name, "bytes": size, "language": function.get("language", "C")})
+    c_matches = [item for item in matches if item["language"] == "C"]
+    asm_matches = [item for item in matches if item["language"] == "assembly"]
     return {
-        "matched_c_functions": len(matches),
-        "matched_c_bytes": sum(item["bytes"] for item in matches),
+        "matched_c_functions": len(c_matches),
+        "matched_c_bytes": sum(item["bytes"] for item in c_matches),
+        "matched_assembly_functions": len(asm_matches),
+        "matched_assembly_bytes": sum(item["bytes"] for item in asm_matches),
         "total_code_bytes": None,
         "total_functions": None,
         "matching_code_percent": None,
-        "unclassified_fallback_bytes": len(target) - sum(item["bytes"] for item in matches),
+        "unmeasured_rom_bytes": len(target) - sum(item["bytes"] for item in matches),
         "whole_rom_matches": True,
         "functions": matches,
-        "note": "Fallback bytes include header, boot, code, data and assets; ROM equality is not source completion.",
+        "note": "Unmeasured bytes include padding, header, boot, fallback code, data and assets; ROM equality is not source completion.",
     }
 
 

@@ -1,5 +1,17 @@
 [
   {
+    "name": "_start",
+    "rom": 4096,
+    "vram": 2147484672,
+    "size": 56,
+    "source": "src/boot/entry.s",
+    "object": "build/us/entry.o",
+    "section": ".entry",
+    "section_vram": 2147484672,
+    "language": "assembly",
+    "evidence": "docs/startup.md"
+  },
+  {
     "name": "func_80000450",
     "rom": 4176,
     "vram": 2147484752,
