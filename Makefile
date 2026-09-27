@@ -23,7 +23,7 @@ build/us/extracted/.stamp: $(BASEROM) tools/extract.py tools/rom.py config/targe
 build/us/fallback.o: build/us/extracted/.stamp
 	$(CROSS)as -EB -32 -march=vr4300 -o $@ build/us/extracted/fallback.s
 
-build/us/text.o: src/game/text.c $(IDO) Makefile tools/trim_padding.py
+build/us/text.o: src/game/text.c include/text.h $(IDO) Makefile tools/trim_padding.py
 	mkdir -p $(@D)
 	$(IDO) -c $(CFLAGS) -o build/us/text.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/text.raw.o build/us/text.rodata.o .rodata 0x128

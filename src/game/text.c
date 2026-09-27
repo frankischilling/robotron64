@@ -1,6 +1,6 @@
+#include "../../include/text.h"
+
 /* Names remain address-based until callers establish the public interface. */
-extern int D_80072B40[];
-extern int D_80072BA8[];
 
 unsigned int func_80000450(unsigned int value)
 {
@@ -66,37 +66,6 @@ void func_800005A4(unsigned char *text)
     }
 }
 
-typedef struct TextValue3 {
-    unsigned int words[3];
-} TextValue3;
-
-typedef struct TextRecord {
-    unsigned int active : 1;
-    unsigned int flag30 : 1;
-    unsigned int unkFlag : 1;
-    signed int options : 18;
-    unsigned int unkBits : 11;
-    int unk04;
-    int mode;
-    int value0C;
-    int value10;
-    int value14;
-    int value18;
-    int value1C;
-    int objectIndex20;
-    unsigned char text[64];
-    int property64;
-    int scale[3];
-    int length;
-    short objects[60];
-    int unkF0;
-    TextValue3 valueF4;
-    unsigned int sentinel[3];
-} TextRecord;
-
-extern TextRecord D_800B6FF8[30];
-extern void *func_8003B694(void *destination, int value, int count);
-
 void func_800005E0(void)
 {
     func_8003B694(D_800B6FF8, 0, sizeof(D_800B6FF8));
@@ -132,27 +101,6 @@ int func_8000060C(int character)
 }
 
 /* Partial layout established by the 88-byte stride and accessed fields. */
-typedef struct TextGlyphResource {
-    unsigned char unk00;
-    unsigned char kind;
-    unsigned char unk02[10];
-    int scale;
-    unsigned char unk10[24];
-    short *indices;
-    unsigned char unk2C[44];
-} TextGlyphResource;
-
-extern TextGlyphResource D_800B1BE8[];
-extern char D_8008F620[];
-extern void func_8001C0D0(char *format, ...);
-extern int func_8003921C(int kind, int value, int enabled, TextGlyphResource *resource);
-extern int func_80039E1C(int object, int value);
-extern int func_8003947C(int object, int index);
-extern void func_800399E4(int object, float scale);
-extern void func_80039DCC(int object, int value);
-extern int func_80039E0C(int object, int mode);
-extern void func_80039E5C(int object, int value);
-extern void func_80039E80(int object, int value);
 
 /* The fourth argument starts as a flag, then holds the created object index. */
 int func_80000750(int character, int scale, int mode, int object)
@@ -190,10 +138,6 @@ int func_80000750(int character, int scale, int mode, int object)
     return object;
 }
 
-extern int func_8003B4FC(unsigned char *text);
-extern unsigned char *func_8003B704(unsigned char *destination, unsigned char *source, int limit);
-extern char D_8008F64C[];
-
 int func_80000918(unsigned char *text, int scale, int mode, int options)
 {
     TextRecord *record;
@@ -230,8 +174,6 @@ int func_80000918(unsigned char *text, int scale, int mode, int options)
     return -1;
 }
 
-extern int func_800392F4(int object);
-
 void func_80000ACC(int *slot)
 {
     TextRecord *record;
@@ -250,8 +192,6 @@ void func_80000ACC(int *slot)
         *slot = -1;
     }
 }
-
-extern int D_8009EFA4;
 
 void func_80000B7C(int slot, int set, int clear)
 {

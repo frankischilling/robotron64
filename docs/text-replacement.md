@@ -28,10 +28,25 @@ Run in Linux or WSL after preparing the baserom:
 python3 tools/compare_text_replacement.py
 ```
 
-The tool validates the target, uses the pinned IDO 5.3 toolchain, appends the candidate to the integrated text source for shared recovered types/prototypes, and links at the original addresses. It writes compiler output, linked ELF, extracted text, and `report.json` under `build/text-replacement-comparison/`. Generated files remain outside Git. A nonmatch is reported without failing the research command; this is not a matching acceptance gate.
+The tool validates the target, compiles the candidate independently using the recovered layouts and prototypes in `include/text.h`, and links at the original address. It writes compiler output, linked ELF, extracted text, and `report.json` under `build/text-replacement-comparison/`. The report records source and header hashes. Generated files remain outside Git. A nonmatch is reported without failing the research command; this is not a matching acceptance gate.
 
-The current candidate is 608 bytes, compared with 612 target bytes, with 118 differing words after accounting for length. Its 56-byte stack frame and eight saved `s` registers differ from the target's 64-byte frame, which also saves `fp`. Much of the instruction-count and allocation divergence begins around the temporary character value used during replacement. The target keeps that byte in `s1`; the current candidate uses `v0` and emits a different store/branch sequence.
+The current candidate is 612 bytes, equal to the target size, with 38 differing words. Its 64-byte frame and saved registers now agree with the target. Reusing the existing object local to hold the incoming byte before the byte store accounts for this improvement: the compiler now keeps the converted character in `s1`. Remaining differences include register allocation for the loop index, record-byte pointer, incoming byte, and old object, plus the release call's delay slot.
 
-Experiments varied assignment placement, local character types, operand order, pointer-field versus local loads, and declaration order. Isolating the function into its own translation unit did not fix the mismatch. These results do not establish a different compiler: the source expression and live ranges still need investigation. No instruction patching or matching claim has been made.
+The compiler matrix for this candidate is:
+
+| IDO | Optimization | ISA | Bytes | Differing words |
+| --- | --- | --- | ---: | ---: |
+| 5.3 | O1 | MIPS I | 928 | 230 |
+| 5.3 | O1 | MIPS II | 832 | 206 |
+| 5.3 | O2 | MIPS I | 612 | 38 |
+| 5.3 | O2 | MIPS II | 584 | 133 |
+| 7.1 | O1 | MIPS I | 904 | 225 |
+| 7.1 | O1 | MIPS II | 808 | 200 |
+| 7.1 | O2 | MIPS I | 612 | 49 |
+| 7.1 | O2 | MIPS II | 584 | 133 |
+
+Select a configuration with `--compiler 7.1 --optimization O2 --isa 1`. Use `--source path/to/candidate.c` to compare an alternative without changing the maintained candidate. The default remains IDO 5.3, O2, MIPS I. These results favor further source investigation with the existing settings; they do not prove the original compiler version.
+
+Experiments varied assignment placement, local character types, operand order, pointer-field versus local loads, declaration order, and statement line placement. A local [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) search at revision `059609d4aec73eb0650726772954e1ad575825f8` suggested the adopted byte temporary. Search scores were checked against linked bytes. Variants with altered function return types, uninitialized reads, or artificial empty conditions were rejected. No instruction patching or matching claim has been made.
 
 The production build retains fourteen matching C functions / 2,808 bytes plus 56 assembly bytes. Full ROM verification and the existing tooling tests pass with this candidate excluded.

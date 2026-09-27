@@ -13,6 +13,9 @@ def run():
     expected = target[0x1050:0x11e0]
     directory = ROOT / "build/compiler-comparison"
     directory.mkdir(parents=True, exist_ok=True)
+    source = directory / "text.c"
+    integrated = (ROOT / "src/game/text.c").read_text()
+    source.write_text(integrated[:integrated.index("void func_800005E0")])
     rows = []
     for version in ("5.3", "7.1"):
         install(version)
@@ -20,7 +23,7 @@ def run():
             stem = directory / f"ido-{version.replace('.', '_')}-mips{isa}"
             flags = ["-O2", "-G", "0", "-non_shared", f"-mips{isa}", "-32"]
             subprocess.run([str(ROOT / ".local/toolchain" / version / "cc"), "-c", *flags,
-                            "-o", str(stem.with_suffix(".o")), "src/game/text.c"], check=True, cwd=ROOT)
+                            "-o", str(stem.with_suffix(".o")), str(source)], check=True, cwd=ROOT)
             subprocess.run(["mips-linux-gnu-ld", "-Ttext=0x80000450",
                             "--defsym=D_80072B40=0x80072b40", "--defsym=D_80072BA8=0x80072ba8",
                             "-e", "func_80000450", "-o", str(stem.with_suffix(".elf")),
@@ -33,7 +36,8 @@ def run():
                          "different_bytes": sum(a != b for a, b in zip(actual, expected))
                          + abs(len(actual) - len(expected)),
                          "sha256": hashlib.sha256(actual).hexdigest()})
-    report = {"source_sha256": hashlib.sha256((ROOT / "src/game/text.c").read_bytes()).hexdigest(),
+    report = {"source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+              "types_sha256": hashlib.sha256((ROOT / "include/text.h").read_bytes()).hexdigest(),
               "rom_range": ["0x1050", "0x11e0"], "candidates": rows}
     encoded = json.dumps(report, indent=2) + "\n"
     (directory / "report.json").write_text(encoded)

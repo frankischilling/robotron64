@@ -1,3 +1,5 @@
+#include "../../include/text.h"
+
 /* Excluded research candidate. Compile with tools/compare_text_replacement.py. */
 void func_80000F48(int slot, unsigned char *text)
 {
@@ -18,7 +20,8 @@ void func_80000F48(int slot, unsigned char *text)
                 if (object >= 0) {
                     func_800392F4(object);
                 }
-                character = record->text[index] = text[index];
+                object = text[index];
+                character = record->text[index] = object;
                 if (character && space != character) {
                     record->objects[index] = func_80000750(character, record->scale[2],
                                                           record->mode, record->options & 0x200);
