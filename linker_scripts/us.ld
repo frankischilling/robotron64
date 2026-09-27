@@ -16,7 +16,6 @@ D_8008F620 = 0x8008F620;
 func_8001C0D0 = 0x8001C0D0;
 func_8003921C = 0x8003921C;
 func_8003947C = 0x8003947C;
-func_800399E4 = 0x800399E4;
 func_80039DCC = 0x80039DCC;
 func_80039E0C = 0x80039E0C;
 func_80039E1C = 0x80039E1C;
@@ -37,6 +36,15 @@ func_8003B7FC = 0x8003B7FC;
 func_8003B520 = 0x8003B520;
 func_8003B6E4 = 0x8003B6E4;
 
+D_800BF918 = 0x800BF918;
+D_FLT_80094C20 = 0x80094C20;
+D_FLT_80094C24 = 0x80094C24;
+D_FLT_80094C28 = 0x80094C28;
+
+D_DBL_80094C30 = 0x80094C30;
+D_DBL_80094C38 = 0x80094C38;
+D_DBL_80094C40 = 0x80094C40;
+
 SECTIONS
 {
     .header 0 : AT(0) { build/us/fallback.o(.rom_header) }
@@ -51,6 +59,8 @@ SECTIONS
     .text_properties 0x800013D0 : AT(0x1FD0) { build/us/text_properties.o(.text) }
     .text_conversion 0x800016D8 : AT(0x22D8) SUBALIGN(4) { build/us/text_conversion.o(.text) }
     .cpu_fallback 0x8000177C : AT(0x237C) { build/us/fallback.o(.rom_cpu_fallback) }
+    .object_transforms 0x800394C0 : AT(0x3A0C0) { build/us/object_transforms.o(.text) }
+    .cpu_after_objects 0x80039C78 : AT(0x3A878) { build/us/fallback.o(.rom_cpu_after_objects) }
     /* CPU-visible storage address. The RSP executes this at 0x04001000. */
     .rsp_boot 0x8006F440 : AT(0x70040) { build/us/fallback.o(.rom_rsp_boot) }
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
@@ -67,7 +77,7 @@ ASSERT(SIZEOF(.header) == 0x40, "header size changed")
 ASSERT(SIZEOF(.ipl3) == 0xfc0, "IPL3 size changed")
 ASSERT(SIZEOF(.entry) == 0x50, "entry size changed")
 ASSERT(SIZEOF(.text_start) == 0xaf8, "initial text functions size changed")
-ASSERT(SIZEOF(.cpu_fallback) == 0x6dcc4, "CPU fallback size changed")
+ASSERT(SIZEOF(.cpu_fallback) == 0x37d44, "CPU fallback size changed")
 ASSERT(SIZEOF(.rsp_boot) == 0xd0, "RSP boot size changed")
 ASSERT(SIZEOF(.remainder) == 0x76fc60, "fallback size changed")
 ASSERT(SIZEOF(.unexpected) == 0, "unmapped input data")
@@ -83,3 +93,6 @@ ASSERT(SIZEOF(.text_edit) == 0x160, "text edit functions size changed")
 ASSERT(SIZEOF(.text_properties) == 0x308, "text property functions size changed")
 
 ASSERT(SIZEOF(.text_conversion) == 0xa4, "text conversion function size changed")
+
+ASSERT(SIZEOF(.object_transforms) == 0x7b8, "object transforms size changed")
+ASSERT(SIZEOF(.cpu_after_objects) == 0x357c8, "CPU fallback after transforms size changed")

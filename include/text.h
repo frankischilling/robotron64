@@ -1,6 +1,8 @@
 #ifndef ROBOTRON_TEXT_H
 #define ROBOTRON_TEXT_H
 
+#include "object.h"
+
 /* Recovered layouts; offset-based fields remain under investigation. */
 typedef struct TextValue3 {
     unsigned int words[3];
@@ -50,7 +52,6 @@ extern void func_8001C0D0(char *format, ...);
 extern int func_8003921C(int kind, int value, int enabled, TextGlyphResource *resource);
 extern int func_80039E1C(int object, int value);
 extern int func_8003947C(int object, int index);
-extern void func_800399E4(int object, float scale);
 extern void func_80039DCC(int object, int value);
 extern int func_80039E0C(int object, int mode);
 extern void func_80039E5C(int object, int value);
