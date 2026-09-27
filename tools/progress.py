@@ -4,8 +4,37 @@ import json
 import subprocess
 import tempfile
 from pathlib import Path
+from manifest import load_manifest
+from provenance import verify_record
 from rom import ROOT, validate
 from verify import compare
+
+
+def parse_sections(output):
+    sections = {}
+    for line in output.splitlines():
+        parts = line.split()
+        if len(parts) >= 7 and parts[0].isdigit():
+            name = parts[1]
+            if name in sections:
+                raise ValueError(f"Duplicate ELF section: {name}")
+            sections[name] = tuple(int(value, 16) for value in parts[2:5])
+    if not sections:
+        raise ValueError("No ELF section headers reported")
+    return sections
+
+
+def verify_section(function, sections):
+    name = function["name"]
+    section = sections.get(function["section"])
+    if section is None:
+        raise ValueError(f"Missing linked section for {name}")
+    section_size, vma, lma = section
+    offset = function["vram"] - function["section_vram"]
+    if vma != function["section_vram"] or lma + offset != function["rom"]:
+        raise ValueError(f"Linked section VMA/LMA mismatch: {name}")
+    if offset < 0 or offset + function["size"] > section_size:
+        raise ValueError(f"Function extends outside linked section: {name}")
 
 
 def measure():
@@ -19,19 +48,20 @@ def measure():
         parts = line.split()
         if len(parts) == 4:
             symbols[parts[3]] = (int(parts[0], 16), int(parts[1], 16))
-    functions = json.loads((ROOT / "config/functions.json").read_text())
+    functions = load_manifest()
+    sections = parse_sections(subprocess.check_output(
+        ["mips-linux-gnu-objdump", "-h", str(elf)], text=True))
     matches = []
-    ranges = []
+    verified_objects = set()
     for function in functions:
-        if function.get("language", "C") not in {"C", "assembly"}:
-            raise ValueError(f"Unsupported source language: {function['name']}")
         name, start, size = function["name"], function["rom"], function["size"]
+        verify_section(function, sections)
+        if function["object"] not in verified_objects:
+            verify_record(function["source"], function["object"])
+            verified_objects.add(function["object"])
         if symbols.get(name) != (function["vram"], size):
             raise ValueError(f"Linked symbol address/size mismatch: {name}")
         end = start + size
-        if start < 0 or size <= 0 or end > len(target) or any(start < b and a < end for a, b in ranges):
-            raise ValueError(f"Invalid/overlapping function range: {name}")
-        ranges.append((start, end))
         with tempfile.TemporaryDirectory() as directory:
             section = Path(directory) / "function.bin"
             subprocess.run(["mips-linux-gnu-objcopy", "-O", "binary", "-j", function["section"],
