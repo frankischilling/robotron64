@@ -47,6 +47,8 @@ The compiler matrix for this candidate is:
 
 Select a configuration with `--compiler 7.1 --optimization O2 --isa 1`. Use `--source path/to/candidate.c` to compare an alternative without changing the maintained candidate. The default remains IDO 5.3, O2, MIPS I. These results favor further source investigation with the existing settings; they do not prove the original compiler version.
 
+All 720 permutations of the six local declarations retained at least 38 differing words. Additional temporary reuse and operand-order experiments did not improve the linked comparison.
+
 Experiments varied assignment placement, local character types, operand order, pointer-field versus local loads, declaration order, and statement line placement. A local [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) search at revision `059609d4aec73eb0650726772954e1ad575825f8` suggested the adopted byte temporary. Search scores were checked against linked bytes. Variants with altered function return types, uninitialized reads, or artificial empty conditions were rejected. No instruction patching or matching claim has been made.
 
-The production build retains fourteen matching C functions / 2,808 bytes plus 56 assembly bytes. Full ROM verification and the existing tooling tests pass with this candidate excluded.
+The production build retains fifteen matching C functions / 3,004 bytes plus 56 assembly bytes, including the separately matched wrapper. Full ROM verification and the existing tooling tests pass with this candidate excluded.

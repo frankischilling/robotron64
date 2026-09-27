@@ -29,11 +29,16 @@ build/us/text.o: src/game/text.c include/text.h $(IDO) Makefile tools/trim_paddi
 	$(PYTHON) tools/trim_padding.py build/us/text.raw.o build/us/text.rodata.o .rodata 0x128
 	$(PYTHON) tools/trim_padding.py build/us/text.rodata.o $@ .text 0xaf8
 
+build/us/text_wrapper.o: src/game/text_wrapper.c include/text.h $(IDO) Makefile tools/trim_padding.py
+	mkdir -p $(@D)
+	$(IDO) -c $(CFLAGS) -o build/us/text_wrapper.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/text_wrapper.raw.o $@ .text 0xc4
+
 build/us/entry.o: src/boot/entry.s
 	mkdir -p $(@D)
 	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
 
-build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/entry.o linker_scripts/us.ld
+build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/entry.o linker_scripts/us.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
 build/us/robotron64.z64: build/us/robotron64.elf

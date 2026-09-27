@@ -164,5 +164,16 @@
     "section": ".text_start",
     "section_vram": 2147484752,
     "evidence": "docs/text-options.md"
+  },
+  {
+    "name": "func_800011AC",
+    "rom": 7596,
+    "vram": 2147488172,
+    "size": 196,
+    "source": "src/game/text_wrapper.c",
+    "object": "build/us/text_wrapper.o",
+    "section": ".text_wrapper",
+    "section_vram": 2147488172,
+    "evidence": "docs/text-wrapper.md"
   }
 ]

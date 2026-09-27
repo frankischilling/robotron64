@@ -76,4 +76,8 @@ int func_80000E74(int slot);
 void func_80000EB4(int slot, TextValue3 *value);
 int func_80000F08(int slot);
 
+extern int func_8003B7FC(unsigned char *left, unsigned char *right);
+void func_80000F48(int slot, unsigned char *text);
+int func_800011AC(int *slot, unsigned char *text, int scale, int mode, int replace, int options);
+
 #endif

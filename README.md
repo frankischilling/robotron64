@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. The bootstrap build reproduces the target ROM byte for byte with fourteen matching C functions and extracted binary fallbacks. Most code and data remain unexplored.
+A matching decompilation of Robotron 64 for Nintendo 64. The bootstrap build reproduces the target ROM byte for byte with fifteen matching C functions and extracted binary fallbacks. Most code and data remain unexplored.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -40,7 +40,7 @@ make progress
 
 Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The original compiler version remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
 
-Progress is generated in `build/us/progress.json` from linked-byte comparisons and input-object symbols. The current result is fourteen matching C functions, 2,808 bytes. The total code size and function count are unknown, so a whole-game percentage is not reported. See [matching evidence](docs/matching.md) and [toolchain investigation](docs/toolchain.md).
+Progress is generated in `build/us/progress.json` from linked-byte comparisons and input-object symbols. The current result is fifteen matching C functions, 3,004 bytes. The total code size and function count are unknown, so a whole-game percentage is not reported. See [matching evidence](docs/matching.md) and [toolchain investigation](docs/toolchain.md).
 
 ## Development
 
@@ -57,3 +57,5 @@ The [startup investigation](docs/startup.md) records the reconstructed assembly 
 
 [Text options](docs/text-options.md) document the matched option setter, accessors, and second generated jump table.
 `src/game/text_replacement.c` is another excluded research candidate. Its behavior and reproducible nonmatching comparison are documented in [text replacement](docs/text-replacement.md).
+
+[Text wrapper](docs/text-wrapper.md) records the matched create-or-replace helper and its return behavior.
