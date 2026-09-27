@@ -27,7 +27,7 @@ build/us/text.o: src/game/text.c $(IDO) Makefile tools/trim_padding.py
 	mkdir -p $(@D)
 	$(IDO) -c $(CFLAGS) -o build/us/text.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/text.raw.o build/us/text.rodata.o .rodata 0xa8
-	$(PYTHON) tools/trim_padding.py build/us/text.rodata.o $@ .text 0x4c8
+	$(PYTHON) tools/trim_padding.py build/us/text.rodata.o $@ .text 0x72c
 
 build/us/entry.o: src/boot/entry.s
 	mkdir -p $(@D)

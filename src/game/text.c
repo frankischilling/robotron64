@@ -66,12 +66,30 @@ void func_800005A4(unsigned char *text)
     }
 }
 
-extern unsigned char D_800B6FF8[];
+typedef struct TextRecord {
+    unsigned int active : 1;
+    unsigned int flag30 : 1;
+    unsigned int unkFlag : 1;
+    signed int options : 18;
+    unsigned int unkBits : 11;
+    int unk04;
+    int mode;
+    unsigned char unk0C[24];
+    unsigned char text[64];
+    int property64;
+    int scale[3];
+    int length;
+    short objects[60];
+    unsigned char unkF0[16];
+    unsigned int sentinel[3];
+} TextRecord;
+
+extern TextRecord D_800B6FF8[30];
 extern void *func_8003B694(void *destination, int value, int count);
 
 void func_800005E0(void)
 {
-    func_8003B694(D_800B6FF8, 0, 0x1F68);
+    func_8003B694(D_800B6FF8, 0, sizeof(D_800B6FF8));
 }
 
 int func_8000060C(int character)
@@ -160,4 +178,65 @@ int func_80000750(int character, int scale, int mode, int object)
         func_80039E80(object, 24);
     }
     return object;
+}
+
+extern int func_8003B4FC(unsigned char *text);
+extern unsigned char *func_8003B704(unsigned char *destination, unsigned char *source, int limit);
+extern char D_8008F64C[];
+
+int func_80000918(unsigned char *text, int scale, int mode, int options)
+{
+    TextRecord *record;
+    int slot;
+    int index;
+    int character;
+    int space = ' ';
+
+    for (slot = 0; slot < 30; slot++) {
+        if (!D_800B6FF8[slot].active) {
+            record = &D_800B6FF8[slot];
+            record->options = options;
+            record->mode = mode;
+            record->active = 1;
+            record->flag30 = 1;
+            record->property64 = 24;
+            record->length = func_8003B4FC(text) < 60 ? func_8003B4FC(text) : 60;
+            record->scale[0] = record->scale[1] = record->scale[2] = scale;
+            record->sentinel[0] = record->sentinel[1] = record->sentinel[2] = 0xDEADBEEF;
+            func_8003B704(record->text, text, 60);
+            for (index = 0; index < record->length; index++) {
+                character = record->text[index];
+                if (character && space != character) {
+                    record->objects[index] = func_80000750(character, scale, mode,
+                                                          record->options & 0x200);
+                } else {
+                    record->objects[index] = -1;
+                }
+            }
+            return slot;
+        }
+    }
+    func_8001C0D0(D_8008F64C);
+    return -1;
+}
+
+extern void func_800392F4(int object);
+
+void func_80000ACC(int *slot)
+{
+    TextRecord *record;
+    int index;
+    int object;
+
+    if (*slot >= 0) {
+        record = &D_800B6FF8[*slot];
+        record->active = 0;
+        for (index = 0; index < record->length; index++) {
+            object = record->objects[index];
+            if (object >= 0) {
+                func_800392F4(object);
+            }
+        }
+        *slot = -1;
+    }
 }

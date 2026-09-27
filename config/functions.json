@@ -98,5 +98,27 @@
     "section": ".text_start",
     "section_vram": 2147484752,
     "evidence": "docs/text.md"
+  },
+  {
+    "name": "func_80000918",
+    "rom": 5400,
+    "vram": 2147485976,
+    "size": 436,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text-records.md"
+  },
+  {
+    "name": "func_80000ACC",
+    "rom": 5836,
+    "vram": 2147486412,
+    "size": 176,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text-records.md"
   }
 ]

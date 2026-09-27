@@ -1,6 +1,6 @@
 # Text initialization and character normalization
 
-`func_800005E0` (ROM `0x11E0`, 44 bytes) clears 8,040 bytes at `0x800B6FF8` by calling `func_8003B694` with a zero fill value. Inspection of the callee shows byte stores advancing through the requested signed count. The cleared buffer's fields and purpose remain unknown, so its name remains address-based.
+`func_800005E0` (ROM `0x11E0`, 44 bytes) clears 8,040 bytes at `0x800B6FF8` by calling `func_8003B694` with a zero fill value. Inspection of the callee shows byte stores advancing through the requested signed count. The cleared buffer is now identified as the 30-record text pool; see [record layout](text-records.md). Its original symbol name is unknown.
 
 `func_8000060C` (ROM `0x120C`, 324 bytes) maps input character codes into the game's text encoding. Uppercase ASCII letters become lowercase. Lowercase letters, ASCII digits, and codes 170 through 179 pass through. The switch implements these additional mappings:
 
@@ -44,4 +44,4 @@ The caller distinguishes the normalizer's negative results: `-2` returns `-1` im
 
 For successful allocation, the function changes object codes for `&`, `;`, and character 149 to 13, 11, and 12 respectively. It reads the first signed resource index, computes `(resource->scale * 4 * scale) / 40960.0f`, and calls the object's configuration helpers. Mode 11 invokes `func_80039E0C` with the object and mode. The callee stores both incoming arguments to their stack slots and returns zero; this establishes the otherwise unobvious second argument. The visible effect of the other property setters remains to be traced.
 
-The new function matches all 456 bytes with the existing IDO flags. The partial object's text section ends eight bytes before its compiler-aligned size, so the existing checked padding tool also reduces `.text` to `0x4C8`. The function's instructions and relocations remain unchanged. Full ROM verification and per-function symbol/byte checks pass. Current C progress is eight functions and 1,224 bytes; assembly progress remains 56 bytes.
+The new function matches all 456 bytes with the existing IDO flags. The partial object's text section ends eight bytes before its compiler-aligned size, so the existing checked padding tool also reduces `.text` to `0x4C8`. The function's instructions and relocations remain unchanged. Full ROM verification and per-function symbol/byte checks pass. The object-creation match raised C progress to eight functions and 1,224 bytes. Subsequent allocation and release matches are documented in [text records](text-records.md). Assembly progress remains 56 bytes.

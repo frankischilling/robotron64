@@ -138,7 +138,7 @@
   {
     "name": "D_800B6FF8",
     "vram": "0x800b6ff8",
-    "status": "8040-byte cleared buffer; structure unknown"
+    "status": "30 text records of 268 bytes; see docs/text-records.md"
   },
   {
     "name": "func_80000750",
@@ -156,5 +156,23 @@
     "vram": "0x8008f620",
     "rom": "0x90220",
     "status": "invalid 3D-string character diagnostic"
+  },
+  {
+    "name": "func_80000918",
+    "rom": "0x1518",
+    "vram": "0x80000918",
+    "status": "matching C; see docs/text-records.md"
+  },
+  {
+    "name": "func_80000ACC",
+    "rom": "0x16cc",
+    "vram": "0x80000acc",
+    "status": "matching C; see docs/text-records.md"
+  },
+  {
+    "name": "D_8008F64C",
+    "rom": "0x9024c",
+    "vram": "0x8008f64c",
+    "status": "3D-string pool exhaustion diagnostic"
   }
 ]
