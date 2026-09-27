@@ -12,4 +12,6 @@ These identify behavior and conventional SDK names. They do not identify a libul
 
 The [startup investigation](startup.md) adds behavior-supported names for OS initialization, raw PI reads, thread creation/start/priority changes, the PI manager, and message queue initialization. Those larger SDK routines have not yet been recompiled for exact comparison.
 
+The [scheduler investigation](scheduler.md) adds VI manager creation, mode/black/feature/event setters, and event-message registration. The target's 80-byte VI mode stride and accessed field offsets are confirmed independently by startup and scheduler instructions. Release identification remains unresolved.
+
 References inspected: [disable interrupts](https://github.com/n64decomp/sm64/blob/9921382a68bb0c865e5e45eb594d9c64db59b1af/lib/asm/__osDisableInt.s), [restore interrupts](https://github.com/n64decomp/sm64/blob/9921382a68bb0c865e5e45eb594d9c64db59b1af/lib/asm/__osRestoreInt.s), and [read count](https://github.com/n64decomp/sm64/blob/9921382a68bb0c865e5e45eb594d9c64db59b1af/lib/asm/osGetCount.s). No implementation was copied into this project.

@@ -51,4 +51,4 @@ All 720 permutations of the six local declarations retained at least 38 differin
 
 Experiments varied assignment placement, local character types, operand order, pointer-field versus local loads, declaration order, and statement line placement. A local [decomp-permuter](https://github.com/simonlindholm/decomp-permuter) search at revision `059609d4aec73eb0650726772954e1ad575825f8` suggested the adopted byte temporary. Search scores were checked against linked bytes. Variants with altered function return types, uninitialized reads, or artificial empty conditions were rejected. No instruction patching or matching claim has been made.
 
-The production build retains fifty-five matching C functions / 6,576 bytes plus 56 assembly bytes, including the separately matched wrapper. Full ROM verification and the tooling tests cover the build with this candidate excluded.
+The production build retains sixty matching C functions / 7,696 bytes plus 56 assembly bytes, including the separately matched wrapper. Full ROM verification and the tooling tests cover the build with this candidate excluded.

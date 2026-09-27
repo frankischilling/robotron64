@@ -23,11 +23,15 @@ Offsets refer to the normalized big-endian ROM. The supplied file is byte-swappe
 | `0x03A0C0..0x03A878` | Linked C bytes match original | Object transform and property helpers, confirmed |
 | `0x03A878..0x048D70` | Instructions and control flow | Executable fallback; internal boundaries pending |
 | `0x048D70..0x048EA0` | Linked C bytes match original | Initial PI reads and thread handoff, confirmed |
-| `0x048EA0..0x070040` | Candidate executable inventory | More executable fallback; internal boundaries pending |
+| `0x048EA0..0x049060` | Linked C bytes match original | Thread 3 initialization and outer game loop, confirmed |
+| `0x049060..0x049110` | Linked C bytes match original | Adjacent frame helper, confirmed |
+| `0x049110..0x051040` | Candidate executable inventory | Executable fallback; internal boundaries pending |
+| `0x051040..0x051230` | Linked C bytes match original | Scheduler creation and queue accessors, confirmed |
+| `0x051230..0x070040` | Candidate executable inventory | More executable fallback; internal boundaries pending |
 
 SDK instruction sequences have been identified at ROM `0x68160`, `0x68180`, and `0x690C0`; see [libultra evidence](libultra.md). Graphics microcode strings occur at `0x96E80` and `0x97680`; see [graphics evidence](graphics.md). These observations do not establish segment boundaries.
 
-The initial thread handoff occupies ROM `0x48D70..0x48EA0`, mapping to RAM `0x80048170..0x800482A0`. See [startup evidence](startup.md) for calls, object addresses, matching C, and the required input alignment. These function boundaries do not prove original object-file boundaries.
+The reconstructed startup block occupies ROM `0x48D70..0x49110`, mapping to RAM `0x80048170..0x80048510`. The scheduler block occupies ROM `0x51040..0x51230`, mapping to RAM `0x80050440..0x80050630`. See [startup evidence](startup.md) and [scheduler evidence](scheduler.md) for calls, object addresses, matching C, and input alignment. These function boundaries do not prove original object-file boundaries.
 
 The CRC32 of bytes `0x40..0x1000` is `0x90BB6CB5`. CIC identification remains pending confirmation against an authoritative boot-code reference. Header CRC1 and CRC2 are recorded in `config/target.json`; they have not yet been independently recomputed using a CIC-specific algorithm.
 
