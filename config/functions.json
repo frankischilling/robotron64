@@ -593,5 +593,27 @@
     "section": ".object_transforms",
     "section_vram": 2147718336,
     "evidence": "docs/object-transforms.md"
+  },
+  {
+    "name": "func_80048170",
+    "rom": 298352,
+    "vram": 2147778928,
+    "size": 148,
+    "source": "src/boot/startup.c",
+    "object": "build/us/startup.o",
+    "section": ".startup",
+    "section_vram": 2147778928,
+    "evidence": "docs/startup.md"
+  },
+  {
+    "name": "func_80048204",
+    "rom": 298500,
+    "vram": 2147779076,
+    "size": 156,
+    "source": "src/boot/startup.c",
+    "object": "build/us/startup.o",
+    "section": ".startup",
+    "section_vram": 2147778928,
+    "evidence": "docs/startup.md"
   }
 ]

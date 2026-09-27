@@ -2,11 +2,15 @@
 
 Run `make setup`, `make -j4`, `make verify`, and `make progress` from Linux or WSL2. A clean rebuild starts with `make clean`. This removes generated build files, leaving the user-provided baserom and downloaded toolchain intact.
 
-The linker replaces ROM bytes `0x1050..0x11E0` with compiled C. Reconstructed entry assembly and alignment bytes supply `0x1000..0x1050`. Other ranges come from validated local extraction. `make verify` compares the complete output byte for byte and reports its SHA-256. ROM equality at this stage proves reconstruction of the bootstrap layout; most bytes still depend on binary fallback.
+The linker places compiled text, object, and startup routines in their original ROM ranges. `config/functions.json` records every counted function; `linker_scripts/us.ld` also places compiler-generated text tables. Reconstructed entry assembly and alignment bytes supply `0x1000..0x1050`. Other ranges come from validated local extraction. `make verify` compares the complete output byte for byte and reports its SHA-256. Most bytes still depend on binary fallback.
 
-`make progress` checks linked and input-object symbol addresses and sizes, extracts the linked text section, and compares each function's bytes to its target range. Using linked bytes resolves the width-table relocations before comparison. It fails on overlaps, wrong symbol sizes, or byte differences. Unknown code totals and percentages are represented as JSON null, never guessed from ROM size.
+`make progress` checks linked and input-object symbol addresses and sizes, actual ELF section VMA/LMA values, and each function's containment in its section. It extracts the linked section and compares each function's bytes to its target range. Using linked bytes resolves relocations before comparison. It fails on overlaps, incorrect placement, wrong symbol sizes, or byte differences. Unknown code totals and percentages are represented as JSON null.
 
-Assembly has separate function and byte counters. The 56-byte entry routine contributes no matching-C bytes; its 24 alignment bytes are unmeasured. `unmeasured_rom_bytes` includes those bytes and all extracted fallback. Excluded candidates such as `src/boot/startup.c` do not contribute to matching progress, even when a local experiment matches part of a candidate.
+Every successful source build writes a sibling `.o.provenance.json` record containing its source path and hashes of the source, declared include headers, and final object. Progress requires the manifest source to match this recorded input and rejects changed inputs or objects. Missing records require rebuilding the affected object. These generated records remain under `build/` and are never committed.
+
+`make test` validates the manifest without a ROM and runs synthetic regressions for incorrect source attribution, stale inputs/objects, and wrong section load/runtime addresses. Public metadata validation checks paths and declared relationships; the local ROM build provides the compiled evidence.
+
+Assembly has separate function and byte counters. The 56-byte entry routine contributes no matching-C bytes; its 24 alignment bytes are unmeasured. `unmeasured_rom_bytes` includes those bytes and all extracted fallback. The excluded `src/game/text_replacement.c` candidate does not contribute to matching progress.
 
 For a selected ROM range:
 
@@ -14,7 +18,7 @@ For a selected ROM range:
 python3 tools/verify.py baseroms/us/baserom.z64 build/us/robotron64.z64 --offset 0x1050 --size 0x10
 ```
 
-Use `mips-linux-gnu-objdump -dr build/us/text.o` to inspect compiler output. `build/us/robotron64.map` records link placement. The unexplored remainder has a synthetic VMA of `0x90000000`; this is solely a linker container and does not represent the game's RAM mapping.
+Use `mips-linux-gnu-objdump -dr build/us/text.o` to inspect compiler output. `build/us/robotron64.map` records link placement. Unmapped data containers use synthetic VMAs of `0x90000000` and `0x91000000`; the game's runtime mapping for these regions remains unresolved.
 
 ## First function
 
@@ -32,4 +36,4 @@ Use `mips-linux-gnu-objdump -dr build/us/text.o` to inspect compiler output. `bu
 
 The table-lookup routine uses `D_80072B40` for 26 lowercase letters and `D_80072BA8` for ten digits in either encoding. Width is a provisional interpretation supported by those ranges and the extra unit added on return; caller analysis is pending. Unknown characters use five before the final increment, space uses two, and hyphen uses four when the first argument is nonzero. A zero first argument yields six for every character. The asymmetrical null handling in the string routines is preserved.
 
-Validation on the supplied target completed using IDO 5.3 static recompilation v1.2 and GNU MIPS binutils 2.42. All 8,388,608 output bytes matched, with SHA-256 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`. Five C functions (400 bytes) were measured. No whole-game source completion percentage is available yet.
+The five initial helpers above contribute 400 C bytes. Validation uses IDO 5.3 static recompilation v1.2 and GNU MIPS binutils 2.42. The complete 8,388,608-byte output matches SHA-256 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`. Current aggregate source totals are recorded in [bootstrap status](bootstrap-status.md).

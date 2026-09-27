@@ -1,4 +1,4 @@
-/* Nonmatching candidate; excluded from the ROM build. See docs/startup.md. */
+/* Initial PI reads and thread handoff. See docs/startup.md. */
 typedef struct OSThread OSThread;
 typedef struct OSMesgQueue OSMesgQueue;
 typedef void *OSMesg;
@@ -17,12 +17,19 @@ void func_800482A0(void *);
 
 void func_80048170(void)
 {
+    unsigned int address;
+    unsigned int *current;
+    unsigned int *end;
     unsigned int buffer[16];
-    int i;
 
     osInitialize();
-    for (i = 0; i < 16; i++) {
-        osPiRawReadIo(0x00FFB000 + i * 4, &buffer[i]);
+    address = 0x00FFB000;
+    current = buffer;
+    end = buffer + 16;
+    while (current != end) {
+        osPiRawReadIo(address, current);
+        current++;
+        address += 4;
     }
     osCreateThread(&D_80139280, 1, func_80048204, 0, D_8013B430, 10);
     osStartThread(&D_80139280);

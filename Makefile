@@ -64,7 +64,12 @@ build/us/entry.o: src/boot/entry.s tools/provenance.py
 	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
 	$(PYTHON) tools/provenance.py $< $@
 
-build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o linker_scripts/us.ld
+build/us/startup.o: src/boot/startup.c $(IDO) Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(IDO) -c $(CFLAGS) -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o linker_scripts/us.ld config/startup_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
 build/us/robotron64.z64: build/us/robotron64.elf

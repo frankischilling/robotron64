@@ -1,9 +1,11 @@
-"""Compile the excluded startup candidate and report remaining byte differences."""
+"""Independently compile and verify the two matching startup routines."""
 
+import hashlib
 import json
 import subprocess
 from rom import ROOT, validate
 from toolchain import install
+from verify import compare
 
 
 def run():
@@ -25,17 +27,18 @@ def run():
                     str(directory / "startup.elf"), str(directory / "startup.bin")], check=True)
     actual = (directory / "startup.bin").read_bytes()
     expected = target[0x48d70:0x48ea0]
-    report = {"expected_size": len(expected), "actual_size": len(actual),
+    report = {"source_sha256": hashlib.sha256((ROOT / "src/boot/startup.c").read_bytes()).hexdigest(),
+              "expected_size": len(expected), "actual_size": len(actual),
               "matches": actual == expected,
               "different_words": [{"vram": hex(0x80048170 + i),
                                    "expected": expected[i:i + 4].hex(),
                                    "actual": actual[i:i + 4].hex()}
                                   for i in range(0, max(len(actual), len(expected)), 4)
-                                  if expected[i:i + 4] != actual[i:i + 4]],
-              "counted_as_matching_c": False}
+                                  if expected[i:i + 4] != actual[i:i + 4]]}
     encoded = json.dumps(report, indent=2) + "\n"
     (directory / "report.json").write_text(encoded)
     print(encoded, end="")
+    compare(expected, actual)
 
 
 if __name__ == "__main__":

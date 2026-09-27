@@ -1,6 +1,7 @@
 OUTPUT_ARCH(mips)
 OUTPUT_FORMAT("elf32-tradbigmips")
 ENTRY(_start)
+INCLUDE config/startup_symbols.ld
 D_80072B40 = 0x80072B40;
 D_80072BA8 = 0x80072BA8;
 D_800B6FF8 = 0x800B6FF8;
@@ -9,7 +10,6 @@ __bss_start = 0x80097290;
 __bss_size = 0x1003B0;
 __bss_end = __bss_start + __bss_size;
 __initial_stack_top = 0x8013A280;
-func_80048170 = 0x80048170;
 
 D_800B1BE8 = 0x800B1BE8;
 D_8008F620 = 0x8008F620;
@@ -61,6 +61,8 @@ SECTIONS
     .cpu_fallback 0x8000177C : AT(0x237C) { build/us/fallback.o(.rom_cpu_fallback) }
     .object_transforms 0x800394C0 : AT(0x3A0C0) { build/us/object_transforms.o(.text) }
     .cpu_after_objects 0x80039C78 : AT(0x3A878) { build/us/fallback.o(.rom_cpu_after_objects) }
+    .startup 0x80048170 : AT(0x48D70) SUBALIGN(16) { build/us/startup.o(.text) }
+    .cpu_after_startup 0x800482A0 : AT(0x48EA0) { build/us/fallback.o(.rom_cpu_after_startup) }
     /* CPU-visible storage address. The RSP executes this at 0x04001000. */
     .rsp_boot 0x8006F440 : AT(0x70040) { build/us/fallback.o(.rom_rsp_boot) }
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
@@ -95,4 +97,6 @@ ASSERT(SIZEOF(.text_properties) == 0x308, "text property functions size changed"
 ASSERT(SIZEOF(.text_conversion) == 0xa4, "text conversion function size changed")
 
 ASSERT(SIZEOF(.object_transforms) == 0x7b8, "object transforms size changed")
-ASSERT(SIZEOF(.cpu_after_objects) == 0x357c8, "CPU fallback after transforms size changed")
+ASSERT(SIZEOF(.cpu_after_objects) == 0xe4f8, "CPU fallback after transforms size changed")
+ASSERT(SIZEOF(.startup) == 0x130, "startup functions size changed")
+ASSERT(SIZEOF(.cpu_after_startup) == 0x271a0, "CPU fallback after startup size changed")
