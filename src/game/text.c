@@ -230,7 +230,7 @@ int func_80000918(unsigned char *text, int scale, int mode, int options)
     return -1;
 }
 
-extern void func_800392F4(int object);
+extern int func_800392F4(int object);
 
 void func_80000ACC(int *slot)
 {

@@ -56,3 +56,4 @@ The [startup investigation](docs/startup.md) records the reconstructed assembly 
 [String allocation and release](docs/text-records.md) document the recovered text-record pool and packed fields.
 
 [Text options](docs/text-options.md) document the matched option setter, accessors, and second generated jump table.
+`src/game/text_replacement.c` is another excluded research candidate. Its behavior and reproducible nonmatching comparison are documented in [text replacement](docs/text-replacement.md).
