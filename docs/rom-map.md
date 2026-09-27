@@ -16,7 +16,8 @@ Offsets refer to the normalized big-endian ROM. The supplied file is byte-swappe
 | `0x00177C..0x001B48` | Linked C bytes match original | Text option setter and accessors, confirmed |
 | `0x001B48..0x001DAC` | Instructions and control flow | Text replacement; nonmatching C candidate, extracted fallback |
 | `0x001DAC..0x001E70` | Linked C bytes match original | Text create-or-replace wrapper, confirmed |
-| `0x001E70` onward | Instructions and control flow | More executable code; full boundaries pending |
+| `0x001E70..0x001FD0` | Linked C bytes match original | Text suffix editing and active-record cleanup, confirmed |
+| `0x001FD0` onward | Instructions and control flow | More executable code; full boundaries pending |
 
 SDK instruction sequences have been identified at ROM `0x68160`, `0x68180`, and `0x690C0`; see [libultra evidence](libultra.md). Graphics microcode strings occur at `0x96E80` and `0x97680`; see [graphics evidence](graphics.md). These observations do not establish segment boundaries.
 

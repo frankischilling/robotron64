@@ -8,7 +8,7 @@ REGIONS = (
     ("header", 0, 0x40),
     ("ipl3", 0x40, 0x1000),
     ("text_replacement", 0x1b48, 0x1dac),
-    ("cpu_fallback", 0x1e70, 0x70040),
+    ("cpu_fallback", 0x1fd0, 0x70040),
     ("rsp_boot", 0x70040, 0x70110),
     ("data_before_text_table", 0x70110, 0x90278),
     ("remainder", 0x903a0, 0x800000),

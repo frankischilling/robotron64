@@ -80,4 +80,9 @@ extern int func_8003B7FC(unsigned char *left, unsigned char *right);
 void func_80000F48(int slot, unsigned char *text);
 int func_800011AC(int *slot, unsigned char *text, int scale, int mode, int replace, int options);
 
+extern void *func_8003B520(void *destination, void *source, int count);
+extern unsigned char *func_8003B6E4(unsigned char *destination, unsigned char *source);
+int func_80001270(int slot, int offset, unsigned char *text);
+void func_80001360(void);
+
 #endif

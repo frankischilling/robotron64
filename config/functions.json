@@ -175,5 +175,27 @@
     "section": ".text_wrapper",
     "section_vram": 2147488172,
     "evidence": "docs/text-wrapper.md"
+  },
+  {
+    "name": "func_80001270",
+    "rom": 7792,
+    "vram": 2147488368,
+    "size": 240,
+    "source": "src/game/text_edit.c",
+    "object": "build/us/text_edit.o",
+    "section": ".text_edit",
+    "section_vram": 2147488368,
+    "evidence": "docs/text-edit.md"
+  },
+  {
+    "name": "func_80001360",
+    "rom": 8032,
+    "vram": 2147488608,
+    "size": 112,
+    "source": "src/game/text_edit.c",
+    "object": "build/us/text_edit.o",
+    "section": ".text_edit",
+    "section_vram": 2147488368,
+    "evidence": "docs/text-edit.md"
   }
 ]
