@@ -15,7 +15,7 @@
     "name": "func_80048170",
     "rom": "0x48d70",
     "vram": "0x80048170",
-    "status": "startup transfer target"
+    "status": "matching C; see docs/startup.md"
   },
   {
     "name": "__osDisableInt",
@@ -115,13 +115,13 @@
     "name": "func_80048204",
     "rom": "0x48e04",
     "vram": "0x80048204",
-    "status": "behavior supported; see docs/startup.md"
+    "status": "matching C; see docs/startup.md"
   },
   {
     "name": "func_800482A0",
     "rom": "0x48ea0",
     "vram": "0x800482a0",
-    "status": "behavior supported; see docs/startup.md"
+    "status": "matching C; see docs/startup.md"
   },
   {
     "name": "func_800005E0",
@@ -203,5 +203,65 @@
     "name": "D_8009EFA4",
     "vram": "0x8009efa4",
     "status": "shared value captured by text options and read by delta accessor; producer untraced"
+  },
+  {
+    "name": "func_80048460",
+    "rom": "0x49060",
+    "vram": "0x80048460",
+    "status": "matching C; see docs/startup.md"
+  },
+  {
+    "name": "func_80050440",
+    "rom": "0x51040",
+    "vram": "0x80050440",
+    "status": "matching C; see docs/scheduler.md"
+  },
+  {
+    "name": "func_80050620",
+    "rom": "0x51220",
+    "vram": "0x80050620",
+    "status": "matching C; see docs/scheduler.md"
+  },
+  {
+    "name": "func_80050628",
+    "rom": "0x51228",
+    "vram": "0x80050628",
+    "status": "matching C; see docs/scheduler.md"
+  },
+  {
+    "name": "osViSetSpecialFeatures",
+    "rom": "0x610e0",
+    "vram": "0x800604e0",
+    "status": "behavior supported; see docs/scheduler.md"
+  },
+  {
+    "name": "osSetEventMesg",
+    "rom": "0x64cd0",
+    "vram": "0x800640d0",
+    "status": "behavior supported; see docs/scheduler.md"
+  },
+  {
+    "name": "osCreateViManager",
+    "rom": "0x65940",
+    "vram": "0x80064d40",
+    "status": "behavior supported; see docs/scheduler.md"
+  },
+  {
+    "name": "osViSetMode",
+    "rom": "0x65ca0",
+    "vram": "0x800650a0",
+    "status": "behavior supported; see docs/scheduler.md"
+  },
+  {
+    "name": "osViBlack",
+    "rom": "0x65d10",
+    "vram": "0x80065110",
+    "status": "behavior supported; see docs/scheduler.md"
+  },
+  {
+    "name": "osViSetEvent",
+    "rom": "0x65d80",
+    "vram": "0x80065180",
+    "status": "behavior supported; see docs/scheduler.md"
   }
 ]

@@ -615,5 +615,60 @@
     "section": ".startup",
     "section_vram": 2147778928,
     "evidence": "docs/startup.md"
+  },
+  {
+    "name": "func_800482A0",
+    "rom": 298656,
+    "vram": 2147779232,
+    "size": 448,
+    "source": "src/boot/startup.c",
+    "object": "build/us/startup.o",
+    "section": ".startup",
+    "section_vram": 2147778928,
+    "evidence": "docs/startup.md"
+  },
+  {
+    "name": "func_80048460",
+    "rom": 299104,
+    "vram": 2147779680,
+    "size": 176,
+    "source": "src/boot/startup.c",
+    "object": "build/us/startup.o",
+    "section": ".startup",
+    "section_vram": 2147778928,
+    "evidence": "docs/startup.md"
+  },
+  {
+    "name": "func_80050440",
+    "rom": 331840,
+    "vram": 2147812416,
+    "size": 480,
+    "source": "src/boot/scheduler.c",
+    "object": "build/us/scheduler.o",
+    "section": ".scheduler",
+    "section_vram": 2147812416,
+    "evidence": "docs/scheduler.md"
+  },
+  {
+    "name": "func_80050620",
+    "rom": 332320,
+    "vram": 2147812896,
+    "size": 8,
+    "source": "src/boot/scheduler.c",
+    "object": "build/us/scheduler.o",
+    "section": ".scheduler",
+    "section_vram": 2147812416,
+    "evidence": "docs/scheduler.md"
+  },
+  {
+    "name": "func_80050628",
+    "rom": 332328,
+    "vram": 2147812904,
+    "size": 8,
+    "source": "src/boot/scheduler.c",
+    "object": "build/us/scheduler.o",
+    "section": ".scheduler",
+    "section_vram": 2147812416,
+    "evidence": "docs/scheduler.md"
   }
 ]

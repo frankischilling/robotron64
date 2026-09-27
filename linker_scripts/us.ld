@@ -62,7 +62,9 @@ SECTIONS
     .object_transforms 0x800394C0 : AT(0x3A0C0) { build/us/object_transforms.o(.text) }
     .cpu_after_objects 0x80039C78 : AT(0x3A878) { build/us/fallback.o(.rom_cpu_after_objects) }
     .startup 0x80048170 : AT(0x48D70) SUBALIGN(16) { build/us/startup.o(.text) }
-    .cpu_after_startup 0x800482A0 : AT(0x48EA0) { build/us/fallback.o(.rom_cpu_after_startup) }
+    .cpu_after_startup 0x80048510 : AT(0x49110) { build/us/fallback.o(.rom_cpu_after_startup) }
+    .scheduler 0x80050440 : AT(0x51040) { build/us/scheduler.o(.text) }
+    .cpu_after_scheduler 0x80050630 : AT(0x51230) { build/us/fallback.o(.rom_cpu_after_scheduler) }
     /* CPU-visible storage address. The RSP executes this at 0x04001000. */
     .rsp_boot 0x8006F440 : AT(0x70040) { build/us/fallback.o(.rom_rsp_boot) }
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
@@ -98,5 +100,7 @@ ASSERT(SIZEOF(.text_conversion) == 0xa4, "text conversion function size changed"
 
 ASSERT(SIZEOF(.object_transforms) == 0x7b8, "object transforms size changed")
 ASSERT(SIZEOF(.cpu_after_objects) == 0xe4f8, "CPU fallback after transforms size changed")
-ASSERT(SIZEOF(.startup) == 0x130, "startup functions size changed")
-ASSERT(SIZEOF(.cpu_after_startup) == 0x271a0, "CPU fallback after startup size changed")
+ASSERT(SIZEOF(.startup) == 0x3a0, "startup functions size changed")
+ASSERT(SIZEOF(.cpu_after_startup) == 0x7f30, "CPU fallback after startup size changed")
+ASSERT(SIZEOF(.scheduler) == 0x1f0, "scheduler functions size changed")
+ASSERT(SIZEOF(.cpu_after_scheduler) == 0x1ee10, "CPU fallback after scheduler size changed")
