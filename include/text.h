@@ -85,4 +85,13 @@ extern unsigned char *func_8003B6E4(unsigned char *destination, unsigned char *s
 int func_80001270(int slot, int offset, unsigned char *text);
 void func_80001360(void);
 
+typedef struct TextRunProperty {
+    short run;
+    unsigned char unknown;
+    unsigned char value;
+} TextRunProperty;
+int func_800013D0(int slot, TextRunProperty *properties);
+int func_800014FC(int slot, TextRunProperty *properties);
+void func_80001638(int slot, int value);
+
 #endif

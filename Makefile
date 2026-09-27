@@ -38,11 +38,16 @@ build/us/text_edit.o: src/game/text_edit.c include/text.h $(IDO) Makefile
 	mkdir -p $(@D)
 	$(IDO) -c $(CFLAGS) -o $@ $<
 
+build/us/text_properties.o: src/game/text_properties.c include/text.h $(IDO) Makefile tools/trim_padding.py
+	mkdir -p $(@D)
+	$(IDO) -c $(CFLAGS) -o build/us/text_properties.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/text_properties.raw.o $@ .text 0x308
+
 build/us/entry.o: src/boot/entry.s
 	mkdir -p $(@D)
 	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
 
-build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/entry.o linker_scripts/us.ld
+build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/entry.o linker_scripts/us.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
 build/us/robotron64.z64: build/us/robotron64.elf

@@ -197,5 +197,38 @@
     "section": ".text_edit",
     "section_vram": 2147488368,
     "evidence": "docs/text-edit.md"
+  },
+  {
+    "name": "func_800013D0",
+    "rom": 8144,
+    "vram": 2147488720,
+    "size": 300,
+    "source": "src/game/text_properties.c",
+    "object": "build/us/text_properties.o",
+    "section": ".text_properties",
+    "section_vram": 2147488720,
+    "evidence": "docs/text-properties.md"
+  },
+  {
+    "name": "func_800014FC",
+    "rom": 8444,
+    "vram": 2147489020,
+    "size": 316,
+    "source": "src/game/text_properties.c",
+    "object": "build/us/text_properties.o",
+    "section": ".text_properties",
+    "section_vram": 2147488720,
+    "evidence": "docs/text-properties.md"
+  },
+  {
+    "name": "func_80001638",
+    "rom": 8760,
+    "vram": 2147489336,
+    "size": 160,
+    "source": "src/game/text_properties.c",
+    "object": "build/us/text_properties.o",
+    "section": ".text_properties",
+    "section_vram": 2147488720,
+    "evidence": "docs/text-properties.md"
   }
 ]
