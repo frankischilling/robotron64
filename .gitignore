@@ -1,0 +1,10 @@
+*.n64
+*.z64
+*.v64
+baseroms/
+build/
+.venv/
+__pycache__/
+*.pyc
+.local/
+prompt.txt
