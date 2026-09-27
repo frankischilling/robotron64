@@ -13,7 +13,8 @@ Offsets refer to the normalized big-endian ROM. The supplied file is byte-swappe
 | `0x0011E0..0x001350` | Linked C bytes match original | Buffer clear and character normalization, confirmed |
 | `0x001350..0x001518` | Linked C bytes match original | 3D text object creation, confirmed |
 | `0x001518..0x00177C` | Linked C bytes match original | Text record allocation and release, confirmed |
-| `0x00177C` onward | Instructions and control flow | More executable code; full boundaries pending |
+| `0x00177C..0x001B48` | Linked C bytes match original | Text option setter and accessors, confirmed |
+| `0x001B48` onward | Instructions and control flow | More executable code; full boundaries pending |
 
 SDK instruction sequences have been identified at ROM `0x68160`, `0x68180`, and `0x690C0`; see [libultra evidence](libultra.md). Graphics microcode strings occur at `0x96E80` and `0x97680`; see [graphics evidence](graphics.md). These observations do not establish segment boundaries.
 
@@ -29,3 +30,5 @@ The four instructions at `0x80000450` multiply the argument by itself with `mult
 `config/analysis.json` now records a candidate CPU range ending at ROM `0x70040` and the RSP boot region `0x70040..0x70110`. See [executable inventory](executable-inventory.md) for task-pointer and RSP instruction evidence, commands, and provisional counts.
 
 The 168-byte character-normalization jump table at ROM `0x90278..0x90320` is now generated from C. See [text evidence](text.md).
+
+The text option switch table at ROM `0x90320..0x903A0` is also generated from C; see [option evidence](text-options.md).

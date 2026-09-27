@@ -11,13 +11,13 @@ The allocation scan visits 30 records at `0x800B6FF8` with a stride of `0x10C` (
 | `0x00` | Packed word: bit 31 indicates allocation; bit 30 is set on allocation but its meaning is unknown; bit 29 is unexamined; bits 28 through 11 form an 18-bit signed options field; low 11 bits are unexamined. |
 | `0x04` | Unexamined word. |
 | `0x08` | Mode argument stored and passed to character creation. |
-| `0x0C..0x24` | Unexamined bytes. |
+| `0x0C..0x24` | Six words now accessed by the [option setter](text-options.md), including five saved global values and a selected object index. |
 | `0x24..0x64` | Text storage. Copying is limited to 60 input bytes and writes a terminator; the remaining bytes before the next field are not used by these routines. |
 | `0x64` | Integer property initialized to 24; purpose unknown. |
 | `0x68`, `0x6C`, `0x70` | Three integers initialized from the scale argument. Their later individual roles remain unknown. |
 | `0x74` | Stored character count, capped at 60. |
 | `0x78..0xF0` | 60 signed 16-bit object indices. Negative entries are skipped during release. |
-| `0xF0..0x100` | Unexamined bytes. |
+| `0xF0..0x100` | One unexamined word, followed by a 12-byte aggregate copied by the [accessor](text-options.md). |
 | `0x100`, `0x104`, `0x108` | Three words initialized to `0xDEADBEEF`; subsequent use is unknown. |
 
 Ranges have exclusive ends. `TextRecord` keeps unknown regions explicit. The bitfield assignment and signed extraction both reproduce the original instruction sequence, including preservation of adjacent bits.

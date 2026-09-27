@@ -174,5 +174,34 @@
     "rom": "0x9024c",
     "vram": "0x8008f64c",
     "status": "3D-string pool exhaustion diagnostic"
+  },
+  {
+    "name": "func_80000B7C",
+    "rom": "0x177c",
+    "vram": "0x80000b7c",
+    "status": "matching C; see docs/text-options.md"
+  },
+  {
+    "name": "func_80000E74",
+    "rom": "0x1a74",
+    "vram": "0x80000e74",
+    "status": "matching C; see docs/text-options.md"
+  },
+  {
+    "name": "func_80000EB4",
+    "rom": "0x1ab4",
+    "vram": "0x80000eb4",
+    "status": "matching C; see docs/text-options.md"
+  },
+  {
+    "name": "func_80000F08",
+    "rom": "0x1b08",
+    "vram": "0x80000f08",
+    "status": "matching C; see docs/text-options.md"
+  },
+  {
+    "name": "D_8009EFA4",
+    "vram": "0x8009efa4",
+    "status": "shared value captured by text options and read by delta accessor; producer untraced"
   }
 ]

@@ -120,5 +120,49 @@
     "section": ".text_start",
     "section_vram": 2147484752,
     "evidence": "docs/text-records.md"
+  },
+  {
+    "name": "func_80000B7C",
+    "rom": 6012,
+    "vram": 2147486588,
+    "size": 760,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text-options.md"
+  },
+  {
+    "name": "func_80000E74",
+    "rom": 6772,
+    "vram": 2147487348,
+    "size": 64,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text-options.md"
+  },
+  {
+    "name": "func_80000EB4",
+    "rom": 6836,
+    "vram": 2147487412,
+    "size": 84,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text-options.md"
+  },
+  {
+    "name": "func_80000F08",
+    "rom": 6920,
+    "vram": 2147487496,
+    "size": 64,
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "section": ".text_start",
+    "section_vram": 2147484752,
+    "evidence": "docs/text-options.md"
   }
 ]

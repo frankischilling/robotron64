@@ -66,6 +66,10 @@ void func_800005A4(unsigned char *text)
     }
 }
 
+typedef struct TextValue3 {
+    unsigned int words[3];
+} TextValue3;
+
 typedef struct TextRecord {
     unsigned int active : 1;
     unsigned int flag30 : 1;
@@ -74,13 +78,19 @@ typedef struct TextRecord {
     unsigned int unkBits : 11;
     int unk04;
     int mode;
-    unsigned char unk0C[24];
+    int value0C;
+    int value10;
+    int value14;
+    int value18;
+    int value1C;
+    int objectIndex20;
     unsigned char text[64];
     int property64;
     int scale[3];
     int length;
     short objects[60];
-    unsigned char unkF0[16];
+    int unkF0;
+    TextValue3 valueF4;
     unsigned int sentinel[3];
 } TextRecord;
 
@@ -239,4 +249,106 @@ void func_80000ACC(int *slot)
         }
         *slot = -1;
     }
+}
+
+extern int D_8009EFA4;
+
+void func_80000B7C(int slot, int set, int clear)
+{
+    TextRecord *record;
+    int index;
+    int bit;
+    int object;
+    int selectedOption = 0x10000;
+
+    if (slot >= 0) {
+        record = &D_800B6FF8[slot];
+        record->options |= set & 0x3FFFF;
+        record->options &= ~clear;
+        for (index = 0; index < 18; index++) {
+            bit = 1 << index;
+            if (bit & set) {
+                switch (bit) {
+                case 0x10000:
+                    object = record->objects[record->objectIndex20];
+                    if (object >= 0) {
+                        func_80039E80(object, 88);
+                    }
+                    break;
+                case 0x200:
+                    record->value1C = D_8009EFA4;
+                    break;
+                case 0x2000:
+                    record->unk04 = set >> 18;
+                    record->scale[0] = record->scale[1] * 2;
+                    record->value0C = D_8009EFA4;
+                    break;
+                case 4:
+                    record->value0C = D_8009EFA4;
+                    record->scale[2] = 2 * record->scale[1];
+                    break;
+                case 0x1000:
+                    record->unk04 = set >> 18;
+                    record->value0C = D_8009EFA4;
+                    record->scale[0] = record->scale[1];
+                    break;
+                case 1: case 2:
+                    record->value0C = D_8009EFA4;
+                    record->scale[2] = record->scale[1];
+                    break;
+                case 0x400:
+                    record->unk04 = set >> 18;
+                    break;
+                case 0x20:
+                    record->value10 = D_8009EFA4;
+                    break;
+                case 0x10:
+                    record->value14 = D_8009EFA4;
+                    break;
+                case 0x80: case 0x100:
+                    record->value18 = D_8009EFA4;
+                    break;
+                case 0x8000:
+                    record->objectIndex20 = set >> 18;
+                    break;
+                case 8: case 0x800: case 0x4000: case 0x20000:
+                    break;
+                }
+            }
+        }
+        for (index = 0; index < 18; index++) {
+            bit = 1 << index;
+            if (bit & clear) {
+                if (selectedOption == bit) {
+                    object = record->objects[record->objectIndex20];
+                    if (object >= 0) {
+                        func_80039E80(object, (unsigned char)record->property64);
+                    }
+                }
+            }
+        }
+    }
+}
+
+int func_80000E74(int slot)
+{
+    if (slot >= 0) {
+        return D_800B6FF8[slot].options;
+    }
+    return -1;
+}
+
+void func_80000EB4(int slot, TextValue3 *value)
+{
+    if (slot >= 0) {
+        *value = D_800B6FF8[slot].valueF4;
+    }
+}
+
+int func_80000F08(int slot)
+{
+    if (slot >= 0) {
+        return D_8009EFA4 - D_800B6FF8[slot].value0C;
+    }
+    return 0;
 }
