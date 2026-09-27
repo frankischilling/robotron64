@@ -230,5 +230,16 @@
     "section": ".text_properties",
     "section_vram": 2147488720,
     "evidence": "docs/text-properties.md"
+  },
+  {
+    "name": "func_800016D8",
+    "rom": 8920,
+    "vram": 2147489496,
+    "size": 164,
+    "source": "src/game/text_conversion.c",
+    "object": "build/us/text_conversion.o",
+    "section": ".text_conversion",
+    "section_vram": 2147489496,
+    "evidence": "docs/text-conversion.md"
   }
 ]

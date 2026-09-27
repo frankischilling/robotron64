@@ -49,7 +49,8 @@ SECTIONS
     .text_wrapper 0x800011AC : AT(0x1DAC) SUBALIGN(4) { build/us/text_wrapper.o(.text) }
     .text_edit 0x80001270 : AT(0x1E70) { build/us/text_edit.o(.text) }
     .text_properties 0x800013D0 : AT(0x1FD0) { build/us/text_properties.o(.text) }
-    .cpu_fallback 0x800016D8 : AT(0x22D8) { build/us/fallback.o(.rom_cpu_fallback) }
+    .text_conversion 0x800016D8 : AT(0x22D8) SUBALIGN(4) { build/us/text_conversion.o(.text) }
+    .cpu_fallback 0x8000177C : AT(0x237C) { build/us/fallback.o(.rom_cpu_fallback) }
     /* CPU-visible storage address. The RSP executes this at 0x04001000. */
     .rsp_boot 0x8006F440 : AT(0x70040) { build/us/fallback.o(.rom_rsp_boot) }
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
@@ -66,7 +67,7 @@ ASSERT(SIZEOF(.header) == 0x40, "header size changed")
 ASSERT(SIZEOF(.ipl3) == 0xfc0, "IPL3 size changed")
 ASSERT(SIZEOF(.entry) == 0x50, "entry size changed")
 ASSERT(SIZEOF(.text_start) == 0xaf8, "initial text functions size changed")
-ASSERT(SIZEOF(.cpu_fallback) == 0x6dd68, "CPU fallback size changed")
+ASSERT(SIZEOF(.cpu_fallback) == 0x6dcc4, "CPU fallback size changed")
 ASSERT(SIZEOF(.rsp_boot) == 0xd0, "RSP boot size changed")
 ASSERT(SIZEOF(.remainder) == 0x76fc60, "fallback size changed")
 ASSERT(SIZEOF(.unexpected) == 0, "unmapped input data")
@@ -80,3 +81,5 @@ ASSERT(SIZEOF(.text_wrapper) == 0xc4, "text wrapper size changed")
 ASSERT(SIZEOF(.text_edit) == 0x160, "text edit functions size changed")
 
 ASSERT(SIZEOF(.text_properties) == 0x308, "text property functions size changed")
+
+ASSERT(SIZEOF(.text_conversion) == 0xa4, "text conversion function size changed")

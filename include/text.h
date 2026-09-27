@@ -94,4 +94,6 @@ int func_800013D0(int slot, TextRunProperty *properties);
 int func_800014FC(int slot, TextRunProperty *properties);
 void func_80001638(int slot, int value);
 
+void func_800016D8(int *values, int unused);
+
 #endif
