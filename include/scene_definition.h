@@ -12,6 +12,11 @@ typedef struct SceneArrival {
     short y;
 } SceneArrival;
 
+typedef struct SceneTweakOverride {
+    short variable;
+    short value;
+} SceneTweakOverride;
+
 typedef struct SceneDefinition {
     int positions[5][3];
     unsigned char positionEnabled[5];
@@ -20,7 +25,8 @@ typedef struct SceneDefinition {
     int resourceC44;
     int valueC48;
     int valueC4C;
-    unsigned char unknownC50[0x68];
+    int unknownC50;
+    SceneTweakOverride tweaks[25];
     short effectFirst[4];
     short effectSecond[4];
     int arrivalCount;
@@ -37,7 +43,7 @@ typedef struct SceneDefinition {
     int enabledCF4;
     int valueCF8;
     int effectCount;
-    int unknownD00;
+    int tweakCount;
     int flagsD04;
     int flagD08;
     unsigned char unknownD0C[8];

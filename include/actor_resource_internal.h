@@ -21,7 +21,7 @@ typedef struct ActorResource58Internal {
     unsigned char actorKind;
     unsigned char unknown03;
     ActorResourceWord04Internal word04;
-    unsigned char unknown08[4];
+    int speed;
     int scale;
     unsigned char unknown10[0xC];
     short modelHandle1C;
@@ -39,14 +39,17 @@ typedef struct ActorResource58Internal {
 typedef struct ActorResource68Internal {
     unsigned char unknown00[6];
     ActorResourceFlags flags06;
-    unsigned char unknown08[0x5C];
+    int speed;
+    unsigned char unknown0C[0x58];
     int arrivalDelay;
 } ActorResource68Internal;
 
 typedef struct ActorResource5CInternal {
     unsigned char unknown00[6];
     ActorResourceFlags flags06;
-    unsigned char unknown08[0x54];
+    int speed;
+    unsigned char unknown0C[0x4C];
+    int value58;
 } ActorResource5CInternal;
 
 typedef struct ActorResource60Internal {

@@ -62,7 +62,7 @@ source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [SDK math](docs/sdk-math.md), and [static-function verification](docs/ido-static-functions.md)
 notes, together with [object definitions and shell menus](docs/session-setup.md),
 [scene commands and background images](docs/scene-commands.md), and
-[save menus](docs/save-menus.md).
+[save menus](docs/save-menus.md), and [gameplay tweaks and resource strings](docs/tweaks-and-strings.md).
 Those documents distinguish target-confirmed facts from reference
 comparisons and remaining hypotheses.
 

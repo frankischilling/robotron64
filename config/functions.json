@@ -551,6 +551,193 @@
     "evidence": "docs/movie-commands.md"
   },
   {
+    "name": "func_8001C740",
+    "rom": 119616,
+    "vram": 2147600192,
+    "size": 80,
+    "source": "src/game/script_service_cache_reset.c",
+    "object": "build/us/script_service_cache_reset.o",
+    "section": ".script_service_cache_reset",
+    "section_vram": 2147600192,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001C8C4",
+    "rom": 120004,
+    "vram": 2147600580,
+    "size": 164,
+    "source": "src/game/script_service_cache_access.c",
+    "object": "build/us/script_service_cache_access.o",
+    "section": ".script_service_cache_access",
+    "section_vram": 2147600580,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001C968",
+    "rom": 120168,
+    "vram": 2147600744,
+    "size": 148,
+    "source": "src/game/script_service_cache_access.c",
+    "object": "build/us/script_service_cache_access.o",
+    "section": ".script_service_cache_access",
+    "section_vram": 2147600580,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001C9FC",
+    "rom": 120316,
+    "vram": 2147600892,
+    "size": 124,
+    "source": "src/game/script_service_cache_access.c",
+    "object": "build/us/script_service_cache_access.o",
+    "section": ".script_service_cache_access",
+    "section_vram": 2147600580,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CA78",
+    "rom": 120440,
+    "vram": 2147601016,
+    "size": 124,
+    "source": "src/game/script_service_cache_access.c",
+    "object": "build/us/script_service_cache_access.o",
+    "section": ".script_service_cache_access",
+    "section_vram": 2147600580,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CAF4",
+    "rom": 120564,
+    "vram": 2147601140,
+    "size": 84,
+    "source": "src/game/script_service_cache_access.c",
+    "object": "build/us/script_service_cache_access.o",
+    "section": ".script_service_cache_access",
+    "section_vram": 2147600580,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CB50",
+    "rom": 120656,
+    "vram": 2147601232,
+    "size": 96,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CBB0",
+    "rom": 120752,
+    "vram": 2147601328,
+    "size": 56,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CBE8",
+    "rom": 120808,
+    "vram": 2147601384,
+    "size": 116,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CC5C",
+    "rom": 120924,
+    "vram": 2147601500,
+    "size": 100,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CCC0",
+    "rom": 121024,
+    "vram": 2147601600,
+    "size": 56,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CCF8",
+    "rom": 121080,
+    "vram": 2147601656,
+    "size": 8,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CD00",
+    "rom": 121088,
+    "vram": 2147601664,
+    "size": 20,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CD14",
+    "rom": 121108,
+    "vram": 2147601684,
+    "size": 8,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CD1C",
+    "rom": 121116,
+    "vram": 2147601692,
+    "size": 68,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CD60",
+    "rom": 121184,
+    "vram": 2147601760,
+    "size": 52,
+    "source": "src/game/script_service_commands.c",
+    "object": "build/us/script_service_commands.o",
+    "section": ".script_service_commands",
+    "section_vram": 2147601232,
+    "evidence": "docs/script-services.md"
+  },
+  {
+    "name": "func_8001CE68",
+    "rom": 121448,
+    "vram": 2147602024,
+    "size": 8,
+    "source": "src/game/script_service_platform_stub.c",
+    "object": "build/us/script_service_platform_stub.o",
+    "section": ".script_service_platform_stub",
+    "section_vram": 2147602024,
+    "evidence": "docs/script-services.md"
+  },
+  {
     "name": "func_8001CF68",
     "rom": 121704,
     "vram": 2147602280,
@@ -978,6 +1165,17 @@
     "section": ".scene_background",
     "section_vram": 2147612940,
     "evidence": "docs/scene-commands.md"
+  },
+  {
+    "name": "func_80027B9C",
+    "rom": 165788,
+    "vram": 2147646364,
+    "size": 328,
+    "source": "src/game/actor_motion_mode.c",
+    "object": "build/us/actor_motion_mode.o",
+    "section": ".actor_motion_mode",
+    "section_vram": 2147646364,
+    "evidence": "docs/actor-motion.md"
   },
   {
     "name": "func_8002818C",
@@ -1992,6 +2190,116 @@
     "evidence": "docs/movie-commands.md"
   },
   {
+    "name": "func_80037408",
+    "rom": 229384,
+    "vram": 2147709960,
+    "size": 16,
+    "source": "src/game/debug_context_set.c",
+    "object": "build/us/debug_context_set.o",
+    "section": ".debug_context_set",
+    "section_vram": 2147709960,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_80037420",
+    "rom": 229408,
+    "vram": 2147709984,
+    "size": 168,
+    "source": "src/game/debug_text_draw.c",
+    "object": "build/us/debug_text_draw.o",
+    "section": ".debug_text_draw",
+    "section_vram": 2147709984,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_800374D0",
+    "rom": 229584,
+    "vram": 2147710160,
+    "size": 56,
+    "source": "src/game/tweak_reset.c",
+    "object": "build/us/tweak_reset.o",
+    "section": ".tweak_reset",
+    "section_vram": 2147710160,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_80037508",
+    "rom": 229640,
+    "vram": 2147710216,
+    "size": 128,
+    "source": "src/game/tweak_page.c",
+    "object": "build/us/tweak_page.o",
+    "section": ".tweak_page",
+    "section_vram": 2147710216,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_80037588",
+    "rom": 229768,
+    "vram": 2147710344,
+    "size": 164,
+    "source": "src/game/tweak_define.c",
+    "object": "build/us/tweak_define.o",
+    "section": ".tweak_define",
+    "section_vram": 2147710344,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_80037700",
+    "rom": 230144,
+    "vram": 2147710720,
+    "size": 228,
+    "source": "src/game/tweak_difficulty_apply.c",
+    "object": "build/us/tweak_difficulty_apply.o",
+    "section": ".tweak_difficulty_apply",
+    "section_vram": 2147710720,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_8003799C",
+    "rom": 230812,
+    "vram": 2147711388,
+    "size": 132,
+    "source": "src/game/tweak_bind.c",
+    "object": "build/us/tweak_bind.o",
+    "section": ".tweak_bind",
+    "section_vram": 2147711388,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_80037A20",
+    "rom": 230944,
+    "vram": 2147711520,
+    "size": 2056,
+    "source": "src/game/tweak_bind_all.c",
+    "object": "build/us/tweak_bind_all.o",
+    "section": ".tweak_bind_all",
+    "section_vram": 2147711520,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_80038228",
+    "rom": 233000,
+    "vram": 2147713576,
+    "size": 360,
+    "source": "src/game/tweak_scale_enemy_speeds.c",
+    "object": "build/us/tweak_scale_enemy_speeds.o",
+    "section": ".tweak_scale_enemy_speeds",
+    "section_vram": 2147713576,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_80038390",
+    "rom": 233360,
+    "vram": 2147713936,
+    "size": 52,
+    "source": "src/game/resource_string_reset.c",
+    "object": "build/us/resource_string_reset.o",
+    "section": ".resource_string_reset",
+    "section_vram": 2147713936,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
     "name": "func_800383C4",
     "rom": 233412,
     "vram": 2147713988,
@@ -2001,6 +2309,28 @@
     "section": ".string_resource",
     "section_vram": 2147713988,
     "evidence": "docs/movie-commands.md"
+  },
+  {
+    "name": "func_800383F8",
+    "rom": 233464,
+    "vram": 2147714040,
+    "size": 160,
+    "source": "src/game/resource_string_find.c",
+    "object": "build/us/resource_string_find.o",
+    "section": ".resource_string_find",
+    "section_vram": 2147714040,
+    "evidence": "docs/tweaks-and-strings.md"
+  },
+  {
+    "name": "func_80038498",
+    "rom": 233624,
+    "vram": 2147714200,
+    "size": 212,
+    "source": "src/game/resource_string_load.c",
+    "object": "build/us/resource_string_load.o",
+    "section": ".resource_string_load",
+    "section_vram": 2147714200,
+    "evidence": "docs/tweaks-and-strings.md"
   },
   {
     "name": "func_800394C0",

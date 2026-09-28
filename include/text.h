@@ -60,7 +60,7 @@ typedef struct TextGlyphResource {
     unsigned char actorKind;
     unsigned char unknown03[3];
     ActorResourceFlags flags06;
-    unsigned char unknown08[4];
+    int speed;
     int scale;
     unsigned char unknown10[2];
     short field12;

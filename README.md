@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 486 matching C functions covering 58,780 bytes, plus a 56-byte reconstructed assembly entry. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 516 matching C functions covering 64,152 bytes, plus a 56-byte reconstructed assembly entry. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -47,6 +47,8 @@ Progress is generated in `build/us/progress.json` from linked-byte comparisons, 
 ## Source and references
 
 The reconstructed game source covers text and object helpers, movie commands and track files, actor lifecycle and resource loading, object-definition and scene commands, shell and save menus, background scrolling, palette controls, startup and scheduler dispatch, graphics tasks, frame helpers, fixed-point math, memory and ROM-file services, controller input, save files, and substantial game-side audio management. [Movie recovery](docs/movie-commands.md), [actor resources](docs/actor-resources.md), [object definitions and shell menus](docs/session-setup.md), [scene commands and backgrounds](docs/scene-commands.md), [save menus](docs/save-menus.md), [palette effects](docs/palette-effects.md), [controller services](docs/controller-services.md), [save format](docs/save-game.md), and [Pak files](docs/pak-files.md) record the recovered ranges and layouts.
+
+The [tweak and string services](docs/tweaks-and-strings.md) recover the 100 named gameplay bindings, difficulty application, string lookup, and companion-file loading. [Script services](docs/script-services.md) cover cache lifecycle and script-setup commands, while [actor motion](docs/actor-motion.md) records the completed mode switch and remaining motion candidates.
 
 SDK implementations adapted directly from reference projects remain in local research. Their checkouts do not provide a redistribution license covering those implementations, so this public checkpoint uses extracted SDK fallback and excludes those functions from its source counts. SDK research notes identify that separate scope. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
 

@@ -27,7 +27,7 @@ void func_8003C5EC();
 void func_8003C5F4();
 void func_8003C5FC(void);
 void func_8003C604(void);
-void func_8003C60C(void);
+void func_8003C60C();
 void func_8003C614(void);
 void func_8003C61C(void);
 void func_8003C624(void);
