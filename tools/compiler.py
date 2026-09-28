@@ -1,0 +1,212 @@
+"""Compile recovered C with the profile verified for that source file."""
+
+import argparse
+from pathlib import Path
+import struct
+import subprocess
+
+from rom import ROOT
+from toolchain import installed_identity
+
+
+PROFILES = {
+    "sdk-o2-mips2-r4300-mul": ("-O2", "-G", "0", "-non_shared", "-mips2", "-32", "-Wab,-r4300_mul"),
+    "sdk-o3-mips2-r4300-mul": ("-O3", "-G", "0", "-non_shared", "-mips2", "-32", "-Wab,-r4300_mul"),
+    "sdk-o3-mips2": ("-O3", "-G", "0", "-non_shared", "-mips2", "-32"),
+    "sdk-o1-mips3": ("-O1", "-G", "0", "-non_shared", "-mips3", "-32"),
+    "sdk-o2-mips2": ("-O2", "-G", "0", "-non_shared", "-mips2", "-32"),
+    "game": ("-O2", "-G", "0", "-non_shared", "-mips1", "-32"),
+    "sdk-o1-mips2": ("-O1", "-G", "0", "-non_shared", "-mips2", "-32"),
+}
+
+# Add a source only after comparing its complete functions with the retail ROM.
+SOURCE_PROFILES = {
+    "src/libultra/ai_buffer.c": "sdk-o1-mips2",
+    "src/libultra/ai_busy.c": "sdk-o1-mips2",
+    "src/libultra/ai_frequency.c": "sdk-o1-mips2",
+    "src/libultra/ai_length.c": "sdk-o1-mips2",
+    "src/libultra/audio_aux_bus.c": "sdk-o3-mips2",
+    "src/libultra/audio_copy.c": "sdk-o3-mips2",
+    "src/libultra/audio_decoder.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/audio_effect_allocate.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/audio_effect_buffers.c": "sdk-o3-mips2",
+    "src/libultra/audio_effect_init.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/audio_effect_modulation.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/audio_effect_parameters.c": "sdk-o3-mips2",
+    "src/libultra/audio_effect_pull.c": "sdk-o3-mips2",
+    "src/libultra/audio_effect_source.c": "sdk-o3-mips2",
+    "src/libultra/audio_envelope.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/audio_filter_constructors.c": "sdk-o3-mips2",
+    "src/libultra/audio_filter_init.c": "sdk-o2-mips2",
+    "src/libultra/audio_globals.c": "sdk-o2-mips2",
+    "src/libultra/audio_heap_alloc.c": "sdk-o2-mips2",
+    "src/libultra/audio_heap_init.c": "sdk-o2-mips2",
+    "src/libultra/audio_main_bus.c": "sdk-o3-mips2",
+    "src/libultra/audio_resample.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/audio_save.c": "sdk-o3-mips2",
+    "src/libultra/audio_sp.c": "sdk-o1-mips2",
+    "src/libultra/audio_synth_allocate.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/audio_synth_delete.c": "sdk-o2-mips2",
+    "src/libultra/audio_synth_free_voice.c": "sdk-o3-mips2",
+    "src/libultra/audio_synth_pan.c": "sdk-o2-mips2",
+    "src/libultra/audio_synth_pitch.c": "sdk-o2-mips2",
+    "src/libultra/audio_synth_player.c": "sdk-o2-mips2",
+    "src/libultra/audio_synth_priority.c": "sdk-o2-mips2",
+    "src/libultra/audio_synth_start.c": "sdk-o3-mips2",
+    "src/libultra/audio_synth_stop.c": "sdk-o2-mips2",
+    "src/libultra/audio_synth_volume.c": "sdk-o2-mips2",
+    "src/libultra/audio_synthesizer.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/audio_vi.c": "sdk-o1-mips2",
+    "src/libultra/compiler_arithmetic.c": "sdk-o1-mips3",
+    "src/libultra/controller_crc.c": "sdk-o1-mips2",
+    "src/libultra/controller_init.c": "sdk-o1-mips2",
+    "src/libultra/controller_read.c": "sdk-o1-mips2",
+    "src/libultra/epi_dma.c": "sdk-o1-mips2",
+    "src/libultra/epi_raw_read.c": "sdk-o1-mips2",
+    "src/libultra/epi_raw_write.c": "sdk-o1-mips2",
+    "src/libultra/event_message.c": "sdk-o1-mips2",
+    "src/libultra/gu_cosine.c": "sdk-o2-mips2",
+    "src/libultra/gu_cosine_float.c": "sdk-o2-mips2-r4300-mul",
+    "src/libultra/gu_lookathilite.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/gu_mtxutil.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/gu_perspective.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/gu_random.c": "sdk-o2-mips2",
+    "src/libultra/gu_rotate_rpy.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/gu_sine.c": "sdk-o2-mips2",
+    "src/libultra/gu_sine_float.c": "sdk-o2-mips2-r4300-mul",
+    "src/libultra/gu_translate.c": "sdk-o3-mips2-r4300-mul",
+    "src/libultra/interrupt_global_clear.c": "sdk-o1-mips2",
+    "src/libultra/interrupt_global_set.c": "sdk-o1-mips2",
+    "src/libultra/message_jam.c": "sdk-o1-mips2",
+    "src/libultra/message_queue_create.c": "sdk-o1-mips2",
+    "src/libultra/message_receive.c": "sdk-o1-mips2",
+    "src/libultra/message_send.c": "sdk-o1-mips2",
+    "src/libultra/pfs_allocate_file.c": "sdk-o1-mips2",
+    "src/libultra/pfs_checker.c": "sdk-o1-mips2",
+    "src/libultra/pfs_cont_ram_read.c": "sdk-o1-mips2",
+    "src/libultra/pfs_cont_ram_write.c": "sdk-o1-mips2",
+    "src/libultra/pfs_contpfs.c": "sdk-o1-mips2",
+    "src/libultra/pfs_delete_file.c": "sdk-o1-mips2",
+    "src/libultra/pfs_file_state.c": "sdk-o1-mips2",
+    "src/libultra/pfs_free_blocks.c": "sdk-o1-mips2",
+    "src/libultra/pfs_get_status.c": "sdk-o1-mips2",
+    "src/libultra/pfs_init_pak.c": "sdk-o1-mips2",
+    "src/libultra/pfs_is_plug.c": "sdk-o1-mips2",
+    "src/libultra/pfs_motor.c": "sdk-o1-mips2",
+    "src/libultra/pfs_num_files.c": "sdk-o1-mips2",
+    "src/libultra/pfs_read_write_file.c": "sdk-o1-mips2",
+    "src/libultra/pfs_search_file.c": "sdk-o1-mips2",
+    "src/libultra/pi_access.c": "sdk-o1-mips2",
+    "src/libultra/pi_event.c": "sdk-o1-mips2",
+    "src/libultra/pi_get_queue.c": "sdk-o1-mips2",
+    "src/libultra/pi_manager_create.c": "sdk-o1-mips2",
+    "src/libultra/pi_raw_dma.c": "sdk-o1-mips2",
+    "src/libultra/pi_raw_read.c": "sdk-o1-mips2",
+    "src/libultra/pi_read.c": "sdk-o1-mips2",
+    "src/libultra/pi_start_dma.c": "sdk-o1-mips2",
+    "src/libultra/si_access.c": "sdk-o1-mips2",
+    "src/libultra/si_busy.c": "sdk-o1-mips2",
+    "src/libultra/si_dma.c": "sdk-o1-mips2",
+    "src/libultra/si_raw_read.c": "sdk-o1-mips2",
+    "src/libultra/si_raw_write.c": "sdk-o1-mips2",
+    "src/libultra/sp_busy.c": "sdk-o1-mips2",
+    "src/libultra/sp_dma.c": "sdk-o1-mips2",
+    "src/libultra/sp_get_status.c": "sdk-o1-mips2",
+    "src/libultra/sp_set_pc.c": "sdk-o1-mips2",
+    "src/libultra/sp_set_status.c": "sdk-o1-mips2",
+    "src/libultra/sp_task.c": "sdk-o1-mips2",
+    "src/libultra/sp_yield.c": "sdk-o1-mips2",
+    "src/libultra/sp_yielded.c": "sdk-o1-mips2",
+    "src/libultra/thread_create.c": "sdk-o1-mips2",
+    "src/libultra/thread_destroy.c": "sdk-o1-mips2",
+    "src/libultra/thread_get_priority.c": "sdk-o1-mips2",
+    "src/libultra/thread_priority.c": "sdk-o1-mips2",
+    "src/libultra/thread_start.c": "sdk-o1-mips2",
+    "src/libultra/thread_yield.c": "sdk-o1-mips2",
+    "src/libultra/time_get.c": "sdk-o1-mips2",
+    "src/libultra/timer_compare.c": "sdk-o1-mips2",
+    "src/libultra/timer_init.c": "sdk-o1-mips2",
+    "src/libultra/timer_insert.c": "sdk-o1-mips2",
+    "src/libultra/timer_interrupt.c": "sdk-o1-mips2",
+    "src/libultra/timer_set.c": "sdk-o1-mips2",
+    "src/libultra/vi_black.c": "sdk-o1-mips2",
+    "src/libultra/vi_context.c": "sdk-o1-mips2",
+    "src/libultra/vi_event.c": "sdk-o1-mips2",
+    "src/libultra/vi_features.c": "sdk-o1-mips2",
+    "src/libultra/vi_manager.c": "sdk-o1-mips2",
+    "src/libultra/vi_mode.c": "sdk-o1-mips2",
+    "src/libultra/vi_vertical_scale.c": "sdk-o1-mips2",
+    "src/libultra/virtual_to_physical.c": "sdk-o1-mips2",
+}
+
+
+def profile_for_source(source):
+    path = Path(source)
+    if not path.is_absolute():
+        path = ROOT / path
+    relative = path.resolve().relative_to(ROOT.resolve()).as_posix()
+    name = SOURCE_PROFILES.get(relative, "game")
+    return {"name": name, "version": "5.3", "flags": list(PROFILES[name])}
+
+
+def compiler_command(source, output, compiler=None):
+    profile = profile_for_source(source)
+    executable = ROOT / ".local/toolchain" / profile["version"] / "cc"
+    if compiler is not None:
+        requested = Path(compiler)
+        if not requested.is_absolute():
+            requested = ROOT / requested
+        if requested.resolve() != executable.resolve():
+            raise ValueError("The compiler must be the pinned executable for the source profile")
+    return [str(executable), "-c", *profile["flags"], "-o", str(output), str(source)]
+
+
+def normalize_mips3_o32(data):
+    """Describe IDO -mips3 -32 output's existing ABI for GNU binutils.
+
+    IDO leaves the ABI field unset. GNU ld otherwise interprets this MIPS III
+    object as 64-bit code when combining it with the game's o32 objects.
+    Only EF_MIPS_ABI_O32 is added; sections and the ISA field stay unchanged.
+    """
+    if len(data) < 52 or data[:7] != b"\x7fELF\x01\x02\x01":
+        raise ValueError("Expected an ELF32 big-endian object")
+    kind, machine, version = struct.unpack_from(">HHI", data, 16)
+    if (kind, machine, version) != (1, 8, 1):
+        raise ValueError("Expected a relocatable MIPS object")
+    flags = struct.unpack_from(">I", data, 36)[0]
+    if flags & 0xF0000000 != 0x20000000:
+        raise ValueError("Expected the MIPS III ISA for o32 normalization")
+    if flags & 0xF000 not in (0, 0x1000) or flags & 0x220:
+        raise ValueError("Object declares an incompatible ABI or FP register width")
+    result = bytearray(data)
+    struct.pack_into(">I", result, 36, flags | 0x1000)
+    return bytes(result)
+
+
+def compile_source(source, output, compiler=None):
+    profile = profile_for_source(source)
+    command = compiler_command(source, output, compiler)
+    installed_identity(profile["version"])
+    subprocess.run(command, check=True, cwd=ROOT)
+    if "-mips3" in profile["flags"]:
+        destination = Path(output)
+        if not destination.is_absolute():
+            destination = ROOT / destination
+        original = destination.read_bytes()
+        normalized = normalize_mips3_o32(original)
+        # Retain the unmodified compiler output alongside the linker input.
+        destination.with_name(destination.name + ".ido").write_bytes(original)
+        destination.write_bytes(normalized)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source")
+    parser.add_argument("-o", "--output", required=True)
+    parser.add_argument("--cc", type=Path)
+    args = parser.parse_args()
+    compile_source(args.source, args.output, args.cc)
+
+
+if __name__ == "__main__":
+    main()

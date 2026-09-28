@@ -7,6 +7,8 @@ typedef struct ObjectTransform {
     float angle[3];
     float position[3];
 } ObjectTransform;
+typedef struct ObjectDrawResource ObjectDrawResource;
+typedef struct ObjectModel ObjectModel;
 typedef struct ObjectRecord {
     short unknown00;
     short index02;
@@ -15,14 +17,21 @@ typedef struct ObjectRecord {
     unsigned char unknown0C[6];
     unsigned char property12;
     unsigned char enabled13;
-    unsigned char unknown14[4];
+    unsigned char unknown14[2];
+    unsigned short value16;
     ObjectTransform *transform;
-    unsigned char unknown1C[32];
+    ObjectTransform localTransform;
+    unsigned int draw38;
     int scale[3];
     int angle[3];
     int position[3];
-    unsigned char unknown60[24];
+    unsigned char unknown60[12];
+    ObjectDrawResource *drawResource;
+    int drawValue70;
+    ObjectModel *model;
 } ObjectRecord;
+
+typedef char ObjectRecordMustBe120Bytes[sizeof(ObjectRecord) == 0x78 ? 1 : -1];
 extern ObjectRecord D_800BF918[];
 extern float D_FLT_80094C20;
 extern float D_FLT_80094C24;

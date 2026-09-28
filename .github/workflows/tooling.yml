@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+      - name: Install MIPS binutils for synthetic linker checks
+        run: sudo apt-get update && sudo apt-get install -y binutils-mips-linux-gnu
       - name: Tool tests without commercial inputs
         run: make test
       - name: Reject tracked ROMs and generated binaries

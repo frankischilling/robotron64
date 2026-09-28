@@ -2,15 +2,52 @@
 
 Run `make setup`, `make -j4`, `make verify`, and `make progress` from Linux or WSL2. A clean rebuild starts with `make clean`. This removes generated build files, leaving the user-provided baserom and downloaded toolchain intact.
 
-The linker places compiled text, object, and startup routines in their original ROM ranges. `config/functions.json` records every counted function; `linker_scripts/us.ld` also places compiler-generated text tables. Reconstructed entry assembly and alignment bytes supply `0x1000..0x1050`. Other ranges come from validated local extraction. `make verify` compares the complete output byte for byte and reports its SHA-256. Most bytes still depend on binary fallback.
+The linker places compiled text, object, startup, scheduler, graphics, and frame routines in their original ROM ranges. `config/functions.json` records every counted function; `linker_scripts/us.ld` also places compiler-generated text tables. Reconstructed entry assembly and alignment bytes supply `0x1000..0x1050`. Other ranges come from validated local extraction. `make verify` compares the complete output byte for byte and reports its SHA-256. Most bytes still depend on binary fallback.
 
-`make progress` checks linked and input-object symbol addresses and sizes, actual ELF section VMA/LMA values, and each function's containment in its section. It extracts the linked section and compares each function's bytes to its target range. Using linked bytes resolves relocations before comparison. It fails on overlaps, incorrect placement, wrong symbol sizes, or byte differences. Unknown code totals and percentages are represented as JSON null.
+`make progress` checks linked and input-object symbol addresses and sizes,
+actual ELF section VMA/LMA values, and each function's containment in its
+section. For static C procedures whose names IDO omits from ELF, it verifies
+the compiler's paired procedure/end records as described in
+[static-function verification](ido-static-functions.md). It extracts the linked
+section and compares each function's bytes to its target range. Using linked
+bytes resolves relocations before comparison. It fails on overlaps, incorrect
+placement, wrong extents, or byte differences. Unknown code totals and
+percentages are represented as JSON null.
 
 Every successful source build writes a sibling `.o.provenance.json` record containing its source path and hashes of the source, declared include headers, and final object. Progress requires the manifest source to match this recorded input and rejects changed inputs or objects. Missing records require rebuilding the affected object. These generated records remain under `build/` and are never committed.
 
 `make test` validates the manifest without a ROM and runs synthetic regressions for incorrect source attribution, stale inputs/objects, and wrong section load/runtime addresses. Public metadata validation checks paths and declared relationships; the local ROM build provides the compiled evidence.
 
 Assembly has separate function and byte counters. The 56-byte entry routine contributes no matching-C bytes; its 24 alignment bytes are unmeasured. `unmeasured_rom_bytes` includes those bytes and all extracted fallback. The excluded `src/game/text_replacement.c` candidate does not contribute to matching progress.
+
+This checkpoint contains 340 matching C functions and 41,276 C bytes. Its two
+source-owned script tables contribute 136 initialized bytes. The table at
+`0x80078150` contains thirteen movie handler/argument-count records, and the
+32-byte table at `0x8009416C` is emitted from the machine-selector switch.
+Their linked bytes, relocations, section extents and symbol ownership are
+verified separately from function counts. Reference-derived SDK implementation
+files remain local research; the public build extracts their target ranges
+and counts none of those ranges as distributed source.
+
+`python3 tools/compare_startup.py` independently compares the 928-byte startup range and the 2,928-byte scheduler range. `python3 tools/compare_runtime.py` covers the scheduler, its separate tail, and the other recovered runtime objects. Both resolve only symbols reported as undefined by the compiled object. A definition produced by the source is never replaced with an absolute linker assignment. Synthetic tests cover that rule and reject unrecorded aliases or conflicting encoded addresses.
+
+A batch validates its symbol layout once and retains hashes of both symbol
+files and both ownership manifests. It rechecks those hashes before linking
+and after comparison. A source or header change during compilation also
+fails the comparison. This avoids repeatedly traversing every manifest path
+for every object while preserving detection of changed build inputs.
+
+The runtime comparison removes only verified trailing zero alignment bytes that lie outside the mapped range, using the same symbol/relocation checks as the main build. `--candidates` selects excluded research sources, records every instruction-word difference, and exits nonzero when any source differs. Public CI checks metadata and tooling; it does not perform commercial-ROM comparisons.
+
+`python3 tools/compare_assembly.py` independently assembles the manifest's
+assembly source with GNU MIPS binutils. It checks every declared function's
+symbol type, offset, and live extent, rejects unrecorded allocated sections,
+and compares the entire linked text with the target. Unowned text must be
+zero alignment. An exact weak alias is checked as another name for the same
+range and contributes no second function. Synthetic assembler tests reject
+partial aliases, unrecorded procedures, overlapping function counts, and
+nonzero instructions hidden outside the declared ranges. In this public
+checkpoint the comparison covers the 56-byte entry and its 24 zero bytes.
 
 For a selected ROM range:
 

@@ -38,6 +38,9 @@ def validate_manifest(functions, rom_size, root=ROOT):
         language = function.get("language", "C")
         if language not in {"C", "assembly"}:
             raise ValueError(f"Unsupported source language for {name}: {language}")
+        linkage = function.get("linkage", "external")
+        if linkage not in {"external", "static"} or (linkage == "static" and language != "C"):
+            raise ValueError(f"Unsupported function linkage for {name}: {linkage}")
         for field in ("rom", "vram", "size", "section_vram"):
             if type(function.get(field)) is not int:
                 raise ValueError(f"{name}: {field} must be an integer")
@@ -82,6 +85,10 @@ def load_manifest(root=ROOT):
 
 
 if __name__ == "__main__":
+    from owned_sections import load_owned_sections, validate_function_ranges
     records = load_manifest()
+    owned = load_owned_sections()
+    validate_function_ranges(owned, records)
     print(f"Validated {len(records)} function records and their source/evidence paths; "
+          f"{len(owned)} source-owned data/BSS sections; "
           "binary matching requires the local ROM build")

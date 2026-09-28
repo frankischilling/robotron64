@@ -1,5 +1,8 @@
 /* Startup and the thread 3 loop. See docs/startup.md. */
 #include "../../include/scheduler.h"
+#include "../../include/audio_runtime.h"
+#include "../../include/frame.h"
+#include "../../include/graphics_tasks.h"
 
 extern OSThread D_80139280, D_8013A430;
 extern unsigned char D_8013B430[], D_8013C5E0[];
@@ -19,24 +22,16 @@ extern OSMesg D_8013D828[];
 extern unsigned int D_80000300;
 extern unsigned char D_80095420[];
 extern void *D_8013823C;
-extern unsigned char D_80138248[];
 extern int D_80138250, D_8007D8F0;
 
-void func_80048D90(int);
-void func_8005109C(int, int);
-void func_8004FE44(Scheduler *);
 void func_8004C090(void);
 void func_800470F4(void);
 void func_8002205C(void *);
-void func_80048510(void);
 void func_80048DDC(void *);
 void func_80005DEC(void);
 void func_80022D24(void);
-void func_800489F4(void);
 void func_800400D0(void);
 void func_800466E4(void);
-int func_800495BC(void *);
-void func_80048BF8(void);
 void func_80045514(void);
 
 void func_80048170(void)
@@ -111,7 +106,7 @@ void func_80048460(void)
     func_80048DDC(D_8013823C);
     func_800400D0();
     func_800466E4();
-    D_80138250 = 1000 / func_800495BC(D_80138248);
+    D_80138250 = 1000 / func_800495BC(&D_80138248);
     D_8007D8F0++;
     func_80048BF8();
     func_80045514();

@@ -28,9 +28,12 @@ def trim(data, name, size):
     index = indices[0]
     section = sections[index]
     start, old_size = section[4:6]
-    if section[1] != 1 or size < 0 or size > old_size or start + old_size > len(data):
+    if section[1] not in (1, 8) or size < 0 or size > old_size:
         raise ValueError('Invalid section extent')
-    if old_size - size >= 16 or any(data[start + size:start + old_size]):
+    if section[1] == 1 and start + old_size > len(data):
+        raise ValueError('Invalid section extent')
+    if old_size - size >= 16 or (section[1] == 1 and
+                               any(data[start + size:start + old_size])):
         raise ValueError('Tail is not sub-16-byte zero alignment padding')
     result = bytearray(data)
     for s in sections:

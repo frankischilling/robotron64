@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. The bootstrap build reproduces the target ROM byte for byte with sixty matching C functions and extracted binary fallbacks. Most code and data remain unexplored.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 340 matching C functions covering 41,276 bytes, plus a 56-byte reconstructed assembly entry. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -38,11 +38,17 @@ make verify
 make progress
 ```
 
-Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The original compiler version remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
+Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The recovered game sources use their verified O2/MIPS I profile; a project-wide original compiler identification remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
 
-Progress is generated in `build/us/progress.json` from linked-byte comparisons, actual ELF section addresses, input-object symbols, and recorded source/header/object hashes. The current result is sixty matching C functions, 7,696 bytes, plus 56 bytes of reconstructed assembly. The total code size and function count are unknown, so a whole-game percentage is not reported. See [matching evidence](docs/matching.md) and [toolchain investigation](docs/toolchain.md).
+Progress is generated in `build/us/progress.json` from linked-byte comparisons, actual ELF section addresses, input-object symbols, and recorded source/header/object hashes. Every counted function belongs to a source file present in this checkout. The total executable size and function count are not established, so a whole-game percentage is not reported. See [matching evidence](docs/matching.md) and [toolchain investigation](docs/toolchain.md).
 
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
+
+## Source and references
+
+The reconstructed game source covers text and object helpers, movie commands and setup, actor lifecycle, startup and scheduler dispatch, graphics tasks, frame helpers, fixed-point math, memory and ROM-file services, controller input, and substantial game-side audio management. [Movie recovery](docs/movie-commands.md), [actor lifecycle](docs/actors.md), [object math](docs/object-math.md), and [audio generation](docs/audio-generation.md) record the newer ranges and layouts.
+
+SDK implementations adapted directly from reference projects remain in local research. Their checkouts do not provide a redistribution license covering those implementations, so this public checkpoint uses extracted SDK fallback and excludes those functions from its source counts. SDK research notes identify that separate scope. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
 
 ## Development
 
@@ -50,7 +56,7 @@ Track work through GitHub Issues and submit coherent branches through pull reque
 
 `config/` records the target and symbols; `src/` contains reconstructed C; `linker_scripts/` places compiled and extracted regions; `tools/` contains project tooling; and `docs/` records binary evidence and uncertainties. See [the ROM map](docs/rom-map.md) and [bootstrap status](docs/bootstrap-status.md).
 
-The [startup evidence](docs/startup.md) records the reconstructed assembly entry, initial PI reads, thread handoff, thread 3 initialization, and entry into the game loop. [Scheduler evidence](docs/scheduler.md) covers the matching creation routine, six queues, three threads, and queue accessors. The Makefile explicitly selects integrated source files.
+The [startup evidence](docs/startup.md) records the reconstructed assembly entry, initial PI reads, thread handoff, thread 3 initialization, and entry into the game loop. [Scheduler creation](docs/scheduler.md) and [scheduler runtime](docs/scheduler-runtime.md) cover all three dispatcher threads, client notifications, audio/graphics handoffs, SP yielding, DP completion, and framebuffer swaps. The Makefile explicitly selects integrated source files.
 `make analysis-setup` and `make analyze` generate an optional local disassembly and provisional function inventory. See [executable inventory](docs/executable-inventory.md); these estimates do not contribute to matching percentages.
 
 [Text matching evidence](docs/text.md) covers the buffer-clear wrapper, character mappings, generated jump table, and 3D text object creation.
@@ -69,3 +75,12 @@ The [startup evidence](docs/startup.md) records the reconstructed assembly entry
 [Text conversion](docs/text-conversion.md) records the matched integer/float helper and an initial inventory of the next large routine.
 
 [Object transform evidence](docs/object-transforms.md) covers 32 matched transform and property helpers, including the target's seven empty routines.
+
+[Graphics task production](docs/graphics-tasks.md) covers the shared task record, both microcode choices, completion waits, and RDP setup commands. [Frame helpers](docs/frame-runtime.md) cover palette state, elapsed-time sampling, and fixed-point transforms.
+
+Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame and pacing sources and exits nonzero while they differ. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
+
+`python3 tools/compare_startup.py` independently checks startup and scheduler
+creation/dispatch. `python3 tools/compare_assembly.py` separately reassembles
+the entry routine, verifies its live symbol extent, and compares its full
+linked text and alignment bytes with the target.

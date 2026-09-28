@@ -80,6 +80,15 @@ class ManifestTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Conflicting source"):
             self.check([self.function, other])
 
+    def test_accepts_explicit_static_c_but_rejects_unknown_linkage(self):
+        self.check([dict(self.function, linkage="static")])
+        with self.assertRaisesRegex(ValueError, "linkage"):
+            self.check([dict(self.function, linkage="unknown")])
+        (self.root / "src/entry.s").write_text(".text\n")
+        with self.assertRaisesRegex(ValueError, "linkage"):
+            self.check([dict(self.function, source="src/entry.s", language="assembly",
+                             linkage="static")])
+
     def test_rejects_invalid_record_shapes_and_paths(self):
         for functions in ([], {}, [None], [{"name": "incomplete"}]):
             with self.subTest(functions=functions):

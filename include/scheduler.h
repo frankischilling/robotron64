@@ -4,6 +4,8 @@
 typedef struct OSThread OSThread;
 typedef struct OSMesgQueue OSMesgQueue;
 typedef struct Scheduler Scheduler;
+typedef struct SchedulerTask SchedulerTask;
+typedef struct SchedulerClient SchedulerClient;
 typedef void *OSMesg;
 
 enum {
@@ -29,10 +31,36 @@ enum {
     SCHEDULER_PRENMI = 0x29D
 };
 
-/* Thread fields are opaque here; scheduler storage slots are 0x1B0 bytes. */
+/* Register offsets are read by the retail context restore at 0x800671D4. */
+typedef struct OSThreadContext {
+    unsigned long long at, v0, v1, a0, a1, a2, a3;
+    unsigned long long t0, t1, t2, t3, t4, t5, t6, t7;
+    unsigned long long s0, s1, s2, s3, s4, s5, s6, s7;
+    unsigned long long t8, t9, gp, sp, s8, ra, lo, hi;
+    unsigned int status;
+    unsigned int pc;
+    unsigned int unknown120;
+    unsigned int unknown124;
+    unsigned int rcpMask;
+    unsigned int fpcsr;
+    unsigned long long fp[16];
+} OSThreadContext;
+
 struct OSThread {
-    unsigned long long unknown[54];
+    OSThread *next;
+    int priority;
+    OSThread **queue;
+    OSThread *activeNext;
+    unsigned short state;
+    unsigned short flags;
+    int id;
+    int fpUsed;
+    unsigned int unknown1C;
+    OSThreadContext context;
 };
+
+typedef char OSThreadContextMustBe400Bytes[sizeof(OSThreadContext) == 0x190 ? 1 : -1];
+typedef char OSThreadMustBe432Bytes[sizeof(OSThread) == 0x1B0 ? 1 : -1];
 
 struct OSMesgQueue {
     OSThread *receivers;
@@ -61,11 +89,11 @@ struct Scheduler {
     OSThread thread158;
     OSThread thread308;
     OSThread thread4B8;
-    unsigned int unknown668;
-    unsigned int unknown66C;
-    unsigned int unknown670;
-    unsigned int unknown674;
-    unsigned int unknown678;
+    SchedulerClient *clients;
+    SchedulerTask *graphicsTask;
+    SchedulerTask *audioTask;
+    SchedulerTask *waitingGraphicsTask;
+    unsigned int firstGraphicsTask;
 };
 
 /* The target indexes this table with an 80-byte stride. */
@@ -84,6 +112,8 @@ extern VideoMode D_8008E400[];
 extern Scheduler D_801378D0;
 
 void osCreateMesgQueue(OSMesgQueue *, OSMesg *, int);
+int func_80062240(OSMesgQueue *, OSMesg *, int);
+int func_800635A0(OSMesgQueue *, OSMesg, int);
 void osCreateThread(OSThread *, int, void (*)(void *), void *, void *, int);
 void osStartThread(OSThread *);
 void osViSetSpecialFeatures(unsigned int);

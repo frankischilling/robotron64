@@ -1,0 +1,26 @@
+[
+  {
+    "source": "src/game/movie_prepare.c",
+    "object": "build/us/movie_prepare.o",
+    "input_section": ".data",
+    "section": ".movie_commands_data",
+    "vram": 2147975504,
+    "rom": 494928,
+    "size": 104,
+    "symbols": {
+      "D_80078150": 0
+    },
+    "evidence": "docs/movie-commands.md"
+  },
+  {
+    "source": "src/game/command_machine.c",
+    "object": "build/us/command_machine.o",
+    "input_section": ".rodata",
+    "section": ".command_machine_table",
+    "vram": 2148090220,
+    "rom": 609644,
+    "size": 32,
+    "symbols": {},
+    "evidence": "docs/movie-commands.md"
+  }
+]
