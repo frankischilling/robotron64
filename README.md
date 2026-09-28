@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 383 matching C functions covering 48,604 bytes, plus a 56-byte reconstructed assembly entry. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 435 matching C functions covering 53,396 bytes, plus a 56-byte reconstructed assembly entry. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -46,7 +46,7 @@ Progress is generated in `build/us/progress.json` from linked-byte comparisons, 
 
 ## Source and references
 
-The reconstructed game source covers text and object helpers, movie commands and track files, actor lifecycle, palette controls, startup and scheduler dispatch, graphics tasks, frame helpers, fixed-point math, memory and ROM-file services, controller input, save files, and substantial game-side audio management. [Movie recovery](docs/movie-commands.md), [palette effects](docs/palette-effects.md), [controller services](docs/controller-services.md), [save format](docs/save-game.md), and [Pak files](docs/pak-files.md) record the newer ranges and layouts.
+The reconstructed game source covers text and object helpers, movie commands and track files, actor lifecycle and resource loading, object-definition commands, shell menus, palette controls, startup and scheduler dispatch, graphics tasks, frame helpers, fixed-point math, memory and ROM-file services, controller input, save files, and substantial game-side audio management. [Movie recovery](docs/movie-commands.md), [actor resources](docs/actor-resources.md), [object definitions and shell menus](docs/session-setup.md), [palette effects](docs/palette-effects.md), [controller services](docs/controller-services.md), [save format](docs/save-game.md), and [Pak files](docs/pak-files.md) record the recovered ranges and layouts.
 
 SDK implementations adapted directly from reference projects remain in local research. Their checkouts do not provide a redistribution license covering those implementations, so this public checkpoint uses extracted SDK fallback and excludes those functions from its source counts. SDK research notes identify that separate scope. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
 

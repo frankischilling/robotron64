@@ -66,6 +66,7 @@ SECTIONS
     .movie_status 0x80005354 : AT(0x5F54) SUBALIGN(4) { build/us/movie_status.o(.text) }
     .movie_cleanup 0x8000544C : AT(0x604C) SUBALIGN(4) { build/us/movie_cleanup.o(.text) }
     .cpu_after_movie_cleanup 0x80005560 : AT(0x6160) { build/us/fallback.o(.rom_cpu_after_movie_cleanup) }
+    .actor_resource_load 0x8001CF68 : AT(0x1DB68) SUBALIGN(4) { build/us/actor_resource_load.o(.text) }
     .actor_resource_reset 0x8001D260 : AT(0x1DE60) SUBALIGN(4) { build/us/actor_resource_reset.o(.text) }
     .cpu_after_actor_resource_reset 0x8001D3F0 : AT(0x1DFF0) { build/us/fallback.o(.rom_cpu_after_actor_resource_reset) }
     .scene_audio_request 0x8001F8E8 : AT(0x204E8) SUBALIGN(4) { build/us/scene_audio_request.o(.text) }
@@ -75,6 +76,53 @@ SECTIONS
     .actor_remove 0x80028274 : AT(0x28E74) SUBALIGN(4) { build/us/actor_remove.o(.text) }
     .actor_sweep 0x8002836C : AT(0x28F6C) SUBALIGN(4) { build/us/actor_sweep.o(.text) }
     .cpu_after_actor_sweep 0x800283D4 : AT(0x28FD4) { build/us/fallback.o(.rom_cpu_after_actor_sweep) }
+    .session_setup_noop 0x8002E65C : AT(0x2F25C) SUBALIGN(4) { build/us/session_setup_noop.o(.text) }
+    .cpu_after_session_setup_noop 0x8002E664 : AT(0x2F264) { build/us/fallback.o(.rom_cpu_after_session_setup_noop) }
+    .session_setup_globals 0x8002ECC4 : AT(0x2F8C4) SUBALIGN(4) { build/us/session_setup_globals.o(.text) }
+    .session_setup_value04 0x8002ECEC : AT(0x2F8EC) SUBALIGN(4) { build/us/session_setup_value04.o(.text) }
+    .session_setup_value14 0x8002ED00 : AT(0x2F900) SUBALIGN(4) { build/us/session_setup_value14.o(.text) }
+    .session_setup_value12 0x8002ED3C : AT(0x2F93C) SUBALIGN(4) { build/us/session_setup_value12.o(.text) }
+    .session_setup_flag13 0x8002ED50 : AT(0x2F950) SUBALIGN(4) { build/us/session_setup_flag13.o(.text) }
+    .session_setup_values08_10 0x8002ED78 : AT(0x2F978) SUBALIGN(4) { build/us/session_setup_values08_10.o(.text) }
+    .session_setup_value1a 0x8002ED9C : AT(0x2F99C) SUBALIGN(4) { build/us/session_setup_value1a.o(.text) }
+    .session_setup_playback_speed 0x8002EDB0 : AT(0x2F9B0) SUBALIGN(4) { build/us/session_setup_playback_speed.o(.text) }
+    .session_setup_value16 0x8002EE24 : AT(0x2FA24) SUBALIGN(4) { build/us/session_setup_value16.o(.text) }
+    .session_setup_validate 0x8002EE38 : AT(0x2FA38) SUBALIGN(4) { build/us/session_setup_validate.o(.text) }
+    .session_setup_script_stop 0x8002EFC4 : AT(0x2FBC4) SUBALIGN(4) { build/us/session_setup_script_stop.o(.text) }
+    .session_setup_animation_create 0x8002EFD8 : AT(0x2FBD8) SUBALIGN(4) { build/us/session_setup_animation_create.o(.text) }
+    .session_setup_global_value 0x8002F088 : AT(0x2FC88) SUBALIGN(4) { build/us/session_setup_global_value.o(.text) }
+    .session_setup_animation_state 0x8002F098 : AT(0x2FC98) SUBALIGN(4) { build/us/session_setup_animation_state.o(.text) }
+    .session_setup_vulnerable 0x8002F100 : AT(0x2FD00) SUBALIGN(4) { build/us/session_setup_vulnerable.o(.text) }
+    .session_setup_model 0x8002F128 : AT(0x2FD28) SUBALIGN(4) { build/us/session_setup_model.o(.text) }
+    .session_setup_animation_file 0x8002F1A4 : AT(0x2FDA4) SUBALIGN(4) { build/us/session_setup_animation_file.o(.text) }
+    .session_setup_texture_map 0x8002F1DC : AT(0x2FDDC) SUBALIGN(4) { build/us/session_setup_texture_map.o(.text) }
+    .session_setup_bitmap 0x8002F23C : AT(0x2FE3C) SUBALIGN(4) { build/us/session_setup_bitmap.o(.text) }
+    .cpu_after_session_setup_bitmap 0x8002F29C : AT(0x2FE9C) { build/us/fallback.o(.rom_cpu_after_session_setup_bitmap) }
+    .session_setup_pair 0x8002F414 : AT(0x30014) SUBALIGN(4) { build/us/session_setup_pair.o(.text) }
+    .session_setup_value58_half 0x8002F450 : AT(0x30050) SUBALIGN(4) { build/us/session_setup_value58_half.o(.text) }
+    .session_setup_value64 0x8002F464 : AT(0x30064) SUBALIGN(4) { build/us/session_setup_value64.o(.text) }
+    .session_setup_value5a 0x8002F49C : AT(0x3009C) SUBALIGN(4) { build/us/session_setup_value5a.o(.text) }
+    .session_setup_value58_word 0x8002F4B0 : AT(0x300B0) SUBALIGN(4) { build/us/session_setup_value58_word.o(.text) }
+    .cpu_after_session_setup_value58_word 0x8002F4C4 : AT(0x300C4) { build/us/fallback.o(.rom_cpu_after_session_setup_value58_word) }
+    .session_menu_selection 0x8002F4D0 : AT(0x300D0) SUBALIGN(4) { build/us/session_menu_selection.o(.text) }
+    .session_menu_preview_update 0x8002F4EC : AT(0x300EC) SUBALIGN(4) { build/us/session_menu_preview_update.o(.text) }
+    .session_menu_preview_create 0x8002F638 : AT(0x30238) SUBALIGN(4) { build/us/session_menu_preview_create.o(.text) }
+    .session_menu_preview_accept 0x8002F79C : AT(0x3039C) SUBALIGN(4) { build/us/session_menu_preview_accept.o(.text) }
+    .session_menu_preview_cancel 0x8002F7C8 : AT(0x303C8) SUBALIGN(4) { build/us/session_menu_preview_cancel.o(.text) }
+    .session_menu_preview_release 0x8002F804 : AT(0x30404) SUBALIGN(4) { build/us/session_menu_preview_release.o(.text) }
+    .session_setup_empty 0x8002F85C : AT(0x3045C) SUBALIGN(4) { build/us/session_setup_empty.o(.text) }
+    .session_menu_exit_game 0x8002F864 : AT(0x30464) SUBALIGN(4) { build/us/session_menu_exit_game.o(.text) }
+    .session_menu_start_single 0x8002F8D0 : AT(0x304D0) SUBALIGN(4) { build/us/session_menu_start_single.o(.text) }
+    .session_setup_menu_reset 0x8002F980 : AT(0x30580) SUBALIGN(4) { build/us/session_setup_menu_reset.o(.text) }
+    .session_menu_show_main 0x8002F9A4 : AT(0x305A4) SUBALIGN(4) { build/us/session_menu_show_main.o(.text) }
+    .session_menu_start_two 0x8002F9D4 : AT(0x305D4) SUBALIGN(4) { build/us/session_menu_start_two.o(.text) }
+    .session_menu_start_alternate 0x8002FA70 : AT(0x30670) SUBALIGN(4) { build/us/session_menu_start_alternate.o(.text) }
+    .session_menu_return 0x8002FAE0 : AT(0x306E0) SUBALIGN(4) { build/us/session_menu_return.o(.text) }
+    .session_menu_level_exit 0x8002FB30 : AT(0x30730) SUBALIGN(4) { build/us/session_menu_level_exit.o(.text) }
+    .session_menu_player_choice 0x8002FB54 : AT(0x30754) SUBALIGN(4) { build/us/session_menu_player_choice.o(.text) }
+    .session_menu_pages 0x8002FC08 : AT(0x30808) SUBALIGN(4) { build/us/session_menu_pages.o(.text) }
+    .session_menu_shell_reset 0x8002FC9C : AT(0x3089C) SUBALIGN(4) { build/us/session_menu_shell_reset.o(.text) }
+    .session_menu_defaults 0x8002FD20 : AT(0x30920) SUBALIGN(4) { build/us/session_menu_defaults.o(.text) }
     .save_options_capture 0x8002FE00 : AT(0x30A00) SUBALIGN(4) { build/us/save_options_capture.o(.text) }
     .save_slot_capture 0x8002FE68 : AT(0x30A68) SUBALIGN(4) { build/us/save_slot_capture.o(.text) }
     .save_options_restore 0x8002FF40 : AT(0x30B40) SUBALIGN(4) { build/us/save_options_restore.o(.text) }
@@ -492,7 +540,8 @@ ASSERT(SIZEOF(.movie_start) == 0x658, "movie_start size changed")
 ASSERT(SIZEOF(.cpu_after_movie_start) == 0x718, "cpu_after_movie_start size changed")
 ASSERT(SIZEOF(.movie_status) == 0xf8, "movie_status size changed")
 ASSERT(SIZEOF(.movie_cleanup) == 0x114, "movie_cleanup size changed")
-ASSERT(SIZEOF(.cpu_after_movie_cleanup) == 0x17d00, "cpu_after_movie_cleanup size changed")
+ASSERT(SIZEOF(.cpu_after_movie_cleanup) == 0x17a08, "cpu_after_movie_cleanup size changed")
+ASSERT(SIZEOF(.actor_resource_load) == 0x2f8, "actor_resource_load size changed")
 ASSERT(SIZEOF(.actor_resource_reset) == 0x190, "actor_resource_reset size changed")
 ASSERT(SIZEOF(.cpu_after_actor_resource_reset) == 0x24f8, "cpu_after_actor_resource_reset size changed")
 ASSERT(SIZEOF(.scene_audio_request) == 0x24, "scene_audio_request size changed")
@@ -501,7 +550,54 @@ ASSERT(SIZEOF(.actor_pool_reset) == 0x38, "actor_pool_reset size changed")
 ASSERT(SIZEOF(.actor_cleanup) == 0xb0, "actor_cleanup size changed")
 ASSERT(SIZEOF(.actor_remove) == 0xf8, "actor_remove size changed")
 ASSERT(SIZEOF(.actor_sweep) == 0x68, "actor_sweep size changed")
-ASSERT(SIZEOF(.cpu_after_actor_sweep) == 0x7a2c, "cpu_after_actor_sweep size changed")
+ASSERT(SIZEOF(.cpu_after_actor_sweep) == 0x6288, "cpu_after_actor_sweep size changed")
+ASSERT(SIZEOF(.session_setup_noop) == 0x8, "session_setup_noop size changed")
+ASSERT(SIZEOF(.cpu_after_session_setup_noop) == 0x660, "cpu_after_session_setup_noop size changed")
+ASSERT(SIZEOF(.session_setup_globals) == 0x28, "session_setup_globals size changed")
+ASSERT(SIZEOF(.session_setup_value04) == 0x14, "session_setup_value04 size changed")
+ASSERT(SIZEOF(.session_setup_value14) == 0x3c, "session_setup_value14 size changed")
+ASSERT(SIZEOF(.session_setup_value12) == 0x14, "session_setup_value12 size changed")
+ASSERT(SIZEOF(.session_setup_flag13) == 0x28, "session_setup_flag13 size changed")
+ASSERT(SIZEOF(.session_setup_values08_10) == 0x24, "session_setup_values08_10 size changed")
+ASSERT(SIZEOF(.session_setup_value1a) == 0x14, "session_setup_value1a size changed")
+ASSERT(SIZEOF(.session_setup_playback_speed) == 0x74, "session_setup_playback_speed size changed")
+ASSERT(SIZEOF(.session_setup_value16) == 0x14, "session_setup_value16 size changed")
+ASSERT(SIZEOF(.session_setup_validate) == 0x18c, "session_setup_validate size changed")
+ASSERT(SIZEOF(.session_setup_script_stop) == 0x14, "session_setup_script_stop size changed")
+ASSERT(SIZEOF(.session_setup_animation_create) == 0xb0, "session_setup_animation_create size changed")
+ASSERT(SIZEOF(.session_setup_global_value) == 0x10, "session_setup_global_value size changed")
+ASSERT(SIZEOF(.session_setup_animation_state) == 0x68, "session_setup_animation_state size changed")
+ASSERT(SIZEOF(.session_setup_vulnerable) == 0x28, "session_setup_vulnerable size changed")
+ASSERT(SIZEOF(.session_setup_model) == 0x7c, "session_setup_model size changed")
+ASSERT(SIZEOF(.session_setup_animation_file) == 0x38, "session_setup_animation_file size changed")
+ASSERT(SIZEOF(.session_setup_texture_map) == 0x60, "session_setup_texture_map size changed")
+ASSERT(SIZEOF(.session_setup_bitmap) == 0x60, "session_setup_bitmap size changed")
+ASSERT(SIZEOF(.cpu_after_session_setup_bitmap) == 0x178, "cpu_after_session_setup_bitmap size changed")
+ASSERT(SIZEOF(.session_setup_pair) == 0x3c, "session_setup_pair size changed")
+ASSERT(SIZEOF(.session_setup_value58_half) == 0x14, "session_setup_value58_half size changed")
+ASSERT(SIZEOF(.session_setup_value64) == 0x38, "session_setup_value64 size changed")
+ASSERT(SIZEOF(.session_setup_value5a) == 0x14, "session_setup_value5a size changed")
+ASSERT(SIZEOF(.session_setup_value58_word) == 0x14, "session_setup_value58_word size changed")
+ASSERT(SIZEOF(.cpu_after_session_setup_value58_word) == 0xc, "cpu_after_session_setup_value58_word size changed")
+ASSERT(SIZEOF(.session_menu_selection) == 0x1c, "session_menu_selection size changed")
+ASSERT(SIZEOF(.session_menu_preview_update) == 0x14c, "session_menu_preview_update size changed")
+ASSERT(SIZEOF(.session_menu_preview_create) == 0x164, "session_menu_preview_create size changed")
+ASSERT(SIZEOF(.session_menu_preview_accept) == 0x2c, "session_menu_preview_accept size changed")
+ASSERT(SIZEOF(.session_menu_preview_cancel) == 0x3c, "session_menu_preview_cancel size changed")
+ASSERT(SIZEOF(.session_menu_preview_release) == 0x58, "session_menu_preview_release size changed")
+ASSERT(SIZEOF(.session_setup_empty) == 0x8, "session_setup_empty size changed")
+ASSERT(SIZEOF(.session_menu_exit_game) == 0x6c, "session_menu_exit_game size changed")
+ASSERT(SIZEOF(.session_menu_start_single) == 0xb0, "session_menu_start_single size changed")
+ASSERT(SIZEOF(.session_setup_menu_reset) == 0x24, "session_setup_menu_reset size changed")
+ASSERT(SIZEOF(.session_menu_show_main) == 0x30, "session_menu_show_main size changed")
+ASSERT(SIZEOF(.session_menu_start_two) == 0x9c, "session_menu_start_two size changed")
+ASSERT(SIZEOF(.session_menu_start_alternate) == 0x70, "session_menu_start_alternate size changed")
+ASSERT(SIZEOF(.session_menu_return) == 0x50, "session_menu_return size changed")
+ASSERT(SIZEOF(.session_menu_level_exit) == 0x24, "session_menu_level_exit size changed")
+ASSERT(SIZEOF(.session_menu_player_choice) == 0xb4, "session_menu_player_choice size changed")
+ASSERT(SIZEOF(.session_menu_pages) == 0x94, "session_menu_pages size changed")
+ASSERT(SIZEOF(.session_menu_shell_reset) == 0x84, "session_menu_shell_reset size changed")
+ASSERT(SIZEOF(.session_menu_defaults) == 0xe0, "session_menu_defaults size changed")
 ASSERT(SIZEOF(.save_options_capture) == 0x68, "save_options_capture size changed")
 ASSERT(SIZEOF(.save_slot_capture) == 0xd8, "save_slot_capture size changed")
 ASSERT(SIZEOF(.save_options_restore) == 0x88, "save_options_restore size changed")

@@ -70,7 +70,7 @@ extern TextGlyphResource D_8009AFD8[];
 extern TextGlyphResource D_8009B138;
 extern unsigned char D_800B6FC8[];
 extern unsigned char D_800B0090[];
-extern unsigned char D_800AD118[];
+extern int D_800AD118;
 extern unsigned char D_800B2168[];
 extern unsigned char D_800ACD8C[];
 extern unsigned char D_8009AFC0[];

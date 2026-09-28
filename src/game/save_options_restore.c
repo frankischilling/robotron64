@@ -4,7 +4,7 @@
 
 void func_8002FF40(SavedOptions *options)
 {
-    func_8003B520(D_800AD2F8, options, 0x18);
+    func_8003B520(&D_800AD2F8, options, 0x18);
     D_800AD314 = options->audio1C;
     D_800AD310 = options->audio18;
     D_8009B190[0].saved.field34 = options->playerField34[0];

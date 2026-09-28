@@ -2,7 +2,8 @@
 #define ROBOTRON_PLATFORM_SERVICES_H
 
 void func_8003BF5C(void);
-void func_8003BF64(void);
+/* Retail stubs retain callers from the platform interface with unused arguments. */
+void func_8003BF64();
 void func_8003BF6C(void);
 void func_8003BF74(void);
 void func_8003BF7C(void);
@@ -23,7 +24,7 @@ void func_8003C5D4(void);
 void func_8003C5DC(void);
 void func_8003C5E4(void);
 void func_8003C5EC(void);
-void func_8003C5F4(void);
+void func_8003C5F4();
 void func_8003C5FC(void);
 void func_8003C604(void);
 void func_8003C60C(void);

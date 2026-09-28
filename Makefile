@@ -847,6 +847,276 @@ build/us/controller_pak_directory.o: src/game/controller_pak_directory.c include
 	$(PYTHON) tools/trim_padding.py build/us/controller_pak_directory.raw.o $@ .text 0x16c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/actor_resource_load.o: src/game/actor_resource_load.c include/actor.h include/actor_resource_internal.h include/game_memory.h include/object.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_resource_load.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_resource_load.raw.o $@ .text 0x2f8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_noop.o: src/game/session_setup_noop.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_noop.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_noop.raw.o $@ .text 0x8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_globals.o: src/game/session_setup_globals.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_globals.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_globals.raw.o $@ .text 0x28
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value04.o: src/game/session_setup_value04.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value04.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value04.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value14.o: src/game/session_setup_value14.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value14.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value14.raw.o $@ .text 0x3c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value12.o: src/game/session_setup_value12.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value12.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value12.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_flag13.o: src/game/session_setup_flag13.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_flag13.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_flag13.raw.o $@ .text 0x28
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_values08_10.o: src/game/session_setup_values08_10.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_values08_10.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_values08_10.raw.o $@ .text 0x24
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value1a.o: src/game/session_setup_value1a.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value1a.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value1a.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_playback_speed.o: src/game/session_setup_playback_speed.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_playback_speed.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_playback_speed.raw.o $@ .text 0x74
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value16.o: src/game/session_setup_value16.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value16.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value16.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_validate.o: src/game/session_setup_validate.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_validate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_validate.raw.o $@ .text 0x18c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_script_stop.o: src/game/session_setup_script_stop.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_script_stop.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_script_stop.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_animation_create.o: src/game/session_setup_animation_create.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_animation_create.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_animation_create.raw.o $@ .text 0xb0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_global_value.o: src/game/session_setup_global_value.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_global_value.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_global_value.raw.o $@ .text 0x10
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_animation_state.o: src/game/session_setup_animation_state.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_animation_state.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_animation_state.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_vulnerable.o: src/game/session_setup_vulnerable.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_vulnerable.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_vulnerable.raw.o $@ .text 0x28
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_model.o: src/game/session_setup_model.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_model.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_model.raw.o $@ .text 0x7c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_animation_file.o: src/game/session_setup_animation_file.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_animation_file.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_animation_file.raw.o $@ .text 0x38
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_texture_map.o: src/game/session_setup_texture_map.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_texture_map.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_texture_map.raw.o $@ .text 0x60
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_bitmap.o: src/game/session_setup_bitmap.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_bitmap.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_bitmap.raw.o $@ .text 0x60
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_pair.o: src/game/session_setup_pair.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_pair.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_pair.raw.o $@ .text 0x3c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value58_half.o: src/game/session_setup_value58_half.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value58_half.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value58_half.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value64.o: src/game/session_setup_value64.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value64.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value64.raw.o $@ .text 0x38
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value5a.o: src/game/session_setup_value5a.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value5a.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value5a.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_value58_word.o: src/game/session_setup_value58_word.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_value58_word.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_value58_word.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_selection.o: src/game/session_menu_selection.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_selection.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_selection.raw.o $@ .text 0x1c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_preview_update.o: src/game/session_menu_preview_update.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_preview_update.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_preview_update.raw.o $@ .text 0x14c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_preview_create.o: src/game/session_menu_preview_create.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_preview_create.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_preview_create.raw.o $@ .text 0x164
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_preview_accept.o: src/game/session_menu_preview_accept.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_preview_accept.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_preview_accept.raw.o $@ .text 0x2c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_preview_cancel.o: src/game/session_menu_preview_cancel.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_preview_cancel.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_preview_cancel.raw.o $@ .text 0x3c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_preview_release.o: src/game/session_menu_preview_release.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_preview_release.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_preview_release.raw.o $@ .text 0x58
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_empty.o: src/game/session_setup_empty.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_empty.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_empty.raw.o $@ .text 0x8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_exit_game.o: src/game/session_menu_exit_game.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_exit_game.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_exit_game.raw.o $@ .text 0x6c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_start_single.o: src/game/session_menu_start_single.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_start_single.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_start_single.raw.o $@ .text 0xb0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_menu_reset.o: src/game/session_setup_menu_reset.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_menu_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_menu_reset.raw.o $@ .text 0x24
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_show_main.o: src/game/session_menu_show_main.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_show_main.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_show_main.raw.o $@ .text 0x30
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_start_two.o: src/game/session_menu_start_two.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_start_two.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_start_two.raw.o $@ .text 0x9c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_start_alternate.o: src/game/session_menu_start_alternate.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_start_alternate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_start_alternate.raw.o $@ .text 0x70
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_return.o: src/game/session_menu_return.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_return.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_return.raw.o $@ .text 0x50
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_level_exit.o: src/game/session_menu_level_exit.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_level_exit.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_level_exit.raw.o $@ .text 0x24
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_player_choice.o: src/game/session_menu_player_choice.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_player_choice.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_player_choice.raw.o $@ .text 0xb4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_pages.o: src/game/session_menu_pages.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_pages.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_pages.raw.o $@ .text 0x94
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_shell_reset.o: src/game/session_menu_shell_reset.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_shell_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_shell_reset.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_menu_defaults.o: src/game/session_menu_defaults.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_menu_defaults.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_menu_defaults.raw.o $@ .text 0xe0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 RUNTIME_OBJECTS := build/us/frame_helpers.o \
     build/us/frame_timing.o \
     build/us/graphics_ucode.o \
@@ -991,6 +1261,53 @@ RUNTIME_OBJECTS += \
     build/us/controller_pak_delete.o \
     build/us/controller_pak_name.o \
     build/us/controller_pak_directory.o
+
+RUNTIME_OBJECTS += \
+    build/us/actor_resource_load.o \
+    build/us/session_setup_noop.o \
+    build/us/session_setup_globals.o \
+    build/us/session_setup_value04.o \
+    build/us/session_setup_value14.o \
+    build/us/session_setup_value12.o \
+    build/us/session_setup_flag13.o \
+    build/us/session_setup_values08_10.o \
+    build/us/session_setup_value1a.o \
+    build/us/session_setup_playback_speed.o \
+    build/us/session_setup_value16.o \
+    build/us/session_setup_validate.o \
+    build/us/session_setup_script_stop.o \
+    build/us/session_setup_animation_create.o \
+    build/us/session_setup_global_value.o \
+    build/us/session_setup_animation_state.o \
+    build/us/session_setup_vulnerable.o \
+    build/us/session_setup_model.o \
+    build/us/session_setup_animation_file.o \
+    build/us/session_setup_texture_map.o \
+    build/us/session_setup_bitmap.o \
+    build/us/session_setup_pair.o \
+    build/us/session_setup_value58_half.o \
+    build/us/session_setup_value64.o \
+    build/us/session_setup_value5a.o \
+    build/us/session_setup_value58_word.o \
+    build/us/session_menu_selection.o \
+    build/us/session_menu_preview_update.o \
+    build/us/session_menu_preview_create.o \
+    build/us/session_menu_preview_accept.o \
+    build/us/session_menu_preview_cancel.o \
+    build/us/session_menu_preview_release.o \
+    build/us/session_setup_empty.o \
+    build/us/session_menu_exit_game.o \
+    build/us/session_menu_start_single.o \
+    build/us/session_setup_menu_reset.o \
+    build/us/session_menu_show_main.o \
+    build/us/session_menu_start_two.o \
+    build/us/session_menu_start_alternate.o \
+    build/us/session_menu_return.o \
+    build/us/session_menu_level_exit.o \
+    build/us/session_menu_player_choice.o \
+    build/us/session_menu_pages.o \
+    build/us/session_menu_shell_reset.o \
+    build/us/session_menu_defaults.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

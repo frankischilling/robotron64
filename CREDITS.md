@@ -25,7 +25,7 @@ every file in every project has been studied.
 | [Paper Mario](https://github.com/pmret/papermario) | `1104f1f71b824042a5fa1f958f2d861b603320fd` | Additional game and matching-build reference |
 | [Mario Party](https://github.com/mariopartyrd/marioparty) | `26dca4f3cf2dab1839bc1de3579b7227b65b9ee6` | Additional game and SDK integration reference |
 | [Pokémon Stadium](https://github.com/pret/pokestadium) | `0b614c210004d9b586897f11a7f820850e97f3d6` | Additional game and data-layout reference |
-| [GoldenEye 007](https://github.com/n64decomp/007) | `c4356466796c697dfd298010b9bed261f9ed8c6a` | Older SDK motor behavior and GU macro variants |
+| [GoldenEye 007](https://github.com/n64decomp/007) | `c4356466796c697dfd298010b9bed261f9ed8c6a` | Older SDK motor command and response behavior |
 | [Perfect Dark](https://github.com/n64decomp/perfect_dark) | `169ed48bdcbfb3b568b028bd5bebb27680073514` | Extraction structure and per-object compiler profiles |
 | [Banjo-Kazooie](https://github.com/n64decomp/banjo-kazooie) | `9db90a003fff15d13d29505d571aff2543b50383` | Additional game, SDK and matching workflow reference |
 
@@ -60,7 +60,8 @@ source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),
 [audio frame](docs/sdk-audio-frame.md), [controller Pak](docs/sdk-pfs.md),
 [SDK math](docs/sdk-math.md), and [static-function verification](docs/ido-static-functions.md)
-notes. Those documents distinguish target-confirmed facts from reference
+notes, together with [object definitions and shell menus](docs/session-setup.md).
+Those documents distinguish target-confirmed facts from reference
 comparisons and remaining hypotheses.
 
 Credit does not replace a component's license or original notices. Reference
@@ -69,11 +70,3 @@ repository does not redistribute the reference checkouts, compiler executables,
 commercial ROM, or extracted commercial assets. Matching source is evaluated
 against the user's local input, with the provenance of consulted material
 recorded alongside the reconstruction.
-
-The inspected libreultra tree has no license file. The 007 tree contains a
-Rabbitizer tool license but no license file covering its SDK implementation.
-The directly adapted SDK implementation files and preset tables therefore
-remain local research and are excluded from this public checkpoint. SDK
-research pages describe those private comparisons explicitly. Public matching
-counts include only the reconstructed game files selected by the checked-in
-function manifest and verified by the local ROM build.
