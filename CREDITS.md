@@ -63,10 +63,12 @@ the extraction, validation and build workflow.
 
 [Erick194/DOOM64-RE](https://github.com/Erick194/DOOM64-RE), inspected at
 `6931e678a0b2958be1b49598f2fe60712c6596e1`, supplied a comparison for WESS
-record and event terminology during audio recovery. The consulted files are
+record and event terminology during audio recovery, and corroborated the
+ten-byte temporary buffer used by the variable-length stream writer. The consulted files are
 `doom64/wessapi.h`, `wessarc.h`, `wesshand.h`, `wessseq.h`, `wesshand.c`,
 `wessseq.c`, and `wessshell.c`. The checkout identifies its license as GPL-3.0.
-The [audio property notes](docs/audio-properties.md) and their input ledger
+The [audio property notes](docs/audio-properties.md),
+[host/stream notes](docs/audio-host-stream.md), and their input ledgers
 separate the reconstructed Robotron source from that reference and retain the
 historical input identities. The reference checkout is not included here.
 

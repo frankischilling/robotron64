@@ -7591,6 +7591,17 @@
     "evidence": "docs/audio-properties.md"
   },
   {
+    "name": "func_800564E0",
+    "rom": 356576,
+    "vram": 2147837152,
+    "size": 160,
+    "source": "src/game/audio_handle_voice.c",
+    "object": "build/us/audio_handle_voice.o",
+    "section": ".audio_handle_voice",
+    "section_vram": 2147837152,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
     "name": "func_80056580",
     "rom": 356736,
     "vram": 2147837312,
@@ -7732,6 +7743,39 @@
     "section": ".audio_handle_rewind",
     "section_vram": 2147839408,
     "evidence": "docs/audio-properties.md"
+  },
+  {
+    "name": "func_80057358",
+    "rom": 360280,
+    "vram": 2147840856,
+    "size": 352,
+    "source": "src/game/audio_handle_seek_relative.c",
+    "object": "build/us/audio_handle_seek_relative.o",
+    "section": ".audio_handle_seek_relative",
+    "section_vram": 2147840856,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_800574B8",
+    "rom": 360632,
+    "vram": 2147841208,
+    "size": 344,
+    "source": "src/game/audio_handle_seek_absolute.c",
+    "object": "build/us/audio_handle_seek_absolute.o",
+    "section": ".audio_handle_seek_absolute",
+    "section_vram": 2147841208,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80057610",
+    "rom": 360976,
+    "vram": 2147841552,
+    "size": 208,
+    "source": "src/game/audio_handle_position.c",
+    "object": "build/us/audio_handle_position.o",
+    "section": ".audio_handle_position",
+    "section_vram": 2147841552,
+    "evidence": "docs/audio-host-stream.md"
   },
   {
     "name": "func_800576E0",
@@ -8141,6 +8185,72 @@
     "evidence": "docs/audio-properties.md"
   },
   {
+    "name": "func_8005891C",
+    "rom": 365852,
+    "vram": 2147846428,
+    "size": 8,
+    "source": "src/game/audio_host_control.c",
+    "object": "build/us/audio_host_control.o",
+    "section": ".audio_host_control",
+    "section_vram": 2147846428,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058924",
+    "rom": 365860,
+    "vram": 2147846436,
+    "size": 8,
+    "source": "src/game/audio_host_control.c",
+    "object": "build/us/audio_host_control.o",
+    "section": ".audio_host_control",
+    "section_vram": 2147846428,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_8005892C",
+    "rom": 365868,
+    "vram": 2147846444,
+    "size": 12,
+    "source": "src/game/audio_host_control.c",
+    "object": "build/us/audio_host_control.o",
+    "section": ".audio_host_control",
+    "section_vram": 2147846428,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058938",
+    "rom": 365880,
+    "vram": 2147846456,
+    "size": 8,
+    "source": "src/game/audio_host_control.c",
+    "object": "build/us/audio_host_control.o",
+    "section": ".audio_host_control",
+    "section_vram": 2147846428,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058940",
+    "rom": 365888,
+    "vram": 2147846464,
+    "size": 12,
+    "source": "src/game/audio_host_control.c",
+    "object": "build/us/audio_host_control.o",
+    "section": ".audio_host_control",
+    "section_vram": 2147846428,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_8005894C",
+    "rom": 365900,
+    "vram": 2147846476,
+    "size": 16,
+    "source": "src/game/audio_host_control.c",
+    "object": "build/us/audio_host_control.o",
+    "section": ".audio_host_control",
+    "section_vram": 2147846428,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
     "name": "func_8005895C",
     "rom": 365916,
     "vram": 2147846492,
@@ -8183,6 +8293,138 @@
     "section": ".audio_timing_rate",
     "section_vram": 2147846620,
     "evidence": "docs/audio-properties.md"
+  },
+  {
+    "name": "func_80058ADC",
+    "rom": 366300,
+    "vram": 2147846876,
+    "size": 24,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058AF4",
+    "rom": 366324,
+    "vram": 2147846900,
+    "size": 12,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058B00",
+    "rom": 366336,
+    "vram": 2147846912,
+    "size": 12,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058B0C",
+    "rom": 366348,
+    "vram": 2147846924,
+    "size": 20,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058B20",
+    "rom": 366368,
+    "vram": 2147846944,
+    "size": 84,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058B74",
+    "rom": 366452,
+    "vram": 2147847028,
+    "size": 60,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058BB0",
+    "rom": 366512,
+    "vram": 2147847088,
+    "size": 12,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058BBC",
+    "rom": 366524,
+    "vram": 2147847100,
+    "size": 8,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058BC4",
+    "rom": 366532,
+    "vram": 2147847108,
+    "size": 12,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058BD0",
+    "rom": 366544,
+    "vram": 2147847120,
+    "size": 16,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058BE0",
+    "rom": 366560,
+    "vram": 2147847136,
+    "size": 24,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
+  },
+  {
+    "name": "func_80058BF8",
+    "rom": 366584,
+    "vram": 2147847160,
+    "size": 8,
+    "source": "src/game/audio_host_files.c",
+    "object": "build/us/audio_host_files.o",
+    "section": ".audio_host_files",
+    "section_vram": 2147846876,
+    "evidence": "docs/audio-host-stream.md"
   },
   {
     "name": "func_800592C0",
@@ -8249,5 +8491,16 @@
     "section": ".audio_stream_variable_read",
     "section_vram": 2147849600,
     "evidence": "docs/audio-properties.md"
+  },
+  {
+    "name": "func_800595D4",
+    "rom": 369108,
+    "vram": 2147849684,
+    "size": 112,
+    "source": "src/game/audio_stream_variable_write.c",
+    "object": "build/us/audio_stream_variable_write.o",
+    "section": ".audio_stream_variable_write",
+    "section_vram": 2147849684,
+    "evidence": "docs/audio-host-stream.md"
   }
 ]

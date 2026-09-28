@@ -2903,6 +2903,57 @@ RUNTIME_OBJECTS += \
     build/us/model_framebuffer_texture.o \
     build/us/controller_legacy_scan.o
 
+build/us/audio_handle_voice.o: src/game/audio_handle_voice.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_handle_voice.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_handle_voice.raw.o $@ .text 0xa0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_handle_seek_relative.o: src/game/audio_handle_seek_relative.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_handle_seek_relative.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_handle_seek_relative.raw.o $@ .text 0x160
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_handle_seek_absolute.o: src/game/audio_handle_seek_absolute.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_handle_seek_absolute.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_handle_seek_absolute.raw.o $@ .text 0x158
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_handle_position.o: src/game/audio_handle_position.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_handle_position.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_handle_position.raw.o $@ .text 0xd0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_host_control.o: src/game/audio_host_control.c include/audio_host_internal.h include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_host_control.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_host_control.raw.o $@ .text 0x40
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_host_files.o: src/game/audio_host_files.c include/audio_io.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_host_files.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_host_files.raw.o $@ .text 0x124
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_stream_variable_write.o: src/game/audio_stream_variable_write.c include/audio_properties_internal.h include/audio_property_pipeline_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_stream_variable_write.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_stream_variable_write.raw.o $@ .text 0x70
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_handle_voice.o \
+    build/us/audio_handle_seek_relative.o \
+    build/us/audio_handle_seek_absolute.o \
+    build/us/audio_handle_position.o \
+    build/us/audio_host_control.o \
+    build/us/audio_host_files.o \
+    build/us/audio_stream_variable_write.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

@@ -1,0 +1,111 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "candidate_archive": ".local/completion/build/audio-next in the original workspace",
+  "current_proof": "tools/compare_runtime.py recompiles current source and records transitive headers and symbol layout; candidate records identify the recovery checkpoint.",
+  "sources": [
+    {
+      "source": "src/game/audio_handle_voice.c",
+      "source_sha256": "21da28c6d4078ee9e5f92dc9c68e5d4a80f0a79ec0207674d3e64a5e09023aea",
+      "candidate_source_sha256": "21da28c6d4078ee9e5f92dc9c68e5d4a80f0a79ec0207674d3e64a5e09023aea",
+      "candidate_report_sha256": "8719948e17a7d37776616f2d9a26eccf298843643c9e56d1b6db366b708b40b1",
+      "vram": "0x800564E0",
+      "bytes": 160,
+      "functions": [
+        "func_800564E0"
+      ],
+      "historical_nonmatching_seed": "audio_handle_voice.c",
+      "historical_nonmatching_seed_sha256": "79b250b88ec6f49c36fb1b78c5885fee461dcd129522e451ff29d80ab1b38fdc"
+    },
+    {
+      "source": "src/game/audio_handle_seek_relative.c",
+      "source_sha256": "51db7c54e94a49cd0929cfd03963e37ce7124f9011ca961e9912ab3285d3e411",
+      "candidate_source_sha256": "51db7c54e94a49cd0929cfd03963e37ce7124f9011ca961e9912ab3285d3e411",
+      "candidate_report_sha256": "3db644f290e9b2bee35af82b08a1c4c6f9237194466fecdc9b7c3600f905a681",
+      "vram": "0x80057358",
+      "bytes": 352,
+      "functions": [
+        "func_80057358"
+      ],
+      "historical_nonmatching_seed": "audio_handle_seek_relative.c",
+      "historical_nonmatching_seed_sha256": "d74e060576e055ad75e1852e2b82b06d5439657ebaabbd2ca0b0a89120e63ca4"
+    },
+    {
+      "source": "src/game/audio_handle_seek_absolute.c",
+      "source_sha256": "93c13df67c860f3bfb0b9c9fe3f231040175ced33e4be00de29fa5d6a807538a",
+      "candidate_source_sha256": "93c13df67c860f3bfb0b9c9fe3f231040175ced33e4be00de29fa5d6a807538a",
+      "candidate_report_sha256": "3f709f0c407ea0be1e879ec5dbe1afd3710ef699670cf7eeb7d07b6e5b2283ea",
+      "vram": "0x800574B8",
+      "bytes": 344,
+      "functions": [
+        "func_800574B8"
+      ],
+      "historical_nonmatching_seed": "audio_handle_seek_absolute.c",
+      "historical_nonmatching_seed_sha256": "e369b3840424765a2c48133edb397ceea9a53a9159e6946bb1d21489d3ebd3cd"
+    },
+    {
+      "source": "src/game/audio_handle_position.c",
+      "source_sha256": "f4a2075c21e9dbceb1d23579c7dc5a6dd20a666b67648e2f4ff94792fe7ab78b",
+      "candidate_source_sha256": "f4a2075c21e9dbceb1d23579c7dc5a6dd20a666b67648e2f4ff94792fe7ab78b",
+      "candidate_report_sha256": "575b5492181f0a0513d193c2136796b4e73e830137d2d2e308feaa9701454d77",
+      "vram": "0x80057610",
+      "bytes": 208,
+      "functions": [
+        "func_80057610"
+      ],
+      "historical_nonmatching_seed": "audio_handle_position.c",
+      "historical_nonmatching_seed_sha256": "823553e070d05185797f85fd014ba2da423c8d2ab4018466ffe1d5b1d2c0fb0a"
+    },
+    {
+      "source": "src/game/audio_host_control.c",
+      "source_sha256": "08b6f6d3f9b7fc621a49b7db8d578d4e6c04324a8b2497562cb91b368ada9afe",
+      "candidate_source_sha256": "08b6f6d3f9b7fc621a49b7db8d578d4e6c04324a8b2497562cb91b368ada9afe",
+      "candidate_report_sha256": "00002ea1ed31d2a92ee2a7f4451d1c42a90e04cc2178768006ae1b7f989d7238",
+      "vram": "0x8005891C",
+      "bytes": 64,
+      "functions": [
+        "func_8005891C",
+        "func_80058924",
+        "func_8005892C",
+        "func_80058938",
+        "func_80058940",
+        "func_8005894C"
+      ]
+    },
+    {
+      "source": "src/game/audio_host_files.c",
+      "source_sha256": "c9a3e4f23e396036ad891f366ad46e079a603794d729ed3fb6132c3307ea6f01",
+      "candidate_source_sha256": "c9a3e4f23e396036ad891f366ad46e079a603794d729ed3fb6132c3307ea6f01",
+      "candidate_report_sha256": "f86ef6242f0bec4943f5e705603a751713ec8be7831d043085e1cd5e86cea42e",
+      "vram": "0x80058ADC",
+      "bytes": 292,
+      "functions": [
+        "func_80058ADC",
+        "func_80058AF4",
+        "func_80058B00",
+        "func_80058B0C",
+        "func_80058B20",
+        "func_80058B74",
+        "func_80058BB0",
+        "func_80058BBC",
+        "func_80058BC4",
+        "func_80058BD0",
+        "func_80058BE0",
+        "func_80058BF8"
+      ]
+    },
+    {
+      "source": "src/game/audio_stream_variable_write.c",
+      "source_sha256": "1031cf4ae8312618999224a0c48e6983e10002a758e3ce64eb9035e4292d8130",
+      "candidate_source_sha256": "1031cf4ae8312618999224a0c48e6983e10002a758e3ce64eb9035e4292d8130",
+      "candidate_report_sha256": "9fc91de57643038a1e4a3dd150a1774bde30e1ac3cf208eff4bcf9cef5bd8300",
+      "vram": "0x800595D4",
+      "bytes": 112,
+      "functions": [
+        "func_800595D4"
+      ],
+      "historical_nonmatching_seed": "audio_stream_variable_write.c",
+      "historical_nonmatching_seed_sha256": "c5f576eb14b974fe175194bdd0c40f3e54d96f8138a4e5a29716c970dd62ff1d"
+    }
+  ]
+}
