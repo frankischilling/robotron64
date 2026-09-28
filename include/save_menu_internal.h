@@ -22,4 +22,6 @@ void func_80030FB8(int *selection);
 int func_80030FEC(int value);
 int func_80031034(int character);
 
+void func_800312B0(GamePlayerState *player, unsigned char *text);
+
 #endif

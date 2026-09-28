@@ -1178,6 +1178,138 @@
     "evidence": "docs/scene-commands.md"
   },
   {
+    "name": "func_80025C40",
+    "rom": 157760,
+    "vram": 2147638336,
+    "size": 144,
+    "source": "src/game/save_menu_nav_refresh.c",
+    "object": "build/us/save_menu_nav_refresh.o",
+    "section": ".save_menu_nav_refresh",
+    "section_vram": 2147638336,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025CD0",
+    "rom": 157904,
+    "vram": 2147638480,
+    "size": 44,
+    "source": "src/game/save_menu_nav_open_primary.c",
+    "object": "build/us/save_menu_nav_open_primary.o",
+    "section": ".save_menu_nav_open_primary",
+    "section_vram": 2147638480,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025CFC",
+    "rom": 157948,
+    "vram": 2147638524,
+    "size": 44,
+    "source": "src/game/save_menu_nav_open_secondary.c",
+    "object": "build/us/save_menu_nav_open_secondary.o",
+    "section": ".save_menu_nav_open_secondary",
+    "section_vram": 2147638524,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025D28",
+    "rom": 157992,
+    "vram": 2147638568,
+    "size": 44,
+    "source": "src/game/save_menu_nav_open_return.c",
+    "object": "build/us/save_menu_nav_open_return.o",
+    "section": ".save_menu_nav_open_return",
+    "section_vram": 2147638568,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025D54",
+    "rom": 158036,
+    "vram": 2147638612,
+    "size": 8,
+    "source": "src/game/save_menu_nav_noop.c",
+    "object": "build/us/save_menu_nav_noop.o",
+    "section": ".save_menu_nav_noop",
+    "section_vram": 2147638612,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025D5C",
+    "rom": 158044,
+    "vram": 2147638620,
+    "size": 44,
+    "source": "src/game/save_menu_nav_reset.c",
+    "object": "build/us/save_menu_nav_reset.o",
+    "section": ".save_menu_nav_reset",
+    "section_vram": 2147638620,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025D88",
+    "rom": 158088,
+    "vram": 2147638664,
+    "size": 20,
+    "source": "src/game/save_menu_nav_actor_disable.c",
+    "object": "build/us/save_menu_nav_actor_disable.o",
+    "section": ".save_menu_nav_actor_disable",
+    "section_vram": 2147638664,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025D9C",
+    "rom": 158108,
+    "vram": 2147638684,
+    "size": 204,
+    "source": "src/game/save_menu_nav_actor_forward.c",
+    "object": "build/us/save_menu_nav_actor_forward.o",
+    "section": ".save_menu_nav_actor_forward",
+    "section_vram": 2147638684,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025E68",
+    "rom": 158312,
+    "vram": 2147638888,
+    "size": 136,
+    "source": "src/game/save_menu_nav_actor_back.c",
+    "object": "build/us/save_menu_nav_actor_back.o",
+    "section": ".save_menu_nav_actor_back",
+    "section_vram": 2147638888,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80025EF0",
+    "rom": 158448,
+    "vram": 2147639024,
+    "size": 340,
+    "source": "src/game/save_menu_nav_preview_create.c",
+    "object": "build/us/save_menu_nav_preview_create.o",
+    "section": ".save_menu_nav_preview_create",
+    "section_vram": 2147639024,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80026044",
+    "rom": 158788,
+    "vram": 2147639364,
+    "size": 40,
+    "source": "src/game/save_menu_nav_preview_release.c",
+    "object": "build/us/save_menu_nav_preview_release.o",
+    "section": ".save_menu_nav_preview_release",
+    "section_vram": 2147639364,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_8002606C",
+    "rom": 158828,
+    "vram": 2147639404,
+    "size": 268,
+    "source": "src/game/save_menu_nav_cleanup.c",
+    "object": "build/us/save_menu_nav_cleanup.o",
+    "section": ".save_menu_nav_cleanup",
+    "section_vram": 2147639404,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
     "name": "func_80027B9C",
     "rom": 165788,
     "vram": 2147646364,
@@ -1242,6 +1374,17 @@
     "section": ".actor_sweep",
     "section_vram": 2147648364,
     "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_8002A244",
+    "rom": 175684,
+    "vram": 2147656260,
+    "size": 420,
+    "source": "src/game/actor_behavior_next_a244.c",
+    "object": "build/us/actor_behavior_next_a244.o",
+    "section": ".actor_behavior_next_a244",
+    "section_vram": 2147656260,
+    "evidence": "docs/actor-behavior-next.md"
   },
   {
     "name": "func_8002A3E8",
@@ -2177,6 +2320,17 @@
     "section": ".save_menu_write_return",
     "section_vram": 2147684280,
     "evidence": "docs/save-menus.md"
+  },
+  {
+    "name": "func_800312B0",
+    "rom": 204464,
+    "vram": 2147685040,
+    "size": 368,
+    "source": "src/game/save_menu_continue_encode.c",
+    "object": "build/us/save_menu_continue_encode.o",
+    "section": ".save_menu_continue_encode",
+    "section_vram": 2147685040,
+    "evidence": "docs/continue-code.md"
   },
   {
     "name": "func_80031420",
@@ -4390,6 +4544,28 @@
     "evidence": "docs/renderer-geometry.md"
   },
   {
+    "name": "func_80044270",
+    "rom": 282224,
+    "vram": 2147762800,
+    "size": 304,
+    "source": "src/game/renderer_vertex_positions.c",
+    "object": "build/us/renderer_vertex_positions.o",
+    "section": ".renderer_vertex_positions",
+    "section_vram": 2147762800,
+    "evidence": "docs/renderer-geometry.md"
+  },
+  {
+    "name": "func_800443A0",
+    "rom": 282528,
+    "vram": 2147763104,
+    "size": 344,
+    "source": "src/game/renderer_vertex_positions.c",
+    "object": "build/us/renderer_vertex_positions.o",
+    "section": ".renderer_vertex_positions",
+    "section_vram": 2147762800,
+    "evidence": "docs/renderer-geometry.md"
+  },
+  {
     "name": "func_80045514",
     "rom": 286996,
     "vram": 2147767572,
@@ -4398,6 +4574,17 @@
     "object": "build/us/renderer_material_reset.o",
     "section": ".renderer_material_reset",
     "section_vram": 2147767572,
+    "evidence": "docs/renderer-geometry.md"
+  },
+  {
+    "name": "func_80045934",
+    "rom": 288052,
+    "vram": 2147768628,
+    "size": 212,
+    "source": "src/game/renderer_mesh_positions.c",
+    "object": "build/us/renderer_mesh_positions.o",
+    "section": ".renderer_mesh_positions",
+    "section_vram": 2147768628,
     "evidence": "docs/renderer-geometry.md"
   },
   {

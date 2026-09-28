@@ -7,10 +7,12 @@ IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`.
 
 ## Exact checkpoint
 
-Fourteen complete functions, totaling 3,720 code bytes, match byte for byte:
+Fifteen complete functions, totaling 4,140 code bytes, match byte for byte.
+The resource-mode dispatcher also owns a matching 52-byte switch table.
 
 | Function | Range | Size | Source | Result |
 | --- | --- | ---: | --- | --- |
+| func_8002A244 | 0x8002A244..0x8002A3E8 | 420 | actor_behavior_next_a244.c | exact |
 | func_8002A3E8 | 0x8002A3E8..0x8002A414 | 44 | actor_behavior_state.c | exact |
 | func_8002A414 | 0x8002A414..0x8002A5DC | 456 | actor_behavior_blend_velocity.c | exact |
 | func_8002A5DC | 0x8002A5DC..0x8002A808 | 556 | actor_behavior_blend_motion.c | exact |
@@ -47,6 +49,13 @@ typed actor parameter throughout the reconstruction.
 func_8002BF88 also establishes that +0x4C is decremented by D_8009EF94 and that resource +0x08 supplies the movement magnitude used to derive +0x6C/+0x70. func_8002DC20 decrements +0x54; at zero it selects animation 7 and returns the actor to func_8001B324. func_8002DCB8 selects animation 6 and installs func_8002DC20. func_8002DD40 installs func_8002DCB8 and initializes +0x54 to 6.
 
 ## Movement and animation behavior
+
+`func_8002A244` dispatches the resource behavior kind. Initialization clears
+the countdown for kinds 8 and 9. Kind 11 refreshes the actor position with
+Z zero; kind 9 performs its timed animation/callback transition and then
+falls through to the heading update shared with kind 8. Kind 13 advances
+an unsigned 600-tick progress value or sets state 2. Its complete source and
+generated dispatch table are documented in `actor-behavior-next.md`.
 
 `func_8002A414` blends movement components between the previous and current
 heading. It wraps headings across `0x1000`, decrements and clamps the blend
@@ -97,7 +106,6 @@ The current shared names history_index at +0x4C and history at +0x54 are too spe
 
 | Function | Range | Bytes | Checkpoint status |
 | --- | --- | ---: | --- |
-| func_8002A244 | 0x8002A244..0x8002A3E8 | 420 | pending |
 | func_8002A808 | 0x8002A808..0x8002AF2C | 1828 | pending |
 | func_8002AF2C | 0x8002AF2C..0x8002B31C | 1008 | pending |
 | func_8002B7BC | 0x8002B7BC..0x8002BF88 | 1996 | pending |

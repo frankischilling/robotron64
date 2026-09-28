@@ -7,8 +7,8 @@ Every candidate is compared as a complete function with IDO 5.3,
 `-O2 -G 0 -non_shared -mips1 -32`. Source-owned strings are compared with the
 code that references them.
 
-The accepted batch contains 17 complete functions totaling 3,860 code bytes
-and 240 bytes of diagnostic strings. Its source units are:
+The accepted batch contains 20 complete functions totaling 4,720 code bytes
+and 360 bytes of diagnostic strings. Its source units are:
 
 | Source unit | Functions | Code bytes |
 | --- | ---: | ---: |
@@ -21,9 +21,11 @@ and 240 bytes of diagnostic strings. Its source units are:
 | `renderer_material_reset.c` | 1 | 32 |
 | `renderer_vertex_copy.c` | 2 | 924 |
 | `renderer_texture_load.c` | 2 | 536 |
+| `renderer_vertex_positions.c` | 2 | 648 |
+| `renderer_mesh_positions.c` | 1 | 212 |
 
-The position, polygon-submission, mesh, and command-stream candidates are
-still being compared. They are not included in these source-progress totals.
+The polygon-submission, mesh-draw, and command-stream candidates are still
+being compared. They are not included in these source-progress totals.
 
 ## Observed data formats
 
@@ -68,6 +70,25 @@ empty callback whose generated code retains the ABI argument spill.
 
 ## Texture loads and vertex copies
 
+`func_80044270` and `func_800443A0` copy three or four input positions into
+consecutive hardware vertices. Each signed word becomes a signed halfword,
+and the functions update the primitive counts and advance the vertex cursor.
+The triangle updates its counts after the bounds diagnostic; the quad does
+so before it. Their checks retain the target's last-index calculations,
+`base - frameBase + 2` and `base - frameBase + 3`.
+
+`func_80045934` copies the transformed position array for a mesh without
+advancing the global vertex cursor. It checks `mesh->vertexCount + base -
+frameBase` against 10,000, then copies each twelve-byte input position into
+the corresponding sixteen-byte hardware vertex. The mesh prefix has a
+24-byte size assertion.
+
+These three procedures retain unused scalar local slots needed to reproduce
+the target stack layout. The unused locals have no inferred gameplay meaning.
+Their complete generated procedures and all 120 additional diagnostic-string
+bytes match; the evidence includes the instruction order, argument homes,
+stack spills, and function boundaries.
+
 `func_800462DC` and `func_800463E8` round the supplied texture address down
 to an eight-byte boundary. A cached-address match emits no commands. A new
 address emits a complete sync, image, tile, block-load, and tile-size
@@ -90,5 +111,7 @@ credits and pinned revisions are recorded in [CREDITS.md](../CREDITS.md).
 Private target disassembly, actual callers, source/header snapshots,
 compiler identity, symbol-layout snapshots, and complete comparison reports
 are retained under `.local/recovery56-renderer`, with the accepted snapshot
-in `.local/recovery57-integration`. The matching manifest includes only
+in `.local/recovery57-integration`. Position-copy recovery and independent
+integration proofs are under `.local/recovery61-renderer` and
+`.local/recovery61-integration`. The matching manifest includes only
 candidates whose entire code and declared data pass.

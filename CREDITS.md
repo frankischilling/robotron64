@@ -47,6 +47,12 @@ ultralib's `tools/mdebug.py` helped establish the static-procedure metadata
 format used by Robotron's independent verifier.
 
 [m2c](https://github.com/matt-kempster/m2c) supplies private decompiler seeds.
+[decomp-permuter](https://github.com/simonlindholm/decomp-permuter), inspected at
+`059609d4aec73eb0650726772954e1ad575825f8`, supports local searches over C
+declarations and expressions for remaining compiler-layout differences.
+Search results undergo source review and the project's independent full-code
+and generated-data comparisons before acceptance. Its local search tools are
+not distributed with the public source checkpoint.
 [spimdisasm](https://github.com/Decompollaborate/spimdisasm) and
 [Rabbitizer](https://github.com/Decompollaborate/rabbitizer) support the local
 instruction and provisional-function inventory. GNU Binutils provides the

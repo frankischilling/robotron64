@@ -63,6 +63,12 @@ code. Their packed fields include the player level, two option values, a
 seven-bit player field, another player value stored in thousands, and a
 three-bit checksum.
 
+The complete encoder `func_800312B0` now matches all 368 code bytes. It packs
+the checksum, truncated player values, options, and level into five bytes,
+then encodes each byte's low nibble before its high nibble. The resulting
+ten characters are followed by a NUL. Its bit layout and integer truncation
+are documented in `continue-code.md`.
+
 `func_80031420` compares RGB Manhattan distance against all 256 palette entries.
 If the source color's fourth byte is nonzero, it searches from black instead of
 the source RGB values. It returns the index with the smallest distance.
@@ -86,10 +92,13 @@ with the compiler profile above:
 | `save_menu_audio_apply.c` | `0x80030F50..0x80030F94` | 68 |
 | `save_menu_audio_secondary.c` | `0x80030F94..0x80030FB8` | 36 |
 | `save_menu_write_return.c` | `0x80030FB8..0x80030FEC` | 52 |
+| `save_menu_continue_encode.c` | `0x800312B0..0x80031420` | 368 |
 | `save_menu_palette_index.c` | `0x80031420..0x800314FC` | 220 |
 
 Both status handlers are integrated. Their complete 832-byte text and the
 48-byte pair of switch tables match the target. Independent integration proofs
 and transitive source/header snapshots are under `.local/recovery40-scene/`.
-The continue-code and save-slot-selection candidates remain outside this
-public checkpoint until their complete comparisons and integration are verified.
+The continue-code encoder has an independent complete comparison and current
+source/header proof under `.local/recovery61-integration`. The continue-code
+decoder and save-slot-selection candidates remain outside the matching
+manifest until their complete comparisons and integration are verified.
