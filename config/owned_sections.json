@@ -44,5 +44,89 @@
     "size": 48,
     "symbols": {},
     "evidence": "docs/save-menus.md"
+  },
+  {
+    "source": "src/game/sound_bridge_future_queue.c",
+    "object": "build/us/sound_bridge_future_queue.o",
+    "input_section": ".rodata",
+    "section": ".sound_bridge_future_queue_strings",
+    "vram": 2148090592,
+    "rom": 610016,
+    "size": 32,
+    "symbols": {},
+    "static_symbols": {
+      "D_800942E0": 0
+    },
+    "evidence": "docs/sound-bridge.md"
+  },
+  {
+    "source": "src/game/graphics_resource.c",
+    "object": "build/us/graphics_resource.o",
+    "input_section": ".rodata",
+    "section": ".graphics_resource_strings",
+    "vram": 2148094408,
+    "rom": 613832,
+    "size": 20,
+    "symbols": {},
+    "static_symbols": {
+      "D_800951C8": 0
+    },
+    "evidence": "docs/graphics-state.md"
+  },
+  {
+    "source": "src/game/graphics_pool.c",
+    "object": "build/us/graphics_pool.o",
+    "input_section": ".rodata",
+    "section": ".graphics_pool_strings",
+    "vram": 2148094496,
+    "rom": 613920,
+    "size": 224,
+    "symbols": {},
+    "static_symbols": {
+      "D_80095220": 0,
+      "D_8009523C": 28,
+      "D_80095244": 36,
+      "D_80095278": 88,
+      "D_80095280": 96,
+      "D_800952C4": 164,
+      "D_800952F8": 216
+    },
+    "evidence": "docs/graphics-state.md"
+  },
+  {
+    "source": "src/game/graphics_mode_dispatch.c",
+    "object": "build/us/graphics_mode_dispatch.o",
+    "input_section": ".rodata",
+    "section": ".graphics_mode_dispatch_table",
+    "vram": 2148094720,
+    "rom": 614144,
+    "size": 96,
+    "symbols": {},
+    "evidence": "docs/graphics-state.md"
+  },
+  {
+    "source": "src/game/renderer_vertex_attributes.c",
+    "object": "build/us/renderer_vertex_attributes.o",
+    "input_section": ".rodata",
+    "section": ".renderer_vertex_attributes_strings",
+    "vram": 2148093728,
+    "rom": 613152,
+    "size": 240,
+    "symbols": {},
+    "static_symbols": {
+      "D_80094F20": 0,
+      "D_80094F40": 32,
+      "D_80094F48": 40,
+      "D_80094F68": 72,
+      "D_80094F70": 80,
+      "D_80094F90": 112,
+      "D_80094F98": 120,
+      "D_80094FB8": 152,
+      "D_80094FC0": 160,
+      "D_80094FE0": 192,
+      "D_80094FE8": 200,
+      "D_80095008": 232
+    },
+    "evidence": "docs/renderer-geometry.md"
   }
 ]

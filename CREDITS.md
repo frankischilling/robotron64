@@ -18,7 +18,7 @@ every file in every project has been studied.
 | [libreultra](https://github.com/n64decomp/libreultra) | `1aca5c13ca041cef86f8dc194b727361dad9c09b` | SDK audio, controller/Pak services, layouts and historical variants |
 | [sdk-tools](https://github.com/n64decomp/sdk-tools) | `72bf503d2b00d322cb04d58ecdac70af93189bca` | SDK tools and their historical formats |
 | [IDO](https://github.com/n64decomp/ido) | `d068e439f52615763a3facd6944873899ebad2fd` | Original compiler materials and conventions |
-| [Super Mario 64](https://github.com/n64decomp/sm64) | `9921382a68bb0c865e5e45eb594d9c64db59b1af` | Matching build, linker placement, extraction and compiler-object handling |
+| [Super Mario 64](https://github.com/n64decomp/sm64) | `9921382a68bb0c865e5e45eb594d9c64db59b1af` | Matching build, linker placement, extraction, compiler-object handling, GBI command packing and vertex/light layouts |
 | [Mario Kart 64](https://github.com/n64decomp/mk64) | `58cfcb022e10f83bc3b889d7e97508cae6837098` | SDK identification, including the older Pak page-clearing allocator |
 | [Ocarina of Time](https://github.com/zeldaret/oot) | `1bef952ff61a6dd1945c7887c1babd94efe95f72` | Compiler signatures, SDK routines, ECOFF metadata and build tooling |
 | [Majora's Mask](https://github.com/zeldaret/mm) | `56fa21dd0031a17cfc9e355f609542617598a265` | Segment layout, SDK variants and source-progress conventions |
@@ -62,7 +62,9 @@ source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [SDK math](docs/sdk-math.md), and [static-function verification](docs/ido-static-functions.md)
 notes, together with [object definitions and shell menus](docs/session-setup.md),
 [scene commands and background images](docs/scene-commands.md), and
-[save menus](docs/save-menus.md), and [gameplay tweaks and resource strings](docs/tweaks-and-strings.md).
+[save menus](docs/save-menus.md), [gameplay tweaks and resource strings](docs/tweaks-and-strings.md),
+[renderer state and lighting](docs/graphics-state.md), and
+[renderer polygons and vertices](docs/renderer-geometry.md).
 Those documents distinguish target-confirmed facts from reference
 comparisons and remaining hypotheses.
 

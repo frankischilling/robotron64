@@ -16,7 +16,7 @@ complete transitive input snapshot and hashes.
 | --- | --- | ---: | --- |
 | formatter target evidence | `0x8001C0D0..0x8001C734` | 1,636 | source still unresolved |
 | `script_service_cache_reset.c` | `0x8001C740..0x8001C790` | 80 | 80/80, zero differing words |
-| `script_service_files.c` | `0x8001C790..0x8001C8C4` | 308 | exact size, 6 differing words |
+| `script_service_files.c` | `0x8001C790..0x8001C8C4` | 308 | 308/308, zero differing words |
 | `script_service_cache_access.c` | `0x8001C8C4..0x8001CB48` | 644 | 644/644, zero differing words |
 | `script_service_commands.c` | `0x8001CB50..0x8001CD94` | 580 | 580/580, zero differing words |
 | `script_service_platform.c` | `0x8001CDA0..0x8001CE68` | 200 | exact size, 26 differing words; retained as a candidate |
@@ -84,12 +84,12 @@ simple loop four records at a time. It is independently exact in
 
 `func_8001C790` takes a path, finds the basename after the last backslash,
 checks existing registered names, then fills the first free handle with the
-basename and full path. A full table returns `0xFFFF`. The current ordinary
-source is the exact 308-byte size. Its six remaining differences are the
-`0x30` target frame versus a `0x38` candidate frame, the resulting two
-original-path home offsets, and the order of the generated `handle = 0`
-instruction relative to the second scan's array-base add. The body, branches,
-calls, field offsets, and return paths otherwise agree.
+basename and full path. A full table returns `0xFFFF`. The complete 308-byte
+function matches with a bounded `for` loop and three meaningful local
+variables. That source produces the target's `0x30` frame and both scan
+loops. The independent comparison checks the full procedure boundary and
+all bytes; its frozen source and transitive headers are recorded under
+`.local/recovery51-integration/ready-checkpoint`.
 
 `func_8001C8C4`, `func_8001C968`, `func_8001C9FC`,
 `func_8001CA78`, and `func_8001CAF4` form the complete contiguous
@@ -135,8 +135,8 @@ without a source/data-boundary proof.
 `func_8001CDA0` constructs two local coordinate pairs and calls
 `func_8003C60C` four times for the four rectangle edges. The target calls
 `func_8003C60C` with five arguments: two point pointers, the incoming value,
-zero, and zero. The shared declaration retains unspecified arguments for the
-existing empty retail stub, whose complete source unit has been rechecked.
+zero, and zero. The shared declaration therefore needs unspecified arguments
+for the existing empty retail stub, which has been confirmed separately.
 
 The target places the two coordinate-pair starts 12 bytes apart, but it never
 reads or writes the third word in either span. No other target caller of
@@ -158,7 +158,7 @@ The exact command proof is
 `.local/recovery46-script/probes/script_service_commands-5.3-O2-mips1/report.json`.
 The exact noop proof is
 `.local/recovery46-script/probes/script_service_platform_stub-5.3-O2-mips1/report.json`.
-The current C790 and rectangle residual proofs are the corresponding
-`script_service_files-5.3-O2-mips1/report.json` and
-`script_service_platform-5.3-O2-mips1/report.json` files in the same probe
-directory.
+The complete registration proof is
+`.local/recovery51-integration/probes/script_service_files-5.3-O2-mips1/report.json`.
+The rectangle residual remains recorded in
+`.local/recovery46-script/probes/script_service_platform-5.3-O2-mips1/report.json`.

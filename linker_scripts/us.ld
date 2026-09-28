@@ -67,7 +67,7 @@ SECTIONS
     .movie_cleanup 0x8000544C : AT(0x604C) SUBALIGN(4) { build/us/movie_cleanup.o(.text) }
     .cpu_after_movie_cleanup 0x80005560 : AT(0x6160) { build/us/fallback.o(.rom_cpu_after_movie_cleanup) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
-    .cpu_after_script_service_cache_reset 0x8001C790 : AT(0x1D390) { build/us/fallback.o(.rom_cpu_after_script_service_cache_reset) }
+    .script_service_files 0x8001C790 : AT(0x1D390) SUBALIGN(4) { build/us/script_service_files.o(.text) }
     .script_service_cache_access 0x8001C8C4 : AT(0x1D4C4) SUBALIGN(4) { build/us/script_service_cache_access.o(.text) }
     .cpu_after_script_service_cache_access 0x8001CB48 : AT(0x1D748) { build/us/fallback.o(.rom_cpu_after_script_service_cache_access) }
     .script_service_commands 0x8001CB50 : AT(0x1D750) SUBALIGN(4) { build/us/script_service_commands.o(.text) }
@@ -118,6 +118,24 @@ SECTIONS
     .actor_remove 0x80028274 : AT(0x28E74) SUBALIGN(4) { build/us/actor_remove.o(.text) }
     .actor_sweep 0x8002836C : AT(0x28F6C) SUBALIGN(4) { build/us/actor_sweep.o(.text) }
     .cpu_after_actor_sweep 0x800283D4 : AT(0x28FD4) { build/us/fallback.o(.rom_cpu_after_actor_sweep) }
+    .actor_behavior_state 0x8002A3E8 : AT(0x2AFE8) SUBALIGN(4) { build/us/actor_behavior_state.o(.text) }
+    .actor_behavior_blend_velocity 0x8002A414 : AT(0x2B014) SUBALIGN(4) { build/us/actor_behavior_blend_velocity.o(.text) }
+    .actor_behavior_blend_motion 0x8002A5DC : AT(0x2B1DC) SUBALIGN(4) { build/us/actor_behavior_blend_motion.o(.text) }
+    .cpu_after_actor_behavior_blend_motion 0x8002A808 : AT(0x2B408) { build/us/fallback.o(.rom_cpu_after_actor_behavior_blend_motion) }
+    .actor_behavior_height 0x8002B31C : AT(0x2BF1C) SUBALIGN(4) { build/us/actor_behavior_height.o(.text) }
+    .actor_behavior_extra_b32c 0x8002B32C : AT(0x2BF2C) SUBALIGN(4) { build/us/actor_behavior_extra_b32c.o(.text) }
+    .actor_behavior_noop_b570 0x8002B570 : AT(0x2C170) SUBALIGN(4) { build/us/actor_behavior_noop_b570.o(.text) }
+    .actor_behavior_extra_b57c 0x8002B57C : AT(0x2C17C) SUBALIGN(4) { build/us/actor_behavior_extra_b57c.o(.text) }
+    .actor_behavior_noop_b7a4 0x8002B7A4 : AT(0x2C3A4) SUBALIGN(4) { build/us/actor_behavior_noop_b7a4.o(.text) }
+    .actor_behavior_noop_b7b0 0x8002B7B0 : AT(0x2C3B0) SUBALIGN(4) { build/us/actor_behavior_noop_b7b0.o(.text) }
+    .cpu_after_actor_behavior_noop_b7b0 0x8002B7BC : AT(0x2C3BC) { build/us/fallback.o(.rom_cpu_after_actor_behavior_noop_b7b0) }
+    .actor_behavior_repeat 0x8002BF88 : AT(0x2CB88) SUBALIGN(4) { build/us/actor_behavior_repeat.o(.text) }
+    .cpu_after_actor_behavior_repeat 0x8002C0AC : AT(0x2CCAC) { build/us/fallback.o(.rom_cpu_after_actor_behavior_repeat) }
+    .actor_behavior_extra_d918 0x8002D918 : AT(0x2E518) SUBALIGN(4) { build/us/actor_behavior_extra_d918.o(.text) }
+    .actor_behavior_countdown 0x8002DC20 : AT(0x2E820) SUBALIGN(4) { build/us/actor_behavior_countdown.o(.text) }
+    .actor_behavior_countdown_begin 0x8002DCB8 : AT(0x2E8B8) SUBALIGN(4) { build/us/actor_behavior_countdown_begin.o(.text) }
+    .actor_behavior_countdown_trigger 0x8002DD40 : AT(0x2E940) SUBALIGN(4) { build/us/actor_behavior_countdown_trigger.o(.text) }
+    .cpu_after_actor_behavior_countdown_trigger 0x8002DDBC : AT(0x2E9BC) { build/us/fallback.o(.rom_cpu_after_actor_behavior_countdown_trigger) }
     .session_setup_noop 0x8002E65C : AT(0x2F25C) SUBALIGN(4) { build/us/session_setup_noop.o(.text) }
     .cpu_after_session_setup_noop 0x8002E664 : AT(0x2F264) { build/us/fallback.o(.rom_cpu_after_session_setup_noop) }
     .session_setup_globals 0x8002ECC4 : AT(0x2F8C4) SUBALIGN(4) { build/us/session_setup_globals.o(.text) }
@@ -200,6 +218,14 @@ SECTIONS
     .cpu_after_game_number_convert 0x8003264C : AT(0x3324C) { build/us/fallback.o(.rom_cpu_after_game_number_convert) }
     .command_machine 0x800327AC : AT(0x333AC) SUBALIGN(4) { build/us/command_machine.o(.text) }
     .cpu_after_command_machine 0x8003282C : AT(0x3342C) { build/us/fallback.o(.rom_cpu_after_command_machine) }
+    .sound_bridge_core 0x80036064 : AT(0x36C64) SUBALIGN(4) { build/us/sound_bridge_core.o(.text) }
+    .cpu_after_sound_bridge_core 0x800360E8 : AT(0x36CE8) { build/us/fallback.o(.rom_cpu_after_sound_bridge_core) }
+    .sound_bridge_definitions 0x800360F0 : AT(0x36CF0) SUBALIGN(4) { build/us/sound_bridge_definitions.o(.text) }
+    .cpu_after_sound_bridge_definitions 0x8003614C : AT(0x36D4C) { build/us/fallback.o(.rom_cpu_after_sound_bridge_definitions) }
+    .sound_bridge_future_reset 0x800361FC : AT(0x36DFC) SUBALIGN(4) { build/us/sound_bridge_future_reset.o(.text) }
+    .sound_bridge_future_queue 0x80036288 : AT(0x36E88) SUBALIGN(4) { build/us/sound_bridge_future_queue.o(.text) }
+    .sound_bridge_future_update 0x80036318 : AT(0x36F18) SUBALIGN(4) { build/us/sound_bridge_future_update.o(.text) }
+    .cpu_after_sound_bridge_future_update 0x800363D0 : AT(0x36FD0) { build/us/fallback.o(.rom_cpu_after_sound_bridge_future_update) }
     .debug_context_set 0x80037408 : AT(0x38008) SUBALIGN(4) { build/us/debug_context_set.o(.text) }
     .cpu_after_debug_context_set 0x80037418 : AT(0x38018) { build/us/fallback.o(.rom_cpu_after_debug_context_set) }
     .debug_text_draw 0x80037420 : AT(0x38020) SUBALIGN(4) { build/us/debug_text_draw.o(.text) }
@@ -255,15 +281,40 @@ SECTIONS
     .platform_io 0x8003C5C4 : AT(0x3D1C4) SUBALIGN(4) { build/us/platform_io.o(.text) }
     .cpu_after_platform_io 0x8003C6B8 : AT(0x3D2B8) { build/us/fallback.o(.rom_cpu_after_platform_io) }
     .object_recovery_path_extension 0x8003CBEC : AT(0x3D7EC) SUBALIGN(4) { build/us/object_recovery_path_extension.o(.text) }
-    .cpu_after_object_recovery_path_extension 0x8003CC30 : AT(0x3D830) { build/us/fallback.o(.rom_cpu_after_object_recovery_path_extension) }
+    .geometry_debug_bridge 0x8003CC30 : AT(0x3D830) SUBALIGN(4) { build/us/geometry_debug_bridge.o(.text) }
     .object_recovery_fixed_trig 0x8003CC58 : AT(0x3D858) SUBALIGN(4) { build/us/object_recovery_fixed_trig.o(.text) }
     .object_recovery_integer_sqrt 0x8003CCE8 : AT(0x3D8E8) SUBALIGN(4) { build/us/object_recovery_integer_sqrt.o(.text) }
     .object_recovery_angle_scale 0x8003CD4C : AT(0x3D94C) SUBALIGN(4) { build/us/object_recovery_angle_scale.o(.text) }
     .object_recovery_direction_angle 0x8003CD70 : AT(0x3D970) SUBALIGN(4) { build/us/object_recovery_direction_angle.o(.text) }
     .object_recovery_angle_table 0x8003CEF4 : AT(0x3DAF4) SUBALIGN(4) { build/us/object_recovery_angle_table.o(.text) }
     .cpu_after_object_recovery_angle_table 0x8003CF88 : AT(0x3DB88) { build/us/fallback.o(.rom_cpu_after_object_recovery_angle_table) }
+    .geometry_bridge_apply 0x8003D170 : AT(0x3DD70) SUBALIGN(4) { build/us/geometry_bridge_apply.o(.text) }
+    .geometry_bridge_rotate 0x8003D20C : AT(0x3DE0C) SUBALIGN(4) { build/us/geometry_bridge_rotate.o(.text) }
+    .cpu_after_geometry_bridge_rotate 0x8003D2C0 : AT(0x3DEC0) { build/us/fallback.o(.rom_cpu_after_geometry_bridge_rotate) }
+    .renderer_vertex_attributes 0x80043930 : AT(0x44530) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.text) }
+    .renderer_material_texture 0x80043D68 : AT(0x44968) SUBALIGN(4) { build/us/renderer_material_texture.o(.text) }
+    .renderer_material_light 0x80043E80 : AT(0x44A80) SUBALIGN(4) { build/us/renderer_material_light.o(.text) }
+    .renderer_material_combined 0x80043EEC : AT(0x44AEC) SUBALIGN(4) { build/us/renderer_material_combined.o(.text) }
+    .renderer_light_select 0x8004417C : AT(0x44D7C) SUBALIGN(4) { build/us/renderer_light_select.o(.text) }
+    .renderer_material_untextured 0x800441D0 : AT(0x44DD0) SUBALIGN(4) { build/us/renderer_material_untextured.o(.text) }
+    .cpu_after_renderer_material_untextured 0x80044270 : AT(0x44E70) { build/us/fallback.o(.rom_cpu_after_renderer_material_untextured) }
+    .renderer_material_reset 0x80045514 : AT(0x46114) SUBALIGN(4) { build/us/renderer_material_reset.o(.text) }
+    .cpu_after_renderer_material_reset 0x80045534 : AT(0x46134) { build/us/fallback.o(.rom_cpu_after_renderer_material_reset) }
+    .renderer_vertex_copy 0x80045F40 : AT(0x46B40) SUBALIGN(4) { build/us/renderer_vertex_copy.o(.text) }
+    .renderer_texture_load 0x800462DC : AT(0x46EDC) SUBALIGN(4) { build/us/renderer_texture_load.o(.text) }
+    .graphics_display_list 0x800464F4 : AT(0x470F4) SUBALIGN(4) { build/us/graphics_display_list.o(.text) }
+    .graphics_resource 0x8004653C : AT(0x4713C) SUBALIGN(4) { build/us/graphics_resource.o(.text) }
+    .cpu_after_graphics_resource 0x800465AC : AT(0x471AC) { build/us/fallback.o(.rom_cpu_after_graphics_resource) }
     .palette_tint 0x800465B0 : AT(0x471B0) SUBALIGN(4) { build/us/palette_tint.o(.text) }
-    .cpu_after_palette_tint 0x80046608 : AT(0x47208) { build/us/fallback.o(.rom_cpu_after_palette_tint) }
+    .graphics_modes 0x80046608 : AT(0x47208) SUBALIGN(4) { build/us/graphics_modes.o(.text) }
+    .cpu_after_graphics_modes 0x80046C2C : AT(0x4782C) { build/us/fallback.o(.rom_cpu_after_graphics_modes) }
+    .graphics_lights 0x80046CF8 : AT(0x478F8) SUBALIGN(4) { build/us/graphics_lights.o(.text) }
+    .graphics_pool 0x80046F50 : AT(0x47B50) SUBALIGN(4) { build/us/graphics_pool.o(.text) }
+    .cpu_after_graphics_pool 0x800470F4 : AT(0x47CF4) { build/us/fallback.o(.rom_cpu_after_graphics_pool) }
+    .graphics_frame_reset 0x8004717C : AT(0x47D7C) SUBALIGN(4) { build/us/graphics_frame_reset.o(.text) }
+    .graphics_mode_dispatch 0x8004729C : AT(0x47E9C) SUBALIGN(4) { build/us/graphics_mode_dispatch.o(.text) }
+    .graphics_environment 0x800474B8 : AT(0x480B8) SUBALIGN(4) { build/us/graphics_environment.o(.text) }
+    .cpu_after_graphics_environment 0x80047568 : AT(0x48168) { build/us/fallback.o(.rom_cpu_after_graphics_environment) }
     .startup 0x80048170 : AT(0x48D70) SUBALIGN(16) { build/us/startup.o(.text) }
     .cpu_after_startup 0x80048510 : AT(0x49110) { build/us/fallback.o(.rom_cpu_after_startup) }
     .frame_render 0x800489F4 : AT(0x495F4) SUBALIGN(4) { build/us/frame_render.o(.text) }
@@ -579,6 +630,15 @@ SECTIONS
     .data_after_save_menu_status_tables 0x91004914 : AT(0x94CB4) { build/us/fallback.o(.rom_data_after_save_menu_status_tables) }
     .command_machine_table 0x8009416C : AT(0x94D6C) SUBALIGN(4) { build/us/command_machine.o(.rodata) }
     .data_after_command_machine_table 0x910049EC : AT(0x94D8C) { build/us/fallback.o(.rom_data_after_command_machine_table) }
+    .sound_bridge_future_queue_strings 0x800942E0 : AT(0x94EE0) SUBALIGN(4) { build/us/sound_bridge_future_queue.o(.rodata) }
+    .data_after_sound_bridge_future_queue_strings 0x91004B60 : AT(0x94F00) { build/us/fallback.o(.rom_data_after_sound_bridge_future_queue_strings) }
+    .renderer_vertex_attributes_strings 0x80094F20 : AT(0x95B20) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.rodata) }
+    .data_after_renderer_vertex_attributes_strings 0x91005870 : AT(0x95C10) { build/us/fallback.o(.rom_data_after_renderer_vertex_attributes_strings) }
+    .graphics_resource_strings 0x800951C8 : AT(0x95DC8) SUBALIGN(4) { build/us/graphics_resource.o(.rodata) }
+    .data_after_graphics_resource_strings 0x91005A3C : AT(0x95DDC) { build/us/fallback.o(.rom_data_after_graphics_resource_strings) }
+    .graphics_pool_strings 0x80095220 : AT(0x95E20) SUBALIGN(4) { build/us/graphics_pool.o(.rodata) }
+    .graphics_mode_dispatch_table 0x80095300 : AT(0x95F00) SUBALIGN(4) { build/us/graphics_mode_dispatch.o(.rodata) }
+    .data_after_graphics_mode_dispatch_table 0x91005BC0 : AT(0x95F60) { build/us/fallback.o(.rom_data_after_graphics_mode_dispatch_table) }
     .sdk_gu_perspective_constants 0x80095CF0 : AT(0x968F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_perspective_constants) }
     .sdk_gu_lookathilite_constants 0x80095D00 : AT(0x96900) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_lookathilite_constants) }
     .sdk_gu_rotate_rpy_constants 0x80095D20 : AT(0x96920) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_rotate_rpy_constants) }
@@ -619,7 +679,7 @@ ASSERT(SIZEOF(.movie_status) == 0xf8, "movie_status size changed")
 ASSERT(SIZEOF(.movie_cleanup) == 0x114, "movie_cleanup size changed")
 ASSERT(SIZEOF(.cpu_after_movie_cleanup) == 0x171e0, "cpu_after_movie_cleanup size changed")
 ASSERT(SIZEOF(.script_service_cache_reset) == 0x50, "script_service_cache_reset size changed")
-ASSERT(SIZEOF(.cpu_after_script_service_cache_reset) == 0x134, "cpu_after_script_service_cache_reset size changed")
+ASSERT(SIZEOF(.script_service_files) == 0x134, "script_service_files size changed")
 ASSERT(SIZEOF(.script_service_cache_access) == 0x284, "script_service_cache_access size changed")
 ASSERT(SIZEOF(.cpu_after_script_service_cache_access) == 0x8, "cpu_after_script_service_cache_access size changed")
 ASSERT(SIZEOF(.script_service_commands) == 0x244, "script_service_commands size changed")
@@ -669,7 +729,25 @@ ASSERT(SIZEOF(.actor_pool_reset) == 0x38, "actor_pool_reset size changed")
 ASSERT(SIZEOF(.actor_cleanup) == 0xb0, "actor_cleanup size changed")
 ASSERT(SIZEOF(.actor_remove) == 0xf8, "actor_remove size changed")
 ASSERT(SIZEOF(.actor_sweep) == 0x68, "actor_sweep size changed")
-ASSERT(SIZEOF(.cpu_after_actor_sweep) == 0x6288, "cpu_after_actor_sweep size changed")
+ASSERT(SIZEOF(.cpu_after_actor_sweep) == 0x2014, "cpu_after_actor_sweep size changed")
+ASSERT(SIZEOF(.actor_behavior_state) == 0x2c, "actor_behavior_state size changed")
+ASSERT(SIZEOF(.actor_behavior_blend_velocity) == 0x1c8, "actor_behavior_blend_velocity size changed")
+ASSERT(SIZEOF(.actor_behavior_blend_motion) == 0x22c, "actor_behavior_blend_motion size changed")
+ASSERT(SIZEOF(.cpu_after_actor_behavior_blend_motion) == 0xb14, "cpu_after_actor_behavior_blend_motion size changed")
+ASSERT(SIZEOF(.actor_behavior_height) == 0x10, "actor_behavior_height size changed")
+ASSERT(SIZEOF(.actor_behavior_extra_b32c) == 0x244, "actor_behavior_extra_b32c size changed")
+ASSERT(SIZEOF(.actor_behavior_noop_b570) == 0xc, "actor_behavior_noop_b570 size changed")
+ASSERT(SIZEOF(.actor_behavior_extra_b57c) == 0x228, "actor_behavior_extra_b57c size changed")
+ASSERT(SIZEOF(.actor_behavior_noop_b7a4) == 0xc, "actor_behavior_noop_b7a4 size changed")
+ASSERT(SIZEOF(.actor_behavior_noop_b7b0) == 0xc, "actor_behavior_noop_b7b0 size changed")
+ASSERT(SIZEOF(.cpu_after_actor_behavior_noop_b7b0) == 0x7cc, "cpu_after_actor_behavior_noop_b7b0 size changed")
+ASSERT(SIZEOF(.actor_behavior_repeat) == 0x124, "actor_behavior_repeat size changed")
+ASSERT(SIZEOF(.cpu_after_actor_behavior_repeat) == 0x186c, "cpu_after_actor_behavior_repeat size changed")
+ASSERT(SIZEOF(.actor_behavior_extra_d918) == 0x308, "actor_behavior_extra_d918 size changed")
+ASSERT(SIZEOF(.actor_behavior_countdown) == 0x98, "actor_behavior_countdown size changed")
+ASSERT(SIZEOF(.actor_behavior_countdown_begin) == 0x88, "actor_behavior_countdown_begin size changed")
+ASSERT(SIZEOF(.actor_behavior_countdown_trigger) == 0x7c, "actor_behavior_countdown_trigger size changed")
+ASSERT(SIZEOF(.cpu_after_actor_behavior_countdown_trigger) == 0x8a0, "cpu_after_actor_behavior_countdown_trigger size changed")
 ASSERT(SIZEOF(.session_setup_noop) == 0x8, "session_setup_noop size changed")
 ASSERT(SIZEOF(.cpu_after_session_setup_noop) == 0x660, "cpu_after_session_setup_noop size changed")
 ASSERT(SIZEOF(.session_setup_globals) == 0x28, "session_setup_globals size changed")
@@ -751,7 +829,15 @@ ASSERT(SIZEOF(.command_enable) == 0x10, "command_enable size changed")
 ASSERT(SIZEOF(.game_number_convert) == 0xfc, "game_number_convert size changed")
 ASSERT(SIZEOF(.cpu_after_game_number_convert) == 0x160, "cpu_after_game_number_convert size changed")
 ASSERT(SIZEOF(.command_machine) == 0x80, "command_machine size changed")
-ASSERT(SIZEOF(.cpu_after_command_machine) == 0x4bdc, "cpu_after_command_machine size changed")
+ASSERT(SIZEOF(.cpu_after_command_machine) == 0x3838, "cpu_after_command_machine size changed")
+ASSERT(SIZEOF(.sound_bridge_core) == 0x84, "sound_bridge_core size changed")
+ASSERT(SIZEOF(.cpu_after_sound_bridge_core) == 0x8, "cpu_after_sound_bridge_core size changed")
+ASSERT(SIZEOF(.sound_bridge_definitions) == 0x5c, "sound_bridge_definitions size changed")
+ASSERT(SIZEOF(.cpu_after_sound_bridge_definitions) == 0xb0, "cpu_after_sound_bridge_definitions size changed")
+ASSERT(SIZEOF(.sound_bridge_future_reset) == 0x8c, "sound_bridge_future_reset size changed")
+ASSERT(SIZEOF(.sound_bridge_future_queue) == 0x90, "sound_bridge_future_queue size changed")
+ASSERT(SIZEOF(.sound_bridge_future_update) == 0xb8, "sound_bridge_future_update size changed")
+ASSERT(SIZEOF(.cpu_after_sound_bridge_future_update) == 0x1038, "cpu_after_sound_bridge_future_update size changed")
 ASSERT(SIZEOF(.debug_context_set) == 0x10, "debug_context_set size changed")
 ASSERT(SIZEOF(.cpu_after_debug_context_set) == 0x8, "cpu_after_debug_context_set size changed")
 ASSERT(SIZEOF(.debug_text_draw) == 0xa8, "debug_text_draw size changed")
@@ -777,7 +863,16 @@ ASSERT(SIZEOF(.data_after_scene_background_constants) == 0x2724, "data_after_sce
 ASSERT(SIZEOF(.save_menu_status_tables) == 0x30, "save_menu_status_tables size changed")
 ASSERT(SIZEOF(.data_after_save_menu_status_tables) == 0xb8, "data_after_save_menu_status_tables size changed")
 ASSERT(SIZEOF(.command_machine_table) == 0x20, "command_machine_table size changed")
-ASSERT(SIZEOF(.data_after_command_machine_table) == 0x1b64, "data_after_command_machine_table size changed")
+ASSERT(SIZEOF(.data_after_command_machine_table) == 0x154, "data_after_command_machine_table size changed")
+ASSERT(SIZEOF(.sound_bridge_future_queue_strings) == 0x20, "sound_bridge_future_queue_strings size changed")
+ASSERT(SIZEOF(.data_after_sound_bridge_future_queue_strings) == 0xc20, "data_after_sound_bridge_future_queue_strings size changed")
+ASSERT(SIZEOF(.renderer_vertex_attributes_strings) == 0xf0, "renderer_vertex_attributes_strings size changed")
+ASSERT(SIZEOF(.data_after_renderer_vertex_attributes_strings) == 0x1b8, "data_after_renderer_vertex_attributes_strings size changed")
+ASSERT(SIZEOF(.graphics_resource_strings) == 0x14, "graphics_resource_strings size changed")
+ASSERT(SIZEOF(.data_after_graphics_resource_strings) == 0x44, "data_after_graphics_resource_strings size changed")
+ASSERT(SIZEOF(.graphics_pool_strings) == 0xe0, "graphics_pool_strings size changed")
+ASSERT(SIZEOF(.graphics_mode_dispatch_table) == 0x60, "graphics_mode_dispatch_table size changed")
+ASSERT(SIZEOF(.data_after_graphics_mode_dispatch_table) == 0x990, "data_after_graphics_mode_dispatch_table size changed")
 ASSERT(SIZEOF(.sdk_gu_perspective_constants) == 0x10, "sdk_gu_perspective_constants size changed")
 ASSERT(SIZEOF(.sdk_gu_lookathilite_constants) == 0x20, "sdk_gu_lookathilite_constants size changed")
 ASSERT(SIZEOF(.sdk_gu_rotate_rpy_constants) == 0x10, "sdk_gu_rotate_rpy_constants size changed")
@@ -856,15 +951,40 @@ ASSERT(SIZEOF(.controller_axes) == 0xfc, "controller_axes size changed")
 ASSERT(SIZEOF(.platform_io) == 0xf4, "platform_io size changed")
 ASSERT(SIZEOF(.cpu_after_platform_io) == 0x534, "cpu_after_platform_io size changed")
 ASSERT(SIZEOF(.object_recovery_path_extension) == 0x44, "object_recovery_path_extension size changed")
-ASSERT(SIZEOF(.cpu_after_object_recovery_path_extension) == 0x28, "cpu_after_object_recovery_path_extension size changed")
+ASSERT(SIZEOF(.geometry_debug_bridge) == 0x28, "geometry_debug_bridge size changed")
 ASSERT(SIZEOF(.object_recovery_fixed_trig) == 0x90, "object_recovery_fixed_trig size changed")
 ASSERT(SIZEOF(.object_recovery_integer_sqrt) == 0x64, "object_recovery_integer_sqrt size changed")
 ASSERT(SIZEOF(.object_recovery_angle_scale) == 0x24, "object_recovery_angle_scale size changed")
 ASSERT(SIZEOF(.object_recovery_direction_angle) == 0x184, "object_recovery_direction_angle size changed")
 ASSERT(SIZEOF(.object_recovery_angle_table) == 0x94, "object_recovery_angle_table size changed")
-ASSERT(SIZEOF(.cpu_after_object_recovery_angle_table) == 0x9628, "cpu_after_object_recovery_angle_table size changed")
+ASSERT(SIZEOF(.cpu_after_object_recovery_angle_table) == 0x1e8, "cpu_after_object_recovery_angle_table size changed")
+ASSERT(SIZEOF(.geometry_bridge_apply) == 0x9c, "geometry_bridge_apply size changed")
+ASSERT(SIZEOF(.geometry_bridge_rotate) == 0xb4, "geometry_bridge_rotate size changed")
+ASSERT(SIZEOF(.cpu_after_geometry_bridge_rotate) == 0x6670, "cpu_after_geometry_bridge_rotate size changed")
+ASSERT(SIZEOF(.renderer_vertex_attributes) == 0x438, "renderer_vertex_attributes size changed")
+ASSERT(SIZEOF(.renderer_material_texture) == 0x118, "renderer_material_texture size changed")
+ASSERT(SIZEOF(.renderer_material_light) == 0x6c, "renderer_material_light size changed")
+ASSERT(SIZEOF(.renderer_material_combined) == 0x290, "renderer_material_combined size changed")
+ASSERT(SIZEOF(.renderer_light_select) == 0x54, "renderer_light_select size changed")
+ASSERT(SIZEOF(.renderer_material_untextured) == 0xa0, "renderer_material_untextured size changed")
+ASSERT(SIZEOF(.cpu_after_renderer_material_untextured) == 0x12a4, "cpu_after_renderer_material_untextured size changed")
+ASSERT(SIZEOF(.renderer_material_reset) == 0x20, "renderer_material_reset size changed")
+ASSERT(SIZEOF(.cpu_after_renderer_material_reset) == 0xa0c, "cpu_after_renderer_material_reset size changed")
+ASSERT(SIZEOF(.renderer_vertex_copy) == 0x39c, "renderer_vertex_copy size changed")
+ASSERT(SIZEOF(.renderer_texture_load) == 0x218, "renderer_texture_load size changed")
+ASSERT(SIZEOF(.graphics_display_list) == 0x48, "graphics_display_list size changed")
+ASSERT(SIZEOF(.graphics_resource) == 0x70, "graphics_resource size changed")
+ASSERT(SIZEOF(.cpu_after_graphics_resource) == 0x4, "cpu_after_graphics_resource size changed")
 ASSERT(SIZEOF(.palette_tint) == 0x58, "palette_tint size changed")
-ASSERT(SIZEOF(.cpu_after_palette_tint) == 0x1b68, "cpu_after_palette_tint size changed")
+ASSERT(SIZEOF(.graphics_modes) == 0x624, "graphics_modes size changed")
+ASSERT(SIZEOF(.cpu_after_graphics_modes) == 0xcc, "cpu_after_graphics_modes size changed")
+ASSERT(SIZEOF(.graphics_lights) == 0x258, "graphics_lights size changed")
+ASSERT(SIZEOF(.graphics_pool) == 0x1a4, "graphics_pool size changed")
+ASSERT(SIZEOF(.cpu_after_graphics_pool) == 0x88, "cpu_after_graphics_pool size changed")
+ASSERT(SIZEOF(.graphics_frame_reset) == 0x120, "graphics_frame_reset size changed")
+ASSERT(SIZEOF(.graphics_mode_dispatch) == 0x21c, "graphics_mode_dispatch size changed")
+ASSERT(SIZEOF(.graphics_environment) == 0xb0, "graphics_environment size changed")
+ASSERT(SIZEOF(.cpu_after_graphics_environment) == 0xc08, "cpu_after_graphics_environment size changed")
 ASSERT(SIZEOF(.startup) == 0x3a0, "startup functions size changed")
 ASSERT(SIZEOF(.cpu_after_startup) == 0x4e4, "CPU fallback after startup size changed")
 ASSERT(SIZEOF(.frame_render) == 0x198, "frame submission size changed")
