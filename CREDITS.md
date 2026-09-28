@@ -70,7 +70,10 @@ notes, together with [object definitions and shell menus](docs/session-setup.md)
 [scene commands and background images](docs/scene-commands.md), and
 [save menus](docs/save-menus.md), [gameplay tweaks and resource strings](docs/tweaks-and-strings.md),
 [renderer state and lighting](docs/graphics-state.md), and
-[renderer polygons and vertices](docs/renderer-geometry.md).
+[renderer polygons and vertices](docs/renderer-geometry.md),
+[model geometry and framebuffer services](docs/model-geometry.md),
+[object creation](docs/object-creation.md), [scene services](docs/scene-services.md),
+and [additional runtime recovery](docs/runtime-recovery.md).
 Those documents distinguish target-confirmed facts from reference
 comparisons and remaining hypotheses.
 

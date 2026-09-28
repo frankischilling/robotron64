@@ -55,7 +55,7 @@ extern char D_800943D8[];
 extern char D_800943F0[];
 extern char D_80094420[];
 
-void func_800360B8();
+int func_800360B8(unsigned char *label);
 void func_800374D0(void);
 void func_80037508(TweakCommand *command);
 void func_80037588(TweakCommand *command);

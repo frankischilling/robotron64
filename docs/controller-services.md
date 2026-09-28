@@ -82,3 +82,13 @@ error values 10 and 11, and motor API signatures. These interfaces help
 interpret the game calls. The game instructions and calling sites determine
 the reconstructed control flow. The broader reference collection is credited
 in [CREDITS.md](../CREDITS.md).
+
+## Legacy accessory scan
+
+The separate `func_8004C0D4` entry point now matches in
+`src/game/controller_legacy_scan.c`, adding one complete 244-byte function.
+It queries the accessory mask, visits each of the four indicated ports, and
+clears a port for the target's fatal-ID or device error. It uses the existing
+SDK interface declarations; no SDK implementation is copied into this game
+source. The complete canonical proof is under `.local/recovery67-integration`,
+with behavior summarized in [Additional runtime recovery](runtime-recovery.md).

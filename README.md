@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 611 matching C functions covering 79,872 bytes, plus a 56-byte reconstructed assembly entry and 976 bytes of source-owned initialized data. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 653 matching C functions covering 86,028 bytes, plus a 56-byte reconstructed assembly entry and 976 bytes of source-owned initialized data. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -57,6 +57,13 @@ forward and back callbacks, preview creation and release, and cleanup.
 [Continue-code encoding](docs/continue-code.md) records the packed fields,
 checksum, and character order. [Actor resource-mode dispatch](docs/actor-behavior-next.md)
 preserves timed callbacks, animation transitions, and heading updates.
+
+The latest 42-function batch adds 6,156 code bytes. [Object creation](docs/object-creation.md)
+covers allocation, release, reset, and model state. [Model geometry](docs/model-geometry.md)
+covers polygon submission, fixed-point rotation, hierarchy traversal, vertex
+operations, and framebuffer services. [Scene services](docs/scene-services.md)
+and [runtime recovery](docs/runtime-recovery.md) document the transition,
+timer, controller, actor-facing, movie, and level-override routines.
 
 SDK implementations adapted directly from reference projects remain in local research. Their checkouts do not provide a redistribution license covering those implementations, so this public checkpoint uses extracted SDK fallback and excludes those functions from its source counts. SDK research notes identify that separate scope. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
 

@@ -79,6 +79,7 @@ data regions.
 | `tweak_page.c` | `0x80037508..0x80037588` | 128 |
 | `tweak_define.c` | `0x80037588..0x8003762C` | 164 |
 | `tweak_difficulty_apply.c` | `0x80037700..0x800377E4` | 228 |
+| `tweak_scene_apply.c` | `0x800377E4..0x800378CC` | 232 |
 | `tweak_bind.c` | `0x8003799C..0x80037A20` | 132 |
 | `tweak_bind_all.c` | `0x80037A20..0x80038228` | 2,056 |
 | `tweak_scale_enemy_speeds.c` | `0x80038228..0x80038390` | 360 |
@@ -86,11 +87,15 @@ data regions.
 | `resource_string_find.c` | `0x800383F8..0x80038498` | 160 |
 | `resource_string_load.c` | `0x80038498..0x8003856C` | 212 |
 
-Difficulty-record insertion (`0x8003762C`), level-override insertion
-(`0x800378CC`), and level-override application (`0x800377E4`) remain candidates.
-They have register-allocation and scheduling differences; the application
-candidate has the complete 232-byte extent with eight differing words.
-They contribute no matching source bytes until complete comparisons pass.
+Level-override application (`0x800377E4`) now matches all 232 bytes. Its
+repeated indexed target reads reproduce the original allocation and memory
+access order while preserving the five pickup-field exemptions. The canonical
+comparison and procedure-boundary proof are under `.local/recovery67-integration`.
+
+Difficulty-record insertion (`0x8003762C`) and level-override insertion
+(`0x800378CC`) remain candidates with register-allocation and scheduling
+differences. They contribute no matching source bytes until complete
+comparisons pass.
 
 The target establishes these game-specific tables and behaviors. The
 [reference credits](../CREDITS.md) record the N64 compiler and SDK sources used

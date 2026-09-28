@@ -115,3 +115,11 @@ in `.local/recovery57-integration`. Position-copy recovery and independent
 integration proofs are under `.local/recovery61-renderer` and
 `.local/recovery61-integration`. The matching manifest includes only
 candidates whose entire code and declared data pass.
+
+## Model-side geometry
+
+The separate model-side walkers and transforms at `0x8003D2C0..0x80040968`
+now include 11 complete C functions and 3,024 bytes. They reuse the existing
+polygon, position, normal, and matrix layouts. Their exact ranges, hierarchy
+record, fixed-point operations, and framebuffer behavior are documented in
+[Model geometry and framebuffer services](model-geometry.md).

@@ -74,3 +74,12 @@ The nearby angle-conversion candidates, `func_80039FCC` and `func_8003A128`,
 remain excluded. Their current arithmetic expressions let IDO reassociate
 floating-point division and produce different instructions.
 The large object loop beginning at `0x8003A8B0` also remains extracted code.
+
+## Creation and model access
+
+The preceding object-manager entry points at `0x8003919C..0x800394C0` now
+provide another 15 complete functions and 800 code bytes. They cover the
+service wrapper, registration callbacks, object creation/release/reset,
+model property bytes, and frame selection. Their separate totals, original
+write order, and complete proof paths are in
+[Object creation and model state](object-creation.md).
