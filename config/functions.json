@@ -2619,6 +2619,17 @@
     "evidence": "docs/scene-services.md"
   },
   {
+    "name": "func_80032D28",
+    "rom": 211240,
+    "vram": 2147691816,
+    "size": 584,
+    "source": "src/game/scene_player_setup.c",
+    "object": "build/us/scene_player_setup.o",
+    "section": ".scene_player_setup",
+    "section_vram": 2147691816,
+    "evidence": "docs/scene-services.md"
+  },
+  {
     "name": "func_800338CC",
     "rom": 214220,
     "vram": 2147694796,
@@ -2773,6 +2784,28 @@
     "evidence": "docs/scene-services.md"
   },
   {
+    "name": "func_800369C8",
+    "rom": 226760,
+    "vram": 2147707336,
+    "size": 312,
+    "source": "src/game/scene_actor_scale.c",
+    "object": "build/us/scene_actor_scale.o",
+    "section": ".scene_actor_scale",
+    "section_vram": 2147707336,
+    "evidence": "docs/scene-services.md"
+  },
+  {
+    "name": "func_80036DC8",
+    "rom": 227784,
+    "vram": 2147708360,
+    "size": 264,
+    "source": "src/game/scene_actor_motion_reset.c",
+    "object": "build/us/scene_actor_motion_reset.o",
+    "section": ".scene_actor_motion_reset",
+    "section_vram": 2147708360,
+    "evidence": "docs/scene-services.md"
+  },
+  {
     "name": "func_80036ED0",
     "rom": 228048,
     "vram": 2147708624,
@@ -2781,6 +2814,28 @@
     "object": "build/us/scene_service_noop.o",
     "section": ".scene_service_noop",
     "section_vram": 2147708624,
+    "evidence": "docs/scene-services.md"
+  },
+  {
+    "name": "func_80036ED8",
+    "rom": 228056,
+    "vram": 2147708632,
+    "size": 376,
+    "source": "src/game/scene_parent_follow.c",
+    "object": "build/us/scene_parent_follow.o",
+    "section": ".scene_parent_follow",
+    "section_vram": 2147708632,
+    "evidence": "docs/scene-services.md"
+  },
+  {
+    "name": "func_80037144",
+    "rom": 228676,
+    "vram": 2147709252,
+    "size": 184,
+    "source": "src/game/scene_bucket_counter.c",
+    "object": "build/us/scene_bucket_counter.o",
+    "section": ".scene_bucket_counter",
+    "section_vram": 2147709252,
     "evidence": "docs/scene-services.md"
   },
   {
@@ -4082,6 +4137,28 @@
     "evidence": "docs/game-memory.md"
   },
   {
+    "name": "func_8003B7FC",
+    "rom": 246780,
+    "vram": 2147727356,
+    "size": 60,
+    "source": "src/game/game_string_compare.c",
+    "object": "build/us/game_string_compare.o",
+    "section": ".game_string_compare",
+    "section_vram": 2147727356,
+    "evidence": "docs/game-memory.md"
+  },
+  {
+    "name": "func_8003B8E0",
+    "rom": 247008,
+    "vram": 2147727584,
+    "size": 72,
+    "source": "src/game/game_string_compare_n.c",
+    "object": "build/us/game_string_compare_n.o",
+    "section": ".game_string_compare_n",
+    "section_vram": 2147727584,
+    "evidence": "docs/game-memory.md"
+  },
+  {
     "name": "func_8003B928",
     "rom": 247080,
     "vram": 2147727656,
@@ -4640,6 +4717,28 @@
     "object": "build/us/resource_bridge_texture_stub.o",
     "section": ".resource_bridge_texture_stub",
     "section_vram": 2147732004,
+    "evidence": "docs/runtime-recovery.md"
+  },
+  {
+    "name": "func_8003CA34",
+    "rom": 251444,
+    "vram": 2147732020,
+    "size": 220,
+    "source": "src/game/resource_bridge_bitmap.c",
+    "object": "build/us/resource_bridge_bitmap.o",
+    "section": ".resource_bridge_bitmap",
+    "section_vram": 2147732020,
+    "evidence": "docs/runtime-recovery.md"
+  },
+  {
+    "name": "func_8003CB10",
+    "rom": 251664,
+    "vram": 2147732240,
+    "size": 220,
+    "source": "src/game/resource_bridge_animation.c",
+    "object": "build/us/resource_bridge_animation.o",
+    "section": ".resource_bridge_animation",
+    "section_vram": 2147732240,
     "evidence": "docs/runtime-recovery.md"
   },
   {

@@ -1,9 +1,9 @@
 # Additional runtime recovery
 
-Seven complete routines add 1,772 bytes of matching C. The first five extend
-existing actor, controller, movie, and gameplay-setting families. The last two
-recover the model-cache lookup and the target's empty texture-service entry
-point.
+Nine complete routines add 2,212 bytes of matching C. The first five extend
+existing actor, controller, movie, and gameplay-setting families. The last four
+recover the resource bridge's model-cache, texture, bitmap, and animation entry
+points.
 
 | Source | Function | Code bytes |
 | --- | --- | ---: |
@@ -14,6 +14,8 @@ point.
 | `tweak_scene_apply.c` | `func_800377E4` | 232 |
 | `resource_bridge_model_cache.c` | `func_8003C94C` | 216 |
 | `resource_bridge_texture_stub.c` | `func_8003CA24` | 16 |
+| `resource_bridge_bitmap.c` | `func_8003CA34` | 220 |
+| `resource_bridge_animation.c` | `func_8003CB10` | 220 |
 
 The facing routine computes the X/Y separation between two actors, obtains
 the angle through the existing angle helper, and applies each caller's
@@ -43,10 +45,17 @@ existing handle when present, and otherwise initializes a 20-byte cache entry.
 The target's `0xA8` stack frame preserves 128-byte filename and four-byte
 extension workspaces even though this path does not consume them. Their names
 come from the function's path input and neighboring resource helpers; no code
-is added to assign them a speculative role. The texture-service entry point has
-no executable body beyond its argument stores and return. The existing
-signature and caller contract are preserved; no success value or inferred
-texture operation is added.
+is added to assign them a speculative role.
+
+The bitmap and animation resource helpers lazily clear their respective
+1,000-entry handle maps. Cached identifiers reuse the stored handle. New entries
+allocate from their existing counters and initialize the identifier and loaded
+flag. Each helper sets the bridge guard around `func_8004BD00` and returns the
+selected handle.
+
+The texture-service entry point has no executable body beyond its argument
+stores and return. The existing signature and caller contract are preserved;
+no success value or inferred texture operation is added.
 
 ## Evidence and references
 
@@ -55,8 +64,11 @@ The earlier complete proofs are retained under
 The five reviewed game routines were independently recompiled under
 `.local/recovery66-geometry`. Canonical source/header snapshots and complete
 procedure-boundary checks are under `.local/recovery67-integration`.
-All use IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32` and define no
-initialized data or BSS.
+The two later resource helpers have independent complete-function proofs under
+`.local/recovery69-object-runtime` and `.local/recovery73-object`, including
+current transitive header hashes, exact boundaries, and zero differing words.
+All use IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32` and define no initialized
+data or BSS.
 
 The existing controller interface uses the state layouts and error values
 checked against [libreultra](https://github.com/n64decomp/libreultra), as

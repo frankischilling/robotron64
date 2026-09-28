@@ -21,7 +21,6 @@ D_8008F64C = 0x8008F64C;
 D_8009EFA4 = 0x8009EFA4;
 
 func_80000F48 = 0x80000F48;
-func_8003B7FC = 0x8003B7FC;
 
 
 D_800BF918 = 0x800BF918;
@@ -237,6 +236,8 @@ SECTIONS
     .scene_transition_close 0x80032880 : AT(0x33480) SUBALIGN(4) { build/us/scene_transition_close.o(.text) }
     .scene_transition_draw 0x800328E0 : AT(0x334E0) SUBALIGN(4) { build/us/scene_transition_draw.o(.text) }
     .cpu_after_scene_transition_draw 0x80032A00 : AT(0x33600) { build/us/fallback.o(.rom_cpu_after_scene_transition_draw) }
+    .scene_player_setup 0x80032D28 : AT(0x33928) SUBALIGN(4) { build/us/scene_player_setup.o(.text) }
+    .cpu_after_scene_player_setup 0x80032F70 : AT(0x33B70) { build/us/fallback.o(.rom_cpu_after_scene_player_setup) }
     .scene_signed_shift 0x800338CC : AT(0x344CC) SUBALIGN(4) { build/us/scene_signed_shift.o(.text) }
     .cpu_after_scene_signed_shift 0x800338F0 : AT(0x344F0) { build/us/fallback.o(.rom_cpu_after_scene_signed_shift) }
     .scene_actor_parameter_reset 0x800354A4 : AT(0x360A4) SUBALIGN(4) { build/us/scene_actor_parameter_reset.o(.text) }
@@ -251,8 +252,14 @@ SECTIONS
     .cpu_after_sound_bridge_future_update 0x800363D0 : AT(0x36FD0) { build/us/fallback.o(.rom_cpu_after_sound_bridge_future_update) }
     .scene_glyph_release 0x80036670 : AT(0x37270) SUBALIGN(4) { build/us/scene_glyph_release.o(.text) }
     .cpu_after_scene_glyph_release 0x800366C8 : AT(0x372C8) { build/us/fallback.o(.rom_cpu_after_scene_glyph_release) }
+    .scene_actor_scale 0x800369C8 : AT(0x375C8) SUBALIGN(4) { build/us/scene_actor_scale.o(.text) }
+    .cpu_after_scene_actor_scale 0x80036B00 : AT(0x37700) { build/us/fallback.o(.rom_cpu_after_scene_actor_scale) }
+    .scene_actor_motion_reset 0x80036DC8 : AT(0x379C8) SUBALIGN(4) { build/us/scene_actor_motion_reset.o(.text) }
     .scene_service_noop 0x80036ED0 : AT(0x37AD0) SUBALIGN(4) { build/us/scene_service_noop.o(.text) }
-    .cpu_after_scene_service_noop 0x80036ED8 : AT(0x37AD8) { build/us/fallback.o(.rom_cpu_after_scene_service_noop) }
+    .scene_parent_follow 0x80036ED8 : AT(0x37AD8) SUBALIGN(4) { build/us/scene_parent_follow.o(.text) }
+    .cpu_after_scene_parent_follow 0x80037050 : AT(0x37C50) { build/us/fallback.o(.rom_cpu_after_scene_parent_follow) }
+    .scene_bucket_counter 0x80037144 : AT(0x37D44) SUBALIGN(4) { build/us/scene_bucket_counter.o(.text) }
+    .cpu_after_scene_bucket_counter 0x800371FC : AT(0x37DFC) { build/us/fallback.o(.rom_cpu_after_scene_bucket_counter) }
     .debug_context_set 0x80037408 : AT(0x38008) SUBALIGN(4) { build/us/debug_context_set.o(.text) }
     .cpu_after_debug_context_set 0x80037418 : AT(0x38018) { build/us/fallback.o(.rom_cpu_after_debug_context_set) }
     .debug_text_draw 0x80037420 : AT(0x38020) SUBALIGN(4) { build/us/debug_text_draw.o(.text) }
@@ -306,7 +313,9 @@ SECTIONS
     .game_memory 0x8003B4C0 : AT(0x3C0C0) SUBALIGN(4) { build/us/game_memory.o(.text) }
     .cpu_after_game_memory 0x8003B734 : AT(0x3C334) { build/us/fallback.o(.rom_cpu_after_game_memory) }
     .game_string_case_compare 0x8003B768 : AT(0x3C368) SUBALIGN(4) { build/us/game_string_case_compare.o(.text) }
-    .cpu_after_game_string_case_compare 0x8003B7FC : AT(0x3C3FC) { build/us/fallback.o(.rom_cpu_after_game_string_case_compare) }
+    .game_string_compare 0x8003B7FC : AT(0x3C3FC) SUBALIGN(4) { build/us/game_string_compare.o(.text) }
+    .cpu_after_game_string_compare 0x8003B838 : AT(0x3C438) { build/us/fallback.o(.rom_cpu_after_game_string_compare) }
+    .game_string_compare_n 0x8003B8E0 : AT(0x3C4E0) SUBALIGN(4) { build/us/game_string_compare_n.o(.text) }
     .game_number_format 0x8003B928 : AT(0x3C528) SUBALIGN(4) { build/us/game_number_format.o(.text) }
     .game_character 0x8003BBAC : AT(0x3C7AC) SUBALIGN(4) { build/us/game_character.o(.text) }
     .game_integer_parse 0x8003BD4C : AT(0x3C94C) SUBALIGN(4) { build/us/game_integer_parse.o(.text) }
@@ -320,7 +329,8 @@ SECTIONS
     .cpu_after_platform_io 0x8003C6B8 : AT(0x3D2B8) { build/us/fallback.o(.rom_cpu_after_platform_io) }
     .resource_bridge_model_cache 0x8003C94C : AT(0x3D54C) SUBALIGN(4) { build/us/resource_bridge_model_cache.o(.text) }
     .resource_bridge_texture_stub 0x8003CA24 : AT(0x3D624) SUBALIGN(4) { build/us/resource_bridge_texture_stub.o(.text) }
-    .cpu_after_resource_bridge_texture_stub 0x8003CA34 : AT(0x3D634) { build/us/fallback.o(.rom_cpu_after_resource_bridge_texture_stub) }
+    .resource_bridge_bitmap 0x8003CA34 : AT(0x3D634) SUBALIGN(4) { build/us/resource_bridge_bitmap.o(.text) }
+    .resource_bridge_animation 0x8003CB10 : AT(0x3D710) SUBALIGN(4) { build/us/resource_bridge_animation.o(.text) }
     .object_recovery_path_extension 0x8003CBEC : AT(0x3D7EC) SUBALIGN(4) { build/us/object_recovery_path_extension.o(.text) }
     .geometry_debug_bridge 0x8003CC30 : AT(0x3D830) SUBALIGN(4) { build/us/geometry_debug_bridge.o(.text) }
     .object_recovery_fixed_trig 0x8003CC58 : AT(0x3D858) SUBALIGN(4) { build/us/object_recovery_fixed_trig.o(.text) }
@@ -917,7 +927,9 @@ ASSERT(SIZEOF(.cpu_after_command_machine) == 0x4, "cpu_after_command_machine siz
 ASSERT(SIZEOF(.scene_transition_open) == 0x50, "scene_transition_open size changed")
 ASSERT(SIZEOF(.scene_transition_close) == 0x60, "scene_transition_close size changed")
 ASSERT(SIZEOF(.scene_transition_draw) == 0x120, "scene_transition_draw size changed")
-ASSERT(SIZEOF(.cpu_after_scene_transition_draw) == 0xecc, "cpu_after_scene_transition_draw size changed")
+ASSERT(SIZEOF(.cpu_after_scene_transition_draw) == 0x328, "cpu_after_scene_transition_draw size changed")
+ASSERT(SIZEOF(.scene_player_setup) == 0x248, "scene_player_setup size changed")
+ASSERT(SIZEOF(.cpu_after_scene_player_setup) == 0x95c, "cpu_after_scene_player_setup size changed")
 ASSERT(SIZEOF(.scene_signed_shift) == 0x24, "scene_signed_shift size changed")
 ASSERT(SIZEOF(.cpu_after_scene_signed_shift) == 0x1bb4, "cpu_after_scene_signed_shift size changed")
 ASSERT(SIZEOF(.scene_actor_parameter_reset) == 0x24, "scene_actor_parameter_reset size changed")
@@ -931,9 +943,15 @@ ASSERT(SIZEOF(.sound_bridge_future_queue) == 0x90, "sound_bridge_future_queue si
 ASSERT(SIZEOF(.sound_bridge_future_update) == 0xb8, "sound_bridge_future_update size changed")
 ASSERT(SIZEOF(.cpu_after_sound_bridge_future_update) == 0x2a0, "cpu_after_sound_bridge_future_update size changed")
 ASSERT(SIZEOF(.scene_glyph_release) == 0x58, "scene_glyph_release size changed")
-ASSERT(SIZEOF(.cpu_after_scene_glyph_release) == 0x808, "cpu_after_scene_glyph_release size changed")
+ASSERT(SIZEOF(.cpu_after_scene_glyph_release) == 0x300, "cpu_after_scene_glyph_release size changed")
+ASSERT(SIZEOF(.scene_actor_scale) == 0x138, "scene_actor_scale size changed")
+ASSERT(SIZEOF(.cpu_after_scene_actor_scale) == 0x2c8, "cpu_after_scene_actor_scale size changed")
+ASSERT(SIZEOF(.scene_actor_motion_reset) == 0x108, "scene_actor_motion_reset size changed")
 ASSERT(SIZEOF(.scene_service_noop) == 0x8, "scene_service_noop size changed")
-ASSERT(SIZEOF(.cpu_after_scene_service_noop) == 0x530, "cpu_after_scene_service_noop size changed")
+ASSERT(SIZEOF(.scene_parent_follow) == 0x178, "scene_parent_follow size changed")
+ASSERT(SIZEOF(.cpu_after_scene_parent_follow) == 0xf4, "cpu_after_scene_parent_follow size changed")
+ASSERT(SIZEOF(.scene_bucket_counter) == 0xb8, "scene_bucket_counter size changed")
+ASSERT(SIZEOF(.cpu_after_scene_bucket_counter) == 0x20c, "cpu_after_scene_bucket_counter size changed")
 ASSERT(SIZEOF(.debug_context_set) == 0x10, "debug_context_set size changed")
 ASSERT(SIZEOF(.cpu_after_debug_context_set) == 0x8, "cpu_after_debug_context_set size changed")
 ASSERT(SIZEOF(.debug_text_draw) == 0xa8, "debug_text_draw size changed")
@@ -1049,7 +1067,9 @@ ASSERT(SIZEOF(.object_runtime_active) == 0x98, "object_runtime_active size chang
 ASSERT(SIZEOF(.game_memory) == 0x274, "game_memory size changed")
 ASSERT(SIZEOF(.cpu_after_game_memory) == 0x34, "cpu_after_game_memory size changed")
 ASSERT(SIZEOF(.game_string_case_compare) == 0x94, "game_string_case_compare size changed")
-ASSERT(SIZEOF(.cpu_after_game_string_case_compare) == 0x12c, "cpu_after_game_string_case_compare size changed")
+ASSERT(SIZEOF(.game_string_compare) == 0x3c, "game_string_compare size changed")
+ASSERT(SIZEOF(.cpu_after_game_string_compare) == 0xa8, "cpu_after_game_string_compare size changed")
+ASSERT(SIZEOF(.game_string_compare_n) == 0x48, "game_string_compare_n size changed")
 ASSERT(SIZEOF(.game_number_format) == 0x284, "game_number_format size changed")
 ASSERT(SIZEOF(.game_character) == 0x1a0, "game_character size changed")
 ASSERT(SIZEOF(.game_integer_parse) == 0x9c, "game_integer_parse size changed")
@@ -1063,7 +1083,8 @@ ASSERT(SIZEOF(.platform_io) == 0xf4, "platform_io size changed")
 ASSERT(SIZEOF(.cpu_after_platform_io) == 0x294, "cpu_after_platform_io size changed")
 ASSERT(SIZEOF(.resource_bridge_model_cache) == 0xd8, "resource_bridge_model_cache size changed")
 ASSERT(SIZEOF(.resource_bridge_texture_stub) == 0x10, "resource_bridge_texture_stub size changed")
-ASSERT(SIZEOF(.cpu_after_resource_bridge_texture_stub) == 0x1b8, "cpu_after_resource_bridge_texture_stub size changed")
+ASSERT(SIZEOF(.resource_bridge_bitmap) == 0xdc, "resource_bridge_bitmap size changed")
+ASSERT(SIZEOF(.resource_bridge_animation) == 0xdc, "resource_bridge_animation size changed")
 ASSERT(SIZEOF(.object_recovery_path_extension) == 0x44, "object_recovery_path_extension size changed")
 ASSERT(SIZEOF(.geometry_debug_bridge) == 0x28, "geometry_debug_bridge size changed")
 ASSERT(SIZEOF(.object_recovery_fixed_trig) == 0x90, "object_recovery_fixed_trig size changed")
