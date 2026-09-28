@@ -13,7 +13,7 @@ Completed locally:
 - Added automated object-byte progress checks and public tooling tests.
 - Identified three SDK assembly sequences and two embedded graphics microcode version strings.
 
-The public build verifies 340 C functions contributing 41,276 matched bytes. Compared with the 60-function startup checkpoint on the base branch, it adds 280 C functions and 33,580 C bytes. The source includes text and object handling, movie commands and startup, actor cleanup, game-side audio management, ROM-file access, memory/string services, all three scheduler dispatchers, graphics task submission, frame helpers, and fixed-point arithmetic. See [movie recovery](movie-commands.md), [actor lifecycle](actors.md), [scheduler runtime](scheduler-runtime.md), [graphics task production](graphics-tasks.md), and [frame helpers](frame-runtime.md) for the behavior and compiled ranges.
+The public build verifies 383 C functions contributing 48,604 matched bytes. Compared with the 60-function startup checkpoint on the base branch, it adds 323 C functions and 40,908 C bytes. The latest recovery adds 43 functions and 7,328 bytes across movie track loading/release, actor-resource reset, palette controls and commands, controller services, and save/Pak file handling. See [movie track files](movie-files.md), [actor resources](actor-resources.md), [palette effects](palette-effects.md), [controller services](controller-services.md), [save format](save-game.md), and [Pak files](pak-files.md) for the behavior and compiled ranges.
 
 Most remaining ROM content uses extracted fallback. Total executable bytes and function count are unknown, and no whole-game percentage is claimed. SDK implementations adapted from reference checkouts remain outside this public source checkpoint pending a verified redistribution basis; their private comparison results do not contribute to these totals.
 
@@ -22,6 +22,12 @@ The 56-byte boot entry is reconstructed as symbolic assembly, followed by 24 ali
 The scheduler creation and dispatcher functions compile together into a `0xB70`-byte range. Six following helpers compile separately into `0xEC` bytes. The split preserves IDO's original loop-epilogue alignment. The task producer and scheduler share one checked `0x58`-byte record.
 
 Public tooling tests check normalization, comparison, padding handling, function metadata, build-input records, and section-address validation without a ROM. The manifest check rejects missing source or evidence files, overlapping ranges, conflicting sources for an object, inconsistent declared placement, and malformed records. Matching progress additionally checks the complete ROM, each linked function, input-object symbols, actual ELF load/runtime addresses, and source/header/object hashes recorded by the build recipes.
+
+The publication audit derives expected counts from the current manifest and
+checks the individual function inventory as well as its totals. Independent
+comparison reports must contain the current source units and source/header
+hashes. The audit rejects stale evidence even when its old byte count happens
+to equal the current count.
 
 See [reference study](reference-study.md) and [credits](../CREDITS.md) for the inspected source trees and recorded revisions. The public game implementation is reconstructed from Robotron's instructions and callers. Separately scoped SDK notes preserve the results of local source/profile comparisons without distributing those reference-derived implementations.
 

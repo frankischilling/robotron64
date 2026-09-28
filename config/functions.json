@@ -452,6 +452,28 @@
     "evidence": "docs/movie-commands.md"
   },
   {
+    "name": "func_80003A7C",
+    "rom": 18044,
+    "vram": 2147498620,
+    "size": 636,
+    "source": "src/game/movie_files.c",
+    "object": "build/us/movie_files.o",
+    "section": ".movie_files",
+    "section_vram": 2147498620,
+    "evidence": "docs/movie-files.md"
+  },
+  {
+    "name": "func_80003CF8",
+    "rom": 18680,
+    "vram": 2147499256,
+    "size": 124,
+    "source": "src/game/movie_files.c",
+    "object": "build/us/movie_files.o",
+    "section": ".movie_files",
+    "section_vram": 2147498620,
+    "evidence": "docs/movie-files.md"
+  },
+  {
     "name": "func_80003D74",
     "rom": 18804,
     "vram": 2147499380,
@@ -529,6 +551,17 @@
     "evidence": "docs/movie-commands.md"
   },
   {
+    "name": "func_8001D260",
+    "rom": 122464,
+    "vram": 2147603040,
+    "size": 400,
+    "source": "src/game/actor_resource_reset.c",
+    "object": "build/us/actor_resource_reset.o",
+    "section": ".actor_resource_reset",
+    "section_vram": 2147603040,
+    "evidence": "docs/actor-resources.md"
+  },
+  {
     "name": "func_8001F8E8",
     "rom": 132328,
     "vram": 2147612904,
@@ -593,6 +626,226 @@
     "section": ".actor_sweep",
     "section_vram": 2147648364,
     "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_8002FE00",
+    "rom": 199168,
+    "vram": 2147679744,
+    "size": 104,
+    "source": "src/game/save_options_capture.c",
+    "object": "build/us/save_options_capture.o",
+    "section": ".save_options_capture",
+    "section_vram": 2147679744,
+    "evidence": "docs/save-game.md"
+  },
+  {
+    "name": "func_8002FE68",
+    "rom": 199272,
+    "vram": 2147679848,
+    "size": 216,
+    "source": "src/game/save_slot_capture.c",
+    "object": "build/us/save_slot_capture.o",
+    "section": ".save_slot_capture",
+    "section_vram": 2147679848,
+    "evidence": "docs/save-game.md"
+  },
+  {
+    "name": "func_8002FF40",
+    "rom": 199488,
+    "vram": 2147680064,
+    "size": 136,
+    "source": "src/game/save_options_restore.c",
+    "object": "build/us/save_options_restore.o",
+    "section": ".save_options_restore",
+    "section_vram": 2147680064,
+    "evidence": "docs/save-game.md"
+  },
+  {
+    "name": "func_8002FFC8",
+    "rom": 199624,
+    "vram": 2147680200,
+    "size": 140,
+    "source": "src/game/save_slot_restore.c",
+    "object": "build/us/save_slot_restore.o",
+    "section": ".save_slot_restore",
+    "section_vram": 2147680200,
+    "evidence": "docs/save-game.md"
+  },
+  {
+    "name": "func_80030054",
+    "rom": 199764,
+    "vram": 2147680340,
+    "size": 336,
+    "source": "src/game/save_slot_labels.c",
+    "object": "build/us/save_slot_labels.o",
+    "section": ".save_slot_labels",
+    "section_vram": 2147680340,
+    "evidence": "docs/save-game.md"
+  },
+  {
+    "name": "func_800301A4",
+    "rom": 200100,
+    "vram": 2147680676,
+    "size": 636,
+    "source": "src/game/save_file_read.c",
+    "object": "build/us/save_file_read.o",
+    "section": ".save_file_read",
+    "section_vram": 2147680676,
+    "evidence": "docs/save-game.md"
+  },
+  {
+    "name": "func_80030420",
+    "rom": 200736,
+    "vram": 2147681312,
+    "size": 472,
+    "source": "src/game/save_file_write.c",
+    "object": "build/us/save_file_write.o",
+    "section": ".save_file_write",
+    "section_vram": 2147681312,
+    "evidence": "docs/save-game.md"
+  },
+  {
+    "name": "func_80031564",
+    "rom": 205156,
+    "vram": 2147685732,
+    "size": 12,
+    "source": "src/game/palette_fade_controls.c",
+    "object": "build/us/palette_fade_controls.o",
+    "section": ".palette_fade_controls",
+    "section_vram": 2147685732,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80031570",
+    "rom": 205168,
+    "vram": 2147685744,
+    "size": 116,
+    "source": "src/game/palette_fade_controls.c",
+    "object": "build/us/palette_fade_controls.o",
+    "section": ".palette_fade_controls",
+    "section_vram": 2147685732,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_800315E4",
+    "rom": 205284,
+    "vram": 2147685860,
+    "size": 116,
+    "source": "src/game/palette_fade_controls.c",
+    "object": "build/us/palette_fade_controls.o",
+    "section": ".palette_fade_controls",
+    "section_vram": 2147685732,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80031658",
+    "rom": 205400,
+    "vram": 2147685976,
+    "size": 84,
+    "source": "src/game/palette_fade_controls.c",
+    "object": "build/us/palette_fade_controls.o",
+    "section": ".palette_fade_controls",
+    "section_vram": 2147685732,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80031C10",
+    "rom": 206864,
+    "vram": 2147687440,
+    "size": 52,
+    "source": "src/game/palette_transition_reset.c",
+    "object": "build/us/palette_transition_reset.o",
+    "section": ".palette_transition_reset",
+    "section_vram": 2147687440,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80031C44",
+    "rom": 206916,
+    "vram": 2147687492,
+    "size": 648,
+    "source": "src/game/palette_transition_range.c",
+    "object": "build/us/palette_transition_range.o",
+    "section": ".palette_transition_range",
+    "section_vram": 2147687492,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_8003237C",
+    "rom": 208764,
+    "vram": 2147689340,
+    "size": 88,
+    "source": "src/game/palette_commands.c",
+    "object": "build/us/palette_commands.o",
+    "section": ".palette_commands",
+    "section_vram": 2147689340,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_800323D4",
+    "rom": 208852,
+    "vram": 2147689428,
+    "size": 96,
+    "source": "src/game/palette_commands.c",
+    "object": "build/us/palette_commands.o",
+    "section": ".palette_commands",
+    "section_vram": 2147689340,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80032434",
+    "rom": 208948,
+    "vram": 2147689524,
+    "size": 228,
+    "source": "src/game/palette_commands.c",
+    "object": "build/us/palette_commands.o",
+    "section": ".palette_commands",
+    "section_vram": 2147689340,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80032518",
+    "rom": 209176,
+    "vram": 2147689752,
+    "size": 8,
+    "source": "src/game/palette_commands.c",
+    "object": "build/us/palette_commands.o",
+    "section": ".palette_commands",
+    "section_vram": 2147689340,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80032520",
+    "rom": 209184,
+    "vram": 2147689760,
+    "size": 20,
+    "source": "src/game/palette_commands.c",
+    "object": "build/us/palette_commands.o",
+    "section": ".palette_commands",
+    "section_vram": 2147689340,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80032540",
+    "rom": 209216,
+    "vram": 2147689792,
+    "size": 16,
+    "source": "src/game/command_enable.c",
+    "object": "build/us/command_enable.o",
+    "section": ".command_enable",
+    "section_vram": 2147689792,
+    "evidence": "docs/palette-effects.md"
+  },
+  {
+    "name": "func_80032550",
+    "rom": 209232,
+    "vram": 2147689808,
+    "size": 252,
+    "source": "src/game/game_number_convert.c",
+    "object": "build/us/game_number_convert.o",
+    "section": ".game_number_convert",
+    "section_vram": 2147689808,
+    "evidence": "docs/palette-effects.md"
   },
   {
     "name": "func_800327AC",
@@ -2377,6 +2630,105 @@
     "evidence": "docs/graphics-tasks.md"
   },
   {
+    "name": "func_8004C090",
+    "rom": 314512,
+    "vram": 2147795088,
+    "size": 32,
+    "source": "src/game/controller_legacy_initialize.c",
+    "object": "build/us/controller_legacy_initialize.o",
+    "section": ".controller_legacy_initialize",
+    "section_vram": 2147795088,
+    "evidence": "docs/pak-files.md"
+  },
+  {
+    "name": "func_8004C0B0",
+    "rom": 314544,
+    "vram": 2147795120,
+    "size": 36,
+    "source": "src/game/controller_legacy_initialize.c",
+    "object": "build/us/controller_legacy_initialize.o",
+    "section": ".controller_legacy_initialize",
+    "section_vram": 2147795088,
+    "evidence": "docs/pak-files.md"
+  },
+  {
+    "name": "func_8004C1C8",
+    "rom": 314824,
+    "vram": 2147795400,
+    "size": 24,
+    "source": "src/game/controller_legacy_present.c",
+    "object": "build/us/controller_legacy_present.o",
+    "section": ".controller_legacy_present",
+    "section_vram": 2147795400,
+    "evidence": "docs/pak-files.md"
+  },
+  {
+    "name": "func_8004C378",
+    "rom": 315256,
+    "vram": 2147795832,
+    "size": 52,
+    "source": "src/game/pak_file_status.c",
+    "object": "build/us/pak_file_status.o",
+    "section": ".pak_file_status",
+    "section_vram": 2147795832,
+    "evidence": "docs/pak-files.md"
+  },
+  {
+    "name": "func_8004C3AC",
+    "rom": 315308,
+    "vram": 2147795884,
+    "size": 440,
+    "source": "src/game/pak_file_open.c",
+    "object": "build/us/pak_file_open.o",
+    "section": ".pak_file_open",
+    "section_vram": 2147795884,
+    "evidence": "docs/pak-files.md"
+  },
+  {
+    "name": "func_8004C564",
+    "rom": 315748,
+    "vram": 2147796324,
+    "size": 120,
+    "source": "src/game/pak_file_read.c",
+    "object": "build/us/pak_file_read.o",
+    "section": ".pak_file_read",
+    "section_vram": 2147796324,
+    "evidence": "docs/pak-files.md"
+  },
+  {
+    "name": "func_8004C5DC",
+    "rom": 315868,
+    "vram": 2147796444,
+    "size": 108,
+    "source": "src/game/pak_file_write.c",
+    "object": "build/us/pak_file_write.o",
+    "section": ".pak_file_write",
+    "section_vram": 2147796444,
+    "evidence": "docs/pak-files.md"
+  },
+  {
+    "name": "func_8004C648",
+    "rom": 315976,
+    "vram": 2147796552,
+    "size": 20,
+    "source": "src/game/pak_file_close.c",
+    "object": "build/us/pak_file_close.o",
+    "section": ".pak_file_close",
+    "section_vram": 2147796552,
+    "evidence": "docs/pak-files.md"
+  },
+  {
+    "name": "func_8004C65C",
+    "rom": 315996,
+    "vram": 2147796572,
+    "size": 128,
+    "source": "src/game/pak_file_encode_name.c",
+    "object": "build/us/pak_file_encode_name.o",
+    "section": ".pak_file_encode_name",
+    "section_vram": 2147796572,
+    "evidence": "docs/pak-files.md"
+  },
+  {
     "name": "func_8004CED0",
     "rom": 318160,
     "vram": 2147798736,
@@ -2727,6 +3079,127 @@
     "section": ".rom_files",
     "section_vram": 2147806584,
     "evidence": "docs/rom-resources.md"
+  },
+  {
+    "name": "func_8004EFB0",
+    "rom": 326576,
+    "vram": 2147807152,
+    "size": 80,
+    "source": "src/game/controller_access.c",
+    "object": "build/us/controller_access.o",
+    "section": ".controller_access",
+    "section_vram": 2147807152,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004F000",
+    "rom": 326656,
+    "vram": 2147807232,
+    "size": 64,
+    "source": "src/game/controller_access.c",
+    "object": "build/us/controller_access.o",
+    "section": ".controller_access",
+    "section_vram": 2147807152,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004F040",
+    "rom": 326720,
+    "vram": 2147807296,
+    "size": 44,
+    "source": "src/game/controller_access.c",
+    "object": "build/us/controller_access.o",
+    "section": ".controller_access",
+    "section_vram": 2147807152,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004F178",
+    "rom": 327032,
+    "vram": 2147807608,
+    "size": 60,
+    "source": "src/game/controller_motor_commands.c",
+    "object": "build/us/controller_motor_commands.o",
+    "section": ".controller_motor_commands",
+    "section_vram": 2147807608,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004F1B4",
+    "rom": 327092,
+    "vram": 2147807668,
+    "size": 56,
+    "source": "src/game/controller_motor_commands.c",
+    "object": "build/us/controller_motor_commands.o",
+    "section": ".controller_motor_commands",
+    "section_vram": 2147807608,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004F1EC",
+    "rom": 327148,
+    "vram": 2147807724,
+    "size": 324,
+    "source": "src/game/controller_scan.c",
+    "object": "build/us/controller_scan.o",
+    "section": ".controller_scan",
+    "section_vram": 2147807724,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004F990",
+    "rom": 329104,
+    "vram": 2147809680,
+    "size": 68,
+    "source": "src/game/controller_pak_info.c",
+    "object": "build/us/controller_pak_info.o",
+    "section": ".controller_pak_info",
+    "section_vram": 2147809680,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004F9D4",
+    "rom": 329172,
+    "vram": 2147809748,
+    "size": 64,
+    "source": "src/game/controller_pak_info.c",
+    "object": "build/us/controller_pak_info.o",
+    "section": ".controller_pak_info",
+    "section_vram": 2147809680,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004FA14",
+    "rom": 329236,
+    "vram": 2147809812,
+    "size": 172,
+    "source": "src/game/controller_pak_delete.c",
+    "object": "build/us/controller_pak_delete.o",
+    "section": ".controller_pak_delete",
+    "section_vram": 2147809812,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004FAC0",
+    "rom": 329408,
+    "vram": 2147809984,
+    "size": 136,
+    "source": "src/game/controller_pak_name.c",
+    "object": "build/us/controller_pak_name.o",
+    "section": ".controller_pak_name",
+    "section_vram": 2147809984,
+    "evidence": "docs/controller-services.md"
+  },
+  {
+    "name": "func_8004FC98",
+    "rom": 329880,
+    "vram": 2147810456,
+    "size": 364,
+    "source": "src/game/controller_pak_directory.c",
+    "object": "build/us/controller_pak_directory.o",
+    "section": ".controller_pak_directory",
+    "section_vram": 2147810456,
+    "evidence": "docs/controller-services.md"
   },
   {
     "name": "func_8004FE10",

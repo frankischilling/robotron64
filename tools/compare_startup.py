@@ -15,6 +15,11 @@ from owned_sections import (load_owned_sections, source_sections, trim_owned_sec
 
 ADDRESS_NAME = re.compile(r"(?:func_|D_(?:FLT_|DBL_)?)([0-9A-Fa-f]{8})$")
 
+MATCHING_BLOCKS = (
+    ("startup", "src/boot/startup.c", 0x80048170, 0x80048510),
+    ("scheduler", "src/boot/scheduler.c", 0x80050440, 0x80050FB0),
+)
+
 
 def external_assignments(undefined, known):
     """Bind only unresolved references, never the functions being compared."""
@@ -136,10 +141,10 @@ def run():
     validate(target)
     layout = SymbolLayoutSnapshot()
     blocks = {
-        "startup": compare_block("startup", "src/boot/startup.c", 0x80048170,
-                                 0x48d70, 0x49110, target, layout=layout),
-        "scheduler": compare_block("scheduler", "src/boot/scheduler.c", 0x80050440,
-                                   0x51040, 0x51bb0, target, layout=layout),
+        name: compare_block(name, source, start,
+                            start - 0x80000000 + 0xC00,
+                            end - 0x80000000 + 0xC00, target, layout=layout)
+        for name, source, start, end in MATCHING_BLOCKS
     }
     report = {"matches": all(block["matches"] for block in blocks.values()), "blocks": blocks}
     encoded = json.dumps(report, indent=2) + "\n"

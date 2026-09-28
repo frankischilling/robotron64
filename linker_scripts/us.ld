@@ -54,7 +54,7 @@ SECTIONS
     .movie_parameters 0x80002F28 : AT(0x3B28) SUBALIGN(4) { build/us/movie_parameters.o(.text) }
     .movie_commands 0x80003040 : AT(0x3C40) SUBALIGN(4) { build/us/movie_commands.o(.text) }
     .movie_channels 0x800037F8 : AT(0x43F8) SUBALIGN(4) { build/us/movie_channels.o(.text) }
-    .cpu_after_movie_channels 0x80003A7C : AT(0x467C) { build/us/fallback.o(.rom_cpu_after_movie_channels) }
+    .movie_files 0x80003A7C : AT(0x467C) SUBALIGN(4) { build/us/movie_files.o(.text) }
     .movie_track_release 0x80003D74 : AT(0x4974) SUBALIGN(4) { build/us/movie_track_release.o(.text) }
     .cpu_after_movie_track_release 0x80003ECC : AT(0x4ACC) { build/us/fallback.o(.rom_cpu_after_movie_track_release) }
     .movie_sample 0x80004098 : AT(0x4C98) SUBALIGN(4) { build/us/movie_sample.o(.text) }
@@ -66,6 +66,8 @@ SECTIONS
     .movie_status 0x80005354 : AT(0x5F54) SUBALIGN(4) { build/us/movie_status.o(.text) }
     .movie_cleanup 0x8000544C : AT(0x604C) SUBALIGN(4) { build/us/movie_cleanup.o(.text) }
     .cpu_after_movie_cleanup 0x80005560 : AT(0x6160) { build/us/fallback.o(.rom_cpu_after_movie_cleanup) }
+    .actor_resource_reset 0x8001D260 : AT(0x1DE60) SUBALIGN(4) { build/us/actor_resource_reset.o(.text) }
+    .cpu_after_actor_resource_reset 0x8001D3F0 : AT(0x1DFF0) { build/us/fallback.o(.rom_cpu_after_actor_resource_reset) }
     .scene_audio_request 0x8001F8E8 : AT(0x204E8) SUBALIGN(4) { build/us/scene_audio_request.o(.text) }
     .cpu_after_scene_audio_request 0x8001F90C : AT(0x2050C) { build/us/fallback.o(.rom_cpu_after_scene_audio_request) }
     .actor_pool_reset 0x8002818C : AT(0x28D8C) SUBALIGN(4) { build/us/actor_pool_reset.o(.text) }
@@ -73,6 +75,24 @@ SECTIONS
     .actor_remove 0x80028274 : AT(0x28E74) SUBALIGN(4) { build/us/actor_remove.o(.text) }
     .actor_sweep 0x8002836C : AT(0x28F6C) SUBALIGN(4) { build/us/actor_sweep.o(.text) }
     .cpu_after_actor_sweep 0x800283D4 : AT(0x28FD4) { build/us/fallback.o(.rom_cpu_after_actor_sweep) }
+    .save_options_capture 0x8002FE00 : AT(0x30A00) SUBALIGN(4) { build/us/save_options_capture.o(.text) }
+    .save_slot_capture 0x8002FE68 : AT(0x30A68) SUBALIGN(4) { build/us/save_slot_capture.o(.text) }
+    .save_options_restore 0x8002FF40 : AT(0x30B40) SUBALIGN(4) { build/us/save_options_restore.o(.text) }
+    .save_slot_restore 0x8002FFC8 : AT(0x30BC8) SUBALIGN(4) { build/us/save_slot_restore.o(.text) }
+    .save_slot_labels 0x80030054 : AT(0x30C54) SUBALIGN(4) { build/us/save_slot_labels.o(.text) }
+    .save_file_read 0x800301A4 : AT(0x30DA4) SUBALIGN(4) { build/us/save_file_read.o(.text) }
+    .save_file_write 0x80030420 : AT(0x31020) SUBALIGN(4) { build/us/save_file_write.o(.text) }
+    .cpu_after_save_file_write 0x800305F8 : AT(0x311F8) { build/us/fallback.o(.rom_cpu_after_save_file_write) }
+    .palette_fade_controls 0x80031564 : AT(0x32164) SUBALIGN(4) { build/us/palette_fade_controls.o(.text) }
+    .cpu_after_palette_fade_controls 0x800316AC : AT(0x322AC) { build/us/fallback.o(.rom_cpu_after_palette_fade_controls) }
+    .palette_transition_reset 0x80031C10 : AT(0x32810) SUBALIGN(4) { build/us/palette_transition_reset.o(.text) }
+    .palette_transition_range 0x80031C44 : AT(0x32844) SUBALIGN(4) { build/us/palette_transition_range.o(.text) }
+    .cpu_after_palette_transition_range 0x80031ECC : AT(0x32ACC) { build/us/fallback.o(.rom_cpu_after_palette_transition_range) }
+    .palette_commands 0x8003237C : AT(0x32F7C) SUBALIGN(4) { build/us/palette_commands.o(.text) }
+    .cpu_after_palette_commands 0x80032534 : AT(0x33134) { build/us/fallback.o(.rom_cpu_after_palette_commands) }
+    .command_enable 0x80032540 : AT(0x33140) SUBALIGN(4) { build/us/command_enable.o(.text) }
+    .game_number_convert 0x80032550 : AT(0x33150) SUBALIGN(4) { build/us/game_number_convert.o(.text) }
+    .cpu_after_game_number_convert 0x8003264C : AT(0x3324C) { build/us/fallback.o(.rom_cpu_after_game_number_convert) }
     .command_machine 0x800327AC : AT(0x333AC) SUBALIGN(4) { build/us/command_machine.o(.text) }
     .cpu_after_command_machine 0x8003282C : AT(0x3342C) { build/us/fallback.o(.rom_cpu_after_command_machine) }
     .string_resource 0x800383C4 : AT(0x38FC4) SUBALIGN(4) { build/us/string_resource.o(.text) }
@@ -134,6 +154,17 @@ SECTIONS
     .cpu_after_frame_timing 0x800496E0 : AT(0x4A2E0) { build/us/fallback.o(.rom_cpu_after_frame_timing) }
     .graphics_ucode 0x800498E0 : AT(0x4A4E0) SUBALIGN(4) { build/us/graphics_ucode.o(.text) }
     .cpu_after_graphics_ucode 0x800498EC : AT(0x4A4EC) { build/us/fallback.o(.rom_cpu_after_graphics_ucode) }
+    .controller_legacy_initialize 0x8004C090 : AT(0x4CC90) SUBALIGN(4) { build/us/controller_legacy_initialize.o(.text) }
+    .cpu_after_controller_legacy_initialize 0x8004C0D4 : AT(0x4CCD4) { build/us/fallback.o(.rom_cpu_after_controller_legacy_initialize) }
+    .controller_legacy_present 0x8004C1C8 : AT(0x4CDC8) SUBALIGN(4) { build/us/controller_legacy_present.o(.text) }
+    .cpu_after_controller_legacy_present 0x8004C1E0 : AT(0x4CDE0) { build/us/fallback.o(.rom_cpu_after_controller_legacy_present) }
+    .pak_file_status 0x8004C378 : AT(0x4CF78) SUBALIGN(4) { build/us/pak_file_status.o(.text) }
+    .pak_file_open 0x8004C3AC : AT(0x4CFAC) SUBALIGN(4) { build/us/pak_file_open.o(.text) }
+    .pak_file_read 0x8004C564 : AT(0x4D164) SUBALIGN(4) { build/us/pak_file_read.o(.text) }
+    .pak_file_write 0x8004C5DC : AT(0x4D1DC) SUBALIGN(4) { build/us/pak_file_write.o(.text) }
+    .pak_file_close 0x8004C648 : AT(0x4D248) SUBALIGN(4) { build/us/pak_file_close.o(.text) }
+    .pak_file_encode_name 0x8004C65C : AT(0x4D25C) SUBALIGN(4) { build/us/pak_file_encode_name.o(.text) }
+    .cpu_after_pak_file_encode_name 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_cpu_after_pak_file_encode_name) }
     .fixed_geometry_setup 0x8004CED0 : AT(0x4DAD0) SUBALIGN(4) { build/us/fixed_geometry_setup.o(.text) }
     .frame_transform 0x8004D4B4 : AT(0x4E0B4) SUBALIGN(4) { build/us/frame_transform.o(.text) }
     .fixed_geometry 0x8004D59C : AT(0x4E19C) SUBALIGN(4) { build/us/fixed_geometry.o(.text) }
@@ -149,6 +180,17 @@ SECTIONS
     .rom_file_error 0x8004ED14 : AT(0x4F914) SUBALIGN(4) { build/us/rom_file_error.o(.text) }
     .rom_files 0x8004ED78 : AT(0x4F978) SUBALIGN(4) { build/us/rom_files.o(.text) }
     .cpu_after_rom_files 0x8004EFA8 : AT(0x4FBA8) { build/us/fallback.o(.rom_cpu_after_rom_files) }
+    .controller_access 0x8004EFB0 : AT(0x4FBB0) SUBALIGN(4) { build/us/controller_access.o(.text) }
+    .cpu_after_controller_access 0x8004F06C : AT(0x4FC6C) { build/us/fallback.o(.rom_cpu_after_controller_access) }
+    .controller_motor_commands 0x8004F178 : AT(0x4FD78) SUBALIGN(4) { build/us/controller_motor_commands.o(.text) }
+    .controller_scan 0x8004F1EC : AT(0x4FDEC) SUBALIGN(4) { build/us/controller_scan.o(.text) }
+    .cpu_after_controller_scan 0x8004F330 : AT(0x4FF30) { build/us/fallback.o(.rom_cpu_after_controller_scan) }
+    .controller_pak_info 0x8004F990 : AT(0x50590) SUBALIGN(4) { build/us/controller_pak_info.o(.text) }
+    .controller_pak_delete 0x8004FA14 : AT(0x50614) SUBALIGN(4) { build/us/controller_pak_delete.o(.text) }
+    .controller_pak_name 0x8004FAC0 : AT(0x506C0) SUBALIGN(4) { build/us/controller_pak_name.o(.text) }
+    .cpu_after_controller_pak_name 0x8004FB48 : AT(0x50748) { build/us/fallback.o(.rom_cpu_after_controller_pak_name) }
+    .controller_pak_directory 0x8004FC98 : AT(0x50898) SUBALIGN(4) { build/us/controller_pak_directory.o(.text) }
+    .cpu_after_controller_pak_directory 0x8004FE04 : AT(0x50A04) { build/us/fallback.o(.rom_cpu_after_controller_pak_directory) }
     .graphics_setup 0x8004FE10 : AT(0x50A10) SUBALIGN(4) { build/us/graphics_setup.o(.text) }
     .graphics_pacing 0x8004FEA8 : AT(0x50AA8) { build/us/fallback.o(.rom_graphics_pacing) }
     .graphics_tasks 0x80050084 : AT(0x50C84) SUBALIGN(4) { build/us/graphics_tasks.o(.text) }
@@ -439,7 +481,7 @@ ASSERT(SIZEOF(.movie_reset) == 0x48, "movie_reset size changed")
 ASSERT(SIZEOF(.movie_parameters) == 0x118, "movie_parameters size changed")
 ASSERT(SIZEOF(.movie_commands) == 0x7b8, "movie_commands size changed")
 ASSERT(SIZEOF(.movie_channels) == 0x284, "movie_channels size changed")
-ASSERT(SIZEOF(.cpu_after_movie_channels) == 0x2f8, "cpu_after_movie_channels size changed")
+ASSERT(SIZEOF(.movie_files) == 0x2f8, "movie_files size changed")
 ASSERT(SIZEOF(.movie_track_release) == 0x158, "movie_track_release size changed")
 ASSERT(SIZEOF(.cpu_after_movie_track_release) == 0x1cc, "cpu_after_movie_track_release size changed")
 ASSERT(SIZEOF(.movie_sample) == 0x1c0, "movie_sample size changed")
@@ -450,14 +492,34 @@ ASSERT(SIZEOF(.movie_start) == 0x658, "movie_start size changed")
 ASSERT(SIZEOF(.cpu_after_movie_start) == 0x718, "cpu_after_movie_start size changed")
 ASSERT(SIZEOF(.movie_status) == 0xf8, "movie_status size changed")
 ASSERT(SIZEOF(.movie_cleanup) == 0x114, "movie_cleanup size changed")
-ASSERT(SIZEOF(.cpu_after_movie_cleanup) == 0x1a388, "cpu_after_movie_cleanup size changed")
+ASSERT(SIZEOF(.cpu_after_movie_cleanup) == 0x17d00, "cpu_after_movie_cleanup size changed")
+ASSERT(SIZEOF(.actor_resource_reset) == 0x190, "actor_resource_reset size changed")
+ASSERT(SIZEOF(.cpu_after_actor_resource_reset) == 0x24f8, "cpu_after_actor_resource_reset size changed")
 ASSERT(SIZEOF(.scene_audio_request) == 0x24, "scene_audio_request size changed")
 ASSERT(SIZEOF(.cpu_after_scene_audio_request) == 0x8880, "cpu_after_scene_audio_request size changed")
 ASSERT(SIZEOF(.actor_pool_reset) == 0x38, "actor_pool_reset size changed")
 ASSERT(SIZEOF(.actor_cleanup) == 0xb0, "actor_cleanup size changed")
 ASSERT(SIZEOF(.actor_remove) == 0xf8, "actor_remove size changed")
 ASSERT(SIZEOF(.actor_sweep) == 0x68, "actor_sweep size changed")
-ASSERT(SIZEOF(.cpu_after_actor_sweep) == 0xa3d8, "cpu_after_actor_sweep size changed")
+ASSERT(SIZEOF(.cpu_after_actor_sweep) == 0x7a2c, "cpu_after_actor_sweep size changed")
+ASSERT(SIZEOF(.save_options_capture) == 0x68, "save_options_capture size changed")
+ASSERT(SIZEOF(.save_slot_capture) == 0xd8, "save_slot_capture size changed")
+ASSERT(SIZEOF(.save_options_restore) == 0x88, "save_options_restore size changed")
+ASSERT(SIZEOF(.save_slot_restore) == 0x8c, "save_slot_restore size changed")
+ASSERT(SIZEOF(.save_slot_labels) == 0x150, "save_slot_labels size changed")
+ASSERT(SIZEOF(.save_file_read) == 0x27c, "save_file_read size changed")
+ASSERT(SIZEOF(.save_file_write) == 0x1d8, "save_file_write size changed")
+ASSERT(SIZEOF(.cpu_after_save_file_write) == 0xf6c, "cpu_after_save_file_write size changed")
+ASSERT(SIZEOF(.palette_fade_controls) == 0x148, "palette_fade_controls size changed")
+ASSERT(SIZEOF(.cpu_after_palette_fade_controls) == 0x564, "cpu_after_palette_fade_controls size changed")
+ASSERT(SIZEOF(.palette_transition_reset) == 0x34, "palette_transition_reset size changed")
+ASSERT(SIZEOF(.palette_transition_range) == 0x288, "palette_transition_range size changed")
+ASSERT(SIZEOF(.cpu_after_palette_transition_range) == 0x4b0, "cpu_after_palette_transition_range size changed")
+ASSERT(SIZEOF(.palette_commands) == 0x1b8, "palette_commands size changed")
+ASSERT(SIZEOF(.cpu_after_palette_commands) == 0xc, "cpu_after_palette_commands size changed")
+ASSERT(SIZEOF(.command_enable) == 0x10, "command_enable size changed")
+ASSERT(SIZEOF(.game_number_convert) == 0xfc, "game_number_convert size changed")
+ASSERT(SIZEOF(.cpu_after_game_number_convert) == 0x160, "cpu_after_game_number_convert size changed")
 ASSERT(SIZEOF(.command_machine) == 0x80, "command_machine size changed")
 ASSERT(SIZEOF(.cpu_after_command_machine) == 0x5b98, "cpu_after_command_machine size changed")
 ASSERT(SIZEOF(.string_resource) == 0x34, "string_resource size changed")
@@ -563,7 +625,18 @@ ASSERT(SIZEOF(.frame_matrices) == 0xa8, "frame matrix commands size changed")
 ASSERT(SIZEOF(.frame_timing) == 0x124, "frame timing size changed")
 ASSERT(SIZEOF(.cpu_after_frame_timing) == 0x200, "CPU fallback after frame timing size changed")
 ASSERT(SIZEOF(.graphics_ucode) == 0xc, "graphics microcode selector size changed")
-ASSERT(SIZEOF(.cpu_after_graphics_ucode) == 0x35e4, "cpu_after_graphics_ucode size changed")
+ASSERT(SIZEOF(.cpu_after_graphics_ucode) == 0x27a4, "cpu_after_graphics_ucode size changed")
+ASSERT(SIZEOF(.controller_legacy_initialize) == 0x44, "controller_legacy_initialize size changed")
+ASSERT(SIZEOF(.cpu_after_controller_legacy_initialize) == 0xf4, "cpu_after_controller_legacy_initialize size changed")
+ASSERT(SIZEOF(.controller_legacy_present) == 0x18, "controller_legacy_present size changed")
+ASSERT(SIZEOF(.cpu_after_controller_legacy_present) == 0x198, "cpu_after_controller_legacy_present size changed")
+ASSERT(SIZEOF(.pak_file_status) == 0x34, "pak_file_status size changed")
+ASSERT(SIZEOF(.pak_file_open) == 0x1b8, "pak_file_open size changed")
+ASSERT(SIZEOF(.pak_file_read) == 0x78, "pak_file_read size changed")
+ASSERT(SIZEOF(.pak_file_write) == 0x6c, "pak_file_write size changed")
+ASSERT(SIZEOF(.pak_file_close) == 0x14, "pak_file_close size changed")
+ASSERT(SIZEOF(.pak_file_encode_name) == 0x80, "pak_file_encode_name size changed")
+ASSERT(SIZEOF(.cpu_after_pak_file_encode_name) == 0x7f4, "cpu_after_pak_file_encode_name size changed")
 ASSERT(SIZEOF(.fixed_geometry_setup) == 0x5e4, "fixed_geometry_setup size changed")
 ASSERT(SIZEOF(.frame_transform) == 0xe8, "frame transform size changed")
 ASSERT(SIZEOF(.fixed_geometry) == 0x598, "fixed-point geometry size changed")
@@ -578,7 +651,18 @@ ASSERT(SIZEOF(.cpu_after_object_history) == 0x9c0, "cpu_after_object_history siz
 ASSERT(SIZEOF(.rom_directory) == 0x194, "rom_directory size changed")
 ASSERT(SIZEOF(.rom_file_error) == 0x64, "rom_file_error size changed")
 ASSERT(SIZEOF(.rom_files) == 0x230, "rom_files size changed")
-ASSERT(SIZEOF(.cpu_after_rom_files) == 0xe68, "cpu_after_rom_files size changed")
+ASSERT(SIZEOF(.cpu_after_rom_files) == 0x8, "cpu_after_rom_files size changed")
+ASSERT(SIZEOF(.controller_access) == 0xbc, "controller_access size changed")
+ASSERT(SIZEOF(.cpu_after_controller_access) == 0x10c, "cpu_after_controller_access size changed")
+ASSERT(SIZEOF(.controller_motor_commands) == 0x74, "controller_motor_commands size changed")
+ASSERT(SIZEOF(.controller_scan) == 0x144, "controller_scan size changed")
+ASSERT(SIZEOF(.cpu_after_controller_scan) == 0x660, "cpu_after_controller_scan size changed")
+ASSERT(SIZEOF(.controller_pak_info) == 0x84, "controller_pak_info size changed")
+ASSERT(SIZEOF(.controller_pak_delete) == 0xac, "controller_pak_delete size changed")
+ASSERT(SIZEOF(.controller_pak_name) == 0x88, "controller_pak_name size changed")
+ASSERT(SIZEOF(.cpu_after_controller_pak_name) == 0x150, "cpu_after_controller_pak_name size changed")
+ASSERT(SIZEOF(.controller_pak_directory) == 0x16c, "controller_pak_directory size changed")
+ASSERT(SIZEOF(.cpu_after_controller_pak_directory) == 0xc, "cpu_after_controller_pak_directory size changed")
 ASSERT(SIZEOF(.graphics_setup) == 0x98, "graphics setup size changed")
 ASSERT(SIZEOF(.graphics_pacing) == 0x1dc, "graphics pacing fallback size changed")
 ASSERT(SIZEOF(.graphics_tasks) == 0x3bc, "graphics tasks size changed")

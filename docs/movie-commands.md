@@ -84,6 +84,7 @@ Each is compiled and compared independently before integration.
 | Source | Runtime range | Bytes | Behavior |
 | --- | --- | ---: | --- |
 | `movie_reset.c` | `0x80002EE0..0x80002F28` | 72 | Clear the track pool, movie configuration, and active flag |
+| `movie_files.c` | `0x80003A7C..0x80003D74` | 760 | Reuse or load a track record and its channel files; release the selected track's channel buffers |
 | `movie_track_release.c` | `0x80003D74..0x80003ECC` | 344 | Release configured tracks and actor animation tracks, then clear resource ownership |
 | `movie_sample.c` | `0x80004098..0x80004258` | 448 | Read six position/angle values from constant fields or packed channels |
 | `movie_callback.c` | `0x8000440C..0x800044AC` | 160 | Append a frame callback with the original three-slot equality check |
@@ -128,7 +129,10 @@ its explicit address even though IDO gives the input section 16-byte alignment.
 
 Exact source/header snapshots and reports remain under `build/sdk-options`
 and the private recovery directories. Configuration storage, track buffers,
-and diagnostic strings remain externally supplied target data. The larger
-movie loader, update routine, camera application, and generic
+and diagnostic strings remain externally supplied target data. The
+movie update routine, camera application, and generic
 script interpreter have reconstructed candidates whose remaining differences
 are excluded from matching counts until their full comparisons pass.
+
+The complete track-loader and release comparison is documented in
+[Movie track files](movie-files.md).
