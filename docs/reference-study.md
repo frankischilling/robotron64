@@ -23,3 +23,11 @@ data/BSS, and per-source compiler profiles. Generated binary fallbacks stay in
 `build/`. Function names remain address-based where stronger naming evidence
 is absent. The large unclassified remainder still needs a complete segment
 map and source recovery.
+
+The scene and save-menu recovery also consulted the public SM64, Ocarina of
+Time, IDO, and libreultra repositories listed above. Their build and compiler
+documentation supports the separate compilation, explicit section placement,
+and local target-comparison workflow. Robotron's scene layouts, packed save
+fields, background behavior, and switch tables were recovered from its own
+target instructions and callers; no game implementation was imported from
+those reference projects.

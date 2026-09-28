@@ -2,11 +2,13 @@
 #define ROBOTRON_SAVE_GAME_H
 
 #include "pak_file.h"
+#include "scene_definition.h"
 
 typedef struct SavedPlayerState {
     unsigned char unknown00[5];
     unsigned char selection05;
-    unsigned char unknown06[0x16];
+    unsigned char unknown06[0x12];
+    int value18;
     int active;
     unsigned char unknown20[0x14];
     int field34;
@@ -28,6 +30,12 @@ typedef struct SavedSessionState {
     int currentPlayer;
     unsigned char unknown34[0x18];
 } SavedSessionState;
+
+typedef struct GameSessionState {
+    SavedSessionState saved;
+    unsigned char unknown4C[0xB4];
+    short activeSceneActors[16];
+} GameSessionState;
 
 typedef struct GameOptionConfiguration {
     int field00;
@@ -76,7 +84,7 @@ typedef char SavedGameSlotMustBe444Bytes[sizeof(SavedGameSlot) == 0x1BC ? 1 : -1
 typedef char GameSaveImageMustBe4096Bytes[sizeof(GameSaveImage) == 0x1000 ? 1 : -1];
 
 extern GamePlayerState D_8009B190[2];
-extern SavedSessionState D_800AD138;
+extern GameSessionState D_800AD138;
 extern int D_800AD280;
 extern int D_800AD284;
 extern GameOptionConfiguration D_800AD2F8;
@@ -94,7 +102,6 @@ extern int D_800BAE88;
 extern int D_800BB158;
 extern unsigned char D_800BB160[8][20];
 extern unsigned char *D_800BB200[8];
-extern unsigned char D_800B9A78[0xD14];
 
 extern unsigned char D_80093FE4[];
 extern unsigned char D_80093FF0[];

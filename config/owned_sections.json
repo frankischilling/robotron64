@@ -22,5 +22,27 @@
     "size": 32,
     "symbols": {},
     "evidence": "docs/movie-commands.md"
+  },
+  {
+    "source": "src/game/scene_background.c",
+    "object": "build/us/scene_background.o",
+    "input_section": ".rodata",
+    "section": ".scene_background_constants",
+    "vram": 2148079960,
+    "rom": 599384,
+    "size": 8,
+    "symbols": {},
+    "evidence": "docs/scene-commands.md"
+  },
+  {
+    "source": "src/game/save_menu_status.c",
+    "object": "build/us/save_menu_status.o",
+    "input_section": ".rodata",
+    "section": ".save_menu_status_tables",
+    "vram": 2148089988,
+    "rom": 609412,
+    "size": 48,
+    "symbols": {},
+    "evidence": "docs/save-menus.md"
   }
 ]

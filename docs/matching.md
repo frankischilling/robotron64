@@ -20,10 +20,12 @@ Every successful source build writes a sibling `.o.provenance.json` record conta
 
 Assembly has separate function and byte counters. The 56-byte entry routine contributes no matching-C bytes; its 24 alignment bytes are unmeasured. `unmeasured_rom_bytes` includes those bytes and all extracted fallback. The excluded `src/game/text_replacement.c` candidate does not contribute to matching progress.
 
-This checkpoint contains 340 matching C functions and 41,276 C bytes. Its two
-source-owned script tables contribute 136 initialized bytes. The table at
+The [README](../README.md) records the current aggregate source totals.
+Source-owned data is checked separately: the table at
 `0x80078150` contains thirteen movie handler/argument-count records, and the
 32-byte table at `0x8009416C` is emitted from the machine-selector switch.
+The save-menu switches generate 48 bytes at `0x80094084`, and background
+scrolling emits two float constants at `0x80091958`.
 Their linked bytes, relocations, section extents and symbol ownership are
 verified separately from function counts. Reference-derived SDK implementation
 files remain local research; the public build extracts their target ranges

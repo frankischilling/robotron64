@@ -89,10 +89,10 @@ Each is compiled and compared independently before integration.
 | `movie_sample.c` | `0x80004098..0x80004258` | 448 | Read six position/angle values from constant fields or packed channels |
 | `movie_callback.c` | `0x8000440C..0x800044AC` | 160 | Append a frame callback with the original three-slot equality check |
 | `movie_prepare.c` | `0x800044AC..0x800045E4` | 312 | Parse movie commands and request the configured camera/text tracks |
-| `movie_start.c` | `0x800045E4..0x80004C3C` | 1,624 | Initialize camera selection, text, props, color events, and scene audio |
+| `movie_start.c` | `0x800045E4..0x80004C3C` | 1,624 | Initialize camera selection, text, props, color events, and scene requests |
 | `movie_status.c` | `0x80005354..0x8000544C` | 248 | Determine termination from the mode, elapsed frame and repeat count |
 | `movie_cleanup.c` | `0x8000544C..0x80005560` | 276 | Restore camera settings, release text and actors, and stop scene effects |
-| `scene_audio_request.c` | `0x8001F8E8..0x8001F90C` | 36 | Store the scene's five audio-request arguments |
+| `scene_audio_request.c` | `0x8001F8E8..0x8001F90C` | 36 | Store five background-image request arguments; the historical filename is retained |
 | `command_machine.c` | `0x800327AC..0x8003282C` | 128 | Enable or disable execution for a script's machine selector |
 | `string_resource.c` | `0x800383C4..0x800383F8` | 52 | Resolve an indexed string offset or return null for the `-1` sentinel |
 | `palette_tint.c` | `0x800465B0..0x80046608` | 88 | Set three palette-adjustment values and update all 256 entries |
@@ -109,9 +109,12 @@ Movie start copies each configured three-word prop position as a complete
 record. Props without a position receive three zero coordinates. Resource
 preloading returns an integer status: the target returns two for an already
 loaded resource and one after completing a load. That shared declaration is
-preserved even where a caller ignores the return value. The scene audio
+preserved even where a caller ignores the return value. The legacy scene service
 call retains its observed extra third argument, which the recovered callee
 does not read; its local legacy declaration records that original call shape.
+The request at `0x8001F8E8` is now identified as background-image state by its
+consumer and retail diagnostics; [scene commands](scene-commands.md) documents
+that recovered behavior.
 
 ## Script tables and source-owned data
 

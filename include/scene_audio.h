@@ -1,18 +1,19 @@
 #ifndef ROBOTRON_SCENE_AUDIO_H
 #define ROBOTRON_SCENE_AUDIO_H
 
-typedef struct SceneAudioRequest {
-    short first;
-    short second;
-    short field04;
+/* The retail diagnostics identify this request as background-image state. */
+typedef struct SceneBackgroundRequest {
+    short resource;
+    short flags;
+    short scrolling;
     short field06;
-    int duration;
+    int mode;
     short field0C;
-} SceneAudioRequest;
+} SceneBackgroundRequest;
 
-extern SceneAudioRequest D_800B8F68;
+extern SceneBackgroundRequest D_800B8F68;
 
-void func_8001F8E8(int first, int second, int duration, int mode, int extra);
+void func_8001F8E8(int resource, int flags, int mode, int field0C, int scrolling);
 void func_8001F90C(void);
 
 #endif

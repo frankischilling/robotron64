@@ -19,7 +19,7 @@ void func_8003C5DC(void)
 {
 }
 
-void func_8003C5E4(void)
+int func_8003C5E4(void)
 {
 }
 

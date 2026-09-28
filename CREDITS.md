@@ -60,7 +60,9 @@ source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),
 [audio frame](docs/sdk-audio-frame.md), [controller Pak](docs/sdk-pfs.md),
 [SDK math](docs/sdk-math.md), and [static-function verification](docs/ido-static-functions.md)
-notes, together with [object definitions and shell menus](docs/session-setup.md).
+notes, together with [object definitions and shell menus](docs/session-setup.md),
+[scene commands and background images](docs/scene-commands.md), and
+[save menus](docs/save-menus.md).
 Those documents distinguish target-confirmed facts from reference
 comparisons and remaining hypotheses.
 

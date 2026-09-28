@@ -39,7 +39,8 @@ typedef struct ActorResource58Internal {
 typedef struct ActorResource68Internal {
     unsigned char unknown00[6];
     ActorResourceFlags flags06;
-    unsigned char unknown08[0x60];
+    unsigned char unknown08[0x5C];
+    int arrivalDelay;
 } ActorResource68Internal;
 
 typedef struct ActorResource5CInternal {

@@ -54,7 +54,7 @@ void func_8003BFD4(void)
 {
 }
 
-void func_8003BFDC(void)
+int func_8003BFDC(void)
 {
 }
 
