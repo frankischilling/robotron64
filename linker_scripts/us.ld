@@ -121,6 +121,7 @@ SECTIONS
     .save_menu_nav_preview_release 0x80026044 : AT(0x26C44) SUBALIGN(4) { build/us/save_menu_nav_preview_release.o(.text) }
     .save_menu_nav_cleanup 0x8002606C : AT(0x26C6C) SUBALIGN(4) { build/us/save_menu_nav_cleanup.o(.text) }
     .cpu_after_save_menu_nav_cleanup 0x80026178 : AT(0x26D78) { build/us/fallback.o(.rom_cpu_after_save_menu_nav_cleanup) }
+    .actor_animation 0x80027AB8 : AT(0x286B8) SUBALIGN(4) { build/us/actor_animation.o(.text) }
     .actor_motion_mode 0x80027B9C : AT(0x2879C) SUBALIGN(4) { build/us/actor_motion_mode.o(.text) }
     .actor_motion_facing 0x80027CE4 : AT(0x288E4) SUBALIGN(4) { build/us/actor_motion_facing.o(.text) }
     .cpu_after_actor_motion_facing 0x80027D8C : AT(0x2898C) { build/us/fallback.o(.rom_cpu_after_actor_motion_facing) }
@@ -800,7 +801,8 @@ ASSERT(SIZEOF(.save_menu_nav_actor_back) == 0x88, "save_menu_nav_actor_back size
 ASSERT(SIZEOF(.save_menu_nav_preview_create) == 0x154, "save_menu_nav_preview_create size changed")
 ASSERT(SIZEOF(.save_menu_nav_preview_release) == 0x28, "save_menu_nav_preview_release size changed")
 ASSERT(SIZEOF(.save_menu_nav_cleanup) == 0x10c, "save_menu_nav_cleanup size changed")
-ASSERT(SIZEOF(.cpu_after_save_menu_nav_cleanup) == 0x1a24, "cpu_after_save_menu_nav_cleanup size changed")
+ASSERT(SIZEOF(.cpu_after_save_menu_nav_cleanup) == 0x1940, "cpu_after_save_menu_nav_cleanup size changed")
+ASSERT(SIZEOF(.actor_animation) == 0xe4, "actor_animation size changed")
 ASSERT(SIZEOF(.actor_motion_mode) == 0x148, "actor_motion_mode size changed")
 ASSERT(SIZEOF(.actor_motion_facing) == 0xa8, "actor_motion_facing size changed")
 ASSERT(SIZEOF(.cpu_after_actor_motion_facing) == 0x400, "cpu_after_actor_motion_facing size changed")

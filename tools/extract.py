@@ -21,7 +21,7 @@ REGIONS = (
     ("cpu_after_actor_setup_text_reset", 0x1fe38, 0x1fe40),
     ("cpu_after_scene_file_idle", 0x1febc, 0x1fec0),
     ("cpu_after_scene_background", 0x208e4, 0x26840),
-    ("cpu_after_save_menu_nav_cleanup", 0x26d78, 0x2879c),
+    ("cpu_after_save_menu_nav_cleanup", 0x26d78, 0x286b8),
     ("cpu_after_actor_motion_facing", 0x2898c, 0x28d8c),
     ("cpu_after_actor_sweep", 0x28fd4, 0x2ae44),
     ("cpu_after_actor_behavior_blend_motion", 0x2b408, 0x2bf1c),

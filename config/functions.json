@@ -1343,6 +1343,17 @@
     "evidence": "docs/save-menu-navigation.md"
   },
   {
+    "name": "func_80027AB8",
+    "rom": 165560,
+    "vram": 2147646136,
+    "size": 228,
+    "source": "src/game/actor_animation.c",
+    "object": "build/us/actor_animation.o",
+    "section": ".actor_animation",
+    "section_vram": 2147646136,
+    "evidence": "docs/actor-motion.md"
+  },
+  {
     "name": "func_80027B9C",
     "rom": 165788,
     "vram": 2147646364,
