@@ -6,11 +6,11 @@ The recovered code emits display-list commands through the existing
 table, and accounts for display-list storage and vertex indices. Complete
 comparisons use IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`.
 
-The accepted batch contains 29 complete functions, 3,780 code bytes, and
+The accepted batch contains 30 complete functions, 3,916 code bytes, and
 340 bytes of strings and generated tables. The tile-mode helper
-`func_80046C2C` and arena initializer `func_800470F4` remain nonmatching
-candidates and are excluded from those totals. Their observed behavior is
-described below where it explains the accepted callers and state fields.
+`func_80046C2C` remains a nonmatching candidate and is excluded from those
+totals. Its observed behavior is described below where it explains the
+accepted callers and state fields.
 
 ## Display lists and render modes
 
@@ -74,7 +74,9 @@ query subtracts the base, and the reservation helper advances the cursor
 before reporting an overrun. It returns the updated cursor even after the
 diagnostic call. The initializer allocates `0x19000` bytes, rounds the base
 down to an eight-byte boundary, reserves eight bytes at the end, resets the
-renderer, and initializes 256 lights.
+renderer, and initializes 256 lights. A named `alignedBase` local preserves the
+raw allocation store and the target's temporary-register order; the complete
+136-byte initializer matches with zero differing words.
 
 The static-vertex counter is limited to 2,000. The dynamic-vertex counter is
 limited to 22,000, and its current-frame query returns `-1` after a warning

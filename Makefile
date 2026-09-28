@@ -721,6 +721,12 @@ build/us/save_file_write.o: src/game/save_file_write.c include/scene_definition.
 	$(PYTHON) tools/trim_padding.py build/us/save_file_write.raw.o $@ .text 0x1d8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/save_slot_select.o: src/game/save_slot_select.c include/scene_definition.h include/game_memory.h include/pak_file.h include/save_game.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_slot_select.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_slot_select.raw.o $@ .text 0x1a0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/palette_fade_controls.o: src/game/palette_fade_controls.c include/palette.h include/palette_effects.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/palette_fade_controls.raw.o $<
@@ -971,6 +977,12 @@ build/us/session_setup_bitmap.o: src/game/session_setup_bitmap.c include/game_me
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_bitmap.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/session_setup_bitmap.raw.o $@ .text 0x60
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_setup_kinemation.o: src/game/session_setup_kinemation.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_setup_kinemation.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_setup_kinemation.raw.o $@ .text 0x98
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/session_setup_pair.o: src/game/session_setup_pair.c include/game_memory.h include/object.h include/session_setup_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -1377,10 +1389,10 @@ build/us/script_service_commands.o: src/game/script_service_commands.c include/a
 	$(PYTHON) tools/trim_padding.py build/us/script_service_commands.raw.o $@ .text 0x244
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/script_service_platform_stub.o: src/game/script_service_platform_stub.c include/command_script.h include/script_service_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/script_service_platform.o: src/game/script_service_platform.c include/command_script.h include/platform_services.h include/script_service_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
-	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/script_service_platform_stub.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/script_service_platform_stub.raw.o $@ .text 0x8
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/script_service_platform.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/script_service_platform.raw.o $@ .text 0xd0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/actor_motion_mode.o: src/game/actor_motion_mode.c include/actor.h include/actor_motion_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -1687,6 +1699,12 @@ build/us/graphics_pool.o: src/game/graphics_pool.c include/debug_output.h includ
 	$(PYTHON) tools/owned_sections.py $< build/us/graphics_pool.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^) tools/owned_sections.py config/owned_sections.json tools/trim_padding.py
 
+build/us/graphics_pool_initialize.o: src/game/graphics_pool_initialize.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_pool_initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/graphics_pool_initialize.raw.o $@ .text 0x88
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/graphics_frame_reset.o: src/game/graphics_frame_reset.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_frame_reset.raw.o $<
@@ -1913,6 +1931,12 @@ build/us/object_model_access.o: src/game/object_model_access.c include/object.h 
 	$(PYTHON) tools/trim_padding.py build/us/object_model_access.raw.o $@ .text 0xe4
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/resource_bridge_model_cache.o: src/game/resource_bridge_model_cache.c include/actor.h include/actor_resource_internal.h include/game_memory.h include/object.h include/object_runtime.h include/resource_bridge_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/resource_bridge_model_cache.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/resource_bridge_model_cache.raw.o $@ .text 0xd8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/resource_bridge_texture_stub.o: src/game/resource_bridge_texture_stub.c include/actor.h include/actor_resource_internal.h include/game_memory.h include/object.h include/object_runtime.h include/resource_bridge_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/resource_bridge_texture_stub.raw.o $<
@@ -2114,6 +2138,7 @@ RUNTIME_OBJECTS += \
     build/us/save_slot_labels.o \
     build/us/save_file_read.o \
     build/us/save_file_write.o \
+    build/us/save_slot_select.o \
     build/us/palette_fade_controls.o \
     build/us/palette_transition_reset.o \
     build/us/palette_transition_range.o \
@@ -2158,6 +2183,7 @@ RUNTIME_OBJECTS += \
     build/us/session_setup_animation_file.o \
     build/us/session_setup_texture_map.o \
     build/us/session_setup_bitmap.o \
+    build/us/session_setup_kinemation.o \
     build/us/session_setup_pair.o \
     build/us/session_setup_value58_half.o \
     build/us/session_setup_value64.o \
@@ -2229,7 +2255,7 @@ RUNTIME_OBJECTS += \
     build/us/script_service_cache_reset.o \
     build/us/script_service_cache_access.o \
     build/us/script_service_commands.o \
-    build/us/script_service_platform_stub.o \
+    build/us/script_service_platform.o \
     build/us/actor_motion_mode.o \
     build/us/debug_context_set.o \
     build/us/debug_text_draw.o \
@@ -2282,6 +2308,7 @@ RUNTIME_OBJECTS += \
     build/us/graphics_modes.o \
     build/us/graphics_lights.o \
     build/us/graphics_pool.o \
+    build/us/graphics_pool_initialize.o \
     build/us/graphics_frame_reset.o \
     build/us/graphics_mode_dispatch.o \
     build/us/graphics_environment.o
@@ -2323,6 +2350,7 @@ RUNTIME_OBJECTS += \
     build/us/object_registration.o \
     build/us/object_creation.o \
     build/us/object_model_access.o \
+    build/us/resource_bridge_model_cache.o \
     build/us/resource_bridge_texture_stub.o \
     build/us/model_rotation.o \
     build/us/model_polygons_plain.o \

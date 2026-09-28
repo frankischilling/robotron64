@@ -19,13 +19,12 @@ complete transitive input snapshot and hashes.
 | `script_service_files.c` | `0x8001C790..0x8001C8C4` | 308 | 308/308, zero differing words |
 | `script_service_cache_access.c` | `0x8001C8C4..0x8001CB48` | 644 | 644/644, zero differing words |
 | `script_service_commands.c` | `0x8001CB50..0x8001CD94` | 580 | 580/580, zero differing words |
-| `script_service_platform.c` | `0x8001CDA0..0x8001CE68` | 200 | exact size, 26 differing words; retained as a candidate |
-| `script_service_platform_stub.c` | `0x8001CE68..0x8001CE70` | 8 | 8/8, zero differing words |
+| `script_service_platform.c` | `0x8001CDA0..0x8001CE70` | 208 | 208/208, zero differing words |
 
 The exact command source SHA-256 is
 `586ce10bb876408bd5f2ed35d75a034c96e59641d83191dfcf6fd0868512dda0`.
-The exact `func_8001CE68` source SHA-256 is
-`1f49d31227d679394f6295925704c389d7a34cd54441b6261e2666ef9e3ef83e`.
+The exact platform-service source SHA-256 is
+`baccfdc7e64c0ede0bc6874c48c403c4be39b137aa2491e7419ee504113cfeec`.
 The shared internal header SHA-256 at this checkpoint is
 `dbd1c1e75788351372596698cb05a80eb9698897a63a0e545555ad1783e25398`.
 
@@ -130,7 +129,7 @@ there is no undeclared source-emitted data section. Historical object
 ownership of those neighboring target string bytes has not been claimed
 without a source/data-boundary proof.
 
-## Platform rectangle candidate
+## Platform rectangle service
 
 `func_8001CDA0` constructs two local coordinate pairs and calls
 `func_8003C60C` four times for the four rectangle edges. The target calls
@@ -138,15 +137,13 @@ without a source/data-boundary proof.
 zero, and zero. The shared declaration therefore needs unspecified arguments
 for the existing empty retail stub, which has been confirmed separately.
 
-The target places the two coordinate-pair starts 12 bytes apart, but it never
-reads or writes the third word in either span. No other target caller of
-`func_8003C60C` was found, and the current shared types do not establish a
-three-word point record for this service. A temporary three-word struct made
-the 200-byte function instruction-exact, but that field had no semantic
-evidence and was removed. The retained ordinary two-int point candidate is
-200 bytes with 26 stack-layout differences. `func_8001CE68` is independent
-and is preserved in `script_service_platform_stub.c`, where it matches all
-eight target bytes.
+The target places the two point-record starts 12 bytes apart. The independently
+exact stack layout and the callee-facing pointer stride establish a three-word
+record even though this caller initializes only `x` and `y`; the third word is
+therefore retained as `unknown08` without assigning it a speculative role.
+That layout makes `func_8001CDA0` exact across all 200 bytes. The adjacent empty
+`func_8001CE68` remains in the same source object, bringing the complete
+platform-service comparison to 208/208 bytes with zero differing words.
 
 The exact cache reset proof is
 `.local/recovery46-script/probes/script_service_cache_reset-5.3-O2-mips1/report.json`.
@@ -156,9 +153,9 @@ The split comparison summary is
 `.local/recovery46-script/cache-split.json`.
 The exact command proof is
 `.local/recovery46-script/probes/script_service_commands-5.3-O2-mips1/report.json`.
-The exact noop proof is
-`.local/recovery46-script/probes/script_service_platform_stub-5.3-O2-mips1/report.json`.
+The exact platform proof is retained under
+`.local/recovery46-script/archive/script_service_platform-5.3-O2-mips1`.
 The complete registration proof is
 `.local/recovery51-integration/probes/script_service_files-5.3-O2-mips1/report.json`.
-The rectangle residual remains recorded in
-`.local/recovery46-script/probes/script_service_platform-5.3-O2-mips1/report.json`.
+The earlier two-word-point residual remains preserved in the recovery archive
+as a record of the layout inference.

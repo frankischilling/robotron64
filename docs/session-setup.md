@@ -27,11 +27,14 @@ handles occupy the preceding halfwords. Ten animation pointers start at
 kinemation name, loop index, duration, sound identifier, and sound mode.
 
 The recovered handlers include field setters, playback-speed calculation,
-animation allocation and state selection, resource-name setters, and definition
-validation. Allocation uses a one-based cursor into a 550-entry animation
-table. Validation checks the model and texture-map names, then requires an
-animation and kinemation name in slot zero. These checks preserve the target's
-diagnostics and order.
+animation allocation and state selection, resource-name setters, the primary
+kinemation definition, and definition validation. Allocation uses a one-based
+cursor into a 550-entry animation table. `func_8002F29C` writes the previous
+animation entry's kinemation fields after registering every name except `-2`.
+Its one-entry offset is stored as a byte, which reproduces the target's pointer
+calculation and stack layout. Validation checks the model and texture-map names,
+then requires an animation and kinemation name in slot zero. These checks
+preserve the target's diagnostics and order.
 
 The initializer's callback at resource offset `0x54` is copied to actor offset
 `0x5C`. Calls in `func_80029FD8` pass an actor and an integer state. The small
@@ -68,12 +71,11 @@ in `config/functions.json` and independently linked by
 `tools/compare_runtime.py`. These command and menu units own no initialized
 data or BSS; they refer to the original tables through named symbols.
 
-Three reconstructed commands remain outside the matching manifest:
+Two reconstructed commands remain outside the matching manifest:
 
 | Function | Complete extent | Remaining difference |
 | --- | --- | --- |
 | Resource initializer | `0x8002E670..0x8002ECC4`, 1,620 bytes | Temporary-register allocation; the complete 224-byte jump-table section matches |
-| Kinemation definition | `0x8002F29C..0x8002F334`, 152 bytes | Ten instruction words, principally local stack offsets |
 | Extra kinemation definition | `0x8002F334..0x8002F414`, 224 bytes | Ten instruction words, principally local stack offsets |
 
 The initializer selects ten resource categories and generates three jump
@@ -83,11 +85,14 @@ behavior has not been silently replaced with a default. Neither matching
 tables alone nor an otherwise equivalent initializer count as a matched
 function.
 
-Private evidence is under `.local/recovery38-session`: target bodies and caller
-excerpts, before-edit snapshots, compiler input hashes, complete comparison
-reports, and archived probes. `ready-checkpoint/record.json` records the
-accepted inputs and boundaries. The normal full build checks each integrated
-function and the entire rebuilt ROM.
+Private evidence for the original batch is under `.local/recovery38-session`:
+target bodies and caller excerpts, before-edit snapshots, compiler input hashes,
+complete comparison reports, and archived probes. The exact primary-kinemation
+proof is under `.local/recovery62-candidates/probes`, with source SHA-256
+`4a017059569fd747303aecbb13dcca107f71f3f947155a6364ae6f8c71593571`.
+`ready-checkpoint/record.json` records the earlier accepted inputs and
+boundaries. The normal full build checks each integrated function and the
+entire rebuilt ROM.
 
 ## References
 

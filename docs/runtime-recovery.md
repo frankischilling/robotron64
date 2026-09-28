@@ -1,8 +1,9 @@
 # Additional runtime recovery
 
-Six complete routines add 1,556 bytes of matching C. The first five extend
-existing actor, controller, movie, and gameplay-setting families. The sixth
-is the target's empty texture-service entry point.
+Seven complete routines add 1,772 bytes of matching C. The first five extend
+existing actor, controller, movie, and gameplay-setting families. The last two
+recover the model-cache lookup and the target's empty texture-service entry
+point.
 
 | Source | Function | Code bytes |
 | --- | --- | ---: |
@@ -11,6 +12,7 @@ is the target's empty texture-service entry point.
 | `movie_camera.c` | `func_80003ECC` | 460 |
 | `movie_actor.c` | `func_80004258` | 436 |
 | `tweak_scene_apply.c` | `func_800377E4` | 232 |
+| `resource_bridge_model_cache.c` | `func_8003C94C` | 216 |
 | `resource_bridge_texture_stub.c` | `func_8003CA24` | 16 |
 
 The facing routine computes the X/Y separation between two actors, obtains
@@ -36,9 +38,15 @@ level override except for the five observed pickup hit-count addresses,
 then applies difficulty and enemy-speed adjustments. The repeated indexed
 reads preserve the target's memory accesses and allocation behavior.
 
-The texture-service entry point has no executable body beyond its argument
-stores and return. The existing signature and caller contract are preserved;
-no success value or inferred texture operation is added.
+The model-cache lookup lazily clears the 1,000-entry identifier map, reuses an
+existing handle when present, and otherwise initializes a 20-byte cache entry.
+The target's `0xA8` stack frame preserves 128-byte filename and four-byte
+extension workspaces even though this path does not consume them. Their names
+come from the function's path input and neighboring resource helpers; no code
+is added to assign them a speculative role. The texture-service entry point has
+no executable body beyond its argument stores and return. The existing
+signature and caller contract are preserved; no success value or inferred
+texture operation is added.
 
 ## Evidence and references
 

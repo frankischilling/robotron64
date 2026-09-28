@@ -760,14 +760,25 @@
     "evidence": "docs/script-services.md"
   },
   {
+    "name": "func_8001CDA0",
+    "rom": 121248,
+    "vram": 2147601824,
+    "size": 200,
+    "source": "src/game/script_service_platform.c",
+    "object": "build/us/script_service_platform.o",
+    "section": ".script_service_platform",
+    "section_vram": 2147601824,
+    "evidence": "docs/script-services.md"
+  },
+  {
     "name": "func_8001CE68",
     "rom": 121448,
     "vram": 2147602024,
     "size": 8,
-    "source": "src/game/script_service_platform_stub.c",
-    "object": "build/us/script_service_platform_stub.o",
-    "section": ".script_service_platform_stub",
-    "section_vram": 2147602024,
+    "source": "src/game/script_service_platform.c",
+    "object": "build/us/script_service_platform.o",
+    "section": ".script_service_platform",
+    "section_vram": 2147601824,
     "evidence": "docs/script-services.md"
   },
   {
@@ -1794,6 +1805,17 @@
     "evidence": "docs/session-setup.md"
   },
   {
+    "name": "func_8002F29C",
+    "rom": 196252,
+    "vram": 2147676828,
+    "size": 152,
+    "source": "src/game/session_setup_kinemation.c",
+    "object": "build/us/session_setup_kinemation.o",
+    "section": ".session_setup_kinemation",
+    "section_vram": 2147676828,
+    "evidence": "docs/session-setup.md"
+  },
+  {
     "name": "func_8002F414",
     "rom": 196628,
     "vram": 2147677204,
@@ -2209,6 +2231,17 @@
     "object": "build/us/save_file_write.o",
     "section": ".save_file_write",
     "section_vram": 2147681312,
+    "evidence": "docs/save-game.md"
+  },
+  {
+    "name": "func_800305F8",
+    "rom": 201208,
+    "vram": 2147681784,
+    "size": 416,
+    "source": "src/game/save_slot_select.c",
+    "object": "build/us/save_slot_select.o",
+    "section": ".save_slot_select",
+    "section_vram": 2147681784,
     "evidence": "docs/save-game.md"
   },
   {
@@ -4577,6 +4610,17 @@
     "evidence": "docs/platform-services.md"
   },
   {
+    "name": "func_8003C94C",
+    "rom": 251212,
+    "vram": 2147731788,
+    "size": 216,
+    "source": "src/game/resource_bridge_model_cache.c",
+    "object": "build/us/resource_bridge_model_cache.o",
+    "section": ".resource_bridge_model_cache",
+    "section_vram": 2147731788,
+    "evidence": "docs/runtime-recovery.md"
+  },
+  {
     "name": "func_8003CA24",
     "rom": 251428,
     "vram": 2147732004,
@@ -5366,6 +5410,17 @@
     "object": "build/us/graphics_pool.o",
     "section": ".graphics_pool",
     "section_vram": 2147774288,
+    "evidence": "docs/graphics-state.md"
+  },
+  {
+    "name": "func_800470F4",
+    "rom": 294132,
+    "vram": 2147774708,
+    "size": 136,
+    "source": "src/game/graphics_pool_initialize.c",
+    "object": "build/us/graphics_pool_initialize.o",
+    "section": ".graphics_pool_initialize",
+    "section_vram": 2147774708,
     "evidence": "docs/graphics-state.md"
   },
   {

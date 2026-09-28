@@ -63,5 +63,10 @@ Fresh IDO 5.3 `-O2 -G 0 -non_shared -mips1 -32` comparisons in `.local/recovery2
 | `func_80030054` | 0x80030054..0x800301A4 | 336 |
 | `func_800301A4` | 0x800301A4..0x80030420 | 636 |
 | `func_80030420` | 0x80030420..0x800305F8 | 472 |
+| `func_800305F8` | 0x800305F8..0x80030798 | 416 |
 
-`func_800305F8` at 0x800305F8..0x80030798 remains a same-size recovery candidate. Its best proof is 416/416 bytes with seven differing words, all from the saved-register assignment of the loop limit and step. It is not counted as a matching unit here.
+`func_800305F8` restores an occupied slot, clears the pending shell flag, and
+walks the active players in current-player order. Expressing inactive players
+as the loop's early `continue` reproduces the target's saved-register assignment
+without a constant condition or synthetic control-flow block. The complete
+416-byte procedure matches with zero differing words.
