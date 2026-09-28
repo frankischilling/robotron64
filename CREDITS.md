@@ -61,6 +61,15 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+[Erick194/DOOM64-RE](https://github.com/Erick194/DOOM64-RE), inspected at
+`6931e678a0b2958be1b49598f2fe60712c6596e1`, supplied a comparison for WESS
+record and event terminology during audio recovery. The consulted files are
+`doom64/wessapi.h`, `wessarc.h`, `wesshand.h`, `wessseq.h`, `wesshand.c`,
+`wessseq.c`, and `wessshell.c`. The checkout identifies its license as GPL-3.0.
+The [audio property notes](docs/audio-properties.md) and their input ledger
+separate the reconstructed Robotron source from that reference and retain the
+historical input identities. The reference checkout is not included here.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),
