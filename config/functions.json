@@ -4742,6 +4742,17 @@
     "evidence": "docs/object-math.md"
   },
   {
+    "name": "func_8003CF88",
+    "rom": 252808,
+    "vram": 2147733384,
+    "size": 476,
+    "source": "src/game/game_debug_format.c",
+    "object": "build/us/game_debug_format.o",
+    "section": ".game_debug_format",
+    "section_vram": 2147733384,
+    "evidence": "docs/debug-output.md"
+  },
+  {
     "name": "func_8003D170",
     "rom": 253296,
     "vram": 2147733872,

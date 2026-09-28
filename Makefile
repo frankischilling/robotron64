@@ -551,6 +551,12 @@ build/us/object_recovery_angle_table.o: src/game/object_recovery_angle_table.c i
 	$(PYTHON) tools/trim_padding.py build/us/object_recovery_angle_table.raw.o $@ .text 0x94
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/game_debug_format.o: src/game/game_debug_format.c include/game_memory.h include/game_stdarg.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_debug_format.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/game_debug_format.raw.o $@ .text 0x1dc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/movie_parameters.o: src/game/movie_parameters.c include/movie.h include/palette.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_parameters.raw.o $<
@@ -2100,6 +2106,7 @@ RUNTIME_OBJECTS += \
     build/us/object_recovery_angle_scale.o \
     build/us/object_recovery_direction_angle.o \
     build/us/object_recovery_angle_table.o \
+    build/us/game_debug_format.o \
 
 RUNTIME_OBJECTS += \
     build/us/movie_parameters.o \

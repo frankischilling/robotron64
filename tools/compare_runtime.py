@@ -233,6 +233,7 @@ MATCHING_BLOCKS = (
     ("object_recovery_angle_scale", "src/game/object_recovery_angle_scale.c", 0x8003CD4C, 0x8003CD70),
     ("object_recovery_direction_angle", "src/game/object_recovery_direction_angle.c", 0x8003CD70, 0x8003CEF4),
     ("object_recovery_angle_table", "src/game/object_recovery_angle_table.c", 0x8003CEF4, 0x8003CF88),
+    ("game_debug_format", "src/game/game_debug_format.c", 0x8003CF88, 0x8003D164),
     ("geometry_bridge_apply", "src/game/geometry_bridge_apply.c", 0x8003D170, 0x8003D20C),
     ("geometry_bridge_rotate", "src/game/geometry_bridge_rotate.c", 0x8003D20C, 0x8003D2C0),
     ("model_rotation", "src/game/model_rotation.c", 0x8003D2C0, 0x8003D43C),

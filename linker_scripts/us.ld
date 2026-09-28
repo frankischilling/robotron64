@@ -327,7 +327,8 @@ SECTIONS
     .object_recovery_angle_scale 0x8003CD4C : AT(0x3D94C) SUBALIGN(4) { build/us/object_recovery_angle_scale.o(.text) }
     .object_recovery_direction_angle 0x8003CD70 : AT(0x3D970) SUBALIGN(4) { build/us/object_recovery_direction_angle.o(.text) }
     .object_recovery_angle_table 0x8003CEF4 : AT(0x3DAF4) SUBALIGN(4) { build/us/object_recovery_angle_table.o(.text) }
-    .cpu_after_object_recovery_angle_table 0x8003CF88 : AT(0x3DB88) { build/us/fallback.o(.rom_cpu_after_object_recovery_angle_table) }
+    .game_debug_format 0x8003CF88 : AT(0x3DB88) SUBALIGN(4) { build/us/game_debug_format.o(.text) }
+    .cpu_after_game_debug_format 0x8003D164 : AT(0x3DD64) { build/us/fallback.o(.rom_cpu_after_game_debug_format) }
     .geometry_bridge_apply 0x8003D170 : AT(0x3DD70) SUBALIGN(4) { build/us/geometry_bridge_apply.o(.text) }
     .geometry_bridge_rotate 0x8003D20C : AT(0x3DE0C) SUBALIGN(4) { build/us/geometry_bridge_rotate.o(.text) }
     .model_rotation 0x8003D2C0 : AT(0x3DEC0) SUBALIGN(4) { build/us/model_rotation.o(.text) }
@@ -1068,7 +1069,8 @@ ASSERT(SIZEOF(.object_recovery_integer_sqrt) == 0x64, "object_recovery_integer_s
 ASSERT(SIZEOF(.object_recovery_angle_scale) == 0x24, "object_recovery_angle_scale size changed")
 ASSERT(SIZEOF(.object_recovery_direction_angle) == 0x184, "object_recovery_direction_angle size changed")
 ASSERT(SIZEOF(.object_recovery_angle_table) == 0x94, "object_recovery_angle_table size changed")
-ASSERT(SIZEOF(.cpu_after_object_recovery_angle_table) == 0x1e8, "cpu_after_object_recovery_angle_table size changed")
+ASSERT(SIZEOF(.game_debug_format) == 0x1dc, "game_debug_format size changed")
+ASSERT(SIZEOF(.cpu_after_game_debug_format) == 0xc, "cpu_after_game_debug_format size changed")
 ASSERT(SIZEOF(.geometry_bridge_apply) == 0x9c, "geometry_bridge_apply size changed")
 ASSERT(SIZEOF(.geometry_bridge_rotate) == 0xb4, "geometry_bridge_rotate size changed")
 ASSERT(SIZEOF(.model_rotation) == 0x17c, "model_rotation size changed")

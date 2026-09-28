@@ -64,7 +64,7 @@ REGIONS = (
     ("cpu_after_controller_button", 0x3cda8, 0x3d0c8),
     ("cpu_after_platform_io", 0x3d2b8, 0x3d54c),
     ("cpu_after_resource_bridge_texture_stub", 0x3d634, 0x3d7ec),
-    ("cpu_after_object_recovery_angle_table", 0x3db88, 0x3dd70),
+    ("cpu_after_game_debug_format", 0x3dd64, 0x3dd70),
     ("cpu_after_model_rotation", 0x3e03c, 0x3f77c),
     ("cpu_after_model_polygons_color", 0x3fa20, 0x3fd68),
     ("cpu_after_model_hierarchy_vertices", 0x3ff14, 0x4022c),
