@@ -460,7 +460,7 @@ SECTIONS
     .audio_control 0x80052A00 : AT(0x53600) SUBALIGN(4) { build/us/audio_control.o(.text) }
     .cpu_after_audio_control 0x80052D70 : AT(0x53970) { build/us/fallback.o(.rom_cpu_after_audio_control) }
     .audio_play 0x80053C50 : AT(0x54850) SUBALIGN(4) { build/us/audio_play.o(.text) }
-    .cpu_after_audio_play 0x80053CC0 : AT(0x548C0) { build/us/fallback.o(.rom_cpu_after_audio_play) }
+    .audio_instance_state_query 0x80053CC0 : AT(0x548C0) SUBALIGN(4) { build/us/audio_instance_state_query.o(.text) }
     .audio_instance_stop 0x80053DAC : AT(0x549AC) SUBALIGN(4) { build/us/audio_instance_stop.o(.text) }
     .audio_stop_commands 0x80053EBC : AT(0x54ABC) SUBALIGN(4) { build/us/audio_stop_commands.o(.text) }
     .audio_voice_stop 0x80053F78 : AT(0x54B78) SUBALIGN(4) { build/us/audio_voice_stop.o(.text) }
@@ -474,8 +474,30 @@ SECTIONS
     .audio_level_update_alt 0x80054A48 : AT(0x55648) SUBALIGN(4) { build/us/audio_level_update_alt.o(.text) }
     .audio_mode 0x80054C24 : AT(0x55824) SUBALIGN(4) { build/us/audio_mode.o(.text) }
     .cpu_after_audio_mode 0x80054C44 : AT(0x55844) { build/us/fallback.o(.rom_cpu_after_audio_mode) }
+    .audio_voice_pause_state 0x80054C50 : AT(0x55850) SUBALIGN(4) { build/us/audio_voice_pause_state.o(.text) }
+    .audio_pause_request 0x80054CF0 : AT(0x558F0) SUBALIGN(4) { build/us/audio_pause_request.o(.text) }
+    .audio_pause_decode 0x80054DB8 : AT(0x559B8) SUBALIGN(4) { build/us/audio_pause_decode.o(.text) }
+    .audio_pause_apply 0x80054DF8 : AT(0x559F8) SUBALIGN(4) { build/us/audio_pause_apply.o(.text) }
+    .audio_resume_request 0x80054FC4 : AT(0x55BC4) SUBALIGN(4) { build/us/audio_resume_request.o(.text) }
+    .audio_resume_decode 0x8005507C : AT(0x55C7C) SUBALIGN(4) { build/us/audio_resume_decode.o(.text) }
+    .audio_resume_apply 0x800550AC : AT(0x55CAC) SUBALIGN(4) { build/us/audio_resume_apply.o(.text) }
+    .audio_pause_all_request 0x80055214 : AT(0x55E14) SUBALIGN(4) { build/us/audio_pause_all_request.o(.text) }
+    .audio_pause_all_decode 0x800552CC : AT(0x55ECC) SUBALIGN(4) { build/us/audio_pause_all_decode.o(.text) }
+    .audio_pause_all_apply 0x8005530C : AT(0x55F0C) SUBALIGN(4) { build/us/audio_pause_all_apply.o(.text) }
+    .audio_resume_all_request 0x800554F4 : AT(0x560F4) SUBALIGN(4) { build/us/audio_resume_all_request.o(.text) }
+    .audio_resume_all_decode 0x8005559C : AT(0x5619C) SUBALIGN(4) { build/us/audio_resume_all_decode.o(.text) }
+    .audio_resume_all_apply 0x800555CC : AT(0x561CC) SUBALIGN(4) { build/us/audio_resume_all_apply.o(.text) }
+    .cpu_after_audio_resume_all_apply 0x80055758 : AT(0x56358) { build/us/fallback.o(.rom_cpu_after_audio_resume_all_apply) }
     .audio_play_arguments 0x80055760 : AT(0x56360) SUBALIGN(4) { build/us/audio_play_arguments.o(.text) }
-    .cpu_after_audio_play_arguments 0x800557FC : AT(0x563FC) { build/us/fallback.o(.rom_cpu_after_audio_play_arguments) }
+    .audio_voice_properties_initial 0x800557FC : AT(0x563FC) SUBALIGN(4) { build/us/audio_voice_properties_initial.o(.text) }
+    .audio_owner_properties_request 0x80055A60 : AT(0x56660) SUBALIGN(4) { build/us/audio_owner_properties_request.o(.text) }
+    .audio_owner_properties_decode 0x80055AAC : AT(0x566AC) SUBALIGN(4) { build/us/audio_owner_properties_decode.o(.text) }
+    .audio_owner_properties_apply 0x80055AE8 : AT(0x566E8) SUBALIGN(4) { build/us/audio_owner_properties_apply.o(.text) }
+    .audio_owner_state_query 0x80055C6C : AT(0x5686C) SUBALIGN(4) { build/us/audio_owner_state_query.o(.text) }
+    .audio_owner_stop_request 0x80055D58 : AT(0x56958) SUBALIGN(4) { build/us/audio_owner_stop_request.o(.text) }
+    .audio_owner_stop_commands 0x80055E68 : AT(0x56A68) SUBALIGN(4) { build/us/audio_owner_stop_commands.o(.text) }
+    .audio_owner_stop_apply 0x80055F24 : AT(0x56B24) SUBALIGN(4) { build/us/audio_owner_stop_apply.o(.text) }
+    .cpu_after_audio_owner_stop_apply 0x80056124 : AT(0x56D24) { build/us/fallback.o(.rom_cpu_after_audio_owner_stop_apply) }
     .audio_handle_instance 0x80056480 : AT(0x57080) SUBALIGN(4) { build/us/audio_handle_instance.o(.text) }
     .cpu_after_audio_handle_instance 0x800564E0 : AT(0x570E0) { build/us/fallback.o(.rom_cpu_after_audio_handle_instance) }
     .audio_handle_create 0x80056580 : AT(0x57180) SUBALIGN(4) { build/us/audio_handle_create.o(.text) }
@@ -1265,7 +1287,7 @@ ASSERT(SIZEOF(.audio_config) == 0x280, "audio_config size changed")
 ASSERT(SIZEOF(.audio_control) == 0x370, "audio control size changed")
 ASSERT(SIZEOF(.cpu_after_audio_control) == 0xee0, "cpu_after_audio_control size changed")
 ASSERT(SIZEOF(.audio_play) == 0x70, "audio_play size changed")
-ASSERT(SIZEOF(.cpu_after_audio_play) == 0xec, "cpu_after_audio_play size changed")
+ASSERT(SIZEOF(.audio_instance_state_query) == 0xec, "audio_instance_state_query size changed")
 ASSERT(SIZEOF(.audio_instance_stop) == 0x110, "audio_instance_stop size changed")
 ASSERT(SIZEOF(.audio_stop_commands) == 0xbc, "audio_stop_commands size changed")
 ASSERT(SIZEOF(.audio_voice_stop) == 0x200, "audio_voice_stop size changed")
@@ -1278,9 +1300,31 @@ ASSERT(SIZEOF(.audio_level_update) == 0x1e0, "audio_level_update size changed")
 ASSERT(SIZEOF(.audio_level_commands_alt) == 0x6c, "audio_level_commands_alt size changed")
 ASSERT(SIZEOF(.audio_level_update_alt) == 0x1dc, "audio_level_update_alt size changed")
 ASSERT(SIZEOF(.audio_mode) == 0x20, "audio_mode size changed")
-ASSERT(SIZEOF(.cpu_after_audio_mode) == 0xb1c, "cpu_after_audio_mode size changed")
+ASSERT(SIZEOF(.cpu_after_audio_mode) == 0xc, "cpu_after_audio_mode size changed")
+ASSERT(SIZEOF(.audio_voice_pause_state) == 0xa0, "audio_voice_pause_state size changed")
+ASSERT(SIZEOF(.audio_pause_request) == 0xc8, "audio_pause_request size changed")
+ASSERT(SIZEOF(.audio_pause_decode) == 0x40, "audio_pause_decode size changed")
+ASSERT(SIZEOF(.audio_pause_apply) == 0x1cc, "audio_pause_apply size changed")
+ASSERT(SIZEOF(.audio_resume_request) == 0xb8, "audio_resume_request size changed")
+ASSERT(SIZEOF(.audio_resume_decode) == 0x30, "audio_resume_decode size changed")
+ASSERT(SIZEOF(.audio_resume_apply) == 0x168, "audio_resume_apply size changed")
+ASSERT(SIZEOF(.audio_pause_all_request) == 0xb8, "audio_pause_all_request size changed")
+ASSERT(SIZEOF(.audio_pause_all_decode) == 0x40, "audio_pause_all_decode size changed")
+ASSERT(SIZEOF(.audio_pause_all_apply) == 0x1e8, "audio_pause_all_apply size changed")
+ASSERT(SIZEOF(.audio_resume_all_request) == 0xa8, "audio_resume_all_request size changed")
+ASSERT(SIZEOF(.audio_resume_all_decode) == 0x30, "audio_resume_all_decode size changed")
+ASSERT(SIZEOF(.audio_resume_all_apply) == 0x18c, "audio_resume_all_apply size changed")
+ASSERT(SIZEOF(.cpu_after_audio_resume_all_apply) == 0x8, "cpu_after_audio_resume_all_apply size changed")
 ASSERT(SIZEOF(.audio_play_arguments) == 0x9c, "audio_play_arguments size changed")
-ASSERT(SIZEOF(.cpu_after_audio_play_arguments) == 0xc84, "cpu_after_audio_play_arguments size changed")
+ASSERT(SIZEOF(.audio_voice_properties_initial) == 0x264, "audio_voice_properties_initial size changed")
+ASSERT(SIZEOF(.audio_owner_properties_request) == 0x4c, "audio_owner_properties_request size changed")
+ASSERT(SIZEOF(.audio_owner_properties_decode) == 0x3c, "audio_owner_properties_decode size changed")
+ASSERT(SIZEOF(.audio_owner_properties_apply) == 0x184, "audio_owner_properties_apply size changed")
+ASSERT(SIZEOF(.audio_owner_state_query) == 0xec, "audio_owner_state_query size changed")
+ASSERT(SIZEOF(.audio_owner_stop_request) == 0x110, "audio_owner_stop_request size changed")
+ASSERT(SIZEOF(.audio_owner_stop_commands) == 0xbc, "audio_owner_stop_commands size changed")
+ASSERT(SIZEOF(.audio_owner_stop_apply) == 0x200, "audio_owner_stop_apply size changed")
+ASSERT(SIZEOF(.cpu_after_audio_owner_stop_apply) == 0x35c, "cpu_after_audio_owner_stop_apply size changed")
 ASSERT(SIZEOF(.audio_handle_instance) == 0x60, "audio_handle_instance size changed")
 ASSERT(SIZEOF(.cpu_after_audio_handle_instance) == 0xa0, "cpu_after_audio_handle_instance size changed")
 ASSERT(SIZEOF(.audio_handle_create) == 0x58, "audio_handle_create size changed")

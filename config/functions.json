@@ -7030,6 +7030,17 @@
     "evidence": "docs/audio-commands.md"
   },
   {
+    "name": "func_80053CC0",
+    "rom": 346304,
+    "vram": 2147826880,
+    "size": 236,
+    "source": "src/game/audio_instance_state_query.c",
+    "object": "build/us/audio_instance_state_query.o",
+    "section": ".audio_instance_state_query",
+    "section_vram": 2147826880,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
     "name": "func_80053DAC",
     "rom": 346540,
     "vram": 2147827116,
@@ -7272,6 +7283,160 @@
     "evidence": "docs/audio-commands.md"
   },
   {
+    "name": "func_80054C50",
+    "rom": 350288,
+    "vram": 2147830864,
+    "size": 80,
+    "source": "src/game/audio_voice_pause_state.c",
+    "object": "build/us/audio_voice_pause_state.o",
+    "section": ".audio_voice_pause_state",
+    "section_vram": 2147830864,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80054CA0",
+    "rom": 350368,
+    "vram": 2147830944,
+    "size": 80,
+    "source": "src/game/audio_voice_pause_state.c",
+    "object": "build/us/audio_voice_pause_state.o",
+    "section": ".audio_voice_pause_state",
+    "section_vram": 2147830864,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80054CF0",
+    "rom": 350448,
+    "vram": 2147831024,
+    "size": 200,
+    "source": "src/game/audio_pause_request.c",
+    "object": "build/us/audio_pause_request.o",
+    "section": ".audio_pause_request",
+    "section_vram": 2147831024,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80054DB8",
+    "rom": 350648,
+    "vram": 2147831224,
+    "size": 64,
+    "source": "src/game/audio_pause_decode.c",
+    "object": "build/us/audio_pause_decode.o",
+    "section": ".audio_pause_decode",
+    "section_vram": 2147831224,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80054DF8",
+    "rom": 350712,
+    "vram": 2147831288,
+    "size": 460,
+    "source": "src/game/audio_pause_apply.c",
+    "object": "build/us/audio_pause_apply.o",
+    "section": ".audio_pause_apply",
+    "section_vram": 2147831288,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80054FC4",
+    "rom": 351172,
+    "vram": 2147831748,
+    "size": 184,
+    "source": "src/game/audio_resume_request.c",
+    "object": "build/us/audio_resume_request.o",
+    "section": ".audio_resume_request",
+    "section_vram": 2147831748,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_8005507C",
+    "rom": 351356,
+    "vram": 2147831932,
+    "size": 48,
+    "source": "src/game/audio_resume_decode.c",
+    "object": "build/us/audio_resume_decode.o",
+    "section": ".audio_resume_decode",
+    "section_vram": 2147831932,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_800550AC",
+    "rom": 351404,
+    "vram": 2147831980,
+    "size": 360,
+    "source": "src/game/audio_resume_apply.c",
+    "object": "build/us/audio_resume_apply.o",
+    "section": ".audio_resume_apply",
+    "section_vram": 2147831980,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055214",
+    "rom": 351764,
+    "vram": 2147832340,
+    "size": 184,
+    "source": "src/game/audio_pause_all_request.c",
+    "object": "build/us/audio_pause_all_request.o",
+    "section": ".audio_pause_all_request",
+    "section_vram": 2147832340,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_800552CC",
+    "rom": 351948,
+    "vram": 2147832524,
+    "size": 64,
+    "source": "src/game/audio_pause_all_decode.c",
+    "object": "build/us/audio_pause_all_decode.o",
+    "section": ".audio_pause_all_decode",
+    "section_vram": 2147832524,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_8005530C",
+    "rom": 352012,
+    "vram": 2147832588,
+    "size": 488,
+    "source": "src/game/audio_pause_all_apply.c",
+    "object": "build/us/audio_pause_all_apply.o",
+    "section": ".audio_pause_all_apply",
+    "section_vram": 2147832588,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_800554F4",
+    "rom": 352500,
+    "vram": 2147833076,
+    "size": 168,
+    "source": "src/game/audio_resume_all_request.c",
+    "object": "build/us/audio_resume_all_request.o",
+    "section": ".audio_resume_all_request",
+    "section_vram": 2147833076,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_8005559C",
+    "rom": 352668,
+    "vram": 2147833244,
+    "size": 48,
+    "source": "src/game/audio_resume_all_decode.c",
+    "object": "build/us/audio_resume_all_decode.o",
+    "section": ".audio_resume_all_decode",
+    "section_vram": 2147833244,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_800555CC",
+    "rom": 352716,
+    "vram": 2147833292,
+    "size": 396,
+    "source": "src/game/audio_resume_all_apply.c",
+    "object": "build/us/audio_resume_all_apply.o",
+    "section": ".audio_resume_all_apply",
+    "section_vram": 2147833292,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
     "name": "func_80055760",
     "rom": 353120,
     "vram": 2147833696,
@@ -7291,6 +7456,127 @@
     "object": "build/us/audio_play_arguments.o",
     "section": ".audio_play_arguments",
     "section_vram": 2147833696,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_800557FC",
+    "rom": 353276,
+    "vram": 2147833852,
+    "size": 612,
+    "source": "src/game/audio_voice_properties_initial.c",
+    "object": "build/us/audio_voice_properties_initial.o",
+    "section": ".audio_voice_properties_initial",
+    "section_vram": 2147833852,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055A60",
+    "rom": 353888,
+    "vram": 2147834464,
+    "size": 76,
+    "source": "src/game/audio_owner_properties_request.c",
+    "object": "build/us/audio_owner_properties_request.o",
+    "section": ".audio_owner_properties_request",
+    "section_vram": 2147834464,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055AAC",
+    "rom": 353964,
+    "vram": 2147834540,
+    "size": 60,
+    "source": "src/game/audio_owner_properties_decode.c",
+    "object": "build/us/audio_owner_properties_decode.o",
+    "section": ".audio_owner_properties_decode",
+    "section_vram": 2147834540,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055AE8",
+    "rom": 354024,
+    "vram": 2147834600,
+    "size": 388,
+    "source": "src/game/audio_owner_properties_apply.c",
+    "object": "build/us/audio_owner_properties_apply.o",
+    "section": ".audio_owner_properties_apply",
+    "section_vram": 2147834600,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055C6C",
+    "rom": 354412,
+    "vram": 2147834988,
+    "size": 236,
+    "source": "src/game/audio_owner_state_query.c",
+    "object": "build/us/audio_owner_state_query.o",
+    "section": ".audio_owner_state_query",
+    "section_vram": 2147834988,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055D58",
+    "rom": 354648,
+    "vram": 2147835224,
+    "size": 272,
+    "source": "src/game/audio_owner_stop_request.c",
+    "object": "build/us/audio_owner_stop_request.o",
+    "section": ".audio_owner_stop_request",
+    "section_vram": 2147835224,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055E68",
+    "rom": 354920,
+    "vram": 2147835496,
+    "size": 36,
+    "source": "src/game/audio_owner_stop_commands.c",
+    "object": "build/us/audio_owner_stop_commands.o",
+    "section": ".audio_owner_stop_commands",
+    "section_vram": 2147835496,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055E8C",
+    "rom": 354956,
+    "vram": 2147835532,
+    "size": 36,
+    "source": "src/game/audio_owner_stop_commands.c",
+    "object": "build/us/audio_owner_stop_commands.o",
+    "section": ".audio_owner_stop_commands",
+    "section_vram": 2147835496,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055EB0",
+    "rom": 354992,
+    "vram": 2147835568,
+    "size": 52,
+    "source": "src/game/audio_owner_stop_commands.c",
+    "object": "build/us/audio_owner_stop_commands.o",
+    "section": ".audio_owner_stop_commands",
+    "section_vram": 2147835496,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055EE4",
+    "rom": 355044,
+    "vram": 2147835620,
+    "size": 64,
+    "source": "src/game/audio_owner_stop_commands.c",
+    "object": "build/us/audio_owner_stop_commands.o",
+    "section": ".audio_owner_stop_commands",
+    "section_vram": 2147835496,
+    "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80055F24",
+    "rom": 355108,
+    "vram": 2147835684,
+    "size": 512,
+    "source": "src/game/audio_owner_stop_apply.c",
+    "object": "build/us/audio_owner_stop_apply.o",
+    "section": ".audio_owner_stop_apply",
+    "section_vram": 2147835684,
     "evidence": "docs/audio-commands.md"
   },
   {

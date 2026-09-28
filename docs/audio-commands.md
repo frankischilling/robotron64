@@ -76,6 +76,58 @@ The operation-table array also contains the context-release callbacks used
 by `func_80052CF4`. Both control and command sources use the same declaration;
 the two release calls address elements zero and one.
 
+## Pause, resume, properties, and owner control
+
+The lower audio-control recovery contains 26 exact functions in 22 source
+files. The retained `matches:true` probes account for 5,404 instruction bytes.
+At base commit `4c1af63`, `func_80053CC0` already existed as the unlinked
+`audio_instance_query.c` candidate. Its 236-byte range overlaps this batch, so
+25 functions and 5,168 source bytes are new relative to that base while all 26
+functions and 5,404 bytes are now linked and tracked as matching C. Two small
+uncovered ranges stay extracted: `0x80054C44..0x80054C50` and
+`0x80055758..0x80055760`. After `func_80055F24` ends at `0x80056124`, the
+following audio range remains fallback until the already recovered command
+lock at `0x8005895C`.
+
+| Source | Runtime range | Functions | C bytes | Archived source SHA-256 |
+| --- | --- | ---: | ---: | --- |
+| `audio_instance_state_query.c` | `0x80053CC0..0x80053DAC` | 1 | 236 | `4ce1c7d4b25d466fffd592cf2257e002552f61685edea0249dce677d81387d33` |
+| `audio_voice_pause_state.c` | `0x80054C50..0x80054CF0` | 2 | 160 | `c48d4197856e4db8fde7fcd3d7ec7d8bd8bba8dcbd147ea53e33086fb28fa34c` |
+| `audio_pause_request.c` | `0x80054CF0..0x80054DB8` | 1 | 200 | `aee6471e96e3914afb4a6ae3436b00041209bcc36500404abca448f00821cb6a` |
+| `audio_pause_decode.c` | `0x80054DB8..0x80054DF8` | 1 | 64 | `a24a5421db25cdf4055d80a3f658eefc33797bcf6e4adea0bc38c0c32a8620f1` |
+| `audio_pause_apply.c` | `0x80054DF8..0x80054FC4` | 1 | 460 | `601092aff192be67ec6d0ac7b9e2f09b60494f17bf95ca728f0fe8284b604b72` |
+| `audio_resume_request.c` | `0x80054FC4..0x8005507C` | 1 | 184 | `28c0540cc271799f12e813a0392dae22aea3c684cb3d77e9b27a1bdbf2966de3` |
+| `audio_resume_decode.c` | `0x8005507C..0x800550AC` | 1 | 48 | `6cc7806f22ac6354bb1c6725065c1894ebd85353d84e0725c81b39cd21016a80` |
+| `audio_resume_apply.c` | `0x800550AC..0x80055214` | 1 | 360 | `2962790705f2d38397361a04014e9ab71df4c188d9d5ceaca77a5a6852fee68e` |
+| `audio_pause_all_request.c` | `0x80055214..0x800552CC` | 1 | 184 | `9cda1acf1d956f51eef5b899853dd207d0dc599fbc74a68d1a551bf06469b7d7` |
+| `audio_pause_all_decode.c` | `0x800552CC..0x8005530C` | 1 | 64 | `b03776f310ec31aad5a5cdbd5dc716be7523f13df0fa3b318eba95b3cff9d994` |
+| `audio_pause_all_apply.c` | `0x8005530C..0x800554F4` | 1 | 488 | `36bc3071ce895fec707576c9a4d4e4952ecd7eb34bce618223c8f34bb1f80e38` |
+| `audio_resume_all_request.c` | `0x800554F4..0x8005559C` | 1 | 168 | `870a9714a2f67205662377e7961313c46bdbe099383970f635ee92250d33e149` |
+| `audio_resume_all_decode.c` | `0x8005559C..0x800555CC` | 1 | 48 | `ccf33bedffa9ba3ed74dfbcc6d1e764ac3e280440bb32e16b91ef504a0f64329` |
+| `audio_resume_all_apply.c` | `0x800555CC..0x80055758` | 1 | 396 | `410868834cbe59dd6113c6a2a13ba4e5c0bdf0df8fdbe76b0344c6679e9b814d` |
+| `audio_voice_properties_initial.c` | `0x800557FC..0x80055A60` | 1 | 612 | `6cec27c961faf9da97d102aa6de0e0ae498a7d5a490428cba4a427acee843eb4` |
+| `audio_owner_properties_request.c` | `0x80055A60..0x80055AAC` | 1 | 76 | `492725ad5d58e63dc6996144b76fb9ec5236debee39ed8f7b22ff2b91d25e7ee` |
+| `audio_owner_properties_decode.c` | `0x80055AAC..0x80055AE8` | 1 | 60 | `e5d49f3a1a40d382546d238ad1f354b5fc21fcf8b3371494576e033ba4d0bf98` |
+| `audio_owner_properties_apply.c` | `0x80055AE8..0x80055C6C` | 1 | 388 | `6fdfb0af1dd729d4a9cfd66f79eff6b162a527face9f307ce8ec61c2a08501fc` |
+| `audio_owner_state_query.c` | `0x80055C6C..0x80055D58` | 1 | 236 | `7ac189018ca805708f9a61a7e874b4b686914f544bdffc37c01dfed9ff621f65` |
+| `audio_owner_stop_request.c` | `0x80055D58..0x80055E68` | 1 | 272 | `a6a6654b190131e6f5c1382219d3ffcd71ea4af24cee0e7a8d8a89853b969dc1` |
+| `audio_owner_stop_commands.c` | `0x80055E68..0x80055F24` | 4 | 188 | `fbc988ea41083f16027fcc0cdbf0de6bdf87293b800f3bda359c27c12ee1e53e` |
+| `audio_owner_stop_apply.c` | `0x80055F24..0x80056124` | 1 | 512 | `b5d9b15ea86af2938af6dd7d70dca3d88e604e8ecb52a59333116423c9d8834c` |
+
+The archived source files are copied byte-for-byte. They keep their original
+`"audio_properties_internal.h"` include spelling through the forwarding header
+in `src/game/`; the maintainable shared layouts and declarations live in
+`include/audio_properties_internal.h`. The shared header's current SHA-256 is
+`d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da`, and
+the forwarding header's SHA-256 is
+`20313fa777d05d3a0c4f8d3400f66c118c0786e04d2fb5699479f3811f232eb8`.
+The historical probe records are retained as they were generated: 21 of these
+objects, totaling 4,792 bytes, record the earlier shared-header SHA-256
+`a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e`;
+`audio_voice_properties_initial.c`, totaling 612 bytes, records the current
+shared-header hash. Fresh repository comparison recompiles the sources against
+the current shared header.
+
 ## Queue and interrupt lock
 
 The lock increments a nesting counter. Its outermost entry calls
@@ -104,7 +156,7 @@ all of its bytes with the validated USA ROM. `make progress` also checks
 source/header/object provenance, input-object function sizes, linked
 addresses, section placement, and complete ROM equality.
 
-`func_80053CC0`, the instance-state query, is still a source candidate until
-its complete comparison matches. The full bank loader and several neighboring
-voice-control routines remain extracted. These boundaries are reflected in
-the manifest and do not count as matching C.
+`func_80053CC0` and the pause/resume, property, and owner-control functions
+listed above now use their complete exact C ranges. The full bank loader and
+other neighboring voice-control routines remain extracted. These boundaries
+are reflected in the manifest and do not count as matching C.

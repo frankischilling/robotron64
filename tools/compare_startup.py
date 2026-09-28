@@ -9,6 +9,7 @@ from rom import ROOT, validate
 from toolchain import install, installed_identity
 from trim_padding import trim
 from compiler import compile_source, profile_for_source
+from provenance import local_headers
 from owned_sections import (load_owned_sections, source_sections, trim_owned_sections,
                             linker_placements, verify_owned_binary)
 
@@ -77,6 +78,16 @@ class SymbolLayoutSnapshot:
             raise ValueError("Symbol layout changed during comparison; restart from the current inputs")
 
 
+def comparison_input_hashes(source, root=ROOT):
+    inputs = {source, "config/startup_symbols.ld", "config/runtime_symbols.ld",
+              "config/functions.json", "tools/compiler.py", "config/toolchain_files.json",
+              "config/owned_sections.json", "tools/owned_sections.py"}
+    inputs.update(local_headers(root / source, root))
+    inputs.update(path.relative_to(root).as_posix() for path in (root / "include").glob("*.h"))
+    return {path: hashlib.sha256((root / path).read_bytes()).hexdigest()
+            for path in sorted(inputs)}
+
+
 def compare_block(name, source, vram, start, end, target, family="startup-comparison", layout=None):
     layout = layout if layout is not None else SymbolLayoutSnapshot()
     layout.verify()
@@ -87,11 +98,7 @@ def compare_block(name, source, vram, start, end, target, family="startup-compar
     object_path = directory / f"{name}.o"
     elf_path = directory / f"{name}.elf"
     binary_path = directory / f"{name}.bin"
-    inputs = [source, "config/startup_symbols.ld", "config/runtime_symbols.ld",
-              "config/functions.json", "tools/compiler.py", "config/toolchain_files.json",
-              "config/owned_sections.json", "tools/owned_sections.py"]
-    inputs.extend(str(path.relative_to(ROOT)) for path in sorted((ROOT / "include").glob("*.h")))
-    input_hashes = {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in inputs}
+    input_hashes = comparison_input_hashes(source)
     compile_source(source, raw_path)
     raw = raw_path.read_bytes()
     owned = source_sections(source)

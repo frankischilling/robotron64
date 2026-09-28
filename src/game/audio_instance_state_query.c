@@ -1,35 +1,31 @@
-#include "../../include/audio_commands.h"
-
-extern unsigned int D_8008D844;
+#include "audio_properties_internal.h"
 
 int func_80053CC0(int index)
 {
-    int result;
     unsigned char remaining;
     unsigned char active;
     AudioInstance *instance;
-    AudioContext *context;
+    int state;
 
-    if (func_80052ACC(index) == 0) {
+    if (!func_80052ACC(index)) {
         return 0;
     }
-    result = 1;
+    state = 1;
     func_8005895C();
-    context = D_801902EC;
     remaining = D_8008D844;
-    active = context->activeCount;
-    instance = context->instances;
-    if (active != 0) {
+    active = D_801902EC->activeCount;
+    instance = D_801902EC->instances;
+    if (active) {
         while (remaining--) {
             if (instance->active) {
                 if (index == instance->index) {
                     if (instance->state == 0) {
-                        result = 2;
+                        state = 2;
                     } else if (instance->state == 1) {
-                        result = 3;
+                        state = 3;
                     }
                 }
-                if (--active == 0) {
+                if (!--active) {
                     break;
                 }
             }
@@ -37,5 +33,5 @@ int func_80053CC0(int index)
         }
     }
     func_8005899C();
-    return result;
+    return state;
 }
