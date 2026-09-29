@@ -4134,6 +4134,58 @@ RUNTIME_OBJECTS += \
     build/us/ai_busy.o \
     build/us/si_busy.o
 
+build/us/pi_cartridge_read.o: src/sdk/pi_cartridge_read.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_cartridge_read.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_cartridge_read.raw.o $@ .text 0x54
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_set_priority.o: src/sdk/thread_set_priority.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/thread_set_priority.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/thread_set_priority.raw.o $@ .text 0xe0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/system_time.o: src/sdk/system_time.c include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/system_time.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/system_time.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/timer_initialize.o: src/sdk/timer_initialize.c include/scheduler.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/timer_initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/timer_initialize.raw.o build/us/timer_initialize.text.o .text 0x8c
+	$(PYTHON) tools/owned_sections.py $< build/us/timer_initialize.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/timer_interrupt.o: src/sdk/timer_interrupt.c include/scheduler.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/timer_interrupt.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/timer_interrupt.raw.o $@ .text 0x178
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/timer_compare.o: src/sdk/timer_compare.c include/scheduler.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/timer_compare.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/timer_compare.raw.o $@ .text 0x74
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/timer_insert.o: src/sdk/timer_insert.c include/scheduler.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/timer_insert.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/timer_insert.raw.o $@ .text 0x188
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/pi_cartridge_read.o \
+    build/us/thread_set_priority.o \
+    build/us/system_time.o \
+    build/us/timer_initialize.o \
+    build/us/timer_interrupt.o \
+    build/us/timer_compare.o \
+    build/us/timer_insert.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

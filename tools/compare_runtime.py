@@ -571,6 +571,13 @@ MATCHING_BLOCKS = (
     ("sp_busy", "src/sdk/sp_busy.c", 0x8006B3F0, 0x8006B41C),
     ("ai_busy", "src/sdk/ai_busy.c", 0x8006B5B0, 0x8006B5E0),
     ("si_busy", "src/sdk/si_busy.c", 0x8006DBF0, 0x8006DC1C),
+    ("pi_cartridge_read", "src/sdk/pi_cartridge_read.c", 0x8005FEE0, 0x8005FF34),
+    ("thread_set_priority", "src/sdk/thread_set_priority.c", 0x80060370, 0x80060450),
+    ("system_time", "src/sdk/system_time.c", 0x80061450, 0x800614D4),
+    ("timer_initialize", "src/sdk/timer_initialize.c", 0x800684D0, 0x8006855C),
+    ("timer_interrupt", "src/sdk/timer_interrupt.c", 0x8006855C, 0x800686D4),
+    ("timer_compare", "src/sdk/timer_compare.c", 0x800686D4, 0x80068748),
+    ("timer_insert", "src/sdk/timer_insert.c", 0x80068748, 0x800688D0),
 )
 
 CANDIDATE_BLOCKS = (

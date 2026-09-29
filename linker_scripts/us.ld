@@ -738,14 +738,14 @@ SECTIONS
     .gu_sine 0x8005FBB0 : AT(0x607B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_sine) }
     .gu_cosine 0x8005FC20 : AT(0x60820) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_cosine) }
     .cpu_after_gu_cosine 0x8005FC50 : AT(0x60850) { build/us/fallback.o(.rom_cpu_after_gu_cosine) }
-    .pi_raw_read 0x8005FEE0 : AT(0x60AE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_raw_read) }
+    .pi_cartridge_read 0x8005FEE0 : AT(0x60AE0) SUBALIGN(4) { build/us/pi_cartridge_read.o(.text) }
     .cpu_after_pi_raw_read 0x8005FF34 : AT(0x60B34) { build/us/fallback.o(.rom_cpu_after_pi_raw_read) }
     .thread_create 0x8005FF40 : AT(0x60B40) SUBALIGN(4) { build/us/thread_create.o(.text) }
     .cpu_after_thread_create 0x80060084 : AT(0x60C84) { build/us/fallback.o(.rom_cpu_after_thread_create) }
     .thread_start 0x80060090 : AT(0x60C90) SUBALIGN(4) { build/us/thread_start.o(.text) }
     .pi_manager_create 0x800601E0 : AT(0x60DE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_manager_create) }
     .cpu_after_pi_manager_create 0x80060368 : AT(0x60F68) { build/us/fallback.o(.rom_cpu_after_pi_manager_create) }
-    .thread_priority 0x80060370 : AT(0x60F70) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_priority) }
+    .thread_set_priority 0x80060370 : AT(0x60F70) SUBALIGN(4) { build/us/thread_set_priority.o(.text) }
     .message_queue 0x80060450 : AT(0x61050) SUBALIGN(4) { build/us/message_queue.o(.text) }
     .cpu_after_message_queue_create 0x8006047C : AT(0x6107C) { build/us/fallback.o(.rom_cpu_after_message_queue_create) }
     .vi_features 0x800604E0 : AT(0x610E0) SUBALIGN(4) { build/us/vi_features.o(.text) }
@@ -760,7 +760,7 @@ SECTIONS
     .cpu_after_gu_translate 0x800612AC : AT(0x61EAC) { build/us/fallback.o(.rom_cpu_after_gu_translate) }
     .gu_rotate_rpy 0x800612B0 : AT(0x61EB0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_rotate_rpy) }
     .cpu_after_gu_rotate_rpy 0x80061444 : AT(0x62044) { build/us/fallback.o(.rom_cpu_after_gu_rotate_rpy) }
-    .time_get 0x80061450 : AT(0x62050) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_time_get) }
+    .system_time 0x80061450 : AT(0x62050) SUBALIGN(4) { build/us/system_time.o(.text) }
     .cpu_after_time_get 0x800614D4 : AT(0x620D4) { build/us/fallback.o(.rom_cpu_after_time_get) }
     .compiler_integer64 0x800614E0 : AT(0x620E0) SUBALIGN(4) { build/us/compiler_integer64.o(.text) }
     .cpu_after_compiler_arithmetic 0x800617A0 : AT(0x623A0) { build/us/fallback.o(.rom_cpu_after_compiler_arithmetic) }
@@ -859,10 +859,10 @@ SECTIONS
     .gu_mtxutil 0x80068250 : AT(0x68E50) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_mtxutil) }
     .cpu_after_gu_mtxutil 0x800684BC : AT(0x690BC) { build/us/fallback.o(.rom_cpu_after_gu_mtxutil) }
     .os_get_count 0x800684C0 : AT(0x690C0) SUBALIGN(4) { build/us/os_get_count.o(.text) }
-    .timer_init 0x800684D0 : AT(0x690D0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_timer_init) }
-    .timer_interrupt 0x8006855C : AT(0x6915C) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_timer_interrupt) }
-    .timer_compare 0x800686D4 : AT(0x692D4) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_timer_compare) }
-    .timer_insert 0x80068748 : AT(0x69348) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_timer_insert) }
+    .timer_initialize 0x800684D0 : AT(0x690D0) SUBALIGN(4) { build/us/timer_initialize.o(.text) }
+    .timer_interrupt 0x8006855C : AT(0x6915C) SUBALIGN(4) { build/us/timer_interrupt.o(.text) }
+    .timer_compare 0x800686D4 : AT(0x692D4) SUBALIGN(4) { build/us/timer_compare.o(.text) }
+    .timer_insert 0x80068748 : AT(0x69348) SUBALIGN(4) { build/us/timer_insert.o(.text) }
     .pfs_contpfs 0x800688D0 : AT(0x694D0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_contpfs) }
     .cpu_after_pfs_contpfs 0x80069628 : AT(0x6A228) { build/us/fallback.o(.rom_cpu_after_pfs_contpfs) }
     .pfs_cont_ram_read 0x80069630 : AT(0x6A230) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_cont_ram_read) }
@@ -1013,6 +1013,7 @@ SECTIONS
     .audio_engine_gate_bss 0x80192770 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_gate.o(.bss) }
     .audio_engine_iteration_bss 0x8019277C (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration.o(.bss) }
     .audio_backend_note_release_bss 0x80192B70 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_note_release.o(.bss) }
+    .timer_initialize_bss 0x80196450 (NOLOAD) : SUBALIGN(4) { build/us/timer_initialize.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1782,14 +1783,14 @@ ASSERT(SIZEOF(.compression_cartridge_bounded) == 0x58, "compression_cartridge_bo
 ASSERT(SIZEOF(.gu_sine) == 0x70, "gu_sine size changed")
 ASSERT(SIZEOF(.gu_cosine) == 0x30, "gu_cosine size changed")
 ASSERT(SIZEOF(.cpu_after_gu_cosine) == 0x290, "cpu_after_gu_cosine size changed")
-ASSERT(SIZEOF(.pi_raw_read) == 0x54, "pi_raw_read size changed")
+ASSERT(SIZEOF(.pi_cartridge_read) == 0x54, "pi_cartridge_read size changed")
 ASSERT(SIZEOF(.cpu_after_pi_raw_read) == 0xc, "cpu_after_pi_raw_read size changed")
 ASSERT(SIZEOF(.thread_create) == 0x144, "thread_create size changed")
 ASSERT(SIZEOF(.cpu_after_thread_create) == 0xc, "cpu_after_thread_create size changed")
 ASSERT(SIZEOF(.thread_start) == 0x150, "thread_start size changed")
 ASSERT(SIZEOF(.pi_manager_create) == 0x188, "pi_manager_create size changed")
 ASSERT(SIZEOF(.cpu_after_pi_manager_create) == 0x8, "cpu_after_pi_manager_create size changed")
-ASSERT(SIZEOF(.thread_priority) == 0xe0, "thread_priority size changed")
+ASSERT(SIZEOF(.thread_set_priority) == 0xe0, "thread_set_priority size changed")
 ASSERT(SIZEOF(.message_queue) == 0x2c, "message_queue size changed")
 ASSERT(SIZEOF(.cpu_after_message_queue_create) == 0x64, "cpu_after_message_queue_create size changed")
 ASSERT(SIZEOF(.vi_features) == 0x1b8, "vi_features size changed")
@@ -1804,7 +1805,7 @@ ASSERT(SIZEOF(.gu_translate) == 0x9c, "gu_translate size changed")
 ASSERT(SIZEOF(.cpu_after_gu_translate) == 0x4, "cpu_after_gu_translate size changed")
 ASSERT(SIZEOF(.gu_rotate_rpy) == 0x194, "gu_rotate_rpy size changed")
 ASSERT(SIZEOF(.cpu_after_gu_rotate_rpy) == 0xc, "cpu_after_gu_rotate_rpy size changed")
-ASSERT(SIZEOF(.time_get) == 0x84, "time_get size changed")
+ASSERT(SIZEOF(.system_time) == 0x84, "system_time size changed")
 ASSERT(SIZEOF(.cpu_after_time_get) == 0xc, "cpu_after_time_get size changed")
 ASSERT(SIZEOF(.compiler_integer64) == 0x2c0, "compiler_integer64 size changed")
 ASSERT(SIZEOF(.cpu_after_compiler_arithmetic) == 0x260, "cpu_after_compiler_arithmetic size changed")
@@ -1903,7 +1904,7 @@ ASSERT(SIZEOF(.os_probe_tlb) == 0xc0, "os_probe_tlb size changed")
 ASSERT(SIZEOF(.gu_mtxutil) == 0x26c, "gu_mtxutil size changed")
 ASSERT(SIZEOF(.cpu_after_gu_mtxutil) == 0x4, "cpu_after_gu_mtxutil size changed")
 ASSERT(SIZEOF(.os_get_count) == 0x10, "os_get_count size changed")
-ASSERT(SIZEOF(.timer_init) == 0x8c, "timer_init size changed")
+ASSERT(SIZEOF(.timer_initialize) == 0x8c, "timer_initialize size changed")
 ASSERT(SIZEOF(.timer_interrupt) == 0x178, "timer_interrupt size changed")
 ASSERT(SIZEOF(.timer_compare) == 0x74, "timer_compare size changed")
 ASSERT(SIZEOF(.timer_insert) == 0x188, "timer_insert size changed")
@@ -2010,3 +2011,5 @@ ASSERT(SIZEOF(.audio_engine_gate_bss) == 0xc, "audio_engine_gate BSS size change
 ASSERT(SIZEOF(.audio_engine_iteration_bss) == 0xc, "audio_engine_iteration BSS size changed")
 
 ASSERT(SIZEOF(.audio_backend_note_release_bss) == 0x8, "audio_backend_note_release BSS size changed")
+
+ASSERT(SIZEOF(.timer_initialize_bss) == 0x8, "timer_initialize BSS size changed")

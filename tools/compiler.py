@@ -22,6 +22,13 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/sdk/timer_insert.c": "sdk-o1-mips2",
+    "src/sdk/timer_compare.c": "sdk-o1-mips2",
+    "src/sdk/timer_interrupt.c": "sdk-o1-mips2",
+    "src/sdk/timer_initialize.c": "sdk-o1-mips2",
+    "src/sdk/system_time.c": "sdk-o1-mips2",
+    "src/sdk/thread_set_priority.c": "sdk-o1-mips2",
+    "src/sdk/pi_cartridge_read.c": "sdk-o1-mips2",
     "src/sdk/si_busy.c": "sdk-o1-mips2",
     "src/sdk/ai_busy.c": "sdk-o1-mips2",
     "src/sdk/sp_busy.c": "sdk-o1-mips2",

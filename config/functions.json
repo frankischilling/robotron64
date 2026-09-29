@@ -10596,6 +10596,17 @@
     "evidence": "docs/compression-runtime.md"
   },
   {
+    "name": "osPiRawReadIo",
+    "rom": 396000,
+    "vram": 2147876576,
+    "size": 84,
+    "source": "src/sdk/pi_cartridge_read.c",
+    "object": "build/us/pi_cartridge_read.o",
+    "section": ".pi_cartridge_read",
+    "section_vram": 2147876576,
+    "evidence": "docs/sdk-time-and-priority.md"
+  },
+  {
     "name": "osCreateThread",
     "rom": 396096,
     "vram": 2147876672,
@@ -10616,6 +10627,17 @@
     "section": ".thread_start",
     "section_vram": 2147877008,
     "evidence": "docs/sdk-runtime.md"
+  },
+  {
+    "name": "osSetThreadPri",
+    "rom": 397168,
+    "vram": 2147877744,
+    "size": 224,
+    "source": "src/sdk/thread_set_priority.c",
+    "object": "build/us/thread_set_priority.o",
+    "section": ".thread_set_priority",
+    "section_vram": 2147877744,
+    "evidence": "docs/sdk-time-and-priority.md"
   },
   {
     "name": "osCreateMesgQueue",
@@ -10649,6 +10671,17 @@
     "section": ".virtual_to_physical",
     "section_vram": 2147878560,
     "evidence": "docs/sdk-runtime.md"
+  },
+  {
+    "name": "func_80061450",
+    "rom": 401488,
+    "vram": 2147882064,
+    "size": 132,
+    "source": "src/sdk/system_time.c",
+    "object": "build/us/system_time.o",
+    "section": ".system_time",
+    "section_vram": 2147882064,
+    "evidence": "docs/sdk-time-and-priority.md"
   },
   {
     "name": "func_800614E0",
@@ -11071,6 +11104,50 @@
     "section_vram": 2147910848,
     "evidence": "docs/libultra.md",
     "language": "assembly"
+  },
+  {
+    "name": "func_800684D0",
+    "rom": 430288,
+    "vram": 2147910864,
+    "size": 140,
+    "source": "src/sdk/timer_initialize.c",
+    "object": "build/us/timer_initialize.o",
+    "section": ".timer_initialize",
+    "section_vram": 2147910864,
+    "evidence": "docs/sdk-time-and-priority.md"
+  },
+  {
+    "name": "func_8006855C",
+    "rom": 430428,
+    "vram": 2147911004,
+    "size": 376,
+    "source": "src/sdk/timer_interrupt.c",
+    "object": "build/us/timer_interrupt.o",
+    "section": ".timer_interrupt",
+    "section_vram": 2147911004,
+    "evidence": "docs/sdk-time-and-priority.md"
+  },
+  {
+    "name": "func_800686D4",
+    "rom": 430804,
+    "vram": 2147911380,
+    "size": 116,
+    "source": "src/sdk/timer_compare.c",
+    "object": "build/us/timer_compare.o",
+    "section": ".timer_compare",
+    "section_vram": 2147911380,
+    "evidence": "docs/sdk-time-and-priority.md"
+  },
+  {
+    "name": "func_80068748",
+    "rom": 430920,
+    "vram": 2147911496,
+    "size": 392,
+    "source": "src/sdk/timer_insert.c",
+    "object": "build/us/timer_insert.o",
+    "section": ".timer_insert",
+    "section_vram": 2147911496,
+    "evidence": "docs/sdk-time-and-priority.md"
   },
   {
     "name": "func_800699C0",

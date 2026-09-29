@@ -586,5 +586,19 @@
     "source": "src/game/compression_workspace.c",
     "object": "build/us/compression_workspace.o",
     "evidence": "docs/compression-runtime.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".timer_initialize_bss",
+    "vram": 2149147728,
+    "rom": null,
+    "size": 8,
+    "symbols": {
+      "D_80196450": 0
+    },
+    "static_symbols": {},
+    "source": "src/sdk/timer_initialize.c",
+    "object": "build/us/timer_initialize.o",
+    "evidence": "docs/sdk-time-and-priority.md"
   }
 ]
