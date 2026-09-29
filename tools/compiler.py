@@ -22,6 +22,17 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/sdk/audio_copy_bytes.c": "sdk-o2-mips2",
+    "src/sdk/audio_synth_clear.c": "sdk-o2-mips2",
+    "src/sdk/message_prepend.c": "sdk-o1-mips2",
+    "src/sdk/video_context_get.c": "sdk-o1-mips2",
+    "src/sdk/timer_schedule.c": "sdk-o1-mips2",
+    "src/sdk/audio_callback_attach.c": "sdk-o2-mips2",
+    "src/sdk/audio_remaining_bytes.c": "sdk-o1-mips2",
+    "src/sdk/audio_buffer_submit.c": "sdk-o1-mips2",
+    "src/sdk/audio_synth_lifecycle.c": "sdk-o2-mips2",
+    "src/sdk/audio_link_nodes.c": "sdk-o2-mips2",
+    "src/sdk/matrix_translate.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/timer_insert.c": "sdk-o1-mips2",
     "src/sdk/timer_compare.c": "sdk-o1-mips2",
     "src/sdk/timer_interrupt.c": "sdk-o1-mips2",

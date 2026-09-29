@@ -10673,6 +10673,28 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "name": "func_80061210",
+    "rom": 400912,
+    "vram": 2147881488,
+    "size": 72,
+    "source": "src/sdk/matrix_translate.c",
+    "object": "build/us/matrix_translate.o",
+    "section": ".matrix_translate",
+    "section_vram": 2147881488,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_80061258",
+    "rom": 400984,
+    "vram": 2147881560,
+    "size": 84,
+    "source": "src/sdk/matrix_translate.c",
+    "object": "build/us/matrix_translate.o",
+    "section": ".matrix_translate",
+    "section_vram": 2147881488,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
     "name": "func_80061450",
     "rom": 401488,
     "vram": 2147882064,
@@ -10970,6 +10992,83 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "name": "func_80065AB0",
+    "rom": 419504,
+    "vram": 2147900080,
+    "size": 48,
+    "source": "src/sdk/audio_link_nodes.c",
+    "object": "build/us/audio_link_nodes.o",
+    "section": ".audio_link_nodes",
+    "section_vram": 2147900080,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_80065AE0",
+    "rom": 419552,
+    "vram": 2147900128,
+    "size": 36,
+    "source": "src/sdk/audio_link_nodes.c",
+    "object": "build/us/audio_link_nodes.o",
+    "section": ".audio_link_nodes",
+    "section_vram": 2147900080,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_80065B04",
+    "rom": 419588,
+    "vram": 2147900164,
+    "size": 56,
+    "source": "src/sdk/audio_synth_lifecycle.c",
+    "object": "build/us/audio_synth_lifecycle.o",
+    "section": ".audio_synth_lifecycle",
+    "section_vram": 2147900164,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_80065B3C",
+    "rom": 419644,
+    "vram": 2147900220,
+    "size": 52,
+    "source": "src/sdk/audio_synth_lifecycle.c",
+    "object": "build/us/audio_synth_lifecycle.o",
+    "section": ".audio_synth_lifecycle",
+    "section_vram": 2147900164,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_80065B70",
+    "rom": 419696,
+    "vram": 2147900272,
+    "size": 168,
+    "source": "src/sdk/audio_buffer_submit.c",
+    "object": "build/us/audio_buffer_submit.o",
+    "section": ".audio_buffer_submit",
+    "section_vram": 2147900272,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_80065C20",
+    "rom": 419872,
+    "vram": 2147900448,
+    "size": 12,
+    "source": "src/sdk/audio_remaining_bytes.c",
+    "object": "build/us/audio_remaining_bytes.o",
+    "section": ".audio_remaining_bytes",
+    "section_vram": 2147900448,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_80066310",
+    "rom": 421648,
+    "vram": 2147902224,
+    "size": 80,
+    "source": "src/sdk/audio_callback_attach.c",
+    "object": "build/us/audio_callback_attach.o",
+    "section": ".audio_callback_attach",
+    "section_vram": 2147902224,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
     "name": "func_800669B0",
     "rom": 423344,
     "vram": 2147903920,
@@ -11194,6 +11293,28 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "name": "func_8006ABA0",
+    "rom": 440224,
+    "vram": 2147920800,
+    "size": 212,
+    "source": "src/sdk/timer_schedule.c",
+    "object": "build/us/timer_schedule.o",
+    "section": ".timer_schedule",
+    "section_vram": 2147920800,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_8006AC80",
+    "rom": 440448,
+    "vram": 2147921024,
+    "size": 12,
+    "source": "src/sdk/video_context_get.c",
+    "object": "build/us/video_context_get.o",
+    "section": ".video_context_get",
+    "section_vram": 2147921024,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
     "name": "func_8006AFF0",
     "rom": 441328,
     "vram": 2147921904,
@@ -11249,6 +11370,28 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "name": "func_8006B420",
+    "rom": 442400,
+    "vram": 2147922976,
+    "size": 336,
+    "source": "src/sdk/message_prepend.c",
+    "object": "build/us/message_prepend.o",
+    "section": ".message_prepend",
+    "section_vram": 2147922976,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_8006B5A0",
+    "rom": 442784,
+    "vram": 2147923360,
+    "size": 8,
+    "source": "src/sdk/audio_synth_clear.c",
+    "object": "build/us/audio_synth_clear.o",
+    "section": ".audio_synth_clear",
+    "section_vram": 2147923360,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
     "name": "func_8006B5B0",
     "rom": 442800,
     "vram": 2147923376,
@@ -11281,5 +11424,16 @@
     "section_vram": 2147936064,
     "evidence": "docs/libultra.md",
     "language": "assembly"
+  },
+  {
+    "name": "func_8006F3C0",
+    "rom": 458688,
+    "vram": 2147939264,
+    "size": 116,
+    "source": "src/sdk/audio_copy_bytes.c",
+    "object": "build/us/audio_copy_bytes.o",
+    "section": ".audio_copy_bytes",
+    "section_vram": 2147939264,
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
   }
 ]

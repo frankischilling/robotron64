@@ -578,6 +578,17 @@ MATCHING_BLOCKS = (
     ("timer_interrupt", "src/sdk/timer_interrupt.c", 0x8006855C, 0x800686D4),
     ("timer_compare", "src/sdk/timer_compare.c", 0x800686D4, 0x80068748),
     ("timer_insert", "src/sdk/timer_insert.c", 0x80068748, 0x800688D0),
+    ("matrix_translate", "src/sdk/matrix_translate.c", 0x80061210, 0x800612AC),
+    ("audio_link_nodes", "src/sdk/audio_link_nodes.c", 0x80065AB0, 0x80065B04),
+    ("audio_synth_lifecycle", "src/sdk/audio_synth_lifecycle.c", 0x80065B04, 0x80065B70),
+    ("audio_buffer_submit", "src/sdk/audio_buffer_submit.c", 0x80065B70, 0x80065C18),
+    ("audio_remaining_bytes", "src/sdk/audio_remaining_bytes.c", 0x80065C20, 0x80065C2C),
+    ("audio_callback_attach", "src/sdk/audio_callback_attach.c", 0x80066310, 0x80066360),
+    ("timer_schedule", "src/sdk/timer_schedule.c", 0x8006ABA0, 0x8006AC74),
+    ("video_context_get", "src/sdk/video_context_get.c", 0x8006AC80, 0x8006AC8C),
+    ("message_prepend", "src/sdk/message_prepend.c", 0x8006B420, 0x8006B570),
+    ("audio_synth_clear", "src/sdk/audio_synth_clear.c", 0x8006B5A0, 0x8006B5A8),
+    ("audio_copy_bytes", "src/sdk/audio_copy_bytes.c", 0x8006F3C0, 0x8006F434),
 )
 
 CANDIDATE_BLOCKS = (

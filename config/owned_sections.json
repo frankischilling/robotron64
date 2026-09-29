@@ -48,6 +48,34 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "input_section": ".data",
+    "vram": 2148069728,
+    "rom": 589152,
+    "size": 4,
+    "symbols": {
+      "D_8008F160": 0
+    },
+    "section": ".audio_synth_lifecycle_data",
+    "static_symbols": {},
+    "source": "src/sdk/audio_synth_lifecycle.c",
+    "object": "build/us/audio_synth_lifecycle.o",
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "input_section": ".data",
+    "vram": 2148069744,
+    "rom": 589168,
+    "size": 1,
+    "symbols": {},
+    "section": ".audio_buffer_submit_data",
+    "static_symbols": {
+      "D_8008F170": 0
+    },
+    "source": "src/sdk/audio_buffer_submit.c",
+    "object": "build/us/audio_buffer_submit.o",
+    "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
     "source": "src/game/scene_background.c",
     "object": "build/us/scene_background.o",
     "input_section": ".rodata",
