@@ -55,6 +55,54 @@ build/us/text_conversion.o: src/game/text_conversion.c include/text.h include/ob
 	$(PYTHON) tools/trim_padding.py build/us/text_conversion.raw.o $@ .text 0xa4
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/early_render_color.o: src/game/early_render_color.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_color.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_render_color.raw.o $@ .text 0x1c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_render_presets.o: src/game/early_render_presets.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_presets.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_render_presets.raw.o $@ .text 0x70
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_render_dispatch.o: src/game/early_render_dispatch.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_dispatch.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_render_dispatch.raw.o $@ .text 0x40
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_pool_entry_clear.o: src/game/early_pool_entry_clear.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_pool_entry_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_pool_entry_clear.raw.o $@ .text 0x2c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_pool_count.o: src/game/early_pool_count.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_pool_count.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_pool_count.raw.o $@ .text 0x5c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_pool_index.o: src/game/early_pool_index.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_pool_index.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_pool_index.raw.o $@ .text 0x20
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_byte_clear.o: src/game/early_byte_clear.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_byte_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_byte_clear.raw.o $@ .text 0xc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_angle_normalize.o: src/game/early_angle_normalize.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_angle_normalize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_angle_normalize.raw.o $@ .text 0x1c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/object_transforms.o: src/game/object_transforms.c include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_transforms.raw.o $<
@@ -2609,6 +2657,14 @@ build/us/controller_legacy_scan.o: src/game/controller_legacy_scan.c include/con
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS := build/us/frame_helpers.o \
+    build/us/early_render_color.o \
+    build/us/early_render_presets.o \
+    build/us/early_render_dispatch.o \
+    build/us/early_pool_entry_clear.o \
+    build/us/early_pool_count.o \
+    build/us/early_pool_index.o \
+    build/us/early_byte_clear.o \
+    build/us/early_angle_normalize.o \
     build/us/frame_timing.o \
     build/us/graphics_ucode.o \
     build/us/frame_transform.o \

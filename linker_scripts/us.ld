@@ -61,7 +61,23 @@ SECTIONS
     .cpu_after_movie_start 0x80004C3C : AT(0x583C) { build/us/fallback.o(.rom_cpu_after_movie_start) }
     .movie_status 0x80005354 : AT(0x5F54) SUBALIGN(4) { build/us/movie_status.o(.text) }
     .movie_cleanup 0x8000544C : AT(0x604C) SUBALIGN(4) { build/us/movie_cleanup.o(.text) }
-    .cpu_after_movie_cleanup 0x80005560 : AT(0x6160) { build/us/fallback.o(.rom_cpu_after_movie_cleanup) }
+    .cpu_before_early_render_color 0x80005560 : AT(0x6160) { build/us/fallback.o(.rom_cpu_before_early_render_color) }
+    .early_render_color 0x8000A200 : AT(0xAE00) SUBALIGN(4) { build/us/early_render_color.o(.text) }
+    .cpu_after_early_render_color 0x8000A21C : AT(0xAE1C) { build/us/fallback.o(.rom_cpu_after_early_render_color) }
+    .early_render_presets 0x8000B964 : AT(0xC564) SUBALIGN(4) { build/us/early_render_presets.o(.text) }
+    .cpu_after_early_render_presets 0x8000B9D4 : AT(0xC5D4) { build/us/fallback.o(.rom_cpu_after_early_render_presets) }
+    .early_render_dispatch 0x8000BE80 : AT(0xCA80) SUBALIGN(4) { build/us/early_render_dispatch.o(.text) }
+    .cpu_after_early_render_dispatch 0x8000BEC0 : AT(0xCAC0) { build/us/fallback.o(.rom_cpu_after_early_render_dispatch) }
+    .early_pool_entry_clear 0x8000CF70 : AT(0xDB70) SUBALIGN(4) { build/us/early_pool_entry_clear.o(.text) }
+    .cpu_after_early_pool_entry_clear 0x8000CF9C : AT(0xDB9C) { build/us/fallback.o(.rom_cpu_after_early_pool_entry_clear) }
+    .early_pool_count 0x8000D034 : AT(0xDC34) SUBALIGN(4) { build/us/early_pool_count.o(.text) }
+    .cpu_after_early_pool_count 0x8000D090 : AT(0xDC90) { build/us/fallback.o(.rom_cpu_after_early_pool_count) }
+    .early_pool_index 0x8000D2B4 : AT(0xDEB4) SUBALIGN(4) { build/us/early_pool_index.o(.text) }
+    .cpu_after_early_pool_index 0x8000D2D4 : AT(0xDED4) { build/us/fallback.o(.rom_cpu_after_early_pool_index) }
+    .early_byte_clear 0x8000D614 : AT(0xE214) SUBALIGN(4) { build/us/early_byte_clear.o(.text) }
+    .cpu_after_early_byte_clear 0x8000D620 : AT(0xE220) { build/us/fallback.o(.rom_cpu_after_early_byte_clear) }
+    .early_angle_normalize 0x8000DF14 : AT(0xEB14) SUBALIGN(4) { build/us/early_angle_normalize.o(.text) }
+    .cpu_after_early_angle_normalize 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_cpu_after_early_angle_normalize) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
     .script_service_files 0x8001C790 : AT(0x1D390) SUBALIGN(4) { build/us/script_service_files.o(.text) }
     .script_service_cache_access 0x8001C8C4 : AT(0x1D4C4) SUBALIGN(4) { build/us/script_service_cache_access.o(.text) }
@@ -914,7 +930,23 @@ ASSERT(SIZEOF(.movie_start) == 0x658, "movie_start size changed")
 ASSERT(SIZEOF(.cpu_after_movie_start) == 0x718, "cpu_after_movie_start size changed")
 ASSERT(SIZEOF(.movie_status) == 0xf8, "movie_status size changed")
 ASSERT(SIZEOF(.movie_cleanup) == 0x114, "movie_cleanup size changed")
-ASSERT(SIZEOF(.cpu_after_movie_cleanup) == 0x171e0, "cpu_after_movie_cleanup size changed")
+ASSERT(SIZEOF(.cpu_before_early_render_color) == 0x4ca0, "cpu_before_early_render_color size changed")
+ASSERT(SIZEOF(.early_render_color) == 0x1c, "early_render_color size changed")
+ASSERT(SIZEOF(.cpu_after_early_render_color) == 0x1748, "cpu_after_early_render_color size changed")
+ASSERT(SIZEOF(.early_render_presets) == 0x70, "early_render_presets size changed")
+ASSERT(SIZEOF(.cpu_after_early_render_presets) == 0x4ac, "cpu_after_early_render_presets size changed")
+ASSERT(SIZEOF(.early_render_dispatch) == 0x40, "early_render_dispatch size changed")
+ASSERT(SIZEOF(.cpu_after_early_render_dispatch) == 0x10b0, "cpu_after_early_render_dispatch size changed")
+ASSERT(SIZEOF(.early_pool_entry_clear) == 0x2c, "early_pool_entry_clear size changed")
+ASSERT(SIZEOF(.cpu_after_early_pool_entry_clear) == 0x98, "cpu_after_early_pool_entry_clear size changed")
+ASSERT(SIZEOF(.early_pool_count) == 0x5c, "early_pool_count size changed")
+ASSERT(SIZEOF(.cpu_after_early_pool_count) == 0x224, "cpu_after_early_pool_count size changed")
+ASSERT(SIZEOF(.early_pool_index) == 0x20, "early_pool_index size changed")
+ASSERT(SIZEOF(.cpu_after_early_pool_index) == 0x340, "cpu_after_early_pool_index size changed")
+ASSERT(SIZEOF(.early_byte_clear) == 0xc, "early_byte_clear size changed")
+ASSERT(SIZEOF(.cpu_after_early_byte_clear) == 0x8f4, "cpu_after_early_byte_clear size changed")
+ASSERT(SIZEOF(.early_angle_normalize) == 0x1c, "early_angle_normalize size changed")
+ASSERT(SIZEOF(.cpu_after_early_angle_normalize) == 0xe810, "cpu_after_early_angle_normalize size changed")
 ASSERT(SIZEOF(.script_service_cache_reset) == 0x50, "script_service_cache_reset size changed")
 ASSERT(SIZEOF(.script_service_files) == 0x134, "script_service_files size changed")
 ASSERT(SIZEOF(.script_service_cache_access) == 0x284, "script_service_cache_access size changed")

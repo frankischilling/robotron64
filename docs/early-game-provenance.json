@@ -1,0 +1,92 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "recovery_catalog": ".local/runtime/.local/recovery6-game/small-leaves.json",
+  "recovery_catalog_sha256": "e037f8daf6db1a56fde55440c98ec877f1345c17476baa9919842c2dc0577d6a",
+  "shared_header": "include/early_game_helpers.h",
+  "shared_header_sha256": "4a07e2940546fe2b98c4b0472562229b7e3231968a9ef951ddb9c0feaabc8480",
+  "current_proof": "tools/compare_runtime.py recompiles each registered source against the current headers and symbol layout. comparison_result_sha256 hashes each exact block result as sorted compact JSON followed by a newline.",
+  "registration_verification_report_sha256": "2d586d21ae47b33ceb1987a6ea9fcf7d5735ae0ba443802a5066c96d21cb02d0",
+  "sources": [
+    {
+      "block": "early_render_color",
+      "source": "src/game/early_render_color.c",
+      "source_sha256": "034c627cadbd7913b88c9deac10592bdc2c0c9741193dbc3b90b4062bfe9d4a5",
+      "comparison_result_sha256": "ad04b86d3f76a3c9f41fe7902d5a5cf5a154344332ace67e753166788614f570",
+      "vram_start": "0x8000A200",
+      "vram_end": "0x8000A21C",
+      "bytes": 28,
+      "functions": ["func_8000A200"]
+    },
+    {
+      "block": "early_render_presets",
+      "source": "src/game/early_render_presets.c",
+      "source_sha256": "13394fabf8909bb8b71a55d246edc82cca015c17e00d6e8139b0133f55831d85",
+      "comparison_result_sha256": "a1f7c5625e3157ae1118ad5ccd1ba73eee30daa4ad9f2bd80b5e905d217df6cc",
+      "vram_start": "0x8000B964",
+      "vram_end": "0x8000B9D4",
+      "bytes": 112,
+      "functions": ["func_8000B964", "func_8000B99C"]
+    },
+    {
+      "block": "early_render_dispatch",
+      "source": "src/game/early_render_dispatch.c",
+      "source_sha256": "9f5ddbc1e8d90ce87b8488cbba94e5da4b82ee212d23a269f212dd6f23857129",
+      "comparison_result_sha256": "a7638e98eb124baf8bb431f27333cf8a37076fac7b76b66ca5bd9dcb1b24c2bb",
+      "vram_start": "0x8000BE80",
+      "vram_end": "0x8000BEC0",
+      "bytes": 64,
+      "functions": ["func_8000BE80", "func_8000BEA0"]
+    },
+    {
+      "block": "early_pool_entry_clear",
+      "source": "src/game/early_pool_entry_clear.c",
+      "source_sha256": "d6c3d129890c0f5ad5cb3473fb856209a51e9e38bc796adf1cf373311a068b8e",
+      "comparison_result_sha256": "9d32f6a33beb9cfba641f5d569fbcca6bfbc6d66d819a9d1869f5c4a06e224d2",
+      "vram_start": "0x8000CF70",
+      "vram_end": "0x8000CF9C",
+      "bytes": 44,
+      "functions": ["func_8000CF70"]
+    },
+    {
+      "block": "early_pool_count",
+      "source": "src/game/early_pool_count.c",
+      "source_sha256": "0fc62d7aa120402d87f53095cd2d408b5d7ea602433b38968a7092212980967f",
+      "comparison_result_sha256": "a6ea68016cb0ceb005c35a55ff2c1caa051d15232152fedef719cb3e8a043661",
+      "vram_start": "0x8000D034",
+      "vram_end": "0x8000D090",
+      "bytes": 92,
+      "functions": ["func_8000D034", "func_8000D054"]
+    },
+    {
+      "block": "early_pool_index",
+      "source": "src/game/early_pool_index.c",
+      "source_sha256": "c5e5b40d93ff2c54e56e31fa4799704ca83e6d4fecbf74cbff4a6823b128697f",
+      "comparison_result_sha256": "c92e7e810c9588112f391255d827ea880b14ef2dd482e39a4c2eccd8de372d2a",
+      "vram_start": "0x8000D2B4",
+      "vram_end": "0x8000D2D4",
+      "bytes": 32,
+      "functions": ["func_8000D2B4"]
+    },
+    {
+      "block": "early_byte_clear",
+      "source": "src/game/early_byte_clear.c",
+      "source_sha256": "af814d25a14c2a154c9a535e8f66299faf18b36b5395a5cc6fc47ce80f0025f5",
+      "comparison_result_sha256": "a0dfa2ed2d7a74a5c380cacaad97b5df6f245ecfe4602762c59c0a7bdeaa9a18",
+      "vram_start": "0x8000D614",
+      "vram_end": "0x8000D620",
+      "bytes": 12,
+      "functions": ["func_8000D614"]
+    },
+    {
+      "block": "early_angle_normalize",
+      "source": "src/game/early_angle_normalize.c",
+      "source_sha256": "e11be0b95439b57b3cfaf7c04542bc003e7df77bf05c9459e83c4bab0c82cfcb",
+      "comparison_result_sha256": "653f271f0ab9cbecac0ef42cc37db3fb534bc6d5eba7e41eb66ceba324d9d70e",
+      "vram_start": "0x8000DF14",
+      "vram_end": "0x8000DF30",
+      "bytes": 28,
+      "functions": ["func_8000DF14"]
+    }
+  ]
+}

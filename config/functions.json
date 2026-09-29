@@ -573,6 +573,127 @@
     "evidence": "docs/movie-commands.md"
   },
   {
+    "name": "func_8000A200",
+    "rom": 44544,
+    "vram": 2147525120,
+    "size": 28,
+    "source": "src/game/early_render_color.c",
+    "object": "build/us/early_render_color.o",
+    "section": ".early_render_color",
+    "section_vram": 2147525120,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000B964",
+    "rom": 50532,
+    "vram": 2147531108,
+    "size": 56,
+    "source": "src/game/early_render_presets.c",
+    "object": "build/us/early_render_presets.o",
+    "section": ".early_render_presets",
+    "section_vram": 2147531108,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000B99C",
+    "rom": 50588,
+    "vram": 2147531164,
+    "size": 56,
+    "source": "src/game/early_render_presets.c",
+    "object": "build/us/early_render_presets.o",
+    "section": ".early_render_presets",
+    "section_vram": 2147531108,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000BE80",
+    "rom": 51840,
+    "vram": 2147532416,
+    "size": 32,
+    "source": "src/game/early_render_dispatch.c",
+    "object": "build/us/early_render_dispatch.o",
+    "section": ".early_render_dispatch",
+    "section_vram": 2147532416,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000BEA0",
+    "rom": 51872,
+    "vram": 2147532448,
+    "size": 32,
+    "source": "src/game/early_render_dispatch.c",
+    "object": "build/us/early_render_dispatch.o",
+    "section": ".early_render_dispatch",
+    "section_vram": 2147532416,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000CF70",
+    "rom": 56176,
+    "vram": 2147536752,
+    "size": 44,
+    "source": "src/game/early_pool_entry_clear.c",
+    "object": "build/us/early_pool_entry_clear.o",
+    "section": ".early_pool_entry_clear",
+    "section_vram": 2147536752,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000D034",
+    "rom": 56372,
+    "vram": 2147536948,
+    "size": 32,
+    "source": "src/game/early_pool_count.c",
+    "object": "build/us/early_pool_count.o",
+    "section": ".early_pool_count",
+    "section_vram": 2147536948,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000D054",
+    "rom": 56404,
+    "vram": 2147536980,
+    "size": 60,
+    "source": "src/game/early_pool_count.c",
+    "object": "build/us/early_pool_count.o",
+    "section": ".early_pool_count",
+    "section_vram": 2147536948,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000D2B4",
+    "rom": 57012,
+    "vram": 2147537588,
+    "size": 32,
+    "source": "src/game/early_pool_index.c",
+    "object": "build/us/early_pool_index.o",
+    "section": ".early_pool_index",
+    "section_vram": 2147537588,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000D614",
+    "rom": 57876,
+    "vram": 2147538452,
+    "size": 12,
+    "source": "src/game/early_byte_clear.c",
+    "object": "build/us/early_byte_clear.o",
+    "section": ".early_byte_clear",
+    "section_vram": 2147538452,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000DF14",
+    "rom": 60180,
+    "vram": 2147540756,
+    "size": 28,
+    "source": "src/game/early_angle_normalize.c",
+    "object": "build/us/early_angle_normalize.o",
+    "section": ".early_angle_normalize",
+    "section_vram": 2147540756,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
     "name": "func_8001C740",
     "rom": 119616,
     "vram": 2147600192,
