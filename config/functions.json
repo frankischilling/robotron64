@@ -9681,6 +9681,28 @@
     "evidence": "docs/audio-command-engine.md"
   },
   {
+    "name": "func_80059A88",
+    "rom": 370312,
+    "vram": 2147850888,
+    "size": 224,
+    "source": "src/game/audio_engine_gate.c",
+    "object": "build/us/audio_engine_gate.o",
+    "section": ".audio_engine_gate",
+    "section_vram": 2147850888,
+    "evidence": "docs/audio-command-engine.md"
+  },
+  {
+    "name": "func_80059B68",
+    "rom": 370536,
+    "vram": 2147851112,
+    "size": 236,
+    "source": "src/game/audio_engine_iteration.c",
+    "object": "build/us/audio_engine_iteration.o",
+    "section": ".audio_engine_iteration",
+    "section_vram": 2147851112,
+    "evidence": "docs/audio-command-engine.md"
+  },
+  {
     "name": "func_80059C54",
     "rom": 370772,
     "vram": 2147851348,

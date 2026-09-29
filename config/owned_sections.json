@@ -223,6 +223,38 @@
   },
   {
     "input_section": ".bss",
+    "section": ".audio_engine_gate_bss",
+    "vram": 2149132144,
+    "rom": null,
+    "size": 12,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192770": 0,
+      "D_80192774": 4,
+      "D_80192778": 8
+    },
+    "source": "src/game/audio_engine_gate.c",
+    "object": "build/us/audio_engine_gate.o",
+    "evidence": "docs/audio-command-engine.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".audio_engine_iteration_bss",
+    "vram": 2149132156,
+    "rom": null,
+    "size": 12,
+    "symbols": {},
+    "static_symbols": {
+      "D_8019277C": 0,
+      "D_80192780": 4,
+      "D_80192784": 8
+    },
+    "source": "src/game/audio_engine_iteration.c",
+    "object": "build/us/audio_engine_iteration.o",
+    "evidence": "docs/audio-command-engine.md"
+  },
+  {
+    "input_section": ".bss",
     "section": ".audio_engine_gate_reset_bss",
     "vram": 2149132168,
     "rom": null,

@@ -1,10 +1,10 @@
 # Recovery checkpoint
 
-The source checkpoint contains 941 matching C functions covering 124,332 bytes.
+The source checkpoint contains 949 matching C functions covering 125,384 bytes.
 It also contains the 56-byte assembly entry, 1,352 bytes of source-owned
-initialized data, and 4,155 bytes of source-owned BSS. The published checkpoint
+initialized data, and 4,179 bytes of source-owned BSS. The published checkpoint
 `9efb6ef` contained 927 C functions covering 121,048 bytes. The current source
-adds fourteen complete functions, 3,284 C bytes, and 65 BSS bytes to that checkpoint.
+adds twenty-two complete functions, 4,336 C bytes, and 89 BSS bytes to that checkpoint.
 The preceding recovery from `84e19bf595301bbcc6f4cef99d3267f8ae510afd` contributed
 274 complete functions, 35,020 C bytes, 376 initialized bytes, and 4,090 BSS bytes.
 
@@ -27,11 +27,12 @@ and complete byte ranges are documented in [audio properties](audio-properties.m
 The recent additions recover bank relocation, volume changes, pan updates,
 pedal release, and the extra kinemation-definition command. Seven further
 functions recover sequence-list sizing, loading and release, hardware-voice
-initialization, gate and iteration resets, and the iteration setter. All seven
-new source units pass their independent current-input comparisons. The full build
+initialization, gate and iteration resets, and the iteration setter. The gate
+and iteration branch commands add another 460 code bytes and 24 BSS bytes.
+These nine audio units pass complete independent comparisons. The full build
 passes all 108 tooling tests and verifies all 8,388,608 ROM bytes. Linked
 progress verifies the source inputs and complete procedure extents for all
-941 counted C functions. [Bank layout](audio-bank-layout.md),
+949 counted C functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
 
@@ -42,6 +43,12 @@ drawing and state helpers. See [actor motion](actor-motion.md),
 [early game state](early-game-state.md), [transition and value lookup](early-game-medium.md),
 [menu navigation](save-menu-navigation.md), [script services](script-services.md),
 [model geometry](model-geometry.md), and [graphics runtime state](graphics-runtime-state.md).
+
+Six additional early-game functions cover resource-state transitions, actor
+updates, vector clearing, global reset, and guarded actor service. The resource
+layout checks its complete 0x68-byte size and uses an integer declaration for
+the backing tuning value. Complete comparisons passed for all 23 source units
+affected by those additions and their shared resource header.
 
 Shared audio declarations now describe one consistent set of records and
 backend command interfaces. Early animation wrappers use the canonical actor
@@ -67,7 +74,7 @@ python3 tools/compare_assembly.py
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 509 complete source units. Startup/scheduler
+The runtime registry contains 516 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 entry and its alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,

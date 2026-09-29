@@ -655,6 +655,8 @@ SECTIONS
     .audio_engine_voice_stop 0x8005971C : AT(0x5A31C) SUBALIGN(4) { build/us/audio_engine_voice_stop.o(.text) }
     .audio_engine_parameters 0x80059898 : AT(0x5A498) SUBALIGN(4) { build/us/audio_engine_parameters.o(.text) }
     .cpu_after_audio_engine_parameters 0x80059964 : AT(0x5A564) { build/us/fallback.o(.rom_cpu_after_audio_engine_parameters) }
+    .audio_engine_gate 0x80059A88 : AT(0x5A688) SUBALIGN(4) { build/us/audio_engine_gate.o(.text) }
+    .audio_engine_iteration 0x80059B68 : AT(0x5A768) SUBALIGN(4) { build/us/audio_engine_iteration.o(.text) }
     .audio_engine_gate_reset 0x80059C54 : AT(0x5A854) SUBALIGN(4) { build/us/audio_engine_gate_reset.o(.text) }
     .audio_engine_iteration_reset 0x80059D20 : AT(0x5A920) SUBALIGN(4) { build/us/audio_engine_iteration_reset.o(.text) }
     .audio_engine_iteration_set 0x80059DEC : AT(0x5A9EC) SUBALIGN(4) { build/us/audio_engine_iteration_set.o(.text) }
@@ -987,6 +989,8 @@ SECTIONS
     .audio_engine_gate_reset_bss 0x80192788 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_gate_reset.o(.bss) }
     .audio_engine_iteration_reset_bss 0x80192790 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration_reset.o(.bss) }
     .audio_engine_iteration_set_bss 0x80192798 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration_set.o(.bss) }
+    .audio_engine_gate_bss 0x80192770 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_gate.o(.bss) }
+    .audio_engine_iteration_bss 0x8019277C (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1672,7 +1676,9 @@ ASSERT(SIZEOF(.cpu_after_audio_stream_variable_write) == 0x80, "cpu_after_audio_
 ASSERT(SIZEOF(.audio_engine_setup) == 0x58, "audio_engine_setup size changed")
 ASSERT(SIZEOF(.audio_engine_voice_stop) == 0x17c, "audio_engine_voice_stop size changed")
 ASSERT(SIZEOF(.audio_engine_parameters) == 0xcc, "audio_engine_parameters size changed")
-ASSERT(SIZEOF(.cpu_after_audio_engine_parameters) == 0x2f0, "cpu_after_audio_engine_parameters size changed")
+ASSERT(SIZEOF(.cpu_after_audio_engine_parameters) == 0x124, "cpu_after_audio_engine_parameters size changed")
+ASSERT(SIZEOF(.audio_engine_gate) == 0xe0, "audio_engine_gate size changed")
+ASSERT(SIZEOF(.audio_engine_iteration) == 0xec, "audio_engine_iteration size changed")
 ASSERT(SIZEOF(.audio_engine_gate_reset) == 0xcc, "audio_engine_gate_reset size changed")
 ASSERT(SIZEOF(.audio_engine_iteration_reset) == 0xcc, "audio_engine_iteration_reset size changed")
 ASSERT(SIZEOF(.audio_engine_iteration_set) == 0x40, "audio_engine_iteration_set size changed")
@@ -1956,3 +1962,6 @@ ASSERT(SIZEOF(.audio_engine_gate_reset_bss) == 0x8, "audio_engine_gate_reset BSS
 ASSERT(SIZEOF(.audio_engine_iteration_reset_bss) == 0x8, "audio_engine_iteration_reset BSS size changed")
 
 ASSERT(SIZEOF(.audio_engine_iteration_set_bss) == 0x4, "audio_engine_iteration_set BSS size changed")
+
+ASSERT(SIZEOF(.audio_engine_gate_bss) == 0xc, "audio_engine_gate BSS size changed")
+ASSERT(SIZEOF(.audio_engine_iteration_bss) == 0xc, "audio_engine_iteration BSS size changed")

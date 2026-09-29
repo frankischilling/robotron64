@@ -79,9 +79,8 @@ revision listed in [CREDITS.md](../CREDITS.md). The credited N64 decompilation
 projects and IDO work provide the compiler, layout, and verification references.
 Their sources are not used as a substitute for a Robotron comparison.
 
-The status callback at `0x80059964`, conditional gate command at `0x80059A88`,
-iteration command at `0x80059B68`,
-variable-length size calculation at `0x80059644`, and main engine dispatcher
+The status callback at `0x80059964`, variable-length size calculation at
+`0x80059644`, and main engine dispatcher
 at `0x8005A9AC` still have compiler differences. Their fallback spans remain
 in the extraction map and do not count as recovered source.
 
@@ -121,3 +120,26 @@ the target's complete address calculation with IDO 5.3. The
 compiled 64-byte result and its current canonical-header identity. The source
 search result was reviewed and simplified before that comparison; a search
 score alone did not establish matching.
+
+## Conditional gate and iteration branches
+
+`audio_engine_gate.c` recovers the complete 224-byte command at
+`0x80059A88..0x80059B68`. `audio_engine_iteration.c` recovers the adjoining
+236-byte command at `0x80059B68..0x80059C54`. Together they own 24 bytes of
+private state at `0x80192770..0x80192788`, preceding the reset commands.
+
+Both commands select the instance's table entry from command byte one. A zero
+entry leaves the voice unchanged. An entry of 255 takes its initial value
+from command byte two. The iteration command otherwise decrements its entry;
+the gate command retains it. An active entry branches to the signed label
+index encoded in command bytes three and four when that index is in range.
+The branch updates the command pointer, clears the delay, and sets the
+command-redirection flag.
+
+Read-only pointers name the actual instance-index and label-table fields.
+The private label index, destination address, and entry pointer retain their
+original order and widths. The objects contain no initialized data. Complete
+code comparisons and private-symbol checks pass for both source units with
+the pinned IDO 5.3 profile. The
+[branch-command ledger](audio-engine-branches-provenance.json) records the
+source, header, compiler, binary, and storage identities for this addition.
