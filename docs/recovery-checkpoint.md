@@ -1,10 +1,10 @@
 # Recovery checkpoint
 
-The source checkpoint contains 934 matching C functions covering 123,276 bytes.
+The source checkpoint contains 941 matching C functions covering 124,332 bytes.
 It also contains the 56-byte assembly entry, 1,352 bytes of source-owned
-initialized data, and 4,135 bytes of source-owned BSS. The published checkpoint
+initialized data, and 4,155 bytes of source-owned BSS. The published checkpoint
 `9efb6ef` contained 927 C functions covering 121,048 bytes. The current source
-adds seven complete functions, 2,228 C bytes, and 45 BSS bytes to that checkpoint.
+adds fourteen complete functions, 3,284 C bytes, and 65 BSS bytes to that checkpoint.
 The preceding recovery from `84e19bf595301bbcc6f4cef99d3267f8ae510afd` contributed
 274 complete functions, 35,020 C bytes, 376 initialized bytes, and 4,090 BSS bytes.
 
@@ -24,12 +24,14 @@ and complete byte ranges are documented in [audio properties](audio-properties.m
 [audio command controls](audio-command-engine.md), [hardware voices](audio-hardware-driver.md),
 [sequence loading](audio-sequence-loading.md), and [compression runtime](compression-runtime.md).
 
-The latest additions recover bank relocation, volume changes, pan updates,
-pedal release, and the extra kinemation-definition command. The four complete
-source units pass their independent current-input comparisons. The full build
+The recent additions recover bank relocation, volume changes, pan updates,
+pedal release, and the extra kinemation-definition command. Seven further
+functions recover sequence-list sizing, loading and release, hardware-voice
+initialization, gate and iteration resets, and the iteration setter. All seven
+new source units pass their independent current-input comparisons. The full build
 passes all 108 tooling tests and verifies all 8,388,608 ROM bytes. Linked
 progress verifies the source inputs and complete procedure extents for all
-934 counted C functions. [Bank layout](audio-bank-layout.md),
+941 counted C functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
 
@@ -65,7 +67,7 @@ python3 tools/compare_assembly.py
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 502 complete source units. Startup/scheduler
+The runtime registry contains 509 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 entry and its alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
@@ -87,7 +89,7 @@ notice used for compression comparisons is retained in
 ## Remaining work
 
 The five central compression procedures still have compiler differences. The
-full audio sequence reader, list-based loading helpers, several sequencer
+full audio sequence reader, several sequencer
 commands, and the main audio dispatcher also remain fallback code. Larger
 early-game and actor routines, movie update, renderer polygon and mesh paths,
 frame setup, text replacement, and further platform functions are unfinished.

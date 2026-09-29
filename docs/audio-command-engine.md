@@ -79,8 +79,45 @@ revision listed in [CREDITS.md](../CREDITS.md). The credited N64 decompilation
 projects and IDO work provide the compiler, layout, and verification references.
 Their sources are not used as a substitute for a Robotron comparison.
 
-The status callback at `0x80059964`, gate and iteration handlers in
-`0x80059A88..0x80059E2C`, variable-length size calculation at `0x80059644`, and
-main engine dispatcher at `0x8005A9AC` remain outside this batch. Their complete
-comparisons still have differences. Their fallback spans and all other gaps
-remain in the extraction map and do not count as recovered source.
+The status callback at `0x80059964`, conditional gate command at `0x80059A88`,
+iteration command at `0x80059B68`,
+variable-length size calculation at `0x80059644`, and main engine dispatcher
+at `0x8005A9AC` still have compiler differences. Their fallback spans remain
+in the extraction map and do not count as recovered source.
+
+## Gate and iteration reset commands
+
+Two later source units recover another 408 code bytes and 16 bytes of private
+BSS. `audio_engine_gate_reset.c` covers `0x80059C54..0x80059D20`;
+`audio_engine_iteration_reset.c` covers `0x80059D20..0x80059DEC`. Each complete
+function is 204 bytes.
+
+Both commands read the byte after the opcode. A value of 255 resets the whole
+table for the voice's instance. The gate table uses the configured gate count
+at `0x8008D84F`; the iteration table uses the count at `0x8008D853`. A different
+value selects one table entry. Every selected byte becomes 255.
+
+The loops preserve an unsigned-byte post-decrement counter and a private
+cursor. The counter wraps to 255 when its terminating test consumes zero.
+On the single-entry path, an explicit integer sample preserves the target's
+address arithmetic without an artificial store or empty statement.
+
+The gate command owns `0x80192788..0x80192790`; the iteration command owns
+`0x80192790..0x80192798`. Each range contains a byte counter, its alignment,
+and a four-byte pointer. Their [provenance ledger](audio-engine-resets-provenance.json)
+records the candidate, current source and header, whole-code comparison, and
+private-symbol identities. These two additions leave the earlier 43-function
+checkpoint and its historical hashes intact.
+
+`audio_engine_iteration_set.c` also recovers the 64-byte setter at
+`0x80059DEC..0x80059E2C`. It selects the instance's iteration byte using command
+byte one and writes command byte two. Its four-byte private cursor follows
+the reset cursors at `0x80192798..0x8019279C`.
+
+A read-only pointer names the voice's instance-index field before the table
+address is formed. This local pointer and the source operand order preserve
+the target's complete address calculation with IDO 5.3. The
+[setter ledger](audio-iteration-set-provenance.json) records the independently
+compiled 64-byte result and its current canonical-header identity. The source
+search result was reviewed and simplified before that comparison; a search
+score alone did not establish matching.

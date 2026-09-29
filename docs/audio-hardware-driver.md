@@ -92,3 +92,20 @@ This batch does not claim that the entire audio system is source-recovered.
 
 The subsequent [volume, pan, and pedal batch](audio-driver-commands.md) adds
 five complete procedures and preserves their adjacent private byte fields.
+
+## Hardware voice initialization
+
+`audio_backend_voice_start.c` recovers the 176-byte procedure at
+`0x8005C334..0x8005C3E4`. It marks the hardware record active, clears the
+observed `flag40`, sets `flag20`, and copies the owner, patch priority, key,
+velocity, region, and wave. It clears the pedal-pending byte, samples the
+current audio time, increments both active-voice counts, and invokes the
+existing playback routine. The key and velocity parameters retain their
+unsigned-byte ABI declarations used by the recovered allocation caller.
+
+The source initializes the key and velocity before the pedal and resource
+pointers. This assignment order reproduces the target's load scheduling and
+all 176 bytes with the canonical audio header. The
+[voice-initialization ledger](audio-voice-start-provenance.json) retains the
+archived complete comparison and source identities. This procedure defines
+no initialized data or private BSS; playback at `0x8005B064` remains fallback.

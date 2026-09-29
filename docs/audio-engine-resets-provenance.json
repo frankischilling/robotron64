@@ -1,0 +1,108 @@
+{
+  "note": "Historical candidate identities are retained. Current matching requires complete canonical comparison and linked provenance.",
+  "retained_integration_ledger_sha256": "fe35a4c4e80e9ed248b53078089f8aa5e4b37bb372126f87cd8fa4f12276d869",
+  "units": [
+    {
+      "source": "src/game/audio_engine_gate_reset.c",
+      "source_sha256": "e773223e4fca7a63314f8824ce8b6d74ad2da4323468599ec98e4538e3fdeb0e",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07"
+      },
+      "candidate_source": ".local/audio-backend/audio_engine_gate_reset_clean_next.c",
+      "candidate_source_sha256": "e773223e4fca7a63314f8824ce8b6d74ad2da4323468599ec98e4538e3fdeb0e",
+      "candidate_report": ".local/backend-probes/audio_engine_gate_reset_clean_next/report.json",
+      "candidate_report_sha256": "0fe1b4460b86de2b22d0163ccf3164d4ffc8b78892bbeb3de4d08011466f6385",
+      "linked_code_sha256": "835b09e62af17770826040bf0806b54664e88e0e0adb21f36660a1ddf1000ac3",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80059C54",
+          "start": 2147851348,
+          "end": 2147851552,
+          "size": 204
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_engine_gate_reset_bss",
+          "vram": 2149132168,
+          "rom": null,
+          "size": 8,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192788": 0,
+            "D_8019278C": 4
+          },
+          "source": "src/game/audio_engine_gate_reset.c",
+          "object": "build/us/audio_engine_gate_reset.o",
+          "evidence": "docs/audio-command-engine.md"
+        }
+      ],
+      "complete_code_bytes": 204,
+      "different_words": 0
+    },
+    {
+      "source": "src/game/audio_engine_iteration_reset.c",
+      "source_sha256": "a9153c629201467cae5d3a3ec4f428d57c9faa3603bbcf10139f52d7f5d4ef06",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07"
+      },
+      "candidate_source": ".local/audio-backend/audio_engine_iteration_reset_clean_next.c",
+      "candidate_source_sha256": "a9153c629201467cae5d3a3ec4f428d57c9faa3603bbcf10139f52d7f5d4ef06",
+      "candidate_report": ".local/backend-probes/audio_engine_iteration_reset_clean_next/report.json",
+      "candidate_report_sha256": "34b2564cdfe2d12d9812a26a5a81b60d8b59d3aa946764b754735506f7c42b26",
+      "linked_code_sha256": "e1dac4d68453e8be2bd56971b39612b1687e6f91dd99be9d6cb8e14b86165f43",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80059D20",
+          "start": 2147851552,
+          "end": 2147851756,
+          "size": 204
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_engine_iteration_reset_bss",
+          "vram": 2149132176,
+          "rom": null,
+          "size": 8,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192790": 0,
+            "D_80192794": 4
+          },
+          "source": "src/game/audio_engine_iteration_reset.c",
+          "object": "build/us/audio_engine_iteration_reset.o",
+          "evidence": "docs/audio-command-engine.md"
+        }
+      ],
+      "complete_code_bytes": 204,
+      "different_words": 0
+    }
+  ]
+}

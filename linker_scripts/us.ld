@@ -646,6 +646,9 @@ SECTIONS
     .audio_engine_voice_stop 0x8005971C : AT(0x5A31C) SUBALIGN(4) { build/us/audio_engine_voice_stop.o(.text) }
     .audio_engine_parameters 0x80059898 : AT(0x5A498) SUBALIGN(4) { build/us/audio_engine_parameters.o(.text) }
     .cpu_after_audio_engine_parameters 0x80059964 : AT(0x5A564) { build/us/fallback.o(.rom_cpu_after_audio_engine_parameters) }
+    .audio_engine_gate_reset 0x80059C54 : AT(0x5A854) SUBALIGN(4) { build/us/audio_engine_gate_reset.o(.text) }
+    .audio_engine_iteration_reset 0x80059D20 : AT(0x5A920) SUBALIGN(4) { build/us/audio_engine_iteration_reset.o(.text) }
+    .audio_engine_iteration_set 0x80059DEC : AT(0x5A9EC) SUBALIGN(4) { build/us/audio_engine_iteration_set.o(.text) }
     .audio_engine_tempo 0x80059E2C : AT(0x5AA2C) SUBALIGN(4) { build/us/audio_engine_tempo.o(.text) }
     .audio_engine_sequence_call 0x80059FC8 : AT(0x5ABC8) SUBALIGN(4) { build/us/audio_engine_sequence_call.o(.text) }
     .audio_engine_sequence_jump 0x8005A180 : AT(0x5AD80) SUBALIGN(4) { build/us/audio_engine_sequence_jump.o(.text) }
@@ -673,6 +676,8 @@ SECTIONS
     .audio_backend_volume 0x8005BCC8 : AT(0x5C8C8) SUBALIGN(4) { build/us/audio_backend_volume.o(.text) }
     .audio_backend_pan_pedal 0x8005BEFC : AT(0x5CAFC) SUBALIGN(4) { build/us/audio_backend_pan_pedal.o(.text) }
     .after_audio_backend_pan_pedal 0x8005C1D8 : AT(0x5CDD8) { build/us/fallback.o(.rom_after_audio_backend_pan_pedal) }
+    .audio_backend_voice_start 0x8005C334 : AT(0x5CF34) SUBALIGN(4) { build/us/audio_backend_voice_start.o(.text) }
+    .after_audio_backend_voice_start 0x8005C3E4 : AT(0x5CFE4) { build/us/fallback.o(.rom_after_audio_backend_voice_start) }
     .audio_backend_release 0x8005C4F8 : AT(0x5D0F8) SUBALIGN(4) { build/us/audio_backend_release.o(.text) }
     .audio_backend_decay 0x8005C684 : AT(0x5D284) SUBALIGN(4) { build/us/audio_backend_decay.o(.text) }
     .audio_backend_allocate 0x8005C7F8 : AT(0x5D3F8) SUBALIGN(4) { build/us/audio_backend_allocate.o(.text) }
@@ -685,7 +690,10 @@ SECTIONS
     .audio_sequence_size 0x8005D4C8 : AT(0x5E0C8) SUBALIGN(4) { build/us/audio_sequence_size.o(.text) }
     .audio_sequence_load 0x8005D584 : AT(0x5E184) SUBALIGN(4) { build/us/audio_sequence_load.o(.text) }
     .audio_sequence_release 0x8005D610 : AT(0x5E210) SUBALIGN(4) { build/us/audio_sequence_release.o(.text) }
-    .after_audio_sequence_release 0x8005D690 : AT(0x5E290) { build/us/fallback.o(.rom_after_audio_sequence_release) }
+    .audio_sequence_list_size 0x8005D690 : AT(0x5E290) SUBALIGN(4) { build/us/audio_sequence_list_size.o(.text) }
+    .audio_sequence_list_load 0x8005D708 : AT(0x5E308) SUBALIGN(4) { build/us/audio_sequence_list_load.o(.text) }
+    .audio_sequence_list_release 0x8005D7B4 : AT(0x5E3B4) SUBALIGN(4) { build/us/audio_sequence_list_release.o(.text) }
+    .after_audio_sequence_list_release 0x8005D828 : AT(0x5E428) { build/us/fallback.o(.rom_after_audio_sequence_list_release) }
     .audio_sequence_range_size 0x8005D830 : AT(0x5E430) SUBALIGN(4) { build/us/audio_sequence_range_size.o(.text) }
     .audio_sequence_range_load 0x8005D8AC : AT(0x5E4AC) SUBALIGN(4) { build/us/audio_sequence_range_load.o(.text) }
     .audio_sequence_range_release 0x8005D95C : AT(0x5E55C) SUBALIGN(4) { build/us/audio_sequence_range_release.o(.text) }
@@ -967,6 +975,9 @@ SECTIONS
     .audio_backend_initialize_bss 0x80192ABC (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_initialize.o(.bss) }
     .audio_backend_volume_bss 0x80192AFC (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_volume.o(.bss) }
     .audio_backend_pan_pedal_bss 0x80192B10 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_pan_pedal.o(.bss) }
+    .audio_engine_gate_reset_bss 0x80192788 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_gate_reset.o(.bss) }
+    .audio_engine_iteration_reset_bss 0x80192790 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration_reset.o(.bss) }
+    .audio_engine_iteration_set_bss 0x80192798 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration_set.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1643,7 +1654,10 @@ ASSERT(SIZEOF(.cpu_after_audio_stream_variable_write) == 0x80, "cpu_after_audio_
 ASSERT(SIZEOF(.audio_engine_setup) == 0x58, "audio_engine_setup size changed")
 ASSERT(SIZEOF(.audio_engine_voice_stop) == 0x17c, "audio_engine_voice_stop size changed")
 ASSERT(SIZEOF(.audio_engine_parameters) == 0xcc, "audio_engine_parameters size changed")
-ASSERT(SIZEOF(.cpu_after_audio_engine_parameters) == 0x4c8, "cpu_after_audio_engine_parameters size changed")
+ASSERT(SIZEOF(.cpu_after_audio_engine_parameters) == 0x2f0, "cpu_after_audio_engine_parameters size changed")
+ASSERT(SIZEOF(.audio_engine_gate_reset) == 0xcc, "audio_engine_gate_reset size changed")
+ASSERT(SIZEOF(.audio_engine_iteration_reset) == 0xcc, "audio_engine_iteration_reset size changed")
+ASSERT(SIZEOF(.audio_engine_iteration_set) == 0x40, "audio_engine_iteration_set size changed")
 ASSERT(SIZEOF(.audio_engine_tempo) == 0x19c, "audio_engine_tempo size changed")
 ASSERT(SIZEOF(.audio_engine_sequence_call) == 0x1b8, "audio_engine_sequence_call size changed")
 ASSERT(SIZEOF(.audio_engine_sequence_jump) == 0x190, "audio_engine_sequence_jump size changed")
@@ -1670,7 +1684,9 @@ ASSERT(SIZEOF(.audio_backend_patch) == 0x2c, "audio_backend_patch size changed")
 ASSERT(SIZEOF(.after_audio_backend_patch) == 0x2a4, "after_audio_backend_patch size changed")
 ASSERT(SIZEOF(.audio_backend_volume) == 0x234, "audio_backend_volume size changed")
 ASSERT(SIZEOF(.audio_backend_pan_pedal) == 0x2dc, "audio_backend_pan_pedal size changed")
-ASSERT(SIZEOF(.after_audio_backend_pan_pedal) == 0x320, "after_audio_backend_pan_pedal size changed")
+ASSERT(SIZEOF(.after_audio_backend_pan_pedal) == 0x15c, "after_audio_backend_pan_pedal size changed")
+ASSERT(SIZEOF(.audio_backend_voice_start) == 0xb0, "audio_backend_voice_start size changed")
+ASSERT(SIZEOF(.after_audio_backend_voice_start) == 0x114, "after_audio_backend_voice_start size changed")
 ASSERT(SIZEOF(.audio_backend_release) == 0x18c, "audio_backend_release size changed")
 ASSERT(SIZEOF(.audio_backend_decay) == 0x174, "audio_backend_decay size changed")
 ASSERT(SIZEOF(.audio_backend_allocate) == 0x23c, "audio_backend_allocate size changed")
@@ -1683,7 +1699,10 @@ ASSERT(SIZEOF(.audio_sequence_table_close) == 0x24, "audio_sequence_table_close 
 ASSERT(SIZEOF(.audio_sequence_size) == 0xbc, "audio_sequence_size size changed")
 ASSERT(SIZEOF(.audio_sequence_load) == 0x8c, "audio_sequence_load size changed")
 ASSERT(SIZEOF(.audio_sequence_release) == 0x80, "audio_sequence_release size changed")
-ASSERT(SIZEOF(.after_audio_sequence_release) == 0x1a0, "after_audio_sequence_release size changed")
+ASSERT(SIZEOF(.audio_sequence_list_size) == 0x78, "audio_sequence_list_size size changed")
+ASSERT(SIZEOF(.audio_sequence_list_load) == 0xac, "audio_sequence_list_load size changed")
+ASSERT(SIZEOF(.audio_sequence_list_release) == 0x74, "audio_sequence_list_release size changed")
+ASSERT(SIZEOF(.after_audio_sequence_list_release) == 0x8, "after_audio_sequence_list_release size changed")
 ASSERT(SIZEOF(.audio_sequence_range_size) == 0x7c, "audio_sequence_range_size size changed")
 ASSERT(SIZEOF(.audio_sequence_range_load) == 0xb0, "audio_sequence_range_load size changed")
 ASSERT(SIZEOF(.audio_sequence_range_release) == 0x7c, "audio_sequence_range_release size changed")
@@ -1914,3 +1933,8 @@ ASSERT(SIZEOF(.audio_backend_initialize_bss) == 0x4, "audio_backend_initialize B
 
 ASSERT(SIZEOF(.audio_backend_volume_bss) == 0x11, "audio_backend_volume BSS size changed")
 ASSERT(SIZEOF(.audio_backend_pan_pedal_bss) == 0x18, "audio_backend_pan_pedal BSS size changed")
+
+ASSERT(SIZEOF(.audio_engine_gate_reset_bss) == 0x8, "audio_engine_gate_reset BSS size changed")
+ASSERT(SIZEOF(.audio_engine_iteration_reset_bss) == 0x8, "audio_engine_iteration_reset BSS size changed")
+
+ASSERT(SIZEOF(.audio_engine_iteration_set_bss) == 0x4, "audio_engine_iteration_set BSS size changed")

@@ -1151,7 +1151,6 @@ D_80192BB4 = 0x80192BB4;
 D_80192BB8 = 0x80192BB8;
 D_FLT_8008DA30 = 0x8008DA30;
 func_8005B854 = 0x8005B854;
-func_8005C334 = 0x8005C334;
 func_8005C3E4 = 0x8005C3E4;
 
 /* References used by the recovered early game helper leaves. */
@@ -1221,3 +1220,10 @@ D_80192844 = 0x80192844;
 D_80192848 = 0x80192848;
 D_80192850 = 0x80192850;
 D_80192860 = 0x80192860;
+
+/* References used by recovered audio hardware driver units. */
+func_8005B064 = 0x8005B064;
+
+/* References used by recovered audio hardware driver units. */
+D_8008D84F = 0x8008D84F;
+D_8008D853 = 0x8008D853;
