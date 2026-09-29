@@ -9294,5 +9294,203 @@
     "section": ".audio_voice_argument",
     "section_vram": 2147856356,
     "evidence": "docs/audio-command-engine.md"
+  },
+  {
+    "name": "func_8005B000",
+    "rom": 375808,
+    "vram": 2147856384,
+    "size": 100,
+    "source": "src/game/audio_pitch_scale.c",
+    "object": "build/us/audio_pitch_scale.o",
+    "section": ".audio_pitch_scale",
+    "section_vram": 2147856384,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005B66C",
+    "rom": 377452,
+    "vram": 2147858028,
+    "size": 8,
+    "source": "src/game/audio_backend_update.c",
+    "object": "build/us/audio_backend_update.o",
+    "section": ".audio_backend_update",
+    "section_vram": 2147858028,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005B674",
+    "rom": 377460,
+    "vram": 2147858036,
+    "size": 312,
+    "source": "src/game/audio_backend_update.c",
+    "object": "build/us/audio_backend_update.o",
+    "section": ".audio_backend_update",
+    "section_vram": 2147858028,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005B7AC",
+    "rom": 377772,
+    "vram": 2147858348,
+    "size": 8,
+    "source": "src/game/audio_backend_update.c",
+    "object": "build/us/audio_backend_update.o",
+    "section": ".audio_backend_update",
+    "section_vram": 2147858028,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005B7B4",
+    "rom": 377780,
+    "vram": 2147858356,
+    "size": 8,
+    "source": "src/game/audio_backend_update.c",
+    "object": "build/us/audio_backend_update.o",
+    "section": ".audio_backend_update",
+    "section_vram": 2147858028,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005B7BC",
+    "rom": 377788,
+    "vram": 2147858364,
+    "size": 152,
+    "source": "src/game/audio_backend_voice_stop.c",
+    "object": "build/us/audio_backend_voice_stop.o",
+    "section": ".audio_backend_voice_stop",
+    "section_vram": 2147858364,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005B9F8",
+    "rom": 378360,
+    "vram": 2147858936,
+    "size": 36,
+    "source": "src/game/audio_backend_patch.c",
+    "object": "build/us/audio_backend_patch.o",
+    "section": ".audio_backend_patch",
+    "section_vram": 2147858936,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005BA1C",
+    "rom": 378396,
+    "vram": 2147858972,
+    "size": 8,
+    "source": "src/game/audio_backend_patch.c",
+    "object": "build/us/audio_backend_patch.o",
+    "section": ".audio_backend_patch",
+    "section_vram": 2147858936,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005C4F8",
+    "rom": 381176,
+    "vram": 2147861752,
+    "size": 196,
+    "source": "src/game/audio_backend_release.c",
+    "object": "build/us/audio_backend_release.o",
+    "section": ".audio_backend_release",
+    "section_vram": 2147861752,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005C5BC",
+    "rom": 381372,
+    "vram": 2147861948,
+    "size": 200,
+    "source": "src/game/audio_backend_release.c",
+    "object": "build/us/audio_backend_release.o",
+    "section": ".audio_backend_release",
+    "section_vram": 2147861752,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005C684",
+    "rom": 381572,
+    "vram": 2147862148,
+    "size": 372,
+    "source": "src/game/audio_backend_decay.c",
+    "object": "build/us/audio_backend_decay.o",
+    "section": ".audio_backend_decay",
+    "section_vram": 2147862148,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005C7F8",
+    "rom": 381944,
+    "vram": 2147862520,
+    "size": 572,
+    "source": "src/game/audio_backend_allocate.c",
+    "object": "build/us/audio_backend_allocate.o",
+    "section": ".audio_backend_allocate",
+    "section_vram": 2147862520,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005CCC0",
+    "rom": 383168,
+    "vram": 2147863744,
+    "size": 56,
+    "source": "src/game/audio_file_services.c",
+    "object": "build/us/audio_file_services.o",
+    "section": ".audio_file_services",
+    "section_vram": 2147863744,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005CCF8",
+    "rom": 383224,
+    "vram": 2147863800,
+    "size": 20,
+    "source": "src/game/audio_file_services.c",
+    "object": "build/us/audio_file_services.o",
+    "section": ".audio_file_services",
+    "section_vram": 2147863744,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005CD0C",
+    "rom": 383244,
+    "vram": 2147863820,
+    "size": 16,
+    "source": "src/game/audio_file_services.c",
+    "object": "build/us/audio_file_services.o",
+    "section": ".audio_file_services",
+    "section_vram": 2147863744,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005CD1C",
+    "rom": 383260,
+    "vram": 2147863836,
+    "size": 44,
+    "source": "src/game/audio_file_services.c",
+    "object": "build/us/audio_file_services.o",
+    "section": ".audio_file_services",
+    "section_vram": 2147863744,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005CD48",
+    "rom": 383304,
+    "vram": 2147863880,
+    "size": 112,
+    "source": "src/game/audio_file_services.c",
+    "object": "build/us/audio_file_services.o",
+    "section": ".audio_file_services",
+    "section_vram": 2147863744,
+    "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005CDB8",
+    "rom": 383416,
+    "vram": 2147863992,
+    "size": 84,
+    "source": "src/game/audio_file_services.c",
+    "object": "build/us/audio_file_services.o",
+    "section": ".audio_file_services",
+    "section_vram": 2147863744,
+    "evidence": "docs/audio-hardware-driver.md"
   }
 ]

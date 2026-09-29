@@ -6,11 +6,11 @@
 typedef struct AudioCapturedVoice {
     short instanceIndex;
     short voiceIndex;
-    unsigned char first;
-    unsigned char second;
+    unsigned char key;
+    unsigned char velocity;
     unsigned short unknown06;
-    void *record;
-    int value;
+    AudioPatchRegion *region;
+    AudioWaveRecord *wave;
 } AudioCapturedVoice;
 
 typedef struct AudioVoiceCapture {
@@ -27,7 +27,10 @@ extern AudioVoiceCapture *D_8008DA2C;
 extern AudioVoiceCapture D_80192890;
 extern int D_80192A98;
 
-void func_8005C7F8(AudioVoice *voice, void *record, int value,
-                   unsigned char first, int second);
+void func_8005AEA8(AudioVoice *voice, short instanceIndex, short voiceIndex,
+                   unsigned char key, unsigned char velocity,
+                   AudioPatchRegion *region, AudioWaveRecord *wave);
+void func_8005C7F8(AudioVoice *voice, AudioPatchRegion *region, AudioWaveRecord *wave,
+                   unsigned char key, unsigned char velocity);
 
 #endif

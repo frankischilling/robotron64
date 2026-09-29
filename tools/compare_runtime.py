@@ -445,6 +445,14 @@ MATCHING_BLOCKS = (
     ("audio_voice_capture_resume", "src/game/audio_voice_capture_resume.c", 0x8005ADD0, 0x8005AEA8),
     ("audio_voice_capture_append", "src/game/audio_voice_capture_append.c", 0x8005AEA8, 0x8005AFE4),
     ("audio_voice_argument", "src/game/audio_voice_argument.c", 0x8005AFE4, 0x8005B000),
+    ("audio_pitch_scale", "src/game/audio_pitch_scale.c", 0x8005B000, 0x8005B064),
+    ("audio_backend_update", "src/game/audio_backend_update.c", 0x8005B66C, 0x8005B7BC),
+    ("audio_backend_voice_stop", "src/game/audio_backend_voice_stop.c", 0x8005B7BC, 0x8005B854),
+    ("audio_backend_patch", "src/game/audio_backend_patch.c", 0x8005B9F8, 0x8005BA24),
+    ("audio_backend_release", "src/game/audio_backend_release.c", 0x8005C4F8, 0x8005C684),
+    ("audio_backend_decay", "src/game/audio_backend_decay.c", 0x8005C684, 0x8005C7F8),
+    ("audio_backend_allocate", "src/game/audio_backend_allocate.c", 0x8005C7F8, 0x8005CA34),
+    ("audio_file_services", "src/game/audio_file_services.c", 0x8005CCC0, 0x8005CE0C),
 )
 
 CANDIDATE_BLOCKS = (

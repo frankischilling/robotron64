@@ -1,0 +1,386 @@
+{
+  "scope": "Historical input identities for 18 complete functions; current proof requires a rebuild.",
+  "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "current_proof": "tools/compare_runtime.py and make progress verify the current source and complete owned sections.",
+  "units": [
+    {
+      "source": "src/game/audio_pitch_scale.c",
+      "source_sha256": "e7fbb254f482389c0833f4593964bd4c3268e86e09e74f96b86efee8353ca3c4",
+      "candidate_source": ".local/audio-backend/audio_pitch_scale_verified.c",
+      "candidate_source_sha256": "e7fbb254f482389c0833f4593964bd4c3268e86e09e74f96b86efee8353ca3c4",
+      "comparison_report": "build/audio-backend/audio_pitch_scale_verified/report.json",
+      "comparison_report_sha256": "9986f941fbd4cd973bd8783dac9a26ef10f6c9a8c2a448fdc608f5cf659ebb45",
+      "linked_code_sha256": "233f86e247a9189981ccd00c2eda458f8e91b7ac2a2b03b319677b975e11cd60",
+      "compiler_profile": {
+        "name": "game-r4300-mul",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32",
+          "-Wab,-r4300_mul"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005B000",
+          "start": 2147856384,
+          "size": 100
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".rodata",
+          "vram": 2148097220,
+          "rom": 616644,
+          "size": 8,
+          "symbols": {},
+          "section": ".audio_pitch_scale_rodata",
+          "static_symbols": {},
+          "source": "src/game/audio_pitch_scale.c",
+          "object": "build/us/audio_pitch_scale.o",
+          "evidence": "docs/audio-hardware-driver.md"
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_backend_update.c",
+      "source_sha256": "0b6e143ee3e66fc1935ec721d9ceccc9982262fd6675de92781bab9665b2660a",
+      "candidate_source": ".local/audio-backend/audio_backend_update.c",
+      "candidate_source_sha256": "9cbe1aed2759bb5975e5c3282eb33494e8b775d3c00fc784e8be9817f9a97955",
+      "comparison_report": ".local/backend-probes/audio_backend_update/report.json",
+      "comparison_report_sha256": "4629cf3e49a8fd2baf8355f1d347af451f2c2262bb2c739362d1aa1e2852514a",
+      "linked_code_sha256": "7083fcc1ee939bdd1922e03ebfc1710b68464e4a87579df3257c1c747b9ec9cd",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005B66C",
+          "start": 2147858028,
+          "size": 8
+        },
+        {
+          "name": "func_8005B674",
+          "start": 2147858036,
+          "size": 312
+        },
+        {
+          "name": "func_8005B7AC",
+          "start": 2147858348,
+          "size": 8
+        },
+        {
+          "name": "func_8005B7B4",
+          "start": 2147858356,
+          "size": 8
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_backend_update_bss",
+          "vram": 2149132992,
+          "rom": null,
+          "size": 12,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192AC0": 0,
+            "D_80192AC4": 4,
+            "D_80192AC8": 8
+          },
+          "source": "src/game/audio_backend_update.c",
+          "object": "build/us/audio_backend_update.o",
+          "evidence": "docs/audio-hardware-driver.md"
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_backend_voice_stop.c",
+      "source_sha256": "6565442b933c347b739daa39d452d0230910791630e1d48b148a67463f11c4ab",
+      "candidate_source": ".local/audio-backend/audio_backend_voice_stop.c",
+      "candidate_source_sha256": "f98f3dc3a6c68fa74e928c172b9e402fbff32e88b277e750f2f518bcb937cad9",
+      "comparison_report": ".local/backend-probes/audio_backend_voice_stop/report.json",
+      "comparison_report_sha256": "bf590b5037bbf14cd5cea0320b0d1a1603a48d10ed15c376ac044c318b32475b",
+      "linked_code_sha256": "c019572e61a44d48715de17a186a5bbf6b67273afd9aea97362a147cd83347b9",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005B7BC",
+          "start": 2147858364,
+          "size": 152
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_backend_voice_stop_bss",
+          "vram": 2149133004,
+          "rom": null,
+          "size": 4,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192ACC": 0
+          },
+          "source": "src/game/audio_backend_voice_stop.c",
+          "object": "build/us/audio_backend_voice_stop.o",
+          "evidence": "docs/audio-hardware-driver.md"
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_backend_patch.c",
+      "source_sha256": "41a280f31b1f033f356a9bdb8d2e857d12a956c40190b97fb911074b1dccd3b2",
+      "candidate_source": ".local/audio-backend/audio_backend_patch_high_first.c",
+      "candidate_source_sha256": "41a280f31b1f033f356a9bdb8d2e857d12a956c40190b97fb911074b1dccd3b2",
+      "comparison_report": ".local/backend-probes/audio_backend_patch_high_first/report.json",
+      "comparison_report_sha256": "0fa61bad3065b99926f5ef32f014440b17361ddb4e3e752a4c51e011fb126890",
+      "linked_code_sha256": "7196aae123398bed0bc724e9a6620a2c252ea426e0b868ac254ab0d67647477a",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005B9F8",
+          "start": 2147858936,
+          "size": 36
+        },
+        {
+          "name": "func_8005BA1C",
+          "start": 2147858972,
+          "size": 8
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_backend_patch_bss",
+          "vram": 2149133024,
+          "rom": null,
+          "size": 2,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192AE0": 0
+          },
+          "source": "src/game/audio_backend_patch.c",
+          "object": "build/us/audio_backend_patch.o",
+          "evidence": "docs/audio-hardware-driver.md"
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_backend_release.c",
+      "source_sha256": "18a53857089f19ac85746aeca836c2882601a01490d89b2113c22db935aab157",
+      "candidate_source": ".local/audio-backend/audio_backend_release.c",
+      "candidate_source_sha256": "5092ea547ae34e7e59f6a495748da4d2da91ac528ea80a466d3c4a97c51e87c4",
+      "comparison_report": "build/audio-backend/audio_backend_release/report.json",
+      "comparison_report_sha256": "cf9029b380078028adf07beee6a7aa0c6ad601984f7679da190ec57bd59e5727",
+      "linked_code_sha256": "aa76dab8b2cbb2467d521ab71c1d4ee0733d2e10c199c841a91c0e5a9dadc00f",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005C4F8",
+          "start": 2147861752,
+          "size": 196
+        },
+        {
+          "name": "func_8005C5BC",
+          "start": 2147861948,
+          "size": 200
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/audio_backend_decay.c",
+      "source_sha256": "e28ce0d34e8d88e5e917c3aa8faf5294c21fa53f106b738c9be60f7def14d6da",
+      "candidate_source": ".local/audio-backend/audio_backend_decay.c",
+      "candidate_source_sha256": "e294702fa9b42fa9db71f1ca6826103fb7e630052b95e5ff598374278b13b833",
+      "comparison_report": ".local/backend-probes/audio_backend_decay/report.json",
+      "comparison_report_sha256": "48c375fe878047a72b0b3b15b3626bcb49c74fe4dacb1b9e78fe2aaa5926d188",
+      "linked_code_sha256": "60c074f6722a6faf2441a41e82c4274baaac56f24172f1f47bbe2947f7eb1826",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005C684",
+          "start": 2147862148,
+          "size": 372
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_backend_decay_bss",
+          "vram": 2149133116,
+          "rom": null,
+          "size": 8,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192B3C": 0,
+            "D_80192B40": 4
+          },
+          "source": "src/game/audio_backend_decay.c",
+          "object": "build/us/audio_backend_decay.o",
+          "evidence": "docs/audio-hardware-driver.md"
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_backend_allocate.c",
+      "source_sha256": "c104d01b076123960415de6c1beef818da724d0ca321338a816649ae23170d2b",
+      "candidate_source": ".local/audio-backend/audio_backend_allocate.c",
+      "candidate_source_sha256": "1e84caf66bd495f046a0464f8e7ab75b7891b39477c62e72e7227c34771ded72",
+      "comparison_report": ".local/backend-probes/audio_backend_allocate/report.json",
+      "comparison_report_sha256": "fdce5fe2042dcdef87172e4ebbfc735139f123d1cb7c096d00251b00e124d276",
+      "linked_code_sha256": "2afbc58772380ec29603e79d63895e917b9dcc291f353a4024d02fc71868ebf6",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005C7F8",
+          "start": 2147862520,
+          "size": 572
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_backend_allocate_bss",
+          "vram": 2149133124,
+          "rom": null,
+          "size": 24,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192B44": 0,
+            "D_80192B48": 4,
+            "D_80192B4C": 8,
+            "D_80192B50": 12,
+            "D_80192B54": 16,
+            "D_80192B58": 20
+          },
+          "source": "src/game/audio_backend_allocate.c",
+          "object": "build/us/audio_backend_allocate.o",
+          "evidence": "docs/audio-hardware-driver.md"
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_file_services.c",
+      "source_sha256": "9c07b6363fdeb6215839d300acb40da1edf3937346d520f6bf5448366b989dd2",
+      "candidate_source": ".local/audio-backend/audio_file_services.c",
+      "candidate_source_sha256": "743d7b3afb3a3b002a3207822d1bfe7e16cf2d19aa4e326f45a8aa3a329bea09",
+      "comparison_report": "build/audio-backend/audio_file_services/report.json",
+      "comparison_report_sha256": "c3563958732ea7cfeb4f8d806128736d023ad9fa4dbf488d5456dba5df56b7ed",
+      "linked_code_sha256": "9907d3c04b767e5c50c4d11fa4d783e522d9cc95c8501ab0a873a143d1e7e454",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005CCC0",
+          "start": 2147863744,
+          "size": 56
+        },
+        {
+          "name": "func_8005CCF8",
+          "start": 2147863800,
+          "size": 20
+        },
+        {
+          "name": "func_8005CD0C",
+          "start": 2147863820,
+          "size": 16
+        },
+        {
+          "name": "func_8005CD1C",
+          "start": 2147863836,
+          "size": 44
+        },
+        {
+          "name": "func_8005CD48",
+          "start": 2147863880,
+          "size": 112
+        },
+        {
+          "name": "func_8005CDB8",
+          "start": 2147863992,
+          "size": 84
+        }
+      ],
+      "owned_sections": []
+    }
+  ]
+}

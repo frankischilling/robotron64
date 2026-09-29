@@ -598,7 +598,19 @@ SECTIONS
     .audio_voice_capture_resume 0x8005ADD0 : AT(0x5B9D0) SUBALIGN(4) { build/us/audio_voice_capture_resume.o(.text) }
     .audio_voice_capture_append 0x8005AEA8 : AT(0x5BAA8) SUBALIGN(4) { build/us/audio_voice_capture_append.o(.text) }
     .audio_voice_argument 0x8005AFE4 : AT(0x5BBE4) SUBALIGN(4) { build/us/audio_voice_argument.o(.text) }
-    .cpu_after_audio_voice_argument 0x8005B000 : AT(0x5BC00) { build/us/fallback.o(.rom_cpu_after_audio_voice_argument) }
+    .audio_pitch_scale 0x8005B000 : AT(0x5BC00) SUBALIGN(4) { build/us/audio_pitch_scale.o(.text) }
+    .after_audio_pitch_scale 0x8005B064 : AT(0x5BC64) { build/us/fallback.o(.rom_after_audio_pitch_scale) }
+    .audio_backend_update 0x8005B66C : AT(0x5C26C) SUBALIGN(4) { build/us/audio_backend_update.o(.text) }
+    .audio_backend_voice_stop 0x8005B7BC : AT(0x5C3BC) SUBALIGN(4) { build/us/audio_backend_voice_stop.o(.text) }
+    .after_audio_backend_voice_stop 0x8005B854 : AT(0x5C454) { build/us/fallback.o(.rom_after_audio_backend_voice_stop) }
+    .audio_backend_patch 0x8005B9F8 : AT(0x5C5F8) SUBALIGN(4) { build/us/audio_backend_patch.o(.text) }
+    .after_audio_backend_patch 0x8005BA24 : AT(0x5C624) { build/us/fallback.o(.rom_after_audio_backend_patch) }
+    .audio_backend_release 0x8005C4F8 : AT(0x5D0F8) SUBALIGN(4) { build/us/audio_backend_release.o(.text) }
+    .audio_backend_decay 0x8005C684 : AT(0x5D284) SUBALIGN(4) { build/us/audio_backend_decay.o(.text) }
+    .audio_backend_allocate 0x8005C7F8 : AT(0x5D3F8) SUBALIGN(4) { build/us/audio_backend_allocate.o(.text) }
+    .after_audio_backend_allocate 0x8005CA34 : AT(0x5D634) { build/us/fallback.o(.rom_after_audio_backend_allocate) }
+    .audio_file_services 0x8005CCC0 : AT(0x5D8C0) SUBALIGN(4) { build/us/audio_file_services.o(.text) }
+    .after_audio_file_services 0x8005CE0C : AT(0x5DA0C) { build/us/fallback.o(.rom_after_audio_file_services) }
     .gu_sine 0x8005FBB0 : AT(0x607B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_sine) }
     .gu_cosine 0x8005FC20 : AT(0x60820) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_cosine) }
     .cpu_after_gu_cosine 0x8005FC50 : AT(0x60850) { build/us/fallback.o(.rom_cpu_after_gu_cosine) }
@@ -833,7 +845,9 @@ SECTIONS
     .data_after_graphics_resource_strings 0x91005A3C : AT(0x95DDC) { build/us/fallback.o(.rom_data_after_graphics_resource_strings) }
     .graphics_pool_strings 0x80095220 : AT(0x95E20) SUBALIGN(4) { build/us/graphics_pool.o(.rodata) }
     .graphics_mode_dispatch_table 0x80095300 : AT(0x95F00) SUBALIGN(4) { build/us/graphics_mode_dispatch.o(.rodata) }
-    .data_after_graphics_mode_dispatch_table 0x91005BC0 : AT(0x95F60) { build/us/fallback.o(.rom_data_after_graphics_mode_dispatch_table) }
+    .data_after_graphics_mode_dispatch_table 0x80095360 : AT(0x95F60) { build/us/fallback.o(.rom_data_after_graphics_mode_dispatch_table) }
+    .audio_pitch_scale_rodata 0x80095CC4 : AT(0x968C4) SUBALIGN(4) { build/us/audio_pitch_scale.o(.rodata) }
+    .after_audio_pitch_scale_rodata 0x80095CCC : AT(0x968CC) { build/us/fallback.o(.rom_after_audio_pitch_scale_rodata) }
     .sdk_gu_perspective_constants 0x80095CF0 : AT(0x968F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_perspective_constants) }
     .sdk_gu_lookathilite_constants 0x80095D00 : AT(0x96900) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_lookathilite_constants) }
     .sdk_gu_rotate_rpy_constants 0x80095D20 : AT(0x96920) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_rotate_rpy_constants) }
@@ -852,6 +866,11 @@ SECTIONS
     .audio_engine_sequence_jump_bss 0x801927C4 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_sequence_jump.o(.bss) }
     .audio_engine_sequence_return_bss 0x801927DC (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_sequence_return.o(.bss) }
     .audio_engine_sequence_stop_bss 0x801927EC (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_sequence_stop.o(.bss) }
+    .audio_backend_update_bss 0x80192AC0 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_update.o(.bss) }
+    .audio_backend_voice_stop_bss 0x80192ACC (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_voice_stop.o(.bss) }
+    .audio_backend_patch_bss 0x80192AE0 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_patch.o(.bss) }
+    .audio_backend_decay_bss 0x80192B3C (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_decay.o(.bss) }
+    .audio_backend_allocate_bss 0x80192B44 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_allocate.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1142,7 +1161,9 @@ ASSERT(SIZEOF(.graphics_resource_strings) == 0x14, "graphics_resource_strings si
 ASSERT(SIZEOF(.data_after_graphics_resource_strings) == 0x44, "data_after_graphics_resource_strings size changed")
 ASSERT(SIZEOF(.graphics_pool_strings) == 0xe0, "graphics_pool_strings size changed")
 ASSERT(SIZEOF(.graphics_mode_dispatch_table) == 0x60, "graphics_mode_dispatch_table size changed")
-ASSERT(SIZEOF(.data_after_graphics_mode_dispatch_table) == 0x990, "data_after_graphics_mode_dispatch_table size changed")
+ASSERT(SIZEOF(.data_after_graphics_mode_dispatch_table) == 0x964, "data_after_graphics_mode_dispatch_table size changed")
+ASSERT(SIZEOF(.audio_pitch_scale_rodata) == 0x8, "audio_pitch_scale_rodata size changed")
+ASSERT(SIZEOF(.after_audio_pitch_scale_rodata) == 0x24, "after_audio_pitch_scale_rodata size changed")
 ASSERT(SIZEOF(.sdk_gu_perspective_constants) == 0x10, "sdk_gu_perspective_constants size changed")
 ASSERT(SIZEOF(.sdk_gu_lookathilite_constants) == 0x20, "sdk_gu_lookathilite_constants size changed")
 ASSERT(SIZEOF(.sdk_gu_rotate_rpy_constants) == 0x10, "sdk_gu_rotate_rpy_constants size changed")
@@ -1477,7 +1498,19 @@ ASSERT(SIZEOF(.audio_voice_capture_control) == 0x48, "audio_voice_capture_contro
 ASSERT(SIZEOF(.audio_voice_capture_resume) == 0xd8, "audio_voice_capture_resume size changed")
 ASSERT(SIZEOF(.audio_voice_capture_append) == 0x13c, "audio_voice_capture_append size changed")
 ASSERT(SIZEOF(.audio_voice_argument) == 0x1c, "audio_voice_argument size changed")
-ASSERT(SIZEOF(.cpu_after_audio_voice_argument) == 0x4bb0, "cpu_after_audio_voice_argument size changed")
+ASSERT(SIZEOF(.audio_pitch_scale) == 0x64, "audio_pitch_scale size changed")
+ASSERT(SIZEOF(.after_audio_pitch_scale) == 0x608, "after_audio_pitch_scale size changed")
+ASSERT(SIZEOF(.audio_backend_update) == 0x150, "audio_backend_update size changed")
+ASSERT(SIZEOF(.audio_backend_voice_stop) == 0x98, "audio_backend_voice_stop size changed")
+ASSERT(SIZEOF(.after_audio_backend_voice_stop) == 0x1a4, "after_audio_backend_voice_stop size changed")
+ASSERT(SIZEOF(.audio_backend_patch) == 0x2c, "audio_backend_patch size changed")
+ASSERT(SIZEOF(.after_audio_backend_patch) == 0xad4, "after_audio_backend_patch size changed")
+ASSERT(SIZEOF(.audio_backend_release) == 0x18c, "audio_backend_release size changed")
+ASSERT(SIZEOF(.audio_backend_decay) == 0x174, "audio_backend_decay size changed")
+ASSERT(SIZEOF(.audio_backend_allocate) == 0x23c, "audio_backend_allocate size changed")
+ASSERT(SIZEOF(.after_audio_backend_allocate) == 0x28c, "after_audio_backend_allocate size changed")
+ASSERT(SIZEOF(.audio_file_services) == 0x14c, "audio_file_services size changed")
+ASSERT(SIZEOF(.after_audio_file_services) == 0x2da4, "after_audio_file_services size changed")
 ASSERT(SIZEOF(.gu_sine) == 0x70, "gu_sine size changed")
 ASSERT(SIZEOF(.gu_cosine) == 0x30, "gu_cosine size changed")
 ASSERT(SIZEOF(.cpu_after_gu_cosine) == 0x290, "cpu_after_gu_cosine size changed")
@@ -1680,3 +1713,9 @@ ASSERT(SIZEOF(.audio_engine_sequence_call_bss) == 0x18, "audio_engine_sequence_c
 ASSERT(SIZEOF(.audio_engine_sequence_jump_bss) == 0x18, "audio_engine_sequence_jump BSS size changed")
 ASSERT(SIZEOF(.audio_engine_sequence_return_bss) == 0x10, "audio_engine_sequence_return BSS size changed")
 ASSERT(SIZEOF(.audio_engine_sequence_stop_bss) == 0x14, "audio_engine_sequence_stop BSS size changed")
+
+ASSERT(SIZEOF(.audio_backend_update_bss) == 0xc, "audio_backend_update BSS size changed")
+ASSERT(SIZEOF(.audio_backend_voice_stop_bss) == 0x4, "audio_backend_voice_stop BSS size changed")
+ASSERT(SIZEOF(.audio_backend_patch_bss) == 0x2, "audio_backend_patch BSS size changed")
+ASSERT(SIZEOF(.audio_backend_decay_bss) == 0x8, "audio_backend_decay BSS size changed")
+ASSERT(SIZEOF(.audio_backend_allocate_bss) == 0x18, "audio_backend_allocate BSS size changed")

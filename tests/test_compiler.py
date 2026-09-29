@@ -53,6 +53,15 @@ class CompilerTests(unittest.TestCase):
         self.assertEqual(profile_for_source("src/libultra/new_candidate.c")["name"],
                          "game")
 
+    def test_game_multiply_workaround_keeps_the_verified_mips1_profile(self):
+        command = compiler_command("src/game/audio_pitch_scale.c", "out.o")
+        self.assertIn("-O2", command)
+        self.assertIn("-mips1", command)
+        self.assertNotIn("-mips2", command)
+        self.assertEqual(command.count("-Wab,-r4300_mul"), 1)
+        self.assertNotIn("-Wab,-r4300_mul",
+                         compiler_command("src/game/audio_rate_scale.c", "out.o"))
+
     def test_command_preserves_paths_as_separate_arguments(self):
         command = compiler_command("src/game/path with spaces.c", "out dir/file.o")
         self.assertEqual(command[0], str(ROOT / ".local/toolchain/5.3/cc"))

@@ -10,6 +10,7 @@ from toolchain import installed_identity
 
 
 PROFILES = {
+    "game-r4300-mul": ("-O2", "-G", "0", "-non_shared", "-mips1", "-32", "-Wab,-r4300_mul"),
     "sdk-o2-mips2-r4300-mul": ("-O2", "-G", "0", "-non_shared", "-mips2", "-32", "-Wab,-r4300_mul"),
     "sdk-o3-mips2-r4300-mul": ("-O3", "-G", "0", "-non_shared", "-mips2", "-32", "-Wab,-r4300_mul"),
     "sdk-o3-mips2": ("-O3", "-G", "0", "-non_shared", "-mips2", "-32"),
@@ -21,6 +22,7 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/game/audio_pitch_scale.c": "game-r4300-mul",
     "src/libultra/ai_buffer.c": "sdk-o1-mips2",
     "src/libultra/ai_busy.c": "sdk-o1-mips2",
     "src/libultra/ai_frequency.c": "sdk-o1-mips2",

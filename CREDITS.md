@@ -66,11 +66,20 @@ the extraction, validation and build workflow.
 record and event terminology during audio recovery, and corroborated the
 ten-byte temporary buffer used by the variable-length stream writer. The consulted files are
 `doom64/wessapi.h`, `wessarc.h`, `wesshand.h`, `wessseq.h`, `wesshand.c`,
-`wessseq.c`, and `wessshell.c`. The checkout identifies its license as GPL-3.0.
+`wessseq.c`, `wessshell.c`, and `n64cmd.c`. The last file supplied supporting
+hardware-voice, patch, capture, and pitch terminology during the later driver
+recovery. The checkout identifies its license as GPL-3.0.
 The [audio property notes](docs/audio-properties.md),
-[host/stream notes](docs/audio-host-stream.md), and their input ledgers
+[host/stream notes](docs/audio-host-stream.md),
+[command engine notes](docs/audio-command-engine.md),
+[hardware driver notes](docs/audio-hardware-driver.md), and their input ledgers
 separate the reconstructed Robotron source from that reference and retain the
 historical input identities. The reference checkout is not included here.
+
+The public libreultra `include/2.0I/PR/libaudio.h` was also consulted for the
+28-byte SDK voice record, six-byte voice configuration, and synthesizer call
+signatures used by the hardware driver. The Robotron instructions and complete
+function comparisons determine which layouts and calls are used in this build.
 
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),

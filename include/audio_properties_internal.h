@@ -38,7 +38,7 @@ typedef struct AudioVoice {
     unsigned int flag08 : 1;
     unsigned int flag04 : 1;
     unsigned int commandRedirect : 1;
-    unsigned int unknownFlags : 1;
+    unsigned int pedalReleased : 1;
     unsigned char index;
     unsigned char instanceIndex;
     unsigned char category;
@@ -50,7 +50,7 @@ typedef struct AudioVoice {
     unsigned char parameter0E;
     unsigned char controlMask;
     unsigned char backend;
-    unsigned char unknown11;
+    unsigned char hardwareVoiceCount;
     short unknown12;
     short property14;
     short property16;
@@ -79,18 +79,32 @@ typedef struct AudioCallbackRecord {
     AudioEventCallback callback;
 } AudioCallbackRecord;
 
+typedef struct AudioPatchRegion AudioPatchRegion;
+typedef struct AudioWaveRecord AudioWaveRecord;
+
 typedef struct AudioStatusRecord {
     unsigned int active : 1;
     unsigned int flag40 : 1;
-    unsigned int unknownFlags : 30;
-    unsigned char unknown04[16];
+    unsigned int flag20 : 1;
+    unsigned int unknownFlags : 5;
+    unsigned char unknown01;
+    unsigned char index;
+    unsigned char voiceIndex;
+    unsigned char priority;
+    unsigned char key;
+    unsigned char velocity;
+    unsigned char pedalPending;
+    AudioPatchRegion *region;
+    AudioWaveRecord *wave;
+    unsigned int time;
 } AudioStatusRecord;
 
 typedef struct AudioContext {
     unsigned int unknown00;
     unsigned char activeCount;
     unsigned char activeVoiceCount;
-    unsigned char unknown06[3];
+    unsigned char activeStatusCount;
+    unsigned char unknown07[2];
     unsigned char callbackCount;
     unsigned char voiceIndexCount;
     unsigned char unknown0B;
