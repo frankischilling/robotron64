@@ -4413,6 +4413,15 @@ RUNTIME_OBJECTS += \
     build/us/audio_auxiliary_bus.o \
     build/us/audio_save_filter.o
 
+build/us/audio_decoder.o: src/sdk/audio_decoder.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_commands.h include/sdk_audio_decoder.h include/sdk_audio_mix_commands.h include/sdk_audio_pipeline.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_decoder.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_decoder.raw.o $@ .text 0xb4c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_decoder.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

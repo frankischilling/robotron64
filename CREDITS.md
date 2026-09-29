@@ -128,6 +128,13 @@ sample state, and generated constants are verified against Robotron's complete
 target procedures. The source-owned packet definitions share the synthesizer's
 single-evaluation command cursor.
 
+The [wavetable decoder reconstruction](docs/sdk-audio-decoder.md) also uses the
+pinned `decompals/ultralib` `src/audio/load.c` as a reference for PCM and ADPCM
+frame sizes, loop records, DMA alignment and RSP commands. Complete Robotron
+instruction comparisons verify the recovered control flow, and IDO's private
+procedure records establish the actual `decodeChunk` helper boundary and
+calling convention.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

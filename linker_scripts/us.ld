@@ -906,7 +906,7 @@ SECTIONS
     .audio_effect_allocate 0x8006BD80 : AT(0x6C980) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_allocate) }
     .cpu_after_audio_effect_allocate 0x8006BE18 : AT(0x6CA18) { build/us/fallback.o(.rom_cpu_after_audio_effect_allocate) }
     .audio_main_bus 0x8006BE20 : AT(0x6CA20) SUBALIGN(4) { build/us/audio_main_bus.o(.text) }
-    .audio_decoder 0x8006BF70 : AT(0x6CB70) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_decoder) }
+    .audio_decoder 0x8006BF70 : AT(0x6CB70) SUBALIGN(4) { build/us/audio_decoder.o(.text) }
     .cpu_after_audio_decoder 0x8006CABC : AT(0x6D6BC) { build/us/fallback.o(.rom_cpu_after_audio_decoder) }
     .audio_resample 0x8006CAC0 : AT(0x6D6C0) SUBALIGN(4) { build/us/audio_resample.o(.text) }
     .cpu_after_audio_resample 0x8006CDB4 : AT(0x6D9B4) { build/us/fallback.o(.rom_cpu_after_audio_resample) }

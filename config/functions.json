@@ -11779,6 +11779,51 @@
     "evidence": "docs/sdk-audio-output.md"
   },
   {
+    "name": "func_8006BF70",
+    "rom": 445296,
+    "vram": 2147925872,
+    "size": 468,
+    "source": "src/sdk/audio_decoder.c",
+    "object": "build/us/audio_decoder.o",
+    "section": ".audio_decoder",
+    "section_vram": 2147925872,
+    "evidence": "docs/sdk-audio-decoder.md"
+  },
+  {
+    "name": "func_8006C144",
+    "rom": 445764,
+    "vram": 2147926340,
+    "size": 940,
+    "source": "src/sdk/audio_decoder.c",
+    "object": "build/us/audio_decoder.o",
+    "section": ".audio_decoder",
+    "section_vram": 2147925872,
+    "evidence": "docs/sdk-audio-decoder.md"
+  },
+  {
+    "name": "decodeChunk",
+    "rom": 446704,
+    "vram": 2147927280,
+    "size": 300,
+    "source": "src/sdk/audio_decoder.c",
+    "object": "build/us/audio_decoder.o",
+    "section": ".audio_decoder",
+    "section_vram": 2147925872,
+    "evidence": "docs/sdk-audio-decoder.md",
+    "linkage": "static"
+  },
+  {
+    "name": "func_8006C61C",
+    "rom": 447004,
+    "vram": 2147927580,
+    "size": 1184,
+    "source": "src/sdk/audio_decoder.c",
+    "object": "build/us/audio_decoder.o",
+    "section": ".audio_decoder",
+    "section_vram": 2147925872,
+    "evidence": "docs/sdk-audio-decoder.md"
+  },
+  {
     "name": "func_8006CAC0",
     "rom": 448192,
     "vram": 2147928768,

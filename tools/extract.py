@@ -269,7 +269,6 @@ REGIONS = (
     ("cpu_after_audio_effect_init", 0x6c97c, 0x6c980),
     ("sdk_fallback_audio_effect_allocate", 0x6c980, 0x6ca18),
     ("cpu_after_audio_effect_allocate", 0x6ca18, 0x6ca20),
-    ("sdk_fallback_audio_decoder", 0x6cb70, 0x6d6bc),
     ("cpu_after_audio_decoder", 0x6d6bc, 0x6d6c0),
     ("cpu_after_audio_resample", 0x6d9b4, 0x6d9c0),
     ("sdk_fallback_audio_envelope", 0x6d9c0, 0x6e614),
