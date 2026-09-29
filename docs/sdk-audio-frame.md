@@ -1,8 +1,9 @@
 # SDK audio frame and synthesizer
 
 > Local reference study: the SDK implementation described below is retained
-> in the private research worktree. This public checkpoint uses ROM extraction
-> for these SDK ranges and does not count them as distributed matching source.
+> in the private research worktree. The separate target-derived reconstruction
+> of this unit is now documented in [synthesizer runtime](sdk-synthesizer-runtime.md).
+> Historical comparison artifacts below describe the earlier reference study.
 > References to integration in this report describe the local research build.
 
 The audio frame and synthesizer initialization code belong to one original

@@ -248,6 +248,18 @@
     "evidence": "docs/audio-hardware-driver.md"
   },
   {
+    "input_section": ".rodata",
+    "vram": 2148097616,
+    "rom": 617040,
+    "size": 16,
+    "symbols": {},
+    "section": ".audio_synthesizer_rodata",
+    "static_symbols": {},
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
     "source": "src/game/audio_engine_voice_stop.c",
     "object": "build/us/audio_engine_voice_stop.o",
     "evidence": "docs/audio-command-engine.md",

@@ -829,7 +829,7 @@ SECTIONS
     .cpu_after_ai_buffer 0x80065C18 : AT(0x66818) { build/us/fallback.o(.rom_cpu_after_ai_buffer) }
     .audio_remaining_bytes 0x80065C20 : AT(0x66820) SUBALIGN(4) { build/us/audio_remaining_bytes.o(.text) }
     .cpu_after_ai_length 0x80065C2C : AT(0x6682C) { build/us/fallback.o(.rom_cpu_after_ai_length) }
-    .audio_synthesizer 0x80065C30 : AT(0x66830) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synthesizer) }
+    .audio_synthesizer 0x80065C30 : AT(0x66830) SUBALIGN(4) { build/us/audio_synthesizer.o(.text) }
     .audio_callback_attach 0x80066310 : AT(0x66F10) SUBALIGN(4) { build/us/audio_callback_attach.o(.text) }
     .voice_allocate 0x80066360 : AT(0x66F60) SUBALIGN(4) { build/us/voice_allocate.o(.text) }
     .cpu_after_audio_synth_allocate 0x80066588 : AT(0x67188) { build/us/fallback.o(.rom_cpu_after_audio_synth_allocate) }
@@ -898,7 +898,8 @@ SECTIONS
     .audio_synth_clear 0x8006B5A0 : AT(0x6C1A0) SUBALIGN(4) { build/us/audio_synth_clear.o(.text) }
     .cpu_after_audio_synth_delete 0x8006B5A8 : AT(0x6C1A8) { build/us/fallback.o(.rom_cpu_after_audio_synth_delete) }
     .ai_busy 0x8006B5B0 : AT(0x6C1B0) SUBALIGN(4) { build/us/ai_busy.o(.text) }
-    .audio_filter_constructors 0x8006B5E0 : AT(0x6C1E0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_filter_constructors) }
+    .audio_filter_create 0x8006B5E0 : AT(0x6C1E0) SUBALIGN(4) { build/us/audio_filter_create.o(.text) }
+    .after_audio_filter_create 0x8006B8A0 : AT(0x6C4A0) { build/us/fallback.o(.rom_after_audio_filter_create) }
     .audio_effect_init 0x8006B940 : AT(0x6C540) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_init) }
     .cpu_after_audio_effect_init 0x8006BD7C : AT(0x6C97C) { build/us/fallback.o(.rom_cpu_after_audio_effect_init) }
     .audio_effect_allocate 0x8006BD80 : AT(0x6C980) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_allocate) }
@@ -929,7 +930,7 @@ SECTIONS
     .thread_yield 0x8006E6F0 : AT(0x6F2F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_yield) }
     .cpu_after_thread_yield 0x8006E73C : AT(0x6F33C) { build/us/fallback.o(.rom_cpu_after_thread_yield) }
     .os_set_compare 0x8006E740 : AT(0x6F340) SUBALIGN(4) { build/us/os_set_compare.o(.text) }
-    .audio_filter_init 0x8006E750 : AT(0x6F350) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_filter_init) }
+    .audio_filter_base 0x8006E750 : AT(0x6F350) SUBALIGN(4) { build/us/audio_filter_base.o(.text) }
     .cpu_after_audio_filter_init 0x8006E76C : AT(0x6F36C) { build/us/fallback.o(.rom_cpu_after_audio_filter_init) }
     .audio_effect_modulation 0x8006E770 : AT(0x6F370) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_modulation) }
     .audio_effect_buffers 0x8006E818 : AT(0x6F418) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_buffers) }
@@ -989,7 +990,7 @@ SECTIONS
     .sdk_gu_lookathilite_constants 0x80095D00 : AT(0x96900) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_lookathilite_constants) }
     .sdk_gu_rotate_rpy_constants 0x80095D20 : AT(0x96920) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_rotate_rpy_constants) }
     .data_after_sdk_gu_rotate_rpy_constants 0x91006590 : AT(0x96930) { build/us/fallback.o(.rom_data_after_sdk_gu_rotate_rpy_constants) }
-    .sdk_audio_synthesizer_constants 0x80095E50 : AT(0x96A50) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_synthesizer_constants) }
+    .audio_synthesizer_rodata 0x80095E50 : AT(0x96A50) SUBALIGN(4) { build/us/audio_synthesizer.o(.rodata) }
     .data_after_sdk_audio_synthesizer_constants 0x910066C0 : AT(0x96A60) { build/us/fallback.o(.rom_data_after_sdk_audio_synthesizer_constants) }
     .sdk_audio_effect_init_constants 0x80095EE0 : AT(0x96AE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_effect_init_constants) }
     .sdk_audio_resample_constants 0x80095F00 : AT(0x96B00) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_resample_constants) }
@@ -1394,7 +1395,7 @@ ASSERT(SIZEOF(.sdk_gu_perspective_constants) == 0x10, "sdk_gu_perspective_consta
 ASSERT(SIZEOF(.sdk_gu_lookathilite_constants) == 0x20, "sdk_gu_lookathilite_constants size changed")
 ASSERT(SIZEOF(.sdk_gu_rotate_rpy_constants) == 0x10, "sdk_gu_rotate_rpy_constants size changed")
 ASSERT(SIZEOF(.data_after_sdk_gu_rotate_rpy_constants) == 0x120, "data_after_sdk_gu_rotate_rpy_constants size changed")
-ASSERT(SIZEOF(.sdk_audio_synthesizer_constants) == 0x10, "sdk_audio_synthesizer_constants size changed")
+ASSERT(SIZEOF(.audio_synthesizer_rodata) == 0x10, "audio_synthesizer_rodata size changed")
 ASSERT(SIZEOF(.data_after_sdk_audio_synthesizer_constants) == 0x80, "data_after_sdk_audio_synthesizer_constants size changed")
 ASSERT(SIZEOF(.sdk_audio_effect_init_constants) == 0x20, "sdk_audio_effect_init_constants size changed")
 ASSERT(SIZEOF(.sdk_audio_resample_constants) == 0x34, "sdk_audio_resample_constants size changed")
@@ -1950,7 +1951,8 @@ ASSERT(SIZEOF(.cpu_after_pi_get_queue) == 0x8, "cpu_after_pi_get_queue size chan
 ASSERT(SIZEOF(.audio_synth_clear) == 0x8, "audio_synth_clear size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_delete) == 0x8, "cpu_after_audio_synth_delete size changed")
 ASSERT(SIZEOF(.ai_busy) == 0x30, "ai_busy size changed")
-ASSERT(SIZEOF(.audio_filter_constructors) == 0x360, "audio_filter_constructors size changed")
+ASSERT(SIZEOF(.audio_filter_create) == 0x2c0, "audio_filter_create size changed")
+ASSERT(SIZEOF(.after_audio_filter_create) == 0xa0, "after_audio_filter_create size changed")
 ASSERT(SIZEOF(.audio_effect_init) == 0x43c, "audio_effect_init size changed")
 ASSERT(SIZEOF(.cpu_after_audio_effect_init) == 0x4, "cpu_after_audio_effect_init size changed")
 ASSERT(SIZEOF(.audio_effect_allocate) == 0x98, "audio_effect_allocate size changed")
@@ -1981,7 +1983,7 @@ ASSERT(SIZEOF(.cpu_after_interrupt_global_set) == 0x4, "cpu_after_interrupt_glob
 ASSERT(SIZEOF(.thread_yield) == 0x4c, "thread_yield size changed")
 ASSERT(SIZEOF(.cpu_after_thread_yield) == 0x4, "cpu_after_thread_yield size changed")
 ASSERT(SIZEOF(.os_set_compare) == 0x10, "os_set_compare size changed")
-ASSERT(SIZEOF(.audio_filter_init) == 0x1c, "audio_filter_init size changed")
+ASSERT(SIZEOF(.audio_filter_base) == 0x1c, "audio_filter_base size changed")
 ASSERT(SIZEOF(.cpu_after_audio_filter_init) == 0x4, "cpu_after_audio_filter_init size changed")
 ASSERT(SIZEOF(.audio_effect_modulation) == 0xa8, "audio_effect_modulation size changed")
 ASSERT(SIZEOF(.audio_effect_buffers) == 0x5f0, "audio_effect_buffers size changed")

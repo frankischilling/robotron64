@@ -112,6 +112,14 @@ organization corroborate the target's natural source structure. The recovered
 code and the shared game/SDK audio records are checked against complete
 Robotron procedure bytes and existing callers.
 
+The [synthesizer reconstruction](docs/sdk-synthesizer-runtime.md) and
+[filter constructors](docs/sdk-audio-filter-construction.md) use the same
+target-led process. The pinned libreultra `src/audio/synthesizer.c` declarations
+corroborate the historical initialization locals, timing helpers, and command
+cursor convention. All public and private procedure extents and both generated
+double constants are checked against Robotron's target. The earlier adapted
+SDK experiments remain separate private research.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

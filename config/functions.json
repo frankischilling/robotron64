@@ -11091,6 +11091,107 @@
     "evidence": "docs/sdk-scheduling-and-audio-services.md"
   },
   {
+    "name": "timeToSamplesNoRound",
+    "rom": 419888,
+    "vram": 2147900464,
+    "size": 8,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md",
+    "linkage": "static"
+  },
+  {
+    "name": "func_80065C38",
+    "rom": 419896,
+    "vram": 2147900472,
+    "size": 88,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
+    "name": "func_80065C90",
+    "rom": 419984,
+    "vram": 2147900560,
+    "size": 56,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
+    "name": "func_80065CC8",
+    "rom": 420040,
+    "vram": 2147900616,
+    "size": 96,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
+    "name": "func_80065D28",
+    "rom": 420136,
+    "vram": 2147900712,
+    "size": 24,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
+    "name": "func_80065D40",
+    "rom": 420160,
+    "vram": 2147900736,
+    "size": 48,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
+    "name": "nextSampleTime",
+    "rom": 420208,
+    "vram": 2147900784,
+    "size": 8,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md",
+    "linkage": "static"
+  },
+  {
+    "name": "func_80065D78",
+    "rom": 420216,
+    "vram": 2147900792,
+    "size": 664,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
+    "name": "func_80066010",
+    "rom": 420880,
+    "vram": 2147901456,
+    "size": 768,
+    "source": "src/sdk/audio_synthesizer.c",
+    "object": "build/us/audio_synthesizer.o",
+    "section": ".audio_synthesizer",
+    "section_vram": 2147900464,
+    "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
     "name": "func_80066310",
     "rom": 421648,
     "vram": 2147902224,
@@ -11579,6 +11680,72 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "name": "func_8006B5E0",
+    "rom": 442848,
+    "vram": 2147923424,
+    "size": 68,
+    "source": "src/sdk/audio_filter_create.c",
+    "object": "build/us/audio_filter_create.o",
+    "section": ".audio_filter_create",
+    "section_vram": 2147923424,
+    "evidence": "docs/sdk-audio-filter-construction.md"
+  },
+  {
+    "name": "func_8006B624",
+    "rom": 442916,
+    "vram": 2147923492,
+    "size": 84,
+    "source": "src/sdk/audio_filter_create.c",
+    "object": "build/us/audio_filter_create.o",
+    "section": ".audio_filter_create",
+    "section_vram": 2147923424,
+    "evidence": "docs/sdk-audio-filter-construction.md"
+  },
+  {
+    "name": "func_8006B678",
+    "rom": 443000,
+    "vram": 2147923576,
+    "size": 84,
+    "source": "src/sdk/audio_filter_create.c",
+    "object": "build/us/audio_filter_create.o",
+    "section": ".audio_filter_create",
+    "section_vram": 2147923424,
+    "evidence": "docs/sdk-audio-filter-construction.md"
+  },
+  {
+    "name": "func_8006B6CC",
+    "rom": 443084,
+    "vram": 2147923660,
+    "size": 136,
+    "source": "src/sdk/audio_filter_create.c",
+    "object": "build/us/audio_filter_create.o",
+    "section": ".audio_filter_create",
+    "section_vram": 2147923424,
+    "evidence": "docs/sdk-audio-filter-construction.md"
+  },
+  {
+    "name": "func_8006B754",
+    "rom": 443220,
+    "vram": 2147923796,
+    "size": 168,
+    "source": "src/sdk/audio_filter_create.c",
+    "object": "build/us/audio_filter_create.o",
+    "section": ".audio_filter_create",
+    "section_vram": 2147923424,
+    "evidence": "docs/sdk-audio-filter-construction.md"
+  },
+  {
+    "name": "func_8006B7FC",
+    "rom": 443388,
+    "vram": 2147923964,
+    "size": 164,
+    "source": "src/sdk/audio_filter_create.c",
+    "object": "build/us/audio_filter_create.o",
+    "section": ".audio_filter_create",
+    "section_vram": 2147923424,
+    "evidence": "docs/sdk-audio-filter-construction.md"
+  },
+  {
     "name": "func_8006DBF0",
     "rom": 452592,
     "vram": 2147933168,
@@ -11600,6 +11767,17 @@
     "section_vram": 2147936064,
     "evidence": "docs/libultra.md",
     "language": "assembly"
+  },
+  {
+    "name": "func_8006E750",
+    "rom": 455504,
+    "vram": 2147936080,
+    "size": 28,
+    "source": "src/sdk/audio_filter_base.c",
+    "object": "build/us/audio_filter_base.o",
+    "section": ".audio_filter_base",
+    "section_vram": 2147936080,
+    "evidence": "docs/sdk-audio-filter-construction.md"
   },
   {
     "name": "func_8006F3C0",

@@ -600,6 +600,9 @@ MATCHING_BLOCKS = (
     ("voice_stop", "src/sdk/voice_stop.c", 0x80066840, 0x800668B8),
     ("voice_release", "src/sdk/voice_release.c", 0x800668C0, 0x80066970),
     ("voice_priority", "src/sdk/voice_priority.c", 0x80066970, 0x80066980),
+    ("audio_filter_create", "src/sdk/audio_filter_create.c", 0x8006B5E0, 0x8006B8A0),
+    ("audio_filter_base", "src/sdk/audio_filter_base.c", 0x8006E750, 0x8006E76C),
+    ("audio_synthesizer", "src/sdk/audio_synthesizer.c", 0x80065C30, 0x80066310),
 )
 
 CANDIDATE_BLOCKS = (

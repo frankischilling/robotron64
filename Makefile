@@ -4348,6 +4348,32 @@ RUNTIME_OBJECTS += \
     build/us/voice_release.o \
     build/us/voice_priority.o
 
+build/us/audio_filter_create.o: src/sdk/audio_filter_create.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_pipeline.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_filter_create.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_filter_create.raw.o $@ .text 0x2c0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_filter_base.o: src/sdk/audio_filter_base.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_pipeline.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_filter_base.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_filter_base.raw.o $@ .text 0x1c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_filter_create.o \
+    build/us/audio_filter_base.o
+
+build/us/audio_synthesizer.o: src/sdk/audio_synthesizer.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_commands.h include/sdk_audio_pipeline.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_synthesizer.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_synthesizer.raw.o build/us/audio_synthesizer.text.o .text 0x6e0
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_synthesizer.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_synthesizer.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
