@@ -1211,6 +1211,50 @@
     "evidence": "docs/scene-commands.md"
   },
   {
+    "name": "func_80021B20",
+    "rom": 141088,
+    "vram": 2147621664,
+    "size": 24,
+    "source": "src/game/save_level_lookup.c",
+    "object": "build/us/save_level_lookup.o",
+    "section": ".save_level_lookup",
+    "section_vram": 2147621664,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80021C14",
+    "rom": 141332,
+    "vram": 2147621908,
+    "size": 40,
+    "source": "src/game/save_menu_conditional_copy.c",
+    "object": "build/us/save_menu_conditional_copy.o",
+    "section": ".save_menu_conditional_copy",
+    "section_vram": 2147621908,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80022050",
+    "rom": 142416,
+    "vram": 2147622992,
+    "size": 12,
+    "source": "src/game/save_menu_flag_setter.c",
+    "object": "build/us/save_menu_flag_setter.o",
+    "section": ".save_menu_flag_setter",
+    "section_vram": 2147622992,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80022CF8",
+    "rom": 145656,
+    "vram": 2147626232,
+    "size": 44,
+    "source": "src/game/save_menu_state_reset.c",
+    "object": "build/us/save_menu_state_reset.o",
+    "section": ".save_menu_state_reset",
+    "section_vram": 2147626232,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
     "name": "func_80025688",
     "rom": 156296,
     "vram": 2147636872,

@@ -2143,6 +2143,30 @@ build/us/graphics_environment.o: src/game/graphics_environment.c include/debug_o
 	$(PYTHON) tools/trim_padding.py build/us/graphics_environment.raw.o $@ .text 0xb0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/save_level_lookup.o: src/game/save_level_lookup.c include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_level_lookup.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_level_lookup.raw.o $@ .text 0x18
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_conditional_copy.o: src/game/save_menu_conditional_copy.c $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_conditional_copy.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_conditional_copy.raw.o $@ .text 0x28
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_flag_setter.o: src/game/save_menu_flag_setter.c $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_flag_setter.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_flag_setter.raw.o $@ .text 0xc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_state_reset.o: src/game/save_menu_state_reset.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_state_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_state_reset.raw.o $@ .text 0x2c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/save_menu_legacy_reset.o: src/game/save_menu_legacy_reset.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_legacy_reset.raw.o $<
@@ -2881,6 +2905,10 @@ RUNTIME_OBJECTS += \
     build/us/graphics_environment.o
 
 RUNTIME_OBJECTS += \
+    build/us/save_level_lookup.o \
+    build/us/save_menu_conditional_copy.o \
+    build/us/save_menu_flag_setter.o \
+    build/us/save_menu_state_reset.o \
     build/us/save_menu_legacy_reset.o \
     build/us/save_menu_legacy_heap.o \
     build/us/save_menu_legacy_pages.o \

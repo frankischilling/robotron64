@@ -107,6 +107,14 @@ SECTIONS
     .scene_audio_request 0x8001F8E8 : AT(0x204E8) SUBALIGN(4) { build/us/scene_audio_request.o(.text) }
     .scene_background 0x8001F90C : AT(0x2050C) SUBALIGN(4) { build/us/scene_background.o(.text) }
     .cpu_after_scene_background 0x8001FCE4 : AT(0x208E4) { build/us/fallback.o(.rom_cpu_after_scene_background) }
+    .save_level_lookup 0x80021B20 : AT(0x22720) SUBALIGN(4) { build/us/save_level_lookup.o(.text) }
+    .cpu_after_save_level_lookup 0x80021B38 : AT(0x22738) { build/us/fallback.o(.rom_cpu_after_save_level_lookup) }
+    .save_menu_conditional_copy 0x80021C14 : AT(0x22814) SUBALIGN(4) { build/us/save_menu_conditional_copy.o(.text) }
+    .cpu_after_save_menu_conditional_copy 0x80021C3C : AT(0x2283C) { build/us/fallback.o(.rom_cpu_after_save_menu_conditional_copy) }
+    .save_menu_flag_setter 0x80022050 : AT(0x22C50) SUBALIGN(4) { build/us/save_menu_flag_setter.o(.text) }
+    .cpu_after_save_menu_flag_setter 0x8002205C : AT(0x22C5C) { build/us/fallback.o(.rom_cpu_after_save_menu_flag_setter) }
+    .save_menu_state_reset 0x80022CF8 : AT(0x238F8) SUBALIGN(4) { build/us/save_menu_state_reset.o(.text) }
+    .cpu_after_save_menu_state_reset 0x80022D24 : AT(0x23924) { build/us/fallback.o(.rom_cpu_after_save_menu_state_reset) }
     .save_menu_legacy_reset 0x80025688 : AT(0x26288) SUBALIGN(4) { build/us/save_menu_legacy_reset.o(.text) }
     .cpu_after_save_menu_legacy_reset 0x800256B8 : AT(0x262B8) { build/us/fallback.o(.rom_cpu_after_save_menu_legacy_reset) }
     .save_menu_legacy_heap 0x800256C0 : AT(0x262C0) SUBALIGN(4) { build/us/save_menu_legacy_heap.o(.text) }
@@ -912,7 +920,15 @@ ASSERT(SIZEOF(.scene_mark_dirty) == 0x14, "scene_mark_dirty size changed")
 ASSERT(SIZEOF(.scene_effect_apply) == 0x6c, "scene_effect_apply size changed")
 ASSERT(SIZEOF(.scene_audio_request) == 0x24, "scene_audio_request size changed")
 ASSERT(SIZEOF(.scene_background) == 0x3d8, "scene_background size changed")
-ASSERT(SIZEOF(.cpu_after_scene_background) == 0x59a4, "cpu_after_scene_background size changed")
+ASSERT(SIZEOF(.cpu_after_scene_background) == 0x1e3c, "cpu_after_scene_background size changed")
+ASSERT(SIZEOF(.save_level_lookup) == 0x18, "save_level_lookup size changed")
+ASSERT(SIZEOF(.cpu_after_save_level_lookup) == 0xdc, "cpu_after_save_level_lookup size changed")
+ASSERT(SIZEOF(.save_menu_conditional_copy) == 0x28, "save_menu_conditional_copy size changed")
+ASSERT(SIZEOF(.cpu_after_save_menu_conditional_copy) == 0x414, "cpu_after_save_menu_conditional_copy size changed")
+ASSERT(SIZEOF(.save_menu_flag_setter) == 0xc, "save_menu_flag_setter size changed")
+ASSERT(SIZEOF(.cpu_after_save_menu_flag_setter) == 0xc9c, "cpu_after_save_menu_flag_setter size changed")
+ASSERT(SIZEOF(.save_menu_state_reset) == 0x2c, "save_menu_state_reset size changed")
+ASSERT(SIZEOF(.cpu_after_save_menu_state_reset) == 0x2964, "cpu_after_save_menu_state_reset size changed")
 ASSERT(SIZEOF(.save_menu_legacy_reset) == 0x30, "save_menu_legacy_reset size changed")
 ASSERT(SIZEOF(.cpu_after_save_menu_legacy_reset) == 0x8, "cpu_after_save_menu_legacy_reset size changed")
 ASSERT(SIZEOF(.save_menu_legacy_heap) == 0x48, "save_menu_legacy_heap size changed")

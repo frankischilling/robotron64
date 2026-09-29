@@ -1,5 +1,7 @@
 # Save menu navigation recovery
 
+Four earlier helpers in the same subsystem are now source-owned: `func_80021B20` looks up a level label in `D_800BA7A8`, `func_80021C14` conditionally copies one source byte into a caller-selected word, `func_80022050` updates the menu/runtime flag at `D_80075950`, and `func_80022CF8` resets the menu status words before the main state machine runs. They total 120 code bytes and are linked independently inside the surrounding fallback so all intervening procedures remain untouched.
+
 The legacy callback block from `0x80025688` through `0x80025C40` now has twenty complete matching functions totaling 1,448 code bytes. Two eight-byte regions at `0x800256B8..0x800256C0` and `0x80025708..0x80025710` remain ROM fallback because the function catalog does not identify them as procedures. The recovered functions own no initialized data or BSS.
 
 `func_80025688` resets the legacy menu state, followed by the empty `func_800256C0` callback and two heap forwarding wrappers. The callbacks from `func_80025710` through `func_80025870`, plus `func_800259DC` and the three tail callbacks at `0x80025BBC..0x80025C40`, either refresh controller state before forwarding a value or open one of the existing menu-page definitions through `func_80026178`.
