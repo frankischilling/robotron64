@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,107 matching C functions covering 157,808 bytes, eight assembly functions covering 388 bytes, 2,689 bytes of source-owned initialized data, and 4,199 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,151 matching C functions covering 177,552 bytes, eight assembly functions covering 388 bytes, 2,693 bytes of source-owned initialized data, and 4,983 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -103,6 +103,12 @@ tables, constants and private procedure extents are included in their proofs.
 recover active-instance counts, unique sequence and owner enumeration,
 renderer character mapping, and an actor callback handoff. The source uses
 the existing checked records and lock interfaces.
+
+[Controller and Pak storage](docs/sdk-controller-pak-reconstruction.md)
+recovers 44 further SDK procedures for polling, identification, file allocation,
+reads and writes, inode repair, motor commands, and CRC calculation. Their
+19,744 code bytes and all persistent controller packet storage are checked
+against the target, including the shipped error paths and stack behavior.
 
 ## Development
 

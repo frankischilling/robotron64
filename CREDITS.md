@@ -162,6 +162,15 @@ constant, and `lookathil.c` confirms the double threshold and highlight
 fallback formulas. Robotron's complete instructions and generated storage
 determine the accepted arithmetic, record layouts and procedure extents.
 
+The [controller and Pak reconstruction](docs/sdk-controller-pak-reconstruction.md)
+retains the reviewed sm64 CC0 and Perfect Dark MIT reference basis for its
+controller, filesystem and packet routines. The pinned libreultra, mk64, 007
+and decompals/ultralib comparisons identify historical SDK variants. Online
+inspection of libreultra's `src/io/crc.c` also corroborates the final zero-byte
+shift and its historical `temp &= -1` branch. Complete Robotron instructions,
+procedure records and storage comparisons determine the accepted code,
+including the target's ID-buffer and inode-repair behavior.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

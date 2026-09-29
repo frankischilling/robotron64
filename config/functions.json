@@ -11003,6 +11003,83 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "name": "func_80061A00",
+    "rom": 402944,
+    "vram": 2147883520,
+    "size": 416,
+    "source": "src/sdk/pfs_is_plug.c",
+    "object": "build/us/pfs_is_plug.o",
+    "section": ".pfs_is_plug",
+    "section_vram": 2147883520,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80061BA0",
+    "rom": 403360,
+    "vram": 2147883936,
+    "size": 252,
+    "source": "src/sdk/pfs_is_plug.c",
+    "object": "build/us/pfs_is_plug.o",
+    "section": ".pfs_is_plug",
+    "section_vram": 2147883520,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80061C9C",
+    "rom": 403612,
+    "vram": 2147884188,
+    "size": 208,
+    "source": "src/sdk/pfs_is_plug.c",
+    "object": "build/us/pfs_is_plug.o",
+    "section": ".pfs_is_plug",
+    "section_vram": 2147883520,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80061D70",
+    "rom": 403824,
+    "vram": 2147884400,
+    "size": 612,
+    "source": "src/sdk/pfs_init_pak.c",
+    "object": "build/us/pfs_init_pak.o",
+    "section": ".pfs_init_pak",
+    "section_vram": 2147884400,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80061FE0",
+    "rom": 404448,
+    "vram": 2147885024,
+    "size": 196,
+    "source": "src/sdk/controller_read.c",
+    "object": "build/us/controller_read.o",
+    "section": ".controller_read",
+    "section_vram": 2147885024,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800620A4",
+    "rom": 404644,
+    "vram": 2147885220,
+    "size": 168,
+    "source": "src/sdk/controller_read.c",
+    "object": "build/us/controller_read.o",
+    "section": ".controller_read",
+    "section_vram": 2147885024,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006214C",
+    "rom": 404812,
+    "vram": 2147885388,
+    "size": 236,
+    "source": "src/sdk/controller_read.c",
+    "object": "build/us/controller_read.o",
+    "section": ".controller_read",
+    "section_vram": 2147885024,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
     "name": "func_80062240",
     "rom": 405056,
     "vram": 2147885632,
@@ -11012,6 +11089,73 @@
     "section": ".message_receive",
     "section_vram": 2147885632,
     "evidence": "docs/sdk-runtime.md"
+  },
+  {
+    "name": "func_80062380",
+    "rom": 405376,
+    "vram": 2147885952,
+    "size": 436,
+    "source": "src/sdk/pfs_search_file.c",
+    "object": "build/us/pfs_search_file.o",
+    "section": ".pfs_search_file",
+    "section_vram": 2147885952,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80062540",
+    "rom": 405824,
+    "vram": 2147886400,
+    "size": 1156,
+    "source": "src/sdk/pfs_allocate_file.c",
+    "object": "build/us/pfs_allocate_file.o",
+    "section": ".pfs_allocate_file",
+    "section_vram": 2147886400,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800629C4",
+    "rom": 406980,
+    "vram": 2147887556,
+    "size": 612,
+    "source": "src/sdk/pfs_allocate_file.c",
+    "object": "build/us/pfs_allocate_file.o",
+    "section": ".pfs_allocate_file",
+    "section_vram": 2147886400,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80062C28",
+    "rom": 407592,
+    "vram": 2147888168,
+    "size": 192,
+    "source": "src/sdk/pfs_allocate_file.c",
+    "object": "build/us/pfs_allocate_file.o",
+    "section": ".pfs_allocate_file",
+    "section_vram": 2147886400,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80062CF0",
+    "rom": 407792,
+    "vram": 2147888368,
+    "size": 252,
+    "source": "src/sdk/pfs_read_write_file.c",
+    "object": "build/us/pfs_read_write_file.o",
+    "section": ".pfs_read_write_file",
+    "section_vram": 2147888368,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md",
+    "linkage": "static"
+  },
+  {
+    "name": "func_80062DEC",
+    "rom": 408044,
+    "vram": 2147888620,
+    "size": 1024,
+    "source": "src/sdk/pfs_read_write_file.c",
+    "object": "build/us/pfs_read_write_file.o",
+    "section": ".pfs_read_write_file",
+    "section_vram": 2147888368,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
   },
   {
     "name": "func_800631F0",
@@ -11047,6 +11191,83 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "name": "func_800636F0",
+    "rom": 410352,
+    "vram": 2147890928,
+    "size": 360,
+    "source": "src/sdk/pfs_motor.c",
+    "object": "build/us/pfs_motor.o",
+    "section": ".pfs_motor",
+    "section_vram": 2147890928,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80063858",
+    "rom": 410712,
+    "vram": 2147891288,
+    "size": 364,
+    "source": "src/sdk/pfs_motor.c",
+    "object": "build/us/pfs_motor.o",
+    "section": ".pfs_motor",
+    "section_vram": 2147890928,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800639C4",
+    "rom": 411076,
+    "vram": 2147891652,
+    "size": 380,
+    "source": "src/sdk/pfs_motor.c",
+    "object": "build/us/pfs_motor.o",
+    "section": ".pfs_motor",
+    "section_vram": 2147890928,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80063B40",
+    "rom": 411456,
+    "vram": 2147892032,
+    "size": 452,
+    "source": "src/sdk/pfs_motor.c",
+    "object": "build/us/pfs_motor.o",
+    "section": ".pfs_motor",
+    "section_vram": 2147890928,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80063D10",
+    "rom": 411920,
+    "vram": 2147892496,
+    "size": 504,
+    "source": "src/sdk/controller_init.c",
+    "object": "build/us/controller_init.o",
+    "section": ".controller_init",
+    "section_vram": 2147892496,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80063F08",
+    "rom": 412424,
+    "vram": 2147893000,
+    "size": 208,
+    "source": "src/sdk/controller_init.c",
+    "object": "build/us/controller_init.o",
+    "section": ".controller_init",
+    "section_vram": 2147892496,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80063FD8",
+    "rom": 412632,
+    "vram": 2147893208,
+    "size": 244,
+    "source": "src/sdk/controller_init.c",
+    "object": "build/us/controller_init.o",
+    "section": ".controller_init",
+    "section_vram": 2147892496,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
     "name": "osSetEventMesg",
     "rom": 412880,
     "vram": 2147893456,
@@ -11056,6 +11277,72 @@
     "section": ".event_message",
     "section_vram": 2147893456,
     "evidence": "docs/sdk-runtime.md"
+  },
+  {
+    "name": "func_80064140",
+    "rom": 412992,
+    "vram": 2147893568,
+    "size": 332,
+    "source": "src/sdk/pfs_free_blocks.c",
+    "object": "build/us/pfs_free_blocks.o",
+    "section": ".pfs_free_blocks",
+    "section_vram": 2147893568,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80064290",
+    "rom": 413328,
+    "vram": 2147893904,
+    "size": 324,
+    "source": "src/sdk/pfs_num_files.c",
+    "object": "build/us/pfs_num_files.o",
+    "section": ".pfs_num_files",
+    "section_vram": 2147893904,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800643E0",
+    "rom": 413664,
+    "vram": 2147894240,
+    "size": 736,
+    "source": "src/sdk/pfs_delete_file.c",
+    "object": "build/us/pfs_delete_file.o",
+    "section": ".pfs_delete_file",
+    "section_vram": 2147894240,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800646C0",
+    "rom": 414400,
+    "vram": 2147894976,
+    "size": 568,
+    "source": "src/sdk/pfs_delete_file.c",
+    "object": "build/us/pfs_delete_file.o",
+    "section": ".pfs_delete_file",
+    "section_vram": 2147894240,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800648F8",
+    "rom": 414968,
+    "vram": 2147895544,
+    "size": 240,
+    "source": "src/sdk/pfs_delete_file.c",
+    "object": "build/us/pfs_delete_file.o",
+    "section": ".pfs_delete_file",
+    "section_vram": 2147894240,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800649F0",
+    "rom": 415216,
+    "vram": 2147895792,
+    "size": 752,
+    "source": "src/sdk/pfs_file_state.c",
+    "object": "build/us/pfs_file_state.o",
+    "section": ".pfs_file_state",
+    "section_vram": 2147895792,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
   },
   {
     "name": "osViSetMode",
@@ -11680,6 +11967,117 @@
     "evidence": "docs/sdk-time-and-priority.md"
   },
   {
+    "name": "func_800688D0",
+    "rom": 431312,
+    "vram": 2147911888,
+    "size": 92,
+    "source": "src/sdk/pfs_contpfs.c",
+    "object": "build/us/pfs_contpfs.o",
+    "section": ".pfs_contpfs",
+    "section_vram": 2147911888,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006892C",
+    "rom": 431404,
+    "vram": 2147911980,
+    "size": 104,
+    "source": "src/sdk/pfs_contpfs.c",
+    "object": "build/us/pfs_contpfs.o",
+    "section": ".pfs_contpfs",
+    "section_vram": 2147911888,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80068994",
+    "rom": 431508,
+    "vram": 2147912084,
+    "size": 1048,
+    "source": "src/sdk/pfs_contpfs.c",
+    "object": "build/us/pfs_contpfs.o",
+    "section": ".pfs_contpfs",
+    "section_vram": 2147911888,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80068DAC",
+    "rom": 432556,
+    "vram": 2147913132,
+    "size": 408,
+    "source": "src/sdk/pfs_contpfs.c",
+    "object": "build/us/pfs_contpfs.o",
+    "section": ".pfs_contpfs",
+    "section_vram": 2147911888,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80068F44",
+    "rom": 432964,
+    "vram": 2147913540,
+    "size": 604,
+    "source": "src/sdk/pfs_contpfs.c",
+    "object": "build/us/pfs_contpfs.o",
+    "section": ".pfs_contpfs",
+    "section_vram": 2147911888,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800691A0",
+    "rom": 433568,
+    "vram": 2147914144,
+    "size": 252,
+    "source": "src/sdk/pfs_contpfs.c",
+    "object": "build/us/pfs_contpfs.o",
+    "section": ".pfs_contpfs",
+    "section_vram": 2147911888,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006929C",
+    "rom": 433820,
+    "vram": 2147914396,
+    "size": 800,
+    "source": "src/sdk/pfs_contpfs.c",
+    "object": "build/us/pfs_contpfs.o",
+    "section": ".pfs_contpfs",
+    "section_vram": 2147911888,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_800695BC",
+    "rom": 434620,
+    "vram": 2147915196,
+    "size": 108,
+    "source": "src/sdk/pfs_contpfs.c",
+    "object": "build/us/pfs_contpfs.o",
+    "section": ".pfs_contpfs",
+    "section_vram": 2147911888,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80069630",
+    "rom": 434736,
+    "vram": 2147915312,
+    "size": 540,
+    "source": "src/sdk/pfs_cont_ram_read.c",
+    "object": "build/us/pfs_cont_ram_read.o",
+    "section": ".pfs_cont_ram_read",
+    "section_vram": 2147915312,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006984C",
+    "rom": 435276,
+    "vram": 2147915852,
+    "size": 360,
+    "source": "src/sdk/pfs_cont_ram_read.c",
+    "object": "build/us/pfs_cont_ram_read.o",
+    "section": ".pfs_cont_ram_read",
+    "section_vram": 2147915312,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md",
+    "linkage": "static"
+  },
+  {
     "name": "func_800699C0",
     "rom": 435648,
     "vram": 2147916224,
@@ -11722,6 +12120,95 @@
     "section": ".si_dma",
     "section_vram": 2147916416,
     "evidence": "docs/sdk-runtime.md"
+  },
+  {
+    "name": "func_80069B30",
+    "rom": 436016,
+    "vram": 2147916592,
+    "size": 268,
+    "source": "src/sdk/pfs_get_status.c",
+    "object": "build/us/pfs_get_status.o",
+    "section": ".pfs_get_status",
+    "section_vram": 2147916592,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_80069C40",
+    "rom": 436288,
+    "vram": 2147916864,
+    "size": 1732,
+    "source": "src/sdk/pfs_checker.c",
+    "object": "build/us/pfs_checker.o",
+    "section": ".pfs_checker",
+    "section_vram": 2147916864,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006A304",
+    "rom": 438020,
+    "vram": 2147918596,
+    "size": 436,
+    "source": "src/sdk/pfs_checker.c",
+    "object": "build/us/pfs_checker.o",
+    "section": ".pfs_checker",
+    "section_vram": 2147916864,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006A4B8",
+    "rom": 438456,
+    "vram": 2147919032,
+    "size": 488,
+    "source": "src/sdk/pfs_checker.c",
+    "object": "build/us/pfs_checker.o",
+    "section": ".pfs_checker",
+    "section_vram": 2147916864,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006A6A0",
+    "rom": 438944,
+    "vram": 2147919520,
+    "size": 516,
+    "source": "src/sdk/pfs_cont_ram_write.c",
+    "object": "build/us/pfs_cont_ram_write.o",
+    "section": ".pfs_cont_ram_write",
+    "section_vram": 2147919520,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006A8A4",
+    "rom": 439460,
+    "vram": 2147920036,
+    "size": 380,
+    "source": "src/sdk/pfs_cont_ram_write.c",
+    "object": "build/us/pfs_cont_ram_write.o",
+    "section": ".pfs_cont_ram_write",
+    "section_vram": 2147919520,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md",
+    "linkage": "static"
+  },
+  {
+    "name": "func_8006AA20",
+    "rom": 439840,
+    "vram": 2147920416,
+    "size": 176,
+    "source": "src/sdk/controller_crc.c",
+    "object": "build/us/controller_crc.o",
+    "section": ".controller_crc",
+    "section_vram": 2147920416,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "name": "func_8006AAD0",
+    "rom": 440016,
+    "vram": 2147920592,
+    "size": 208,
+    "source": "src/sdk/controller_crc.c",
+    "object": "build/us/controller_crc.o",
+    "section": ".controller_crc",
+    "section_vram": 2147920416,
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
   },
   {
     "name": "func_8006ABA0",

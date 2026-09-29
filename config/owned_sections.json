@@ -49,6 +49,20 @@
   },
   {
     "input_section": ".data",
+    "vram": 2148069680,
+    "rom": 589104,
+    "size": 4,
+    "symbols": {
+      "D_8008F130": 0
+    },
+    "section": ".controller_init_data",
+    "static_symbols": {},
+    "source": "src/sdk/controller_init.c",
+    "object": "build/us/controller_init.o",
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "input_section": ".data",
     "vram": 2148069728,
     "rom": 589152,
     "size": 4,
@@ -780,6 +794,69 @@
     "source": "src/sdk/matrix_rotation.c",
     "object": "build/us/matrix_rotation.o",
     "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".pfs_is_plug_bss",
+    "vram": 2149141792,
+    "rom": null,
+    "size": 64,
+    "symbols": {
+      "D_80194D20": 0
+    },
+    "static_symbols": {},
+    "source": "src/sdk/pfs_is_plug.c",
+    "object": "build/us/pfs_is_plug.o",
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".pfs_motor_bss",
+    "vram": 2149141856,
+    "rom": null,
+    "size": 576,
+    "symbols": {
+      "D_80194D60": 0,
+      "D_80194E60": 256,
+      "D_80194F60": 512,
+      "D_80194F80": 544
+    },
+    "static_symbols": {},
+    "source": "src/sdk/pfs_motor.c",
+    "object": "build/us/pfs_motor.o",
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".controller_read_bss",
+    "vram": 2149142432,
+    "rom": null,
+    "size": 64,
+    "symbols": {
+      "D_80194FA0": 0
+    },
+    "static_symbols": {},
+    "source": "src/sdk/controller_read.c",
+    "object": "build/us/controller_read.o",
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".controller_init_bss",
+    "vram": 2149142496,
+    "rom": null,
+    "size": 80,
+    "symbols": {
+      "D_80194FE0": 0,
+      "D_80194FE1": 1,
+      "D_80194FE8": 8,
+      "D_80195008": 40,
+      "D_80195020": 64
+    },
+    "static_symbols": {},
+    "source": "src/sdk/controller_init.c",
+    "object": "build/us/controller_init.o",
+    "evidence": "docs/sdk-controller-pak-reconstruction.md"
   },
   {
     "input_section": ".bss",

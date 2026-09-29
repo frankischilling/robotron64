@@ -4571,6 +4571,138 @@ RUNTIME_OBJECTS += \
     build/us/camera_highlights.o \
     build/us/matrix_rotation.o
 
+build/us/pfs_is_plug.o: src/sdk/pfs_is_plug.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_is_plug.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_is_plug.raw.o build/us/pfs_is_plug.text.o .text 0x36c
+	$(PYTHON) tools/owned_sections.py $< build/us/pfs_is_plug.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_init_pak.o: src/sdk/pfs_init_pak.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_init_pak.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_init_pak.raw.o $@ .text 0x264
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/controller_read.o: src/sdk/controller_read.c include/scheduler.h include/sdk_controller.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_read.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/controller_read.raw.o build/us/controller_read.text.o .text 0x258
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_read.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_search_file.o: src/sdk/pfs_search_file.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_search_file.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_search_file.raw.o $@ .text 0x1b4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_allocate_file.o: src/sdk/pfs_allocate_file.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_allocate_file.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_allocate_file.raw.o $@ .text 0x7a8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_read_write_file.o: src/sdk/pfs_read_write_file.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_read_write_file.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_read_write_file.raw.o $@ .text 0x4fc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_motor.o: src/sdk/pfs_motor.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_motor.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_motor.raw.o build/us/pfs_motor.text.o .text 0x614
+	$(PYTHON) tools/owned_sections.py $< build/us/pfs_motor.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/controller_init.o: src/sdk/controller_init.c include/scheduler.h include/sdk_controller.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_init.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/controller_init.raw.o build/us/controller_init.text.o .text 0x3bc
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_init.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_free_blocks.o: src/sdk/pfs_free_blocks.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_free_blocks.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_free_blocks.raw.o $@ .text 0x14c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_num_files.o: src/sdk/pfs_num_files.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_num_files.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_num_files.raw.o $@ .text 0x144
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_delete_file.o: src/sdk/pfs_delete_file.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_delete_file.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_delete_file.raw.o $@ .text 0x608
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_file_state.o: src/sdk/pfs_file_state.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_file_state.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_file_state.raw.o $@ .text 0x2f0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_contpfs.o: src/sdk/pfs_contpfs.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_contpfs.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_contpfs.raw.o $@ .text 0xd58
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_cont_ram_read.o: src/sdk/pfs_cont_ram_read.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_cont_ram_read.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_cont_ram_read.raw.o $@ .text 0x384
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_get_status.o: src/sdk/pfs_get_status.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_get_status.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_get_status.raw.o $@ .text 0x10c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_checker.o: src/sdk/pfs_checker.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_checker.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_checker.raw.o $@ .text 0xa60
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_cont_ram_write.o: src/sdk/pfs_cont_ram_write.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_cont_ram_write.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_cont_ram_write.raw.o $@ .text 0x380
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/controller_crc.o: src/sdk/controller_crc.c include/scheduler.h include/sdk_si.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_crc.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/controller_crc.raw.o $@ .text 0x180
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/pfs_is_plug.o \
+    build/us/pfs_init_pak.o \
+    build/us/controller_read.o \
+    build/us/pfs_search_file.o \
+    build/us/pfs_allocate_file.o \
+    build/us/pfs_read_write_file.o \
+    build/us/pfs_motor.o \
+    build/us/controller_init.o \
+    build/us/pfs_free_blocks.o \
+    build/us/pfs_num_files.o \
+    build/us/pfs_delete_file.o \
+    build/us/pfs_file_state.o \
+    build/us/pfs_contpfs.o \
+    build/us/pfs_cont_ram_read.o \
+    build/us/pfs_get_status.o \
+    build/us/pfs_checker.o \
+    build/us/pfs_cont_ram_write.o \
+    build/us/controller_crc.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

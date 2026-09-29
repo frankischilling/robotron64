@@ -774,19 +774,19 @@ SECTIONS
     .cpu_after_time_get 0x800614D4 : AT(0x620D4) { build/us/fallback.o(.rom_cpu_after_time_get) }
     .compiler_integer64 0x800614E0 : AT(0x620E0) SUBALIGN(4) { build/us/compiler_integer64.o(.text) }
     .cpu_after_compiler_arithmetic 0x800617A0 : AT(0x623A0) { build/us/fallback.o(.rom_cpu_after_compiler_arithmetic) }
-    .pfs_is_plug 0x80061A00 : AT(0x62600) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_is_plug) }
+    .pfs_is_plug 0x80061A00 : AT(0x62600) SUBALIGN(4) { build/us/pfs_is_plug.o(.text) }
     .cpu_after_pfs_is_plug 0x80061D6C : AT(0x6296C) { build/us/fallback.o(.rom_cpu_after_pfs_is_plug) }
-    .pfs_init_pak 0x80061D70 : AT(0x62970) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_init_pak) }
+    .pfs_init_pak 0x80061D70 : AT(0x62970) SUBALIGN(4) { build/us/pfs_init_pak.o(.text) }
     .cpu_after_pfs_init_pak 0x80061FD4 : AT(0x62BD4) { build/us/fallback.o(.rom_cpu_after_pfs_init_pak) }
-    .controller_read 0x80061FE0 : AT(0x62BE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_controller_read) }
+    .controller_read 0x80061FE0 : AT(0x62BE0) SUBALIGN(4) { build/us/controller_read.o(.text) }
     .cpu_after_controller_read 0x80062238 : AT(0x62E38) { build/us/fallback.o(.rom_cpu_after_controller_read) }
     .message_receive 0x80062240 : AT(0x62E40) SUBALIGN(4) { build/us/message_receive.o(.text) }
     .cpu_after_message_receive 0x80062378 : AT(0x62F78) { build/us/fallback.o(.rom_cpu_after_message_receive) }
-    .pfs_search_file 0x80062380 : AT(0x62F80) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_search_file) }
+    .pfs_search_file 0x80062380 : AT(0x62F80) SUBALIGN(4) { build/us/pfs_search_file.o(.text) }
     .cpu_after_pfs_search_file 0x80062534 : AT(0x63134) { build/us/fallback.o(.rom_cpu_after_pfs_search_file) }
-    .pfs_allocate_file 0x80062540 : AT(0x63140) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_allocate_file) }
+    .pfs_allocate_file 0x80062540 : AT(0x63140) SUBALIGN(4) { build/us/pfs_allocate_file.o(.text) }
     .cpu_after_pfs_allocate_file 0x80062CE8 : AT(0x638E8) { build/us/fallback.o(.rom_cpu_after_pfs_allocate_file) }
-    .pfs_read_write_file 0x80062CF0 : AT(0x638F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_read_write_file) }
+    .pfs_read_write_file 0x80062CF0 : AT(0x638F0) SUBALIGN(4) { build/us/pfs_read_write_file.o(.text) }
     .cpu_after_pfs_read_write_file 0x800631EC : AT(0x63DEC) { build/us/fallback.o(.rom_cpu_after_pfs_read_write_file) }
     .gu_random 0x800631F0 : AT(0x63DF0) SUBALIGN(4) { build/us/gu_random.o(.text) }
     .cpu_after_gu_random 0x8006321C : AT(0x63E1C) { build/us/fallback.o(.rom_cpu_after_gu_random) }
@@ -796,19 +796,19 @@ SECTIONS
     .pi_read 0x80063560 : AT(0x64160) SUBALIGN(4) { build/us/pi_read.o(.text) }
     .message_send 0x800635A0 : AT(0x641A0) SUBALIGN(4) { build/us/message_send.o(.text) }
     .cpu_after_message_send 0x800636EC : AT(0x642EC) { build/us/fallback.o(.rom_cpu_after_message_send) }
-    .pfs_motor 0x800636F0 : AT(0x642F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_motor) }
+    .pfs_motor 0x800636F0 : AT(0x642F0) SUBALIGN(4) { build/us/pfs_motor.o(.text) }
     .cpu_after_pfs_motor 0x80063D04 : AT(0x64904) { build/us/fallback.o(.rom_cpu_after_pfs_motor) }
-    .controller_init 0x80063D10 : AT(0x64910) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_controller_init) }
+    .controller_init 0x80063D10 : AT(0x64910) SUBALIGN(4) { build/us/controller_init.o(.text) }
     .cpu_after_controller_init 0x800640CC : AT(0x64CCC) { build/us/fallback.o(.rom_cpu_after_controller_init) }
     .event_message 0x800640D0 : AT(0x64CD0) SUBALIGN(4) { build/us/event_message.o(.text) }
     .cpu_after_event_message 0x80064138 : AT(0x64D38) { build/us/fallback.o(.rom_cpu_after_event_message) }
-    .pfs_free_blocks 0x80064140 : AT(0x64D40) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_free_blocks) }
+    .pfs_free_blocks 0x80064140 : AT(0x64D40) SUBALIGN(4) { build/us/pfs_free_blocks.o(.text) }
     .cpu_after_pfs_free_blocks 0x8006428C : AT(0x64E8C) { build/us/fallback.o(.rom_cpu_after_pfs_free_blocks) }
-    .pfs_num_files 0x80064290 : AT(0x64E90) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_num_files) }
+    .pfs_num_files 0x80064290 : AT(0x64E90) SUBALIGN(4) { build/us/pfs_num_files.o(.text) }
     .cpu_after_pfs_num_files 0x800643D4 : AT(0x64FD4) { build/us/fallback.o(.rom_cpu_after_pfs_num_files) }
-    .pfs_delete_file 0x800643E0 : AT(0x64FE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_delete_file) }
+    .pfs_delete_file 0x800643E0 : AT(0x64FE0) SUBALIGN(4) { build/us/pfs_delete_file.o(.text) }
     .cpu_after_pfs_delete_file 0x800649E8 : AT(0x655E8) { build/us/fallback.o(.rom_cpu_after_pfs_delete_file) }
-    .pfs_file_state 0x800649F0 : AT(0x655F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_file_state) }
+    .pfs_file_state 0x800649F0 : AT(0x655F0) SUBALIGN(4) { build/us/pfs_file_state.o(.text) }
     .vi_vertical_scale 0x80064CE0 : AT(0x658E0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_vertical_scale) }
     .cpu_after_vi_vertical_scale 0x80064D38 : AT(0x65938) { build/us/fallback.o(.rom_cpu_after_vi_vertical_scale) }
     .vi_manager 0x80064D40 : AT(0x65940) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_manager) }
@@ -874,18 +874,18 @@ SECTIONS
     .timer_interrupt 0x8006855C : AT(0x6915C) SUBALIGN(4) { build/us/timer_interrupt.o(.text) }
     .timer_compare 0x800686D4 : AT(0x692D4) SUBALIGN(4) { build/us/timer_compare.o(.text) }
     .timer_insert 0x80068748 : AT(0x69348) SUBALIGN(4) { build/us/timer_insert.o(.text) }
-    .pfs_contpfs 0x800688D0 : AT(0x694D0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_contpfs) }
+    .pfs_contpfs 0x800688D0 : AT(0x694D0) SUBALIGN(4) { build/us/pfs_contpfs.o(.text) }
     .cpu_after_pfs_contpfs 0x80069628 : AT(0x6A228) { build/us/fallback.o(.rom_cpu_after_pfs_contpfs) }
-    .pfs_cont_ram_read 0x80069630 : AT(0x6A230) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_cont_ram_read) }
+    .pfs_cont_ram_read 0x80069630 : AT(0x6A230) SUBALIGN(4) { build/us/pfs_cont_ram_read.o(.text) }
     .cpu_after_pfs_cont_ram_read 0x800699B4 : AT(0x6A5B4) { build/us/fallback.o(.rom_cpu_after_pfs_cont_ram_read) }
     .si_access 0x800699C0 : AT(0x6A5C0) SUBALIGN(4) { build/us/si_access.o(.text) }
     .si_dma 0x80069A80 : AT(0x6A680) SUBALIGN(4) { build/us/si_dma.o(.text) }
     .cpu_after_si_dma 0x80069B2C : AT(0x6A72C) { build/us/fallback.o(.rom_cpu_after_si_dma) }
-    .pfs_get_status 0x80069B30 : AT(0x6A730) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_get_status) }
+    .pfs_get_status 0x80069B30 : AT(0x6A730) SUBALIGN(4) { build/us/pfs_get_status.o(.text) }
     .cpu_after_pfs_get_status 0x80069C3C : AT(0x6A83C) { build/us/fallback.o(.rom_cpu_after_pfs_get_status) }
-    .pfs_checker 0x80069C40 : AT(0x6A840) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_checker) }
-    .pfs_cont_ram_write 0x8006A6A0 : AT(0x6B2A0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_cont_ram_write) }
-    .controller_crc 0x8006AA20 : AT(0x6B620) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_controller_crc) }
+    .pfs_checker 0x80069C40 : AT(0x6A840) SUBALIGN(4) { build/us/pfs_checker.o(.text) }
+    .pfs_cont_ram_write 0x8006A6A0 : AT(0x6B2A0) SUBALIGN(4) { build/us/pfs_cont_ram_write.o(.text) }
+    .controller_crc 0x8006AA20 : AT(0x6B620) SUBALIGN(4) { build/us/controller_crc.o(.text) }
     .timer_schedule 0x8006ABA0 : AT(0x6B7A0) SUBALIGN(4) { build/us/timer_schedule.o(.text) }
     .cpu_after_timer_set 0x8006AC74 : AT(0x6B874) { build/us/fallback.o(.rom_cpu_after_timer_set) }
     .video_context_get 0x8006AC80 : AT(0x6B880) SUBALIGN(4) { build/us/video_context_get.o(.text) }
@@ -960,7 +960,7 @@ SECTIONS
     .data_after_sdk_pi_manager_data 0x9001EEDC : AT(0x8EFEC) { build/us/fallback.o(.rom_data_after_sdk_pi_manager_data) }
     .gu_random_data 0x8008F120 : AT(0x8FD20) SUBALIGN(4) { build/us/gu_random.o(.data) }
     .data_after_sdk_random_data 0x9001FC14 : AT(0x8FD24) { build/us/fallback.o(.rom_data_after_sdk_random_data) }
-    .sdk_controller_init_data 0x8008F130 : AT(0x8FD30) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_controller_init_data) }
+    .controller_init_data 0x8008F130 : AT(0x8FD30) SUBALIGN(4) { build/us/controller_init.o(.data) }
     .data_after_sdk_controller_init_data 0x9001FC24 : AT(0x8FD34) { build/us/fallback.o(.rom_data_after_sdk_controller_init_data) }
     .sdk_vi_manager_data 0x8008F140 : AT(0x8FD40) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_vi_manager_data) }
     .data_after_sdk_vi_manager_data 0x9001FC4C : AT(0x8FD5C) { build/us/fallback.o(.rom_data_after_sdk_vi_manager_data) }
@@ -1031,6 +1031,10 @@ SECTIONS
     .audio_backend_note_release_bss 0x80192B70 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_note_release.o(.bss) }
     .timer_initialize_bss 0x80196450 (NOLOAD) : SUBALIGN(4) { build/us/timer_initialize.o(.bss) }
     .matrix_rotation_bss 0x80194D10 (NOLOAD) : SUBALIGN(4) { build/us/matrix_rotation.o(.bss) }
+    .pfs_is_plug_bss 0x80194D20 (NOLOAD) : SUBALIGN(4) { build/us/pfs_is_plug.o(.bss) }
+    .controller_read_bss 0x80194FA0 (NOLOAD) : SUBALIGN(4) { build/us/controller_read.o(.bss) }
+    .pfs_motor_bss 0x80194D60 (NOLOAD) : SUBALIGN(4) { build/us/pfs_motor.o(.bss) }
+    .controller_init_bss 0x80194FE0 (NOLOAD) : SUBALIGN(4) { build/us/controller_init.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1429,7 +1433,7 @@ ASSERT(SIZEOF(.sdk_pi_manager_data) == 0x1c, "sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_pi_manager_data) == 0xd34, "data_after_sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.gu_random_data) == 0x4, "gu_random_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_random_data) == 0xc, "data_after_sdk_random_data size changed")
-ASSERT(SIZEOF(.sdk_controller_init_data) == 0x4, "sdk_controller_init_data size changed")
+ASSERT(SIZEOF(.controller_init_data) == 0x4, "controller_init_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_controller_init_data) == 0xc, "data_after_sdk_controller_init_data size changed")
 ASSERT(SIZEOF(.sdk_vi_manager_data) == 0x1c, "sdk_vi_manager_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_vi_manager_data) == 0x4, "data_after_sdk_vi_manager_data size changed")
@@ -2048,3 +2052,8 @@ ASSERT(SIZEOF(.audio_backend_note_release_bss) == 0x8, "audio_backend_note_relea
 ASSERT(SIZEOF(.timer_initialize_bss) == 0x8, "timer_initialize BSS size changed")
 
 ASSERT(SIZEOF(.matrix_rotation_bss) == 0x4, "matrix_rotation BSS size changed")
+
+ASSERT(SIZEOF(.pfs_is_plug_bss) == 0x40, "pfs_is_plug BSS size changed")
+ASSERT(SIZEOF(.controller_read_bss) == 0x40, "controller_read BSS size changed")
+ASSERT(SIZEOF(.pfs_motor_bss) == 0x240, "pfs_motor BSS size changed")
+ASSERT(SIZEOF(.controller_init_bss) == 0x50, "controller_init BSS size changed")
