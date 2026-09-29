@@ -110,6 +110,26 @@ class PublicationAuditTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "stale source metadata"):
                 current_comparisons(self.functions)
 
+    def test_unregistered_c_source_cannot_pass_on_build_evidence_alone(self):
+        with patch("audit_publication.MATCHING_BLOCKS", ()), patch("audit_publication.STARTUP_BLOCKS", ()):
+            with self.assertRaisesRegex(ValueError, "C sources lack complete independent comparisons: src/game/example.c"):
+                current_comparisons(self.functions)
+
+    def test_a_registered_source_does_not_hide_an_unregistered_neighbor(self):
+        next_function = {**self.function, "name": "func_8000100C", "source": "src/game/next.c",
+                         "vram": 0x8000100C, "section_vram": 0x8000100C}
+        block = ("example", self.source, 0x80001000, 0x8000100C)
+        with patch("audit_publication.MATCHING_BLOCKS", (block,)), patch("audit_publication.STARTUP_BLOCKS", ()):
+            with self.assertRaisesRegex(ValueError, "C sources lack complete independent comparisons: src/game/next.c"):
+                current_comparisons(self.functions + [next_function])
+
+    def test_assembly_sources_use_the_separate_assembly_comparison_family(self):
+        function = {**self.function, "language": "assembly", "source": "src/boot/example.s"}
+        with patch("audit_publication.MATCHING_BLOCKS", ()), patch("audit_publication.STARTUP_BLOCKS", ()):
+            families, groups = current_comparisons([function])
+        self.assertEqual(families, {"runtime-comparison": {}, "startup-comparison": {}})
+        self.assertEqual(groups[function["source"]], [function])
+
     def test_verified_zero_alignment_is_separate_from_live_function_bytes(self):
         from compare_assembly import verify_text_coverage
         payload = bytes.fromhex("2402000103e000080000000000000000")

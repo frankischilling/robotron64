@@ -9,6 +9,13 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("actor_animation", "src/game/actor_animation.c", 0x80027AB8, 0x80027B9C),
+    ("object_transforms", "src/game/object_transforms.c", 0x800394C0, 0x80039C78),
+    ("text", "src/game/text.c", 0x80000450, 0x80000F48),
+    ("text_conversion", "src/game/text_conversion.c", 0x800016D8, 0x8000177C),
+    ("text_edit", "src/game/text_edit.c", 0x80001270, 0x800013D0),
+    ("text_properties", "src/game/text_properties.c", 0x800013D0, 0x800016D8),
+    ("text_wrapper", "src/game/text_wrapper.c", 0x800011AC, 0x80001270),
     ("movie_reset", "src/game/movie_reset.c", 0x80002EE0, 0x80002F28),
     ("movie_parameters", "src/game/movie_parameters.c", 0x80002F28, 0x80003040),
     ("movie_commands", "src/game/movie_commands.c", 0x80003040, 0x800037F8),

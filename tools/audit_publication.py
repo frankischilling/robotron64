@@ -105,6 +105,11 @@ def current_comparisons(functions):
                 raise ValueError(f"Comparison extent overlaps another source: {source}")
             expected[name] = (source, start, end)
         families[family] = expected
+    compared_sources = {source for expected in families.values() for source, _, _ in expected.values()}
+    missing = sorted(source for source, records in groups.items()
+                     if records[0].get("language", "C") == "C" and source not in compared_sources)
+    if missing:
+        raise ValueError("C sources lack complete independent comparisons: " + ", ".join(missing))
     return families, groups
 
 

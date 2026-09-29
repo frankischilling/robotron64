@@ -25,11 +25,11 @@ build/us/extracted/.stamp: $(BASEROM) tools/extract.py tools/rom.py config/targe
 build/us/fallback.o: build/us/extracted/.stamp
 	$(CROSS)as -EB -32 -march=vr4300 -o $@ build/us/extracted/fallback.s
 
-build/us/text.o: src/game/text.c include/text.h include/object.h include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/text.o: src/game/text.c include/text.h include/object.h include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/text.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/text.raw.o build/us/text.rodata.o .rodata 0x128
-	$(PYTHON) tools/trim_padding.py build/us/text.rodata.o $@ .text 0xaf8
+	$(PYTHON) tools/trim_padding.py build/us/text.raw.o build/us/text.text.o .text 0xaf8
+	$(PYTHON) tools/owned_sections.py $< build/us/text.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/text_wrapper.o: src/game/text_wrapper.c include/text.h include/object.h include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json

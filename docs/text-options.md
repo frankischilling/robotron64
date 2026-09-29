@@ -40,3 +40,18 @@ The setter generates a 32-entry switch table at ROM `0x90320..0x903A0`, immediat
 The four functions and both tables match through the existing IDO 5.3 flags and fixed linker placement. Clean extraction/build, full-ROM verification, per-function symbol and byte checks, and tooling tests pass. All 8,388,608 bytes reproduce SHA-256 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
 
 C progress increases from ten functions / 1,836 bytes to fourteen functions / 2,808 bytes. Assembly progress remains 56 bytes. Generated tables are not counted as code, and whole-game totals remain unknown.
+
+## Independent comparison and ownership
+
+The current ownership manifest also records the complete 296-byte `.rodata`
+extent at `0x8008F678..0x8008F7A0`, ROM `0x90278..0x903A0`. This lets the
+independent text-unit comparison place both generated jump tables at the same
+addresses as the production linker and verify all table bytes and relocations.
+The production recipe now uses that shared ownership declaration when it
+checks and trims the eight trailing alignment bytes.
+
+These tables were already compiled into the matching ROM. Adding their
+ownership record corrects initialized-data accounting; it does not add new
+decompiled functions or change the text implementation. The publication audit
+now rejects a C source omitted from all independent comparison families, even
+when that source participates in a successful whole-ROM build.

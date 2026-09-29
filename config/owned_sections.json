@@ -1,5 +1,17 @@
 [
   {
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "input_section": ".rodata",
+    "section": ".text_table",
+    "vram": 2148071032,
+    "rom": 590456,
+    "size": 296,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/text-options.md"
+  },
+  {
     "source": "src/game/movie_prepare.c",
     "object": "build/us/movie_prepare.o",
     "input_section": ".data",
