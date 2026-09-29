@@ -83,7 +83,12 @@ checks every code byte and owned constant. `make progress` checks the entire
 ROM and linked source provenance before reporting recovered code. `make test`
 checks the compiler-profile selection, manifest, and verification tools.
 
-The remaining driver initializer, playback setup, several command handlers,
-and portions of the sequencer are still candidates. Same-size or low-difference
+The [bank initializer](audio-bank-layout.md) has since been recovered as a
+complete 708-byte function with four bytes of private BSS. Playback setup,
+note setup, several command handlers, and portions of the sequencer are still candidates.
+Same-size or low-difference
 results do not qualify as matches and have not replaced their fallback spans.
 This batch does not claim that the entire audio system is source-recovered.
+
+The subsequent [volume, pan, and pedal batch](audio-driver-commands.md) adds
+five complete procedures and preserves their adjacent private byte fields.

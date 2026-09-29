@@ -507,6 +507,10 @@ MATCHING_BLOCKS = (
     ("compression_memory", "src/game/compression_memory.c", 0x8005FAB0, 0x8005FB08),
     ("compression_cartridge", "src/game/compression_cartridge.c", 0x8005FB08, 0x8005FB58),
     ("compression_cartridge_bounded", "src/game/compression_cartridge_bounded.c", 0x8005FB58, 0x8005FBB0),
+    ("session_setup_extra_kinemation", "src/game/session_setup_extra_kinemation.c", 0x8002F334, 0x8002F414),
+    ("audio_backend_initialize", "src/game/audio_backend_initialize.c", 0x8005B3A8, 0x8005B66C),
+    ("audio_backend_volume", "src/game/audio_backend_volume.c", 0x8005BCC8, 0x8005BEFC),
+    ("audio_backend_pan_pedal", "src/game/audio_backend_pan_pedal.c", 0x8005BEFC, 0x8005C1D8),
 )
 
 CANDIDATE_BLOCKS = (

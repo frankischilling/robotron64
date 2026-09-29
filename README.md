@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 927 matching C functions covering 121,048 bytes, plus a 56-byte reconstructed assembly entry, 1,352 bytes of source-owned initialized data, and 4,090 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 934 matching C functions covering 123,276 bytes, plus a 56-byte reconstructed assembly entry, 1,352 bytes of source-owned initialized data, and 4,135 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -58,13 +58,16 @@ forward and back callbacks, preview creation and release, and cleanup.
 checksum, and character order. [Actor resource-mode dispatch](docs/actor-behavior-next.md)
 preserves timed callbacks, animation transitions, and heading updates.
 
-The current recovery adds 274 complete functions and 35,020 C bytes
-relative to the preceding published checkpoint. [Audio properties](docs/audio-properties.md),
+The recent recovery extends the game-side audio pipeline. [Audio properties](docs/audio-properties.md),
 [host and stream services](docs/audio-host-stream.md), [command controls and voice capture](docs/audio-command-engine.md),
 [hardware voice management](docs/audio-hardware-driver.md), and [sequence loading](docs/audio-sequence-loading.md)
 record the recovered audio pipeline. [Compression runtime](docs/compression-runtime.md)
 covers input handling, workspace allocation, block dispatch, and the source-owned
 Huffman tables and buffers. The remaining decoding loops still use fallback code.
+
+[Bank initialization](docs/audio-bank-layout.md) and the
+[volume, pan, and pedal commands](docs/audio-driver-commands.md) preserve the
+packed bank records, sample relocation, private byte fields, and hardware updates.
 
 [Early game state](docs/early-game-state.md) and [transition and lookup routines](docs/early-game-medium.md)
 cover selection state, actor creation, callbacks, pointer initialization, and

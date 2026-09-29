@@ -2608,6 +2608,17 @@
     "evidence": "docs/session-setup.md"
   },
   {
+    "name": "func_8002F334",
+    "rom": 196404,
+    "vram": 2147676980,
+    "size": 224,
+    "source": "src/game/session_setup_extra_kinemation.c",
+    "object": "build/us/session_setup_extra_kinemation.o",
+    "section": ".session_setup_extra_kinemation",
+    "section_vram": 2147676980,
+    "evidence": "docs/session-setup.md"
+  },
+  {
     "name": "func_8002F414",
     "rom": 196628,
     "vram": 2147677204,
@@ -9824,6 +9835,17 @@
     "evidence": "docs/audio-hardware-driver.md"
   },
   {
+    "name": "func_8005B3A8",
+    "rom": 376744,
+    "vram": 2147857320,
+    "size": 708,
+    "source": "src/game/audio_backend_initialize.c",
+    "object": "build/us/audio_backend_initialize.o",
+    "section": ".audio_backend_initialize",
+    "section_vram": 2147857320,
+    "evidence": "docs/audio-bank-layout.md"
+  },
+  {
     "name": "func_8005B66C",
     "rom": 377452,
     "vram": 2147858028,
@@ -9899,6 +9921,61 @@
     "section": ".audio_backend_patch",
     "section_vram": 2147858936,
     "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005BCC8",
+    "rom": 379080,
+    "vram": 2147859656,
+    "size": 8,
+    "source": "src/game/audio_backend_volume.c",
+    "object": "build/us/audio_backend_volume.o",
+    "section": ".audio_backend_volume",
+    "section_vram": 2147859656,
+    "evidence": "docs/audio-driver-commands.md"
+  },
+  {
+    "name": "func_8005BCD0",
+    "rom": 379088,
+    "vram": 2147859664,
+    "size": 8,
+    "source": "src/game/audio_backend_volume.c",
+    "object": "build/us/audio_backend_volume.o",
+    "section": ".audio_backend_volume",
+    "section_vram": 2147859656,
+    "evidence": "docs/audio-driver-commands.md"
+  },
+  {
+    "name": "func_8005BCD8",
+    "rom": 379096,
+    "vram": 2147859672,
+    "size": 548,
+    "source": "src/game/audio_backend_volume.c",
+    "object": "build/us/audio_backend_volume.o",
+    "section": ".audio_backend_volume",
+    "section_vram": 2147859656,
+    "evidence": "docs/audio-driver-commands.md"
+  },
+  {
+    "name": "func_8005BEFC",
+    "rom": 379644,
+    "vram": 2147860220,
+    "size": 420,
+    "source": "src/game/audio_backend_pan_pedal.c",
+    "object": "build/us/audio_backend_pan_pedal.o",
+    "section": ".audio_backend_pan_pedal",
+    "section_vram": 2147860220,
+    "evidence": "docs/audio-driver-commands.md"
+  },
+  {
+    "name": "func_8005C0A0",
+    "rom": 380064,
+    "vram": 2147860640,
+    "size": 312,
+    "source": "src/game/audio_backend_pan_pedal.c",
+    "object": "build/us/audio_backend_pan_pedal.o",
+    "section": ".audio_backend_pan_pedal",
+    "section_vram": 2147860220,
+    "evidence": "docs/audio-driver-commands.md"
   },
   {
     "name": "func_8005C4F8",

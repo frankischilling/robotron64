@@ -74,6 +74,11 @@ float func_8005B000(int cents);
 void func_8005B064(AudioStatusRecord *voice);
 void func_8005B854(AudioVoice *voice);
 void func_8005971C(AudioVoice *voice);
+void func_8005BCC8(AudioVoice *voice);
+void func_8005BCD0(AudioVoice *voice);
+void func_8005BCD8(AudioVoice *voice);
+void func_8005BEFC(AudioVoice *voice);
+void func_8005C0A0(AudioVoice *voice);
 void func_8005C334(AudioStatusRecord *hardware, AudioVoice *voice, AudioPatchRegion *region,
                    AudioWaveRecord *wave, unsigned char key, unsigned char velocity);
 void func_8005C3E4(AudioStatusRecord *voice);

@@ -1,0 +1,67 @@
+{
+  "note": "Archived candidate proof is retained. Reproduce current-source proof with the registered runtime comparison and full-ROM build.",
+  "retained_integration_ledger_sha256": "a252f2cbb056b19327131db59e4a6afcda9b97bc538540c8be7e156a267998d8",
+  "units": [
+    {
+      "source": "src/game/session_setup_extra_kinemation.c",
+      "source_sha256": "a3a4f5cc0ab92474ffadb35edede5927af8cf632b7f6672974631327bce34e46",
+      "headers_sha256": {
+        "include/game_memory.h": "a07c94f91f3a6a19c62746bb0e7196ddca84ae08ed88f9af469a0b81446b5e25",
+        "include/object.h": "670f42fc1f11c77c1a9b4239b917b431dd5e6d448e36f7725233ddeb9d01eb64",
+        "include/session_setup_internal.h": "8d1a1ee1780f7d27285bffc33f9890733c6e3574da5ef7134cd73cec53d95ef4",
+        "include/text.h": "2ad56c6202aa0544ca8cfceb1f6ac4a8b1b4f30acb50878ef16f68100feead9a"
+      },
+      "candidate_source": ".local/audio-backend/session_setup_extra_kinemation.c",
+      "candidate_source_sha256": "a3a4f5cc0ab92474ffadb35edede5927af8cf632b7f6672974631327bce34e46",
+      "candidate_report": "build/audio-backend/session_setup_extra_kinemation/report.json",
+      "candidate_report_sha256": "a78a60ec039924bff388cb304c0ae4ed374362ee48c0195446c07627db63951b",
+      "linked_code_sha256": "36a86641111c9f447d96759937bb55f9e25c80d7f55fcb353d21e744e4ff0653",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8002F334",
+          "start": 2147676980,
+          "end": 2147677204,
+          "size": 224
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 224,
+      "different_words": 0,
+      "accepted_headers_sha256": {
+        "include/game_memory.h": "a07c94f91f3a6a19c62746bb0e7196ddca84ae08ed88f9af469a0b81446b5e25",
+        "include/object.h": "670f42fc1f11c77c1a9b4239b917b431dd5e6d448e36f7725233ddeb9d01eb64",
+        "include/session_setup_internal.h": "8d1a1ee1780f7d27285bffc33f9890733c6e3574da5ef7134cd73cec53d95ef4",
+        "include/text.h": "2ad56c6202aa0544ca8cfceb1f6ac4a8b1b4f30acb50878ef16f68100feead9a"
+      }
+    }
+  ],
+  "original_worker_source_sha256": "a3a4f5cc0ab92474ffadb35edede5927af8cf632b7f6672974631327bce34e46",
+  "original_worker_report_sha256": "57554702f0b4a9ced8112c4a806a16aeb6f05d7d8a1a6020928a445076a2133b",
+  "retained_recovery_ledger_sha256": "f1e81ae1852eb06db30a4753256aa2b3d3e83b9af63b7d41e567a7003c1001e7",
+  "canonical_comparison": {
+    "report": "build/registered-audio-session-next/report.json",
+    "report_sha256": "7ab54f0a711c422a22d530960dec4ab46987531bc856fc4d702c68dc0b4da437",
+    "complete_units": 4,
+    "matches": true
+  },
+  "linked_checkpoint": {
+    "progress_sha256": "ee7f05900362ebb159e91f8691e3bd59a8bbddb9e2cef9ce8753f66c6c3dba35",
+    "validation_sha256": "7d1d87fec288134ebd9c73c6c518bf5a3387bc96fec0e4ac84c212f98de857b2",
+    "matched_c_functions": 934,
+    "matched_c_bytes": 123276,
+    "source_owned_bss_bytes": 4135,
+    "whole_rom_matches": true
+  }
+}

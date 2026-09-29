@@ -317,6 +317,20 @@
   },
   {
     "input_section": ".bss",
+    "section": ".audio_backend_initialize_bss",
+    "vram": 2149132988,
+    "rom": null,
+    "size": 4,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192ABC": 0
+    },
+    "source": "src/game/audio_backend_initialize.c",
+    "object": "build/us/audio_backend_initialize.o",
+    "evidence": "docs/audio-bank-layout.md"
+  },
+  {
+    "input_section": ".bss",
     "section": ".audio_backend_update_bss",
     "vram": 2149132992,
     "rom": null,
@@ -358,6 +372,45 @@
     "source": "src/game/audio_backend_patch.c",
     "object": "build/us/audio_backend_patch.o",
     "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".audio_backend_volume_bss",
+    "vram": 2149133052,
+    "rom": null,
+    "size": 17,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192AFC": 0,
+      "D_80192B00": 4,
+      "D_80192B04": 8,
+      "D_80192B08": 12,
+      "D_80192B0C": 16
+    },
+    "source": "src/game/audio_backend_volume.c",
+    "object": "build/us/audio_backend_volume.o",
+    "evidence": "docs/audio-driver-commands.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".audio_backend_pan_pedal_bss",
+    "vram": 2149133072,
+    "rom": null,
+    "size": 24,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192B10": 0,
+      "D_80192B14": 4,
+      "D_80192B18": 8,
+      "D_80192B1C": 12,
+      "D_80192B1E": 14,
+      "D_80192B1F": 15,
+      "D_80192B20": 16,
+      "D_80192B24": 20
+    },
+    "source": "src/game/audio_backend_pan_pedal.c",
+    "object": "build/us/audio_backend_pan_pedal.o",
+    "evidence": "docs/audio-driver-commands.md"
   },
   {
     "input_section": ".bss",

@@ -36,6 +36,14 @@ calculation and stack layout. Validation checks the model and texture-map names,
 then requires an animation and kinemation name in slot zero. These checks
 preserve the target's diagnostics and order.
 
+The extra kinemation command at `0x8002F334` now also matches all 224 bytes.
+It samples the name, duration, sound, and sound mode before registering the
+name, checks the four-entry extra-animation limit, and advances that table's
+cursor. It fills the eight-byte kinemation record with `-1` before assigning
+the sampled values. Explicit saved values preserve the target's stack layout
+across those calls. The [extra-command ledger](session-extra-kinemation-provenance.json)
+retains the archived input and fresh whole-function comparison identities.
+
 The initializer's callback at resource offset `0x54` is copied to actor offset
 `0x5C`. Calls in `func_80029FD8` pass an actor and an integer state. The small
 callback bodies at `0x8002B31C`, `0x8002B570`, and `0x8002B7B0` independently
@@ -71,12 +79,11 @@ in `config/functions.json` and independently linked by
 `tools/compare_runtime.py`. These command and menu units own no initialized
 data or BSS; they refer to the original tables through named symbols.
 
-Two reconstructed commands remain outside the matching manifest:
+The resource initializer remains outside the matching manifest:
 
 | Function | Complete extent | Remaining difference |
 | --- | --- | --- |
 | Resource initializer | `0x8002E670..0x8002ECC4`, 1,620 bytes | Temporary-register allocation; the complete 224-byte jump-table section matches |
-| Extra kinemation definition | `0x8002F334..0x8002F414`, 224 bytes | Ten instruction words, principally local stack offsets |
 
 The initializer selects ten resource categories and generates three jump
 tables at `0x80093EAC`, `0x80093ED4`, and `0x80093EFC`. It also retains the
