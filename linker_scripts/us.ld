@@ -857,7 +857,7 @@ SECTIONS
     .epi_dma 0x80067990 : AT(0x68590) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_epi_dma) }
     .cpu_after_epi_dma 0x80067BB4 : AT(0x687B4) { build/us/fallback.o(.rom_cpu_after_epi_dma) }
     .os_probe_tlb 0x80068190 : AT(0x68D90) SUBALIGN(4) { build/us/os_probe_tlb.o(.text) }
-    .gu_mtxutil 0x80068250 : AT(0x68E50) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_mtxutil) }
+    .matrix_convert 0x80068250 : AT(0x68E50) SUBALIGN(4) { build/us/matrix_convert.o(.text) }
     .cpu_after_gu_mtxutil 0x800684BC : AT(0x690BC) { build/us/fallback.o(.rom_cpu_after_gu_mtxutil) }
     .os_get_count 0x800684C0 : AT(0x690C0) SUBALIGN(4) { build/us/os_get_count.o(.text) }
     .timer_initialize 0x800684D0 : AT(0x690D0) SUBALIGN(4) { build/us/timer_initialize.o(.text) }
@@ -1907,7 +1907,7 @@ ASSERT(SIZEOF(.pi_raw_dma) == 0xe0, "pi_raw_dma size changed")
 ASSERT(SIZEOF(.epi_dma) == 0x224, "epi_dma size changed")
 ASSERT(SIZEOF(.cpu_after_epi_dma) == 0x5dc, "cpu_after_epi_dma size changed")
 ASSERT(SIZEOF(.os_probe_tlb) == 0xc0, "os_probe_tlb size changed")
-ASSERT(SIZEOF(.gu_mtxutil) == 0x26c, "gu_mtxutil size changed")
+ASSERT(SIZEOF(.matrix_convert) == 0x26c, "matrix_convert size changed")
 ASSERT(SIZEOF(.cpu_after_gu_mtxutil) == 0x4, "cpu_after_gu_mtxutil size changed")
 ASSERT(SIZEOF(.os_get_count) == 0x10, "os_get_count size changed")
 ASSERT(SIZEOF(.timer_initialize) == 0x8c, "timer_initialize size changed")

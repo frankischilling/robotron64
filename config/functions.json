@@ -11193,6 +11193,50 @@
     "language": "assembly"
   },
   {
+    "name": "func_80068250",
+    "rom": 429648,
+    "vram": 2147910224,
+    "size": 256,
+    "source": "src/sdk/matrix_convert.c",
+    "object": "build/us/matrix_convert.o",
+    "section": ".matrix_convert",
+    "section_vram": 2147910224,
+    "evidence": "docs/sdk-matrix-conversion.md"
+  },
+  {
+    "name": "func_80068350",
+    "rom": 429904,
+    "vram": 2147910480,
+    "size": 136,
+    "source": "src/sdk/matrix_convert.c",
+    "object": "build/us/matrix_convert.o",
+    "section": ".matrix_convert",
+    "section_vram": 2147910224,
+    "evidence": "docs/sdk-matrix-conversion.md"
+  },
+  {
+    "name": "func_800683D8",
+    "rom": 430040,
+    "vram": 2147910616,
+    "size": 48,
+    "source": "src/sdk/matrix_convert.c",
+    "object": "build/us/matrix_convert.o",
+    "section": ".matrix_convert",
+    "section_vram": 2147910224,
+    "evidence": "docs/sdk-matrix-conversion.md"
+  },
+  {
+    "name": "func_80068408",
+    "rom": 430088,
+    "vram": 2147910664,
+    "size": 180,
+    "source": "src/sdk/matrix_convert.c",
+    "object": "build/us/matrix_convert.o",
+    "section": ".matrix_convert",
+    "section_vram": 2147910224,
+    "evidence": "docs/sdk-matrix-conversion.md"
+  },
+  {
     "name": "osGetCount",
     "rom": 430272,
     "vram": 2147910848,

@@ -252,7 +252,6 @@ REGIONS = (
     ("cpu_after_thread_get_priority", 0x684a8, 0x684b0),
     ("sdk_fallback_epi_dma", 0x68590, 0x687b4),
     ("cpu_after_epi_dma", 0x687b4, 0x68d90),
-    ("sdk_fallback_gu_mtxutil", 0x68e50, 0x690bc),
     ("cpu_after_gu_mtxutil", 0x690bc, 0x690c0),
     ("sdk_fallback_pfs_contpfs", 0x694d0, 0x6a228),
     ("cpu_after_pfs_contpfs", 0x6a228, 0x6a230),

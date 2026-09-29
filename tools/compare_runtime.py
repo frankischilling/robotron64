@@ -589,6 +589,7 @@ MATCHING_BLOCKS = (
     ("message_prepend", "src/sdk/message_prepend.c", 0x8006B420, 0x8006B570),
     ("audio_synth_clear", "src/sdk/audio_synth_clear.c", 0x8006B5A0, 0x8006B5A8),
     ("audio_copy_bytes", "src/sdk/audio_copy_bytes.c", 0x8006F3C0, 0x8006F434),
+    ("matrix_convert", "src/sdk/matrix_convert.c", 0x80068250, 0x800684BC),
 )
 
 CANDIDATE_BLOCKS = (
