@@ -2,7 +2,7 @@
 #include "../../include/object_helpers.h"
 #include "../../include/save_game.h"
 
-extern int D_80073864;
+extern int D_80073864[];
 extern int D_80073884;
 extern int D_80073888;
 extern int D_8007388C;
@@ -50,10 +50,10 @@ void func_8001276C(int advance, int unused)
         D_80073890 = 20;
         if (advance != 0) {
             D_8007388C++;
-            value = (&D_80073864)[D_8007388C];
+            value = D_80073864[D_8007388C];
             if (value == 0) {
                 D_8007388C = 0;
-                value = (&D_80073864)[D_8007388C];
+                value = D_80073864[D_8007388C];
             }
             D_8009B190[D_800AD168].saved.selection05 = (unsigned char)value;
             D_80073888 = 1;
