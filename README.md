@@ -118,6 +118,12 @@ The [startup evidence](docs/startup.md) records the reconstructed assembly entry
 
 Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame and pacing sources and exits nonzero while they differ. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
 
+`python3 tools/compare_runtime.py --jobs 4` runs four independent source
+compilations concurrently. Each uses a separate output directory and the same
+checked layout and input hashes. Reports retain registration order, and any
+compiler, ownership, changed-input or byte-comparison failure still fails the
+run. The default remains one compilation at a time.
+
 `python3 tools/compare_startup.py` independently checks startup and scheduler
 creation/dispatch. `python3 tools/compare_assembly.py` separately reassembles
 the entry, audio interrupt services, and recovered SDK assembly routines,

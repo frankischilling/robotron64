@@ -1,6 +1,7 @@
 """Recompile the recovered runtime blocks and report any instruction differences."""
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import json
 
 from compare_startup import SymbolLayoutSnapshot, compare_block
@@ -640,20 +641,38 @@ CANDIDATE_BLOCKS = (
 )
 
 
-def run(candidates=False):
+def compare_blocks(records, target, family, layout, jobs=1):
+    if jobs < 1:
+        raise ValueError("Comparison jobs must be positive")
+    records = tuple(records)
+    names = [record[0] for record in records]
+    if len(names) != len(set(names)):
+        raise ValueError("Comparison names must be unique before writing object directories")
+
+    def compare_record(record):
+        name, source, start, end = record
+        result = compare_block(name, source, start, start - 0x80000000 + 0xC00,
+                               end - 0x80000000 + 0xC00, target, family=family, layout=layout)
+        return name, result
+
+    blocks = {}
+    with ThreadPoolExecutor(max_workers=jobs) as pool:
+        for name, result in pool.map(compare_record, records):
+            blocks[name] = result
+            print(f"{name}: {result['actual_size']} compiled bytes / "
+                  f"{result['expected_size']} target bytes; "
+                  f"{len(result['different_words'])} differing words", flush=True)
+    return blocks
+
+
+def run(candidates=False, jobs=1):
     install("5.3")
     target = (ROOT / "baseroms/us/baserom.z64").read_bytes()
     validate(target)
     layout = SymbolLayoutSnapshot()
     family = "runtime-candidates" if candidates else "runtime-comparison"
-    blocks = {}
-    for name, source, start, end in CANDIDATE_BLOCKS if candidates else MATCHING_BLOCKS:
-        result = compare_block(name, source, start, start - 0x80000000 + 0xC00,
-                               end - 0x80000000 + 0xC00, target, family=family, layout=layout)
-        blocks[name] = result
-        print(f"{name}: {result['actual_size']} compiled bytes / "
-              f"{result['expected_size']} target bytes; "
-              f"{len(result['different_words'])} differing words", flush=True)
+    blocks = compare_blocks(CANDIDATE_BLOCKS if candidates else MATCHING_BLOCKS,
+                            target, family, layout, jobs)
     report = {"matches": all(block["matches"] for block in blocks.values()), "blocks": blocks}
     destination = ROOT / "build" / family / "report.json"
     destination.write_text(json.dumps(report, indent=2) + "\n")
@@ -666,4 +685,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidates", action="store_true",
                         help="compare excluded research sources; mismatches exit nonzero")
-    run(parser.parse_args().candidates)
+    parser.add_argument("-j", "--jobs", type=int, default=1,
+                        help="number of independent source compilations to run concurrently (default: 1)")
+    args = parser.parse_args()
+    if args.jobs < 1:
+        parser.error("--jobs must be positive")
+    run(args.candidates, args.jobs)
