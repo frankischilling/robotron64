@@ -2431,6 +2431,24 @@ build/us/actor_behavior_frame_sync.o: src/game/actor_behavior_frame_sync.c inclu
 	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_frame_sync.raw.o $@ .text 0x40
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/actor_behavior_motion_begin.o: src/game/actor_behavior_motion_begin.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_motion_begin.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_motion_begin.raw.o $@ .text 0xac
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_motion_guarded.o: src/game/actor_behavior_motion_guarded.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_motion_guarded.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_motion_guarded.raw.o $@ .text 0xc0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_motion_scaled.o: src/game/actor_behavior_motion_scaled.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_motion_scaled.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_motion_scaled.raw.o $@ .text 0xe0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/actor_behavior_animation_2945c.o: src/game/actor_behavior_animation_2945c.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_animation_2945c.raw.o $<
@@ -3145,6 +3163,9 @@ RUNTIME_OBJECTS += \
     build/us/save_menu_pak_refresh.o \
     build/us/save_menu_pak_result.o \
     build/us/actor_behavior_frame_sync.o \
+    build/us/actor_behavior_motion_begin.o \
+    build/us/actor_behavior_motion_guarded.o \
+    build/us/actor_behavior_motion_scaled.o \
     build/us/actor_behavior_animation_2945c.o \
     build/us/actor_behavior_callback_29544.o \
     build/us/actor_behavior_spawn.o \

@@ -191,6 +191,9 @@ SECTIONS
     .cpu_after_actor_sweep 0x800283D4 : AT(0x28FD4) { build/us/fallback.o(.rom_cpu_after_actor_sweep) }
     .actor_behavior_frame_sync 0x80029154 : AT(0x29D54) SUBALIGN(4) { build/us/actor_behavior_frame_sync.o(.text) }
     .cpu_after_actor_behavior_frame_sync 0x80029194 : AT(0x29D94) { build/us/fallback.o(.rom_cpu_after_actor_behavior_frame_sync) }
+    .actor_behavior_motion_begin 0x80029210 : AT(0x29E10) SUBALIGN(4) { build/us/actor_behavior_motion_begin.o(.text) }
+    .actor_behavior_motion_guarded 0x800292BC : AT(0x29EBC) SUBALIGN(4) { build/us/actor_behavior_motion_guarded.o(.text) }
+    .actor_behavior_motion_scaled 0x8002937C : AT(0x29F7C) SUBALIGN(4) { build/us/actor_behavior_motion_scaled.o(.text) }
     .actor_behavior_animation_2945c 0x8002945C : AT(0x2A05C) SUBALIGN(4) { build/us/actor_behavior_animation_2945c.o(.text) }
     .cpu_after_actor_behavior_animation_2945c 0x800294A4 : AT(0x2A0A4) { build/us/fallback.o(.rom_cpu_after_actor_behavior_animation_2945c) }
     .actor_behavior_callback_29544 0x80029544 : AT(0x2A144) SUBALIGN(4) { build/us/actor_behavior_callback_29544.o(.text) }
@@ -1106,7 +1109,10 @@ ASSERT(SIZEOF(.actor_remove) == 0xf8, "actor_remove size changed")
 ASSERT(SIZEOF(.actor_sweep) == 0x68, "actor_sweep size changed")
 ASSERT(SIZEOF(.cpu_after_actor_sweep) == 0xd80, "cpu_after_actor_sweep size changed")
 ASSERT(SIZEOF(.actor_behavior_frame_sync) == 0x40, "actor_behavior_frame_sync size changed")
-ASSERT(SIZEOF(.cpu_after_actor_behavior_frame_sync) == 0x2c8, "cpu_after_actor_behavior_frame_sync size changed")
+ASSERT(SIZEOF(.cpu_after_actor_behavior_frame_sync) == 0x7c, "cpu_after_actor_behavior_frame_sync size changed")
+ASSERT(SIZEOF(.actor_behavior_motion_begin) == 0xac, "actor_behavior_motion_begin size changed")
+ASSERT(SIZEOF(.actor_behavior_motion_guarded) == 0xc0, "actor_behavior_motion_guarded size changed")
+ASSERT(SIZEOF(.actor_behavior_motion_scaled) == 0xe0, "actor_behavior_motion_scaled size changed")
 ASSERT(SIZEOF(.actor_behavior_animation_2945c) == 0x48, "actor_behavior_animation_2945c size changed")
 ASSERT(SIZEOF(.cpu_after_actor_behavior_animation_2945c) == 0xa0, "cpu_after_actor_behavior_animation_2945c size changed")
 ASSERT(SIZEOF(.actor_behavior_callback_29544) == 0x88, "actor_behavior_callback_29544 size changed")

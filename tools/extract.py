@@ -50,7 +50,7 @@ REGIONS = (
     ("cpu_after_save_menu_pak_result", 0x273bc, 0x286b8),
     ("cpu_after_actor_motion_facing", 0x2898c, 0x28d8c),
     ("cpu_after_actor_sweep", 0x28fd4, 0x29d54),
-    ("cpu_after_actor_behavior_frame_sync", 0x29d94, 0x2a05c),
+    ("cpu_after_actor_behavior_frame_sync", 0x29d94, 0x29e10),
     ("cpu_after_actor_behavior_animation_2945c", 0x2a0a4, 0x2a144),
     ("cpu_after_actor_behavior_callback_29544", 0x2a1cc, 0x2a720),
     ("cpu_after_actor_behavior_spawn", 0x2a780, 0x2a8f4),

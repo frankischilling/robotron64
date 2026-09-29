@@ -2091,6 +2091,39 @@
     "evidence": "docs/actors.md"
   },
   {
+    "name": "func_80029210",
+    "rom": 171536,
+    "vram": 2147652112,
+    "size": 172,
+    "source": "src/game/actor_behavior_motion_begin.c",
+    "object": "build/us/actor_behavior_motion_begin.o",
+    "section": ".actor_behavior_motion_begin",
+    "section_vram": 2147652112,
+    "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_800292BC",
+    "rom": 171708,
+    "vram": 2147652284,
+    "size": 192,
+    "source": "src/game/actor_behavior_motion_guarded.c",
+    "object": "build/us/actor_behavior_motion_guarded.o",
+    "section": ".actor_behavior_motion_guarded",
+    "section_vram": 2147652284,
+    "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_8002937C",
+    "rom": 171900,
+    "vram": 2147652476,
+    "size": 224,
+    "source": "src/game/actor_behavior_motion_scaled.c",
+    "object": "build/us/actor_behavior_motion_scaled.o",
+    "section": ".actor_behavior_motion_scaled",
+    "section_vram": 2147652476,
+    "evidence": "docs/actors.md"
+  },
+  {
     "name": "func_8002945C",
     "rom": 172124,
     "vram": 2147652700,

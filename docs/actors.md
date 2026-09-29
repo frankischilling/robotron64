@@ -6,8 +6,8 @@ bytes. `0x800A4644` is the first actor's kind byte at offset `0x1C`, not the
 pool base. The allocator's clearing length and address stride establish the
 record extent independently of the lifecycle helpers.
 
-Eleven complete lifecycle and behavior functions compile with IDO 5.3 and
-`-O2 -G 0 -non_shared -mips1 -32`, producing 1,116 matching instruction bytes.
+Fourteen complete lifecycle and behavior functions compile with IDO 5.3 and
+`-O2 -G 0 -non_shared -mips1 -32`, producing 1,704 matching instruction bytes.
 
 | Source | Runtime range | Functions | Bytes |
 | --- | --- | ---: | ---: |
@@ -16,6 +16,9 @@ Eleven complete lifecycle and behavior functions compile with IDO 5.3 and
 | `actor_remove.c` | `0x80028274..0x8002836C` | 1 | 248 |
 | `actor_sweep.c` | `0x8002836C..0x800283D4` | 1 | 104 |
 | `actor_behavior_frame_sync.c` | `0x80029154..0x80029194` | 1 | 64 |
+| `actor_behavior_motion_begin.c` | `0x80029210..0x800292BC` | 1 | 172 |
+| `actor_behavior_motion_guarded.c` | `0x800292BC..0x8002937C` | 1 | 192 |
+| `actor_behavior_motion_scaled.c` | `0x8002937C..0x8002945C` | 1 | 224 |
 | `actor_behavior_animation_2945c.c` | `0x8002945C..0x800294A4` | 1 | 72 |
 | `actor_behavior_callback_29544.c` | `0x80029544..0x800295CC` | 1 | 136 |
 | `actor_behavior_spawn.c` | `0x80029B20..0x80029B80` | 1 | 96 |
@@ -38,7 +41,7 @@ state field. It preserves the predecessor when it
 removes the current record and advances it only when retaining that actor;
 this handles consecutive removals and a removed head without skipping a node.
 
-The six recovered behavior helpers are small state transitions around the same actor record. `func_80029154` samples the actor's object state into the fixed-point frame field and sets flag `0x40`. `func_8002945C` refreshes two timestamps and selects animation seven when the actor is not in animation one. `func_80029544` selects that animation, retires an already-installed callback when necessary, then arms the fallback callback at `0x800294A4` with timer 999. `func_80029B20` creates the resource-selected child while the object pool has capacity, otherwise it returns the actor to animation zero. `func_80029CF4` performs the same child creation with a temporary zero Z coordinate, restores Z, and selects animation zero. `func_80029D6C` runs the existing `0x8004EB60` service and marks the actor state byte as two.
+The nine recovered behavior helpers are small state transitions around the same actor record. `func_80029154` samples the actor's object state into the fixed-point frame field and sets flag `0x40`. `func_80029210` copies the resource movement value into the actor, resolves its two directional components, applies the angle, and selects animation zero. `func_800292BC` performs the same setup unless animation one is active, then clears the actor's Z position. `func_8002937C` performs the movement setup and additionally applies the resource scale through the object transform service. `func_8002945C` refreshes two timestamps and selects animation seven when the actor is not in animation one. `func_80029544` selects that animation, retires an already-installed callback when necessary, then arms the fallback callback at `0x800294A4` with timer 999. `func_80029B20` creates the resource-selected child while the object pool has capacity, otherwise it returns the actor to animation zero. `func_80029CF4` performs the same child creation with a temporary zero Z coordinate, restores Z, and selects animation zero. `func_80029D6C` runs the existing `0x8004EB60` service and marks the actor state byte as two.
 
 `actor.h` shares the record with movie playback and history cleanup. The
 object index is at `0x0C`, flags at `0x14`, kind at `0x1C`, state at `0x21`,
