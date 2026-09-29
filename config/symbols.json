@@ -21,19 +21,31 @@
     "name": "__osDisableInt",
     "rom": "0x68160",
     "vram": "0x80067560",
-    "status": "SDK instruction sequence identified"
+    "status": "matching assembly; see docs/libultra.md"
   },
   {
     "name": "__osRestoreInt",
     "rom": "0x68180",
     "vram": "0x80067580",
-    "status": "SDK instruction sequence identified"
+    "status": "matching assembly; see docs/libultra.md"
+  },
+  {
+    "name": "__osProbeTLB",
+    "rom": "0x68d90",
+    "vram": "0x80068190",
+    "status": "matching assembly; see docs/libultra.md"
   },
   {
     "name": "osGetCount",
     "rom": "0x690c0",
     "vram": "0x800684c0",
-    "status": "SDK instruction sequence identified"
+    "status": "matching assembly; see docs/libultra.md"
+  },
+  {
+    "name": "__osSetCompare",
+    "rom": "0x6f340",
+    "vram": "0x8006e740",
+    "status": "matching assembly; see docs/libultra.md"
   },
   {
     "name": "func_80000460",

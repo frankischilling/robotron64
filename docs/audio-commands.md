@@ -132,9 +132,17 @@ the current shared header.
 
 The lock increments a nesting counter. Its outermost entry calls
 `func_8005D9E0`, which clears the CPU status register's interrupt-enable bit
-and returns its previous value. The matching unlock decrements the counter
-and calls `func_8005DA00` only when it reaches zero. Those two low-level
-assembly routines remain extracted code.
+and returns its previous value. Its caller declaration is
+`unsigned int func_8005D9E0(void)`. The matching unlock decrements the counter
+and calls `func_8005DA00` only when it reaches zero; that caller uses
+`void func_8005DA00(unsigned int state)`.
+
+Both 32-byte routines are now registered matching assembly. Their target
+SHA-256 values are `b5ec893cd5c1e37c723f982142b67fc24befcf35b6e48b596abbcca4c4d44560`
+and `6604faa730644258db279f150ad1879e87c654324bea47e9ed0539864b787913`.
+The source spells out the CP0 Status reads and writes, including the observed
+hazard nops; the complete linked 64-byte unit is checked by
+`tools/compare_assembly.py` and the full-ROM build.
 
 The queue has a 512-byte command array and an 8,192-byte payload area. The
 command count is volatile: the original reloads it at bounds checks and

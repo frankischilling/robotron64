@@ -709,6 +709,8 @@ SECTIONS
     .audio_sequence_range_load 0x8005D8AC : AT(0x5E4AC) SUBALIGN(4) { build/us/audio_sequence_range_load.o(.text) }
     .audio_sequence_range_release 0x8005D95C : AT(0x5E55C) SUBALIGN(4) { build/us/audio_sequence_range_release.o(.text) }
     .after_audio_sequence_range_release 0x8005D9D8 : AT(0x5E5D8) { build/us/fallback.o(.rom_after_audio_sequence_range_release) }
+    .audio_interrupt_service 0x8005D9E0 : AT(0x5E5E0) SUBALIGN(4) { build/us/audio_interrupt_service.o(.text) }
+    .cpu_after_audio_interrupt_service 0x8005DA20 : AT(0x5E620) { build/us/fallback.o(.rom_cpu_after_audio_interrupt_service) }
     .compression_table_release 0x8005E1E4 : AT(0x5EDE4) SUBALIGN(4) { build/us/compression_table_release.o(.text) }
     .after_compression_table_release 0x8005E1EC : AT(0x5EDEC) { build/us/fallback.o(.rom_after_compression_table_release) }
     .compression_fixed_release 0x8005EE98 : AT(0x5FA98) SUBALIGN(4) { build/us/compression_fixed_release.o(.text) }
@@ -831,14 +833,18 @@ SECTIONS
     .si_raw_read 0x800669B0 : AT(0x675B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_si_raw_read) }
     .si_raw_write 0x80066A00 : AT(0x67600) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_si_raw_write) }
     .cpu_after_si_raw_write 0x80066A4C : AT(0x6764C) { build/us/fallback.o(.rom_cpu_after_si_raw_write) }
+    .os_interrupt 0x80067560 : AT(0x68160) SUBALIGN(4) { build/us/os_interrupt.o(.text) }
+    .cpu_after_os_interrupt 0x800675A0 : AT(0x681A0) { build/us/fallback.o(.rom_cpu_after_os_interrupt) }
     .pi_access 0x800677D0 : AT(0x683D0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_access) }
     .thread_get_priority 0x80067890 : AT(0x68490) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_get_priority) }
     .cpu_after_thread_get_priority 0x800678A8 : AT(0x684A8) { build/us/fallback.o(.rom_cpu_after_thread_get_priority) }
     .pi_raw_dma 0x800678B0 : AT(0x684B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_raw_dma) }
     .epi_dma 0x80067990 : AT(0x68590) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_epi_dma) }
     .cpu_after_epi_dma 0x80067BB4 : AT(0x687B4) { build/us/fallback.o(.rom_cpu_after_epi_dma) }
+    .os_probe_tlb 0x80068190 : AT(0x68D90) SUBALIGN(4) { build/us/os_probe_tlb.o(.text) }
     .gu_mtxutil 0x80068250 : AT(0x68E50) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_mtxutil) }
     .cpu_after_gu_mtxutil 0x800684BC : AT(0x690BC) { build/us/fallback.o(.rom_cpu_after_gu_mtxutil) }
+    .os_get_count 0x800684C0 : AT(0x690C0) SUBALIGN(4) { build/us/os_get_count.o(.text) }
     .timer_init 0x800684D0 : AT(0x690D0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_timer_init) }
     .timer_interrupt 0x8006855C : AT(0x6915C) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_timer_interrupt) }
     .timer_compare 0x800686D4 : AT(0x692D4) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_timer_compare) }
@@ -905,6 +911,7 @@ SECTIONS
     .cpu_after_interrupt_global_set 0x8006E6EC : AT(0x6F2EC) { build/us/fallback.o(.rom_cpu_after_interrupt_global_set) }
     .thread_yield 0x8006E6F0 : AT(0x6F2F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_yield) }
     .cpu_after_thread_yield 0x8006E73C : AT(0x6F33C) { build/us/fallback.o(.rom_cpu_after_thread_yield) }
+    .os_set_compare 0x8006E740 : AT(0x6F340) SUBALIGN(4) { build/us/os_set_compare.o(.text) }
     .audio_filter_init 0x8006E750 : AT(0x6F350) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_filter_init) }
     .cpu_after_audio_filter_init 0x8006E76C : AT(0x6F36C) { build/us/fallback.o(.rom_cpu_after_audio_filter_init) }
     .audio_effect_modulation 0x8006E770 : AT(0x6F370) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_modulation) }
@@ -1730,7 +1737,9 @@ ASSERT(SIZEOF(.after_audio_sequence_list_release) == 0x8, "after_audio_sequence_
 ASSERT(SIZEOF(.audio_sequence_range_size) == 0x7c, "audio_sequence_range_size size changed")
 ASSERT(SIZEOF(.audio_sequence_range_load) == 0xb0, "audio_sequence_range_load size changed")
 ASSERT(SIZEOF(.audio_sequence_range_release) == 0x7c, "audio_sequence_range_release size changed")
-ASSERT(SIZEOF(.after_audio_sequence_range_release) == 0x80c, "after_audio_sequence_range_release size changed")
+ASSERT(SIZEOF(.after_audio_sequence_range_release) == 0x8, "after_audio_sequence_range_release size changed")
+ASSERT(SIZEOF(.audio_interrupt_service) == 0x40, "audio_interrupt_service size changed")
+ASSERT(SIZEOF(.cpu_after_audio_interrupt_service) == 0x7c4, "cpu_after_audio_interrupt_service size changed")
 ASSERT(SIZEOF(.compression_table_release) == 0x8, "compression_table_release size changed")
 ASSERT(SIZEOF(.after_compression_table_release) == 0xcac, "after_compression_table_release size changed")
 ASSERT(SIZEOF(.compression_fixed_release) == 0x48, "compression_fixed_release size changed")
@@ -1852,15 +1861,19 @@ ASSERT(SIZEOF(.audio_synth_priority) == 0x10, "audio_synth_priority size changed
 ASSERT(SIZEOF(.cpu_after_audio_synth_priority) == 0x30, "cpu_after_audio_synth_priority size changed")
 ASSERT(SIZEOF(.si_raw_read) == 0x50, "si_raw_read size changed")
 ASSERT(SIZEOF(.si_raw_write) == 0x4c, "si_raw_write size changed")
-ASSERT(SIZEOF(.cpu_after_si_raw_write) == 0xd84, "cpu_after_si_raw_write size changed")
+ASSERT(SIZEOF(.cpu_after_si_raw_write) == 0xb14, "cpu_after_si_raw_write size changed")
+ASSERT(SIZEOF(.os_interrupt) == 0x40, "os_interrupt size changed")
+ASSERT(SIZEOF(.cpu_after_os_interrupt) == 0x230, "cpu_after_os_interrupt size changed")
 ASSERT(SIZEOF(.pi_access) == 0xc0, "pi_access size changed")
 ASSERT(SIZEOF(.thread_get_priority) == 0x18, "thread_get_priority size changed")
 ASSERT(SIZEOF(.cpu_after_thread_get_priority) == 0x8, "cpu_after_thread_get_priority size changed")
 ASSERT(SIZEOF(.pi_raw_dma) == 0xe0, "pi_raw_dma size changed")
 ASSERT(SIZEOF(.epi_dma) == 0x224, "epi_dma size changed")
-ASSERT(SIZEOF(.cpu_after_epi_dma) == 0x69c, "cpu_after_epi_dma size changed")
+ASSERT(SIZEOF(.cpu_after_epi_dma) == 0x5dc, "cpu_after_epi_dma size changed")
+ASSERT(SIZEOF(.os_probe_tlb) == 0xc0, "os_probe_tlb size changed")
 ASSERT(SIZEOF(.gu_mtxutil) == 0x26c, "gu_mtxutil size changed")
-ASSERT(SIZEOF(.cpu_after_gu_mtxutil) == 0x14, "cpu_after_gu_mtxutil size changed")
+ASSERT(SIZEOF(.cpu_after_gu_mtxutil) == 0x4, "cpu_after_gu_mtxutil size changed")
+ASSERT(SIZEOF(.os_get_count) == 0x10, "os_get_count size changed")
 ASSERT(SIZEOF(.timer_init) == 0x8c, "timer_init size changed")
 ASSERT(SIZEOF(.timer_interrupt) == 0x178, "timer_interrupt size changed")
 ASSERT(SIZEOF(.timer_compare) == 0x74, "timer_compare size changed")
@@ -1926,7 +1939,8 @@ ASSERT(SIZEOF(.epi_raw_read) == 0x50, "epi_raw_read size changed")
 ASSERT(SIZEOF(.interrupt_global_set) == 0x4c, "interrupt_global_set size changed")
 ASSERT(SIZEOF(.cpu_after_interrupt_global_set) == 0x4, "cpu_after_interrupt_global_set size changed")
 ASSERT(SIZEOF(.thread_yield) == 0x4c, "thread_yield size changed")
-ASSERT(SIZEOF(.cpu_after_thread_yield) == 0x14, "cpu_after_thread_yield size changed")
+ASSERT(SIZEOF(.cpu_after_thread_yield) == 0x4, "cpu_after_thread_yield size changed")
+ASSERT(SIZEOF(.os_set_compare) == 0x10, "os_set_compare size changed")
 ASSERT(SIZEOF(.audio_filter_init) == 0x1c, "audio_filter_init size changed")
 ASSERT(SIZEOF(.cpu_after_audio_filter_init) == 0x4, "cpu_after_audio_filter_init size changed")
 ASSERT(SIZEOF(.audio_effect_modulation) == 0xa8, "audio_effect_modulation size changed")

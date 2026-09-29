@@ -3772,9 +3772,39 @@ build/us/audio_engine_iteration.o: src/game/audio_engine_iteration.c include/aud
 	$(PYTHON) tools/owned_sections.py $< build/us/audio_engine_iteration.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/audio_interrupt_service.o: src/game/audio_interrupt_service.s tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_interrupt.o: src/sdk/os_interrupt.s tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_probe_tlb.o: src/sdk/os_probe_tlb.s tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_get_count.o: src/sdk/os_get_count.s tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_set_compare.o: src/sdk/os_set_compare.s tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
 RUNTIME_OBJECTS += \
     build/us/audio_engine_gate.o \
-    build/us/audio_engine_iteration.o
+    build/us/audio_engine_iteration.o \
+    build/us/audio_interrupt_service.o \
+    build/us/os_interrupt.o \
+    build/us/os_probe_tlb.o \
+    build/us/os_get_count.o \
+    build/us/os_set_compare.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

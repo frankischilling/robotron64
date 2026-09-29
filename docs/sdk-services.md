@@ -1,9 +1,9 @@
 # SDK services
 
-> Local reference study: the SDK implementation described below is retained
-> in the private research worktree. This public checkpoint uses ROM extraction
-> for these SDK ranges and does not count them as distributed matching source.
-> References to integration in this report describe the local research build.
+> Local reference study: most SDK implementation described below remains in
+> ROM extraction. The small handwritten CP0/TLB routines listed in
+> [SDK assembly identification](libultra.md) are distributed matching assembly
+> and are counted separately from matching C.
 
 The recovered PI, VI, SP, thread and message-queue services use IDO 5.3 with
 `-O1 -G 0 -non_shared -mips2 -32`. The game continues to use its separately
@@ -61,5 +61,7 @@ one volatile register read.
 
 Function addresses and exact sizes are recorded in `config/functions.json`.
 The audio heap and framebuffer block has additional profile evidence in
-[SDK audio helpers](sdk-audio.md). SDK interrupt/context-switch assembly
-remains extracted fallback; these C routines do not claim its bytes.
+[SDK audio helpers](sdk-audio.md). Most SDK interrupt/context-switch assembly
+remains extracted fallback. The registered CP0/TLB service routines in
+[SDK assembly identification](libultra.md) are the explicitly verified
+exception; these C routines do not claim their bytes.
