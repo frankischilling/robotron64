@@ -352,6 +352,18 @@
     "evidence": "docs/sdk-audio-envelope.md"
   },
   {
+    "input_section": ".rodata",
+    "vram": 2148097952,
+    "rom": 617376,
+    "size": 40,
+    "symbols": {},
+    "section": ".audio_effect_parameters_rodata",
+    "static_symbols": {},
+    "source": "src/sdk/audio_effect_parameters.c",
+    "object": "build/us/audio_effect_parameters.o",
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
     "source": "src/game/audio_engine_voice_stop.c",
     "object": "build/us/audio_engine_voice_stop.o",
     "evidence": "docs/audio-command-engine.md",

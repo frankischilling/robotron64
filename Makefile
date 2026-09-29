@@ -4456,6 +4456,44 @@ RUNTIME_OBJECTS += \
     build/us/audio_effect_create.o \
     build/us/audio_effect_allocate.o
 
+build/us/audio_effect_modulation.o: src/sdk/audio_effect_modulation.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_commands.h include/sdk_audio_decoder.h include/sdk_audio_effect.h include/sdk_audio_mix_commands.h include/sdk_audio_pipeline.h include/sdk_audio_reverb.h include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_effect_modulation.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_effect_modulation.raw.o $@ .text 0xa8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_effect_buffers.o: src/sdk/audio_effect_buffers.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_commands.h include/sdk_audio_decoder.h include/sdk_audio_effect.h include/sdk_audio_mix_commands.h include/sdk_audio_pipeline.h include/sdk_audio_reverb.h include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_effect_buffers.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_effect_buffers.raw.o $@ .text 0x5f0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_effect_parameters.o: src/sdk/audio_effect_parameters.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_commands.h include/sdk_audio_decoder.h include/sdk_audio_effect.h include/sdk_audio_mix_commands.h include/sdk_audio_pipeline.h include/sdk_audio_reverb.h include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_effect_parameters.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_effect_parameters.raw.o build/us/audio_effect_parameters.text.o .text 0x25c
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_effect_parameters.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_effect_source.o: src/sdk/audio_effect_source.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_commands.h include/sdk_audio_decoder.h include/sdk_audio_effect.h include/sdk_audio_mix_commands.h include/sdk_audio_pipeline.h include/sdk_audio_reverb.h include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_effect_source.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_effect_source.raw.o $@ .text 0x18
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_effect_pull.o: src/sdk/audio_effect_pull.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_audio_commands.h include/sdk_audio_decoder.h include/sdk_audio_effect.h include/sdk_audio_mix_commands.h include/sdk_audio_pipeline.h include/sdk_audio_reverb.h include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_effect_pull.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_effect_pull.raw.o $@ .text 0x340
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_effect_modulation.o \
+    build/us/audio_effect_buffers.o \
+    build/us/audio_effect_parameters.o \
+    build/us/audio_effect_source.o \
+    build/us/audio_effect_pull.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

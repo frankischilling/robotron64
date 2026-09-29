@@ -148,6 +148,12 @@ delay units and low-pass coefficient construction. Robotron's instructions
 and initialized data verify the reconstructed allocation flow, record layouts,
 mixed-precision arithmetic and complete preset arrays.
 
+The [reverb reconstruction](docs/sdk-audio-reverb.md) consulted the pinned
+online libreultra `src/audio/reverb.c`, including its temporary-buffer swap,
+historical local declarations and positive buffer-reuse pointer update.
+Complete Robotron instruction comparisons establish all eight procedure
+extents, circular-transfer branches, resampling arithmetic and command order.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

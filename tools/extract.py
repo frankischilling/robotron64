@@ -285,11 +285,6 @@ REGIONS = (
     ("sdk_fallback_thread_yield", 0x6f2f0, 0x6f33c),
     ("cpu_after_thread_yield", 0x6f33c, 0x6f340),
     ("cpu_after_audio_filter_init", 0x6f36c, 0x6f370),
-    ("sdk_fallback_audio_effect_modulation", 0x6f370, 0x6f418),
-    ("sdk_fallback_audio_effect_buffers", 0x6f418, 0x6fa08),
-    ("sdk_fallback_audio_effect_parameters", 0x6fa08, 0x6fc64),
-    ("sdk_fallback_audio_effect_source", 0x6fc64, 0x6fc7c),
-    ("sdk_fallback_audio_effect_pull", 0x6fc7c, 0x6ffbc),
     ("cpu_after_audio_effect_pull", 0x6ffbc, 0x6ffc0),
     ("cpu_after_audio_copy", 0x70034, 0x70040),
     ("rsp_boot", 0x70040, 0x70110),
@@ -323,7 +318,6 @@ REGIONS = (
     ("data_after_sdk_gu_rotate_rpy_constants", 0x96930, 0x96a50),
     ("data_after_sdk_audio_synthesizer_constants", 0x96a60, 0x96ae0),
     ("data_after_sdk_audio_resample_constants", 0x96b34, 0x96b40),
-    ("sdk_fallback_sdk_audio_effect_constants", 0x96ba0, 0x96bc8),
     ("data_after_sdk_audio_effect_constants", 0x96bc8, 0x800000),
 )
 

@@ -22,6 +22,11 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/sdk/audio_effect_pull.c": "sdk-o3-mips2-r4300-mul",
+    "src/sdk/audio_effect_source.c": "sdk-o3-mips2-r4300-mul",
+    "src/sdk/audio_effect_parameters.c": "sdk-o3-mips2-r4300-mul",
+    "src/sdk/audio_effect_buffers.c": "sdk-o3-mips2-r4300-mul",
+    "src/sdk/audio_effect_modulation.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/audio_effect_allocate.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/audio_effect_create.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/audio_low_pass.c": "sdk-o3-mips2-r4300-mul",

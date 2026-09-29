@@ -933,11 +933,11 @@ SECTIONS
     .os_set_compare 0x8006E740 : AT(0x6F340) SUBALIGN(4) { build/us/os_set_compare.o(.text) }
     .audio_filter_base 0x8006E750 : AT(0x6F350) SUBALIGN(4) { build/us/audio_filter_base.o(.text) }
     .cpu_after_audio_filter_init 0x8006E76C : AT(0x6F36C) { build/us/fallback.o(.rom_cpu_after_audio_filter_init) }
-    .audio_effect_modulation 0x8006E770 : AT(0x6F370) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_modulation) }
-    .audio_effect_buffers 0x8006E818 : AT(0x6F418) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_buffers) }
-    .audio_effect_parameters 0x8006EE08 : AT(0x6FA08) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_parameters) }
-    .audio_effect_source 0x8006F064 : AT(0x6FC64) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_source) }
-    .audio_effect_pull 0x8006F07C : AT(0x6FC7C) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_pull) }
+    .audio_effect_modulation 0x8006E770 : AT(0x6F370) SUBALIGN(4) { build/us/audio_effect_modulation.o(.text) }
+    .audio_effect_buffers 0x8006E818 : AT(0x6F418) SUBALIGN(4) { build/us/audio_effect_buffers.o(.text) }
+    .audio_effect_parameters 0x8006EE08 : AT(0x6FA08) SUBALIGN(4) { build/us/audio_effect_parameters.o(.text) }
+    .audio_effect_source 0x8006F064 : AT(0x6FC64) SUBALIGN(4) { build/us/audio_effect_source.o(.text) }
+    .audio_effect_pull 0x8006F07C : AT(0x6FC7C) SUBALIGN(4) { build/us/audio_effect_pull.o(.text) }
     .cpu_after_audio_effect_pull 0x8006F3BC : AT(0x6FFBC) { build/us/fallback.o(.rom_cpu_after_audio_effect_pull) }
     .audio_copy_bytes 0x8006F3C0 : AT(0x6FFC0) SUBALIGN(4) { build/us/audio_copy_bytes.o(.text) }
     .cpu_after_audio_copy 0x8006F434 : AT(0x70034) { build/us/fallback.o(.rom_cpu_after_audio_copy) }
@@ -999,7 +999,7 @@ SECTIONS
     .audio_resample_rodata 0x80095F00 : AT(0x96B00) SUBALIGN(4) { build/us/audio_resample.o(.rodata) }
     .data_after_sdk_audio_resample_constants 0x91006794 : AT(0x96B34) { build/us/fallback.o(.rom_data_after_sdk_audio_resample_constants) }
     .audio_envelope_rodata 0x80095F40 : AT(0x96B40) SUBALIGN(4) { build/us/audio_envelope.o(.rodata) }
-    .sdk_audio_effect_constants 0x80095FA0 : AT(0x96BA0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_effect_constants) }
+    .audio_effect_parameters_rodata 0x80095FA0 : AT(0x96BA0) SUBALIGN(4) { build/us/audio_effect_parameters.o(.rodata) }
     .data_after_sdk_audio_effect_constants 0x91006828 : AT(0x96BC8) { build/us/fallback.o(.rom_data_after_sdk_audio_effect_constants) }
     .audio_engine_voice_stop_bss 0x80192758 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_voice_stop.o(.bss) }
     .audio_engine_tempo_bss 0x8019279C (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_tempo.o(.bss) }
@@ -1406,7 +1406,7 @@ ASSERT(SIZEOF(.audio_effect_create_rodata) == 0x20, "audio_effect_create_rodata 
 ASSERT(SIZEOF(.audio_resample_rodata) == 0x34, "audio_resample_rodata size changed")
 ASSERT(SIZEOF(.data_after_sdk_audio_resample_constants) == 0xc, "data_after_sdk_audio_resample_constants size changed")
 ASSERT(SIZEOF(.audio_envelope_rodata) == 0x60, "audio_envelope_rodata size changed")
-ASSERT(SIZEOF(.sdk_audio_effect_constants) == 0x28, "sdk_audio_effect_constants size changed")
+ASSERT(SIZEOF(.audio_effect_parameters_rodata) == 0x28, "audio_effect_parameters_rodata size changed")
 ASSERT(SIZEOF(.data_after_sdk_audio_effect_constants) == 0x769438, "data_after_sdk_audio_effect_constants size changed")
 ASSERT(SIZEOF(.unexpected) == 0, "unmapped input data")
 

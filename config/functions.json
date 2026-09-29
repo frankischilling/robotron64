@@ -12037,6 +12037,94 @@
     "evidence": "docs/sdk-audio-filter-construction.md"
   },
   {
+    "name": "func_8006E770",
+    "rom": 455536,
+    "vram": 2147936112,
+    "size": 168,
+    "source": "src/sdk/audio_effect_modulation.c",
+    "object": "build/us/audio_effect_modulation.o",
+    "section": ".audio_effect_modulation",
+    "section_vram": 2147936112,
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
+    "name": "func_8006E818",
+    "rom": 455704,
+    "vram": 2147936280,
+    "size": 184,
+    "source": "src/sdk/audio_effect_buffers.c",
+    "object": "build/us/audio_effect_buffers.o",
+    "section": ".audio_effect_buffers",
+    "section_vram": 2147936280,
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
+    "name": "func_8006E8D0",
+    "rom": 455888,
+    "vram": 2147936464,
+    "size": 392,
+    "source": "src/sdk/audio_effect_buffers.c",
+    "object": "build/us/audio_effect_buffers.o",
+    "section": ".audio_effect_buffers",
+    "section_vram": 2147936280,
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
+    "name": "func_8006EA58",
+    "rom": 456280,
+    "vram": 2147936856,
+    "size": 396,
+    "source": "src/sdk/audio_effect_buffers.c",
+    "object": "build/us/audio_effect_buffers.o",
+    "section": ".audio_effect_buffers",
+    "section_vram": 2147936280,
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
+    "name": "func_8006EBE4",
+    "rom": 456676,
+    "vram": 2147937252,
+    "size": 548,
+    "source": "src/sdk/audio_effect_buffers.c",
+    "object": "build/us/audio_effect_buffers.o",
+    "section": ".audio_effect_buffers",
+    "section_vram": 2147936280,
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
+    "name": "func_8006EE08",
+    "rom": 457224,
+    "vram": 2147937800,
+    "size": 604,
+    "source": "src/sdk/audio_effect_parameters.c",
+    "object": "build/us/audio_effect_parameters.o",
+    "section": ".audio_effect_parameters",
+    "section_vram": 2147937800,
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
+    "name": "func_8006F064",
+    "rom": 457828,
+    "vram": 2147938404,
+    "size": 24,
+    "source": "src/sdk/audio_effect_source.c",
+    "object": "build/us/audio_effect_source.o",
+    "section": ".audio_effect_source",
+    "section_vram": 2147938404,
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
+    "name": "func_8006F07C",
+    "rom": 457852,
+    "vram": 2147938428,
+    "size": 832,
+    "source": "src/sdk/audio_effect_pull.c",
+    "object": "build/us/audio_effect_pull.o",
+    "section": ".audio_effect_pull",
+    "section_vram": 2147938428,
+    "evidence": "docs/sdk-audio-reverb.md"
+  },
+  {
     "name": "func_8006F3C0",
     "rom": 458688,
     "vram": 2147939264,

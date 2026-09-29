@@ -5,7 +5,8 @@
 > reconstructions are documented in [filter construction](sdk-audio-filter-construction.md)
 > [audio output](sdk-audio-output.md), the [wavetable decoder](sdk-audio-decoder.md),
 > the [envelope mixer](sdk-audio-envelope.md), and
-> [effect construction](sdk-audio-effect-construction.md).
+> [effect construction](sdk-audio-effect-construction.md). The complete
+> [reverb renderer](sdk-audio-reverb.md) now has its own source and section proof.
 > References to integration and
 > comparison artifacts in this historical report describe the research build.
 
