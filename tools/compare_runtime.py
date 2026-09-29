@@ -52,6 +52,7 @@ MATCHING_BLOCKS = (
     ("early_file_state_reset", "src/game/early_file_state_reset.c", 0x8001B870, 0x8001B8D8),
     ("early_name_mask_lookup", "src/game/early_name_mask_lookup.c", 0x8001BBAC, 0x8001BC38),
     ("early_value_lookup", "src/game/early_value_lookup.c", 0x8001BC38, 0x8001BD24),
+    ("early_name_mask_parse", "src/game/early_name_mask_parse.c", 0x8001BD24, 0x8001BE2C),
     ("script_service_cache_reset", "src/game/script_service_cache_reset.c", 0x8001C740, 0x8001C790),
     ("script_service_files", "src/game/script_service_files.c", 0x8001C790, 0x8001C8C4),
     ("script_service_cache_access", "src/game/script_service_cache_access.c", 0x8001C8C4, 0x8001CB48),

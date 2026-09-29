@@ -36,7 +36,7 @@ REGIONS = (
     ("cpu_after_early_resource_state", 0x1bb44, 0x1bfdc),
     ("cpu_after_early_simple_forward", 0x1c068, 0x1c470),
     ("cpu_after_early_file_state_reset", 0x1c4d8, 0x1c7ac),
-    ("cpu_after_early_value_lookup", 0x1c924, 0x1d340),
+    ("cpu_after_early_name_mask_parse", 0x1ca2c, 0x1d340),
     ("cpu_after_script_service_cache_access", 0x1d748, 0x1d750),
     ("cpu_after_script_service_commands", 0x1d994, 0x1d9a0),
     ("cpu_after_actor_resource_reset", 0x1dff0, 0x1ea54),

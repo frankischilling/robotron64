@@ -2,12 +2,12 @@
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
   "shared_header": "include/early_game_medium_next.h",
-  "shared_header_sha256": "e4add1f32695fff66542c153aab2542f4fbc143712ce8a04c1ec5f4f2218850f",
+  "shared_header_sha256": "0c7cf3adcd946c8c507adaad037451830ca89721a357ce9a2dbc306621e069ac",
   "name_table_header": "include/early_name_table.h",
   "name_table_header_sha256": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
-  "comparison_report": "build/worker1-early-medium-correction/report.json",
-  "comparison_report_sha256": "4522a206681cebc88641d0d40f78f59153b6691cc1644b0c1ad60cefcc1cd473",
-  "comparison_summary": "352/352 target bytes; zero differing words",
+  "comparison_report": "build/worker1-early-game-medium-next-v2/report.json",
+  "comparison_report_sha256": "832b84fc3cd7cc643e9f25760f83df21db8710b16bad9cd7bea6d7abaac5dbaf",
+  "comparison_summary": "616/616 target bytes; zero differing words",
   "integrated_rom_verification": "Matched all 8388608 bytes",
   "integrated_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "owned_sections": [],
@@ -39,6 +39,15 @@
       "vram_end": "0x8001BC38",
       "bytes": 140,
       "functions": ["func_8001BBAC"]
+    },
+    {
+      "block": "early_name_mask_parse",
+      "source": "src/game/early_name_mask_parse.c",
+      "source_sha256": "87d10cf269d8cc45180e9d097a90320fc35eb3abe11149ae1dc3db75c57142e6",
+      "vram_start": "0x8001BD24",
+      "vram_end": "0x8001BE2C",
+      "bytes": 264,
+      "functions": ["func_8001BD24"]
     }
   ],
   "backing_table_evidence": {
@@ -59,14 +68,6 @@
       "best_actual_bytes": 144,
       "best_differing_words": 7,
       "status": "complete natural behavior; residual is tail register allocation around callback, flags and timer stores"
-    },
-    {
-      "function": "func_8001BD24",
-      "vram_start": "0x8001BD24",
-      "vram_end": "0x8001BE2C",
-      "target_bytes": 264,
-      "best_actual_bytes": 288,
-      "status": "token parsing and name-mask lookup behavior recovered; structured loop form still emits 24 extra bytes"
     }
   ]
 }

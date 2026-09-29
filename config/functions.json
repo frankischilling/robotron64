@@ -991,6 +991,17 @@
     "evidence": "docs/early-game-medium.md"
   },
   {
+    "name": "func_8001BD24",
+    "rom": 117028,
+    "vram": 2147597604,
+    "size": 264,
+    "source": "src/game/early_name_mask_parse.c",
+    "object": "build/us/early_name_mask_parse.o",
+    "section": ".early_name_mask_parse",
+    "section_vram": 2147597604,
+    "evidence": "docs/early-game-medium-next.md"
+  },
+  {
     "name": "func_8001C740",
     "rom": 119616,
     "vram": 2147600192,

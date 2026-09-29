@@ -1,9 +1,9 @@
 # Early game medium-state proof ledger
 
-The four accepted source units compile with IDO 5.3 using
+The five accepted source units compile with IDO 5.3 using
 `-O2 -G 0 -non_shared -mips1 -32`. The focused linked comparison uses the
 current symbol layout and the validated US ROM. The accepted procedures total
-988 target bytes with zero differing instruction words.
+1,252 target bytes with zero differing instruction words.
 
 | Source | Source SHA-256 | Procedure | Bytes |
 | --- | --- | --- | ---: |
@@ -11,6 +11,7 @@ current symbol layout and the validated US ROM. The accepted procedures total
 | `src/game/early_pointer_state.c` | `5b4173ceadee330d135a9cdd4d787eab720d11f0d56c1e5619e58e71716ff85f` | `func_8001A170` 0x80 | 128 |
 | `src/game/early_resource_state.c` | `9ef65252ee629122b281d3594b77deb1c58fb67d9796d5a1fbe6048f918fc3f5` | `func_8001ADA0` 0x14C; `func_8001AEEC` 0x58 | 420 |
 | `src/game/early_value_lookup.c` | `73ca4d36d769f175314aa783a0002ffc5c5f579123bf0cfe059aa979f3465527` | `func_8001BC38` 0xEC | 236 |
+| `src/game/early_name_mask_parse.c` | `87d10cf269d8cc45180e9d097a90320fc35eb3abe11149ae1dc3db75c57142e6` | `func_8001BD24` 0x108 | 264 |
 
 The shared header `include/early_game_medium.h` has SHA-256
 `9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f`.
@@ -28,6 +29,10 @@ The current correction report is `build/worker1-early-interface-correction/repor
 SHA-256 `27edcdbb414a6fc50752877a127aded68c80c43df5b2dde843422b1866af5897`;
 it recompiles every matching unit affected by the current early-game headers,
 including the pointer-typed `func_8001BC38`.
+The continuation report is `build/worker1-early-game-medium-next-v2/report.json`,
+SHA-256 `832b84fc3cd7cc643e9f25760f83df21db8710b16bad9cd7bea6d7abaac5dbaf`;
+it records 616/616 bytes with zero differing words across the four continuation
+blocks, including the complete 264-byte `func_8001BD24` parser.
 The resource-state focused report is `build/worker1-early-game-next/report.json`,
 SHA-256 `13c2876ff6c3c04a2468ca0b44626b8f2d1db26c9f1d0a34a304261d3bad844d`;
 it records 420/420 bytes and zero differing words.

@@ -116,7 +116,8 @@ SECTIONS
     .cpu_after_early_file_state_reset 0x8001B8D8 : AT(0x1C4D8) { build/us/fallback.o(.rom_cpu_after_early_file_state_reset) }
     .early_name_mask_lookup 0x8001BBAC : AT(0x1C7AC) SUBALIGN(4) { build/us/early_name_mask_lookup.o(.text) }
     .early_value_lookup 0x8001BC38 : AT(0x1C838) SUBALIGN(4) { build/us/early_value_lookup.o(.text) }
-    .cpu_after_early_value_lookup 0x8001BD24 : AT(0x1C924) { build/us/fallback.o(.rom_cpu_after_early_value_lookup) }
+    .early_name_mask_parse 0x8001BD24 : AT(0x1C924) SUBALIGN(4) { build/us/early_name_mask_parse.o(.text) }
+    .cpu_after_early_name_mask_parse 0x8001BE2C : AT(0x1CA2C) { build/us/fallback.o(.rom_cpu_after_early_name_mask_parse) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
     .script_service_files 0x8001C790 : AT(0x1D390) SUBALIGN(4) { build/us/script_service_files.o(.text) }
     .script_service_cache_access 0x8001C8C4 : AT(0x1D4C4) SUBALIGN(4) { build/us/script_service_cache_access.o(.text) }
@@ -1092,7 +1093,8 @@ ASSERT(SIZEOF(.early_file_state_reset) == 0x68, "early_file_state_reset size cha
 ASSERT(SIZEOF(.cpu_after_early_file_state_reset) == 0x2d4, "cpu_after_early_file_state_reset size changed")
 ASSERT(SIZEOF(.early_name_mask_lookup) == 0x8c, "early_name_mask_lookup size changed")
 ASSERT(SIZEOF(.early_value_lookup) == 0xec, "early_value_lookup size changed")
-ASSERT(SIZEOF(.cpu_after_early_value_lookup) == 0xa1c, "cpu_after_early_value_lookup size changed")
+ASSERT(SIZEOF(.early_name_mask_parse) == 0x108, "early_name_mask_parse size changed")
+ASSERT(SIZEOF(.cpu_after_early_name_mask_parse) == 0x914, "cpu_after_early_name_mask_parse size changed")
 ASSERT(SIZEOF(.script_service_cache_reset) == 0x50, "script_service_cache_reset size changed")
 ASSERT(SIZEOF(.script_service_files) == 0x134, "script_service_files size changed")
 ASSERT(SIZEOF(.script_service_cache_access) == 0x284, "script_service_cache_access size changed")
