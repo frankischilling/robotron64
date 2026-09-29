@@ -2143,6 +2143,42 @@ build/us/graphics_environment.o: src/game/graphics_environment.c include/debug_o
 	$(PYTHON) tools/trim_padding.py build/us/graphics_environment.raw.o $@ .text 0xb0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/save_menu_legacy_reset.o: src/game/save_menu_legacy_reset.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_legacy_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_reset.raw.o $@ .text 0x30
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_legacy_heap.o: src/game/save_menu_legacy_heap.c include/heap.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_legacy_heap.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_heap.raw.o $@ .text 0x48
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_legacy_pages.o: src/game/save_menu_legacy_pages.c include/controller_input.h include/controller_legacy.h include/controller_services.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_legacy_pages.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_pages.raw.o $@ .text 0x18c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_legacy_pak_status.o: src/game/save_menu_legacy_pak_status.c include/controller_input.h include/controller_legacy.h include/controller_services.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_legacy_pak_status.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_pak_status.raw.o $@ .text 0x2a8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_legacy_exit.o: src/game/save_menu_legacy_exit.c include/movie.h include/pak_file.h include/palette.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_legacy_exit.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_exit.raw.o $@ .text 0x78
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_legacy_pages_tail.o: src/game/save_menu_legacy_pages_tail.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_legacy_pages_tail.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_pages_tail.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/save_menu_nav_refresh.o: src/game/save_menu_nav_refresh.c include/actor.h include/game_memory.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/save_menu_nav_internal.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_nav_refresh.raw.o $<
@@ -2845,6 +2881,12 @@ RUNTIME_OBJECTS += \
     build/us/graphics_environment.o
 
 RUNTIME_OBJECTS += \
+    build/us/save_menu_legacy_reset.o \
+    build/us/save_menu_legacy_heap.o \
+    build/us/save_menu_legacy_pages.o \
+    build/us/save_menu_legacy_pak_status.o \
+    build/us/save_menu_legacy_exit.o \
+    build/us/save_menu_legacy_pages_tail.o \
     build/us/save_menu_nav_refresh.o \
     build/us/save_menu_nav_open_primary.o \
     build/us/save_menu_nav_open_secondary.o \

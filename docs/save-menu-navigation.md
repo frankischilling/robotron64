@@ -1,5 +1,11 @@
 # Save menu navigation recovery
 
+The legacy callback block from `0x80025688` through `0x80025C40` now has twenty complete matching functions totaling 1,448 code bytes. Two eight-byte regions at `0x800256B8..0x800256C0` and `0x80025708..0x80025710` remain ROM fallback because the function catalog does not identify them as procedures. The recovered functions own no initialized data or BSS.
+
+`func_80025688` resets the legacy menu state, followed by the empty `func_800256C0` callback and two heap forwarding wrappers. The callbacks from `func_80025710` through `func_80025870`, plus `func_800259DC` and the three tail callbacks at `0x80025BBC..0x80025C40`, either refresh controller state before forwarding a value or open one of the existing menu-page definitions through `func_80026178`.
+
+`func_8002589C` and `func_80025A08` establish the session/menu state, refresh the controller-pak service, map its return codes to `D_80075FC4`, inspect directory capacity, and honor bit `0x100` in the session flag word at offset `0x1C`. Naming that word as `SavedSessionState.flags1C` preserves the previously asserted `0x4C` session layout. The two routines differ in their filename/mode data and in whether controller state is refreshed before setup. `func_80025B44` tears down the current menu, selects state 12, starts the existing transition movie, and advances the session service.
+
 The navigation block from `0x80025C40` through the boundary at `0x80026178` contains twelve complete matching functions totaling 1,336 code bytes. The recovered sources keep each function separate so their code and transitive inputs can be compared independently with the US ROM. These functions own no initialized data or BSS.
 
 `func_80025C40` refreshes a save-level selection. Negative values become `1`; otherwise an invalid level advances by `D_800761F0`. It formats the resolved level name into the existing menu text buffer and submits that buffer to the text system. The declaration for `func_80021B20` comes from `save_game.h`, which also carries the recovered `GameSessionState` and `SceneDefinition` layouts used by the surrounding save and scene code.
@@ -13,5 +19,7 @@ The preview actor uses the same packed actor fields seen elsewhere in the game: 
 The menu node has a 48-byte layout, and the navigation state is 100 bytes. Size assertions cover both. The twelve functions preserve the established field offsets as later menu-activation work gives names to previously unknown fields.
 
 The first exact comparisons live under `.local/recovery59-menu`, with preserved snapshots under `.local/recovery61-menu/frozen_exact`. Those older proofs include the header version used for their original compilation. Independent integration comparisons under `.local/recovery61-integration` recompile all twelve sources against the current expanded header.
+
+The legacy prelude was reconstructed from the US target function catalog and the frozen local disassemblies in `recovery38-session` and `recovery58-menu`; no external source tree was used for these twenty functions. The six source units were then linked at their final addresses against the current project symbol layout, including the two retained fallback fragments, before integration.
 
 The comparison runner uses IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`, checks each complete procedure and any allocated data, and records current source, transitive-header, compiler, and symbol-layout identities. The larger menu-activation routine at `0x80026178` remains a separate candidate until its complete comparison passes.

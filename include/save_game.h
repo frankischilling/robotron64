@@ -23,7 +23,9 @@ typedef struct GamePlayerState {
 } GamePlayerState;
 
 typedef struct SavedSessionState {
-    unsigned char unknown00[0x24];
+    unsigned char unknown00[0x1C];
+    unsigned int flags1C;
+    unsigned char unknown20[4];
     int selection;
     int level;
     int mode;
