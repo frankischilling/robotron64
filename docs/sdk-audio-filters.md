@@ -3,7 +3,8 @@
 > Local reference study: the reference-adapted SDK implementations described
 > below remain in the private research worktree. Separate target-derived
 > reconstructions are documented in [filter construction](sdk-audio-filter-construction.md)
-> [audio output](sdk-audio-output.md), and the [wavetable decoder](sdk-audio-decoder.md).
+> [audio output](sdk-audio-output.md), the [wavetable decoder](sdk-audio-decoder.md),
+> and the [envelope mixer](sdk-audio-envelope.md).
 > References to integration and
 > comparison artifacts in this historical report describe the research build.
 

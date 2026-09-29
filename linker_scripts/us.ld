@@ -910,7 +910,7 @@ SECTIONS
     .cpu_after_audio_decoder 0x8006CABC : AT(0x6D6BC) { build/us/fallback.o(.rom_cpu_after_audio_decoder) }
     .audio_resample 0x8006CAC0 : AT(0x6D6C0) SUBALIGN(4) { build/us/audio_resample.o(.text) }
     .cpu_after_audio_resample 0x8006CDB4 : AT(0x6D9B4) { build/us/fallback.o(.rom_cpu_after_audio_resample) }
-    .audio_envelope 0x8006CDC0 : AT(0x6D9C0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_envelope) }
+    .audio_envelope 0x8006CDC0 : AT(0x6D9C0) SUBALIGN(4) { build/us/audio_envelope.o(.text) }
     .cpu_after_audio_envelope 0x8006DA14 : AT(0x6E614) { build/us/fallback.o(.rom_cpu_after_audio_envelope) }
     .audio_auxiliary_bus 0x8006DA20 : AT(0x6E620) SUBALIGN(4) { build/us/audio_auxiliary_bus.o(.text) }
     .cpu_after_audio_aux_bus 0x8006DB28 : AT(0x6E728) { build/us/fallback.o(.rom_cpu_after_audio_aux_bus) }
@@ -962,7 +962,7 @@ SECTIONS
     .audio_buffer_submit_data 0x8008F170 : AT(0x8FD70) SUBALIGN(4) { build/us/audio_buffer_submit.o(.data) }
     .after_audio_buffer_submit_data 0x8008F171 : AT(0x8FD71) { build/us/fallback.o(.rom_after_audio_buffer_submit_data) }
     .sdk_audio_effect_init_data 0x8008F260 : AT(0x8FE60) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_effect_init_data) }
-    .sdk_audio_envelope_data 0x8008F3F0 : AT(0x8FFF0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_envelope_data) }
+    .audio_envelope_data 0x8008F3F0 : AT(0x8FFF0) SUBALIGN(4) { build/us/audio_envelope.o(.data) }
     .data_after_sdk_audio_envelope_data 0x90020020 : AT(0x90130) { build/us/fallback.o(.rom_data_after_sdk_audio_envelope_data) }
     .text_table 0x8008F678 : AT(0x90278) SUBALIGN(4) { build/us/text.o(.rodata) }
     .remainder 0x91000000 : AT(0x903A0) { build/us/fallback.o(.rom_remainder) }
@@ -998,7 +998,7 @@ SECTIONS
     .sdk_audio_effect_init_constants 0x80095EE0 : AT(0x96AE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_effect_init_constants) }
     .audio_resample_rodata 0x80095F00 : AT(0x96B00) SUBALIGN(4) { build/us/audio_resample.o(.rodata) }
     .data_after_sdk_audio_resample_constants 0x91006794 : AT(0x96B34) { build/us/fallback.o(.rom_data_after_sdk_audio_resample_constants) }
-    .sdk_audio_envelope_constants 0x80095F40 : AT(0x96B40) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_envelope_constants) }
+    .audio_envelope_rodata 0x80095F40 : AT(0x96B40) SUBALIGN(4) { build/us/audio_envelope.o(.rodata) }
     .sdk_audio_effect_constants 0x80095FA0 : AT(0x96BA0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_audio_effect_constants) }
     .data_after_sdk_audio_effect_constants 0x91006828 : AT(0x96BC8) { build/us/fallback.o(.rom_data_after_sdk_audio_effect_constants) }
     .audio_engine_voice_stop_bss 0x80192758 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_voice_stop.o(.bss) }
@@ -1405,7 +1405,7 @@ ASSERT(SIZEOF(.data_after_sdk_audio_synthesizer_constants) == 0x80, "data_after_
 ASSERT(SIZEOF(.sdk_audio_effect_init_constants) == 0x20, "sdk_audio_effect_init_constants size changed")
 ASSERT(SIZEOF(.audio_resample_rodata) == 0x34, "audio_resample_rodata size changed")
 ASSERT(SIZEOF(.data_after_sdk_audio_resample_constants) == 0xc, "data_after_sdk_audio_resample_constants size changed")
-ASSERT(SIZEOF(.sdk_audio_envelope_constants) == 0x60, "sdk_audio_envelope_constants size changed")
+ASSERT(SIZEOF(.audio_envelope_rodata) == 0x60, "audio_envelope_rodata size changed")
 ASSERT(SIZEOF(.sdk_audio_effect_constants) == 0x28, "sdk_audio_effect_constants size changed")
 ASSERT(SIZEOF(.data_after_sdk_audio_effect_constants) == 0x769438, "data_after_sdk_audio_effect_constants size changed")
 ASSERT(SIZEOF(.unexpected) == 0, "unmapped input data")
@@ -1429,7 +1429,7 @@ ASSERT(SIZEOF(.data_after_sdk_audio_globals_data) == 0xc, "data_after_sdk_audio_
 ASSERT(SIZEOF(.audio_buffer_submit_data) == 0x1, "audio_buffer_submit_data size changed")
 ASSERT(SIZEOF(.after_audio_buffer_submit_data) == 0xef, "after_audio_buffer_submit_data size changed")
 ASSERT(SIZEOF(.sdk_audio_effect_init_data) == 0x190, "sdk_audio_effect_init_data size changed")
-ASSERT(SIZEOF(.sdk_audio_envelope_data) == 0x140, "sdk_audio_envelope_data size changed")
+ASSERT(SIZEOF(.audio_envelope_data) == 0x140, "audio_envelope_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_audio_envelope_data) == 0x148, "data_after_sdk_audio_envelope_data size changed")
 
 ASSERT(SIZEOF(.text_replacement) == 0x264, "replacement fallback size changed")

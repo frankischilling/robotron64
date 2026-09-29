@@ -1,17 +1,5 @@
 [
   {
-    "source": "src/game/text.c",
-    "object": "build/us/text.o",
-    "input_section": ".rodata",
-    "section": ".text_table",
-    "vram": 2148071032,
-    "rom": 590456,
-    "size": 296,
-    "symbols": {},
-    "static_symbols": {},
-    "evidence": "docs/text-options.md"
-  },
-  {
     "source": "src/game/movie_prepare.c",
     "object": "build/us/movie_prepare.o",
     "input_section": ".data",
@@ -86,6 +74,32 @@
     "source": "src/sdk/audio_buffer_submit.c",
     "object": "build/us/audio_buffer_submit.o",
     "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "input_section": ".data",
+    "vram": 2148070384,
+    "rom": 589808,
+    "size": 320,
+    "symbols": {},
+    "section": ".audio_envelope_data",
+    "static_symbols": {
+      "equalPower": 0
+    },
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "evidence": "docs/sdk-audio-envelope.md"
+  },
+  {
+    "source": "src/game/text.c",
+    "object": "build/us/text.o",
+    "input_section": ".rodata",
+    "section": ".text_table",
+    "vram": 2148071032,
+    "rom": 590456,
+    "size": 296,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/text-options.md"
   },
   {
     "source": "src/game/scene_background.c",
@@ -293,6 +307,18 @@
     "source": "src/sdk/audio_resample.c",
     "object": "build/us/audio_resample.o",
     "evidence": "docs/sdk-audio-output.md"
+  },
+  {
+    "input_section": ".rodata",
+    "vram": 2148097856,
+    "rom": 617280,
+    "size": 96,
+    "symbols": {},
+    "section": ".audio_envelope_rodata",
+    "static_symbols": {},
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "evidence": "docs/sdk-audio-envelope.md"
   },
   {
     "source": "src/game/audio_engine_voice_stop.c",

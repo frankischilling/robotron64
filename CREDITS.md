@@ -135,6 +135,13 @@ instruction comparisons verify the recovered control flow, and IDO's private
 procedure records establish the actual `decodeChunk` helper boundary and
 calling convention.
 
+The [envelope reconstruction](docs/sdk-audio-envelope.md) consulted the online
+libreultra `src/audio/env.c` at revision
+`1aca5c13ca041cef86f8dc194b727361dad9c09b`. It corroborates the update interface,
+rate approximation and historical nested assignment expression. Robotron's
+complete instruction stream and data sections determine the accepted source;
+all seven procedures and both emitted tables/constants sections are verified.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

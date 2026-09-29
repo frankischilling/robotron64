@@ -271,7 +271,6 @@ REGIONS = (
     ("cpu_after_audio_effect_allocate", 0x6ca18, 0x6ca20),
     ("cpu_after_audio_decoder", 0x6d6bc, 0x6d6c0),
     ("cpu_after_audio_resample", 0x6d9b4, 0x6d9c0),
-    ("sdk_fallback_audio_envelope", 0x6d9c0, 0x6e614),
     ("cpu_after_audio_envelope", 0x6e614, 0x6e620),
     ("cpu_after_audio_aux_bus", 0x6e728, 0x6e730),
     ("cpu_after_si_busy", 0x6e81c, 0x6efac),
@@ -310,7 +309,6 @@ REGIONS = (
     ("data_after_sdk_audio_globals_data", 0x8fd64, 0x8fd70),
     ("after_audio_buffer_submit_data", 0x8fd71, 0x8fe60),
     ("sdk_fallback_sdk_audio_effect_init_data", 0x8fe60, 0x8fff0),
-    ("sdk_fallback_sdk_audio_envelope_data", 0x8fff0, 0x90130),
     ("data_after_sdk_audio_envelope_data", 0x90130, 0x90278),
     ("remainder", 0x903a0, 0x92558),
     ("data_after_scene_background_constants", 0x92560, 0x945c4),
@@ -330,7 +328,6 @@ REGIONS = (
     ("data_after_sdk_audio_synthesizer_constants", 0x96a60, 0x96ae0),
     ("sdk_fallback_sdk_audio_effect_init_constants", 0x96ae0, 0x96b00),
     ("data_after_sdk_audio_resample_constants", 0x96b34, 0x96b40),
-    ("sdk_fallback_sdk_audio_envelope_constants", 0x96b40, 0x96ba0),
     ("sdk_fallback_sdk_audio_effect_constants", 0x96ba0, 0x96bc8),
     ("data_after_sdk_audio_effect_constants", 0x96bc8, 0x800000),
 )

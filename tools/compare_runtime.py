@@ -616,6 +616,7 @@ MATCHING_BLOCKS = (
     ("audio_auxiliary_bus", "src/sdk/audio_auxiliary_bus.c", 0x8006DA20, 0x8006DB28),
     ("audio_save_filter", "src/sdk/audio_save_filter.c", 0x8006DB30, 0x8006DBF0),
     ("audio_decoder", "src/sdk/audio_decoder.c", 0x8006BF70, 0x8006CABC),
+    ("audio_envelope", "src/sdk/audio_envelope.c", 0x8006CDC0, 0x8006DA14),
 )
 
 CANDIDATE_BLOCKS = (

@@ -11846,6 +11846,86 @@
     "evidence": "docs/sdk-audio-output.md"
   },
   {
+    "name": "func_8006CDC0",
+    "rom": 448960,
+    "vram": 2147929536,
+    "size": 40,
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "section": ".audio_envelope",
+    "section_vram": 2147929536,
+    "evidence": "docs/sdk-audio-envelope.md"
+  },
+  {
+    "name": "func_8006CDE8",
+    "rom": 449000,
+    "vram": 2147929576,
+    "size": 236,
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "section": ".audio_envelope",
+    "section_vram": 2147929536,
+    "evidence": "docs/sdk-audio-envelope.md"
+  },
+  {
+    "name": "func_8006CED4",
+    "rom": 449236,
+    "vram": 2147929812,
+    "size": 224,
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "section": ".audio_envelope",
+    "section_vram": 2147929536,
+    "evidence": "docs/sdk-audio-envelope.md"
+  },
+  {
+    "name": "getRate",
+    "rom": 449460,
+    "vram": 2147930036,
+    "size": 464,
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "section": ".audio_envelope",
+    "section_vram": 2147929536,
+    "evidence": "docs/sdk-audio-envelope.md",
+    "linkage": "static"
+  },
+  {
+    "name": "pullSubFrame",
+    "rom": 449924,
+    "vram": 2147930500,
+    "size": 664,
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "section": ".audio_envelope",
+    "section_vram": 2147929536,
+    "evidence": "docs/sdk-audio-envelope.md",
+    "linkage": "static"
+  },
+  {
+    "name": "getVolume",
+    "rom": 450588,
+    "vram": 2147931164,
+    "size": 176,
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "section": ".audio_envelope",
+    "section_vram": 2147929536,
+    "evidence": "docs/sdk-audio-envelope.md",
+    "linkage": "static"
+  },
+  {
+    "name": "func_8006D4CC",
+    "rom": 450764,
+    "vram": 2147931340,
+    "size": 1352,
+    "source": "src/sdk/audio_envelope.c",
+    "object": "build/us/audio_envelope.o",
+    "section": ".audio_envelope",
+    "section_vram": 2147929536,
+    "evidence": "docs/sdk-audio-envelope.md"
+  },
+  {
     "name": "func_8006DA20",
     "rom": 452128,
     "vram": 2147932704,
