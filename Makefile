@@ -2954,6 +2954,147 @@ RUNTIME_OBJECTS += \
     build/us/audio_host_files.o \
     build/us/audio_stream_variable_write.o
 
+build/us/audio_diagnostics.o: src/game/audio_diagnostics.c include/audio_control.h include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_diagnostics.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_diagnostics.raw.o $@ .text 0x6c0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_setup.o: src/game/audio_engine_setup.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_setup.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_setup.raw.o $@ .text 0x58
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_voice_stop.o: src/game/audio_engine_voice_stop.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_voice_stop.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_voice_stop.raw.o build/us/audio_engine_voice_stop.text.o .text 0x17c
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_voice_stop.text.o $@ .bss 0xc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_parameters.o: src/game/audio_engine_parameters.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_parameters.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_parameters.raw.o $@ .text 0xcc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_tempo.o: src/game/audio_engine_tempo.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_tempo.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_tempo.raw.o build/us/audio_engine_tempo.text.o .text 0x19c
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_tempo.text.o $@ .bss 0x10
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_sequence_call.o: src/game/audio_engine_sequence_call.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_sequence_call.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_sequence_call.raw.o build/us/audio_engine_sequence_call.text.o .text 0x1b8
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_sequence_call.text.o $@ .bss 0x18
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_sequence_jump.o: src/game/audio_engine_sequence_jump.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_sequence_jump.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_sequence_jump.raw.o build/us/audio_engine_sequence_jump.text.o .text 0x190
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_sequence_jump.text.o $@ .bss 0x18
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_sequence_return.o: src/game/audio_engine_sequence_return.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_sequence_return.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_sequence_return.raw.o build/us/audio_engine_sequence_return.text.o .text 0x138
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_sequence_return.text.o $@ .bss 0x10
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_sequence_stop.o: src/game/audio_engine_sequence_stop.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_sequence_stop.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_sequence_stop.raw.o build/us/audio_engine_sequence_stop.text.o .text 0x290
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_sequence_stop.text.o $@ .bss 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_voice_tempo.o: src/game/audio_engine_voice_tempo.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_voice_tempo.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_voice_tempo.raw.o $@ .text 0x64
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_voice_call.o: src/game/audio_engine_voice_call.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_voice_call.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_voice_call.raw.o $@ .text 0x88
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_voice_jump.o: src/game/audio_engine_voice_jump.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_voice_jump.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_voice_jump.raw.o $@ .text 0x6c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_voice_return.o: src/game/audio_engine_voice_return.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_voice_return.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_voice_return.raw.o $@ .text 0x5c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_voice_end.o: src/game/audio_engine_voice_end.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_voice_end.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_voice_end.raw.o $@ .text 0x120
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_rate_scale.o: src/game/audio_rate_scale.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_rate_scale.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_rate_scale.raw.o $@ .text 0x38
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_voice_capture_control.o: src/game/audio_voice_capture_control.c include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_voice_capture_control.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_voice_capture_control.raw.o $@ .text 0x48
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_voice_capture_resume.o: src/game/audio_voice_capture_resume.c include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_voice_capture_resume.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_voice_capture_resume.raw.o $@ .text 0xd8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_voice_capture_append.o: src/game/audio_voice_capture_append.c include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_voice_capture_append.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_voice_capture_append.raw.o $@ .text 0x13c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_voice_argument.o: src/game/audio_voice_argument.c include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_voice_argument.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_voice_argument.raw.o $@ .text 0x1c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_diagnostics.o \
+    build/us/audio_engine_setup.o \
+    build/us/audio_engine_voice_stop.o \
+    build/us/audio_engine_parameters.o \
+    build/us/audio_engine_tempo.o \
+    build/us/audio_engine_sequence_call.o \
+    build/us/audio_engine_sequence_jump.o \
+    build/us/audio_engine_sequence_return.o \
+    build/us/audio_engine_sequence_stop.o \
+    build/us/audio_engine_voice_tempo.o \
+    build/us/audio_engine_voice_call.o \
+    build/us/audio_engine_voice_jump.o \
+    build/us/audio_engine_voice_return.o \
+    build/us/audio_engine_voice_end.o \
+    build/us/audio_rate_scale.o \
+    build/us/audio_voice_capture_control.o \
+    build/us/audio_voice_capture_resume.o \
+    build/us/audio_voice_capture_append.o \
+    build/us/audio_voice_argument.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

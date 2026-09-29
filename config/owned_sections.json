@@ -13,17 +13,6 @@
     "evidence": "docs/movie-commands.md"
   },
   {
-    "source": "src/game/command_machine.c",
-    "object": "build/us/command_machine.o",
-    "input_section": ".rodata",
-    "section": ".command_machine_table",
-    "vram": 2148090220,
-    "rom": 609644,
-    "size": 32,
-    "symbols": {},
-    "evidence": "docs/movie-commands.md"
-  },
-  {
     "source": "src/game/scene_background.c",
     "object": "build/us/scene_background.o",
     "input_section": ".rodata",
@@ -35,6 +24,17 @@
     "evidence": "docs/scene-commands.md"
   },
   {
+    "source": "src/game/actor_behavior_next_a244.c",
+    "object": "build/us/actor_behavior_next_a244.o",
+    "input_section": ".rodata",
+    "section": ".actor_behavior_next_a244_rodata",
+    "vram": 2148088260,
+    "rom": 607684,
+    "size": 52,
+    "symbols": {},
+    "evidence": "docs/actor-behavior-next.md"
+  },
+  {
     "source": "src/game/save_menu_status.c",
     "object": "build/us/save_menu_status.o",
     "input_section": ".rodata",
@@ -44,6 +44,17 @@
     "size": 48,
     "symbols": {},
     "evidence": "docs/save-menus.md"
+  },
+  {
+    "source": "src/game/command_machine.c",
+    "object": "build/us/command_machine.o",
+    "input_section": ".rodata",
+    "section": ".command_machine_table",
+    "vram": 2148090220,
+    "rom": 609644,
+    "size": 32,
+    "symbols": {},
+    "evidence": "docs/movie-commands.md"
   },
   {
     "source": "src/game/sound_bridge_future_queue.c",
@@ -58,51 +69,6 @@
       "D_800942E0": 0
     },
     "evidence": "docs/sound-bridge.md"
-  },
-  {
-    "source": "src/game/graphics_resource.c",
-    "object": "build/us/graphics_resource.o",
-    "input_section": ".rodata",
-    "section": ".graphics_resource_strings",
-    "vram": 2148094408,
-    "rom": 613832,
-    "size": 20,
-    "symbols": {},
-    "static_symbols": {
-      "D_800951C8": 0
-    },
-    "evidence": "docs/graphics-state.md"
-  },
-  {
-    "source": "src/game/graphics_pool.c",
-    "object": "build/us/graphics_pool.o",
-    "input_section": ".rodata",
-    "section": ".graphics_pool_strings",
-    "vram": 2148094496,
-    "rom": 613920,
-    "size": 224,
-    "symbols": {},
-    "static_symbols": {
-      "D_80095220": 0,
-      "D_8009523C": 28,
-      "D_80095244": 36,
-      "D_80095278": 88,
-      "D_80095280": 96,
-      "D_800952C4": 164,
-      "D_800952F8": 216
-    },
-    "evidence": "docs/graphics-state.md"
-  },
-  {
-    "source": "src/game/graphics_mode_dispatch.c",
-    "object": "build/us/graphics_mode_dispatch.o",
-    "input_section": ".rodata",
-    "section": ".graphics_mode_dispatch_table",
-    "vram": 2148094720,
-    "rom": 614144,
-    "size": 96,
-    "symbols": {},
-    "evidence": "docs/graphics-state.md"
   },
   {
     "source": "src/game/renderer_vertex_attributes.c",
@@ -162,14 +128,158 @@
     "evidence": "docs/renderer-geometry.md"
   },
   {
-    "source": "src/game/actor_behavior_next_a244.c",
-    "object": "build/us/actor_behavior_next_a244.o",
+    "source": "src/game/graphics_resource.c",
+    "object": "build/us/graphics_resource.o",
     "input_section": ".rodata",
-    "section": ".actor_behavior_next_a244_rodata",
-    "vram": 2148088260,
-    "rom": 607684,
-    "size": 52,
+    "section": ".graphics_resource_strings",
+    "vram": 2148094408,
+    "rom": 613832,
+    "size": 20,
     "symbols": {},
-    "evidence": "docs/actor-behavior-next.md"
+    "static_symbols": {
+      "D_800951C8": 0
+    },
+    "evidence": "docs/graphics-state.md"
+  },
+  {
+    "source": "src/game/graphics_pool.c",
+    "object": "build/us/graphics_pool.o",
+    "input_section": ".rodata",
+    "section": ".graphics_pool_strings",
+    "vram": 2148094496,
+    "rom": 613920,
+    "size": 224,
+    "symbols": {},
+    "static_symbols": {
+      "D_80095220": 0,
+      "D_8009523C": 28,
+      "D_80095244": 36,
+      "D_80095278": 88,
+      "D_80095280": 96,
+      "D_800952C4": 164,
+      "D_800952F8": 216
+    },
+    "evidence": "docs/graphics-state.md"
+  },
+  {
+    "source": "src/game/graphics_mode_dispatch.c",
+    "object": "build/us/graphics_mode_dispatch.o",
+    "input_section": ".rodata",
+    "section": ".graphics_mode_dispatch_table",
+    "vram": 2148094720,
+    "rom": 614144,
+    "size": 96,
+    "symbols": {},
+    "evidence": "docs/graphics-state.md"
+  },
+  {
+    "source": "src/game/audio_engine_voice_stop.c",
+    "object": "build/us/audio_engine_voice_stop.o",
+    "evidence": "docs/audio-command-engine.md",
+    "input_section": ".bss",
+    "section": ".audio_engine_voice_stop_bss",
+    "vram": 2149132120,
+    "rom": null,
+    "size": 12,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192758": 0,
+      "D_8019275C": 4,
+      "D_80192760": 8
+    }
+  },
+  {
+    "source": "src/game/audio_engine_tempo.c",
+    "object": "build/us/audio_engine_tempo.o",
+    "evidence": "docs/audio-command-engine.md",
+    "input_section": ".bss",
+    "section": ".audio_engine_tempo_bss",
+    "vram": 2149132188,
+    "rom": null,
+    "size": 16,
+    "symbols": {},
+    "static_symbols": {
+      "D_8019279C": 0,
+      "D_8019279E": 2,
+      "D_801927A0": 4,
+      "D_801927A4": 8,
+      "D_801927A8": 12
+    }
+  },
+  {
+    "source": "src/game/audio_engine_sequence_call.c",
+    "object": "build/us/audio_engine_sequence_call.o",
+    "evidence": "docs/audio-command-engine.md",
+    "input_section": ".bss",
+    "section": ".audio_engine_sequence_call_bss",
+    "vram": 2149132204,
+    "rom": null,
+    "size": 24,
+    "symbols": {},
+    "static_symbols": {
+      "D_801927AC": 0,
+      "D_801927AE": 2,
+      "D_801927B0": 4,
+      "D_801927B4": 8,
+      "D_801927B8": 12,
+      "D_801927BC": 16,
+      "D_801927C0": 20
+    }
+  },
+  {
+    "source": "src/game/audio_engine_sequence_jump.c",
+    "object": "build/us/audio_engine_sequence_jump.o",
+    "evidence": "docs/audio-command-engine.md",
+    "input_section": ".bss",
+    "section": ".audio_engine_sequence_jump_bss",
+    "vram": 2149132228,
+    "rom": null,
+    "size": 24,
+    "symbols": {},
+    "static_symbols": {
+      "D_801927C4": 0,
+      "D_801927C6": 2,
+      "D_801927C8": 4,
+      "D_801927CC": 8,
+      "D_801927D0": 12,
+      "D_801927D4": 16,
+      "D_801927D8": 20
+    }
+  },
+  {
+    "source": "src/game/audio_engine_sequence_return.c",
+    "object": "build/us/audio_engine_sequence_return.o",
+    "evidence": "docs/audio-command-engine.md",
+    "input_section": ".bss",
+    "section": ".audio_engine_sequence_return_bss",
+    "vram": 2149132252,
+    "rom": null,
+    "size": 16,
+    "symbols": {},
+    "static_symbols": {
+      "D_801927DC": 0,
+      "D_801927DE": 2,
+      "D_801927E0": 4,
+      "D_801927E4": 8,
+      "D_801927E8": 12
+    }
+  },
+  {
+    "source": "src/game/audio_engine_sequence_stop.c",
+    "object": "build/us/audio_engine_sequence_stop.o",
+    "evidence": "docs/audio-command-engine.md",
+    "input_section": ".bss",
+    "section": ".audio_engine_sequence_stop_bss",
+    "vram": 2149132268,
+    "rom": null,
+    "size": 20,
+    "symbols": {},
+    "static_symbols": {
+      "D_801927EC": 0,
+      "D_801927F0": 4,
+      "D_801927F4": 8,
+      "D_801927F8": 12,
+      "D_801927FC": 16
+    }
   }
 ]
