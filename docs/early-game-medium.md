@@ -34,12 +34,13 @@ its compile-time `0x68` size check. The speed-up interval at `D_800B0090` is an
 `int`, consistent with the adjacent tuning globals and the `int *` target passed
 to the tweak binding routine.
 
-`func_8001BC38` maps one-hot bit masks into an interleaved integer table whose
-backing array starts at `D_80075994`. The first four cells occupy addresses
-`0x80075994..0x800759A0`; the source expresses those columns as offsets within
-the real array rather than indexing past scalar declarations. Masks one and
-two use the first two cells directly; later bits are checked in groups of four
-until shift fourteen. No direct `jal` caller appears in the current catalog.
+`func_8001BC38` maps one-hot bit masks into the fourteen-entry name-pointer
+table at `D_80075994`. The target data contains thirteen pointers into the
+`0x80091Axx` name strings followed by a null entry. Masks one and two use the
+first two entries directly; later bits are checked in groups of four until
+shift fourteen. `early_value_lookup.c` and `early_name_mask_lookup.c` share the
+same pointer-table declaration. No direct `jal` caller appears in the current
+catalog.
 
 The surrounding fallback ranges remain explicit. `func_8001BF48` remains
 excluded because its target loop spans a backing short-array layout that is not

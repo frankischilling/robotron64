@@ -15,6 +15,6 @@ typedef char EarlyPointerStateMustBe12Bytes[
 int func_80017C10(EarlyGameActor *actor, EarlyGameActor *other,
                   int unused2, int unused3);
 void func_8001A170(EarlyPointerState *state, int index, int value);
-int func_8001BC38(int mask);
+unsigned char *func_8001BC38(int mask);
 
 #endif

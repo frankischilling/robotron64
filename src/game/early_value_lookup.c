@@ -1,13 +1,12 @@
 #include "../../include/early_game_medium.h"
-
-extern int D_80075994[14];
+#include "../../include/early_name_table.h"
 
 #define EARLY_VALUE_COLUMN_0 (D_80075994)
 #define EARLY_VALUE_COLUMN_1 (D_80075994 + 1)
 #define EARLY_VALUE_COLUMN_2 (D_80075994 + 2)
 #define EARLY_VALUE_COLUMN_3 (D_80075994 + 3)
 
-int func_8001BC38(int mask)
+unsigned char *func_8001BC38(int mask)
 {
     int shift;
 

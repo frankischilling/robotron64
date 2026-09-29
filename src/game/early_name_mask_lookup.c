@@ -1,8 +1,8 @@
 #include "../../include/early_game_medium_next.h"
+#include "../../include/early_name_table.h"
 #include "../../include/game_memory.h"
 #include "../../include/text.h"
 
-extern unsigned char *D_80075994[14];
 extern char D_800903AC[];
 
 int func_8001BBAC(unsigned char *name)

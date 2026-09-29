@@ -18,9 +18,11 @@ the new actor's Z coordinate and field at `0x54`, and installs
 into `D_8009E590`, releases the loaded allocation, and clears four related
 runtime state words.
 
-`func_8001BBAC` searches the fourteen-entry table beginning at `D_80075994`
-for a case-insensitive name match. A match returns the corresponding one-hot
-bit. A miss reports the name through `D_800903AC` and returns `-1`.
+`func_8001BBAC` searches the fourteen-entry pointer table beginning at
+`D_80075994` for a case-insensitive name match. The target table contains
+thirteen action-name pointers followed by null. A match returns the
+corresponding one-hot bit. A miss reports the name through `D_800903AC` and
+returns `-1`.
 
 Canonical comparison details and retained hashes are recorded in
 `early-game-medium-next-provenance.json`. The focused comparison covers all

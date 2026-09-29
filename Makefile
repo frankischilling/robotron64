@@ -211,7 +211,7 @@ build/us/early_file_state_reset.o: src/game/early_file_state_reset.c include/ear
 	$(PYTHON) tools/trim_padding.py build/us/early_file_state_reset.raw.o $@ .text 0x68
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_name_mask_lookup.o: src/game/early_name_mask_lookup.c include/early_game_medium_next.h include/game_memory.h include/text.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_name_mask_lookup.o: src/game/early_name_mask_lookup.c include/early_game_medium_next.h include/early_name_table.h include/game_memory.h include/text.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_name_mask_lookup.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_name_mask_lookup.raw.o $@ .text 0x8c
@@ -223,7 +223,7 @@ build/us/early_simple_forward.o: src/game/early_simple_forward.c include/early_g
 	$(PYTHON) tools/trim_padding.py build/us/early_simple_forward.raw.o $@ .text 0x20
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_value_lookup.o: src/game/early_value_lookup.c include/early_game_medium.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
+build/us/early_value_lookup.o: src/game/early_value_lookup.c include/early_game_medium.h include/early_name_table.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_value_lookup.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_value_lookup.raw.o $@ .text 0xec

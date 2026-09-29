@@ -3,8 +3,10 @@
   "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
   "shared_header": "include/early_game_medium_next.h",
   "shared_header_sha256": "e4add1f32695fff66542c153aab2542f4fbc143712ce8a04c1ec5f4f2218850f",
-  "comparison_report": "build/worker1-early-game-medium-next/report.json",
-  "comparison_report_sha256": "2a0c81d6d427a28ccc9028a101760564700884887217d15f44042b18c20b94d4",
+  "name_table_header": "include/early_name_table.h",
+  "name_table_header_sha256": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
+  "comparison_report": "build/worker1-early-medium-correction/report.json",
+  "comparison_report_sha256": "4522a206681cebc88641d0d40f78f59153b6691cc1644b0c1ad60cefcc1cd473",
   "comparison_summary": "352/352 target bytes; zero differing words",
   "integrated_rom_verification": "Matched all 8388608 bytes",
   "integrated_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
@@ -14,7 +16,7 @@
     {
       "block": "early_actor_spawn_helper",
       "source": "src/game/early_actor_spawn_helper.c",
-      "source_sha256": "21340cb66351078062a5cf710ff14bba5408b576a7380834f4110cd768776cec",
+      "source_sha256": "c5f29b9651d9eb12fde9c40b6e5697ebcb211c4d31e96cea5589215e9dce95c4",
       "vram_start": "0x8001B3DC",
       "vram_end": "0x8001B448",
       "bytes": 108,
@@ -32,13 +34,22 @@
     {
       "block": "early_name_mask_lookup",
       "source": "src/game/early_name_mask_lookup.c",
-      "source_sha256": "16ffb2221140ae102dc2b4bb011ad665ec4ed117c623e17e4efb201461c68738",
+      "source_sha256": "2fa0483f7023c9001bbf225a2d6e874695bb7dfee54f5640f49d6622ef35eb05",
       "vram_start": "0x8001BBAC",
       "vram_end": "0x8001BC38",
       "bytes": 140,
       "functions": ["func_8001BBAC"]
     }
   ],
+  "backing_table_evidence": {
+    "symbol": "D_80075994",
+    "normalized_rom_offset": "0x76594",
+    "entries": 14,
+    "first_pointer": "0x80091A20",
+    "last_nonzero_pointer": "0x80091AA4",
+    "terminator": "0x00000000",
+    "string_range": "0x80091A20..0x80091AB8"
+  },
   "unmatched_neighbors": [
     {
       "function": "func_8001B468",

@@ -11,7 +11,7 @@ void func_80015554(EarlyGameActor *actor)
 
     func_80027AB8((GameActor *)actor, 6, 1);
     actor->position = actor->owner3C->actor10->position;
-    func_800290B0(actor->objectIndex0C, &actor->position.x);
+    func_800290B0(actor->objectIndex0C, actor->position.value);
 
     flags = actor->flags14;
     actor->field48 = D_8009EFA0;
@@ -28,7 +28,9 @@ int func_80015614(EarlyGameActor *first, EarlyGameActor *second,
                   int third, int fourth)
 {
     if (first->angle08 == 0) {
-        return func_8004CEF0(second->position.x - first->position.x) < 500;
+        return func_8004CEF0(
+                   second->position.value[0] - first->position.value[0]) < 500;
     }
-    return func_8004CEF0(second->position.y - first->position.y) < 500;
+    return func_8004CEF0(
+               second->position.value[1] - first->position.value[1]) < 500;
 }

@@ -8,9 +8,7 @@ typedef void (*EarlyGameActorCallback)(EarlyGameActor *actor);
 typedef void (*EarlyGameResourceCallback)(EarlyGameActor *actor, int enabled);
 
 typedef struct EarlyGamePosition {
-    int x;
-    int y;
-    int z;
+    int value[3];
 } EarlyGamePosition;
 
 typedef struct EarlyGameActorResource {
@@ -77,5 +75,6 @@ int func_800152AC(int first, int second, int third, int fourth);
 void func_80015554(EarlyGameActor *actor);
 int func_80015614(EarlyGameActor *first, EarlyGameActor *second,
                   int third, int fourth);
+void func_80005560(EarlyGameActor *actor);
 
 #endif
