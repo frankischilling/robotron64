@@ -478,6 +478,15 @@ MATCHING_BLOCKS = (
     ("audio_backend_decay", "src/game/audio_backend_decay.c", 0x8005C684, 0x8005C7F8),
     ("audio_backend_allocate", "src/game/audio_backend_allocate.c", 0x8005C7F8, 0x8005CA34),
     ("audio_file_services", "src/game/audio_file_services.c", 0x8005CCC0, 0x8005CE0C),
+    ("audio_sequence_table_size", "src/game/audio_sequence_table_size.c", 0x8005D220, 0x8005D2E4),
+    ("audio_sequence_table_load", "src/game/audio_sequence_table_load.c", 0x8005D2E4, 0x8005D4A4),
+    ("audio_sequence_table_close", "src/game/audio_sequence_table_close.c", 0x8005D4A4, 0x8005D4C8),
+    ("audio_sequence_size", "src/game/audio_sequence_size.c", 0x8005D4C8, 0x8005D584),
+    ("audio_sequence_load", "src/game/audio_sequence_load.c", 0x8005D584, 0x8005D610),
+    ("audio_sequence_release", "src/game/audio_sequence_release.c", 0x8005D610, 0x8005D690),
+    ("audio_sequence_range_size", "src/game/audio_sequence_range_size.c", 0x8005D830, 0x8005D8AC),
+    ("audio_sequence_range_load", "src/game/audio_sequence_range_load.c", 0x8005D8AC, 0x8005D95C),
+    ("audio_sequence_range_release", "src/game/audio_sequence_range_release.c", 0x8005D95C, 0x8005D9D8),
 )
 
 CANDIDATE_BLOCKS = (

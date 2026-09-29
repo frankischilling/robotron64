@@ -9811,5 +9811,104 @@
     "section": ".audio_file_services",
     "section_vram": 2147863744,
     "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005D220",
+    "rom": 384544,
+    "vram": 2147865120,
+    "size": 196,
+    "source": "src/game/audio_sequence_table_size.c",
+    "object": "build/us/audio_sequence_table_size.o",
+    "section": ".audio_sequence_table_size",
+    "section_vram": 2147865120,
+    "evidence": "docs/audio-sequence-loading.md"
+  },
+  {
+    "name": "func_8005D2E4",
+    "rom": 384740,
+    "vram": 2147865316,
+    "size": 448,
+    "source": "src/game/audio_sequence_table_load.c",
+    "object": "build/us/audio_sequence_table_load.o",
+    "section": ".audio_sequence_table_load",
+    "section_vram": 2147865316,
+    "evidence": "docs/audio-sequence-loading.md"
+  },
+  {
+    "name": "func_8005D4A4",
+    "rom": 385188,
+    "vram": 2147865764,
+    "size": 36,
+    "source": "src/game/audio_sequence_table_close.c",
+    "object": "build/us/audio_sequence_table_close.o",
+    "section": ".audio_sequence_table_close",
+    "section_vram": 2147865764,
+    "evidence": "docs/audio-sequence-loading.md"
+  },
+  {
+    "name": "func_8005D4C8",
+    "rom": 385224,
+    "vram": 2147865800,
+    "size": 188,
+    "source": "src/game/audio_sequence_size.c",
+    "object": "build/us/audio_sequence_size.o",
+    "section": ".audio_sequence_size",
+    "section_vram": 2147865800,
+    "evidence": "docs/audio-sequence-loading.md"
+  },
+  {
+    "name": "func_8005D584",
+    "rom": 385412,
+    "vram": 2147865988,
+    "size": 140,
+    "source": "src/game/audio_sequence_load.c",
+    "object": "build/us/audio_sequence_load.o",
+    "section": ".audio_sequence_load",
+    "section_vram": 2147865988,
+    "evidence": "docs/audio-sequence-loading.md"
+  },
+  {
+    "name": "func_8005D610",
+    "rom": 385552,
+    "vram": 2147866128,
+    "size": 128,
+    "source": "src/game/audio_sequence_release.c",
+    "object": "build/us/audio_sequence_release.o",
+    "section": ".audio_sequence_release",
+    "section_vram": 2147866128,
+    "evidence": "docs/audio-sequence-loading.md"
+  },
+  {
+    "name": "func_8005D830",
+    "rom": 386096,
+    "vram": 2147866672,
+    "size": 124,
+    "source": "src/game/audio_sequence_range_size.c",
+    "object": "build/us/audio_sequence_range_size.o",
+    "section": ".audio_sequence_range_size",
+    "section_vram": 2147866672,
+    "evidence": "docs/audio-sequence-loading.md"
+  },
+  {
+    "name": "func_8005D8AC",
+    "rom": 386220,
+    "vram": 2147866796,
+    "size": 176,
+    "source": "src/game/audio_sequence_range_load.c",
+    "object": "build/us/audio_sequence_range_load.o",
+    "section": ".audio_sequence_range_load",
+    "section_vram": 2147866796,
+    "evidence": "docs/audio-sequence-loading.md"
+  },
+  {
+    "name": "func_8005D95C",
+    "rom": 386396,
+    "vram": 2147866972,
+    "size": 124,
+    "source": "src/game/audio_sequence_range_release.c",
+    "object": "build/us/audio_sequence_range_release.o",
+    "section": ".audio_sequence_range_release",
+    "section_vram": 2147866972,
+    "evidence": "docs/audio-sequence-loading.md"
   }
 ]

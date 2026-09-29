@@ -656,6 +656,17 @@ SECTIONS
     .after_audio_backend_allocate 0x8005CA34 : AT(0x5D634) { build/us/fallback.o(.rom_after_audio_backend_allocate) }
     .audio_file_services 0x8005CCC0 : AT(0x5D8C0) SUBALIGN(4) { build/us/audio_file_services.o(.text) }
     .after_audio_file_services 0x8005CE0C : AT(0x5DA0C) { build/us/fallback.o(.rom_after_audio_file_services) }
+    .audio_sequence_table_size 0x8005D220 : AT(0x5DE20) SUBALIGN(4) { build/us/audio_sequence_table_size.o(.text) }
+    .audio_sequence_table_load 0x8005D2E4 : AT(0x5DEE4) SUBALIGN(4) { build/us/audio_sequence_table_load.o(.text) }
+    .audio_sequence_table_close 0x8005D4A4 : AT(0x5E0A4) SUBALIGN(4) { build/us/audio_sequence_table_close.o(.text) }
+    .audio_sequence_size 0x8005D4C8 : AT(0x5E0C8) SUBALIGN(4) { build/us/audio_sequence_size.o(.text) }
+    .audio_sequence_load 0x8005D584 : AT(0x5E184) SUBALIGN(4) { build/us/audio_sequence_load.o(.text) }
+    .audio_sequence_release 0x8005D610 : AT(0x5E210) SUBALIGN(4) { build/us/audio_sequence_release.o(.text) }
+    .after_audio_sequence_release 0x8005D690 : AT(0x5E290) { build/us/fallback.o(.rom_after_audio_sequence_release) }
+    .audio_sequence_range_size 0x8005D830 : AT(0x5E430) SUBALIGN(4) { build/us/audio_sequence_range_size.o(.text) }
+    .audio_sequence_range_load 0x8005D8AC : AT(0x5E4AC) SUBALIGN(4) { build/us/audio_sequence_range_load.o(.text) }
+    .audio_sequence_range_release 0x8005D95C : AT(0x5E55C) SUBALIGN(4) { build/us/audio_sequence_range_release.o(.text) }
+    .after_audio_sequence_range_release 0x8005D9D8 : AT(0x5E5D8) { build/us/fallback.o(.rom_after_audio_sequence_range_release) }
     .gu_sine 0x8005FBB0 : AT(0x607B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_sine) }
     .gu_cosine 0x8005FC20 : AT(0x60820) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_cosine) }
     .cpu_after_gu_cosine 0x8005FC50 : AT(0x60850) { build/us/fallback.o(.rom_cpu_after_gu_cosine) }
@@ -1600,7 +1611,18 @@ ASSERT(SIZEOF(.audio_backend_decay) == 0x174, "audio_backend_decay size changed"
 ASSERT(SIZEOF(.audio_backend_allocate) == 0x23c, "audio_backend_allocate size changed")
 ASSERT(SIZEOF(.after_audio_backend_allocate) == 0x28c, "after_audio_backend_allocate size changed")
 ASSERT(SIZEOF(.audio_file_services) == 0x14c, "audio_file_services size changed")
-ASSERT(SIZEOF(.after_audio_file_services) == 0x2da4, "after_audio_file_services size changed")
+ASSERT(SIZEOF(.after_audio_file_services) == 0x414, "after_audio_file_services size changed")
+ASSERT(SIZEOF(.audio_sequence_table_size) == 0xc4, "audio_sequence_table_size size changed")
+ASSERT(SIZEOF(.audio_sequence_table_load) == 0x1c0, "audio_sequence_table_load size changed")
+ASSERT(SIZEOF(.audio_sequence_table_close) == 0x24, "audio_sequence_table_close size changed")
+ASSERT(SIZEOF(.audio_sequence_size) == 0xbc, "audio_sequence_size size changed")
+ASSERT(SIZEOF(.audio_sequence_load) == 0x8c, "audio_sequence_load size changed")
+ASSERT(SIZEOF(.audio_sequence_release) == 0x80, "audio_sequence_release size changed")
+ASSERT(SIZEOF(.after_audio_sequence_release) == 0x1a0, "after_audio_sequence_release size changed")
+ASSERT(SIZEOF(.audio_sequence_range_size) == 0x7c, "audio_sequence_range_size size changed")
+ASSERT(SIZEOF(.audio_sequence_range_load) == 0xb0, "audio_sequence_range_load size changed")
+ASSERT(SIZEOF(.audio_sequence_range_release) == 0x7c, "audio_sequence_range_release size changed")
+ASSERT(SIZEOF(.after_audio_sequence_range_release) == 0x21d8, "after_audio_sequence_range_release size changed")
 ASSERT(SIZEOF(.gu_sine) == 0x70, "gu_sine size changed")
 ASSERT(SIZEOF(.gu_cosine) == 0x30, "gu_cosine size changed")
 ASSERT(SIZEOF(.cpu_after_gu_cosine) == 0x290, "cpu_after_gu_cosine size changed")
