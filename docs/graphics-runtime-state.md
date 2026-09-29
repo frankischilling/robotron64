@@ -19,3 +19,5 @@ operation into a reciprocal multiply.
 The complete linked USA ROM matches the reference byte-for-byte after these
 helpers replace their fallback range. Compilation uses IDO 5.3 with
 `-O2 -G 0 -non_shared -mips1 -32`.
+The canonical comparison registration and current-source proof hashes are
+recorded in [`objects-renderer-provenance.json`](objects-renderer-provenance.json).

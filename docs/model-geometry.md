@@ -82,6 +82,8 @@ Complete target ranges, caller excerpts, seeds, exploratory candidates,
 compiler fingerprints, source/header snapshots, and comparisons are under
 `.local/recovery66-geometry`. Independent canonical comparisons and actual
 procedure-boundary checks are under `.local/recovery67-integration`.
+The later framebuffer draw registration and current-source proof hash are in
+[`objects-renderer-provenance.json`](objects-renderer-provenance.json).
 These units define no initialized data or BSS and use IDO 5.3 with
 `-O2 -G 0 -non_shared -mips1 -32`.
 
