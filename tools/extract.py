@@ -119,7 +119,7 @@ REGIONS = (
     ("cpu_after_startup", 0x49110, 0x495f4),
     ("cpu_after_debug_noop", 0x499dc, 0x4a114),
     ("cpu_after_frame_timing", 0x4a2e0, 0x4a4e0),
-    ("cpu_before_graphics_state_helpers", 0x4a4ec, 0x4a9b0),
+    ("cpu_before_renderer_platform", 0x4a4ec, 0x4a6d8),
     ("cpu_after_graphics_state_helpers", 0x4aa3c, 0x4cc90),
     ("cpu_after_controller_legacy_present", 0x4cde0, 0x4cf78),
     ("cpu_after_pak_file_encode_name", 0x4d2dc, 0x4d9e8),

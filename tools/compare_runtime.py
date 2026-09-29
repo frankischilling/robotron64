@@ -341,6 +341,7 @@ MATCHING_BLOCKS = (
     ("frame_matrices", "src/boot/frame_matrices.c", 0x80049514, 0x800495BC),
     ("frame_timing", "src/boot/frame_timing.c", 0x800495BC, 0x800496E0),
     ("graphics_ucode", "src/boot/graphics_ucode.c", 0x800498E0, 0x800498EC),
+    ("renderer_platform", "src/game/renderer_platform.c", 0x80049AD8, 0x80049DB0),
     ("graphics_state_helpers", "src/game/graphics_state_helpers.c", 0x80049DB0, 0x80049E3C),
     ("controller_legacy_initialize", "src/game/controller_legacy_initialize.c", 0x8004C090, 0x8004C0D4),
     ("controller_legacy_scan", "src/game/controller_legacy_scan.c", 0x8004C0D4, 0x8004C1C8),

@@ -6700,6 +6700,28 @@
     "evidence": "docs/graphics-tasks.md"
   },
   {
+    "name": "func_80049AD8",
+    "rom": 304856,
+    "vram": 2147785432,
+    "size": 212,
+    "source": "src/game/renderer_platform.c",
+    "object": "build/us/renderer_platform.o",
+    "section": ".renderer_platform",
+    "section_vram": 2147785432,
+    "evidence": "docs/graphics-runtime-state.md"
+  },
+  {
+    "name": "func_80049BAC",
+    "rom": 305068,
+    "vram": 2147785644,
+    "size": 516,
+    "source": "src/game/renderer_platform.c",
+    "object": "build/us/renderer_platform.o",
+    "section": ".renderer_platform",
+    "section_vram": 2147785432,
+    "evidence": "docs/graphics-runtime-state.md"
+  },
+  {
     "name": "func_80049DB0",
     "rom": 305584,
     "vram": 2147786160,

@@ -2437,6 +2437,12 @@ build/us/graphics_state_helpers.o: src/game/graphics_state_helpers.c include/fra
 	$(PYTHON) tools/trim_padding.py build/us/graphics_state_helpers.raw.o $@ .text 0x8c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/renderer_platform.o: src/game/renderer_platform.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_platform.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_platform.raw.o $@ .text 0x2d8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/save_menu_pak_retry.o: src/game/save_menu_pak_retry.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_pak_retry.raw.o $<
@@ -3258,6 +3264,7 @@ RUNTIME_OBJECTS += \
     build/us/graphics_frame_reset.o \
     build/us/graphics_mode_dispatch.o \
     build/us/graphics_environment.o \
+    build/us/renderer_platform.o \
     build/us/graphics_state_helpers.o
 
 RUNTIME_OBJECTS += \
