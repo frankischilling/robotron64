@@ -42,6 +42,7 @@ MATCHING_BLOCKS = (
     ("early_callback_false", "src/game/early_callback_false.c", 0x80017364, 0x8001737C),
     ("early_actor_transition", "src/game/early_actor_transition.c", 0x80017C10, 0x80017CDC),
     ("early_pointer_state", "src/game/early_pointer_state.c", 0x8001A170, 0x8001A1F0),
+    ("early_resource_state", "src/game/early_resource_state.c", 0x8001ADA0, 0x8001AF44),
     ("early_simple_forward", "src/game/early_simple_forward.c", 0x8001B448, 0x8001B468),
     ("early_value_lookup", "src/game/early_value_lookup.c", 0x8001BC38, 0x8001BD24),
     ("script_service_cache_reset", "src/game/script_service_cache_reset.c", 0x8001C740, 0x8001C790),

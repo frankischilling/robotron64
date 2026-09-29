@@ -40,7 +40,13 @@ typedef struct ActorResource68Internal {
     unsigned char unknown00[6];
     ActorResourceFlags flags06;
     int speed;
-    unsigned char unknown0C[0x58];
+    unsigned char unknown0C[4];
+    short step10;
+    unsigned char unknown12[6];
+    short current18;
+    short rate1A;
+    unsigned char unknown1C[0x44];
+    int updateTime60;
     int arrivalDelay;
 } ActorResource68Internal;
 
@@ -73,7 +79,7 @@ extern TextGlyphResource D_800ACE58[];
 extern TextGlyphResource D_8009AFD8[];
 extern TextGlyphResource D_8009B138;
 extern unsigned char D_800B6FC8[];
-extern unsigned char D_800B0090[];
+extern int D_800B0090;
 extern int D_800AD118;
 extern unsigned char D_800B2168[];
 extern unsigned char D_800ACD8C[];

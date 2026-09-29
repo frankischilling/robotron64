@@ -1,14 +1,15 @@
 # Early game medium-state recovery
 
-This tranche recovers three complete medium routines in the early game region:
-an actor transition callback, a pointer/state initializer, and a bitmask-driven
-value lookup. All three compile with IDO 5.3 using
+This recovery set contains five complete routines in the early game region:
+an actor transition callback, a pointer/state initializer, two resource-state
+routines, and a bitmask-driven value lookup. All five compile with IDO 5.3 using
 `-O2 -G 0 -non_shared -mips1 -32`.
 
 | Source | Range | Function | Bytes |
 | --- | --- | --- | ---: |
 | `early_actor_transition.c` | `0x80017C10..0x80017CDC` | `func_80017C10` | 204 |
 | `early_pointer_state.c` | `0x8001A170..0x8001A1F0` | `func_8001A170` | 128 |
+| `early_resource_state.c` | `0x8001ADA0..0x8001AF44` | `func_8001ADA0`, `func_8001AEEC` | 420 |
 | `early_value_lookup.c` | `0x8001BC38..0x8001BD24` | `func_8001BC38` | 236 |
 
 `func_80017C10` checks the resource-kind bytes of two actors. When the second
@@ -22,6 +23,17 @@ callback under flag `0x40`, installs the callback at `0x80029E5C` with timer
 and stores either the surviving value or zero. The cataloged direct caller is
 `func_8001A2C4` at `0x8001A2C4`.
 
+`func_8001ADA0` updates one 0x68-byte resource-state entry. Mode one and the
+default path reset its timestamp, current value, and rate; mode zero clamps the
+current value to the base plus two steps; mode two advances on the configured
+interval, raises the current value toward the base plus fifteen steps, and
+decays the rate by one quarter. `func_8001AEEC` applies the requested mode to
+entries zero through four. The two procedures form one contiguous 420-byte
+source block. The source uses the shared `ActorResource68Internal` layout and
+its compile-time `0x68` size check. The speed-up interval at `D_800B0090` is an
+`int`, consistent with the adjacent tuning globals and the `int *` target passed
+to the tweak binding routine.
+
 `func_8001BC38` maps one-hot bit masks into an interleaved integer table whose
 backing array starts at `D_80075994`. The first four cells occupy addresses
 `0x80075994..0x800759A0`; the source expresses those columns as offsets within
@@ -29,10 +41,7 @@ the real array rather than indexing past scalar declarations. Masks one and
 two use the first two cells directly; later bits are checked in groups of four
 until shift fourteen. No direct `jal` caller appears in the current catalog.
 
-The surrounding fallback ranges remain explicit. In particular,
-`func_8001ADA0` at `0x8001ADA0..0x8001AEEC` is recovered semantically and at
-the exact 332-byte target extent, but the best retained candidate has eight
-differing words confined to its default/mode-one path. `func_8001BF48` remains
+The surrounding fallback ranges remain explicit. `func_8001BF48` remains
 excluded because its target loop spans a backing short-array layout that is not
 yet represented by a valid C object model; treating the individual symbols as
 scalar objects leads to invalid pointer arithmetic and nonmatching code.

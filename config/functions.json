@@ -870,6 +870,28 @@
     "evidence": "docs/early-game-medium.md"
   },
   {
+    "name": "func_8001ADA0",
+    "rom": 113056,
+    "vram": 2147593632,
+    "size": 332,
+    "source": "src/game/early_resource_state.c",
+    "object": "build/us/early_resource_state.o",
+    "section": ".early_resource_state",
+    "section_vram": 2147593632,
+    "evidence": "docs/early-game-medium.md"
+  },
+  {
+    "name": "func_8001AEEC",
+    "rom": 113388,
+    "vram": 2147593964,
+    "size": 88,
+    "source": "src/game/early_resource_state.c",
+    "object": "build/us/early_resource_state.o",
+    "section": ".early_resource_state",
+    "section_vram": 2147593632,
+    "evidence": "docs/early-game-medium.md"
+  },
+  {
     "name": "func_8001B448",
     "rom": 114760,
     "vram": 2147595336,

@@ -100,6 +100,8 @@ SECTIONS
     .cpu_after_early_actor_transition 0x80017CDC : AT(0x188DC) { build/us/fallback.o(.rom_cpu_after_early_actor_transition) }
     .early_pointer_state 0x8001A170 : AT(0x1AD70) SUBALIGN(4) { build/us/early_pointer_state.o(.text) }
     .cpu_after_early_pointer_state 0x8001A1F0 : AT(0x1ADF0) { build/us/fallback.o(.rom_cpu_after_early_pointer_state) }
+    .early_resource_state 0x8001ADA0 : AT(0x1B9A0) SUBALIGN(4) { build/us/early_resource_state.o(.text) }
+    .cpu_after_early_resource_state 0x8001AF44 : AT(0x1BB44) { build/us/fallback.o(.rom_cpu_after_early_resource_state) }
     .early_simple_forward 0x8001B448 : AT(0x1C048) SUBALIGN(4) { build/us/early_simple_forward.o(.text) }
     .cpu_after_early_simple_forward 0x8001B468 : AT(0x1C068) { build/us/fallback.o(.rom_cpu_after_early_simple_forward) }
     .early_value_lookup 0x8001BC38 : AT(0x1C838) SUBALIGN(4) { build/us/early_value_lookup.o(.text) }
@@ -1042,7 +1044,9 @@ ASSERT(SIZEOF(.cpu_after_early_callback_false) == 0x894, "cpu_after_early_callba
 ASSERT(SIZEOF(.early_actor_transition) == 0xcc, "early_actor_transition size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_transition) == 0x2494, "cpu_after_early_actor_transition size changed")
 ASSERT(SIZEOF(.early_pointer_state) == 0x80, "early_pointer_state size changed")
-ASSERT(SIZEOF(.cpu_after_early_pointer_state) == 0x1258, "cpu_after_early_pointer_state size changed")
+ASSERT(SIZEOF(.cpu_after_early_pointer_state) == 0xbb0, "cpu_after_early_pointer_state size changed")
+ASSERT(SIZEOF(.early_resource_state) == 0x1a4, "early_resource_state size changed")
+ASSERT(SIZEOF(.cpu_after_early_resource_state) == 0x504, "cpu_after_early_resource_state size changed")
 ASSERT(SIZEOF(.early_simple_forward) == 0x20, "early_simple_forward size changed")
 ASSERT(SIZEOF(.cpu_after_early_simple_forward) == 0x7d0, "cpu_after_early_simple_forward size changed")
 ASSERT(SIZEOF(.early_value_lookup) == 0xec, "early_value_lookup size changed")
