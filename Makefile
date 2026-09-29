@@ -2251,6 +2251,12 @@ build/us/save_menu_flag_setter.o: src/game/save_menu_flag_setter.c $(IDO) Makefi
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_flag_setter.raw.o $@ .text 0xc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/save_menu_text_flags.o: src/game/save_menu_text_flags.c include/game_memory.h include/movie.h include/object.h include/palette.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_text_flags.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_text_flags.raw.o $@ .text 0x170
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/save_menu_state_reset.o: src/game/save_menu_state_reset.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_state_reset.raw.o $<
@@ -3086,6 +3092,7 @@ RUNTIME_OBJECTS += \
     build/us/save_level_lookup.o \
     build/us/save_menu_conditional_copy.o \
     build/us/save_menu_flag_setter.o \
+    build/us/save_menu_text_flags.o \
     build/us/save_menu_state_reset.o \
     build/us/save_menu_legacy_reset.o \
     build/us/save_menu_legacy_heap.o \

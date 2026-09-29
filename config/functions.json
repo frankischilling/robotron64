@@ -1453,6 +1453,50 @@
     "evidence": "docs/save-menu-navigation.md"
   },
   {
+    "name": "func_800226E8",
+    "rom": 144104,
+    "vram": 2147624680,
+    "size": 108,
+    "source": "src/game/save_menu_text_flags.c",
+    "object": "build/us/save_menu_text_flags.o",
+    "section": ".save_menu_text_flags",
+    "section_vram": 2147624680,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80022754",
+    "rom": 144212,
+    "vram": 2147624788,
+    "size": 108,
+    "source": "src/game/save_menu_text_flags.c",
+    "object": "build/us/save_menu_text_flags.o",
+    "section": ".save_menu_text_flags",
+    "section_vram": 2147624680,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_800227C0",
+    "rom": 144320,
+    "vram": 2147624896,
+    "size": 52,
+    "source": "src/game/save_menu_text_flags.c",
+    "object": "build/us/save_menu_text_flags.o",
+    "section": ".save_menu_text_flags",
+    "section_vram": 2147624680,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_800227F4",
+    "rom": 144372,
+    "vram": 2147624948,
+    "size": 100,
+    "source": "src/game/save_menu_text_flags.c",
+    "object": "build/us/save_menu_text_flags.o",
+    "section": ".save_menu_text_flags",
+    "section_vram": 2147624680,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
     "name": "func_80022CF8",
     "rom": 145656,
     "vram": 2147626232,

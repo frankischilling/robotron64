@@ -1,6 +1,6 @@
 # Save menu navigation recovery
 
-Four earlier helpers in the same subsystem are now source-owned: `func_80021B20` looks up a level label in `D_800BA7A8`, `func_80021C14` conditionally copies one source byte into a caller-selected word, `func_80022050` updates the menu/runtime flag at `D_80075950`, and `func_80022CF8` resets the menu status words before the main state machine runs. They total 120 code bytes and are linked independently inside the surrounding fallback so all intervening procedures remain untouched.
+Eight earlier helpers in the same subsystem are now source-owned. `func_80021B20` looks up a level label in `D_800BA7A8`, `func_80021C14` conditionally copies one source byte into a caller-selected word, `func_80022050` updates the menu/runtime flag at `D_80075950`, and `func_80022CF8` resets the menu status words before the main state machine runs. The four functions at `0x800226E8..0x80022858` call the text flag service on the four slots stored at `D_80076000..D_8007600C` or on movie string slots beginning at offset `0x66C` of the active movie configuration. Together these eight functions total 488 code bytes and are linked independently inside the surrounding fallback so all intervening procedures remain untouched.
 
 The legacy callback block from `0x80025688` through `0x80025C40` now has twenty complete matching functions totaling 1,448 code bytes. Two eight-byte regions at `0x800256B8..0x800256C0` and `0x80025708..0x80025710` remain ROM fallback because the function catalog does not identify them as procedures. The recovered functions own no initialized data or BSS.
 
@@ -22,7 +22,7 @@ Four controller-pak callbacks after the navigation block are also exact. `func_8
 
 The menu node has a 48-byte layout, and the navigation state is 100 bytes. Size assertions cover both. The twelve functions preserve the established field offsets as later menu-activation work gives names to previously unknown fields.
 
-The first exact comparisons live under `.local/recovery59-menu`, with preserved snapshots under `.local/recovery61-menu/frozen_exact`. Those older proofs include the header version used for their original compilation. Independent integration comparisons under `.local/recovery61-integration` recompile all twelve sources against the current expanded header.
+The first exact comparisons live under `.local/recovery59-menu`, with preserved snapshots under `.local/recovery61-menu/frozen_exact`. Those older proofs include the header version used for their original compilation. Independent integration comparisons under `.local/recovery61-integration` recompile all twelve sources against the current expanded header. The four text-flag helpers also have a complete linked comparison over their contiguous 368-byte range; the current build records source and transitive-header hashes through the standard provenance step.
 
 The legacy prelude was reconstructed from the US target function catalog and the frozen local disassemblies in `recovery38-session` and `recovery58-menu`; no external source tree was used for these twenty functions. The six source units were then linked at their final addresses against the current project symbol layout, including the two retained fallback fragments, before integration.
 

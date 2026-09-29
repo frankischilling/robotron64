@@ -76,6 +76,7 @@ MATCHING_BLOCKS = (
     ("save_level_lookup", "src/game/save_level_lookup.c", 0x80021B20, 0x80021B38),
     ("save_menu_conditional_copy", "src/game/save_menu_conditional_copy.c", 0x80021C14, 0x80021C3C),
     ("save_menu_flag_setter", "src/game/save_menu_flag_setter.c", 0x80022050, 0x8002205C),
+    ("save_menu_text_flags", "src/game/save_menu_text_flags.c", 0x800226E8, 0x80022858),
     ("save_menu_state_reset", "src/game/save_menu_state_reset.c", 0x80022CF8, 0x80022D24),
     ("save_menu_legacy_reset", "src/game/save_menu_legacy_reset.c", 0x80025688, 0x800256B8),
     ("save_menu_legacy_heap", "src/game/save_menu_legacy_heap.c", 0x800256C0, 0x80025708),

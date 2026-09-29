@@ -141,6 +141,8 @@ SECTIONS
     .cpu_after_save_menu_conditional_copy 0x80021C3C : AT(0x2283C) { build/us/fallback.o(.rom_cpu_after_save_menu_conditional_copy) }
     .save_menu_flag_setter 0x80022050 : AT(0x22C50) SUBALIGN(4) { build/us/save_menu_flag_setter.o(.text) }
     .cpu_after_save_menu_flag_setter 0x8002205C : AT(0x22C5C) { build/us/fallback.o(.rom_cpu_after_save_menu_flag_setter) }
+    .save_menu_text_flags 0x800226E8 : AT(0x232E8) SUBALIGN(4) { build/us/save_menu_text_flags.o(.text) }
+    .cpu_after_save_menu_text_flags 0x80022858 : AT(0x23458) { build/us/fallback.o(.rom_cpu_after_save_menu_text_flags) }
     .save_menu_state_reset 0x80022CF8 : AT(0x238F8) SUBALIGN(4) { build/us/save_menu_state_reset.o(.text) }
     .cpu_after_save_menu_state_reset 0x80022D24 : AT(0x23924) { build/us/fallback.o(.rom_cpu_after_save_menu_state_reset) }
     .save_menu_legacy_reset 0x80025688 : AT(0x26288) SUBALIGN(4) { build/us/save_menu_legacy_reset.o(.text) }
@@ -1032,7 +1034,9 @@ ASSERT(SIZEOF(.cpu_after_save_level_lookup) == 0xdc, "cpu_after_save_level_looku
 ASSERT(SIZEOF(.save_menu_conditional_copy) == 0x28, "save_menu_conditional_copy size changed")
 ASSERT(SIZEOF(.cpu_after_save_menu_conditional_copy) == 0x414, "cpu_after_save_menu_conditional_copy size changed")
 ASSERT(SIZEOF(.save_menu_flag_setter) == 0xc, "save_menu_flag_setter size changed")
-ASSERT(SIZEOF(.cpu_after_save_menu_flag_setter) == 0xc9c, "cpu_after_save_menu_flag_setter size changed")
+ASSERT(SIZEOF(.cpu_after_save_menu_flag_setter) == 0x68c, "cpu_after_save_menu_flag_setter size changed")
+ASSERT(SIZEOF(.save_menu_text_flags) == 0x170, "save_menu_text_flags size changed")
+ASSERT(SIZEOF(.cpu_after_save_menu_text_flags) == 0x4a0, "cpu_after_save_menu_text_flags size changed")
 ASSERT(SIZEOF(.save_menu_state_reset) == 0x2c, "save_menu_state_reset size changed")
 ASSERT(SIZEOF(.cpu_after_save_menu_state_reset) == 0x2964, "cpu_after_save_menu_state_reset size changed")
 ASSERT(SIZEOF(.save_menu_legacy_reset) == 0x30, "save_menu_legacy_reset size changed")
