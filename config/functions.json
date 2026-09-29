@@ -5006,6 +5006,17 @@
     "evidence": "docs/game-memory.md"
   },
   {
+    "name": "func_8003B838",
+    "rom": 246840,
+    "vram": 2147727416,
+    "size": 168,
+    "source": "src/game/game_string_case_compare_n.c",
+    "object": "build/us/game_string_case_compare_n.o",
+    "section": ".game_string_case_compare_n",
+    "section_vram": 2147727416,
+    "evidence": "docs/game-memory.md"
+  },
+  {
     "name": "func_8003B8E0",
     "rom": 247008,
     "vram": 2147727584,
@@ -6788,6 +6799,28 @@
     "evidence": "docs/pak-files.md"
   },
   {
+    "name": "func_8004CDE8",
+    "rom": 317928,
+    "vram": 2147798504,
+    "size": 32,
+    "source": "src/game/runtime_random.c",
+    "object": "build/us/runtime_random.o",
+    "section": ".runtime_random",
+    "section_vram": 2147798504,
+    "evidence": "docs/runtime-wrappers.md"
+  },
+  {
+    "name": "func_8004CE70",
+    "rom": 318064,
+    "vram": 2147798640,
+    "size": 64,
+    "source": "src/game/runtime_float_truncate.c",
+    "object": "build/us/runtime_float_truncate.o",
+    "section": ".runtime_float_truncate",
+    "section_vram": 2147798640,
+    "evidence": "docs/runtime-wrappers.md"
+  },
+  {
     "name": "func_8004CED0",
     "rom": 318160,
     "vram": 2147798736,
@@ -7039,6 +7072,17 @@
     "section": ".object_history",
     "section_vram": 2147803496,
     "evidence": "docs/fixed-geometry.md"
+  },
+  {
+    "name": "func_8004EB60",
+    "rom": 325472,
+    "vram": 2147806048,
+    "size": 20,
+    "source": "src/game/actor_history_byte_clear.c",
+    "object": "build/us/actor_history_byte_clear.o",
+    "section": ".actor_history_byte_clear",
+    "section_vram": 2147806048,
+    "evidence": "docs/actors.md"
   },
   {
     "name": "func_8004EB80",

@@ -45,13 +45,13 @@ advances until the original left string terminates. The duplicate case fold
 on the mismatch path is preserved.
 
 The case-sensitive comparisons at `0x8003B7FC..0x8003B838` and
-`0x8003B8E0..0x8003B928` add another 132 exact bytes. The first advances until
-the first mismatch or terminator. The second applies the same comparison while
-the signed count remains positive. Both return the unsigned-byte difference on
-a mismatch. Their complete IDO 5.3 proofs, including current `game_memory.h`
-provenance and exact procedure boundaries, are retained under
-`.local/recovery73-object`. The routines beginning at `0x8003B734` and
-`0x8003B838` remain excluded candidates in `src/game/game_string_comparisons.c`.
+`0x8003B8E0..0x8003B928` add 132 exact bytes. The first advances until the
+first mismatch or terminator. The second applies the same comparison while the
+signed count remains positive. The 168-byte bounded case-normalizing comparison
+at `0x8003B838..0x8003B8E0` lowercases both bytes before comparing them and
+returns the normalized unsigned-byte difference on a mismatch. The routine at
+`0x8003B734` remains an excluded candidate in
+`src/game/game_string_comparisons.c`.
 
 ## Number formatting
 

@@ -1,0 +1,59 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "toolchain_identity": {
+    "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+    "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+    "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+  },
+  "comparison_report": "build/worker3-actor-renderer/report.json",
+  "comparison_report_sha256": "e88be4f9ea9d0ee34baad1befc94949e9efc03060d54eb4f1335c56813949343",
+  "new_matching_bytes": 284,
+  "integrated_rom_verification": "Matched all 8388608 bytes",
+  "external_reference_note": "No external game implementation was used; recovery used the Robotron 64 target instructions, existing callers and types, and retained local recovery experiments.",
+  "sources": [
+    {
+      "source": "src/game/game_string_case_compare_n.c",
+      "source_sha256": "42cd56d58e4540b43b5e051a44d0817a84939da0bb4cd2094cb302784a0265b9",
+      "function": "func_8003B838",
+      "vram_start": "0x8003B838",
+      "vram_end": "0x8003B8E0",
+      "bytes": 168,
+      "comparison_sha256": "8acb447151a64410f2fcd256d05af7f6f423bb23bb5e6f200ad3044e593db9f3"
+    },
+    {
+      "source": "src/game/runtime_random.c",
+      "source_sha256": "4f96b8518d944b09410510e02e11ba47041a47065f568985218b29055110ed1b",
+      "function": "func_8004CDE8",
+      "vram_start": "0x8004CDE8",
+      "vram_end": "0x8004CE08",
+      "bytes": 32,
+      "comparison_sha256": "4eee880c9e98e539913ed5176158f49a68801f5e885c7e91e6c82a614a985c99"
+    },
+    {
+      "source": "src/game/runtime_float_truncate.c",
+      "source_sha256": "63b13177728fc8003724c806e94f094fb33b10138261b3f7941c06c8e2a44bb4",
+      "function": "func_8004CE70",
+      "vram_start": "0x8004CE70",
+      "vram_end": "0x8004CEB0",
+      "bytes": 64,
+      "comparison_sha256": "6b7e7a8d43b33b0e5cb79bf3e03b4fbaab531a33a7f7c373af63f14f7c41b13d"
+    },
+    {
+      "source": "src/game/actor_history_byte_clear.c",
+      "source_sha256": "f6d94c98e3aa02db699e53d7f517e79eec7988c9206795c0950d2acfef5a4ca0",
+      "function": "func_8004EB60",
+      "vram_start": "0x8004EB60",
+      "vram_end": "0x8004EB74",
+      "bytes": 20,
+      "comparison_sha256": "e8356a98a758fe4333c5098d2bbe62cb069c08c76598958339fda9ee705b2ee0"
+    }
+  ],
+  "typed_caller": {
+    "source": "src/game/actor_behavior_release_29d6c.c",
+    "source_sha256": "c676945e0512fb1dae1f6044a61e9d22cab4533695eef6ce370c578bf3db375d",
+    "function": "func_80029D6C",
+    "bytes": 44,
+    "comparison_sha256": "a8e54fd0db992d72653799ada6011ee0841d7a9b66366910d8c53be6b1c425f6"
+  }
+}

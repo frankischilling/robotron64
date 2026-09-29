@@ -1060,10 +1060,34 @@ build/us/game_string_compare.o: src/game/game_string_compare.c include/game_memo
 	$(PYTHON) tools/trim_padding.py build/us/game_string_compare.raw.o $@ .text 0x3c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/game_string_case_compare_n.o: src/game/game_string_case_compare_n.c include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_string_case_compare_n.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/game_string_case_compare_n.raw.o $@ .text 0xa8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/game_string_compare_n.o: src/game/game_string_compare_n.c include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_string_compare_n.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/game_string_compare_n.raw.o $@ .text 0x48
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/runtime_random.o: src/game/runtime_random.c $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/runtime_random.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/runtime_random.raw.o $@ .text 0x20
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/runtime_float_truncate.o: src/game/runtime_float_truncate.c $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/runtime_float_truncate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/runtime_float_truncate.raw.o $@ .text 0x40
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_history_byte_clear.o: src/game/actor_history_byte_clear.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_history_byte_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_history_byte_clear.raw.o $@ .text 0x14
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/game_integer_parse.o: src/game/game_integer_parse.c include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -2962,9 +2986,13 @@ RUNTIME_OBJECTS += \
 RUNTIME_OBJECTS += \
     build/us/game_string_case_compare.o \
     build/us/game_string_compare.o \
+    build/us/game_string_case_compare_n.o \
     build/us/game_string_compare_n.o \
     build/us/game_integer_parse.o \
     build/us/heap_empty.o \
+    build/us/runtime_random.o \
+    build/us/runtime_float_truncate.o \
+    build/us/actor_history_byte_clear.o \
 
 RUNTIME_OBJECTS += \
     build/us/object_recovery_path_extension.o \

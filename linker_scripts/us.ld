@@ -403,7 +403,7 @@ SECTIONS
     .cpu_after_game_memory 0x8003B734 : AT(0x3C334) { build/us/fallback.o(.rom_cpu_after_game_memory) }
     .game_string_case_compare 0x8003B768 : AT(0x3C368) SUBALIGN(4) { build/us/game_string_case_compare.o(.text) }
     .game_string_compare 0x8003B7FC : AT(0x3C3FC) SUBALIGN(4) { build/us/game_string_compare.o(.text) }
-    .cpu_after_game_string_compare 0x8003B838 : AT(0x3C438) { build/us/fallback.o(.rom_cpu_after_game_string_compare) }
+    .game_string_case_compare_n 0x8003B838 : AT(0x3C438) SUBALIGN(4) { build/us/game_string_case_compare_n.o(.text) }
     .game_string_compare_n 0x8003B8E0 : AT(0x3C4E0) SUBALIGN(4) { build/us/game_string_compare_n.o(.text) }
     .game_number_format 0x8003B928 : AT(0x3C528) SUBALIGN(4) { build/us/game_number_format.o(.text) }
     .game_character 0x8003BBAC : AT(0x3C7AC) SUBALIGN(4) { build/us/game_character.o(.text) }
@@ -501,6 +501,10 @@ SECTIONS
     .pak_file_close 0x8004C648 : AT(0x4D248) SUBALIGN(4) { build/us/pak_file_close.o(.text) }
     .pak_file_encode_name 0x8004C65C : AT(0x4D25C) SUBALIGN(4) { build/us/pak_file_encode_name.o(.text) }
     .cpu_after_pak_file_encode_name 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_cpu_after_pak_file_encode_name) }
+    .runtime_random 0x8004CDE8 : AT(0x4D9E8) SUBALIGN(4) { build/us/runtime_random.o(.text) }
+    .cpu_after_runtime_random 0x8004CE08 : AT(0x4DA08) { build/us/fallback.o(.rom_cpu_after_runtime_random) }
+    .runtime_float_truncate 0x8004CE70 : AT(0x4DA70) SUBALIGN(4) { build/us/runtime_float_truncate.o(.text) }
+    .cpu_after_runtime_float_truncate 0x8004CEB0 : AT(0x4DAB0) { build/us/fallback.o(.rom_cpu_after_runtime_float_truncate) }
     .fixed_geometry_setup 0x8004CED0 : AT(0x4DAD0) SUBALIGN(4) { build/us/fixed_geometry_setup.o(.text) }
     .frame_transform 0x8004D4B4 : AT(0x4E0B4) SUBALIGN(4) { build/us/frame_transform.o(.text) }
     .fixed_geometry 0x8004D59C : AT(0x4E19C) SUBALIGN(4) { build/us/fixed_geometry.o(.text) }
@@ -512,6 +516,8 @@ SECTIONS
     .cpu_after_heap_empty 0x8004DEE0 : AT(0x4EAE0) { build/us/fallback.o(.rom_cpu_after_heap_empty) }
     .object_history 0x8004E168 : AT(0x4ED68) SUBALIGN(4) { build/us/object_history.o(.text) }
     .cpu_after_object_history 0x8004E1C0 : AT(0x4EDC0) { build/us/fallback.o(.rom_cpu_after_object_history) }
+    .actor_history_byte_clear 0x8004EB60 : AT(0x4F760) SUBALIGN(4) { build/us/actor_history_byte_clear.o(.text) }
+    .cpu_after_actor_history_byte_clear 0x8004EB74 : AT(0x4F774) { build/us/fallback.o(.rom_cpu_after_actor_history_byte_clear) }
     .rom_directory 0x8004EB80 : AT(0x4F780) SUBALIGN(4) { build/us/rom_directory.o(.text) }
     .rom_file_error 0x8004ED14 : AT(0x4F914) SUBALIGN(4) { build/us/rom_file_error.o(.text) }
     .rom_files 0x8004ED78 : AT(0x4F978) SUBALIGN(4) { build/us/rom_files.o(.text) }
@@ -1432,7 +1438,7 @@ ASSERT(SIZEOF(.game_memory) == 0x274, "game_memory size changed")
 ASSERT(SIZEOF(.cpu_after_game_memory) == 0x34, "cpu_after_game_memory size changed")
 ASSERT(SIZEOF(.game_string_case_compare) == 0x94, "game_string_case_compare size changed")
 ASSERT(SIZEOF(.game_string_compare) == 0x3c, "game_string_compare size changed")
-ASSERT(SIZEOF(.cpu_after_game_string_compare) == 0xa8, "cpu_after_game_string_compare size changed")
+ASSERT(SIZEOF(.game_string_case_compare_n) == 0xa8, "game_string_case_compare_n size changed")
 ASSERT(SIZEOF(.game_string_compare_n) == 0x48, "game_string_compare_n size changed")
 ASSERT(SIZEOF(.game_number_format) == 0x284, "game_number_format size changed")
 ASSERT(SIZEOF(.game_character) == 0x1a0, "game_character size changed")
@@ -1529,7 +1535,11 @@ ASSERT(SIZEOF(.pak_file_read) == 0x78, "pak_file_read size changed")
 ASSERT(SIZEOF(.pak_file_write) == 0x6c, "pak_file_write size changed")
 ASSERT(SIZEOF(.pak_file_close) == 0x14, "pak_file_close size changed")
 ASSERT(SIZEOF(.pak_file_encode_name) == 0x80, "pak_file_encode_name size changed")
-ASSERT(SIZEOF(.cpu_after_pak_file_encode_name) == 0x7f4, "cpu_after_pak_file_encode_name size changed")
+ASSERT(SIZEOF(.cpu_after_pak_file_encode_name) == 0x70c, "cpu_after_pak_file_encode_name size changed")
+ASSERT(SIZEOF(.runtime_random) == 0x20, "runtime_random size changed")
+ASSERT(SIZEOF(.cpu_after_runtime_random) == 0x68, "cpu_after_runtime_random size changed")
+ASSERT(SIZEOF(.runtime_float_truncate) == 0x40, "runtime_float_truncate size changed")
+ASSERT(SIZEOF(.cpu_after_runtime_float_truncate) == 0x20, "cpu_after_runtime_float_truncate size changed")
 ASSERT(SIZEOF(.fixed_geometry_setup) == 0x5e4, "fixed_geometry_setup size changed")
 ASSERT(SIZEOF(.frame_transform) == 0xe8, "frame transform size changed")
 ASSERT(SIZEOF(.fixed_geometry) == 0x598, "fixed-point geometry size changed")
@@ -1540,7 +1550,9 @@ ASSERT(SIZEOF(.cpu_after_heap) == 0x4c, "cpu_after_heap size changed")
 ASSERT(SIZEOF(.heap_empty) == 0x8, "heap_empty size changed")
 ASSERT(SIZEOF(.cpu_after_heap_empty) == 0x288, "cpu_after_heap_empty size changed")
 ASSERT(SIZEOF(.object_history) == 0x58, "object_history size changed")
-ASSERT(SIZEOF(.cpu_after_object_history) == 0x9c0, "cpu_after_object_history size changed")
+ASSERT(SIZEOF(.cpu_after_object_history) == 0x9a0, "cpu_after_object_history size changed")
+ASSERT(SIZEOF(.actor_history_byte_clear) == 0x14, "actor_history_byte_clear size changed")
+ASSERT(SIZEOF(.cpu_after_actor_history_byte_clear) == 0xc, "cpu_after_actor_history_byte_clear size changed")
 ASSERT(SIZEOF(.rom_directory) == 0x194, "rom_directory size changed")
 ASSERT(SIZEOF(.rom_file_error) == 0x64, "rom_file_error size changed")
 ASSERT(SIZEOF(.rom_files) == 0x230, "rom_files size changed")

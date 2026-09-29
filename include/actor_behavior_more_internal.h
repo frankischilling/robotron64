@@ -42,7 +42,7 @@ extern int D_800B6FC8;
 extern int D_800B6FD8;
 
 extern int func_8004CDE8(void);
-extern void func_8004EB60(void);
+extern void func_8004EB60(ActorBehaviorActorInternal *actor);
 extern void func_8001AF44(int kind, int *position, ActorBehaviorActorInternal *actor);
 extern void func_80027A10(ActorBehaviorActorInternal *actor, int value);
 extern void func_800290B0(int object, int *position);
