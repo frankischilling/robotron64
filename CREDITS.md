@@ -61,6 +61,14 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+Perfect Dark's `src/inflate/inflate.c` and Huffman entry declarations at the
+recorded revision supplied comparisons for the DEFLATE tables, bitstream, and
+decoder research. The [compression runtime](docs/compression-runtime.md)
+documents Robotron's complete matching support routines and source-owned
+tables and buffers. The reference's [MIT notice](docs/licenses/perfect-dark.txt)
+is retained; Robotron's particular instructions and addresses are checked
+against its own ROM.
+
 [Erick194/DOOM64-RE](https://github.com/Erick194/DOOM64-RE), inspected at
 `6931e678a0b2958be1b49598f2fe60712c6596e1`, supplied a comparison for WESS
 record and event terminology during audio recovery, and corroborated the

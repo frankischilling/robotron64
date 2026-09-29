@@ -669,6 +669,17 @@ SECTIONS
     .audio_sequence_range_load 0x8005D8AC : AT(0x5E4AC) SUBALIGN(4) { build/us/audio_sequence_range_load.o(.text) }
     .audio_sequence_range_release 0x8005D95C : AT(0x5E55C) SUBALIGN(4) { build/us/audio_sequence_range_release.o(.text) }
     .after_audio_sequence_range_release 0x8005D9D8 : AT(0x5E5D8) { build/us/fallback.o(.rom_after_audio_sequence_range_release) }
+    .compression_table_release 0x8005E1E4 : AT(0x5EDE4) SUBALIGN(4) { build/us/compression_table_release.o(.text) }
+    .after_compression_table_release 0x8005E1EC : AT(0x5EDEC) { build/us/fallback.o(.rom_after_compression_table_release) }
+    .compression_fixed_release 0x8005EE98 : AT(0x5FA98) SUBALIGN(4) { build/us/compression_fixed_release.o(.text) }
+    .after_compression_fixed_release 0x8005EEE0 : AT(0x5FAE0) { build/us/fallback.o(.rom_after_compression_fixed_release) }
+    .compression_workspace 0x8005F71C : AT(0x6031C) SUBALIGN(4) { build/us/compression_workspace.o(.text) }
+    .compression_allocate 0x8005F7E0 : AT(0x603E0) SUBALIGN(4) { build/us/compression_allocate.o(.text) }
+    .compression_refill 0x8005F804 : AT(0x60404) SUBALIGN(4) { build/us/compression_refill.o(.text) }
+    .compression_decode 0x8005F878 : AT(0x60478) SUBALIGN(4) { build/us/compression_decode.o(.text) }
+    .compression_memory 0x8005FAB0 : AT(0x606B0) SUBALIGN(4) { build/us/compression_memory.o(.text) }
+    .compression_cartridge 0x8005FB08 : AT(0x60708) SUBALIGN(4) { build/us/compression_cartridge.o(.text) }
+    .compression_cartridge_bounded 0x8005FB58 : AT(0x60758) SUBALIGN(4) { build/us/compression_cartridge_bounded.o(.text) }
     .gu_sine 0x8005FBB0 : AT(0x607B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_sine) }
     .gu_cosine 0x8005FC20 : AT(0x60820) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_cosine) }
     .cpu_after_gu_cosine 0x8005FC50 : AT(0x60850) { build/us/fallback.o(.rom_cpu_after_gu_cosine) }
@@ -869,7 +880,9 @@ SECTIONS
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
     .data_before_text_table 0x90000000 : AT(0x70110) { build/us/fallback.o(.rom_data_before_text_table) }
     .movie_commands_data 0x80078150 : AT(0x78D50) SUBALIGN(4) { build/us/movie_prepare.o(.data) }
-    .data_after_movie_commands_data 0x90008CA8 : AT(0x78DB8) { build/us/fallback.o(.rom_data_after_movie_commands_data) }
+    .data_after_movie_commands_data 0x800781B8 : AT(0x78DB8) { build/us/fallback.o(.rom_data_after_movie_commands_data) }
+    .compression_workspace_data 0x8008DA40 : AT(0x8E640) SUBALIGN(4) { build/us/compression_workspace.o(.data) }
+    .after_compression_workspace_data 0x8008DBB0 : AT(0x8E7B0) { build/us/fallback.o(.rom_after_compression_workspace_data) }
     .sdk_pi_manager_data 0x8008E3D0 : AT(0x8EFD0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_pi_manager_data) }
     .data_after_sdk_pi_manager_data 0x9001EEDC : AT(0x8EFEC) { build/us/fallback.o(.rom_data_after_sdk_pi_manager_data) }
     .sdk_random_data 0x8008F120 : AT(0x8FD20) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_random_data) }
@@ -929,6 +942,7 @@ SECTIONS
     .audio_backend_patch_bss 0x80192AE0 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_patch.o(.bss) }
     .audio_backend_decay_bss 0x80192B3C (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_decay.o(.bss) }
     .audio_backend_allocate_bss 0x80192B44 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_allocate.o(.bss) }
+    .compression_workspace_bss 0x80192BD0 (NOLOAD) : SUBALIGN(4) { build/us/compression_workspace.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1286,7 +1300,9 @@ ASSERT(SIZEOF(.unexpected) == 0, "unmapped input data")
 ASSERT(SIZEOF(.text_table) == 0x128, "text jump tables size changed")
 ASSERT(SIZEOF(.data_before_text_table) == 0x8c40, "data_before_text_table size changed")
 ASSERT(SIZEOF(.movie_commands_data) == 0x68, "movie_commands_data size changed")
-ASSERT(SIZEOF(.data_after_movie_commands_data) == 0x16218, "data_after_movie_commands_data size changed")
+ASSERT(SIZEOF(.data_after_movie_commands_data) == 0x15888, "data_after_movie_commands_data size changed")
+ASSERT(SIZEOF(.compression_workspace_data) == 0x170, "compression_workspace_data size changed")
+ASSERT(SIZEOF(.after_compression_workspace_data) == 0x820, "after_compression_workspace_data size changed")
 ASSERT(SIZEOF(.sdk_pi_manager_data) == 0x1c, "sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_pi_manager_data) == 0xd34, "data_after_sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.sdk_random_data) == 0x4, "sdk_random_data size changed")
@@ -1626,7 +1642,18 @@ ASSERT(SIZEOF(.after_audio_sequence_release) == 0x1a0, "after_audio_sequence_rel
 ASSERT(SIZEOF(.audio_sequence_range_size) == 0x7c, "audio_sequence_range_size size changed")
 ASSERT(SIZEOF(.audio_sequence_range_load) == 0xb0, "audio_sequence_range_load size changed")
 ASSERT(SIZEOF(.audio_sequence_range_release) == 0x7c, "audio_sequence_range_release size changed")
-ASSERT(SIZEOF(.after_audio_sequence_range_release) == 0x21d8, "after_audio_sequence_range_release size changed")
+ASSERT(SIZEOF(.after_audio_sequence_range_release) == 0x80c, "after_audio_sequence_range_release size changed")
+ASSERT(SIZEOF(.compression_table_release) == 0x8, "compression_table_release size changed")
+ASSERT(SIZEOF(.after_compression_table_release) == 0xcac, "after_compression_table_release size changed")
+ASSERT(SIZEOF(.compression_fixed_release) == 0x48, "compression_fixed_release size changed")
+ASSERT(SIZEOF(.after_compression_fixed_release) == 0x83c, "after_compression_fixed_release size changed")
+ASSERT(SIZEOF(.compression_workspace) == 0xc4, "compression_workspace size changed")
+ASSERT(SIZEOF(.compression_allocate) == 0x24, "compression_allocate size changed")
+ASSERT(SIZEOF(.compression_refill) == 0x74, "compression_refill size changed")
+ASSERT(SIZEOF(.compression_decode) == 0x238, "compression_decode size changed")
+ASSERT(SIZEOF(.compression_memory) == 0x58, "compression_memory size changed")
+ASSERT(SIZEOF(.compression_cartridge) == 0x50, "compression_cartridge size changed")
+ASSERT(SIZEOF(.compression_cartridge_bounded) == 0x58, "compression_cartridge_bounded size changed")
 ASSERT(SIZEOF(.gu_sine) == 0x70, "gu_sine size changed")
 ASSERT(SIZEOF(.gu_cosine) == 0x30, "gu_cosine size changed")
 ASSERT(SIZEOF(.cpu_after_gu_cosine) == 0x290, "cpu_after_gu_cosine size changed")
@@ -1835,3 +1862,5 @@ ASSERT(SIZEOF(.audio_backend_voice_stop_bss) == 0x4, "audio_backend_voice_stop B
 ASSERT(SIZEOF(.audio_backend_patch_bss) == 0x2, "audio_backend_patch BSS size changed")
 ASSERT(SIZEOF(.audio_backend_decay_bss) == 0x8, "audio_backend_decay BSS size changed")
 ASSERT(SIZEOF(.audio_backend_allocate_bss) == 0x18, "audio_backend_allocate BSS size changed")
+
+ASSERT(SIZEOF(.compression_workspace_bss) == 0xf58, "compression_workspace BSS size changed")

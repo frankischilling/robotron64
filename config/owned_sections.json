@@ -13,6 +13,27 @@
     "evidence": "docs/movie-commands.md"
   },
   {
+    "input_section": ".data",
+    "vram": 2148063808,
+    "rom": 583232,
+    "size": 368,
+    "symbols": {
+      "D_8008DA40": 0,
+      "D_8008DA44": 4,
+      "D_8008DA48": 8,
+      "D_8008DA94": 84,
+      "D_8008DAD4": 148,
+      "D_8008DB14": 212,
+      "D_8008DB50": 272,
+      "D_8008DB8C": 332
+    },
+    "section": ".compression_workspace_data",
+    "static_symbols": {},
+    "source": "src/game/compression_workspace.c",
+    "object": "build/us/compression_workspace.o",
+    "evidence": "docs/compression-runtime.md"
+  },
+  {
     "source": "src/game/scene_background.c",
     "object": "build/us/scene_background.o",
     "input_section": ".rodata",
@@ -371,5 +392,41 @@
     "source": "src/game/audio_backend_allocate.c",
     "object": "build/us/audio_backend_allocate.o",
     "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".compression_workspace_bss",
+    "vram": 2149133264,
+    "rom": null,
+    "size": 3928,
+    "symbols": {
+      "D_80192BD0": 0,
+      "D_80192BD4": 4,
+      "D_80192BD8": 8,
+      "D_80192BDC": 12,
+      "D_80192BE0": 16,
+      "D_80192BE4": 20,
+      "D_80192BE8": 24,
+      "D_80192BEC": 28,
+      "D_80192BF0": 32,
+      "D_80192BF4": 36,
+      "D_80192BF8": 40,
+      "D_80192BFC": 44,
+      "D_80192C00": 48,
+      "D_80192C04": 52,
+      "D_80192C08": 56,
+      "D_80192C0C": 60,
+      "D_80192C10": 64,
+      "D_80192C58": 136,
+      "D_80192CA0": 208,
+      "D_80192CE0": 272,
+      "D_80193160": 1424,
+      "D_801931A8": 1496,
+      "D_80193628": 2648
+    },
+    "static_symbols": {},
+    "source": "src/game/compression_workspace.c",
+    "object": "build/us/compression_workspace.o",
+    "evidence": "docs/compression-runtime.md"
   }
 ]

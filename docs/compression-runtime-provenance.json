@@ -1,0 +1,333 @@
+{
+  "scope": "Nine complete compression support procedures / 1,252 code bytes, 368 initialized bytes, 3,928 BSS bytes.",
+  "current_proof": "Recompile with tools/compare_runtime.py and make progress before claiming a current match.",
+  "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "reference": {
+    "project": "n64decomp/perfect_dark",
+    "revision": "169ed48bdcbfb3b568b028bd5bebb27680073514",
+    "source": "src/inflate/inflate.c",
+    "source_sha256": "9cb296203ba178fdc93ae2d7409910bfde0bd2541d33720894395e6654ce412c",
+    "license_sha256": "1ac97868dba0ab0959468315cb827617297bcb41a79ca914166859b1173c581f"
+  },
+  "units": [
+    {
+      "source": "src/game/compression_table_release.c",
+      "source_sha256": "6180eb2c2fe8c6ab43331a5a67c5843210691b7664aec2310e8cb8b42e9fcd53",
+      "candidate_source": ".local/audio-backend/compression_table_release.c",
+      "candidate_source_sha256": "7b6f86a6337fd41e6101e273b1c9ab35609d0f1cc00ee9f3a712b0c0722875c0",
+      "comparison_report": "build/audio-backend/compression_table_release/report.json",
+      "comparison_report_sha256": "efe277374713bf1ccc7de38da76056cfe9305b91764817041b857f94fbd1641d",
+      "linked_code_sha256": "aab9a3b4a314f107dee9217d6d10144c96feaf7d3f083e0f94c1ee0811c96054",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005E1E4",
+          "start": 2147869156,
+          "size": 8
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/compression_fixed_release.c",
+      "source_sha256": "24976d4c5a9ceb8858f1d7a742b2145da6562a2257e28069fdb56edd96c8b5a9",
+      "candidate_source": ".local/audio-backend/compression_fixed_release.c",
+      "candidate_source_sha256": "a8267083b03f3f6b058d78a8c518a906cb6c39aa8d7c8270414877c67b5e38b5",
+      "comparison_report": "build/audio-backend/compression_fixed_release/report.json",
+      "comparison_report_sha256": "cc7fb903fb0a8f042355369fb3b64a1516530553a6d9f758e6e05284d411f6e3",
+      "linked_code_sha256": "de7f697f5efb43e9ca670198f64b6977a2061a7083f1de54b4079164ff8f0530",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005EE98",
+          "start": 2147872408,
+          "size": 72
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/compression_workspace.c",
+      "source_sha256": "e83232c4cdc11141eb7ed601089891f5657f6d98c820b9bbca039425ecb85177",
+      "candidate_source": ".local/audio-backend/compression_workspace_state.c",
+      "candidate_source_sha256": "50162f1896fd0f37f746d86ff01abf12fe6037e69d3f2c6357410bd882aaeaf5",
+      "comparison_report": ".local/backend-probes/compression_workspace_state/report.json",
+      "comparison_report_sha256": "021c13ddf97db8e9621d30fe1821fd36ae723cc1ea28b305719740dea9c0b7f3",
+      "linked_code_sha256": "8eef77e4bdd709cf33be40c8cdac87880805c667ea2677f754382a104cd919eb",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005F71C",
+          "start": 2147874588,
+          "size": 196
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".data",
+          "vram": 2148063808,
+          "rom": 583232,
+          "size": 368,
+          "symbols": {
+            "D_8008DA40": 0,
+            "D_8008DA44": 4,
+            "D_8008DA48": 8,
+            "D_8008DA94": 84,
+            "D_8008DAD4": 148,
+            "D_8008DB14": 212,
+            "D_8008DB50": 272,
+            "D_8008DB8C": 332
+          },
+          "section": ".compression_workspace_data",
+          "static_symbols": {},
+          "source": "src/game/compression_workspace.c",
+          "object": "build/us/compression_workspace.o",
+          "evidence": "docs/compression-runtime.md"
+        },
+        {
+          "input_section": ".bss",
+          "section": ".compression_workspace_bss",
+          "vram": 2149133264,
+          "rom": null,
+          "size": 3928,
+          "symbols": {
+            "D_80192BD0": 0,
+            "D_80192BD4": 4,
+            "D_80192BD8": 8,
+            "D_80192BDC": 12,
+            "D_80192BE0": 16,
+            "D_80192BE4": 20,
+            "D_80192BE8": 24,
+            "D_80192BEC": 28,
+            "D_80192BF0": 32,
+            "D_80192BF4": 36,
+            "D_80192BF8": 40,
+            "D_80192BFC": 44,
+            "D_80192C00": 48,
+            "D_80192C04": 52,
+            "D_80192C08": 56,
+            "D_80192C0C": 60,
+            "D_80192C10": 64,
+            "D_80192C58": 136,
+            "D_80192CA0": 208,
+            "D_80192CE0": 272,
+            "D_80193160": 1424,
+            "D_801931A8": 1496,
+            "D_80193628": 2648
+          },
+          "static_symbols": {},
+          "source": "src/game/compression_workspace.c",
+          "object": "build/us/compression_workspace.o",
+          "evidence": "docs/compression-runtime.md"
+        }
+      ]
+    },
+    {
+      "source": "src/game/compression_allocate.c",
+      "source_sha256": "5b1cbbe004dd24e4e916ad53aa23fffbdf6f84deff3eb8d82de80b82fa41f01b",
+      "candidate_source": ".local/audio-backend/compression_allocate_from_saved.c",
+      "candidate_source_sha256": "17a6990ff381c1180f8beadc33b57eedd23295850f46b840208d42dc5235a7ef",
+      "comparison_report": "build/audio-backend/compression_allocate_from_saved/report.json",
+      "comparison_report_sha256": "1637f6c7fed444039ba93904d6bd2f6fd3e124d4603e5a804cf84408613112a0",
+      "linked_code_sha256": "62970a7a68530d9e7365795dc6b0fb2b1f0fcde08aeef2ccb82363bf6fa5cdea",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005F7E0",
+          "start": 2147874784,
+          "size": 36
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/compression_refill.c",
+      "source_sha256": "cd05dedeec7c65916865d30abe86e19d83a3d169e31b17e148286e40e54a0bb6",
+      "candidate_source": ".local/audio-backend/compression_refill.c",
+      "candidate_source_sha256": "1323187db346e2a0e5b4445830e2ec032e497adc62f95bb36252401278c78bf1",
+      "comparison_report": "build/audio-backend/compression_refill/report.json",
+      "comparison_report_sha256": "cab2d791bf81e43e06657c9214962c3cf5e7e6c3f845a1f905c0f205eeb60819",
+      "linked_code_sha256": "68f1e7b5692d987c193bf6482a6311c885311f7482be77fff700e7fa860d91e9",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005F804",
+          "start": 2147874820,
+          "size": 116
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/compression_decode.c",
+      "source_sha256": "b255ecff2c26432bcab5d19cad35694544b567fecbdf13492c095a08804fdc29",
+      "candidate_source": ".local/audio-backend/compression_decode_shared_result.c",
+      "candidate_source_sha256": "6388aefd820b8a960da5dc174c7748bbefdf105d99c5add36e70c937f951d8f0",
+      "comparison_report": "build/audio-backend/compression_decode_shared_result/report.json",
+      "comparison_report_sha256": "f7f68f874267e2623f3e0a647522286df38fd4051da134625270675f3d63966a",
+      "linked_code_sha256": "9393f7f34ca6d5138e8c77b503365eb36d69c2ab55b2e9801c70d5fd93386a28",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005F878",
+          "start": 2147874936,
+          "size": 568
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/compression_memory.c",
+      "source_sha256": "f172237d77d8812eeb473222093f99d4c9ccf1316839c29372843b227a9749b5",
+      "candidate_source": ".local/audio-backend/compression_memory.c",
+      "candidate_source_sha256": "8fc0040c9b39aab70055799bc5dafccebd3d22b7a8dfca0196d5d506b6be341d",
+      "comparison_report": "build/audio-backend/compression_memory/report.json",
+      "comparison_report_sha256": "87b8d2ab0e7450448c60c01274a51afaa231609da4d25e6d850c6d053035b9ce",
+      "linked_code_sha256": "3ba38ee5c1d261ac69d2e3f95fa3abc1c921e0d6523b5da8f4b63ce3280daaca",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005FAB0",
+          "start": 2147875504,
+          "size": 88
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/compression_cartridge.c",
+      "source_sha256": "9c79c213b9c0c383c8e1b746e2e54869c205b6333d58eac5f8107b00a18a6f08",
+      "candidate_source": ".local/audio-backend/compression_cartridge.c",
+      "candidate_source_sha256": "dcb20bec827551dfef5225b5176ab979eafab2a34a4981a236090f8ff5e7b5ce",
+      "comparison_report": "build/audio-backend/compression_cartridge/report.json",
+      "comparison_report_sha256": "4ce6586d078fb5dbe4064a120411bf2a3a9337622775025cafd4370767d302c7",
+      "linked_code_sha256": "959e3c1c04274cdd0d322015c8e6da08235bee6f2accb10570faabeecfe2bc35",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005FB08",
+          "start": 2147875592,
+          "size": 80
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/compression_cartridge_bounded.c",
+      "source_sha256": "ea130f8f02edfdbe1768e1df448b4bdde6e629a9f54863586d7c26dbe93e26e0",
+      "candidate_source": ".local/audio-backend/compression_cartridge_bounded.c",
+      "candidate_source_sha256": "388ec0aa9bd231b3c960f6389a6fb17b1e7ac2117a595904e0ca6badae955716",
+      "comparison_report": "build/audio-backend/compression_cartridge_bounded/report.json",
+      "comparison_report_sha256": "238f48ad3788b689e258b8479d4f68220ab8d08bdf086d14aa7bb051d81e331f",
+      "linked_code_sha256": "56c525b745c296975b57d904f7e33e8b5e89b4d035e1dbdbca0d7f2d76132aa0",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005FB58",
+          "start": 2147875672,
+          "size": 88
+        }
+      ],
+      "owned_sections": []
+    }
+  ]
+}

@@ -488,6 +488,15 @@ MATCHING_BLOCKS = (
     ("audio_sequence_range_size", "src/game/audio_sequence_range_size.c", 0x8005D830, 0x8005D8AC),
     ("audio_sequence_range_load", "src/game/audio_sequence_range_load.c", 0x8005D8AC, 0x8005D95C),
     ("audio_sequence_range_release", "src/game/audio_sequence_range_release.c", 0x8005D95C, 0x8005D9D8),
+    ("compression_table_release", "src/game/compression_table_release.c", 0x8005E1E4, 0x8005E1EC),
+    ("compression_fixed_release", "src/game/compression_fixed_release.c", 0x8005EE98, 0x8005EEE0),
+    ("compression_workspace", "src/game/compression_workspace.c", 0x8005F71C, 0x8005F7E0),
+    ("compression_allocate", "src/game/compression_allocate.c", 0x8005F7E0, 0x8005F804),
+    ("compression_refill", "src/game/compression_refill.c", 0x8005F804, 0x8005F878),
+    ("compression_decode", "src/game/compression_decode.c", 0x8005F878, 0x8005FAB0),
+    ("compression_memory", "src/game/compression_memory.c", 0x8005FAB0, 0x8005FB08),
+    ("compression_cartridge", "src/game/compression_cartridge.c", 0x8005FB08, 0x8005FB58),
+    ("compression_cartridge_bounded", "src/game/compression_cartridge_bounded.c", 0x8005FB58, 0x8005FBB0),
 )
 
 CANDIDATE_BLOCKS = (

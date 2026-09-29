@@ -3490,6 +3490,72 @@ RUNTIME_OBJECTS += \
     build/us/audio_sequence_range_load.o \
     build/us/audio_sequence_range_release.o
 
+build/us/compression_table_release.o: src/game/compression_table_release.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_table_release.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_table_release.raw.o $@ .text 0x8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_fixed_release.o: src/game/compression_fixed_release.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_fixed_release.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_fixed_release.raw.o $@ .text 0x48
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_workspace.o: src/game/compression_workspace.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_workspace.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_workspace.raw.o build/us/compression_workspace.text.o .text 0xc4
+	$(PYTHON) tools/owned_sections.py $< build/us/compression_workspace.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_allocate.o: src/game/compression_allocate.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_allocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_allocate.raw.o $@ .text 0x24
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_refill.o: src/game/compression_refill.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_refill.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_refill.raw.o $@ .text 0x74
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_decode.o: src/game/compression_decode.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_decode.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_decode.raw.o $@ .text 0x238
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_memory.o: src/game/compression_memory.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_memory.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_memory.raw.o $@ .text 0x58
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_cartridge.o: src/game/compression_cartridge.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_cartridge.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_cartridge.raw.o $@ .text 0x50
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_cartridge_bounded.o: src/game/compression_cartridge_bounded.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_cartridge_bounded.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_cartridge_bounded.raw.o $@ .text 0x58
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/compression_table_release.o \
+    build/us/compression_fixed_release.o \
+    build/us/compression_workspace.o \
+    build/us/compression_allocate.o \
+    build/us/compression_refill.o \
+    build/us/compression_decode.o \
+    build/us/compression_memory.o \
+    build/us/compression_cartridge.o \
+    build/us/compression_cartridge_bounded.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
