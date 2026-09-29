@@ -511,7 +511,7 @@ SECTIONS
     .pak_file_encode_name 0x8004C65C : AT(0x4D25C) SUBALIGN(4) { build/us/pak_file_encode_name.o(.text) }
     .cpu_after_pak_file_encode_name 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_cpu_after_pak_file_encode_name) }
     .runtime_random 0x8004CDE8 : AT(0x4D9E8) SUBALIGN(4) { build/us/runtime_random.o(.text) }
-    .cpu_after_runtime_random 0x8004CE08 : AT(0x4DA08) { build/us/fallback.o(.rom_cpu_after_runtime_random) }
+    .runtime_angle 0x8004CE08 : AT(0x4DA08) SUBALIGN(4) { build/us/runtime_angle.o(.text) }
     .runtime_float_truncate 0x8004CE70 : AT(0x4DA70) SUBALIGN(4) { build/us/runtime_float_truncate.o(.text) }
     .cpu_after_runtime_float_truncate 0x8004CEB0 : AT(0x4DAB0) { build/us/fallback.o(.rom_cpu_after_runtime_float_truncate) }
     .fixed_geometry_setup 0x8004CED0 : AT(0x4DAD0) SUBALIGN(4) { build/us/fixed_geometry_setup.o(.text) }
@@ -762,13 +762,13 @@ SECTIONS
     .cpu_after_vi_features 0x80060698 : AT(0x61298) { build/us/fallback.o(.rom_cpu_after_vi_features) }
     .virtual_to_physical 0x800606A0 : AT(0x612A0) SUBALIGN(4) { build/us/virtual_to_physical.o(.text) }
     .cpu_after_virtual_to_physical 0x8006071C : AT(0x6131C) { build/us/fallback.o(.rom_cpu_after_virtual_to_physical) }
-    .gu_perspective 0x80060750 : AT(0x61350) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_perspective) }
+    .camera_perspective 0x80060750 : AT(0x61350) SUBALIGN(4) { build/us/camera_perspective.o(.text) }
     .cpu_after_gu_perspective 0x800609D8 : AT(0x615D8) { build/us/fallback.o(.rom_cpu_after_gu_perspective) }
-    .gu_lookathilite 0x800609E0 : AT(0x615E0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_lookathilite) }
+    .camera_highlights 0x800609E0 : AT(0x615E0) SUBALIGN(4) { build/us/camera_highlights.o(.text) }
     .cpu_after_gu_lookathilite 0x80061204 : AT(0x61E04) { build/us/fallback.o(.rom_cpu_after_gu_lookathilite) }
     .matrix_translate 0x80061210 : AT(0x61E10) SUBALIGN(4) { build/us/matrix_translate.o(.text) }
     .cpu_after_gu_translate 0x800612AC : AT(0x61EAC) { build/us/fallback.o(.rom_cpu_after_gu_translate) }
-    .gu_rotate_rpy 0x800612B0 : AT(0x61EB0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_rotate_rpy) }
+    .matrix_rotation 0x800612B0 : AT(0x61EB0) SUBALIGN(4) { build/us/matrix_rotation.o(.text) }
     .cpu_after_gu_rotate_rpy 0x80061444 : AT(0x62044) { build/us/fallback.o(.rom_cpu_after_gu_rotate_rpy) }
     .system_time 0x80061450 : AT(0x62050) SUBALIGN(4) { build/us/system_time.o(.text) }
     .cpu_after_time_get 0x800614D4 : AT(0x620D4) { build/us/fallback.o(.rom_cpu_after_time_get) }
@@ -996,9 +996,9 @@ SECTIONS
     .data_after_frame_projection_rodata 0x800954A4 : AT(0x960A4) { build/us/fallback.o(.rom_data_after_frame_projection_rodata) }
     .audio_pitch_scale_rodata 0x80095CC4 : AT(0x968C4) SUBALIGN(4) { build/us/audio_pitch_scale.o(.rodata) }
     .after_audio_pitch_scale_rodata 0x80095CCC : AT(0x968CC) { build/us/fallback.o(.rom_after_audio_pitch_scale_rodata) }
-    .sdk_gu_perspective_constants 0x80095CF0 : AT(0x968F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_perspective_constants) }
-    .sdk_gu_lookathilite_constants 0x80095D00 : AT(0x96900) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_lookathilite_constants) }
-    .sdk_gu_rotate_rpy_constants 0x80095D20 : AT(0x96920) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_rotate_rpy_constants) }
+    .camera_perspective_rodata 0x80095CF0 : AT(0x968F0) SUBALIGN(4) { build/us/camera_perspective.o(.rodata) }
+    .camera_highlights_rodata 0x80095D00 : AT(0x96900) SUBALIGN(4) { build/us/camera_highlights.o(.rodata) }
+    .matrix_rotation_rodata 0x80095D20 : AT(0x96920) SUBALIGN(4) { build/us/matrix_rotation.o(.rodata) }
     .data_after_sdk_gu_rotate_rpy_constants 0x91006590 : AT(0x96930) { build/us/fallback.o(.rom_data_after_sdk_gu_rotate_rpy_constants) }
     .audio_synthesizer_rodata 0x80095E50 : AT(0x96A50) SUBALIGN(4) { build/us/audio_synthesizer.o(.rodata) }
     .data_after_sdk_audio_synthesizer_constants 0x910066C0 : AT(0x96A60) { build/us/fallback.o(.rom_data_after_sdk_audio_synthesizer_constants) }
@@ -1030,6 +1030,7 @@ SECTIONS
     .audio_engine_iteration_bss 0x8019277C (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration.o(.bss) }
     .audio_backend_note_release_bss 0x80192B70 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_note_release.o(.bss) }
     .timer_initialize_bss 0x80196450 (NOLOAD) : SUBALIGN(4) { build/us/timer_initialize.o(.bss) }
+    .matrix_rotation_bss 0x80194D10 (NOLOAD) : SUBALIGN(4) { build/us/matrix_rotation.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1404,9 +1405,9 @@ ASSERT(SIZEOF(.frame_projection_rodata) == 0xc, "frame projection rodata size ch
 ASSERT(SIZEOF(.data_after_frame_projection_rodata) == 0x820, "data_after_frame_projection_rodata size changed")
 ASSERT(SIZEOF(.audio_pitch_scale_rodata) == 0x8, "audio_pitch_scale_rodata size changed")
 ASSERT(SIZEOF(.after_audio_pitch_scale_rodata) == 0x24, "after_audio_pitch_scale_rodata size changed")
-ASSERT(SIZEOF(.sdk_gu_perspective_constants) == 0x10, "sdk_gu_perspective_constants size changed")
-ASSERT(SIZEOF(.sdk_gu_lookathilite_constants) == 0x20, "sdk_gu_lookathilite_constants size changed")
-ASSERT(SIZEOF(.sdk_gu_rotate_rpy_constants) == 0x10, "sdk_gu_rotate_rpy_constants size changed")
+ASSERT(SIZEOF(.camera_perspective_rodata) == 0x10, "camera_perspective_rodata size changed")
+ASSERT(SIZEOF(.camera_highlights_rodata) == 0x20, "camera_highlights_rodata size changed")
+ASSERT(SIZEOF(.matrix_rotation_rodata) == 0x10, "matrix_rotation_rodata size changed")
 ASSERT(SIZEOF(.data_after_sdk_gu_rotate_rpy_constants) == 0x120, "data_after_sdk_gu_rotate_rpy_constants size changed")
 ASSERT(SIZEOF(.audio_synthesizer_rodata) == 0x10, "audio_synthesizer_rodata size changed")
 ASSERT(SIZEOF(.data_after_sdk_audio_synthesizer_constants) == 0x80, "data_after_sdk_audio_synthesizer_constants size changed")
@@ -1576,7 +1577,7 @@ ASSERT(SIZEOF(.pak_file_close) == 0x14, "pak_file_close size changed")
 ASSERT(SIZEOF(.pak_file_encode_name) == 0x80, "pak_file_encode_name size changed")
 ASSERT(SIZEOF(.cpu_after_pak_file_encode_name) == 0x70c, "cpu_after_pak_file_encode_name size changed")
 ASSERT(SIZEOF(.runtime_random) == 0x20, "runtime_random size changed")
-ASSERT(SIZEOF(.cpu_after_runtime_random) == 0x68, "cpu_after_runtime_random size changed")
+ASSERT(SIZEOF(.runtime_angle) == 0x68, "runtime_angle size changed")
 ASSERT(SIZEOF(.runtime_float_truncate) == 0x40, "runtime_float_truncate size changed")
 ASSERT(SIZEOF(.cpu_after_runtime_float_truncate) == 0x20, "cpu_after_runtime_float_truncate size changed")
 ASSERT(SIZEOF(.fixed_geometry_setup) == 0x5e4, "fixed_geometry_setup size changed")
@@ -1827,13 +1828,13 @@ ASSERT(SIZEOF(.vi_features) == 0x1b8, "vi_features size changed")
 ASSERT(SIZEOF(.cpu_after_vi_features) == 0x8, "cpu_after_vi_features size changed")
 ASSERT(SIZEOF(.virtual_to_physical) == 0x7c, "virtual_to_physical size changed")
 ASSERT(SIZEOF(.cpu_after_virtual_to_physical) == 0x34, "cpu_after_virtual_to_physical size changed")
-ASSERT(SIZEOF(.gu_perspective) == 0x288, "gu_perspective size changed")
+ASSERT(SIZEOF(.camera_perspective) == 0x288, "camera_perspective size changed")
 ASSERT(SIZEOF(.cpu_after_gu_perspective) == 0x8, "cpu_after_gu_perspective size changed")
-ASSERT(SIZEOF(.gu_lookathilite) == 0x824, "gu_lookathilite size changed")
+ASSERT(SIZEOF(.camera_highlights) == 0x824, "camera_highlights size changed")
 ASSERT(SIZEOF(.cpu_after_gu_lookathilite) == 0xc, "cpu_after_gu_lookathilite size changed")
 ASSERT(SIZEOF(.matrix_translate) == 0x9c, "matrix_translate size changed")
 ASSERT(SIZEOF(.cpu_after_gu_translate) == 0x4, "cpu_after_gu_translate size changed")
-ASSERT(SIZEOF(.gu_rotate_rpy) == 0x194, "gu_rotate_rpy size changed")
+ASSERT(SIZEOF(.matrix_rotation) == 0x194, "matrix_rotation size changed")
 ASSERT(SIZEOF(.cpu_after_gu_rotate_rpy) == 0xc, "cpu_after_gu_rotate_rpy size changed")
 ASSERT(SIZEOF(.system_time) == 0x84, "system_time size changed")
 ASSERT(SIZEOF(.cpu_after_time_get) == 0xc, "cpu_after_time_get size changed")
@@ -2045,3 +2046,5 @@ ASSERT(SIZEOF(.audio_engine_iteration_bss) == 0xc, "audio_engine_iteration BSS s
 ASSERT(SIZEOF(.audio_backend_note_release_bss) == 0x8, "audio_backend_note_release BSS size changed")
 
 ASSERT(SIZEOF(.timer_initialize_bss) == 0x8, "timer_initialize BSS size changed")
+
+ASSERT(SIZEOF(.matrix_rotation_bss) == 0x4, "matrix_rotation BSS size changed")

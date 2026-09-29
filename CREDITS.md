@@ -154,6 +154,14 @@ historical local declarations and positive buffer-reuse pointer update.
 Complete Robotron instruction comparisons establish all eight procedure
 extents, circular-transfer branches, resampling arithmetic and command order.
 
+The [camera and rotation reconstruction](docs/camera-projection-and-rotation.md)
+uses the pinned libreultra `src/gu/perspective.c`, `lookathil.c` and
+`rotateRPY.c` and the previously recorded 007 GU declaration variant. Online
+inspection of `rotateRPY.c` confirms the initialized source-static angle
+constant, and `lookathil.c` confirms the double threshold and highlight
+fallback formulas. Robotron's complete instructions and generated storage
+determine the accepted arithmetic, record layouts and procedure extents.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

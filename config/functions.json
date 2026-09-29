@@ -6920,6 +6920,17 @@
     "evidence": "docs/runtime-wrappers.md"
   },
   {
+    "name": "func_8004CE08",
+    "rom": 317960,
+    "vram": 2147798536,
+    "size": 104,
+    "source": "src/game/runtime_angle.c",
+    "object": "build/us/runtime_angle.o",
+    "section": ".runtime_angle",
+    "section_vram": 2147798536,
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
     "name": "func_8004CE70",
     "rom": 318064,
     "vram": 2147798640,
@@ -10783,6 +10794,50 @@
     "evidence": "docs/sdk-runtime.md"
   },
   {
+    "name": "func_80060750",
+    "rom": 398160,
+    "vram": 2147878736,
+    "size": 560,
+    "source": "src/sdk/camera_perspective.c",
+    "object": "build/us/camera_perspective.o",
+    "section": ".camera_perspective",
+    "section_vram": 2147878736,
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
+    "name": "func_80060980",
+    "rom": 398720,
+    "vram": 2147879296,
+    "size": 88,
+    "source": "src/sdk/camera_perspective.c",
+    "object": "build/us/camera_perspective.o",
+    "section": ".camera_perspective",
+    "section_vram": 2147878736,
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
+    "name": "func_800609E0",
+    "rom": 398816,
+    "vram": 2147879392,
+    "size": 1900,
+    "source": "src/sdk/camera_highlights.c",
+    "object": "build/us/camera_highlights.o",
+    "section": ".camera_highlights",
+    "section_vram": 2147879392,
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
+    "name": "func_8006114C",
+    "rom": 400716,
+    "vram": 2147881292,
+    "size": 184,
+    "source": "src/sdk/camera_highlights.c",
+    "object": "build/us/camera_highlights.o",
+    "section": ".camera_highlights",
+    "section_vram": 2147879392,
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
     "name": "func_80061210",
     "rom": 400912,
     "vram": 2147881488,
@@ -10803,6 +10858,28 @@
     "section": ".matrix_translate",
     "section_vram": 2147881488,
     "evidence": "docs/sdk-scheduling-and-audio-services.md"
+  },
+  {
+    "name": "func_800612B0",
+    "rom": 401072,
+    "vram": 2147881648,
+    "size": 332,
+    "source": "src/sdk/matrix_rotation.c",
+    "object": "build/us/matrix_rotation.o",
+    "section": ".matrix_rotation",
+    "section_vram": 2147881648,
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
+    "name": "func_800613FC",
+    "rom": 401404,
+    "vram": 2147881980,
+    "size": 72,
+    "source": "src/sdk/matrix_rotation.c",
+    "object": "build/us/matrix_rotation.o",
+    "section": ".matrix_rotation",
+    "section_vram": 2147881648,
+    "evidence": "docs/camera-projection-and-rotation.md"
   },
   {
     "name": "func_80061450",

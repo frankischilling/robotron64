@@ -22,6 +22,9 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/sdk/matrix_rotation.c": "sdk-o3-mips2-r4300-mul",
+    "src/sdk/camera_highlights.c": "sdk-o3-mips2-r4300-mul",
+    "src/sdk/camera_perspective.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/audio_effect_pull.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/audio_effect_source.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/audio_effect_parameters.c": "sdk-o3-mips2-r4300-mul",

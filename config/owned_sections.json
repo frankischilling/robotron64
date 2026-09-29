@@ -305,6 +305,42 @@
   },
   {
     "input_section": ".rodata",
+    "vram": 2148097264,
+    "rom": 616688,
+    "size": 16,
+    "symbols": {},
+    "section": ".camera_perspective_rodata",
+    "static_symbols": {},
+    "source": "src/sdk/camera_perspective.c",
+    "object": "build/us/camera_perspective.o",
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
+    "input_section": ".rodata",
+    "vram": 2148097280,
+    "rom": 616704,
+    "size": 32,
+    "symbols": {},
+    "section": ".camera_highlights_rodata",
+    "static_symbols": {},
+    "source": "src/sdk/camera_highlights.c",
+    "object": "build/us/camera_highlights.o",
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
+    "input_section": ".rodata",
+    "vram": 2148097312,
+    "rom": 616736,
+    "size": 16,
+    "symbols": {},
+    "section": ".matrix_rotation_rodata",
+    "static_symbols": {},
+    "source": "src/sdk/matrix_rotation.c",
+    "object": "build/us/matrix_rotation.o",
+    "evidence": "docs/camera-projection-and-rotation.md"
+  },
+  {
+    "input_section": ".rodata",
     "vram": 2148097616,
     "rom": 617040,
     "size": 16,
@@ -730,6 +766,20 @@
     "source": "src/game/compression_workspace.c",
     "object": "build/us/compression_workspace.o",
     "evidence": "docs/compression-runtime.md"
+  },
+  {
+    "input_section": ".bss",
+    "section": ".matrix_rotation_bss",
+    "vram": 2149141776,
+    "rom": null,
+    "size": 4,
+    "symbols": {},
+    "static_symbols": {
+      "degreesToRadians": 0
+    },
+    "source": "src/sdk/matrix_rotation.c",
+    "object": "build/us/matrix_rotation.o",
+    "evidence": "docs/camera-projection-and-rotation.md"
   },
   {
     "input_section": ".bss",

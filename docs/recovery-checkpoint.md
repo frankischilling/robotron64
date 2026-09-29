@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,100 matching C functions covering 154,568 bytes.
-It also contains eight assembly functions covering 388 live bytes, 2,625 bytes
-of source-owned initialized data, and 4,195 bytes of source-owned BSS. The
+The source checkpoint contains 1,107 matching C functions covering 157,808 bytes.
+It also contains eight assembly functions covering 388 live bytes, 2,689 bytes
+of source-owned initialized data, and 4,199 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-173 complete C functions, 33,520 C bytes, seven assembly procedures with
-332 live bytes, 977 reconstructed initialized bytes, and 105 BSS bytes.
+180 complete C functions, 36,760 C bytes, seven assembly procedures with
+332 live bytes, 1,041 reconstructed initialized bytes, and 109 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -33,7 +33,7 @@ initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
 114 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
-the source inputs and complete procedure extents for all 1,100 counted C
+the source inputs and complete procedure extents for all 1,107 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
@@ -121,7 +121,7 @@ python3 tools/compare_assembly.py
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 622 complete source units. Startup/scheduler
+The runtime registry contains 626 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 eight procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,

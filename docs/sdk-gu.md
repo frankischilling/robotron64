@@ -1,9 +1,10 @@
 # SDK GU matrix and camera helpers
 
-> Local reference study: the SDK implementation described below is retained
-> in the private research worktree. This public checkpoint uses ROM extraction
-> for these SDK ranges and does not count them as distributed matching source.
-> References to integration in this report describe the local research build.
+> Historical reference study: the source and build described below remain
+> preserved in the private research worktree. Accepted matrix and translation
+> source has separate production comparisons. The complete camera, highlight
+> and rotation recovery now has its own
+> [source and ownership evidence](camera-projection-and-rotation.md).
 
 Five complete source units recover twelve matrix, projection, highlight,
 translation, and Euler-rotation functions. They compile with IDO 5.3 and:

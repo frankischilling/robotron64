@@ -632,6 +632,10 @@ MATCHING_BLOCKS = (
     ("audio_instance_enumerate", "src/game/audio_instance_enumerate.c", 0x800561E8, 0x800562D4),
     ("audio_owner_count", "src/game/audio_owner_count.c", 0x800562D4, 0x8005638C),
     ("audio_owner_enumerate", "src/game/audio_owner_enumerate.c", 0x8005638C, 0x80056478),
+    ("runtime_angle", "src/game/runtime_angle.c", 0x8004CE08, 0x8004CE70),
+    ("camera_perspective", "src/sdk/camera_perspective.c", 0x80060750, 0x800609D8),
+    ("camera_highlights", "src/sdk/camera_highlights.c", 0x800609E0, 0x80061204),
+    ("matrix_rotation", "src/sdk/matrix_rotation.c", 0x800612B0, 0x80061444),
 )
 
 CANDIDATE_BLOCKS = (

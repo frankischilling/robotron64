@@ -323,7 +323,7 @@ build/us/frame_matrices.o: src/boot/frame_matrices.c include/frame.h $(IDO) Make
 	$(PYTHON) tools/trim_padding.py build/us/frame_matrices.raw.o $@ .text 0xa8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/frame_projection.o: src/boot/frame_projection.c include/frame.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+build/us/frame_projection.o: src/boot/frame_projection.c include/frame.h include/object_recovery.h include/runtime_angle.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/frame_projection.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/frame_projection.raw.o build/us/frame_projection.text.o .text 0x120
@@ -4537,6 +4537,39 @@ RUNTIME_OBJECTS += \
     build/us/audio_instance_enumerate.o \
     build/us/audio_owner_count.o \
     build/us/audio_owner_enumerate.o
+
+build/us/runtime_angle.o: src/game/runtime_angle.c include/object_recovery.h include/runtime_angle.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/runtime_angle.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/runtime_angle.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/camera_perspective.o: src/sdk/camera_perspective.c include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/camera_perspective.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/camera_perspective.raw.o build/us/camera_perspective.text.o .text 0x288
+	$(PYTHON) tools/owned_sections.py $< build/us/camera_perspective.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/camera_highlights.o: src/sdk/camera_highlights.c include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/camera_highlights.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/camera_highlights.raw.o build/us/camera_highlights.text.o .text 0x824
+	$(PYTHON) tools/owned_sections.py $< build/us/camera_highlights.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/matrix_rotation.o: src/sdk/matrix_rotation.c include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/matrix_rotation.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/matrix_rotation.raw.o build/us/matrix_rotation.text.o .text 0x194
+	$(PYTHON) tools/owned_sections.py $< build/us/matrix_rotation.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/runtime_angle.o \
+    build/us/camera_perspective.o \
+    build/us/camera_highlights.o \
+    build/us/matrix_rotation.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
