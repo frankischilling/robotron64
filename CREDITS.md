@@ -120,6 +120,14 @@ cursor convention. All public and private procedure extents and both generated
 double constants are checked against Robotron's target. The earlier adapted
 SDK experiments remain separate private research.
 
+The [audio output reconstruction](docs/sdk-audio-output.md) consulted
+`src/audio/mainbus.c`, `auxbus.c`, `save.c`, and `resample.c` in the pinned
+`decompals/ultralib` checkout for filter interfaces, command meanings, and
+pitch terminology. The recovered bus loops, stereo output packets, fractional
+sample state, and generated constants are verified against Robotron's complete
+target procedures. The source-owned packet definitions share the synthesizer's
+single-evaluation command cursor.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

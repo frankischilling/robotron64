@@ -11757,6 +11757,94 @@
     "evidence": "docs/sdk-audio-filter-construction.md"
   },
   {
+    "name": "func_8006BE20",
+    "rom": 444960,
+    "vram": 2147925536,
+    "size": 48,
+    "source": "src/sdk/audio_main_bus.c",
+    "object": "build/us/audio_main_bus.o",
+    "section": ".audio_main_bus",
+    "section_vram": 2147925536,
+    "evidence": "docs/sdk-audio-output.md"
+  },
+  {
+    "name": "func_8006BE50",
+    "rom": 445008,
+    "vram": 2147925584,
+    "size": 288,
+    "source": "src/sdk/audio_main_bus.c",
+    "object": "build/us/audio_main_bus.o",
+    "section": ".audio_main_bus",
+    "section_vram": 2147925536,
+    "evidence": "docs/sdk-audio-output.md"
+  },
+  {
+    "name": "func_8006CAC0",
+    "rom": 448192,
+    "vram": 2147928768,
+    "size": 236,
+    "source": "src/sdk/audio_resample.c",
+    "object": "build/us/audio_resample.o",
+    "section": ".audio_resample",
+    "section_vram": 2147928768,
+    "evidence": "docs/sdk-audio-output.md"
+  },
+  {
+    "name": "func_8006CBAC",
+    "rom": 448428,
+    "vram": 2147929004,
+    "size": 520,
+    "source": "src/sdk/audio_resample.c",
+    "object": "build/us/audio_resample.o",
+    "section": ".audio_resample",
+    "section_vram": 2147928768,
+    "evidence": "docs/sdk-audio-output.md"
+  },
+  {
+    "name": "func_8006DA20",
+    "rom": 452128,
+    "vram": 2147932704,
+    "size": 48,
+    "source": "src/sdk/audio_auxiliary_bus.c",
+    "object": "build/us/audio_auxiliary_bus.o",
+    "section": ".audio_auxiliary_bus",
+    "section_vram": 2147932704,
+    "evidence": "docs/sdk-audio-output.md"
+  },
+  {
+    "name": "func_8006DA50",
+    "rom": 452176,
+    "vram": 2147932752,
+    "size": 216,
+    "source": "src/sdk/audio_auxiliary_bus.c",
+    "object": "build/us/audio_auxiliary_bus.o",
+    "section": ".audio_auxiliary_bus",
+    "section_vram": 2147932704,
+    "evidence": "docs/sdk-audio-output.md"
+  },
+  {
+    "name": "func_8006DB30",
+    "rom": 452400,
+    "vram": 2147932976,
+    "size": 52,
+    "source": "src/sdk/audio_save_filter.c",
+    "object": "build/us/audio_save_filter.o",
+    "section": ".audio_save_filter",
+    "section_vram": 2147932976,
+    "evidence": "docs/sdk-audio-output.md"
+  },
+  {
+    "name": "func_8006DB64",
+    "rom": 452452,
+    "vram": 2147933028,
+    "size": 140,
+    "source": "src/sdk/audio_save_filter.c",
+    "object": "build/us/audio_save_filter.o",
+    "section": ".audio_save_filter",
+    "section_vram": 2147932976,
+    "evidence": "docs/sdk-audio-output.md"
+  },
+  {
     "name": "func_8006DBF0",
     "rom": 452592,
     "vram": 2147933168,

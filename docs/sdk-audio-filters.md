@@ -1,9 +1,10 @@
 # SDK audio filters and effect construction
 
-> Local reference study: the SDK implementation described below is retained
-> in the private research worktree. This public checkpoint uses ROM extraction
-> for these SDK ranges and does not count them as distributed matching source.
-> References to integration in this report describe the local research build.
+> Local reference study: the reference-adapted SDK implementations described
+> below remain in the private research worktree. Separate target-derived
+> reconstructions are documented in [filter construction](sdk-audio-filter-construction.md)
+> and [audio output](sdk-audio-output.md). References to integration and
+> comparison artifacts in this historical report describe the research build.
 
 The remaining decoder, envelope, and effect-construction regions are standard
 Nintendo libaudio source. Recovery uses the local 2.0I libreultra reference at
