@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 653 matching C functions covering 86,028 bytes, plus a 56-byte reconstructed assembly entry and 976 bytes of source-owned initialized data. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 927 matching C functions covering 121,048 bytes, plus a 56-byte reconstructed assembly entry, 1,352 bytes of source-owned initialized data, and 4,090 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -38,7 +38,7 @@ make verify
 make progress
 ```
 
-Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The recovered game sources use their verified O2/MIPS I profile; a project-wide original compiler identification remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
+Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The recovered game sources use verified O2/MIPS I profiles, including the documented R4300 multiply option for pitch scaling; a project-wide original compiler identification remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
 
 Progress is generated in `build/us/progress.json` from linked-byte comparisons, actual ELF section addresses, input-object symbols, and recorded source/header/object hashes. Every counted function belongs to a source file present in this checkout. The total executable size and function count are not established, so a whole-game percentage is not reported. See [matching evidence](docs/matching.md) and [toolchain investigation](docs/toolchain.md).
 
@@ -58,12 +58,22 @@ forward and back callbacks, preview creation and release, and cleanup.
 checksum, and character order. [Actor resource-mode dispatch](docs/actor-behavior-next.md)
 preserves timed callbacks, animation transitions, and heading updates.
 
-The latest 42-function batch adds 6,156 code bytes. [Object creation](docs/object-creation.md)
-covers allocation, release, reset, and model state. [Model geometry](docs/model-geometry.md)
-covers polygon submission, fixed-point rotation, hierarchy traversal, vertex
-operations, and framebuffer services. [Scene services](docs/scene-services.md)
-and [runtime recovery](docs/runtime-recovery.md) document the transition,
-timer, controller, actor-facing, movie, and level-override routines.
+The current recovery adds 274 complete functions and 35,020 C bytes
+relative to the preceding published checkpoint. [Audio properties](docs/audio-properties.md),
+[host and stream services](docs/audio-host-stream.md), [command controls and voice capture](docs/audio-command-engine.md),
+[hardware voice management](docs/audio-hardware-driver.md), and [sequence loading](docs/audio-sequence-loading.md)
+record the recovered audio pipeline. [Compression runtime](docs/compression-runtime.md)
+covers input handling, workspace allocation, block dispatch, and the source-owned
+Huffman tables and buffers. The remaining decoding loops still use fallback code.
+
+[Early game state](docs/early-game-state.md) and [transition and lookup routines](docs/early-game-medium.md)
+cover selection state, actor creation, callbacks, pointer initialization, and
+one-hot value lookup. [Actor motion](docs/actor-motion.md),
+[menu navigation](docs/save-menu-navigation.md), [model geometry](docs/model-geometry.md),
+and [graphics runtime state](docs/graphics-runtime-state.md) record the additional
+motion, Controller Pak menus, framebuffer drawing, and graphics helpers.
+The [checkpoint evidence](docs/recovery-checkpoint.md) records the combined scope
+and its reproduction commands.
 
 SDK implementations adapted directly from reference projects remain in local research. Their checkouts do not provide a redistribution license covering those implementations, so this public checkpoint uses extracted SDK fallback and excludes those functions from its source counts. SDK research notes identify that separate scope. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
 

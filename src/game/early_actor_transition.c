@@ -1,6 +1,5 @@
 #include "../../include/early_game_medium.h"
-
-extern void func_80029E5C(EarlyGameActor *actor);
+#include "../../include/actor_behavior_more_internal.h"
 
 int func_80017C10(EarlyGameActor *actor, EarlyGameActor *other,
                   int unused2, int unused3)
@@ -12,7 +11,7 @@ int func_80017C10(EarlyGameActor *actor, EarlyGameActor *other,
         flags = actor->flags14;
         if (flags & 0x40) {
             actor->flags14 = flags & ~0x40;
-            actor->callback44(actor);
+            actor->callback44((ActorBehaviorActorInternal *)actor);
             flags = actor->flags14;
         }
         actor->flags14 = flags | 0x40, actor->callback44 = func_80029E5C,

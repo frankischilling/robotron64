@@ -15,14 +15,16 @@ Completed locally:
 
 The [README](../README.md) records the current public function and byte totals, measured from the build's `progress.json`. Recent recovery covers actor-resource loading and setup helpers, object definitions, scene commands, background images, save-menu status dispatch, palette controls, controller services, and save/Pak file handling. See [movie track files](movie-files.md), [actor resources](actor-resources.md), [scene commands](scene-commands.md), [save menus](save-menus.md), [palette effects](palette-effects.md), [controller services](controller-services.md), [save format](save-game.md), and [Pak files](pak-files.md) for the behavior and compiled ranges.
 
-The latest checkpoint adds 42 complete functions and 6,156 code bytes. It
-recovers object creation and model access, polygon submission, recursive
-model transforms, camera matrices, vertex and framebuffer operations,
-scene transitions, and additional actor/controller/movie services. Each
-procedure is checked in full, including actual symbol boundaries and current
-source/header inputs. [Object creation](object-creation.md),
-[model geometry](model-geometry.md), [scene services](scene-services.md), and
-[runtime recovery](runtime-recovery.md) record the recovered behavior.
+The current checkpoint adds 274 complete functions and 35,020 C bytes
+relative to the preceding published checkpoint. It extends game audio through
+handle/property controls, voice capture and allocation, sequence-table loading,
+and compression input, workspace, and dispatch. Actor callbacks, menu and
+Controller Pak flows, early-game state, graphics helpers, and framebuffer drawing
+also have complete source comparisons. [Checkpoint evidence](recovery-checkpoint.md),
+[audio command controls](audio-command-engine.md), [hardware voices](audio-hardware-driver.md),
+[sequence loading](audio-sequence-loading.md), and [compression runtime](compression-runtime.md)
+record the functions and source-owned storage. The README contains the measured
+combined totals; individual recovery notes retain their historical batch counts.
 
 Most remaining ROM content uses extracted fallback. Total executable bytes and function count are unknown, and no whole-game percentage is claimed. SDK implementations adapted from reference checkouts remain outside this public source checkpoint pending a verified redistribution basis; their private comparison results do not contribute to these totals.
 

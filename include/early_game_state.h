@@ -1,7 +1,7 @@
 #ifndef ROBOTRON_EARLY_GAME_STATE_H
 #define ROBOTRON_EARLY_GAME_STATE_H
 
-#include "actor.h"
+#include "actor_behavior_internal.h"
 
 typedef struct EarlyGameActor EarlyGameActor;
 typedef void (*EarlyGameActorCallback)(EarlyGameActor *actor);
@@ -47,7 +47,7 @@ struct EarlyGameActor {
     int field38;
     EarlyGameActorOwner *owner3C;
     int field40;
-    EarlyGameActorCallback callback44;
+    ActorBehaviorCallbackInternal callback44;
     int field48;
     int field4C;
     int field50;

@@ -103,13 +103,13 @@ build/us/early_angle_normalize.o: src/game/early_angle_normalize.c include/early
 	$(PYTHON) tools/trim_padding.py build/us/early_angle_normalize.raw.o $@ .text 0x1c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_float_step.o: src/game/early_float_step.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_float_step.o: src/game/early_float_step.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_float_step.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_float_step.raw.o $@ .text 0x50
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_selection_state.o: src/game/early_selection_state.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_selection_state.o: src/game/early_selection_state.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_selection_state.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_selection_state.raw.o $@ .text 0x1e4
@@ -121,25 +121,25 @@ build/us/early_callbacks_true.o: src/game/early_callbacks_true.c include/early_g
 	$(PYTHON) tools/trim_padding.py build/us/early_callbacks_true.raw.o $@ .text 0x30
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_actor_create.o: src/game/early_actor_create.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_actor_create.o: src/game/early_actor_create.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_create.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_create.raw.o $@ .text 0x164
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_actor_state.o: src/game/early_actor_state.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_actor_state.o: src/game/early_actor_state.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/object_recovery.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_state.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_state.raw.o $@ .text 0x128
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_actor_mode3.o: src/game/early_actor_mode3.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_actor_mode3.o: src/game/early_actor_mode3.c include/early_game_helpers.h include/actor.h include/text.h include/object.h include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_mode3.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_mode3.raw.o $@ .text 0x24
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_actor_mode0.o: src/game/early_actor_mode0.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_actor_mode0.o: src/game/early_actor_mode0.c include/early_game_helpers.h include/actor.h include/text.h include/object.h include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_mode0.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_mode0.raw.o $@ .text 0x24
@@ -157,13 +157,13 @@ build/us/early_callback_false.o: src/game/early_callback_false.c include/early_g
 	$(PYTHON) tools/trim_padding.py build/us/early_callback_false.raw.o $@ .text 0x18
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_actor_transition.o: src/game/early_actor_transition.c include/early_game_medium.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_actor_transition.o: src/game/early_actor_transition.c include/early_game_medium.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_transition.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_transition.raw.o $@ .text 0xcc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_pointer_state.o: src/game/early_pointer_state.c include/early_game_medium.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_pointer_state.o: src/game/early_pointer_state.c include/early_game_medium.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_pointer_state.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_pointer_state.raw.o $@ .text 0x80
@@ -175,7 +175,7 @@ build/us/early_simple_forward.o: src/game/early_simple_forward.c include/early_g
 	$(PYTHON) tools/trim_padding.py build/us/early_simple_forward.raw.o $@ .text 0x20
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_value_lookup.o: src/game/early_value_lookup.c include/early_game_medium.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_value_lookup.o: src/game/early_value_lookup.c include/early_game_medium.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_value_lookup.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_value_lookup.raw.o $@ .text 0xec

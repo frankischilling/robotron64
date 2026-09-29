@@ -1,8 +1,8 @@
 #include "../../include/early_game_state.h"
+#include "../../include/actor_behavior_more_internal.h"
 #include "../../include/scalar_math.h"
 
 extern int D_8009EFA0;
-extern void func_80029210(EarlyGameActor *actor);
 extern void func_800290B0(int object, int *position);
 
 void func_80015554(EarlyGameActor *actor)
@@ -17,7 +17,7 @@ void func_80015554(EarlyGameActor *actor)
     actor->field48 = D_8009EFA0;
     if (flags & 0x40) {
         actor->flags14 = flags & ~0x40;
-        actor->callback44(actor);
+        actor->callback44((ActorBehaviorActorInternal *)actor);
         flags = actor->flags14;
     }
     actor->flags14 = flags | 0x40, actor->callback44 = func_80029210,

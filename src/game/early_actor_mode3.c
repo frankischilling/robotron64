@@ -1,6 +1,5 @@
 #include "../../include/early_game_helpers.h"
-
-void func_80027AB8(void *state, int mode, int enabled);
+#include "../../include/actor.h"
 
 void func_80015BD4(void *state)
 {
