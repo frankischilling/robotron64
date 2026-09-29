@@ -591,6 +591,14 @@ MATCHING_BLOCKS = (
     ("audio_synth_clear", "src/sdk/audio_synth_clear.c", 0x8006B5A0, 0x8006B5A8),
     ("audio_copy_bytes", "src/sdk/audio_copy_bytes.c", 0x8006F3C0, 0x8006F434),
     ("matrix_convert", "src/sdk/matrix_convert.c", 0x80068250, 0x800684BC),
+    ("voice_allocate", "src/sdk/voice_allocate.c", 0x80066360, 0x80066588),
+    ("voice_start", "src/sdk/voice_start.c", 0x80066590, 0x80066674),
+    ("voice_pitch", "src/sdk/voice_pitch.c", 0x80066680, 0x80066704),
+    ("voice_volume", "src/sdk/voice_volume.c", 0x80066710, 0x800667AC),
+    ("voice_pan", "src/sdk/voice_pan.c", 0x800667B0, 0x80066834),
+    ("voice_stop", "src/sdk/voice_stop.c", 0x80066840, 0x800668B8),
+    ("voice_release", "src/sdk/voice_release.c", 0x800668C0, 0x80066970),
+    ("voice_priority", "src/sdk/voice_priority.c", 0x80066970, 0x80066980),
 )
 
 CANDIDATE_BLOCKS = (

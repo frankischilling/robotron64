@@ -37,7 +37,7 @@ typedef struct AudioAdpcmLoop {
 typedef struct AudioAdpcmBook {
     int order;
     int predictorCount;
-    short coefficients[1];
+    short coefficients[128];
 } AudioAdpcmBook;
 
 typedef struct AudioWaveTable {
@@ -215,6 +215,10 @@ typedef struct SdkAudioSynthConfig {
 
 typedef char SdkAudioCommandMustBe8Bytes[sizeof(SdkAudioCommand) == 8 ? 1 : -1];
 typedef char AudioLinkMustBe8Bytes[sizeof(AudioLink) == 8 ? 1 : -1];
+typedef char AudioRawLoopMustBe12Bytes[sizeof(AudioRawLoop) == 12 ? 1 : -1];
+typedef char AudioAdpcmLoopMustBe44Bytes[sizeof(AudioAdpcmLoop) == 44 ? 1 : -1];
+typedef char AudioAdpcmBookMustBe264Bytes[sizeof(AudioAdpcmBook) == 264 ? 1 : -1];
+typedef char AudioWaveTableMustBe20Bytes[sizeof(AudioWaveTable) == 20 ? 1 : -1];
 typedef char AudioParameterMustBe28Bytes[sizeof(AudioParameter) == 0x1C ? 1 : -1];
 typedef char AudioStartParameterMustBe28Bytes[sizeof(AudioStartParameter) == 0x1C ? 1 : -1];
 typedef char AudioFreeParameterMustBe16Bytes[sizeof(AudioFreeParameter) == 0x10 ? 1 : -1];
@@ -224,6 +228,7 @@ typedef char AudioResamplerMustBe52Bytes[sizeof(AudioResampler) == 0x34 ? 1 : -1
 typedef char AudioEnvelopeMixerMustBe76Bytes[sizeof(AudioEnvelopeMixer) == 0x4C ? 1 : -1];
 typedef char AudioPhysicalVoiceMustBe220Bytes[sizeof(AudioPhysicalVoice) == 0xDC ? 1 : -1];
 typedef char SdkAudioVoiceMustBe28Bytes[sizeof(SdkAudioVoice) == 0x1C ? 1 : -1];
+typedef char SdkAudioVoiceConfigMustBe6Bytes[sizeof(SdkAudioVoiceConfig) == 6 ? 1 : -1];
 typedef char AudioSynthMustBe76Bytes[sizeof(AudioSynth) == 0x4C ? 1 : -1];
 typedef char SdkAudioSynthConfigMustBe36Bytes[sizeof(SdkAudioSynthConfig) == 0x24 ? 1 : -1];
 
@@ -240,6 +245,15 @@ SdkAudioCommand *func_80065D78(SdkAudioCommand *commands, unsigned int *generate
 void func_80066010(AudioSynth *synth, SdkAudioSynthConfig *configuration);
 int func_80066360(AudioSynth *synth, AudioPhysicalVoice **voice, short priority);
 int func_80066448(AudioSynth *synth, SdkAudioVoice *voice, SdkAudioVoiceConfig *configuration);
+void func_80066590(AudioSynth *synth, SdkAudioVoice *voice, AudioWaveTable *wave,
+                   float pitch, short volume, unsigned char pan,
+                   unsigned char effect, int attackTime);
+void func_80066680(AudioSynth *synth, SdkAudioVoice *voice, float pitch);
+void func_80066710(AudioSynth *synth, SdkAudioVoice *voice, short volume, int time);
+void func_800667B0(AudioSynth *synth, SdkAudioVoice *voice, unsigned char pan);
+void func_80066840(AudioSynth *synth, SdkAudioVoice *voice);
+void func_800668C0(AudioSynth *synth, SdkAudioVoice *voice);
+void func_80066970(AudioSynth *synth, SdkAudioVoice *voice, short priority);
 void func_8006B5A0(AudioSynth *synth);
 
 #endif

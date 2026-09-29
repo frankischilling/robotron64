@@ -1,8 +1,9 @@
 # SDK audio voice allocation and resampling
 
 > Local reference study: the SDK implementation described below is retained
-> in the private research worktree. This public checkpoint uses ROM extraction
-> for these SDK ranges and does not count them as distributed matching source.
+> in the private research worktree. The separately reconstructed allocator and
+> voice commands are now documented in [SDK voice commands](sdk-voice-commands.md).
+> The resampler studied here still uses ROM extraction in the public build.
 > References to integration in this report describe the local research build.
 
 Two previously excluded libaudio units now reproduce their retail objects with

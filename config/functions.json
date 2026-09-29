@@ -11080,6 +11080,105 @@
     "evidence": "docs/sdk-scheduling-and-audio-services.md"
   },
   {
+    "name": "func_80066360",
+    "rom": 421728,
+    "vram": 2147902304,
+    "size": 232,
+    "source": "src/sdk/voice_allocate.c",
+    "object": "build/us/voice_allocate.o",
+    "section": ".voice_allocate",
+    "section_vram": 2147902304,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
+    "name": "func_80066448",
+    "rom": 421960,
+    "vram": 2147902536,
+    "size": 320,
+    "source": "src/sdk/voice_allocate.c",
+    "object": "build/us/voice_allocate.o",
+    "section": ".voice_allocate",
+    "section_vram": 2147902304,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
+    "name": "func_80066590",
+    "rom": 422288,
+    "vram": 2147902864,
+    "size": 228,
+    "source": "src/sdk/voice_start.c",
+    "object": "build/us/voice_start.o",
+    "section": ".voice_start",
+    "section_vram": 2147902864,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
+    "name": "func_80066680",
+    "rom": 422528,
+    "vram": 2147903104,
+    "size": 132,
+    "source": "src/sdk/voice_pitch.c",
+    "object": "build/us/voice_pitch.o",
+    "section": ".voice_pitch",
+    "section_vram": 2147903104,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
+    "name": "func_80066710",
+    "rom": 422672,
+    "vram": 2147903248,
+    "size": 156,
+    "source": "src/sdk/voice_volume.c",
+    "object": "build/us/voice_volume.o",
+    "section": ".voice_volume",
+    "section_vram": 2147903248,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
+    "name": "func_800667B0",
+    "rom": 422832,
+    "vram": 2147903408,
+    "size": 132,
+    "source": "src/sdk/voice_pan.c",
+    "object": "build/us/voice_pan.o",
+    "section": ".voice_pan",
+    "section_vram": 2147903408,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
+    "name": "func_80066840",
+    "rom": 422976,
+    "vram": 2147903552,
+    "size": 120,
+    "source": "src/sdk/voice_stop.c",
+    "object": "build/us/voice_stop.o",
+    "section": ".voice_stop",
+    "section_vram": 2147903552,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
+    "name": "func_800668C0",
+    "rom": 423104,
+    "vram": 2147903680,
+    "size": 176,
+    "source": "src/sdk/voice_release.c",
+    "object": "build/us/voice_release.o",
+    "section": ".voice_release",
+    "section_vram": 2147903680,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
+    "name": "func_80066970",
+    "rom": 423280,
+    "vram": 2147903856,
+    "size": 16,
+    "source": "src/sdk/voice_priority.c",
+    "object": "build/us/voice_priority.o",
+    "section": ".voice_priority",
+    "section_vram": 2147903856,
+    "evidence": "docs/sdk-voice-commands.md"
+  },
+  {
     "name": "func_800669B0",
     "rom": 423344,
     "vram": 2147903920,

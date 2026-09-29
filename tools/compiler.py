@@ -22,6 +22,14 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/sdk/voice_priority.c": "sdk-o2-mips2",
+    "src/sdk/voice_release.c": "sdk-o3-mips2-r4300-mul",
+    "src/sdk/voice_stop.c": "sdk-o2-mips2",
+    "src/sdk/voice_pan.c": "sdk-o2-mips2",
+    "src/sdk/voice_volume.c": "sdk-o2-mips2",
+    "src/sdk/voice_pitch.c": "sdk-o2-mips2",
+    "src/sdk/voice_start.c": "sdk-o2-mips2",
+    "src/sdk/voice_allocate.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/matrix_convert.c": "sdk-o3-mips2-r4300-mul",
     "src/sdk/audio_copy_bytes.c": "sdk-o2-mips2",
     "src/sdk/audio_synth_clear.c": "sdk-o2-mips2",

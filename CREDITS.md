@@ -105,6 +105,13 @@ corroborate the signed fixed-point interpretation and division by `65536.0f`.
 Robotron's complete target procedures determine the accepted code, storage,
 and compiler settings; reference-adapted experiments remain local research.
 
+The [voice-command reconstruction](docs/sdk-voice-commands.md) also checked
+the online `src/audio/synallocvoice.c` at libreultra revision
+`1aca5c13ca041cef86f8dc194b727361dad9c09b`. Its declarations and allocation-list
+organization corroborate the target's natural source structure. The recovered
+code and the shared game/SDK audio records are checked against complete
+Robotron procedure bytes and existing callers.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

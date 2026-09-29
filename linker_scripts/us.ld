@@ -830,20 +830,20 @@ SECTIONS
     .cpu_after_ai_length 0x80065C2C : AT(0x6682C) { build/us/fallback.o(.rom_cpu_after_ai_length) }
     .audio_synthesizer 0x80065C30 : AT(0x66830) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synthesizer) }
     .audio_callback_attach 0x80066310 : AT(0x66F10) SUBALIGN(4) { build/us/audio_callback_attach.o(.text) }
-    .audio_synth_allocate 0x80066360 : AT(0x66F60) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_allocate) }
+    .voice_allocate 0x80066360 : AT(0x66F60) SUBALIGN(4) { build/us/voice_allocate.o(.text) }
     .cpu_after_audio_synth_allocate 0x80066588 : AT(0x67188) { build/us/fallback.o(.rom_cpu_after_audio_synth_allocate) }
-    .audio_synth_start 0x80066590 : AT(0x67190) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_start) }
+    .voice_start 0x80066590 : AT(0x67190) SUBALIGN(4) { build/us/voice_start.o(.text) }
     .cpu_after_audio_synth_start 0x80066674 : AT(0x67274) { build/us/fallback.o(.rom_cpu_after_audio_synth_start) }
-    .audio_synth_pitch 0x80066680 : AT(0x67280) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_pitch) }
+    .voice_pitch 0x80066680 : AT(0x67280) SUBALIGN(4) { build/us/voice_pitch.o(.text) }
     .cpu_after_audio_synth_pitch 0x80066704 : AT(0x67304) { build/us/fallback.o(.rom_cpu_after_audio_synth_pitch) }
-    .audio_synth_volume 0x80066710 : AT(0x67310) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_volume) }
+    .voice_volume 0x80066710 : AT(0x67310) SUBALIGN(4) { build/us/voice_volume.o(.text) }
     .cpu_after_audio_synth_volume 0x800667AC : AT(0x673AC) { build/us/fallback.o(.rom_cpu_after_audio_synth_volume) }
-    .audio_synth_pan 0x800667B0 : AT(0x673B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_pan) }
+    .voice_pan 0x800667B0 : AT(0x673B0) SUBALIGN(4) { build/us/voice_pan.o(.text) }
     .cpu_after_audio_synth_pan 0x80066834 : AT(0x67434) { build/us/fallback.o(.rom_cpu_after_audio_synth_pan) }
-    .audio_synth_stop 0x80066840 : AT(0x67440) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_stop) }
+    .voice_stop 0x80066840 : AT(0x67440) SUBALIGN(4) { build/us/voice_stop.o(.text) }
     .cpu_after_audio_synth_stop 0x800668B8 : AT(0x674B8) { build/us/fallback.o(.rom_cpu_after_audio_synth_stop) }
-    .audio_synth_free_voice 0x800668C0 : AT(0x674C0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_free_voice) }
-    .audio_synth_priority 0x80066970 : AT(0x67570) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_priority) }
+    .voice_release 0x800668C0 : AT(0x674C0) SUBALIGN(4) { build/us/voice_release.o(.text) }
+    .voice_priority 0x80066970 : AT(0x67570) SUBALIGN(4) { build/us/voice_priority.o(.text) }
     .cpu_after_audio_synth_priority 0x80066980 : AT(0x67580) { build/us/fallback.o(.rom_cpu_after_audio_synth_priority) }
     .si_raw_read 0x800669B0 : AT(0x675B0) SUBALIGN(4) { build/us/si_raw_read.o(.text) }
     .si_raw_write 0x80066A00 : AT(0x67600) SUBALIGN(4) { build/us/si_raw_write.o(.text) }
@@ -1881,20 +1881,20 @@ ASSERT(SIZEOF(.audio_remaining_bytes) == 0xc, "audio_remaining_bytes size change
 ASSERT(SIZEOF(.cpu_after_ai_length) == 0x4, "cpu_after_ai_length size changed")
 ASSERT(SIZEOF(.audio_synthesizer) == 0x6e0, "audio_synthesizer size changed")
 ASSERT(SIZEOF(.audio_callback_attach) == 0x50, "audio_callback_attach size changed")
-ASSERT(SIZEOF(.audio_synth_allocate) == 0x228, "audio_synth_allocate size changed")
+ASSERT(SIZEOF(.voice_allocate) == 0x228, "voice_allocate size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_allocate) == 0x8, "cpu_after_audio_synth_allocate size changed")
-ASSERT(SIZEOF(.audio_synth_start) == 0xe4, "audio_synth_start size changed")
+ASSERT(SIZEOF(.voice_start) == 0xe4, "voice_start size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_start) == 0xc, "cpu_after_audio_synth_start size changed")
-ASSERT(SIZEOF(.audio_synth_pitch) == 0x84, "audio_synth_pitch size changed")
+ASSERT(SIZEOF(.voice_pitch) == 0x84, "voice_pitch size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_pitch) == 0xc, "cpu_after_audio_synth_pitch size changed")
-ASSERT(SIZEOF(.audio_synth_volume) == 0x9c, "audio_synth_volume size changed")
+ASSERT(SIZEOF(.voice_volume) == 0x9c, "voice_volume size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_volume) == 0x4, "cpu_after_audio_synth_volume size changed")
-ASSERT(SIZEOF(.audio_synth_pan) == 0x84, "audio_synth_pan size changed")
+ASSERT(SIZEOF(.voice_pan) == 0x84, "voice_pan size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_pan) == 0xc, "cpu_after_audio_synth_pan size changed")
-ASSERT(SIZEOF(.audio_synth_stop) == 0x78, "audio_synth_stop size changed")
+ASSERT(SIZEOF(.voice_stop) == 0x78, "voice_stop size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_stop) == 0x8, "cpu_after_audio_synth_stop size changed")
-ASSERT(SIZEOF(.audio_synth_free_voice) == 0xb0, "audio_synth_free_voice size changed")
-ASSERT(SIZEOF(.audio_synth_priority) == 0x10, "audio_synth_priority size changed")
+ASSERT(SIZEOF(.voice_release) == 0xb0, "voice_release size changed")
+ASSERT(SIZEOF(.voice_priority) == 0x10, "voice_priority size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_priority) == 0x30, "cpu_after_audio_synth_priority size changed")
 ASSERT(SIZEOF(.si_raw_read) == 0x50, "si_raw_read size changed")
 ASSERT(SIZEOF(.si_raw_write) == 0x4c, "si_raw_write size changed")

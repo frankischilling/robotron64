@@ -3543,14 +3543,14 @@ build/us/audio_pitch_scale.o: src/game/audio_pitch_scale.c  $(IDO) Makefile tool
 	$(PYTHON) tools/owned_sections.py $< build/us/audio_pitch_scale.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_backend_update.o: src/game/audio_backend_update.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+build/us/audio_backend_update.o: src/game/audio_backend_update.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_update.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_update.raw.o build/us/audio_backend_update.text.o .text 0x150
 	$(PYTHON) tools/owned_sections.py $< build/us/audio_backend_update.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_backend_voice_stop.o: src/game/audio_backend_voice_stop.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+build/us/audio_backend_voice_stop.o: src/game/audio_backend_voice_stop.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_voice_stop.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_voice_stop.raw.o build/us/audio_backend_voice_stop.text.o .text 0x98
@@ -3564,20 +3564,20 @@ build/us/audio_backend_patch.o: src/game/audio_backend_patch.c include/audio_pro
 	$(PYTHON) tools/owned_sections.py $< build/us/audio_backend_patch.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_backend_release.o: src/game/audio_backend_release.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_backend_release.o: src/game/audio_backend_release.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_release.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_release.raw.o $@ .text 0x18c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_backend_decay.o: src/game/audio_backend_decay.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+build/us/audio_backend_decay.o: src/game/audio_backend_decay.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_decay.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_decay.raw.o build/us/audio_backend_decay.text.o .text 0x174
 	$(PYTHON) tools/owned_sections.py $< build/us/audio_backend_decay.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_backend_allocate.o: src/game/audio_backend_allocate.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+build/us/audio_backend_allocate.o: src/game/audio_backend_allocate.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_allocate.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_allocate.raw.o build/us/audio_backend_allocate.text.o .text 0x23c
@@ -3747,7 +3747,7 @@ build/us/session_setup_extra_kinemation.o: src/game/session_setup_extra_kinemati
 RUNTIME_OBJECTS += \
     build/us/session_setup_extra_kinemation.o
 
-build/us/audio_backend_initialize.o: src/game/audio_backend_initialize.c include/audio_backend_internal.h include/audio_bank_layout_internal.h include/audio_callbacks.h include/audio_patch_table_internal.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+build/us/audio_backend_initialize.o: src/game/audio_backend_initialize.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_bank_layout_internal.h include/audio_callbacks.h include/audio_patch_table_internal.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_initialize.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_initialize.raw.o build/us/audio_backend_initialize.text.o .text 0x2c4
@@ -3757,14 +3757,14 @@ build/us/audio_backend_initialize.o: src/game/audio_backend_initialize.c include
 RUNTIME_OBJECTS += \
     build/us/audio_backend_initialize.o
 
-build/us/audio_backend_volume.o: src/game/audio_backend_volume.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+build/us/audio_backend_volume.o: src/game/audio_backend_volume.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_volume.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_volume.raw.o build/us/audio_backend_volume.text.o .text 0x234
 	$(PYTHON) tools/owned_sections.py $< build/us/audio_backend_volume.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_backend_pan_pedal.o: src/game/audio_backend_pan_pedal.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+build/us/audio_backend_pan_pedal.o: src/game/audio_backend_pan_pedal.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_pan_pedal.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_pan_pedal.raw.o build/us/audio_backend_pan_pedal.text.o .text 0x2dc
@@ -3798,7 +3798,7 @@ RUNTIME_OBJECTS += \
     build/us/audio_sequence_list_load.o \
     build/us/audio_sequence_list_release.o
 
-build/us/audio_backend_voice_start.o: src/game/audio_backend_voice_start.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_backend_voice_start.o: src/game/audio_backend_voice_start.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_voice_start.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_voice_start.raw.o $@ .text 0xb0
@@ -3883,7 +3883,7 @@ RUNTIME_OBJECTS += \
     build/us/os_get_count.o \
     build/us/os_set_compare.o
 
-build/us/audio_backend_note_release.o: src/game/audio_backend_note_release.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+build/us/audio_backend_note_release.o: src/game/audio_backend_note_release.c include/audio_control.h include/audio_io.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_note_release.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_backend_note_release.raw.o build/us/audio_backend_note_release.text.o .text 0x108
@@ -4282,6 +4282,64 @@ build/us/matrix_convert.o: src/sdk/matrix_convert.c include/sdk_matrix.h $(IDO) 
 
 RUNTIME_OBJECTS += \
     build/us/matrix_convert.o
+
+build/us/voice_allocate.o: src/sdk/voice_allocate.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/voice_allocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/voice_allocate.raw.o $@ .text 0x228
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/voice_start.o: src/sdk/voice_start.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/voice_start.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/voice_start.raw.o $@ .text 0xe4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/voice_pitch.o: src/sdk/voice_pitch.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/voice_pitch.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/voice_pitch.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/voice_volume.o: src/sdk/voice_volume.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/voice_volume.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/voice_volume.raw.o $@ .text 0x9c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/voice_pan.o: src/sdk/voice_pan.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/voice_pan.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/voice_pan.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/voice_stop.o: src/sdk/voice_stop.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/voice_stop.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/voice_stop.raw.o $@ .text 0x78
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/voice_release.o: src/sdk/voice_release.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/voice_release.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/voice_release.raw.o $@ .text 0xb0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/voice_priority.o: src/sdk/voice_priority.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/voice_priority.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/voice_priority.raw.o $@ .text 0x10
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/voice_allocate.o \
+    build/us/voice_start.o \
+    build/us/voice_pitch.o \
+    build/us/voice_volume.o \
+    build/us/voice_pan.o \
+    build/us/voice_stop.o \
+    build/us/voice_release.o \
+    build/us/voice_priority.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

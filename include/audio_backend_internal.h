@@ -4,6 +4,7 @@
 #include "audio_properties_internal.h"
 #include "audio_callbacks.h"
 #include "audio_voice_capture_internal.h"
+#include "sdk_audio.h"
 
 struct AudioPatchRegion {
     unsigned char priority;
@@ -25,33 +26,12 @@ struct AudioPatchRegion {
 };
 
 struct AudioWaveRecord {
-    unsigned char *data;
-    unsigned int length;
-    unsigned char type;
-    unsigned char flags;
-    unsigned short unknown0A;
-    void *loop;
-    void *book;
+    AudioWaveTable sdk;
     int tuning;
 };
 
-typedef struct AudioSynthVoice {
-    struct AudioSynthVoice *next;
-    struct AudioSynthVoice *previous;
-    void *physicalVoice;
-    AudioWaveRecord *wave;
-    void *clientPrivate;
-    short state;
-    short priority;
-    short effectBus;
-    short unityPitch;
-} AudioSynthVoice;
-
-typedef struct AudioSynthVoiceConfiguration {
-    short priority;
-    short effect;
-    unsigned char unityPitch;
-} AudioSynthVoiceConfiguration;
+typedef SdkAudioVoice AudioSynthVoice;
+typedef SdkAudioVoiceConfig AudioSynthVoiceConfiguration;
 
 typedef char AudioPatchRegionMustBe20Bytes[sizeof(AudioPatchRegion) == 20 ? 1 : -1];
 typedef char AudioWaveRecordMustBe24Bytes[sizeof(AudioWaveRecord) == 24 ? 1 : -1];
@@ -86,17 +66,5 @@ void func_8005C4F8(AudioStatusRecord *voice, int releaseTime);
 void func_8005C5BC(AudioStatusRecord *voice);
 void func_8005C684(AudioStatusRecord *voice);
 void func_8005CBB4(AudioVoice *voice);
-
-int func_80066448(AudioSynth *synth, AudioSynthVoice *voice,
-                  AudioSynthVoiceConfiguration *configuration);
-void func_80066590(AudioSynth *synth, AudioSynthVoice *voice, AudioWaveRecord *wave,
-                   float pitch, short volume, unsigned char pan,
-                   unsigned char effect, int attackTime);
-void func_80066680(AudioSynth *synth, AudioSynthVoice *voice, float pitch);
-void func_80066710(AudioSynth *synth, AudioSynthVoice *voice, short volume, int time);
-void func_800667B0(AudioSynth *synth, AudioSynthVoice *voice, unsigned char value);
-void func_80066840(AudioSynth *synth, AudioSynthVoice *voice);
-void func_800668C0(AudioSynth *synth, AudioSynthVoice *voice);
-void func_80066970(AudioSynth *synth, AudioSynthVoice *voice, int value);
 
 #endif

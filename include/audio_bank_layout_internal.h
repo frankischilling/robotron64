@@ -24,34 +24,12 @@ typedef struct AudioLoopGroup {
     short bookCount;
 } AudioLoopGroup;
 
-typedef struct AudioRawLoop {
-    unsigned int start;
-    unsigned int end;
-    unsigned int count;
-} AudioRawLoop;
-
-typedef struct AudioAdpcmLoop {
-    unsigned int start;
-    unsigned int end;
-    unsigned int count;
-    short state[16];
-} AudioAdpcmLoop;
-
-typedef struct AudioAdpcmBook {
-    int order;
-    int predictorCount;
-    short coefficients[128];
-} AudioAdpcmBook;
-
 /* Each serialized loop record starts on the bank's eight-byte boundary. */
 #define AUDIO_BANK_STRIDE(type) ((sizeof(type) + 7) & ~7U)
 #define AUDIO_BANK_ALIGN(pointer) ((void *)(((unsigned int)(pointer) + 7) & ~7U))
 
 typedef char AudioPatchBankMustBe28Bytes[sizeof(AudioPatchBank) == 28 ? 1 : -1];
 typedef char AudioLoopGroupMustBe8Bytes[sizeof(AudioLoopGroup) == 8 ? 1 : -1];
-typedef char AudioRawLoopMustBe12Bytes[sizeof(AudioRawLoop) == 12 ? 1 : -1];
-typedef char AudioAdpcmLoopMustBe44Bytes[sizeof(AudioAdpcmLoop) == 44 ? 1 : -1];
-typedef char AudioAdpcmBookMustBe264Bytes[sizeof(AudioAdpcmBook) == 264 ? 1 : -1];
 
 extern int D_8008D83C;
 extern AudioPatchBank *D_80192824;
