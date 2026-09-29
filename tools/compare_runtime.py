@@ -37,6 +37,7 @@ MATCHING_BLOCKS = (
     ("early_float_step", "src/game/early_float_step.c", 0x80012690, 0x800126E0),
     ("early_selection_state", "src/game/early_selection_state.c", 0x8001276C, 0x80012950),
     ("early_callbacks_true", "src/game/early_callbacks_true.c", 0x80015100, 0x80015130),
+    ("early_actor_pair_balance", "src/game/early_actor_pair_balance.c", 0x80015130, 0x80015184),
     ("early_actor_create", "src/game/early_actor_create.c", 0x80015184, 0x800152E8),
     ("early_actor_state", "src/game/early_actor_state.c", 0x80015554, 0x8001567C),
     ("early_actor_mode3", "src/game/early_actor_mode3.c", 0x80015BD4, 0x80015BF8),

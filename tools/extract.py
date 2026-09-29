@@ -24,7 +24,6 @@ REGIONS = (
     ("cpu_after_early_global_reset", 0xf8e4, 0x13290),
     ("cpu_after_early_float_step", 0x132e0, 0x1336c),
     ("cpu_before_early_callbacks_true", 0x13550, 0x15d00),
-    ("cpu_after_early_callbacks_true", 0x15d30, 0x15d84),
     ("cpu_after_early_actor_create", 0x15ee8, 0x16154),
     ("cpu_after_early_actor_state", 0x1627c, 0x167d4),
     ("cpu_after_early_actor_mode3", 0x167f8, 0x16eac),

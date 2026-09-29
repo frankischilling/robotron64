@@ -89,7 +89,7 @@ SECTIONS
     .early_selection_state 0x8001276C : AT(0x1336C) SUBALIGN(4) { build/us/early_selection_state.o(.text) }
     .cpu_before_early_callbacks_true 0x80012950 : AT(0x13550) { build/us/fallback.o(.rom_cpu_before_early_callbacks_true) }
     .early_callbacks_true 0x80015100 : AT(0x15D00) SUBALIGN(4) { build/us/early_callbacks_true.o(.text) }
-    .cpu_after_early_callbacks_true 0x80015130 : AT(0x15D30) { build/us/fallback.o(.rom_cpu_after_early_callbacks_true) }
+    .early_actor_pair_balance 0x80015130 : AT(0x15D30) SUBALIGN(4) { build/us/early_actor_pair_balance.o(.text) }
     .early_actor_create 0x80015184 : AT(0x15D84) SUBALIGN(4) { build/us/early_actor_create.o(.text) }
     .cpu_after_early_actor_create 0x800152E8 : AT(0x15EE8) { build/us/fallback.o(.rom_cpu_after_early_actor_create) }
     .early_actor_state 0x80015554 : AT(0x16154) SUBALIGN(4) { build/us/early_actor_state.o(.text) }
@@ -1066,7 +1066,7 @@ ASSERT(SIZEOF(.cpu_after_early_float_step) == 0x8c, "cpu_after_early_float_step 
 ASSERT(SIZEOF(.early_selection_state) == 0x1e4, "early_selection_state size changed")
 ASSERT(SIZEOF(.cpu_before_early_callbacks_true) == 0x27b0, "cpu_before_early_callbacks_true size changed")
 ASSERT(SIZEOF(.early_callbacks_true) == 0x30, "early_callbacks_true size changed")
-ASSERT(SIZEOF(.cpu_after_early_callbacks_true) == 0x54, "cpu_after_early_callbacks_true size changed")
+ASSERT(SIZEOF(.early_actor_pair_balance) == 0x54, "early_actor_pair_balance size changed")
 ASSERT(SIZEOF(.early_actor_create) == 0x164, "early_actor_create size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_create) == 0x26c, "cpu_after_early_actor_create size changed")
 ASSERT(SIZEOF(.early_actor_state) == 0x128, "early_actor_state size changed")

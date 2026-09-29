@@ -139,6 +139,12 @@ build/us/early_callbacks_true.o: src/game/early_callbacks_true.c include/early_g
 	$(PYTHON) tools/trim_padding.py build/us/early_callbacks_true.raw.o $@ .text 0x30
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/early_actor_pair_balance.o: src/game/early_actor_pair_balance.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_pair_balance.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_pair_balance.raw.o $@ .text 0x54
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/early_actor_create.o: src/game/early_actor_create.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_create.raw.o $<
@@ -2863,6 +2869,7 @@ RUNTIME_OBJECTS := build/us/frame_helpers.o \
     build/us/early_float_step.o \
     build/us/early_selection_state.o \
     build/us/early_callbacks_true.o \
+    build/us/early_actor_pair_balance.o \
     build/us/early_actor_create.o \
     build/us/early_actor_state.o \
     build/us/early_actor_mode3.o \

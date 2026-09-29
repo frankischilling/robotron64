@@ -782,6 +782,17 @@
     "evidence": "docs/early-game-helpers.md"
   },
   {
+    "name": "func_80015130",
+    "rom": 89392,
+    "vram": 2147569968,
+    "size": 84,
+    "source": "src/game/early_actor_pair_balance.c",
+    "object": "build/us/early_actor_pair_balance.o",
+    "section": ".early_actor_pair_balance",
+    "section_vram": 2147569968,
+    "evidence": "docs/early-game-state.md"
+  },
+  {
     "name": "func_80015184",
     "rom": 89476,
     "vram": 2147570052,

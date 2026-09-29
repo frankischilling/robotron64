@@ -69,6 +69,7 @@ typedef char EarlyGameActorMustBe124Bytes[
 float func_80012690(float target, float current, float maximumStep);
 void func_8001276C(int advance, int unused);
 void func_8001288C(int unused);
+void func_80015130(EarlyGameActor *first, EarlyGameActor *second);
 void func_80015184(int index, int *position);
 void func_80015218(EarlyGameActor *source);
 int func_800152AC(int first, int second, int third, int fourth);
