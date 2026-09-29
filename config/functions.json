@@ -10198,6 +10198,17 @@
     "evidence": "docs/audio-hardware-driver.md"
   },
   {
+    "name": "func_8005CBB4",
+    "rom": 382900,
+    "vram": 2147863476,
+    "size": 264,
+    "source": "src/game/audio_backend_note_release.c",
+    "object": "build/us/audio_backend_note_release.o",
+    "section": ".audio_backend_note_release",
+    "section_vram": 2147863476,
+    "evidence": "docs/audio-note-release.md"
+  },
+  {
     "name": "func_8005CCC0",
     "rom": 383168,
     "vram": 2147863744,

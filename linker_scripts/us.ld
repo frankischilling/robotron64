@@ -699,6 +699,8 @@ SECTIONS
     .audio_backend_decay 0x8005C684 : AT(0x5D284) SUBALIGN(4) { build/us/audio_backend_decay.o(.text) }
     .audio_backend_allocate 0x8005C7F8 : AT(0x5D3F8) SUBALIGN(4) { build/us/audio_backend_allocate.o(.text) }
     .after_audio_backend_allocate 0x8005CA34 : AT(0x5D634) { build/us/fallback.o(.rom_after_audio_backend_allocate) }
+    .audio_backend_note_release 0x8005CBB4 : AT(0x5D7B4) SUBALIGN(4) { build/us/audio_backend_note_release.o(.text) }
+    .after_audio_backend_note_release 0x8005CCBC : AT(0x5D8BC) { build/us/fallback.o(.rom_after_audio_backend_note_release) }
     .audio_file_services 0x8005CCC0 : AT(0x5D8C0) SUBALIGN(4) { build/us/audio_file_services.o(.text) }
     .after_audio_file_services 0x8005CE0C : AT(0x5DA0C) { build/us/fallback.o(.rom_after_audio_file_services) }
     .audio_sequence_table_size 0x8005D220 : AT(0x5DE20) SUBALIGN(4) { build/us/audio_sequence_table_size.o(.text) }
@@ -1004,6 +1006,7 @@ SECTIONS
     .audio_engine_iteration_set_bss 0x80192798 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration_set.o(.bss) }
     .audio_engine_gate_bss 0x80192770 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_gate.o(.bss) }
     .audio_engine_iteration_bss 0x8019277C (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_iteration.o(.bss) }
+    .audio_backend_note_release_bss 0x80192B70 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_note_release.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1733,7 +1736,9 @@ ASSERT(SIZEOF(.after_audio_backend_voice_start) == 0x114, "after_audio_backend_v
 ASSERT(SIZEOF(.audio_backend_release) == 0x18c, "audio_backend_release size changed")
 ASSERT(SIZEOF(.audio_backend_decay) == 0x174, "audio_backend_decay size changed")
 ASSERT(SIZEOF(.audio_backend_allocate) == 0x23c, "audio_backend_allocate size changed")
-ASSERT(SIZEOF(.after_audio_backend_allocate) == 0x28c, "after_audio_backend_allocate size changed")
+ASSERT(SIZEOF(.after_audio_backend_allocate) == 0x180, "after_audio_backend_allocate size changed")
+ASSERT(SIZEOF(.audio_backend_note_release) == 0x108, "audio_backend_note_release size changed")
+ASSERT(SIZEOF(.after_audio_backend_note_release) == 0x4, "after_audio_backend_note_release size changed")
 ASSERT(SIZEOF(.audio_file_services) == 0x14c, "audio_file_services size changed")
 ASSERT(SIZEOF(.after_audio_file_services) == 0x414, "after_audio_file_services size changed")
 ASSERT(SIZEOF(.audio_sequence_table_size) == 0xc4, "audio_sequence_table_size size changed")
@@ -1991,3 +1996,5 @@ ASSERT(SIZEOF(.audio_engine_iteration_set_bss) == 0x4, "audio_engine_iteration_s
 
 ASSERT(SIZEOF(.audio_engine_gate_bss) == 0xc, "audio_engine_gate BSS size changed")
 ASSERT(SIZEOF(.audio_engine_iteration_bss) == 0xc, "audio_engine_iteration BSS size changed")
+
+ASSERT(SIZEOF(.audio_backend_note_release_bss) == 0x8, "audio_backend_note_release BSS size changed")

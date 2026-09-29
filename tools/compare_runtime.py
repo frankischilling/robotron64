@@ -529,6 +529,7 @@ MATCHING_BLOCKS = (
     ("audio_engine_iteration_set", "src/game/audio_engine_iteration_set.c", 0x80059DEC, 0x80059E2C),
     ("audio_engine_gate", "src/game/audio_engine_gate.c", 0x80059A88, 0x80059B68),
     ("audio_engine_iteration", "src/game/audio_engine_iteration.c", 0x80059B68, 0x80059C54),
+    ("audio_backend_note_release", "src/game/audio_backend_note_release.c", 0x8005CBB4, 0x8005CCBC),
 )
 
 CANDIDATE_BLOCKS = (

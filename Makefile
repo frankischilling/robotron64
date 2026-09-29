@@ -3834,6 +3834,16 @@ RUNTIME_OBJECTS += \
     build/us/os_get_count.o \
     build/us/os_set_compare.o
 
+build/us/audio_backend_note_release.o: src/game/audio_backend_note_release.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_properties_internal.h include/audio_voice_capture_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_note_release.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_backend_note_release.raw.o build/us/audio_backend_note_release.text.o .text 0x108
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_backend_note_release.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_backend_note_release.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

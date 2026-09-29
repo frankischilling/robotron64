@@ -85,6 +85,7 @@ void func_8005C3E4(AudioStatusRecord *voice);
 void func_8005C4F8(AudioStatusRecord *voice, int releaseTime);
 void func_8005C5BC(AudioStatusRecord *voice);
 void func_8005C684(AudioStatusRecord *voice);
+void func_8005CBB4(AudioVoice *voice);
 
 int func_80066448(AudioSynth *synth, AudioSynthVoice *voice,
                   AudioSynthVoiceConfiguration *configuration);

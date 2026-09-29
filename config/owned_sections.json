@@ -524,6 +524,21 @@
   },
   {
     "input_section": ".bss",
+    "section": ".audio_backend_note_release_bss",
+    "vram": 2149133168,
+    "rom": null,
+    "size": 8,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192B70": 0,
+      "D_80192B74": 4
+    },
+    "source": "src/game/audio_backend_note_release.c",
+    "object": "build/us/audio_backend_note_release.o",
+    "evidence": "docs/audio-note-release.md"
+  },
+  {
+    "input_section": ".bss",
     "section": ".compression_workspace_bss",
     "vram": 2149133264,
     "rom": null,
