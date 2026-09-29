@@ -199,6 +199,24 @@ build/us/early_resource_state.o: src/game/early_resource_state.c include/early_r
 	$(PYTHON) tools/trim_padding.py build/us/early_resource_state.raw.o $@ .text 0x1a4
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/early_actor_spawn_helper.o: src/game/early_actor_spawn_helper.c include/early_game_medium_next.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_spawn_helper.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_spawn_helper.raw.o $@ .text 0x6c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_file_state_reset.o: src/game/early_file_state_reset.c include/early_game_medium_next.h include/game_memory.h include/platform_services.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_file_state_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_file_state_reset.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_name_mask_lookup.o: src/game/early_name_mask_lookup.c include/early_game_medium_next.h include/game_memory.h include/text.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_name_mask_lookup.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_name_mask_lookup.raw.o $@ .text 0x8c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/early_simple_forward.o: src/game/early_simple_forward.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_simple_forward.raw.o $<
@@ -2843,7 +2861,10 @@ RUNTIME_OBJECTS := build/us/frame_helpers.o \
     build/us/early_actor_transition.o \
     build/us/early_pointer_state.o \
     build/us/early_resource_state.o \
+    build/us/early_actor_spawn_helper.o \
     build/us/early_simple_forward.o \
+    build/us/early_file_state_reset.o \
+    build/us/early_name_mask_lookup.o \
     build/us/early_value_lookup.o \
     build/us/frame_timing.o \
     build/us/graphics_ucode.o \

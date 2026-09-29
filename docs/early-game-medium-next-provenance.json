@@ -1,0 +1,61 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "shared_header": "include/early_game_medium_next.h",
+  "shared_header_sha256": "e4add1f32695fff66542c153aab2542f4fbc143712ce8a04c1ec5f4f2218850f",
+  "comparison_report": "build/worker1-early-game-medium-next/report.json",
+  "comparison_report_sha256": "2a0c81d6d427a28ccc9028a101760564700884887217d15f44042b18c20b94d4",
+  "comparison_summary": "352/352 target bytes; zero differing words",
+  "integrated_rom_verification": "Matched all 8388608 bytes",
+  "integrated_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "owned_sections": [],
+  "external_reference_note": "Recovery used Robotron 64 target instructions, current callers and repository types. No external game implementation supplied these functions.",
+  "sources": [
+    {
+      "block": "early_actor_spawn_helper",
+      "source": "src/game/early_actor_spawn_helper.c",
+      "source_sha256": "21340cb66351078062a5cf710ff14bba5408b576a7380834f4110cd768776cec",
+      "vram_start": "0x8001B3DC",
+      "vram_end": "0x8001B448",
+      "bytes": 108,
+      "functions": ["func_8001B3DC"]
+    },
+    {
+      "block": "early_file_state_reset",
+      "source": "src/game/early_file_state_reset.c",
+      "source_sha256": "315b7b5b7c182ce1d737791a6252931d4c0ae9b79e7dfeaf49fe80d011b222e0",
+      "vram_start": "0x8001B870",
+      "vram_end": "0x8001B8D8",
+      "bytes": 104,
+      "functions": ["func_8001B870"]
+    },
+    {
+      "block": "early_name_mask_lookup",
+      "source": "src/game/early_name_mask_lookup.c",
+      "source_sha256": "16ffb2221140ae102dc2b4bb011ad665ec4ed117c623e17e4efb201461c68738",
+      "vram_start": "0x8001BBAC",
+      "vram_end": "0x8001BC38",
+      "bytes": 140,
+      "functions": ["func_8001BBAC"]
+    }
+  ],
+  "unmatched_neighbors": [
+    {
+      "function": "func_8001B468",
+      "vram_start": "0x8001B468",
+      "vram_end": "0x8001B4F8",
+      "target_bytes": 144,
+      "best_actual_bytes": 144,
+      "best_differing_words": 7,
+      "status": "complete natural behavior; residual is tail register allocation around callback, flags and timer stores"
+    },
+    {
+      "function": "func_8001BD24",
+      "vram_start": "0x8001BD24",
+      "vram_end": "0x8001BE2C",
+      "target_bytes": 264,
+      "best_actual_bytes": 288,
+      "status": "token parsing and name-mask lookup behavior recovered; structured loop form still emits 24 extra bytes"
+    }
+  ]
+}

@@ -109,8 +109,12 @@ SECTIONS
     .cpu_after_early_pointer_state 0x8001A1F0 : AT(0x1ADF0) { build/us/fallback.o(.rom_cpu_after_early_pointer_state) }
     .early_resource_state 0x8001ADA0 : AT(0x1B9A0) SUBALIGN(4) { build/us/early_resource_state.o(.text) }
     .cpu_after_early_resource_state 0x8001AF44 : AT(0x1BB44) { build/us/fallback.o(.rom_cpu_after_early_resource_state) }
+    .early_actor_spawn_helper 0x8001B3DC : AT(0x1BFDC) SUBALIGN(4) { build/us/early_actor_spawn_helper.o(.text) }
     .early_simple_forward 0x8001B448 : AT(0x1C048) SUBALIGN(4) { build/us/early_simple_forward.o(.text) }
     .cpu_after_early_simple_forward 0x8001B468 : AT(0x1C068) { build/us/fallback.o(.rom_cpu_after_early_simple_forward) }
+    .early_file_state_reset 0x8001B870 : AT(0x1C470) SUBALIGN(4) { build/us/early_file_state_reset.o(.text) }
+    .cpu_after_early_file_state_reset 0x8001B8D8 : AT(0x1C4D8) { build/us/fallback.o(.rom_cpu_after_early_file_state_reset) }
+    .early_name_mask_lookup 0x8001BBAC : AT(0x1C7AC) SUBALIGN(4) { build/us/early_name_mask_lookup.o(.text) }
     .early_value_lookup 0x8001BC38 : AT(0x1C838) SUBALIGN(4) { build/us/early_value_lookup.o(.text) }
     .cpu_after_early_value_lookup 0x8001BD24 : AT(0x1C924) { build/us/fallback.o(.rom_cpu_after_early_value_lookup) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
@@ -1080,9 +1084,13 @@ ASSERT(SIZEOF(.cpu_after_early_actor_transition) == 0x2494, "cpu_after_early_act
 ASSERT(SIZEOF(.early_pointer_state) == 0x80, "early_pointer_state size changed")
 ASSERT(SIZEOF(.cpu_after_early_pointer_state) == 0xbb0, "cpu_after_early_pointer_state size changed")
 ASSERT(SIZEOF(.early_resource_state) == 0x1a4, "early_resource_state size changed")
-ASSERT(SIZEOF(.cpu_after_early_resource_state) == 0x504, "cpu_after_early_resource_state size changed")
+ASSERT(SIZEOF(.cpu_after_early_resource_state) == 0x498, "cpu_after_early_resource_state size changed")
+ASSERT(SIZEOF(.early_actor_spawn_helper) == 0x6c, "early_actor_spawn_helper size changed")
 ASSERT(SIZEOF(.early_simple_forward) == 0x20, "early_simple_forward size changed")
-ASSERT(SIZEOF(.cpu_after_early_simple_forward) == 0x7d0, "cpu_after_early_simple_forward size changed")
+ASSERT(SIZEOF(.cpu_after_early_simple_forward) == 0x408, "cpu_after_early_simple_forward size changed")
+ASSERT(SIZEOF(.early_file_state_reset) == 0x68, "early_file_state_reset size changed")
+ASSERT(SIZEOF(.cpu_after_early_file_state_reset) == 0x2d4, "cpu_after_early_file_state_reset size changed")
+ASSERT(SIZEOF(.early_name_mask_lookup) == 0x8c, "early_name_mask_lookup size changed")
 ASSERT(SIZEOF(.early_value_lookup) == 0xec, "early_value_lookup size changed")
 ASSERT(SIZEOF(.cpu_after_early_value_lookup) == 0xa1c, "cpu_after_early_value_lookup size changed")
 ASSERT(SIZEOF(.script_service_cache_reset) == 0x50, "script_service_cache_reset size changed")
