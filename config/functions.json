@@ -1607,6 +1607,50 @@
     "evidence": "docs/save-menu-navigation.md"
   },
   {
+    "name": "func_800265B8",
+    "rom": 160184,
+    "vram": 2147640760,
+    "size": 104,
+    "source": "src/game/save_menu_pak_retry.c",
+    "object": "build/us/save_menu_pak_retry.o",
+    "section": ".save_menu_pak_retry",
+    "section_vram": 2147640760,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80026620",
+    "rom": 160288,
+    "vram": 2147640864,
+    "size": 84,
+    "source": "src/game/save_menu_pak_reset.c",
+    "object": "build/us/save_menu_pak_reset.o",
+    "section": ".save_menu_pak_reset",
+    "section_vram": 2147640864,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_80026674",
+    "rom": 160372,
+    "vram": 2147640948,
+    "size": 72,
+    "source": "src/game/save_menu_pak_refresh.c",
+    "object": "build/us/save_menu_pak_refresh.o",
+    "section": ".save_menu_pak_refresh",
+    "section_vram": 2147640948,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
+    "name": "func_8002674C",
+    "rom": 160588,
+    "vram": 2147641164,
+    "size": 112,
+    "source": "src/game/save_menu_pak_result.c",
+    "object": "build/us/save_menu_pak_result.o",
+    "section": ".save_menu_pak_result",
+    "section_vram": 2147641164,
+    "evidence": "docs/save-menu-navigation.md"
+  },
+  {
     "name": "func_80027AB8",
     "rom": 165560,
     "vram": 2147646136,
@@ -1692,6 +1736,72 @@
     "object": "build/us/actor_sweep.o",
     "section": ".actor_sweep",
     "section_vram": 2147648364,
+    "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_80029154",
+    "rom": 171348,
+    "vram": 2147651924,
+    "size": 64,
+    "source": "src/game/actor_behavior_frame_sync.c",
+    "object": "build/us/actor_behavior_frame_sync.o",
+    "section": ".actor_behavior_frame_sync",
+    "section_vram": 2147651924,
+    "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_8002945C",
+    "rom": 172124,
+    "vram": 2147652700,
+    "size": 72,
+    "source": "src/game/actor_behavior_animation_2945c.c",
+    "object": "build/us/actor_behavior_animation_2945c.o",
+    "section": ".actor_behavior_animation_2945c",
+    "section_vram": 2147652700,
+    "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_80029544",
+    "rom": 172356,
+    "vram": 2147652932,
+    "size": 136,
+    "source": "src/game/actor_behavior_callback_29544.c",
+    "object": "build/us/actor_behavior_callback_29544.o",
+    "section": ".actor_behavior_callback_29544",
+    "section_vram": 2147652932,
+    "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_80029B20",
+    "rom": 173856,
+    "vram": 2147654432,
+    "size": 96,
+    "source": "src/game/actor_behavior_spawn.c",
+    "object": "build/us/actor_behavior_spawn.o",
+    "section": ".actor_behavior_spawn",
+    "section_vram": 2147654432,
+    "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_80029CF4",
+    "rom": 174324,
+    "vram": 2147654900,
+    "size": 120,
+    "source": "src/game/actor_behavior_spawn_restore.c",
+    "object": "build/us/actor_behavior_spawn_restore.o",
+    "section": ".actor_behavior_spawn_restore",
+    "section_vram": 2147654900,
+    "evidence": "docs/actors.md"
+  },
+  {
+    "name": "func_80029D6C",
+    "rom": 174444,
+    "vram": 2147655020,
+    "size": 44,
+    "source": "src/game/actor_behavior_release_29d6c.c",
+    "object": "build/us/actor_behavior_release_29d6c.o",
+    "section": ".actor_behavior_release_29d6c",
+    "section_vram": 2147655020,
     "evidence": "docs/actors.md"
   },
   {

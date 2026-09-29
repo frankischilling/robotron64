@@ -23,3 +23,20 @@ The integrated ROM verification matched all 8,388,608 bytes with SHA-256 `91d85b
 | `src/game/save_menu_state_reset.c` | `6a55af0be752f36ccaa3c437392e505e9419480be6e84f8520375c7a72927628` | `.local/linked-probes/probes/save_menu_state_reset-5.3-O2-mips1/report.json` | `495f01bf757b63c1a0b4235251b3c2ffa28d8e0859d4ab95a48d2adad4b6004f` |
 
 The filtered canonical `runtime-comparison` report for these four blocks is `build/runtime-comparison/helpers-report.json` with SHA-256 `4253ac655dc188f31639e3c072e6829861ba713cab41b934b268e4d5638763ca`. It records four matches and zero differing words across 120/120 target bytes.
+
+## Pak and actor helper batch
+
+| Source | Source SHA-256 | Linked report | Report SHA-256 |
+| --- | --- | --- | --- |
+| `src/game/save_menu_pak_retry.c` | `ac5d3d9af7554fb9b662995a5a1558bc9f2929f1695f7981f573f020a4319104` | `.local/linked-probes/probes/save_menu_pak_retry-5.3-O2-mips1/report.json` | `59c430000404495387b9ab1282bfbecf534afd6a9ff27a320ee7691bdbd5ee72` |
+| `src/game/save_menu_pak_reset.c` | `38e026fd513a682a980c9725da78cdca449bfddbb9f7c1e9cb0fc5716ae4af21` | `.local/linked-probes/probes/save_menu_pak_reset-5.3-O2-mips1/report.json` | `c9f724626307baf78644b1b906befa4910965428ef694d061dab97719a02370c` |
+| `src/game/save_menu_pak_refresh.c` | `95411733d8a8c075399b7b92ee723f13ddcd00c0b08b19887024f5d4be117804` | `.local/linked-probes/probes/save_menu_pak_refresh-5.3-O2-mips1/report.json` | `02577f3269e8410e8c86f5bacf5480e62d1311c09431ca8ed8d17b9b5f4975ed` |
+| `src/game/save_menu_pak_result.c` | `acefc5dfb0647cea9144955886e36fadc8719a1592ff483fe599e857d6b29673` | `.local/linked-probes/probes/save_menu_pak_result-5.3-O2-mips1/report.json` | `5178c45c58354f43e5dbea7c8f2f5ae4f9fc7141ae65b70cfada1570a2635bbc` |
+| `src/game/actor_behavior_frame_sync.c` | `a0a815a228097713bb2073b02aeea5593ec21882645a5f4bae92f81ff0539159` | `.local/linked-probes/probes/actor_behavior_frame_sync-5.3-O2-mips1/report.json` | `299e040760d178057c7421f574dd1fa6e150e031b13082fff06b1fb2710c04d3` |
+| `src/game/actor_behavior_animation_2945c.c` | `53de2904acb6e60ef9c170066ac0c0eb54543a4eb36f2e480f323536ad0a3ed6` | `.local/linked-probes/probes/actor_behavior_animation_2945c-5.3-O2-mips1/report.json` | `ee9ea7ec3c7359a56357e2d276e13f225121ed1e2525aaae4668c271eb1e41d7` |
+| `src/game/actor_behavior_callback_29544.c` | `d070dfe19af6cb9f2bd8e63ce7edeb1e4c92ab834350a75df619a4089fc8b1a4` | `.local/linked-probes/probes/actor_behavior_callback_29544-5.3-O2-mips1/report.json` | `5f9fd654519cbd37439404f71dd643c2655bad7f157c594b747594222402ec0e` |
+| `src/game/actor_behavior_spawn.c` | `9c8a8c8b5c09cd10f18c5c156ae8598b9aca1cf6b93c9ef9603db879d956ec20` | `.local/linked-probes/probes/actor_behavior_spawn-5.3-O2-mips1/report.json` | `1dccf52c4455e49a79126a852ccd359495533daa4f8ccd7474710b6df577e1e4` |
+| `src/game/actor_behavior_spawn_restore.c` | `fb6e4d7b308f068d52c6eeae2ae255670cae2ddc484a8e0e8772b6423646c293` | `.local/linked-probes/probes/actor_behavior_spawn_restore-5.3-O2-mips1/report.json` | `d6d7f9db86baef171e145d877781dc2f41f75d82fbdb82a31c9d42610e839456` |
+| `src/game/actor_behavior_release_29d6c.c` | `c2df2ebb0f04c6678754f0c7b9a73aca258bfb67572061fb1ccbb90a6025fbf9` | `.local/linked-probes/probes/actor_behavior_release_29d6c-5.3-O2-mips1/report.json` | `cd16ac15a8c1835438f870ee201d9528e62dae3f5c12f2d3a43962c4616f1bac` |
+
+The filtered canonical `runtime-comparison` report for this ten-function batch is `build/runtime-comparison/actors-menu-batch-report.json` with SHA-256 `2aa84047cb7d6973cef14437a5be36adc0659104d4c6110e90f55a7d29cf7be7`. It records ten matches and zero differing words across 904/904 target bytes.

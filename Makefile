@@ -2209,6 +2209,30 @@ build/us/graphics_state_helpers.o: src/game/graphics_state_helpers.c include/fra
 	$(PYTHON) tools/trim_padding.py build/us/graphics_state_helpers.raw.o $@ .text 0x8c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/save_menu_pak_retry.o: src/game/save_menu_pak_retry.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_pak_retry.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_retry.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_pak_reset.o: src/game/save_menu_pak_reset.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_pak_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_reset.raw.o $@ .text 0x54
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_pak_refresh.o: src/game/save_menu_pak_refresh.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_pak_refresh.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_refresh.raw.o $@ .text 0x48
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_menu_pak_result.o: src/game/save_menu_pak_result.c include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_pak_result.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_result.raw.o $@ .text 0x70
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/save_menu_nav_refresh.o: src/game/save_menu_nav_refresh.c include/actor.h include/game_memory.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/save_menu_nav_internal.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_nav_refresh.raw.o $<
@@ -2279,6 +2303,42 @@ build/us/save_menu_nav_cleanup.o: src/game/save_menu_nav_cleanup.c include/actor
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_nav_cleanup.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_nav_cleanup.raw.o $@ .text 0x10c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_frame_sync.o: src/game/actor_behavior_frame_sync.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_frame_sync.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_frame_sync.raw.o $@ .text 0x40
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_animation_2945c.o: src/game/actor_behavior_animation_2945c.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_animation_2945c.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_animation_2945c.raw.o $@ .text 0x48
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_callback_29544.o: src/game/actor_behavior_callback_29544.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_callback_29544.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_callback_29544.raw.o $@ .text 0x88
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_spawn.o: src/game/actor_behavior_spawn.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_spawn.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_spawn.raw.o $@ .text 0x60
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_spawn_restore.o: src/game/actor_behavior_spawn_restore.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_spawn_restore.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_spawn_restore.raw.o $@ .text 0x78
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_release_29d6c.o: src/game/actor_behavior_release_29d6c.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_release_29d6c.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_release_29d6c.raw.o $@ .text 0x2c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/actor_behavior_next_a244.o: src/game/actor_behavior_next_a244.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_behavior_next_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
@@ -2940,6 +3000,16 @@ RUNTIME_OBJECTS += \
     build/us/save_menu_nav_preview_create.o \
     build/us/save_menu_nav_preview_release.o \
     build/us/save_menu_nav_cleanup.o \
+    build/us/save_menu_pak_retry.o \
+    build/us/save_menu_pak_reset.o \
+    build/us/save_menu_pak_refresh.o \
+    build/us/save_menu_pak_result.o \
+    build/us/actor_behavior_frame_sync.o \
+    build/us/actor_behavior_animation_2945c.o \
+    build/us/actor_behavior_callback_29544.o \
+    build/us/actor_behavior_spawn.o \
+    build/us/actor_behavior_spawn_restore.o \
+    build/us/actor_behavior_release_29d6c.o \
     build/us/actor_behavior_next_a244.o \
     build/us/save_menu_continue_encode.o \
     build/us/renderer_vertex_positions.o \
