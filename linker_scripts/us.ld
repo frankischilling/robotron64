@@ -77,7 +77,19 @@ SECTIONS
     .early_byte_clear 0x8000D614 : AT(0xE214) SUBALIGN(4) { build/us/early_byte_clear.o(.text) }
     .cpu_after_early_byte_clear 0x8000D620 : AT(0xE220) { build/us/fallback.o(.rom_cpu_after_early_byte_clear) }
     .early_angle_normalize 0x8000DF14 : AT(0xEB14) SUBALIGN(4) { build/us/early_angle_normalize.o(.text) }
-    .cpu_after_early_angle_normalize 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_cpu_after_early_angle_normalize) }
+    .cpu_before_early_callbacks_true 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_cpu_before_early_callbacks_true) }
+    .early_callbacks_true 0x80015100 : AT(0x15D00) SUBALIGN(4) { build/us/early_callbacks_true.o(.text) }
+    .cpu_after_early_callbacks_true 0x80015130 : AT(0x15D30) { build/us/fallback.o(.rom_cpu_after_early_callbacks_true) }
+    .early_actor_mode3 0x80015BD4 : AT(0x167D4) SUBALIGN(4) { build/us/early_actor_mode3.o(.text) }
+    .cpu_after_early_actor_mode3 0x80015BF8 : AT(0x167F8) { build/us/fallback.o(.rom_cpu_after_early_actor_mode3) }
+    .early_actor_mode0 0x800162F8 : AT(0x16EF8) SUBALIGN(4) { build/us/early_actor_mode0.o(.text) }
+    .cpu_after_early_actor_mode0 0x8001631C : AT(0x16F1C) { build/us/fallback.o(.rom_cpu_after_early_actor_mode0) }
+    .early_six_arg_forward 0x80016914 : AT(0x17514) SUBALIGN(4) { build/us/early_six_arg_forward.o(.text) }
+    .cpu_after_early_six_arg_forward 0x80016950 : AT(0x17550) { build/us/fallback.o(.rom_cpu_after_early_six_arg_forward) }
+    .early_callback_false 0x80017364 : AT(0x17F64) SUBALIGN(4) { build/us/early_callback_false.o(.text) }
+    .cpu_after_early_callback_false 0x8001737C : AT(0x17F7C) { build/us/fallback.o(.rom_cpu_after_early_callback_false) }
+    .early_simple_forward 0x8001B448 : AT(0x1C048) SUBALIGN(4) { build/us/early_simple_forward.o(.text) }
+    .cpu_after_early_simple_forward 0x8001B468 : AT(0x1C068) { build/us/fallback.o(.rom_cpu_after_early_simple_forward) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
     .script_service_files 0x8001C790 : AT(0x1D390) SUBALIGN(4) { build/us/script_service_files.o(.text) }
     .script_service_cache_access 0x8001C8C4 : AT(0x1D4C4) SUBALIGN(4) { build/us/script_service_cache_access.o(.text) }
@@ -946,7 +958,19 @@ ASSERT(SIZEOF(.cpu_after_early_pool_index) == 0x340, "cpu_after_early_pool_index
 ASSERT(SIZEOF(.early_byte_clear) == 0xc, "early_byte_clear size changed")
 ASSERT(SIZEOF(.cpu_after_early_byte_clear) == 0x8f4, "cpu_after_early_byte_clear size changed")
 ASSERT(SIZEOF(.early_angle_normalize) == 0x1c, "early_angle_normalize size changed")
-ASSERT(SIZEOF(.cpu_after_early_angle_normalize) == 0xe810, "cpu_after_early_angle_normalize size changed")
+ASSERT(SIZEOF(.cpu_before_early_callbacks_true) == 0x71d0, "cpu_before_early_callbacks_true size changed")
+ASSERT(SIZEOF(.early_callbacks_true) == 0x30, "early_callbacks_true size changed")
+ASSERT(SIZEOF(.cpu_after_early_callbacks_true) == 0xaa4, "cpu_after_early_callbacks_true size changed")
+ASSERT(SIZEOF(.early_actor_mode3) == 0x24, "early_actor_mode3 size changed")
+ASSERT(SIZEOF(.cpu_after_early_actor_mode3) == 0x700, "cpu_after_early_actor_mode3 size changed")
+ASSERT(SIZEOF(.early_actor_mode0) == 0x24, "early_actor_mode0 size changed")
+ASSERT(SIZEOF(.cpu_after_early_actor_mode0) == 0x5f8, "cpu_after_early_actor_mode0 size changed")
+ASSERT(SIZEOF(.early_six_arg_forward) == 0x3c, "early_six_arg_forward size changed")
+ASSERT(SIZEOF(.cpu_after_early_six_arg_forward) == 0xa14, "cpu_after_early_six_arg_forward size changed")
+ASSERT(SIZEOF(.early_callback_false) == 0x18, "early_callback_false size changed")
+ASSERT(SIZEOF(.cpu_after_early_callback_false) == 0x40cc, "cpu_after_early_callback_false size changed")
+ASSERT(SIZEOF(.early_simple_forward) == 0x20, "early_simple_forward size changed")
+ASSERT(SIZEOF(.cpu_after_early_simple_forward) == 0x12d8, "cpu_after_early_simple_forward size changed")
 ASSERT(SIZEOF(.script_service_cache_reset) == 0x50, "script_service_cache_reset size changed")
 ASSERT(SIZEOF(.script_service_files) == 0x134, "script_service_files size changed")
 ASSERT(SIZEOF(.script_service_cache_access) == 0x284, "script_service_cache_access size changed")

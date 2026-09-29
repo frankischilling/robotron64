@@ -694,6 +694,83 @@
     "evidence": "docs/early-game-helpers.md"
   },
   {
+    "name": "func_80015100",
+    "rom": 89344,
+    "vram": 2147569920,
+    "size": 24,
+    "source": "src/game/early_callbacks_true.c",
+    "object": "build/us/early_callbacks_true.o",
+    "section": ".early_callbacks_true",
+    "section_vram": 2147569920,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_80015118",
+    "rom": 89368,
+    "vram": 2147569944,
+    "size": 24,
+    "source": "src/game/early_callbacks_true.c",
+    "object": "build/us/early_callbacks_true.o",
+    "section": ".early_callbacks_true",
+    "section_vram": 2147569920,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_80015BD4",
+    "rom": 92116,
+    "vram": 2147572692,
+    "size": 36,
+    "source": "src/game/early_actor_mode3.c",
+    "object": "build/us/early_actor_mode3.o",
+    "section": ".early_actor_mode3",
+    "section_vram": 2147572692,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_800162F8",
+    "rom": 93944,
+    "vram": 2147574520,
+    "size": 36,
+    "source": "src/game/early_actor_mode0.c",
+    "object": "build/us/early_actor_mode0.o",
+    "section": ".early_actor_mode0",
+    "section_vram": 2147574520,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_80016914",
+    "rom": 95508,
+    "vram": 2147576084,
+    "size": 60,
+    "source": "src/game/early_six_arg_forward.c",
+    "object": "build/us/early_six_arg_forward.o",
+    "section": ".early_six_arg_forward",
+    "section_vram": 2147576084,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_80017364",
+    "rom": 98148,
+    "vram": 2147578724,
+    "size": 24,
+    "source": "src/game/early_callback_false.c",
+    "object": "build/us/early_callback_false.o",
+    "section": ".early_callback_false",
+    "section_vram": 2147578724,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8001B448",
+    "rom": 114760,
+    "vram": 2147595336,
+    "size": 32,
+    "source": "src/game/early_simple_forward.c",
+    "object": "build/us/early_simple_forward.o",
+    "section": ".early_simple_forward",
+    "section_vram": 2147595336,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
     "name": "func_8001C740",
     "rom": 119616,
     "vram": 2147600192,
