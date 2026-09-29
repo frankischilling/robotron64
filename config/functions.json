@@ -694,6 +694,39 @@
     "evidence": "docs/early-game-helpers.md"
   },
   {
+    "name": "func_80012690",
+    "rom": 78480,
+    "vram": 2147559056,
+    "size": 80,
+    "source": "src/game/early_float_step.c",
+    "object": "build/us/early_float_step.o",
+    "section": ".early_float_step",
+    "section_vram": 2147559056,
+    "evidence": "docs/early-game-state.md"
+  },
+  {
+    "name": "func_8001276C",
+    "rom": 78700,
+    "vram": 2147559276,
+    "size": 288,
+    "source": "src/game/early_selection_state.c",
+    "object": "build/us/early_selection_state.o",
+    "section": ".early_selection_state",
+    "section_vram": 2147559276,
+    "evidence": "docs/early-game-state.md"
+  },
+  {
+    "name": "func_8001288C",
+    "rom": 78988,
+    "vram": 2147559564,
+    "size": 196,
+    "source": "src/game/early_selection_state.c",
+    "object": "build/us/early_selection_state.o",
+    "section": ".early_selection_state",
+    "section_vram": 2147559276,
+    "evidence": "docs/early-game-state.md"
+  },
+  {
     "name": "func_80015100",
     "rom": 89344,
     "vram": 2147569920,
@@ -714,6 +747,61 @@
     "section": ".early_callbacks_true",
     "section_vram": 2147569920,
     "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_80015184",
+    "rom": 89476,
+    "vram": 2147570052,
+    "size": 148,
+    "source": "src/game/early_actor_create.c",
+    "object": "build/us/early_actor_create.o",
+    "section": ".early_actor_create",
+    "section_vram": 2147570052,
+    "evidence": "docs/early-game-state.md"
+  },
+  {
+    "name": "func_80015218",
+    "rom": 89624,
+    "vram": 2147570200,
+    "size": 148,
+    "source": "src/game/early_actor_create.c",
+    "object": "build/us/early_actor_create.o",
+    "section": ".early_actor_create",
+    "section_vram": 2147570052,
+    "evidence": "docs/early-game-state.md"
+  },
+  {
+    "name": "func_800152AC",
+    "rom": 89772,
+    "vram": 2147570348,
+    "size": 60,
+    "source": "src/game/early_actor_create.c",
+    "object": "build/us/early_actor_create.o",
+    "section": ".early_actor_create",
+    "section_vram": 2147570052,
+    "evidence": "docs/early-game-state.md"
+  },
+  {
+    "name": "func_80015554",
+    "rom": 90452,
+    "vram": 2147571028,
+    "size": 192,
+    "source": "src/game/early_actor_state.c",
+    "object": "build/us/early_actor_state.o",
+    "section": ".early_actor_state",
+    "section_vram": 2147571028,
+    "evidence": "docs/early-game-state.md"
+  },
+  {
+    "name": "func_80015614",
+    "rom": 90644,
+    "vram": 2147571220,
+    "size": 104,
+    "source": "src/game/early_actor_state.c",
+    "object": "build/us/early_actor_state.o",
+    "section": ".early_actor_state",
+    "section_vram": 2147571028,
+    "evidence": "docs/early-game-state.md"
   },
   {
     "name": "func_80015BD4",

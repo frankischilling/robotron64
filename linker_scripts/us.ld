@@ -77,9 +77,17 @@ SECTIONS
     .early_byte_clear 0x8000D614 : AT(0xE214) SUBALIGN(4) { build/us/early_byte_clear.o(.text) }
     .cpu_after_early_byte_clear 0x8000D620 : AT(0xE220) { build/us/fallback.o(.rom_cpu_after_early_byte_clear) }
     .early_angle_normalize 0x8000DF14 : AT(0xEB14) SUBALIGN(4) { build/us/early_angle_normalize.o(.text) }
-    .cpu_before_early_callbacks_true 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_cpu_before_early_callbacks_true) }
+    .cpu_before_early_float_step 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_cpu_before_early_float_step) }
+    .early_float_step 0x80012690 : AT(0x13290) SUBALIGN(4) { build/us/early_float_step.o(.text) }
+    .cpu_after_early_float_step 0x800126E0 : AT(0x132E0) { build/us/fallback.o(.rom_cpu_after_early_float_step) }
+    .early_selection_state 0x8001276C : AT(0x1336C) SUBALIGN(4) { build/us/early_selection_state.o(.text) }
+    .cpu_before_early_callbacks_true 0x80012950 : AT(0x13550) { build/us/fallback.o(.rom_cpu_before_early_callbacks_true) }
     .early_callbacks_true 0x80015100 : AT(0x15D00) SUBALIGN(4) { build/us/early_callbacks_true.o(.text) }
     .cpu_after_early_callbacks_true 0x80015130 : AT(0x15D30) { build/us/fallback.o(.rom_cpu_after_early_callbacks_true) }
+    .early_actor_create 0x80015184 : AT(0x15D84) SUBALIGN(4) { build/us/early_actor_create.o(.text) }
+    .cpu_after_early_actor_create 0x800152E8 : AT(0x15EE8) { build/us/fallback.o(.rom_cpu_after_early_actor_create) }
+    .early_actor_state 0x80015554 : AT(0x16154) SUBALIGN(4) { build/us/early_actor_state.o(.text) }
+    .cpu_after_early_actor_state 0x8001567C : AT(0x1627C) { build/us/fallback.o(.rom_cpu_after_early_actor_state) }
     .early_actor_mode3 0x80015BD4 : AT(0x167D4) SUBALIGN(4) { build/us/early_actor_mode3.o(.text) }
     .cpu_after_early_actor_mode3 0x80015BF8 : AT(0x167F8) { build/us/fallback.o(.rom_cpu_after_early_actor_mode3) }
     .early_actor_mode0 0x800162F8 : AT(0x16EF8) SUBALIGN(4) { build/us/early_actor_mode0.o(.text) }
@@ -985,9 +993,17 @@ ASSERT(SIZEOF(.cpu_after_early_pool_index) == 0x340, "cpu_after_early_pool_index
 ASSERT(SIZEOF(.early_byte_clear) == 0xc, "early_byte_clear size changed")
 ASSERT(SIZEOF(.cpu_after_early_byte_clear) == 0x8f4, "cpu_after_early_byte_clear size changed")
 ASSERT(SIZEOF(.early_angle_normalize) == 0x1c, "early_angle_normalize size changed")
-ASSERT(SIZEOF(.cpu_before_early_callbacks_true) == 0x71d0, "cpu_before_early_callbacks_true size changed")
+ASSERT(SIZEOF(.cpu_before_early_float_step) == 0x4760, "cpu_before_early_float_step size changed")
+ASSERT(SIZEOF(.early_float_step) == 0x50, "early_float_step size changed")
+ASSERT(SIZEOF(.cpu_after_early_float_step) == 0x8c, "cpu_after_early_float_step size changed")
+ASSERT(SIZEOF(.early_selection_state) == 0x1e4, "early_selection_state size changed")
+ASSERT(SIZEOF(.cpu_before_early_callbacks_true) == 0x27b0, "cpu_before_early_callbacks_true size changed")
 ASSERT(SIZEOF(.early_callbacks_true) == 0x30, "early_callbacks_true size changed")
-ASSERT(SIZEOF(.cpu_after_early_callbacks_true) == 0xaa4, "cpu_after_early_callbacks_true size changed")
+ASSERT(SIZEOF(.cpu_after_early_callbacks_true) == 0x54, "cpu_after_early_callbacks_true size changed")
+ASSERT(SIZEOF(.early_actor_create) == 0x164, "early_actor_create size changed")
+ASSERT(SIZEOF(.cpu_after_early_actor_create) == 0x26c, "cpu_after_early_actor_create size changed")
+ASSERT(SIZEOF(.early_actor_state) == 0x128, "early_actor_state size changed")
+ASSERT(SIZEOF(.cpu_after_early_actor_state) == 0x558, "cpu_after_early_actor_state size changed")
 ASSERT(SIZEOF(.early_actor_mode3) == 0x24, "early_actor_mode3 size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_mode3) == 0x700, "cpu_after_early_actor_mode3 size changed")
 ASSERT(SIZEOF(.early_actor_mode0) == 0x24, "early_actor_mode0 size changed")

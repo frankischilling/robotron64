@@ -103,10 +103,34 @@ build/us/early_angle_normalize.o: src/game/early_angle_normalize.c include/early
 	$(PYTHON) tools/trim_padding.py build/us/early_angle_normalize.raw.o $@ .text 0x1c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/early_float_step.o: src/game/early_float_step.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_float_step.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_float_step.raw.o $@ .text 0x50
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_selection_state.o: src/game/early_selection_state.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_selection_state.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_selection_state.raw.o $@ .text 0x1e4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/early_callbacks_true.o: src/game/early_callbacks_true.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_callbacks_true.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_callbacks_true.raw.o $@ .text 0x30
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_actor_create.o: src/game/early_actor_create.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_create.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_create.raw.o $@ .text 0x164
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_actor_state.o: src/game/early_actor_state.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_state.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_state.raw.o $@ .text 0x128
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/early_actor_mode3.o: src/game/early_actor_mode3.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -2713,7 +2737,11 @@ RUNTIME_OBJECTS := build/us/frame_helpers.o \
     build/us/early_pool_index.o \
     build/us/early_byte_clear.o \
     build/us/early_angle_normalize.o \
+    build/us/early_float_step.o \
+    build/us/early_selection_state.o \
     build/us/early_callbacks_true.o \
+    build/us/early_actor_create.o \
+    build/us/early_actor_state.o \
     build/us/early_actor_mode3.o \
     build/us/early_actor_mode0.o \
     build/us/early_six_arg_forward.o \
