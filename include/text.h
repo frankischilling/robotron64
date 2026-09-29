@@ -87,7 +87,7 @@ extern void func_8001C0D0(char *format, ...);
 extern int func_8003921C(int kind, int value, int enabled, TextGlyphResource *resource);
 extern int func_80039E1C(int object, int value);
 extern int func_8003947C(int object, int index);
-extern void func_80039DCC(int object, int value);
+extern int func_80039DCC(int object, int value);
 extern int func_80039E0C(int object, int mode);
 extern void func_80039E5C(int object, int value);
 extern void func_80039E80(int object, int value);

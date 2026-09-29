@@ -4494,6 +4494,50 @@ RUNTIME_OBJECTS += \
     build/us/audio_effect_source.o \
     build/us/audio_effect_pull.o
 
+build/us/early_actor_callback_install.o: src/game/early_actor_callback_install.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_callback_install.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_callback_install.raw.o $@ .text 0x90
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_glyph_map.o: src/game/renderer_glyph_map.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_glyph_map.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_glyph_map.raw.o $@ .text 0x1e8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_instance_count.o: src/game/audio_instance_count.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_instance_count.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_instance_count.raw.o $@ .text 0xb8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_instance_enumerate.o: src/game/audio_instance_enumerate.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_instance_enumerate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_instance_enumerate.raw.o $@ .text 0xec
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_owner_count.o: src/game/audio_owner_count.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_count.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_owner_count.raw.o $@ .text 0xb8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_owner_enumerate.o: src/game/audio_owner_enumerate.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_enumerate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_owner_enumerate.raw.o $@ .text 0xec
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_actor_callback_install.o \
+    build/us/renderer_glyph_map.o \
+    build/us/audio_instance_count.o \
+    build/us/audio_instance_enumerate.o \
+    build/us/audio_owner_count.o \
+    build/us/audio_owner_enumerate.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

@@ -1118,3 +1118,6 @@ func_8005B064 = 0x8005B064;
 /* References used by recovered audio hardware driver units. */
 D_8008D84F = 0x8008D84F;
 D_8008D853 = 0x8008D853;
+
+/* References used by target-derived SDK units. */
+D_8007596C = 0x8007596C;

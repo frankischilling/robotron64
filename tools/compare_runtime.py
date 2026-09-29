@@ -626,6 +626,12 @@ MATCHING_BLOCKS = (
     ("audio_effect_parameters", "src/sdk/audio_effect_parameters.c", 0x8006EE08, 0x8006F064),
     ("audio_effect_source", "src/sdk/audio_effect_source.c", 0x8006F064, 0x8006F07C),
     ("audio_effect_pull", "src/sdk/audio_effect_pull.c", 0x8006F07C, 0x8006F3BC),
+    ("early_actor_callback_install", "src/game/early_actor_callback_install.c", 0x8001B468, 0x8001B4F8),
+    ("renderer_glyph_map", "src/game/renderer_glyph_map.c", 0x800498F0, 0x80049AD8),
+    ("audio_instance_count", "src/game/audio_instance_count.c", 0x80056130, 0x800561E8),
+    ("audio_instance_enumerate", "src/game/audio_instance_enumerate.c", 0x800561E8, 0x800562D4),
+    ("audio_owner_count", "src/game/audio_owner_count.c", 0x800562D4, 0x8005638C),
+    ("audio_owner_enumerate", "src/game/audio_owner_enumerate.c", 0x8005638C, 0x80056478),
 )
 
 CANDIDATE_BLOCKS = (

@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,036 matching C functions covering 135,936 bytes, eight assembly functions covering 388 bytes, 1,361 bytes of source-owned initialized data, and 4,195 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,100 matching C functions covering 154,568 bytes, eight assembly functions covering 388 bytes, 2,625 bytes of source-owned initialized data, and 4,195 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -87,6 +87,22 @@ The [SDK runtime recovery](docs/sdk-runtime.md) adds complete target-derived thr
 They recover the timer queue, thread-priority changes, message prepending,
 synthesizer lifecycle, DMA submission, and fixed/float matrix conversion, with
 all emitted state included in the complete comparisons.
+
+The SDK audio graph now includes [voice allocation and commands](docs/sdk-voice-commands.md),
+[synthesizer initialization](docs/sdk-synthesizer-runtime.md),
+[filter construction](docs/sdk-audio-filter-construction.md),
+[mixing and stereo output](docs/sdk-audio-output.md), and the
+[PCM/ADPCM decoder](docs/sdk-audio-decoder.md). The
+[envelope mixer](docs/sdk-audio-envelope.md),
+[effect presets and construction](docs/sdk-audio-effect-construction.md), and
+[complete reverb path](docs/sdk-audio-reverb.md) preserve their control queues,
+sample arithmetic, circular transfers and RSP command order. All emitted
+tables, constants and private procedure extents are included in their proofs.
+
+[Game queries and glyph services](docs/game-query-and-glyph-services.md)
+recover active-instance counts, unique sequence and owner enumeration,
+renderer character mapping, and an actor callback handoff. The source uses
+the existing checked records and lock interfaces.
 
 ## Development
 

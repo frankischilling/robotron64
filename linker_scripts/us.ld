@@ -111,7 +111,8 @@ SECTIONS
     .cpu_after_early_resource_state 0x8001AF44 : AT(0x1BB44) { build/us/fallback.o(.rom_cpu_after_early_resource_state) }
     .early_actor_spawn_helper 0x8001B3DC : AT(0x1BFDC) SUBALIGN(4) { build/us/early_actor_spawn_helper.o(.text) }
     .early_simple_forward 0x8001B448 : AT(0x1C048) SUBALIGN(4) { build/us/early_simple_forward.o(.text) }
-    .cpu_after_early_simple_forward 0x8001B468 : AT(0x1C068) { build/us/fallback.o(.rom_cpu_after_early_simple_forward) }
+    .early_actor_callback_install 0x8001B468 : AT(0x1C068) SUBALIGN(4) { build/us/early_actor_callback_install.o(.text) }
+    .after_early_actor_callback_install 0x8001B4F8 : AT(0x1C0F8) { build/us/fallback.o(.rom_after_early_actor_callback_install) }
     .early_file_state_reset 0x8001B870 : AT(0x1C470) SUBALIGN(4) { build/us/early_file_state_reset.o(.text) }
     .cpu_after_early_file_state_reset 0x8001B8D8 : AT(0x1C4D8) { build/us/fallback.o(.rom_cpu_after_early_file_state_reset) }
     .early_name_mask_lookup 0x8001BBAC : AT(0x1C7AC) SUBALIGN(4) { build/us/early_name_mask_lookup.o(.text) }
@@ -494,6 +495,7 @@ SECTIONS
     .cpu_after_frame_timing 0x800496E0 : AT(0x4A2E0) { build/us/fallback.o(.rom_cpu_after_frame_timing) }
     .graphics_ucode 0x800498E0 : AT(0x4A4E0) SUBALIGN(4) { build/us/graphics_ucode.o(.text) }
     .cpu_before_renderer_platform 0x800498EC : AT(0x4A4EC) { build/us/fallback.o(.rom_cpu_before_renderer_platform) }
+    .renderer_glyph_map 0x800498F0 : AT(0x4A4F0) SUBALIGN(4) { build/us/renderer_glyph_map.o(.text) }
     .renderer_platform 0x80049AD8 : AT(0x4A6D8) SUBALIGN(4) { build/us/renderer_platform.o(.text) }
     .graphics_state_helpers 0x80049DB0 : AT(0x4A9B0) SUBALIGN(4) { build/us/graphics_state_helpers.o(.text) }
     .cpu_after_graphics_state_helpers 0x80049E3C : AT(0x4AA3C) { build/us/fallback.o(.rom_cpu_after_graphics_state_helpers) }
@@ -603,6 +605,11 @@ SECTIONS
     .audio_owner_stop_commands 0x80055E68 : AT(0x56A68) SUBALIGN(4) { build/us/audio_owner_stop_commands.o(.text) }
     .audio_owner_stop_apply 0x80055F24 : AT(0x56B24) SUBALIGN(4) { build/us/audio_owner_stop_apply.o(.text) }
     .cpu_after_audio_owner_stop_apply 0x80056124 : AT(0x56D24) { build/us/fallback.o(.rom_cpu_after_audio_owner_stop_apply) }
+    .audio_instance_count 0x80056130 : AT(0x56D30) SUBALIGN(4) { build/us/audio_instance_count.o(.text) }
+    .audio_instance_enumerate 0x800561E8 : AT(0x56DE8) SUBALIGN(4) { build/us/audio_instance_enumerate.o(.text) }
+    .audio_owner_count 0x800562D4 : AT(0x56ED4) SUBALIGN(4) { build/us/audio_owner_count.o(.text) }
+    .audio_owner_enumerate 0x8005638C : AT(0x56F8C) SUBALIGN(4) { build/us/audio_owner_enumerate.o(.text) }
+    .after_audio_owner_enumerate 0x80056478 : AT(0x57078) { build/us/fallback.o(.rom_after_audio_owner_enumerate) }
     .audio_handle_instance 0x80056480 : AT(0x57080) SUBALIGN(4) { build/us/audio_handle_instance.o(.text) }
     .audio_handle_voice 0x800564E0 : AT(0x570E0) SUBALIGN(4) { build/us/audio_handle_voice.o(.text) }
     .audio_handle_create 0x80056580 : AT(0x57180) SUBALIGN(4) { build/us/audio_handle_create.o(.text) }
@@ -1099,7 +1106,8 @@ ASSERT(SIZEOF(.early_resource_state) == 0x1a4, "early_resource_state size change
 ASSERT(SIZEOF(.cpu_after_early_resource_state) == 0x498, "cpu_after_early_resource_state size changed")
 ASSERT(SIZEOF(.early_actor_spawn_helper) == 0x6c, "early_actor_spawn_helper size changed")
 ASSERT(SIZEOF(.early_simple_forward) == 0x20, "early_simple_forward size changed")
-ASSERT(SIZEOF(.cpu_after_early_simple_forward) == 0x408, "cpu_after_early_simple_forward size changed")
+ASSERT(SIZEOF(.early_actor_callback_install) == 0x90, "early_actor_callback_install size changed")
+ASSERT(SIZEOF(.after_early_actor_callback_install) == 0x378, "after_early_actor_callback_install size changed")
 ASSERT(SIZEOF(.early_file_state_reset) == 0x68, "early_file_state_reset size changed")
 ASSERT(SIZEOF(.cpu_after_early_file_state_reset) == 0x2d4, "cpu_after_early_file_state_reset size changed")
 ASSERT(SIZEOF(.early_name_mask_lookup) == 0x8c, "early_name_mask_lookup size changed")
@@ -1551,7 +1559,8 @@ ASSERT(SIZEOF(.frame_matrices) == 0xa8, "frame matrix commands size changed")
 ASSERT(SIZEOF(.frame_timing) == 0x124, "frame timing size changed")
 ASSERT(SIZEOF(.cpu_after_frame_timing) == 0x200, "CPU fallback after frame timing size changed")
 ASSERT(SIZEOF(.graphics_ucode) == 0xc, "graphics microcode selector size changed")
-ASSERT(SIZEOF(.cpu_before_renderer_platform) == 0x1ec, "cpu_before_renderer_platform size changed")
+ASSERT(SIZEOF(.cpu_before_renderer_platform) == 0x4, "cpu_before_renderer_platform size changed")
+ASSERT(SIZEOF(.renderer_glyph_map) == 0x1e8, "renderer_glyph_map size changed")
 ASSERT(SIZEOF(.renderer_platform) == 0x2d8, "renderer platform size changed")
 ASSERT(SIZEOF(.graphics_state_helpers) == 0x8c, "graphics_state_helpers size changed")
 ASSERT(SIZEOF(.cpu_after_graphics_state_helpers) == 0x2254, "cpu_after_graphics_state_helpers size changed")
@@ -1660,7 +1669,12 @@ ASSERT(SIZEOF(.audio_owner_state_query) == 0xec, "audio_owner_state_query size c
 ASSERT(SIZEOF(.audio_owner_stop_request) == 0x110, "audio_owner_stop_request size changed")
 ASSERT(SIZEOF(.audio_owner_stop_commands) == 0xbc, "audio_owner_stop_commands size changed")
 ASSERT(SIZEOF(.audio_owner_stop_apply) == 0x200, "audio_owner_stop_apply size changed")
-ASSERT(SIZEOF(.cpu_after_audio_owner_stop_apply) == 0x35c, "cpu_after_audio_owner_stop_apply size changed")
+ASSERT(SIZEOF(.cpu_after_audio_owner_stop_apply) == 0xc, "cpu_after_audio_owner_stop_apply size changed")
+ASSERT(SIZEOF(.audio_instance_count) == 0xb8, "audio_instance_count size changed")
+ASSERT(SIZEOF(.audio_instance_enumerate) == 0xec, "audio_instance_enumerate size changed")
+ASSERT(SIZEOF(.audio_owner_count) == 0xb8, "audio_owner_count size changed")
+ASSERT(SIZEOF(.audio_owner_enumerate) == 0xec, "audio_owner_enumerate size changed")
+ASSERT(SIZEOF(.after_audio_owner_enumerate) == 0x8, "after_audio_owner_enumerate size changed")
 ASSERT(SIZEOF(.audio_handle_instance) == 0x60, "audio_handle_instance size changed")
 ASSERT(SIZEOF(.audio_handle_voice) == 0xa0, "audio_handle_voice size changed")
 ASSERT(SIZEOF(.audio_handle_create) == 0x58, "audio_handle_create size changed")

@@ -969,6 +969,17 @@
     "evidence": "docs/early-game-helpers.md"
   },
   {
+    "name": "func_8001B468",
+    "rom": 114792,
+    "vram": 2147595368,
+    "size": 144,
+    "source": "src/game/early_actor_callback_install.c",
+    "object": "build/us/early_actor_callback_install.o",
+    "section": ".early_actor_callback_install",
+    "section_vram": 2147595368,
+    "evidence": "docs/game-query-and-glyph-services.md"
+  },
+  {
     "name": "func_8001B870",
     "rom": 115824,
     "vram": 2147596400,
@@ -6711,6 +6722,17 @@
     "evidence": "docs/graphics-tasks.md"
   },
   {
+    "name": "func_800498F0",
+    "rom": 304368,
+    "vram": 2147784944,
+    "size": 488,
+    "source": "src/game/renderer_glyph_map.c",
+    "object": "build/us/renderer_glyph_map.o",
+    "section": ".renderer_glyph_map",
+    "section_vram": 2147784944,
+    "evidence": "docs/game-query-and-glyph-services.md"
+  },
+  {
     "name": "func_80049AD8",
     "rom": 304856,
     "vram": 2147785432,
@@ -8634,6 +8656,50 @@
     "section": ".audio_owner_stop_apply",
     "section_vram": 2147835684,
     "evidence": "docs/audio-commands.md"
+  },
+  {
+    "name": "func_80056130",
+    "rom": 355632,
+    "vram": 2147836208,
+    "size": 184,
+    "source": "src/game/audio_instance_count.c",
+    "object": "build/us/audio_instance_count.o",
+    "section": ".audio_instance_count",
+    "section_vram": 2147836208,
+    "evidence": "docs/game-query-and-glyph-services.md"
+  },
+  {
+    "name": "func_800561E8",
+    "rom": 355816,
+    "vram": 2147836392,
+    "size": 236,
+    "source": "src/game/audio_instance_enumerate.c",
+    "object": "build/us/audio_instance_enumerate.o",
+    "section": ".audio_instance_enumerate",
+    "section_vram": 2147836392,
+    "evidence": "docs/game-query-and-glyph-services.md"
+  },
+  {
+    "name": "func_800562D4",
+    "rom": 356052,
+    "vram": 2147836628,
+    "size": 184,
+    "source": "src/game/audio_owner_count.c",
+    "object": "build/us/audio_owner_count.o",
+    "section": ".audio_owner_count",
+    "section_vram": 2147836628,
+    "evidence": "docs/game-query-and-glyph-services.md"
+  },
+  {
+    "name": "func_8005638C",
+    "rom": 356236,
+    "vram": 2147836812,
+    "size": 236,
+    "source": "src/game/audio_owner_enumerate.c",
+    "object": "build/us/audio_owner_enumerate.o",
+    "section": ".audio_owner_enumerate",
+    "section_vram": 2147836812,
+    "evidence": "docs/game-query-and-glyph-services.md"
   },
   {
     "name": "func_80056480",
