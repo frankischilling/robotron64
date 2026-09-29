@@ -1,11 +1,11 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,010 matching C functions covering 132,064 bytes.
-It also contains eight assembly functions covering 388 live bytes, 1,356 bytes
-of source-owned initialized data, and 4,187 bytes of source-owned BSS. The
+The source checkpoint contains 1,036 matching C functions covering 135,936 bytes.
+It also contains eight assembly functions covering 388 live bytes, 1,361 bytes
+of source-owned initialized data, and 4,195 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
-121,048 bytes. The current source adds 83 complete C functions, 11,016 C bytes,
-four initialized bytes, and 97 BSS bytes to that checkpoint.
+121,048 bytes. The current source adds 109 complete C functions, 14,888 C bytes,
+nine initialized bytes, and 105 BSS bytes to that checkpoint.
 
 The complete ROM still uses extracted fallback ranges. The game is not fully
 decompiled, and neither the total executable size nor the complete function
@@ -17,7 +17,7 @@ The audio work covers instance pause/resume and owner controls, handle and voice
 properties, host file services, sequence calls/jumps/returns, voice capture,
 hardware-voice allocation and release, pitch scaling, and sequence-table and
 range loading. The compression work covers memory and cartridge input, the
-refill buffer, aligned workspace allocation, block dispatch, table cleanup,
+refill buffer, aligned workspace allocation, block dispatch, fixed-block decoding, table cleanup,
 and the original initialized tables and shared buffers. Individual functions
 and complete byte ranges are documented in [audio properties](audio-properties.md),
 [audio command controls](audio-command-engine.md), [hardware voices](audio-hardware-driver.md),
@@ -31,7 +31,7 @@ and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. The full build
 passes all 108 tooling tests and verifies all 8,388,608 ROM bytes. Linked
 progress verifies the source inputs and complete procedure extents for all
-1,010 counted C functions. [Bank layout](audio-bank-layout.md),
+1,036 counted C functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
 
@@ -58,11 +58,22 @@ and the random-number generator. The generator owns its four-byte initialized
 seed. [SDK runtime](sdk-runtime.md) records the behavior, actual layouts,
 compiler profiles, and complete code/data proof identities.
 
+Twenty-five further SDK functions recover the relative-deadline timer queue,
+Count-based timekeeping, thread-priority changes, front-of-queue messages,
+active video-context access, audio list and lifecycle operations, DMA buffer
+submission, and matrix translation, identity, and signed fixed-point
+conversion. They add 3,376 code bytes, five initialized bytes, and eight BSS
+bytes. [Time and priority](sdk-time-and-priority.md),
+[scheduling and audio services](sdk-scheduling-and-audio-services.md), and
+[matrix conversion](sdk-matrix-conversion.md) record their complete placements
+and behavior. The 496-byte fixed-block decoder is an additional game-code
+procedure and uses the previously recovered compression workspace.
+
 The eight assembly procedures comprise the startup entry, two audio interrupt
 services, interrupt disable/restore, TLB probing, Count reading, and Compare
 writing. Their complete extents are accounted separately from C source.
 
-Shared audio declarations now describe one consistent set of records and
+Shared game-side audio declarations describe the recovered records and
 backend command interfaces. Early animation wrappers use the canonical actor
 declaration. The comparison tools reject absolute fallback bindings for
 source-owned functions, including bindings that happen to have the right
@@ -75,7 +86,7 @@ Supply the normalized USA ROM locally, then run:
 
 ```sh
 make setup
-make -j4
+make -j2
 make test
 make verify
 make progress
@@ -86,7 +97,7 @@ python3 tools/compare_assembly.py
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 562 complete source units. Startup/scheduler
+The runtime registry contains 582 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 eight procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
@@ -107,13 +118,19 @@ notice used for compression comparisons is retained in
 
 ## Remaining work
 
-The five central compression procedures still have compiler differences. The
+Four central compression procedures still have compiler differences. The
 full audio sequence reader, several sequencer
 commands, and the main audio dispatcher also remain fallback code. Larger
 early-game and actor routines, movie update, renderer polygon and mesh paths,
 frame setup, text replacement, and further platform functions are unfinished.
 Their complete candidate comparisons and source investigations remain available
 locally, but their bytes are excluded from this checkpoint's source counts.
+
+The retained combined graphics setup/pacing experiment reproduces 628 code
+bytes and its 124-byte dispatch table. Its sparse empty case labels remain
+unexplained by the target's callers, so that pacing candidate is excluded from
+this checkpoint. The existing 152-byte setup source remains counted; no
+synthetic prefix or partial pacing extent is substituted for recovered source.
 
 Reference-adapted SDK experiments remain separate local research. The
 target-derived SDK runtime described above is part of this checkpoint; the

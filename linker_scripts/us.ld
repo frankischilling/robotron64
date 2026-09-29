@@ -726,6 +726,7 @@ SECTIONS
     .cpu_after_audio_interrupt_service 0x8005DA20 : AT(0x5E620) { build/us/fallback.o(.rom_cpu_after_audio_interrupt_service) }
     .compression_table_release 0x8005E1E4 : AT(0x5EDE4) SUBALIGN(4) { build/us/compression_table_release.o(.text) }
     .after_compression_table_release 0x8005E1EC : AT(0x5EDEC) { build/us/fallback.o(.rom_after_compression_table_release) }
+    .compression_fixed 0x8005ECA8 : AT(0x5F8A8) SUBALIGN(4) { build/us/compression_fixed.o(.text) }
     .compression_fixed_release 0x8005EE98 : AT(0x5FA98) SUBALIGN(4) { build/us/compression_fixed_release.o(.text) }
     .after_compression_fixed_release 0x8005EEE0 : AT(0x5FAE0) { build/us/fallback.o(.rom_after_compression_fixed_release) }
     .compression_workspace 0x8005F71C : AT(0x6031C) SUBALIGN(4) { build/us/compression_workspace.o(.text) }
@@ -1775,7 +1776,8 @@ ASSERT(SIZEOF(.after_audio_sequence_range_release) == 0x8, "after_audio_sequence
 ASSERT(SIZEOF(.audio_interrupt_service) == 0x40, "audio_interrupt_service size changed")
 ASSERT(SIZEOF(.cpu_after_audio_interrupt_service) == 0x7c4, "cpu_after_audio_interrupt_service size changed")
 ASSERT(SIZEOF(.compression_table_release) == 0x8, "compression_table_release size changed")
-ASSERT(SIZEOF(.after_compression_table_release) == 0xcac, "after_compression_table_release size changed")
+ASSERT(SIZEOF(.after_compression_table_release) == 0xabc, "after_compression_table_release size changed")
+ASSERT(SIZEOF(.compression_fixed) == 0x1f0, "compression_fixed size changed")
 ASSERT(SIZEOF(.compression_fixed_release) == 0x48, "compression_fixed_release size changed")
 ASSERT(SIZEOF(.after_compression_fixed_release) == 0x83c, "after_compression_fixed_release size changed")
 ASSERT(SIZEOF(.compression_workspace) == 0xc4, "compression_workspace size changed")

@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,010 matching C functions covering 132,064 bytes, eight assembly functions covering 388 bytes, 1,356 bytes of source-owned initialized data, and 4,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,036 matching C functions covering 135,936 bytes, eight assembly functions covering 388 bytes, 1,361 bytes of source-owned initialized data, and 4,195 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -33,12 +33,12 @@ The tool accepts big-endian, byte-swapped, and word-swapped input, verifies the 
 
 ```sh
 make setup
-make -j4
+make -j2
 make verify
 make progress
 ```
 
-Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The recovered game sources use verified O2/MIPS I profiles, including the documented R4300 multiply option for pitch scaling. The recovered SDK routines use their verified O1/O2 MIPS II profiles, with MIPS III for the integer helpers; a project-wide original compiler identification remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
+Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The recovered game sources use verified O2/MIPS I profiles, including the documented R4300 multiply option for pitch scaling. The recovered SDK routines use their verified O1/O2/O3 MIPS II profiles, with MIPS III for the integer helpers and the R4300 multiply option for matrix utilities; a project-wide original compiler identification remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
 
 Progress is generated in `build/us/progress.json` from linked-byte comparisons, actual ELF section addresses, input-object symbols, and recorded source/header/object hashes. Every counted function belongs to a source file present in this checkout. The total executable size and function count are not established, so a whole-game percentage is not reported. See [matching evidence](docs/matching.md) and [toolchain investigation](docs/toolchain.md).
 
@@ -62,8 +62,9 @@ The recent recovery extends the game-side audio pipeline. [Audio properties](doc
 [host and stream services](docs/audio-host-stream.md), [command controls and voice capture](docs/audio-command-engine.md),
 [hardware voice management](docs/audio-hardware-driver.md), and [sequence loading](docs/audio-sequence-loading.md)
 record the recovered audio pipeline. [Compression runtime](docs/compression-runtime.md)
-covers input handling, workspace allocation, block dispatch, and the source-owned
-Huffman tables and buffers. The remaining decoding loops still use fallback code.
+covers input handling, workspace allocation, block dispatch, fixed-block decoding,
+and the source-owned Huffman tables and buffers. The table builder and stored,
+dynamic, and literal/distance decoding loops still use fallback code.
 
 [Bank initialization](docs/audio-bank-layout.md) and the
 [volume, pan, and pedal commands](docs/audio-driver-commands.md) preserve the
@@ -79,6 +80,13 @@ The [checkpoint evidence](docs/recovery-checkpoint.md) records the combined scop
 and its reproduction commands.
 
 The [SDK runtime recovery](docs/sdk-runtime.md) adds complete target-derived thread and message services, direct transfers, task yielding, video contexts, heap allocation, integer arithmetic, and the random-number generator. Its 50 functions and initialized seed are included in the source counts. Reference-adapted SDK experiments remain separate local research; remaining SDK fallback code is excluded from source progress. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
+
+[Time and priority services](docs/sdk-time-and-priority.md),
+[scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and
+[matrix conversion](docs/sdk-matrix-conversion.md) add 25 further SDK functions.
+They recover the timer queue, thread-priority changes, message prepending,
+synthesizer lifecycle, DMA submission, and fixed/float matrix conversion, with
+all emitted state included in the complete comparisons.
 
 ## Development
 

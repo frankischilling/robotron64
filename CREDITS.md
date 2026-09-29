@@ -97,6 +97,14 @@ eight-byte thread sentinel, heap alignment, and initialized generator state.
 The target instruction stream and complete code/data comparisons determine
 the accepted Robotron implementations and compiler profiles.
 
+The subsequent [timer and priority recovery](docs/sdk-time-and-priority.md),
+[scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and
+[matrix conversion](docs/sdk-matrix-conversion.md) build on these interface
+studies. The retained libreultra and GoldenEye matrix-header comparisons
+corroborate the signed fixed-point interpretation and division by `65536.0f`.
+Robotron's complete target procedures determine the accepted code, storage,
+and compiler settings; reference-adapted experiments remain local research.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),
