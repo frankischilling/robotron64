@@ -236,6 +236,17 @@
     "evidence": "docs/graphics-state.md"
   },
   {
+    "source": "src/boot/frame_projection.c",
+    "object": "build/us/frame_projection.o",
+    "input_section": ".rodata",
+    "section": ".frame_projection_rodata",
+    "vram": 2148095128,
+    "rom": 614552,
+    "size": 12,
+    "symbols": {},
+    "evidence": "docs/frame-submission.md"
+  },
+  {
     "input_section": ".rodata",
     "vram": 2148097220,
     "rom": 616644,

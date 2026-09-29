@@ -338,6 +338,7 @@ MATCHING_BLOCKS = (
     ("frame_render", "src/boot/frame_render.c", 0x800489F4, 0x80048B8C),
     ("frame_helpers", "src/boot/frame_helpers.c", 0x80048B8C, 0x80048DC0),
     ("debug_noop", "src/game/debug_noop.c", 0x80048DC0, 0x80048DDC),
+    ("frame_projection", "src/boot/frame_projection.c", 0x800493F4, 0x80049514),
     ("frame_matrices", "src/boot/frame_matrices.c", 0x80049514, 0x800495BC),
     ("frame_timing", "src/boot/frame_timing.c", 0x800495BC, 0x800496E0),
     ("graphics_ucode", "src/boot/graphics_ucode.c", 0x800498E0, 0x800498EC),

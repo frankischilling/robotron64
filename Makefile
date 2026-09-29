@@ -323,6 +323,13 @@ build/us/frame_matrices.o: src/boot/frame_matrices.c include/frame.h $(IDO) Make
 	$(PYTHON) tools/trim_padding.py build/us/frame_matrices.raw.o $@ .text 0xa8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/frame_projection.o: src/boot/frame_projection.c include/frame.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/frame_projection.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/frame_projection.raw.o build/us/frame_projection.text.o .text 0x120
+	$(PYTHON) tools/owned_sections.py $< build/us/frame_projection.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^) tools/owned_sections.py config/owned_sections.json tools/trim_padding.py
+
 build/us/fixed_geometry.o: src/game/fixed_geometry.c include/fixed_geometry.h include/fixed_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/fixed_geometry.raw.o $<
@@ -2900,6 +2907,7 @@ RUNTIME_OBJECTS := build/us/frame_helpers.o \
     build/us/graphics_tasks.o \
     build/us/scheduler_runtime_tail.o \
     build/us/frame_render.o \
+    build/us/frame_projection.o \
     build/us/frame_matrices.o \
     build/us/fixed_geometry.o \
     build/us/audio_control.o \

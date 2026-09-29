@@ -6645,6 +6645,17 @@
     "evidence": "docs/debug-output.md"
   },
   {
+    "name": "func_800493F4",
+    "rom": 303092,
+    "vram": 2147783668,
+    "size": 288,
+    "source": "src/boot/frame_projection.c",
+    "object": "build/us/frame_projection.o",
+    "section": ".frame_projection",
+    "section_vram": 2147783668,
+    "evidence": "docs/frame-submission.md"
+  },
+  {
     "name": "func_80049514",
     "rom": 303380,
     "vram": 2147783956,

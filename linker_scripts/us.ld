@@ -488,6 +488,7 @@ SECTIONS
     .frame_helpers 0x80048B8C : AT(0x4978C) SUBALIGN(4) { build/us/frame_helpers.o(.text) }
     .debug_noop 0x80048DC0 : AT(0x499C0) SUBALIGN(4) { build/us/debug_noop.o(.text) }
     .cpu_after_debug_noop 0x80048DDC : AT(0x499DC) { build/us/fallback.o(.rom_cpu_after_debug_noop) }
+    .frame_projection 0x800493F4 : AT(0x49FF4) SUBALIGN(4) { build/us/frame_projection.o(.text) }
     .frame_matrices 0x80049514 : AT(0x4A114) SUBALIGN(4) { build/us/frame_matrices.o(.text) }
     .frame_timing 0x800495BC : AT(0x4A1BC) SUBALIGN(4) { build/us/frame_timing.o(.text) }
     .cpu_after_frame_timing 0x800496E0 : AT(0x4A2E0) { build/us/fallback.o(.rom_cpu_after_frame_timing) }
@@ -983,7 +984,9 @@ SECTIONS
     .data_after_graphics_resource_strings 0x91005A3C : AT(0x95DDC) { build/us/fallback.o(.rom_data_after_graphics_resource_strings) }
     .graphics_pool_strings 0x80095220 : AT(0x95E20) SUBALIGN(4) { build/us/graphics_pool.o(.rodata) }
     .graphics_mode_dispatch_table 0x80095300 : AT(0x95F00) SUBALIGN(4) { build/us/graphics_mode_dispatch.o(.rodata) }
-    .data_after_graphics_mode_dispatch_table 0x80095360 : AT(0x95F60) { build/us/fallback.o(.rom_data_after_graphics_mode_dispatch_table) }
+    .data_before_frame_projection_rodata 0x80095360 : AT(0x95F60) { build/us/fallback.o(.rom_data_before_frame_projection_rodata) }
+    .frame_projection_rodata 0x80095498 : AT(0x96098) SUBALIGN(4) { build/us/frame_projection.o(.rodata) }
+    .data_after_frame_projection_rodata 0x800954A4 : AT(0x960A4) { build/us/fallback.o(.rom_data_after_frame_projection_rodata) }
     .audio_pitch_scale_rodata 0x80095CC4 : AT(0x968C4) SUBALIGN(4) { build/us/audio_pitch_scale.o(.rodata) }
     .after_audio_pitch_scale_rodata 0x80095CCC : AT(0x968CC) { build/us/fallback.o(.rom_after_audio_pitch_scale_rodata) }
     .sdk_gu_perspective_constants 0x80095CF0 : AT(0x968F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_gu_perspective_constants) }
@@ -1388,7 +1391,9 @@ ASSERT(SIZEOF(.graphics_resource_strings) == 0x14, "graphics_resource_strings si
 ASSERT(SIZEOF(.data_after_graphics_resource_strings) == 0x44, "data_after_graphics_resource_strings size changed")
 ASSERT(SIZEOF(.graphics_pool_strings) == 0xe0, "graphics_pool_strings size changed")
 ASSERT(SIZEOF(.graphics_mode_dispatch_table) == 0x60, "graphics_mode_dispatch_table size changed")
-ASSERT(SIZEOF(.data_after_graphics_mode_dispatch_table) == 0x964, "data_after_graphics_mode_dispatch_table size changed")
+ASSERT(SIZEOF(.data_before_frame_projection_rodata) == 0x138, "data_before_frame_projection_rodata size changed")
+ASSERT(SIZEOF(.frame_projection_rodata) == 0xc, "frame projection rodata size changed")
+ASSERT(SIZEOF(.data_after_frame_projection_rodata) == 0x820, "data_after_frame_projection_rodata size changed")
 ASSERT(SIZEOF(.audio_pitch_scale_rodata) == 0x8, "audio_pitch_scale_rodata size changed")
 ASSERT(SIZEOF(.after_audio_pitch_scale_rodata) == 0x24, "after_audio_pitch_scale_rodata size changed")
 ASSERT(SIZEOF(.sdk_gu_perspective_constants) == 0x10, "sdk_gu_perspective_constants size changed")
@@ -1540,7 +1545,8 @@ ASSERT(SIZEOF(.cpu_after_startup) == 0x4e4, "CPU fallback after startup size cha
 ASSERT(SIZEOF(.frame_render) == 0x198, "frame submission size changed")
 ASSERT(SIZEOF(.frame_helpers) == 0x234, "frame helpers size changed")
 ASSERT(SIZEOF(.debug_noop) == 0x1c, "debug_noop size changed")
-ASSERT(SIZEOF(.cpu_after_debug_noop) == 0x738, "cpu_after_debug_noop size changed")
+ASSERT(SIZEOF(.cpu_after_debug_noop) == 0x618, "cpu_after_debug_noop size changed")
+ASSERT(SIZEOF(.frame_projection) == 0x120, "frame projection size changed")
 ASSERT(SIZEOF(.frame_matrices) == 0xa8, "frame matrix commands size changed")
 ASSERT(SIZEOF(.frame_timing) == 0x124, "frame timing size changed")
 ASSERT(SIZEOF(.cpu_after_frame_timing) == 0x200, "CPU fallback after frame timing size changed")

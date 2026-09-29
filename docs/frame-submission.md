@@ -1,13 +1,14 @@
 # Frame submission and matrix commands
 
-The frame-end routine and matrix-command helper reproduce two complete target functions with IDO 5.3 and `-O2 -G 0 -non_shared -mips1 -32`.
+The frame-end routine, projection refresh, and matrix-command helper reproduce three complete target functions with IDO 5.3 and `-O2 -G 0 -non_shared -mips1 -32`.
 
 | Source | Function | Runtime range | ROM range | Bytes |
 | --- | --- | --- | --- | ---: |
 | `src/boot/frame_render.c` | `func_800489F4` | `0x800489F4..0x80048B8C` | `0x495F4..0x4978C` | 408 |
+| `src/boot/frame_projection.c` | `func_800493F4` | `0x800493F4..0x80049514` | `0x49FF4..0x4A114` | 288 |
 | `src/boot/frame_matrices.c` | `func_80049514` | `0x80049514..0x800495BC` | `0x4A114..0x4A1BC` | 168 |
 
-Ranges use exclusive end addresses. Both functions are included in the matching manifest. Their original callers and globals retain address-based names where the game-specific meaning has not been established.
+Ranges use exclusive end addresses. All three functions are included in the matching manifest. Their original callers and globals retain address-based names where the game-specific meaning has not been established.
 
 ## Ending and submitting a frame
 
@@ -19,13 +20,21 @@ The caller selects the `0x58`-byte task record `D_8013D8A0[D_8007D914]`. It pass
 
 ## Loading the frame matrices
 
+`func_800493F4` converts its integer input into a field-of-view angle through
+`func_8004CE08`, builds a perspective matrix at `D_8013823C + 0x100`, emits the
+perspective-normalization word, and loads the projection and view matrices. The
+local `fovy` precedes the real `unsigned short perspNorm`; that declaration order
+places the halfword at the target stack offset `0x3A`. Reversing the two locals
+moves it four bytes and changes two instructions. All `0x120` code bytes and the
+12-byte literal pool at `0x80095498..0x800954A4` match the target ROM.
+
 `func_80049514` first emits command `BC00000E` with the unsigned halfword at `D_8013D950`. It then emits matrix commands `01030040` and `01010040`. Their addresses use the current frame index times 64, plus the base pointer `D_8013823C`. The second address is 128 bytes after the first.
 
 The source performs unsigned address arithmetic with offsets `0x80000000` and `0x80000080`. This preserves the target's conversion from its KSEG0 pointers and the compiler's shared construction of the two constants. The three commands advance the cursor by 24 bytes. The compiled function matches all 168 target bytes.
 
 ## Verification
 
-`python3 tools/compare_runtime.py` compiles and compares both ranges independently. It assigns addresses only to undefined references, leaving the source's function definitions intact. The ROM build maps both input objects to the same ranges and records their source, header, and object hashes for `make progress`.
+`python3 tools/compare_runtime.py` compiles and compares all three ranges independently. It assigns addresses only to undefined references, leaving the source's function definitions intact. The ROM build maps the input objects to the same ranges and records their source, header, and object hashes for `make progress`.
 
 IDO adds eight zero bytes after each function. The build removes only that trailing padding after checking that no live symbol or relocation overlaps it. `make verify` compares the complete output ROM, including the remaining extracted frame-begin code. Frame begin and the alternate pacing loop remain excluded candidates until their complete comparisons match.
 
