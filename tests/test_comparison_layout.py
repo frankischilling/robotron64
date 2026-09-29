@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 
-from compare_startup import SymbolLayoutSnapshot
+from compare_startup import SymbolLayoutSnapshot, symbol_addresses
 
 
 class ComparisonLayoutTests(unittest.TestCase):
@@ -42,6 +42,28 @@ class ComparisonLayoutTests(unittest.TestCase):
         with patch('compare_startup.symbol_addresses', side_effect=mutate):
             with self.assertRaisesRegex(ValueError, 'Symbol layout changed'):
                 SymbolLayoutSnapshot(self.root)
+
+    def test_source_function_rejects_an_absolute_binding_even_at_the_same_address(self):
+        function = {'name': 'recovered', 'vram': 0x80001000}
+        for filename in ('config/startup_symbols.ld', 'config/runtime_symbols.ld'):
+            for address in (0x80001000, 0x80001004):
+                with self.subTest(filename=filename, address=address):
+                    for symbols in ('config/startup_symbols.ld', 'config/runtime_symbols.ld'):
+                        (self.root / symbols).write_text('')
+                    (self.root / filename).write_text(f'recovered = 0x{address:X};\n')
+                    with patch('compare_startup.load_manifest', return_value=[function]), \
+                            patch('compare_startup.load_owned_sections', return_value=[]):
+                        with self.assertRaisesRegex(ValueError, 'Source-owned function has an absolute binding'):
+                            symbol_addresses(self.root)
+
+    def test_fallback_bindings_and_source_definitions_are_both_resolved(self):
+        (self.root / 'config/startup_symbols.ld').write_text('fallback = 0x80002000;\n')
+        (self.root / 'config/runtime_symbols.ld').write_text('')
+        with patch('compare_startup.load_manifest', return_value=[{'name': 'recovered', 'vram': 0x80001000}]), \
+                patch('compare_startup.load_owned_sections', return_value=[]):
+            self.assertEqual(symbol_addresses(self.root), {
+                'fallback': 0x80002000, 'recovered': 0x80001000,
+            })
 
 
 if __name__ == '__main__':

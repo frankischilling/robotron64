@@ -33,6 +33,12 @@ and counts none of those ranges as distributed source.
 
 `python3 tools/compare_startup.py` independently compares the 928-byte startup range and the 2,928-byte scheduler range. `python3 tools/compare_runtime.py` covers the scheduler, its separate tail, and the other recovered runtime objects. Both resolve only symbols reported as undefined by the compiled object. A definition produced by the source is never replaced with an absolute linker assignment. Synthetic tests cover that rule and reject unrecorded aliases or conflicting encoded addresses.
 
+Layout validation also rejects any absolute binding whose name belongs to a
+recovered function, even when the recorded address is correct. This catches
+stale fallback bindings after independently recovered callers and callees are
+integrated. Unrecovered external functions continue to use their recorded
+addresses. The linked source symbols remain authoritative for recovered code.
+
 A batch validates its symbol layout once and retains hashes of both symbol
 files and both ownership manifests. It rechecks those hashes before linking
 and after comparison. A source or header change during compilation also

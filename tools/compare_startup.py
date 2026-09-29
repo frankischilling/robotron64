@@ -47,8 +47,9 @@ def symbol_addresses(root=ROOT):
                 raise ValueError(f"Conflicting recorded address: {name}")
     for function in load_manifest(root):
         name, address = function["name"], function["vram"]
-        if addresses.setdefault(name, address) != address:
-            raise ValueError(f"Conflicting function address: {name}")
+        if name in addresses:
+            raise ValueError(f"Source-owned function has an absolute binding: {name}")
+        addresses[name] = address
     for record in load_owned_sections(root=root):
         for name, offset in record["symbols"].items():
             if name in addresses:

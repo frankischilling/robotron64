@@ -7,7 +7,10 @@
     "revision": "169ed48bdcbfb3b568b028bd5bebb27680073514",
     "source": "src/inflate/inflate.c",
     "source_sha256": "9cb296203ba178fdc93ae2d7409910bfde0bd2541d33720894395e6654ce412c",
-    "license_sha256": "1ac97868dba0ab0959468315cb827617297bcb41a79ca914166859b1173c581f"
+    "license_sha256": "33efa0ef96a7e69f0aeb755b01f6b846cdadd750f725a32a19f4612b2b86c03c",
+    "original_license_sha256": "1ac97868dba0ab0959468315cb827617297bcb41a79ca914166859b1173c581f",
+    "license_path": "docs/licenses/perfect-dark.txt",
+    "license_note": "The distributed notice preserves the reference text with LF line endings."
   },
   "units": [
     {
