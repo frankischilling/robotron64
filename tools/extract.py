@@ -134,7 +134,6 @@ REGIONS = (
     ("cpu_after_rom_files", 0x4fba8, 0x4fbb0),
     ("cpu_after_controller_access", 0x4fc6c, 0x4fd78),
     ("cpu_after_controller_scan", 0x4ff30, 0x50590),
-    ("cpu_after_controller_pak_name", 0x50748, 0x50898),
     ("cpu_after_controller_pak_directory", 0x50a04, 0x50a10),
     ("graphics_pacing", 0x50aa8, 0x50c84),
     ("cpu_after_audio_io", 0x5260c, 0x52d1c),

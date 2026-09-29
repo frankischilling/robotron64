@@ -534,7 +534,7 @@ SECTIONS
     .controller_pak_info 0x8004F990 : AT(0x50590) SUBALIGN(4) { build/us/controller_pak_info.o(.text) }
     .controller_pak_delete 0x8004FA14 : AT(0x50614) SUBALIGN(4) { build/us/controller_pak_delete.o(.text) }
     .controller_pak_name 0x8004FAC0 : AT(0x506C0) SUBALIGN(4) { build/us/controller_pak_name.o(.text) }
-    .cpu_after_controller_pak_name 0x8004FB48 : AT(0x50748) { build/us/fallback.o(.rom_cpu_after_controller_pak_name) }
+    .controller_pak_entry 0x8004FB48 : AT(0x50748) SUBALIGN(4) { build/us/controller_pak_entry.o(.text) }
     .controller_pak_directory 0x8004FC98 : AT(0x50898) SUBALIGN(4) { build/us/controller_pak_directory.o(.text) }
     .cpu_after_controller_pak_directory 0x8004FE04 : AT(0x50A04) { build/us/fallback.o(.rom_cpu_after_controller_pak_directory) }
     .graphics_setup 0x8004FE10 : AT(0x50A10) SUBALIGN(4) { build/us/graphics_setup.o(.text) }
@@ -1576,7 +1576,7 @@ ASSERT(SIZEOF(.cpu_after_controller_scan) == 0x660, "cpu_after_controller_scan s
 ASSERT(SIZEOF(.controller_pak_info) == 0x84, "controller_pak_info size changed")
 ASSERT(SIZEOF(.controller_pak_delete) == 0xac, "controller_pak_delete size changed")
 ASSERT(SIZEOF(.controller_pak_name) == 0x88, "controller_pak_name size changed")
-ASSERT(SIZEOF(.cpu_after_controller_pak_name) == 0x150, "cpu_after_controller_pak_name size changed")
+ASSERT(SIZEOF(.controller_pak_entry) == 0x150, "controller_pak_entry size changed")
 ASSERT(SIZEOF(.controller_pak_directory) == 0x16c, "controller_pak_directory size changed")
 ASSERT(SIZEOF(.cpu_after_controller_pak_directory) == 0xc, "cpu_after_controller_pak_directory size changed")
 ASSERT(SIZEOF(.graphics_setup) == 0x98, "graphics setup size changed")

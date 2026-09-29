@@ -41,12 +41,12 @@
     },
     {
       "source": "src/game/actor_history_byte_clear.c",
-      "source_sha256": "f6d94c98e3aa02db699e53d7f517e79eec7988c9206795c0950d2acfef5a4ca0",
+      "source_sha256": "ee0e2b61bda9d1b3e08e426a9669079e780a619300d5689716343c003b1c47ea",
       "function": "func_8004EB60",
       "vram_start": "0x8004EB60",
       "vram_end": "0x8004EB74",
       "bytes": 20,
-      "comparison_sha256": "e8356a98a758fe4333c5098d2bbe62cb069c08c76598958339fda9ee705b2ee0"
+      "comparison_sha256": "4b5f903b11571e280503573fad8b5f695ae5da5cf76cc19daf2466b3eb0b9ede"
     }
   ],
   "typed_caller": {

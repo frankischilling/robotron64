@@ -7327,6 +7327,17 @@
     "evidence": "docs/controller-services.md"
   },
   {
+    "name": "func_8004FB48",
+    "rom": 329544,
+    "vram": 2147810120,
+    "size": 336,
+    "source": "src/game/controller_pak_entry.c",
+    "object": "build/us/controller_pak_entry.o",
+    "section": ".controller_pak_entry",
+    "section_vram": 2147810120,
+    "evidence": "docs/controller-services.md"
+  },
+  {
     "name": "func_8004FC98",
     "rom": 329880,
     "vram": 2147810456,

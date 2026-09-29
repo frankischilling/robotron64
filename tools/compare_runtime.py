@@ -368,6 +368,7 @@ MATCHING_BLOCKS = (
     ("controller_pak_info", "src/game/controller_pak_info.c", 0x8004F990, 0x8004FA14),
     ("controller_pak_delete", "src/game/controller_pak_delete.c", 0x8004FA14, 0x8004FAC0),
     ("controller_pak_name", "src/game/controller_pak_name.c", 0x8004FAC0, 0x8004FB48),
+    ("controller_pak_entry", "src/game/controller_pak_entry.c", 0x8004FB48, 0x8004FC98),
     ("controller_pak_directory", "src/game/controller_pak_directory.c", 0x8004FC98, 0x8004FE04),
     ("graphics_setup", "src/boot/graphics_setup.c", 0x8004FE10, 0x8004FEA8),
     ("graphics_tasks", "src/boot/graphics_tasks.c", 0x80050084, 0x80050440),

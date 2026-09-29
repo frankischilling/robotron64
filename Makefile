@@ -1458,6 +1458,12 @@ build/us/controller_pak_name.o: src/game/controller_pak_name.c include/controlle
 	$(PYTHON) tools/trim_padding.py build/us/controller_pak_name.raw.o $@ .text 0x88
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/controller_pak_entry.o: src/game/controller_pak_entry.c include/controller_input.h include/controller_services.h include/game_memory.h include/object.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_pak_entry.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/controller_pak_entry.raw.o $@ .text 0x150
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/controller_pak_directory.o: src/game/controller_pak_directory.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_pak_directory.raw.o $<
@@ -3082,6 +3088,7 @@ RUNTIME_OBJECTS += \
     build/us/controller_pak_info.o \
     build/us/controller_pak_delete.o \
     build/us/controller_pak_name.o \
+    build/us/controller_pak_entry.o \
     build/us/controller_pak_directory.o
 
 RUNTIME_OBJECTS += \
