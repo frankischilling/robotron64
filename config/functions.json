@@ -5281,6 +5281,17 @@
     "evidence": "docs/model-geometry.md"
   },
   {
+    "name": "func_80040560",
+    "rom": 266592,
+    "vram": 2147747168,
+    "size": 452,
+    "source": "src/game/model_framebuffer_draw.c",
+    "object": "build/us/model_framebuffer_draw.o",
+    "section": ".model_framebuffer_draw",
+    "section_vram": 2147747168,
+    "evidence": "docs/model-geometry.md"
+  },
+  {
     "name": "func_80040874",
     "rom": 267380,
     "vram": 2147747956,

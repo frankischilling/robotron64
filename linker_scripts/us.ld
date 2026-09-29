@@ -373,7 +373,8 @@ SECTIONS
     .model_vertices_scatter 0x8004000C : AT(0x40C0C) SUBALIGN(4) { build/us/model_vertices_scatter.o(.text) }
     .cpu_after_model_vertices_scatter 0x800400C4 : AT(0x40CC4) { build/us/fallback.o(.rom_cpu_after_model_vertices_scatter) }
     .model_framebuffer_copy 0x800404F4 : AT(0x410F4) SUBALIGN(4) { build/us/model_framebuffer_copy.o(.text) }
-    .cpu_after_model_framebuffer_copy 0x80040560 : AT(0x41160) { build/us/fallback.o(.rom_cpu_after_model_framebuffer_copy) }
+    .model_framebuffer_draw 0x80040560 : AT(0x41160) SUBALIGN(4) { build/us/model_framebuffer_draw.o(.text) }
+    .cpu_after_model_framebuffer_draw 0x80040724 : AT(0x41324) { build/us/fallback.o(.rom_cpu_after_model_framebuffer_draw) }
     .model_framebuffer_texture 0x80040874 : AT(0x41474) SUBALIGN(4) { build/us/model_framebuffer_texture.o(.text) }
     .cpu_after_model_framebuffer_texture 0x80040968 : AT(0x41568) { build/us/fallback.o(.rom_cpu_after_model_framebuffer_texture) }
     .renderer_vertex_attributes 0x80043930 : AT(0x44530) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.text) }
@@ -1249,7 +1250,8 @@ ASSERT(SIZEOF(.cpu_after_model_normals_blend) == 0x5f4, "cpu_after_model_normals
 ASSERT(SIZEOF(.model_vertices_scatter) == 0xb8, "model_vertices_scatter size changed")
 ASSERT(SIZEOF(.cpu_after_model_vertices_scatter) == 0x430, "cpu_after_model_vertices_scatter size changed")
 ASSERT(SIZEOF(.model_framebuffer_copy) == 0x6c, "model_framebuffer_copy size changed")
-ASSERT(SIZEOF(.cpu_after_model_framebuffer_copy) == 0x314, "cpu_after_model_framebuffer_copy size changed")
+ASSERT(SIZEOF(.model_framebuffer_draw) == 0x1c4, "model_framebuffer_draw size changed")
+ASSERT(SIZEOF(.cpu_after_model_framebuffer_draw) == 0x150, "cpu_after_model_framebuffer_draw size changed")
 ASSERT(SIZEOF(.model_framebuffer_texture) == 0xf4, "model_framebuffer_texture size changed")
 ASSERT(SIZEOF(.cpu_after_model_framebuffer_texture) == 0x2fc8, "cpu_after_model_framebuffer_texture size changed")
 ASSERT(SIZEOF(.renderer_vertex_attributes) == 0x438, "renderer_vertex_attributes size changed")

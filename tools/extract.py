@@ -78,7 +78,7 @@ REGIONS = (
     ("cpu_after_model_hierarchy_vertices", 0x3ff14, 0x4022c),
     ("cpu_after_model_normals_blend", 0x40618, 0x40c0c),
     ("cpu_after_model_vertices_scatter", 0x40cc4, 0x410f4),
-    ("cpu_after_model_framebuffer_copy", 0x41160, 0x41474),
+    ("cpu_after_model_framebuffer_draw", 0x41324, 0x41474),
     ("cpu_after_model_framebuffer_texture", 0x41568, 0x44530),
     ("cpu_after_renderer_vertex_positions", 0x450f8, 0x46114),
     ("cpu_after_renderer_material_reset", 0x46134, 0x46534),

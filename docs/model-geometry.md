@@ -1,6 +1,6 @@
 # Model geometry and framebuffer services
 
-Eleven complete functions provide 3,024 bytes of matching C for model
+Twelve complete functions provide 3,476 bytes of matching C for model
 rotation, polygon submission, hierarchy traversal, vertex operations, and
 framebuffer services.
 
@@ -16,6 +16,7 @@ framebuffer services.
 | `model_normals_blend.c` | `func_8003F818` | 512 |
 | `model_vertices_scatter.c` | `func_8004000C` | 184 |
 | `model_framebuffer_copy.c` | `func_800404F4` | 108 |
+| `model_framebuffer_draw.c` | `func_80040560` | 452 |
 | `model_framebuffer_texture.c` | `func_80040874` | 244 |
 
 ## Mesh and hierarchy data
@@ -66,6 +67,10 @@ The copy routine returns without copying when the source pointer is null.
 Otherwise it copies exactly `320 * 480` halfwords into the selected
 framebuffer. This count describes the target's transfer; it is not a claim
 about the display mode or visible dimensions.
+
+The draw routine emits the target render-state packets, acquires a vertex
+range, and submits a 320-by-240 grid in 160-by-6 steps before committing the
+number of vertices consumed.
 
 The texture routine rounds the supplied address down to an eight-byte
 boundary and emits the target's eight synchronization, image, tile,

@@ -2524,6 +2524,12 @@ build/us/model_framebuffer_copy.o: src/game/model_framebuffer_copy.c include/deb
 	$(PYTHON) tools/trim_padding.py build/us/model_framebuffer_copy.raw.o $@ .text 0x6c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/model_framebuffer_draw.o: src/game/model_framebuffer_draw.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_framebuffer_draw.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/model_framebuffer_draw.raw.o $@ .text 0x1c4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/model_framebuffer_texture.o: src/game/model_framebuffer_texture.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_framebuffer_texture.raw.o $<
@@ -2970,6 +2976,7 @@ RUNTIME_OBJECTS += \
     build/us/model_normals_blend.o \
     build/us/model_vertices_scatter.o \
     build/us/model_framebuffer_copy.o \
+    build/us/model_framebuffer_draw.o \
     build/us/model_framebuffer_texture.o \
     build/us/controller_legacy_scan.o
 
