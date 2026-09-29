@@ -165,7 +165,7 @@ REGIONS = (
     ("after_audio_sequence_list_release", 0x5e428, 0x5e430),
     ("after_audio_sequence_range_release", 0x5e5d8, 0x5e5e0),
     ("cpu_after_audio_interrupt_service", 0x5e620, 0x5ede4),
-    ("after_compression_table_release", 0x5edec, 0x5fa98),
+    ("after_compression_table_release", 0x5edec, 0x5f8a8),
     ("after_compression_fixed_release", 0x5fae0, 0x6031c),
     ("sdk_fallback_gu_sine", 0x607b0, 0x60820),
     ("sdk_fallback_gu_cosine", 0x60820, 0x60850),

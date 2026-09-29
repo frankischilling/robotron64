@@ -1,13 +1,14 @@
 # Compression runtime
 
-Nine complete functions recover 1,252 code bytes. The workspace source also
+Ten complete functions recover 1,748 code bytes. The workspace source also
 defines 368 initialized bytes and 3,928 bytes of BSS at their original addresses.
-The Huffman table builder and the stored, fixed, dynamic, and literal/distance
-decoding loops remain extracted fallback code.
+The Huffman table builder and the stored, dynamic, and literal/distance decoding
+loops remain extracted fallback code.
 
 | Source | Complete target range | Code bytes |
 | --- | --- | ---: |
 | `compression_table_release.c` | `0x8005E1E4..0x8005E1EC` | 8 |
+| `compression_fixed.c` | `0x8005ECA8..0x8005EE98` | 496 |
 | `compression_fixed_release.c` | `0x8005EE98..0x8005EEE0` | 72 |
 | `compression_workspace.c` | `0x8005F71C..0x8005F7E0` | 196 |
 | `compression_allocate.c` | `0x8005F7E0..0x8005F804` | 36 |
@@ -60,15 +61,18 @@ the original compiler used this exact file boundary.
 
 ## Verification and references
 
-Each complete support routine passes its retained code comparison, and the
+Each complete support routine passes its retained code comparison. The fixed
+block decoder independently matches all 496 bytes of `0x8005ECA8..0x8005EE98`
+and emits no initialized data or BSS. The
 combined workspace routine passes with its initialized data and all BSS
 definitions checked. The Makefile, linker, extraction spans, function manifest,
 owned-section manifest, and `tools/compare_runtime.py` all register these units.
 `make progress` additionally requires the complete ROM and linked source
 provenance to pass before reporting source counts.
 
-At this checkpoint all nine independent comparisons and all 106 tooling tests
-pass. `make progress` verifies all 8,388,608 ROM bytes and counts 913 matching C
+The preceding support-only checkpoint ran all nine independent support
+comparisons and all 106 tooling tests. `make progress` verified all 8,388,608 ROM
+bytes and counted 913 matching C
 functions covering 118,676 bytes, with 1,352 initialized bytes and 4,090 BSS
 bytes defined by source. The ROM SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
@@ -85,6 +89,6 @@ and storage addresses described here. The broader N64 source collection is
 credited in [CREDITS.md](../CREDITS.md).
 
 The complete 8,592-byte compression unit is retained as local research. Its
-remaining five procedures still differ after compilation and are excluded from
+remaining four procedures still differ after compilation and are excluded from
 matching progress. No partly matching procedure or shifted instruction range
 is included in this batch.

@@ -514,6 +514,7 @@ MATCHING_BLOCKS = (
     ("audio_sequence_range_load", "src/game/audio_sequence_range_load.c", 0x8005D8AC, 0x8005D95C),
     ("audio_sequence_range_release", "src/game/audio_sequence_range_release.c", 0x8005D95C, 0x8005D9D8),
     ("compression_table_release", "src/game/compression_table_release.c", 0x8005E1E4, 0x8005E1EC),
+    ("compression_fixed", "src/game/compression_fixed.c", 0x8005ECA8, 0x8005EE98),
     ("compression_fixed_release", "src/game/compression_fixed_release.c", 0x8005EE98, 0x8005EEE0),
     ("compression_workspace", "src/game/compression_workspace.c", 0x8005F71C, 0x8005F7E0),
     ("compression_allocate", "src/game/compression_allocate.c", 0x8005F7E0, 0x8005F804),

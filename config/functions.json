@@ -10508,6 +10508,17 @@
     "evidence": "docs/compression-runtime.md"
   },
   {
+    "name": "func_8005ECA8",
+    "rom": 391336,
+    "vram": 2147871912,
+    "size": 496,
+    "source": "src/game/compression_fixed.c",
+    "object": "build/us/compression_fixed.o",
+    "section": ".compression_fixed",
+    "section_vram": 2147871912,
+    "evidence": "docs/compression-runtime.md"
+  },
+  {
     "name": "func_8005EE98",
     "rom": 391832,
     "vram": 2147872408,

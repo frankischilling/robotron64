@@ -3671,6 +3671,12 @@ build/us/compression_table_release.o: src/game/compression_table_release.c inclu
 	$(PYTHON) tools/trim_padding.py build/us/compression_table_release.raw.o $@ .text 0x8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/compression_fixed.o: src/game/compression_fixed.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_fixed.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_fixed.raw.o $@ .text 0x1f0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/compression_fixed_release.o: src/game/compression_fixed_release.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_fixed_release.raw.o $<
@@ -3722,6 +3728,7 @@ build/us/compression_cartridge_bounded.o: src/game/compression_cartridge_bounded
 
 RUNTIME_OBJECTS += \
     build/us/compression_table_release.o \
+    build/us/compression_fixed.o \
     build/us/compression_fixed_release.o \
     build/us/compression_workspace.o \
     build/us/compression_allocate.o \

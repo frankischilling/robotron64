@@ -1,5 +1,5 @@
 {
-  "scope": "Nine complete compression support procedures / 1,252 code bytes, 368 initialized bytes, 3,928 BSS bytes.",
+  "scope": "Ten complete compression procedures / 1,748 code bytes, 368 initialized bytes, 3,928 BSS bytes.",
   "current_proof": "Recompile with tools/compare_runtime.py and make progress before claiming a current match.",
   "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "reference": {
@@ -38,6 +38,35 @@
           "name": "func_8005E1E4",
           "start": 2147869156,
           "size": 8
+        }
+      ],
+      "owned_sections": []
+    },
+    {
+      "source": "src/game/compression_fixed.c",
+      "source_sha256": "1fa06cb28a7e05ef97f2117655b3fe8792e007ee161f374d0cda534c6da9fbaf",
+      "candidate_source": ".local/compression-finish-candidates/compression_fixed.c",
+      "candidate_source_sha256": "1fa06cb28a7e05ef97f2117655b3fe8792e007ee161f374d0cda534c6da9fbaf",
+      "comparison_report": ".local/compression-finish-proof/fixed.json",
+      "comparison_report_sha256": "0497624b6ba524049bf04ea453791634bb130aa0a174eeaf935f0df66a76e461",
+      "linked_code_sha256": "33536953e817eca2b462003a03e8847679d5603a9dc7c6b5e2241e0d4b4ef670",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005ECA8",
+          "start": 2147871912,
+          "size": 496
         }
       ],
       "owned_sections": []
