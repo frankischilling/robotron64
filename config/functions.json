@@ -573,6 +573,17 @@
     "evidence": "docs/movie-commands.md"
   },
   {
+    "name": "func_80009F58",
+    "rom": 43864,
+    "vram": 2147524440,
+    "size": 56,
+    "source": "src/game/early_actor_tick.c",
+    "object": "build/us/early_actor_tick.o",
+    "section": ".early_actor_tick",
+    "section_vram": 2147524440,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
     "name": "func_8000A200",
     "rom": 44544,
     "vram": 2147525120,
@@ -694,6 +705,28 @@
     "evidence": "docs/early-game-helpers.md"
   },
   {
+    "name": "func_8000EAE4",
+    "rom": 63204,
+    "vram": 2147543780,
+    "size": 20,
+    "source": "src/game/early_actor_vector_clear.c",
+    "object": "build/us/early_actor_vector_clear.o",
+    "section": ".early_actor_vector_clear",
+    "section_vram": 2147543780,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8000ECD0",
+    "rom": 63696,
+    "vram": 2147544272,
+    "size": 20,
+    "source": "src/game/early_global_reset.c",
+    "object": "build/us/early_global_reset.o",
+    "section": ".early_global_reset",
+    "section_vram": 2147544272,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
     "name": "func_80012690",
     "rom": 78480,
     "vram": 2147559056,
@@ -812,6 +845,17 @@
     "object": "build/us/early_actor_mode3.o",
     "section": ".early_actor_mode3",
     "section_vram": 2147572692,
+    "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_800162AC",
+    "rom": 93868,
+    "vram": 2147574444,
+    "size": 76,
+    "source": "src/game/early_actor_guarded_service.c",
+    "object": "build/us/early_actor_guarded_service.o",
+    "section": ".early_actor_guarded_service",
+    "section_vram": 2147574444,
     "evidence": "docs/early-game-helpers.md"
   },
   {

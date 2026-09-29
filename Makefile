@@ -55,6 +55,12 @@ build/us/text_conversion.o: src/game/text_conversion.c include/text.h include/ob
 	$(PYTHON) tools/trim_padding.py build/us/text_conversion.raw.o $@ .text 0xa4
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/early_actor_tick.o: src/game/early_actor_tick.c include/early_game_more.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_tick.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_tick.raw.o $@ .text 0x38
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/early_render_color.o: src/game/early_render_color.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_color.raw.o $<
@@ -103,6 +109,18 @@ build/us/early_angle_normalize.o: src/game/early_angle_normalize.c include/early
 	$(PYTHON) tools/trim_padding.py build/us/early_angle_normalize.raw.o $@ .text 0x1c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/early_actor_vector_clear.o: src/game/early_actor_vector_clear.c include/early_game_more.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_vector_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_vector_clear.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_global_reset.o: src/game/early_global_reset.c include/early_game_more.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_global_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_global_reset.raw.o $@ .text 0x14
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/early_float_step.o: src/game/early_float_step.c include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_float_step.raw.o $<
@@ -137,6 +155,12 @@ build/us/early_actor_mode3.o: src/game/early_actor_mode3.c include/early_game_he
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_mode3.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_mode3.raw.o $@ .text 0x24
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_actor_guarded_service.o: src/game/early_actor_guarded_service.c include/early_game_more.h include/early_game_state.h include/actor.h include/text.h include/game_memory.h include/object.h include/actor_behavior_internal.h include/object_recovery.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_guarded_service.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_guarded_service.raw.o $@ .text 0x4c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/early_actor_mode0.o: src/game/early_actor_mode0.c include/early_game_helpers.h include/actor.h include/text.h include/object.h include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -2771,6 +2795,7 @@ build/us/controller_legacy_scan.o: src/game/controller_legacy_scan.c include/con
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS := build/us/frame_helpers.o \
+    build/us/early_actor_tick.o \
     build/us/early_render_color.o \
     build/us/early_render_presets.o \
     build/us/early_render_dispatch.o \
@@ -2779,12 +2804,15 @@ RUNTIME_OBJECTS := build/us/frame_helpers.o \
     build/us/early_pool_index.o \
     build/us/early_byte_clear.o \
     build/us/early_angle_normalize.o \
+    build/us/early_actor_vector_clear.o \
+    build/us/early_global_reset.o \
     build/us/early_float_step.o \
     build/us/early_selection_state.o \
     build/us/early_callbacks_true.o \
     build/us/early_actor_create.o \
     build/us/early_actor_state.o \
     build/us/early_actor_mode3.o \
+    build/us/early_actor_guarded_service.o \
     build/us/early_actor_mode0.o \
     build/us/early_six_arg_forward.o \
     build/us/early_callback_false.o \

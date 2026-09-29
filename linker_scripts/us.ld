@@ -61,7 +61,9 @@ SECTIONS
     .cpu_after_movie_start 0x80004C3C : AT(0x583C) { build/us/fallback.o(.rom_cpu_after_movie_start) }
     .movie_status 0x80005354 : AT(0x5F54) SUBALIGN(4) { build/us/movie_status.o(.text) }
     .movie_cleanup 0x8000544C : AT(0x604C) SUBALIGN(4) { build/us/movie_cleanup.o(.text) }
-    .cpu_before_early_render_color 0x80005560 : AT(0x6160) { build/us/fallback.o(.rom_cpu_before_early_render_color) }
+    .cpu_before_early_actor_tick 0x80005560 : AT(0x6160) { build/us/fallback.o(.rom_cpu_before_early_actor_tick) }
+    .early_actor_tick 0x80009F58 : AT(0xAB58) SUBALIGN(4) { build/us/early_actor_tick.o(.text) }
+    .cpu_after_early_actor_tick 0x80009F90 : AT(0xAB90) { build/us/fallback.o(.rom_cpu_after_early_actor_tick) }
     .early_render_color 0x8000A200 : AT(0xAE00) SUBALIGN(4) { build/us/early_render_color.o(.text) }
     .cpu_after_early_render_color 0x8000A21C : AT(0xAE1C) { build/us/fallback.o(.rom_cpu_after_early_render_color) }
     .early_render_presets 0x8000B964 : AT(0xC564) SUBALIGN(4) { build/us/early_render_presets.o(.text) }
@@ -77,7 +79,11 @@ SECTIONS
     .early_byte_clear 0x8000D614 : AT(0xE214) SUBALIGN(4) { build/us/early_byte_clear.o(.text) }
     .cpu_after_early_byte_clear 0x8000D620 : AT(0xE220) { build/us/fallback.o(.rom_cpu_after_early_byte_clear) }
     .early_angle_normalize 0x8000DF14 : AT(0xEB14) SUBALIGN(4) { build/us/early_angle_normalize.o(.text) }
-    .cpu_before_early_float_step 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_cpu_before_early_float_step) }
+    .cpu_before_early_actor_vector_clear 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_cpu_before_early_actor_vector_clear) }
+    .early_actor_vector_clear 0x8000EAE4 : AT(0xF6E4) SUBALIGN(4) { build/us/early_actor_vector_clear.o(.text) }
+    .cpu_after_early_actor_vector_clear 0x8000EAF8 : AT(0xF6F8) { build/us/fallback.o(.rom_cpu_after_early_actor_vector_clear) }
+    .early_global_reset 0x8000ECD0 : AT(0xF8D0) SUBALIGN(4) { build/us/early_global_reset.o(.text) }
+    .cpu_after_early_global_reset 0x8000ECE4 : AT(0xF8E4) { build/us/fallback.o(.rom_cpu_after_early_global_reset) }
     .early_float_step 0x80012690 : AT(0x13290) SUBALIGN(4) { build/us/early_float_step.o(.text) }
     .cpu_after_early_float_step 0x800126E0 : AT(0x132E0) { build/us/fallback.o(.rom_cpu_after_early_float_step) }
     .early_selection_state 0x8001276C : AT(0x1336C) SUBALIGN(4) { build/us/early_selection_state.o(.text) }
@@ -90,6 +96,7 @@ SECTIONS
     .cpu_after_early_actor_state 0x8001567C : AT(0x1627C) { build/us/fallback.o(.rom_cpu_after_early_actor_state) }
     .early_actor_mode3 0x80015BD4 : AT(0x167D4) SUBALIGN(4) { build/us/early_actor_mode3.o(.text) }
     .cpu_after_early_actor_mode3 0x80015BF8 : AT(0x167F8) { build/us/fallback.o(.rom_cpu_after_early_actor_mode3) }
+    .early_actor_guarded_service 0x800162AC : AT(0x16EAC) SUBALIGN(4) { build/us/early_actor_guarded_service.o(.text) }
     .early_actor_mode0 0x800162F8 : AT(0x16EF8) SUBALIGN(4) { build/us/early_actor_mode0.o(.text) }
     .cpu_after_early_actor_mode0 0x8001631C : AT(0x16F1C) { build/us/fallback.o(.rom_cpu_after_early_actor_mode0) }
     .early_six_arg_forward 0x80016914 : AT(0x17514) SUBALIGN(4) { build/us/early_six_arg_forward.o(.text) }
@@ -1006,7 +1013,9 @@ ASSERT(SIZEOF(.movie_start) == 0x658, "movie_start size changed")
 ASSERT(SIZEOF(.cpu_after_movie_start) == 0x718, "cpu_after_movie_start size changed")
 ASSERT(SIZEOF(.movie_status) == 0xf8, "movie_status size changed")
 ASSERT(SIZEOF(.movie_cleanup) == 0x114, "movie_cleanup size changed")
-ASSERT(SIZEOF(.cpu_before_early_render_color) == 0x4ca0, "cpu_before_early_render_color size changed")
+ASSERT(SIZEOF(.cpu_before_early_actor_tick) == 0x49f8, "cpu_before_early_actor_tick size changed")
+ASSERT(SIZEOF(.early_actor_tick) == 0x38, "early_actor_tick size changed")
+ASSERT(SIZEOF(.cpu_after_early_actor_tick) == 0x270, "cpu_after_early_actor_tick size changed")
 ASSERT(SIZEOF(.early_render_color) == 0x1c, "early_render_color size changed")
 ASSERT(SIZEOF(.cpu_after_early_render_color) == 0x1748, "cpu_after_early_render_color size changed")
 ASSERT(SIZEOF(.early_render_presets) == 0x70, "early_render_presets size changed")
@@ -1022,7 +1031,11 @@ ASSERT(SIZEOF(.cpu_after_early_pool_index) == 0x340, "cpu_after_early_pool_index
 ASSERT(SIZEOF(.early_byte_clear) == 0xc, "early_byte_clear size changed")
 ASSERT(SIZEOF(.cpu_after_early_byte_clear) == 0x8f4, "cpu_after_early_byte_clear size changed")
 ASSERT(SIZEOF(.early_angle_normalize) == 0x1c, "early_angle_normalize size changed")
-ASSERT(SIZEOF(.cpu_before_early_float_step) == 0x4760, "cpu_before_early_float_step size changed")
+ASSERT(SIZEOF(.cpu_before_early_actor_vector_clear) == 0xbb4, "cpu_before_early_actor_vector_clear size changed")
+ASSERT(SIZEOF(.early_actor_vector_clear) == 0x14, "early_actor_vector_clear size changed")
+ASSERT(SIZEOF(.cpu_after_early_actor_vector_clear) == 0x1d8, "cpu_after_early_actor_vector_clear size changed")
+ASSERT(SIZEOF(.early_global_reset) == 0x14, "early_global_reset size changed")
+ASSERT(SIZEOF(.cpu_after_early_global_reset) == 0x39ac, "cpu_after_early_global_reset size changed")
 ASSERT(SIZEOF(.early_float_step) == 0x50, "early_float_step size changed")
 ASSERT(SIZEOF(.cpu_after_early_float_step) == 0x8c, "cpu_after_early_float_step size changed")
 ASSERT(SIZEOF(.early_selection_state) == 0x1e4, "early_selection_state size changed")
@@ -1034,7 +1047,8 @@ ASSERT(SIZEOF(.cpu_after_early_actor_create) == 0x26c, "cpu_after_early_actor_cr
 ASSERT(SIZEOF(.early_actor_state) == 0x128, "early_actor_state size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_state) == 0x558, "cpu_after_early_actor_state size changed")
 ASSERT(SIZEOF(.early_actor_mode3) == 0x24, "early_actor_mode3 size changed")
-ASSERT(SIZEOF(.cpu_after_early_actor_mode3) == 0x700, "cpu_after_early_actor_mode3 size changed")
+ASSERT(SIZEOF(.cpu_after_early_actor_mode3) == 0x6b4, "cpu_after_early_actor_mode3 size changed")
+ASSERT(SIZEOF(.early_actor_guarded_service) == 0x4c, "early_actor_guarded_service size changed")
 ASSERT(SIZEOF(.early_actor_mode0) == 0x24, "early_actor_mode0 size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_mode0) == 0x5f8, "cpu_after_early_actor_mode0 size changed")
 ASSERT(SIZEOF(.early_six_arg_forward) == 0x3c, "early_six_arg_forward size changed")
