@@ -1,7 +1,7 @@
 # Script services
 
 This recovery covers the uncovered runtime functions from `0x8001C0D0` through
-`0x8001CE68`. The target separates the range into four 16-byte-aligned code
+`0x8001CF68`. The target separates the range into four 16-byte-aligned code
 objects. The padding gaps are `0x8001C734..0x8001C740`,
 `0x8001CB48..0x8001CB50`, and `0x8001CD94..0x8001CDA0`.
 
@@ -20,6 +20,7 @@ complete transitive input snapshot and hashes.
 | `script_service_cache_access.c` | `0x8001C8C4..0x8001CB48` | 644 | 644/644, zero differing words |
 | `script_service_commands.c` | `0x8001CB50..0x8001CD94` | 580 | 580/580, zero differing words |
 | `script_service_platform.c` | `0x8001CDA0..0x8001CE70` | 208 | 208/208, zero differing words |
+| `script_animation_resolve.c` | `0x8001CE70..0x8001CF68` | 248 | 248/248, zero differing words |
 
 The exact command source SHA-256 is
 `586ce10bb876408bd5f2ed35d75a034c96e59641d83191dfcf6fd0868512dda0`.
@@ -144,6 +145,19 @@ therefore retained as `unknown08` without assigning it a speculative role.
 That layout makes `func_8001CDA0` exact across all 200 bytes. The adjacent empty
 `func_8001CE68` remains in the same source object, bringing the complete
 platform-service comparison to 208/208 bytes with zero differing words.
+
+## Animation resource path resolver
+
+`func_8001CE70` resolves the animation identifier at offset `0x08` into a
+100-byte path buffer, applies the target extension rules, and passes the path
+through `func_8003CB10`. A nonnegative identifier stores the returned handle
+at `ActorAnimation.loopIndex`; a `-1` result emits the retail diagnostic. For
+negative identifiers, `-2` leaves the loop index unchanged and other values
+copy the caller-supplied reference. The implementation reuses the established
+`ActorAnimation` and `TextGlyphResource` layouts and matches the complete
+248-byte target range with zero differing words.
+Its current-source and canonical-comparison hashes are recorded in
+[`script-animation-resolve-provenance.json`](script-animation-resolve-provenance.json).
 
 The exact cache reset proof is
 `.local/recovery46-script/probes/script_service_cache_reset-5.3-O2-mips1/report.json`.

@@ -1,0 +1,21 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "block": "script_animation_resolve",
+  "source": "src/game/script_animation_resolve.c",
+  "source_sha256": "ff8f44d603542bcb59ec8b1dbab1b868feaa26aaee9daedbfa141f0172a173b5",
+  "comparison_result_sha256": "6f299daa545c169c1e767ae61af55e191865573c517a89f8bfe87f065fd08f8b",
+  "registration_verification_report_sha256": "34af07e9f9d633130d410ff57bcef85756f6d574059e3391af6262aa0b6e93d1",
+  "vram_start": "0x8001CE70",
+  "vram_end": "0x8001CF68",
+  "bytes": 248,
+  "functions": [
+    "func_8001CE70"
+  ],
+  "recovery_inputs": [
+    ".local/runtime/.local/recovery46-script/fullcatalog.json",
+    "src/game/actor_resource_load.c",
+    "include/actor_resource_internal.h",
+    "include/text.h"
+  ]
+}

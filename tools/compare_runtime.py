@@ -42,6 +42,7 @@ MATCHING_BLOCKS = (
     ("script_service_cache_access", "src/game/script_service_cache_access.c", 0x8001C8C4, 0x8001CB48),
     ("script_service_commands", "src/game/script_service_commands.c", 0x8001CB50, 0x8001CD94),
     ("script_service_platform", "src/game/script_service_platform.c", 0x8001CDA0, 0x8001CE70),
+    ("script_animation_resolve", "src/game/script_animation_resolve.c", 0x8001CE70, 0x8001CF68),
     ("actor_resource_load", "src/game/actor_resource_load.c", 0x8001CF68, 0x8001D260),
     ("actor_resource_reset", "src/game/actor_resource_reset.c", 0x8001D260, 0x8001D3F0),
     ("actor_setup_noop", "src/game/actor_setup_noop.c", 0x8001DE54, 0x8001DE5C),

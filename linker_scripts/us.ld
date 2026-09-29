@@ -97,7 +97,7 @@ SECTIONS
     .script_service_commands 0x8001CB50 : AT(0x1D750) SUBALIGN(4) { build/us/script_service_commands.o(.text) }
     .cpu_after_script_service_commands 0x8001CD94 : AT(0x1D994) { build/us/fallback.o(.rom_cpu_after_script_service_commands) }
     .script_service_platform 0x8001CDA0 : AT(0x1D9A0) SUBALIGN(4) { build/us/script_service_platform.o(.text) }
-    .cpu_after_script_service_platform 0x8001CE70 : AT(0x1DA70) { build/us/fallback.o(.rom_cpu_after_script_service_platform) }
+    .script_animation_resolve 0x8001CE70 : AT(0x1DA70) SUBALIGN(4) { build/us/script_animation_resolve.o(.text) }
     .actor_resource_load 0x8001CF68 : AT(0x1DB68) SUBALIGN(4) { build/us/actor_resource_load.o(.text) }
     .actor_resource_reset 0x8001D260 : AT(0x1DE60) SUBALIGN(4) { build/us/actor_resource_reset.o(.text) }
     .cpu_after_actor_resource_reset 0x8001D3F0 : AT(0x1DFF0) { build/us/fallback.o(.rom_cpu_after_actor_resource_reset) }
@@ -978,7 +978,7 @@ ASSERT(SIZEOF(.cpu_after_script_service_cache_access) == 0x8, "cpu_after_script_
 ASSERT(SIZEOF(.script_service_commands) == 0x244, "script_service_commands size changed")
 ASSERT(SIZEOF(.cpu_after_script_service_commands) == 0xc, "cpu_after_script_service_commands size changed")
 ASSERT(SIZEOF(.script_service_platform) == 0xd0, "script_service_platform size changed")
-ASSERT(SIZEOF(.cpu_after_script_service_platform) == 0xf8, "cpu_after_script_service_platform size changed")
+ASSERT(SIZEOF(.script_animation_resolve) == 0xf8, "script_animation_resolve size changed")
 ASSERT(SIZEOF(.actor_resource_load) == 0x2f8, "actor_resource_load size changed")
 ASSERT(SIZEOF(.actor_resource_reset) == 0x190, "actor_resource_reset size changed")
 ASSERT(SIZEOF(.cpu_after_actor_resource_reset) == 0xa64, "cpu_after_actor_resource_reset size changed")

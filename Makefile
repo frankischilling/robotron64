@@ -1892,6 +1892,12 @@ build/us/script_service_platform.o: src/game/script_service_platform.c include/c
 	$(PYTHON) tools/trim_padding.py build/us/script_service_platform.raw.o $@ .text 0xd0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/script_animation_resolve.o: src/game/script_animation_resolve.c include/actor.h include/actor_resource_internal.h include/game_memory.h include/object.h include/platform_services.h include/resource_bridge_internal.h include/resource_strings.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/script_animation_resolve.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/script_animation_resolve.raw.o $@ .text 0xf8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/actor_animation.o: src/game/actor_animation.c include/actor.h include/game_memory.h include/object.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_animation.raw.o $<
@@ -3016,6 +3022,7 @@ RUNTIME_OBJECTS += \
     build/us/script_service_cache_access.o \
     build/us/script_service_commands.o \
     build/us/script_service_platform.o \
+    build/us/script_animation_resolve.o \
     build/us/actor_animation.o \
     build/us/actor_motion_mode.o \
     build/us/debug_context_set.o \

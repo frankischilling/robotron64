@@ -27,7 +27,6 @@ REGIONS = (
     ("cpu_after_early_simple_forward", 0x1c068, 0x1d340),
     ("cpu_after_script_service_cache_access", 0x1d748, 0x1d750),
     ("cpu_after_script_service_commands", 0x1d994, 0x1d9a0),
-    ("cpu_after_script_service_platform", 0x1da70, 0x1db68),
     ("cpu_after_actor_resource_reset", 0x1dff0, 0x1ea54),
     ("cpu_after_actor_setup_noop", 0x1ea5c, 0x1ea60),
     ("cpu_after_actor_setup_animation_reset", 0x1eb94, 0x1f6e8),

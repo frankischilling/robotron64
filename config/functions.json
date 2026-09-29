@@ -980,6 +980,17 @@
     "evidence": "docs/script-services.md"
   },
   {
+    "name": "func_8001CE70",
+    "rom": 121456,
+    "vram": 2147602032,
+    "size": 248,
+    "source": "src/game/script_animation_resolve.c",
+    "object": "build/us/script_animation_resolve.o",
+    "section": ".script_animation_resolve",
+    "section_vram": 2147602032,
+    "evidence": "docs/script-services.md"
+  },
+  {
     "name": "func_8001CF68",
     "rom": 121704,
     "vram": 2147602280,
