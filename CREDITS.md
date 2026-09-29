@@ -89,6 +89,14 @@ The public libreultra `include/2.0I/PR/libaudio.h` was also consulted for the
 signatures used by the hardware driver. The Robotron instructions and complete
 function comparisons determine which layouts and calls are used in this build.
 
+The [SDK runtime recovery](docs/sdk-runtime.md) records the additional use of
+libreultra's `src/io/viint.h`, `src/os/osint.h`, `src/os/thread.c`,
+`src/os/createmesgqueue.c`, `src/audio/heapinit.c`, and `src/gu/random.c` at the
+same recorded revision. These comparisons corroborated the video context,
+eight-byte thread sentinel, heap alignment, and initialized generator state.
+The target instruction stream and complete code/data comparisons determine
+the accepted Robotron implementations and compiler profiles.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

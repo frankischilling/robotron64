@@ -1,0 +1,1484 @@
+{
+  "note": "These identities record the accepted source and complete checks for this recovery. Rebuild the current checkout to validate later source changes.",
+  "source_basis": "Robotron target instruction stream and caller analysis, with corroborating reference layouts credited in sdk-runtime.md.",
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "retained_integration_ledger_sha256": "795bc4b29f05e12d9eeb2d5ea43a403abdfa8e8f6e702771a842c01f0898aeb1",
+  "complete_c_functions": 50,
+  "complete_c_bytes": 5096,
+  "source_owned_initialized_bytes": 4,
+  "checkpoint_progress": {
+    "matched_c_functions": 1010,
+    "matched_c_bytes": 132064,
+    "matched_assembly_functions": 8,
+    "matched_assembly_bytes": 388,
+    "source_owned_initialized_bytes": 1356,
+    "source_owned_bss_bytes": 4187,
+    "total_code_bytes": null,
+    "total_functions": null,
+    "matching_code_percent": null,
+    "unmeasured_rom_bytes": 8254800,
+    "whole_rom_matches": true
+  },
+  "checks": {
+    "sdk-runtime-registered-v2-20260929": {
+      "command": [
+        "python3",
+        ".local/compare_registered_units.py",
+        "sdk-runtime-v2-20260929",
+        ".local/sdk-runtime-integration.json"
+      ],
+      "exit_code": 0,
+      "record_sha256": "cf7d67e769aeb09e08d0756d8fb9f818094974baf9701cc68684bd37731498fa",
+      "log_sha256": "cbee904d380b8c91f274d124a20cb996596c4124b79c4db80afb2145e7ba842d"
+    },
+    "sdk-runtime-build-20260929": {
+      "command": [
+        "make",
+        "-j4"
+      ],
+      "exit_code": 0,
+      "record_sha256": "e88dd56793576f4b8d40d29f97826e4a9bae6fe872ba73ccd037d0039085e289",
+      "log_sha256": "c6c418019a477f012102ee7d39827699a7c2bed80ca869e0cd2eccb331f124ed"
+    },
+    "sdk-runtime-tests-20260929": {
+      "command": [
+        "make",
+        "test"
+      ],
+      "exit_code": 0,
+      "record_sha256": "39b22cdaff61b9286ad61749bf3b93e0a7bfa4fbdbb55363dc5e61b460e533b7",
+      "log_sha256": "a4d3563d2d0088260cd910dc55139f9a764eca12397fc02874078167c2b5fcfb"
+    },
+    "sdk-runtime-rom-20260929": {
+      "command": [
+        "make",
+        "verify"
+      ],
+      "exit_code": 0,
+      "record_sha256": "79e7e99d11460f271870a173f410c9151103a3fdedf2cb69fb6130e9d27dde63",
+      "log_sha256": "7a29ff0d6150dd54241838aef3b62849bc0d0f8a7cc3733e05e281dbb7ea9b00"
+    },
+    "sdk-runtime-progress-20260929": {
+      "command": [
+        "make",
+        "progress"
+      ],
+      "exit_code": 0,
+      "record_sha256": "6ccb0fd48080ddd77f745b45b703825c20b2332f54e43f8e8602f0694171edea",
+      "log_sha256": "92061f747e4fe3b82d71a8475231fddd6066de5e4fb19d38990435170080ffe2"
+    }
+  },
+  "units": [
+    {
+      "source": "src/sdk/thread_create.c",
+      "source_sha256": "42004c8782fd2d646eb23536aa662b1202be223e5326ebd1a96ca3002b351190",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488"
+      },
+      "candidate_source": ".local/sdk-target/thread_create.c",
+      "candidate_source_sha256": "2a1aefef69f0949320dd2809298c4aad2cde93db61047fadd11b835816709c9f",
+      "candidate_report": "build/sdk-reconstruction/thread_create__sdk_o1_mips2__kernel/report.json",
+      "candidate_report_sha256": "61f39c632f873d8be7b664bae2240c6e228edeedcf24a6d531d19eba1eb32225",
+      "canonical_report_sha256": "ffca7952195f993c9122a4ddba4674de099b8f97a322d19ca2444c734fb968da",
+      "linked_code_sha256": "589bb1838eb3a0a085e45f077dd10a0302c78ad7efa44fe104442518d9cf5813",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "osCreateThread",
+          "start": 2147876672,
+          "end": 2147876996,
+          "size": 324
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 324,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/thread_start.c",
+      "source_sha256": "fa86a34c66474780a2ebf99817d8c5cf950717cf1e48af875b748656c3cef426",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488"
+      },
+      "candidate_source": ".local/sdk-target/thread_start_transfer.c",
+      "candidate_source_sha256": "3226077a8de9232f74f19281aae86b7a4acb02690b9070f3c0b1d0e41ab02548",
+      "candidate_report": "build/sdk-reconstruction/thread_start_transfer__sdk_o1_mips2__transfer/report.json",
+      "candidate_report_sha256": "994fc8d8974d7c9a5ab2a62a71015606ce163f2b38541fb606c4d5537973334f",
+      "canonical_report_sha256": "154af769deaed6acca9c794404258a8583c9e5962b67cb1dd7ecac839f22a703",
+      "linked_code_sha256": "f440f9e73e2169997ad4693c3dee4d2e43cd08ca73004132812b4e876609e112",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "osStartThread",
+          "start": 2147877008,
+          "end": 2147877344,
+          "size": 336
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 336,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/message_queue.c",
+      "source_sha256": "a26e580e909d0c4ba55ed5f6f91a216648daa72a3c796a2e6038cbdbe8c35b33",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488"
+      },
+      "candidate_source": ".local/sdk-target/message_queue_create.c",
+      "candidate_source_sha256": "5bd0484ad6ad4194d296c533d9b441faabf86704426cbefc8dedb34700b4d182",
+      "candidate_report": "build/sdk-reconstruction/message_queue_create__sdk_o1_mips2__kernel/report.json",
+      "candidate_report_sha256": "2af074b09bb78c43da635420879b32aa06aba169f8ebed6a1f1f7c4e7ba07243",
+      "canonical_report_sha256": "36c1caf1a864bf84f7ef3500c9d3d244e9bc5cb2a00499ef1b34049b4d262823",
+      "linked_code_sha256": "8360f70dfaeef6c5798c2dda69fa069a0f2751c9d2ec331daf967e20bf903bbf",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "osCreateMesgQueue",
+          "start": 2147877968,
+          "end": 2147878012,
+          "size": 44
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 44,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/vi_features.c",
+      "source_sha256": "55f168ac141ead19021d522fe6eac622e1d8acd0e55d6f0c06e3cd6fdb270332",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/sdk_video_internal.h": "c3b619036c73396dc4eef6db8f788045350b45e5ec92d448ad0d0b35998b2ec7",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/video_special_features.c",
+      "candidate_source_sha256": "cf9aac8669b8ce171d2186f568ebc00bf45372be12140f7c3ca2e175082f1d4b",
+      "candidate_report": "build/sdk-reconstruction/video_special_features__sdk_o1_mips2__kernel/report.json",
+      "candidate_report_sha256": "4d0709580c55c8ff234f0e4c6edc6d372990c9ea877fd8c0220cd1499ed26092",
+      "canonical_report_sha256": "a1af76cfeb3497da0ed64dd1fa6d7d56d274cc006b229c76409a1a2160df81c4",
+      "linked_code_sha256": "382354950907abaad3c0ff427e64096f2f4288847ef2bcf8ba905b23e3adb77b",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "osViSetSpecialFeatures",
+          "start": 2147878112,
+          "end": 2147878552,
+          "size": 440
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 440,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/virtual_to_physical.c",
+      "source_sha256": "b8774174d5349af5413b1d99052bd799a3255d97f3e3d1feafcbc0385753eb14",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "candidate_source": ".local/sdk-target/virtual_to_physical.c",
+      "candidate_source_sha256": "b8774174d5349af5413b1d99052bd799a3255d97f3e3d1feafcbc0385753eb14",
+      "candidate_report": "build/sdk-reconstruction/virtual_to_physical__sdk_o1_mips2__initial/report.json",
+      "candidate_report_sha256": "642b9763f30ff633429ebf45ce6ec063a185e701dc736eec00431c4016b2edfa",
+      "canonical_report_sha256": "1d088415b184b547669fbeabb2d984e30e2866dffcd25a351495513f5ba052c1",
+      "linked_code_sha256": "9475f62991b48987caef942e9198fad3c6867b8b69cc5ca23e5c2bae886b38e8",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800606A0",
+          "start": 2147878560,
+          "end": 2147878684,
+          "size": 124
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 124,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/compiler_integer64.c",
+      "source_sha256": "626625f95d5f296205e8af022ee1180480835f7e7d3d0220f0840bc551c862a3",
+      "headers_sha256": {},
+      "candidate_source": ".local/sdk-target/compiler_integer64_abi.c",
+      "candidate_source_sha256": "626625f95d5f296205e8af022ee1180480835f7e7d3d0220f0840bc551c862a3",
+      "candidate_report": "build/sdk-reconstruction/compiler_integer64_abi__sdk_o1_mips3__current/report.json",
+      "candidate_report_sha256": "8e14259def7c5024d67cceb4063a2effb1dae867efb24c6544314df659b6d472",
+      "canonical_report_sha256": "cd2756b0923c6ccd9eeffbf8f0e480c65c3225cb6812eef24842cdbbc004b0a3",
+      "linked_code_sha256": "ccf2a1fcc516893d7a2343a6fe49332f551ecb037d7de2e3dda5d2205bcd9ccc",
+      "compiler_profile": {
+        "name": "sdk-o1-mips3",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips3",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800614E0",
+          "start": 2147882208,
+          "end": 2147882252,
+          "size": 44
+        },
+        {
+          "name": "func_8006150C",
+          "start": 2147882252,
+          "end": 2147882312,
+          "size": 60
+        },
+        {
+          "name": "func_80061548",
+          "start": 2147882312,
+          "end": 2147882372,
+          "size": 60
+        },
+        {
+          "name": "func_80061584",
+          "start": 2147882372,
+          "end": 2147882416,
+          "size": 44
+        },
+        {
+          "name": "func_800615B0",
+          "start": 2147882416,
+          "end": 2147882476,
+          "size": 60
+        },
+        {
+          "name": "func_800615EC",
+          "start": 2147882476,
+          "end": 2147882568,
+          "size": 92
+        },
+        {
+          "name": "func_80061648",
+          "start": 2147882568,
+          "end": 2147882616,
+          "size": 48
+        },
+        {
+          "name": "func_80061678",
+          "start": 2147882616,
+          "end": 2147882712,
+          "size": 96
+        },
+        {
+          "name": "func_800616D8",
+          "start": 2147882712,
+          "end": 2147882868,
+          "size": 156
+        },
+        {
+          "name": "func_80061774",
+          "start": 2147882868,
+          "end": 2147882912,
+          "size": 44
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 704,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/message_receive.c",
+      "source_sha256": "05a065e24715feea1731a10b1d65f8f594d1c79c5238eb9523124839ad73d505",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488"
+      },
+      "candidate_source": ".local/sdk-target/message_receive.c",
+      "candidate_source_sha256": "f51693023bba3c81acca06cb68d6cb35e4025c353fd30386c5343ca8190e82c6",
+      "candidate_report": "build/sdk-reconstruction/message_receive__sdk_o1_mips2__kernel/report.json",
+      "candidate_report_sha256": "2ee58367c721546d91883219f458a09364e98fa4a083f546586562335aaf18b4",
+      "canonical_report_sha256": "8ed0613361355c577f3354f7e0a3ab19413ed1b354953bef93232588b5c4ebe1",
+      "linked_code_sha256": "690533e028903f14e12536fd71decf85e5ee127566767b76560f46d7c38afa0c",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80062240",
+          "start": 2147885632,
+          "end": 2147885944,
+          "size": 312
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 312,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/gu_random.c",
+      "source_sha256": "d37faee2163eed9d40a847374c737d8a1c977775275bc472fc51c59cf5508209",
+      "headers_sha256": {},
+      "candidate_source": ".local/sdk-target/random_update_state.c",
+      "candidate_source_sha256": "d37faee2163eed9d40a847374c737d8a1c977775275bc472fc51c59cf5508209",
+      "candidate_report": "build/sdk-reconstruction/random_update_state__sdk_o2_mips2__state/report.json",
+      "candidate_report_sha256": "95b9662ca52bfd0508ff2d45339298ebebe387958dab29912cecf726da861319",
+      "canonical_report_sha256": "c7e0c302d02fa98b38e727e74b959b6122bcb8a9840fd0e6776aa85c3a44112a",
+      "linked_code_sha256": "b71081542eed85de8d5d9b7f9f6b09efae9eb84b6874b1f932e2376f0f758955",
+      "compiler_profile": {
+        "name": "sdk-o2-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800631F0",
+          "start": 2147889648,
+          "end": 2147889692,
+          "size": 44
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".data",
+          "vram": 2148069664,
+          "rom": 589088,
+          "size": 4,
+          "symbols": {},
+          "section": ".gu_random_data",
+          "static_symbols": {
+            "D_8008F120": 0
+          },
+          "source": "src/sdk/gu_random.c",
+          "object": "build/us/gu_random.o",
+          "evidence": "docs/sdk-runtime.md"
+        }
+      ],
+      "complete_code_bytes": 44,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/pi_read.c",
+      "source_sha256": "cf91b502edce6e1d61b9e031e35bb095995b8e29330fb2dbe32bc80dc885e746",
+      "headers_sha256": {
+        "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299"
+      },
+      "candidate_source": ".local/sdk-target/pi_word_read.c",
+      "candidate_source_sha256": "cf91b502edce6e1d61b9e031e35bb095995b8e29330fb2dbe32bc80dc885e746",
+      "candidate_report": "build/sdk-reconstruction/pi_word_read__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "0ad9805dcb1788ac4ed9bfa91e15d600055da3091362a7a28aa23b377f0a89fb",
+      "canonical_report_sha256": "d6ce2be6c2734fa1a3c65666d16ead9fa579271069dfd0f1bfe2744bc0137608",
+      "linked_code_sha256": "97ad974f636b08a9b95bfc633e49a3a29e35ff36a86868b9481c58e295b60f13",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80063560",
+          "start": 2147890528,
+          "end": 2147890592,
+          "size": 64
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 64,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/message_send.c",
+      "source_sha256": "be6211c8d47a22c56b628e5f9a6058b9513be75fbf295dd559aa9ceee038a090",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488"
+      },
+      "candidate_source": ".local/sdk-target/message_send.c",
+      "candidate_source_sha256": "77b5829db22674137dd7cebca06b230cbcf9c43b405d3a620d7982086b12c267",
+      "candidate_report": "build/sdk-reconstruction/message_send__sdk_o1_mips2__kernel/report.json",
+      "candidate_report_sha256": "2ef058eb2c780bc6c9b6b18971da1d62ce4ec3348425d42c521eec8172169cf3",
+      "canonical_report_sha256": "f74d8372980ab962905d1a9f2b0b9b51739875860b89f4f0f9717e6f5ee7ed13",
+      "linked_code_sha256": "b2d1972a84d9b499990d6d6211cb5811582e3948bbee7ae851dd5c486be274e1",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800635A0",
+          "start": 2147890592,
+          "end": 2147890924,
+          "size": 332
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 332,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/event_message.c",
+      "source_sha256": "cd5dbf8f5dcb407db3b7ea126529869c0f8425f84008f646bf9d24db448148c8",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/event_message_bind.c",
+      "candidate_source_sha256": "cd5dbf8f5dcb407db3b7ea126529869c0f8425f84008f646bf9d24db448148c8",
+      "candidate_report": "build/sdk-reconstruction/event_message_bind__sdk_o1_mips2__initial/report.json",
+      "candidate_report_sha256": "8064bf850e47618ce9ac6a9fcae62d3acf28e6011cc16b743e1f5bf0f9b832b4",
+      "canonical_report_sha256": "c52ab086a2b2761f6c616f7eafe1acbfeccfd7d10b920766a35459d2da51d37b",
+      "linked_code_sha256": "02741108bd95ab3845558d811181d6945141caad028bab6b6bc36f111051f5e0",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "osSetEventMesg",
+          "start": 2147893456,
+          "end": 2147893560,
+          "size": 104
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 104,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/vi_mode.c",
+      "source_sha256": "1d898468737f1e5bd9cc7ac3999c42e946baa217845d28ac05621ee2fd4c4a04",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/sdk_video_internal.h": "c3b619036c73396dc4eef6db8f788045350b45e5ec92d448ad0d0b35998b2ec7",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/video_mode_select.c",
+      "candidate_source_sha256": "91318d79251c25523c65c2d0e7d8d422a40004a76bc41f0ffcc8344b878de6dd",
+      "candidate_report": "build/sdk-reconstruction/video_mode_select__sdk_o1_mips2__initial/report.json",
+      "candidate_report_sha256": "a73b6b3be15ece2a560d7b9ae40142d8212b0338ac43222a92d29a3b7c93009c",
+      "canonical_report_sha256": "c2888857a8ab1d9d1a4b35b28ffb3049c6c44a8e6a0e8742f64591849d1fc667",
+      "linked_code_sha256": "22c677ef58f64464562dc5bb7fc24c1d141719e1d1099e9e8264d065c2e74668",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "osViSetMode",
+          "start": 2147897504,
+          "end": 2147897608,
+          "size": 104
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 104,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/vi_black.c",
+      "source_sha256": "7b63fccf6d3c1deb954a6e1ae8465384588f17cf108c4140da793d6e21446eec",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/sdk_video_internal.h": "c3b619036c73396dc4eef6db8f788045350b45e5ec92d448ad0d0b35998b2ec7",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/video_blank.c",
+      "candidate_source_sha256": "763e4cb8e4d8b378c4ec6f089e504e77efbebbf024424ffeb48aed0d87339e66",
+      "candidate_report": "build/sdk-reconstruction/video_blank__sdk_o1_mips2__initial/report.json",
+      "candidate_report_sha256": "7a62e8ef76a9d23cc613c1a4c7feb4f701cb9b91bf0d53b400e29a3e1a3202f6",
+      "canonical_report_sha256": "9152d187d5b65f41d38b74ce380a0a87f4a910db39f91a437ede4b14becb3d49",
+      "linked_code_sha256": "812cdf494cafa10ab71a44c1dce638f0dfb614b2921c752d4eb25edc719a2fbf",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "osViBlack",
+          "start": 2147897616,
+          "end": 2147897728,
+          "size": 112
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 112,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/vi_event.c",
+      "source_sha256": "20ae7952cb138b132fe59c4525af26d94222c54626059e36dad30c6a51eae998",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/sdk_video_internal.h": "c3b619036c73396dc4eef6db8f788045350b45e5ec92d448ad0d0b35998b2ec7",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/video_retrace_message.c",
+      "candidate_source_sha256": "64d9ed387544ae7117b848f1791963363d56ec3c105b742ea4c5181edde3bc9f",
+      "candidate_report": "build/sdk-reconstruction/video_retrace_message__sdk_o1_mips2__initial/report.json",
+      "candidate_report_sha256": "9d02f2a6de2ec6ef1254348eb6bf3847eebc5aa7fe32109063aff65021a693d8",
+      "canonical_report_sha256": "20dee171076d7816e30f9a336d453751808a99681176b33e544fbcf6149c6b3f",
+      "linked_code_sha256": "d3628fd390dde4ff824a49e99fbd69c97be892c5dcec6a168009836d3f104382",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "osViSetEvent",
+          "start": 2147897728,
+          "end": 2147897836,
+          "size": 108
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 108,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/sp_yield.c",
+      "source_sha256": "cd2a3862266984031f6c6efc58e0254706fa38bf1bdb3a6ce9ec0b4f67f136c2",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/sdk_rsp.h": "08a2b63a4d4490026a351cc62f776283466a4de2a7c5338551c34ecd53a69264",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/sp_task_yield.c",
+      "candidate_source_sha256": "cd2a3862266984031f6c6efc58e0254706fa38bf1bdb3a6ce9ec0b4f67f136c2",
+      "candidate_report": "build/sdk-reconstruction/sp_task_yield__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "b6a4f816eca5a4f54b36733c002f1d8be2fbd8d10fdfdb3bd4e4d7b2641866c0",
+      "canonical_report_sha256": "383f7106e0dfcd896067239fbcb0f83f49d20ca6dbd460a4c53a77ab280d9c91",
+      "linked_code_sha256": "d8503f1ab69d5cc559ebd6133047dddab9d51fdae07ded5b9630cdc0af77a113",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80065290",
+          "start": 2147898000,
+          "end": 2147898032,
+          "size": 32
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 32,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/sp_yielded.c",
+      "source_sha256": "89a2481a219cbacd4e4b19ad9252684fcbeb7150dcce2bd48fa909353c56e35c",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/sdk_rsp.h": "08a2b63a4d4490026a351cc62f776283466a4de2a7c5338551c34ecd53a69264",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/sp_task_yielded.c",
+      "candidate_source_sha256": "89a2481a219cbacd4e4b19ad9252684fcbeb7150dcce2bd48fa909353c56e35c",
+      "candidate_report": "build/sdk-target/sp_task_yielded_sdk_o1_mips2/report.json",
+      "candidate_report_sha256": "10afee46c21b69338907ec4efe74f3e2dacbd3f214c9ce1f5d20f812720216f6",
+      "canonical_report_sha256": "c3ab29a5efd642b998ddcd53e0541dedf5fe6f5d0d51ec4575681efe4225e545",
+      "linked_code_sha256": "bdf7324f78c4afe4cb361ff16c34e7f53b7f22e5d21ae78dad8e56338a6a0898",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800652B0",
+          "start": 2147898032,
+          "end": 2147898160,
+          "size": 128
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 128,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/sp_start.c",
+      "source_sha256": "53fe182215616b28ea57405eeeda7563a1c0af6f3556c8f8fc9ebcfa747aa267",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/sdk_rsp.h": "08a2b63a4d4490026a351cc62f776283466a4de2a7c5338551c34ecd53a69264",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/sp_task_start.c",
+      "candidate_source_sha256": "53fe182215616b28ea57405eeeda7563a1c0af6f3556c8f8fc9ebcfa747aa267",
+      "candidate_report": "build/sdk-reconstruction/sp_task_start__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "0b354d56ecaa73934e37e5c666db9f3c7dbda42f1d5b6758671e9ac56d056475",
+      "canonical_report_sha256": "5d2aa7c1991efefa30af7340c2de905fdb312b669dc93f13ff4f8a41de9c49cd",
+      "linked_code_sha256": "3c728f4817ec4c8b91f7fda53700f04e9e883e522a712cbbd5c1ee0b3c03d1ba",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800655DC",
+          "start": 2147898844,
+          "end": 2147898908,
+          "size": 64
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 64,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/vi_framebuffer.c",
+      "source_sha256": "ee564f9ff4f3f620683d0b832ec545c02afed29a7e16adfdc069184271846b56",
+      "headers_sha256": {
+        "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+        "include/sdk_video_internal.h": "c3b619036c73396dc4eef6db8f788045350b45e5ec92d448ad0d0b35998b2ec7",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/video_framebuffer_state.c",
+      "candidate_source_sha256": "7795af2d6d6272b87edb8e1b30e7343bcafd4dedf4c9a81af9729004c47e9f40",
+      "candidate_report": "build/sdk-reconstruction/video_framebuffer_state__sdk_o1_mips2__initial/report.json",
+      "candidate_report_sha256": "d9292e089549cfd78e576cf95d95798410c448d992ffc853e2db7657ddcf4afb",
+      "canonical_report_sha256": "b48ac03a2aaa7a86ffce3eb86e76d6955c69d320d8883967155bb098bf1953ea",
+      "linked_code_sha256": "a3211062e9a569ece4805db166a07607bf6988c1e543f1d253b4fe2e4f0a09c2",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80065620",
+          "start": 2147898912,
+          "end": 2147898992,
+          "size": 80
+        },
+        {
+          "name": "func_80065670",
+          "start": 2147898992,
+          "end": 2147899056,
+          "size": 64
+        },
+        {
+          "name": "func_800656B0",
+          "start": 2147899056,
+          "end": 2147899120,
+          "size": 64
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 208,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/audio_heap_init.c",
+      "source_sha256": "626ee60847e9932a68f6f2f8088f5dcbba251d7d441ca1a31f0e845c03a1fdbd",
+      "headers_sha256": {
+        "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+        "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_io.h": "18f39458fcbb5f841687450d76829a2e593b6debef131cdf6bd685775b23de22",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/audio_heap_initialize_signed.c",
+      "candidate_source_sha256": "626ee60847e9932a68f6f2f8088f5dcbba251d7d441ca1a31f0e845c03a1fdbd",
+      "candidate_report": "build/sdk-reconstruction/audio_heap_initialize_signed__sdk_o2_mips2__initial/report.json",
+      "candidate_report_sha256": "9c09410bdc1895619523fc83a25cc0ae6ccb6b2b30b89cb05255e37d825b0719",
+      "canonical_report_sha256": "bd0a52111d016ad57aa640f5fc97fb01ecb2e37fe66c4dd00a686b9ad4ca593a",
+      "linked_code_sha256": "aed6cfe37d43f076f275814ba5f99486aafa8f3de789d528c8bbec2766a438af",
+      "compiler_profile": {
+        "name": "sdk-o2-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800656F0",
+          "start": 2147899120,
+          "end": 2147899172,
+          "size": 52
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 52,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/audio_heap_allocate.c",
+      "source_sha256": "f6e880ce4a4c6a7dbab3a6d8ea450470ebb7ad8d0954a0fb873e3c29a75ad877",
+      "headers_sha256": {
+        "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+        "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_io.h": "18f39458fcbb5f841687450d76829a2e593b6debef131cdf6bd685775b23de22",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/audio_heap_allocate.c",
+      "candidate_source_sha256": "f6e880ce4a4c6a7dbab3a6d8ea450470ebb7ad8d0954a0fb873e3c29a75ad877",
+      "candidate_report": "build/sdk-reconstruction/audio_heap_allocate__sdk_o2_mips2__current/report.json",
+      "candidate_report_sha256": "e3749f6dc11f59b1ec94c0a99ff02e81a9d2f3ff78f80a99426c40fb886344c8",
+      "canonical_report_sha256": "ae3dd4964886f9b3abdd350a14c55a3595f431bf95c83550db80347218cfe65d",
+      "linked_code_sha256": "56508dc8caf9a7d66b0e49d0be08a956a2708e57e0531c2841f96aff024f75e9",
+      "compiler_profile": {
+        "name": "sdk-o2-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80065730",
+          "start": 2147899184,
+          "end": 2147899268,
+          "size": 84
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 84,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/si_raw_read.c",
+      "source_sha256": "63e074ad75fabf6a171b48223e462148ca4f427a43c2fe69070db23b45dfe3e3",
+      "headers_sha256": {
+        "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/si_word_read.c",
+      "candidate_source_sha256": "63e074ad75fabf6a171b48223e462148ca4f427a43c2fe69070db23b45dfe3e3",
+      "candidate_report": "build/sdk-target/si_word_read_sdk_o1_mips2/report.json",
+      "candidate_report_sha256": "595c1349929750e905bacd767f850d577077bd96744ab95f369c506dfc5cd566",
+      "canonical_report_sha256": "f37bd03a85ba14697d5c668222ea8452b62d566178b072f3f82ffece7117fe2a",
+      "linked_code_sha256": "574dac95f7ec74f66be905a19468719bb0e5f1b65eac54676dccd03b2b007814",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800669B0",
+          "start": 2147903920,
+          "end": 2147904000,
+          "size": 80
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 80,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/si_raw_write.c",
+      "source_sha256": "9d4f91eb9bc91deb2e0a890a68e3ca307b0e20703d0e95c28e9f9fe3a7387734",
+      "headers_sha256": {
+        "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/si_word_write.c",
+      "candidate_source_sha256": "9d4f91eb9bc91deb2e0a890a68e3ca307b0e20703d0e95c28e9f9fe3a7387734",
+      "candidate_report": "build/sdk-target/si_word_write_sdk_o1_mips2/report.json",
+      "candidate_report_sha256": "5eda77f94940b5a3a9be44dd021bc7cc2d3115333d02aa2b4bee13e5151a2f31",
+      "canonical_report_sha256": "413b254e14ca72141144550e1ed176ae378ad6062d1a05e88d2bbe2bf086a640",
+      "linked_code_sha256": "0647eeaf56765053a9ad07209b04a20c30fed52730238b1af9d454f03a7e8a16",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80066A00",
+          "start": 2147904000,
+          "end": 2147904076,
+          "size": 76
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 76,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/thread_dequeue.c",
+      "source_sha256": "d79110f5009e3d21a59cce45cf4b8e0788259a3c8669c0b02870c0eb259c232a",
+      "headers_sha256": {
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/thread_queue_remove.c",
+      "candidate_source_sha256": "d79110f5009e3d21a59cce45cf4b8e0788259a3c8669c0b02870c0eb259c232a",
+      "candidate_report": "build/sdk-reconstruction/thread_queue_remove__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "e9109710e75214e76506411f2e2a3ebc6ff0fcffb6c53db043f52fce17907362",
+      "canonical_report_sha256": "b470d793b7a1c84b7d8e5f0848ace908310c7cdbe4666c45999c84b93695799d",
+      "linked_code_sha256": "6950f1d67e7328147547bdd321085cf5f0e2327d377a5d6ae2dfca3d5a3c6708",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800675A0",
+          "start": 2147906976,
+          "end": 2147907040,
+          "size": 64
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 64,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/pi_access.c",
+      "source_sha256": "b08bb20bbd2ab278b6ef086180e910c2472882710ff3a34c90fc54818e13f830",
+      "headers_sha256": {
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299"
+      },
+      "candidate_source": ".local/sdk-target/pi_access_queue.c",
+      "candidate_source_sha256": "b08bb20bbd2ab278b6ef086180e910c2472882710ff3a34c90fc54818e13f830",
+      "candidate_report": "build/sdk-reconstruction/pi_access_queue__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "417a0aec3e51ad6628ca689878cac5369f308191dc4ffc072db94918e309eea6",
+      "canonical_report_sha256": "3901cacc5094c96e96280300caef38c7eef27770800ce202b8fe04018c76c9f9",
+      "linked_code_sha256": "083e09cbfbfd469c72507c74721a6f6291df2771bae581750e81b932e5f656dc",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800677D0",
+          "start": 2147907536,
+          "end": 2147907616,
+          "size": 80
+        },
+        {
+          "name": "func_80067820",
+          "start": 2147907616,
+          "end": 2147907684,
+          "size": 68
+        },
+        {
+          "name": "func_80067864",
+          "start": 2147907684,
+          "end": 2147907728,
+          "size": 44
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 192,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/thread_get_priority.c",
+      "source_sha256": "893dcec930e1ae567c1462f530d08240e4b6f2db148552b26512ccf2b2d3e150",
+      "headers_sha256": {
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/thread_priority_read.c",
+      "candidate_source_sha256": "893dcec930e1ae567c1462f530d08240e4b6f2db148552b26512ccf2b2d3e150",
+      "candidate_report": "build/sdk-reconstruction/thread_priority_read__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "a0c03471c6a8614b926190b2c850bc87c5f14ce249ad52eec976689c0c1134d3",
+      "canonical_report_sha256": "304e36362edfd4cae8863397f1edb19309c3907283600cb8f02ccfc6ab50500e",
+      "linked_code_sha256": "d15edd36f21c9a13146e9b3178119de4c6dd448784f9f8d72186f7476f4c8d35",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80067890",
+          "start": 2147907728,
+          "end": 2147907752,
+          "size": 24
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 24,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/pi_raw_dma.c",
+      "source_sha256": "b3daa5dad624695dcad74082437d7b3f0a4cfdde9d8bf0f7cd86ecce46093987",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "candidate_source": ".local/sdk-target/pi_transfer_start.c",
+      "candidate_source_sha256": "b3daa5dad624695dcad74082437d7b3f0a4cfdde9d8bf0f7cd86ecce46093987",
+      "candidate_report": "build/sdk-target/pi_transfer_start_sdk_o1_mips2/report.json",
+      "candidate_report_sha256": "7afd2070f6c7cd549c3996aaeb3a1c419bc5c3eb09988c1f4377b84af78eb0f7",
+      "canonical_report_sha256": "5f5fd53b8745de6f17f0464dbe7f4c11980b0ad9acfb09df5f1023bb13725f8d",
+      "linked_code_sha256": "99a3b20e1633411dce4c902fa6269335cbee301eeeb4a98b05865be6b9d5facd",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800678B0",
+          "start": 2147907760,
+          "end": 2147907984,
+          "size": 224
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 224,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/si_access.c",
+      "source_sha256": "1cae5f1bda167164e48a2721a8dad0a2929393721fbf58d303bfcbaba4adcf88",
+      "headers_sha256": {
+        "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/si_access_queue.c",
+      "candidate_source_sha256": "1cae5f1bda167164e48a2721a8dad0a2929393721fbf58d303bfcbaba4adcf88",
+      "candidate_report": "build/sdk-reconstruction/si_access_queue__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "32dfe2581bc24ce5423fb7278292bf1f8a373cfec9aedb7b1ed1abcc1a7c1dad",
+      "canonical_report_sha256": "07b3e80b4ec796775c72c9d18a1e6778413adde33c569a90fafd09863e626d40",
+      "linked_code_sha256": "87edcee0ff1187af579412aa37a75719d250ebe274a581bb487be51f541494f8",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_800699C0",
+          "start": 2147916224,
+          "end": 2147916304,
+          "size": 80
+        },
+        {
+          "name": "func_80069A10",
+          "start": 2147916304,
+          "end": 2147916372,
+          "size": 68
+        },
+        {
+          "name": "func_80069A54",
+          "start": 2147916372,
+          "end": 2147916416,
+          "size": 44
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 192,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/si_dma.c",
+      "source_sha256": "d123c0239ecc2829a7b80d6ad478768aa82f235c833000d2da77c8da472a93eb",
+      "headers_sha256": {
+        "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/audio_io.h": "18f39458fcbb5f841687450d76829a2e593b6debef131cdf6bd685775b23de22"
+      },
+      "candidate_source": ".local/sdk-target/si_transfer_start.c",
+      "candidate_source_sha256": "d123c0239ecc2829a7b80d6ad478768aa82f235c833000d2da77c8da472a93eb",
+      "candidate_report": "build/sdk-target/si_transfer_start_sdk_o1_mips2/report.json",
+      "candidate_report_sha256": "9d9e2105d8c697480f722e68ce3189708b703ec638d76651d8daeae16f351b2c",
+      "canonical_report_sha256": "32ad804493e2196cda645ab3f8b1003a865054aa3d3043a3c8eb68dea7138afa",
+      "linked_code_sha256": "294232a27769a2f3a4a8e33c101eb9a5bbe7e7d0d1cbd2dbe3ea7084cb900907",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80069A80",
+          "start": 2147916416,
+          "end": 2147916588,
+          "size": 172
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 172,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/sp_set_status.c",
+      "source_sha256": "ebd4886efcf48baac3ccc7d0f06a38c0e78eaf9fda19845c700cb24a59fab99a",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "candidate_source": ".local/sdk-target/sp_status_write.c",
+      "candidate_source_sha256": "ebd4886efcf48baac3ccc7d0f06a38c0e78eaf9fda19845c700cb24a59fab99a",
+      "candidate_report": "build/sdk-reconstruction/sp_status_write__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "1cd0bd97b0b3614c6b899e02ad486c30733b963ce2ab051a79b24c6356b9bc6c",
+      "canonical_report_sha256": "196a63582a1574b4f9e2ecfab21bbe46b749ae440db774262276611858ed53aa",
+      "linked_code_sha256": "330eebe5bb4046809fe403996cd6dd002c11b2a46fc3cba6ab4a6dd9611e273b",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8006AFF0",
+          "start": 2147921904,
+          "end": 2147921916,
+          "size": 12
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 12,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/sp_get_status.c",
+      "source_sha256": "5292357ba027cbbb5678cb10ed1848a4eaace42f2703c5bedd86dc2609523b63",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "candidate_source": ".local/sdk-target/sp_status_read.c",
+      "candidate_source_sha256": "5292357ba027cbbb5678cb10ed1848a4eaace42f2703c5bedd86dc2609523b63",
+      "candidate_report": "build/sdk-reconstruction/sp_status_read__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "6fb69b2c37a10b6ae10278f83114a5b0f78abefd317df6579951e3f950e55bd6",
+      "canonical_report_sha256": "b4f7a7ebf43cc172e1dc3439621ed191b04f1d68f71eb5acb79ce7017b5c3264",
+      "linked_code_sha256": "cdffef6fd78fbd686568fee0acd532ccb940758f852cb83e15e44aba19a741ed",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8006B000",
+          "start": 2147921920,
+          "end": 2147921932,
+          "size": 12
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 12,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/sp_set_pc.c",
+      "source_sha256": "8a2e03a192129104d04dc962defcab8e35e9a121df06dd217a422c10dc1cd678",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "candidate_source": ".local/sdk-target/sp_program_counter_register.c",
+      "candidate_source_sha256": "8a2e03a192129104d04dc962defcab8e35e9a121df06dd217a422c10dc1cd678",
+      "candidate_report": "build/sdk-reconstruction/sp_program_counter_register__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "fa55db8b27a9c29ae6036fdcaeaff776b14720bf789d21267ec76d5b8a3e7d74",
+      "canonical_report_sha256": "bc7bfa83a6f12f3c629cca9f0868b8f801c872f2c84d0525491cbdb04ea1ad01",
+      "linked_code_sha256": "af66ed65d77fde1aae49eedb1374b1c64c2305b9dfb37653f1b09d17adb34bdc",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8006B320",
+          "start": 2147922720,
+          "end": 2147922772,
+          "size": 52
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 52,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/sp_dma.c",
+      "source_sha256": "492b34f11df34166f0f3bf4e8a98bb34e04c55e4b6e51783dfb7385077d142f0",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "candidate_source": ".local/sdk-target/sp_transfer_start.c",
+      "candidate_source_sha256": "492b34f11df34166f0f3bf4e8a98bb34e04c55e4b6e51783dfb7385077d142f0",
+      "candidate_report": "build/sdk-target/sp_transfer_start_sdk_o1_mips2/report.json",
+      "candidate_report_sha256": "c95cf7a29e5cca789cc0df6e48f129834a75a71ff9c2174ff075723442ba5046",
+      "canonical_report_sha256": "55a74822a62c754ff3aaf0d24c45897d0c6f7b6fbd7fc09602e63a0c2c0ae562",
+      "linked_code_sha256": "f9594248ec3fb088a992281c402929a8424061243ac3da98254cb067a2afa900",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8006B360",
+          "start": 2147922784,
+          "end": 2147922924,
+          "size": 140
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 140,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/sp_busy.c",
+      "source_sha256": "1846fa5741f3071f1e67f60afa5e5066e0c0820869c03fdde68071a7361e1700",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "candidate_source": ".local/sdk-target/sp_transfer_busy_register.c",
+      "candidate_source_sha256": "1846fa5741f3071f1e67f60afa5e5066e0c0820869c03fdde68071a7361e1700",
+      "candidate_report": "build/sdk-reconstruction/sp_transfer_busy_register__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "cbe83fb591d19b4c4dce3172ebb9d6ad8a3b2934e4d5b5849e8d438a517e1809",
+      "canonical_report_sha256": "5f030e6a170320969189eea62cdd000b1f671bb416f44606b161dd6d7747b762",
+      "linked_code_sha256": "5b8a49766e2e41e50b893cb38c81db6ebaaacf069cefe96035b118b0d9f9c4f0",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8006B3F0",
+          "start": 2147922928,
+          "end": 2147922972,
+          "size": 44
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 44,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/ai_busy.c",
+      "source_sha256": "069a87dc7fbaa6e7370c0828d4c4d64051eb671b0f79749db04965fb4edb3927",
+      "headers_sha256": {
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "candidate_source": ".local/sdk-target/ai_fifo_busy_register.c",
+      "candidate_source_sha256": "069a87dc7fbaa6e7370c0828d4c4d64051eb671b0f79749db04965fb4edb3927",
+      "candidate_report": "build/sdk-reconstruction/ai_fifo_busy_register__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "4f322ddde440d0df708bb9912ad6a3496b9591231a297762745bc8721c2f738d",
+      "canonical_report_sha256": "5ae6370b951e82ddfeae67a3e6cd7f36c947140e1d57ec281535d7d726e9a902",
+      "linked_code_sha256": "94d8674f022e85b272c7575b4a263fd32588717bb737e3a99536d3c589db394f",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8006B5B0",
+          "start": 2147923376,
+          "end": 2147923424,
+          "size": 48
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 48,
+      "different_words": 0
+    },
+    {
+      "source": "src/sdk/si_busy.c",
+      "source_sha256": "9613c231d4d93fc80c26ce062e99e81fff921f3755b0aec19b12cf6672338080",
+      "headers_sha256": {
+        "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df"
+      },
+      "candidate_source": ".local/sdk-target/si_transfer_busy_register.c",
+      "candidate_source_sha256": "9613c231d4d93fc80c26ce062e99e81fff921f3755b0aec19b12cf6672338080",
+      "candidate_report": "build/sdk-reconstruction/si_transfer_busy_register__sdk_o1_mips2__current/report.json",
+      "candidate_report_sha256": "d89944eb5693957dcc541cebf77a0a3a76849acf85d6ce7ab0dffbeaf5a2dfe2",
+      "canonical_report_sha256": "63cbf49f0aa717a4d4d84ef7ffa7893b8373ba45e5d50e0ee07fec5e607c1e96",
+      "linked_code_sha256": "c40efb0efd62baebfcb5aa0af3421d1155c9d8e9a20163f10b0c84f61c4ac156",
+      "compiler_profile": {
+        "name": "sdk-o1-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O1",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8006DBF0",
+          "start": 2147933168,
+          "end": 2147933212,
+          "size": 44
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 44,
+      "different_words": 0
+    }
+  ]
+}

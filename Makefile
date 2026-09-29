@@ -3886,6 +3886,254 @@ build/us/audio_backend_note_release.o: src/game/audio_backend_note_release.c inc
 RUNTIME_OBJECTS += \
     build/us/audio_backend_note_release.o
 
+build/us/thread_create.o: src/sdk/thread_create.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/thread_create.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/thread_create.raw.o $@ .text 0x144
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_start.o: src/sdk/thread_start.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/thread_start.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/thread_start.raw.o $@ .text 0x150
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/message_queue.o: src/sdk/message_queue.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/message_queue.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/message_queue.raw.o $@ .text 0x2c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/vi_features.o: src/sdk/vi_features.c include/scheduler.h include/sdk_time.h include/sdk_video_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/vi_features.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/vi_features.raw.o $@ .text 0x1b8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/virtual_to_physical.o: src/sdk/virtual_to_physical.c include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/virtual_to_physical.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/virtual_to_physical.raw.o $@ .text 0x7c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compiler_integer64.o: src/sdk/compiler_integer64.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compiler_integer64.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compiler_integer64.raw.o $@ .text 0x2c0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/message_receive.o: src/sdk/message_receive.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/message_receive.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/message_receive.raw.o $@ .text 0x138
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/gu_random.o: src/sdk/gu_random.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/gu_random.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/gu_random.raw.o build/us/gu_random.text.o .text 0x2c
+	$(PYTHON) tools/owned_sections.py $< build/us/gu_random.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_read.o: src/sdk/pi_read.c include/pi.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_read.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_read.raw.o $@ .text 0x40
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/message_send.o: src/sdk/message_send.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/message_send.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/message_send.raw.o $@ .text 0x14c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/event_message.o: src/sdk/event_message.c include/scheduler.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/event_message.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/event_message.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/vi_mode.o: src/sdk/vi_mode.c include/scheduler.h include/sdk_time.h include/sdk_video_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/vi_mode.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/vi_mode.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/vi_black.o: src/sdk/vi_black.c include/scheduler.h include/sdk_time.h include/sdk_video_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/vi_black.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/vi_black.raw.o $@ .text 0x70
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/vi_event.o: src/sdk/vi_event.c include/scheduler.h include/sdk_time.h include/sdk_video_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/vi_event.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/vi_event.raw.o $@ .text 0x6c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_yield.o: src/sdk/sp_yield.c include/scheduler.h include/scheduler_task.h include/sdk_io.h include/sdk_rsp.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_yield.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_yield.raw.o $@ .text 0x20
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_yielded.o: src/sdk/sp_yielded.c include/scheduler.h include/scheduler_task.h include/sdk_io.h include/sdk_rsp.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_yielded.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_yielded.raw.o $@ .text 0x80
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_start.o: src/sdk/sp_start.c include/scheduler.h include/scheduler_task.h include/sdk_io.h include/sdk_rsp.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_start.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_start.raw.o $@ .text 0x40
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/vi_framebuffer.o: src/sdk/vi_framebuffer.c include/scheduler.h include/sdk_time.h include/sdk_video_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/vi_framebuffer.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/vi_framebuffer.raw.o $@ .text 0xd0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_heap_init.o: src/sdk/audio_heap_init.c include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_heap_init.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_heap_init.raw.o $@ .text 0x34
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_heap_allocate.o: src/sdk/audio_heap_allocate.c include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_heap_allocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_heap_allocate.raw.o $@ .text 0x54
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/si_raw_read.o: src/sdk/si_raw_read.c include/scheduler.h include/sdk_si.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/si_raw_read.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/si_raw_read.raw.o $@ .text 0x50
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/si_raw_write.o: src/sdk/si_raw_write.c include/scheduler.h include/sdk_si.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/si_raw_write.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/si_raw_write.raw.o $@ .text 0x4c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_dequeue.o: src/sdk/thread_dequeue.c include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/thread_dequeue.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/thread_dequeue.raw.o $@ .text 0x40
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_access.o: src/sdk/pi_access.c include/pi.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_access.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_access.raw.o $@ .text 0xc0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_get_priority.o: src/sdk/thread_get_priority.c include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/thread_get_priority.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/thread_get_priority.raw.o $@ .text 0x18
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_raw_dma.o: src/sdk/pi_raw_dma.c include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_raw_dma.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_raw_dma.raw.o $@ .text 0xe0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/si_access.o: src/sdk/si_access.c include/scheduler.h include/sdk_si.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/si_access.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/si_access.raw.o $@ .text 0xc0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/si_dma.o: src/sdk/si_dma.c include/audio_io.h include/scheduler.h include/sdk_io.h include/sdk_si.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/si_dma.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/si_dma.raw.o $@ .text 0xac
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_set_status.o: src/sdk/sp_set_status.c include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_set_status.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_set_status.raw.o $@ .text 0xc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_get_status.o: src/sdk/sp_get_status.c include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_get_status.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_get_status.raw.o $@ .text 0xc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_set_pc.o: src/sdk/sp_set_pc.c include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_set_pc.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_set_pc.raw.o $@ .text 0x34
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_dma.o: src/sdk/sp_dma.c include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_dma.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_dma.raw.o $@ .text 0x8c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_busy.o: src/sdk/sp_busy.c include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_busy.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_busy.raw.o $@ .text 0x2c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/ai_busy.o: src/sdk/ai_busy.c include/sdk_io.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/ai_busy.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/ai_busy.raw.o $@ .text 0x30
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/si_busy.o: src/sdk/si_busy.c include/scheduler.h include/sdk_si.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/si_busy.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/si_busy.raw.o $@ .text 0x2c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/thread_create.o \
+    build/us/thread_start.o \
+    build/us/message_queue.o \
+    build/us/vi_features.o \
+    build/us/virtual_to_physical.o \
+    build/us/compiler_integer64.o \
+    build/us/message_receive.o \
+    build/us/gu_random.o \
+    build/us/pi_read.o \
+    build/us/message_send.o \
+    build/us/event_message.o \
+    build/us/vi_mode.o \
+    build/us/vi_black.o \
+    build/us/vi_event.o \
+    build/us/sp_yield.o \
+    build/us/sp_yielded.o \
+    build/us/sp_start.o \
+    build/us/vi_framebuffer.o \
+    build/us/audio_heap_init.o \
+    build/us/audio_heap_allocate.o \
+    build/us/si_raw_read.o \
+    build/us/si_raw_write.o \
+    build/us/thread_dequeue.o \
+    build/us/pi_access.o \
+    build/us/thread_get_priority.o \
+    build/us/pi_raw_dma.o \
+    build/us/si_access.o \
+    build/us/si_dma.o \
+    build/us/sp_set_status.o \
+    build/us/sp_get_status.o \
+    build/us/sp_set_pc.o \
+    build/us/sp_dma.o \
+    build/us/sp_busy.o \
+    build/us/ai_busy.o \
+    build/us/si_busy.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

@@ -740,17 +740,17 @@ SECTIONS
     .cpu_after_gu_cosine 0x8005FC50 : AT(0x60850) { build/us/fallback.o(.rom_cpu_after_gu_cosine) }
     .pi_raw_read 0x8005FEE0 : AT(0x60AE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_raw_read) }
     .cpu_after_pi_raw_read 0x8005FF34 : AT(0x60B34) { build/us/fallback.o(.rom_cpu_after_pi_raw_read) }
-    .thread_create 0x8005FF40 : AT(0x60B40) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_create) }
+    .thread_create 0x8005FF40 : AT(0x60B40) SUBALIGN(4) { build/us/thread_create.o(.text) }
     .cpu_after_thread_create 0x80060084 : AT(0x60C84) { build/us/fallback.o(.rom_cpu_after_thread_create) }
-    .thread_start 0x80060090 : AT(0x60C90) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_start) }
+    .thread_start 0x80060090 : AT(0x60C90) SUBALIGN(4) { build/us/thread_start.o(.text) }
     .pi_manager_create 0x800601E0 : AT(0x60DE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_manager_create) }
     .cpu_after_pi_manager_create 0x80060368 : AT(0x60F68) { build/us/fallback.o(.rom_cpu_after_pi_manager_create) }
     .thread_priority 0x80060370 : AT(0x60F70) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_priority) }
-    .message_queue_create 0x80060450 : AT(0x61050) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_message_queue_create) }
+    .message_queue 0x80060450 : AT(0x61050) SUBALIGN(4) { build/us/message_queue.o(.text) }
     .cpu_after_message_queue_create 0x8006047C : AT(0x6107C) { build/us/fallback.o(.rom_cpu_after_message_queue_create) }
-    .vi_features 0x800604E0 : AT(0x610E0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_features) }
+    .vi_features 0x800604E0 : AT(0x610E0) SUBALIGN(4) { build/us/vi_features.o(.text) }
     .cpu_after_vi_features 0x80060698 : AT(0x61298) { build/us/fallback.o(.rom_cpu_after_vi_features) }
-    .virtual_to_physical 0x800606A0 : AT(0x612A0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_virtual_to_physical) }
+    .virtual_to_physical 0x800606A0 : AT(0x612A0) SUBALIGN(4) { build/us/virtual_to_physical.o(.text) }
     .cpu_after_virtual_to_physical 0x8006071C : AT(0x6131C) { build/us/fallback.o(.rom_cpu_after_virtual_to_physical) }
     .gu_perspective 0x80060750 : AT(0x61350) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_perspective) }
     .cpu_after_gu_perspective 0x800609D8 : AT(0x615D8) { build/us/fallback.o(.rom_cpu_after_gu_perspective) }
@@ -762,7 +762,7 @@ SECTIONS
     .cpu_after_gu_rotate_rpy 0x80061444 : AT(0x62044) { build/us/fallback.o(.rom_cpu_after_gu_rotate_rpy) }
     .time_get 0x80061450 : AT(0x62050) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_time_get) }
     .cpu_after_time_get 0x800614D4 : AT(0x620D4) { build/us/fallback.o(.rom_cpu_after_time_get) }
-    .compiler_arithmetic 0x800614E0 : AT(0x620E0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_compiler_arithmetic) }
+    .compiler_integer64 0x800614E0 : AT(0x620E0) SUBALIGN(4) { build/us/compiler_integer64.o(.text) }
     .cpu_after_compiler_arithmetic 0x800617A0 : AT(0x623A0) { build/us/fallback.o(.rom_cpu_after_compiler_arithmetic) }
     .pfs_is_plug 0x80061A00 : AT(0x62600) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_is_plug) }
     .cpu_after_pfs_is_plug 0x80061D6C : AT(0x6296C) { build/us/fallback.o(.rom_cpu_after_pfs_is_plug) }
@@ -770,7 +770,7 @@ SECTIONS
     .cpu_after_pfs_init_pak 0x80061FD4 : AT(0x62BD4) { build/us/fallback.o(.rom_cpu_after_pfs_init_pak) }
     .controller_read 0x80061FE0 : AT(0x62BE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_controller_read) }
     .cpu_after_controller_read 0x80062238 : AT(0x62E38) { build/us/fallback.o(.rom_cpu_after_controller_read) }
-    .message_receive 0x80062240 : AT(0x62E40) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_message_receive) }
+    .message_receive 0x80062240 : AT(0x62E40) SUBALIGN(4) { build/us/message_receive.o(.text) }
     .cpu_after_message_receive 0x80062378 : AT(0x62F78) { build/us/fallback.o(.rom_cpu_after_message_receive) }
     .pfs_search_file 0x80062380 : AT(0x62F80) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_search_file) }
     .cpu_after_pfs_search_file 0x80062534 : AT(0x63134) { build/us/fallback.o(.rom_cpu_after_pfs_search_file) }
@@ -778,19 +778,19 @@ SECTIONS
     .cpu_after_pfs_allocate_file 0x80062CE8 : AT(0x638E8) { build/us/fallback.o(.rom_cpu_after_pfs_allocate_file) }
     .pfs_read_write_file 0x80062CF0 : AT(0x638F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_read_write_file) }
     .cpu_after_pfs_read_write_file 0x800631EC : AT(0x63DEC) { build/us/fallback.o(.rom_cpu_after_pfs_read_write_file) }
-    .gu_random 0x800631F0 : AT(0x63DF0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_random) }
+    .gu_random 0x800631F0 : AT(0x63DF0) SUBALIGN(4) { build/us/gu_random.o(.text) }
     .cpu_after_gu_random 0x8006321C : AT(0x63E1C) { build/us/fallback.o(.rom_cpu_after_gu_random) }
     .gu_sine_float 0x80063230 : AT(0x63E30) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_sine_float) }
     .gu_cosine_float 0x800633F0 : AT(0x63FF0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_cosine_float) }
     .cpu_after_gu_cosine_float 0x80063558 : AT(0x64158) { build/us/fallback.o(.rom_cpu_after_gu_cosine_float) }
-    .pi_read 0x80063560 : AT(0x64160) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_read) }
-    .message_send 0x800635A0 : AT(0x641A0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_message_send) }
+    .pi_read 0x80063560 : AT(0x64160) SUBALIGN(4) { build/us/pi_read.o(.text) }
+    .message_send 0x800635A0 : AT(0x641A0) SUBALIGN(4) { build/us/message_send.o(.text) }
     .cpu_after_message_send 0x800636EC : AT(0x642EC) { build/us/fallback.o(.rom_cpu_after_message_send) }
     .pfs_motor 0x800636F0 : AT(0x642F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_motor) }
     .cpu_after_pfs_motor 0x80063D04 : AT(0x64904) { build/us/fallback.o(.rom_cpu_after_pfs_motor) }
     .controller_init 0x80063D10 : AT(0x64910) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_controller_init) }
     .cpu_after_controller_init 0x800640CC : AT(0x64CCC) { build/us/fallback.o(.rom_cpu_after_controller_init) }
-    .event_message 0x800640D0 : AT(0x64CD0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_event_message) }
+    .event_message 0x800640D0 : AT(0x64CD0) SUBALIGN(4) { build/us/event_message.o(.text) }
     .cpu_after_event_message 0x80064138 : AT(0x64D38) { build/us/fallback.o(.rom_cpu_after_event_message) }
     .pfs_free_blocks 0x80064140 : AT(0x64D40) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_free_blocks) }
     .cpu_after_pfs_free_blocks 0x8006428C : AT(0x64E8C) { build/us/fallback.o(.rom_cpu_after_pfs_free_blocks) }
@@ -803,20 +803,20 @@ SECTIONS
     .cpu_after_vi_vertical_scale 0x80064D38 : AT(0x65938) { build/us/fallback.o(.rom_cpu_after_vi_vertical_scale) }
     .vi_manager 0x80064D40 : AT(0x65940) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_manager) }
     .cpu_after_vi_manager 0x80065094 : AT(0x65C94) { build/us/fallback.o(.rom_cpu_after_vi_manager) }
-    .vi_mode 0x800650A0 : AT(0x65CA0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_mode) }
+    .vi_mode 0x800650A0 : AT(0x65CA0) SUBALIGN(4) { build/us/vi_mode.o(.text) }
     .cpu_after_vi_mode 0x80065108 : AT(0x65D08) { build/us/fallback.o(.rom_cpu_after_vi_mode) }
-    .vi_black 0x80065110 : AT(0x65D10) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_black) }
-    .vi_event 0x80065180 : AT(0x65D80) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_event) }
+    .vi_black 0x80065110 : AT(0x65D10) SUBALIGN(4) { build/us/vi_black.o(.text) }
+    .vi_event 0x80065180 : AT(0x65D80) SUBALIGN(4) { build/us/vi_event.o(.text) }
     .cpu_after_vi_event 0x800651EC : AT(0x65DEC) { build/us/fallback.o(.rom_cpu_after_vi_event) }
-    .sp_yield 0x80065290 : AT(0x65E90) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_yield) }
-    .sp_yielded 0x800652B0 : AT(0x65EB0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_yielded) }
+    .sp_yield 0x80065290 : AT(0x65E90) SUBALIGN(4) { build/us/sp_yield.o(.text) }
+    .sp_yielded 0x800652B0 : AT(0x65EB0) SUBALIGN(4) { build/us/sp_yielded.o(.text) }
     .sp_task 0x80065330 : AT(0x65F30) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_task) }
-    .audio_sp 0x800655DC : AT(0x661DC) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_sp) }
+    .sp_start 0x800655DC : AT(0x661DC) SUBALIGN(4) { build/us/sp_start.o(.text) }
     .cpu_after_audio_sp 0x8006561C : AT(0x6621C) { build/us/fallback.o(.rom_cpu_after_audio_sp) }
-    .audio_vi 0x80065620 : AT(0x66220) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_vi) }
-    .audio_heap_init 0x800656F0 : AT(0x662F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_heap_init) }
+    .vi_framebuffer 0x80065620 : AT(0x66220) SUBALIGN(4) { build/us/vi_framebuffer.o(.text) }
+    .audio_heap_init 0x800656F0 : AT(0x662F0) SUBALIGN(4) { build/us/audio_heap_init.o(.text) }
     .cpu_after_audio_heap_init 0x80065724 : AT(0x66324) { build/us/fallback.o(.rom_cpu_after_audio_heap_init) }
-    .audio_heap_alloc 0x80065730 : AT(0x66330) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_heap_alloc) }
+    .audio_heap_allocate 0x80065730 : AT(0x66330) SUBALIGN(4) { build/us/audio_heap_allocate.o(.text) }
     .cpu_after_audio_heap_alloc 0x80065784 : AT(0x66384) { build/us/fallback.o(.rom_cpu_after_audio_heap_alloc) }
     .pi_start_dma 0x80065840 : AT(0x66440) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_start_dma) }
     .cpu_after_pi_start_dma 0x8006594C : AT(0x6654C) { build/us/fallback.o(.rom_cpu_after_pi_start_dma) }
@@ -843,15 +843,16 @@ SECTIONS
     .audio_synth_free_voice 0x800668C0 : AT(0x674C0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_free_voice) }
     .audio_synth_priority 0x80066970 : AT(0x67570) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_priority) }
     .cpu_after_audio_synth_priority 0x80066980 : AT(0x67580) { build/us/fallback.o(.rom_cpu_after_audio_synth_priority) }
-    .si_raw_read 0x800669B0 : AT(0x675B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_si_raw_read) }
-    .si_raw_write 0x80066A00 : AT(0x67600) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_si_raw_write) }
+    .si_raw_read 0x800669B0 : AT(0x675B0) SUBALIGN(4) { build/us/si_raw_read.o(.text) }
+    .si_raw_write 0x80066A00 : AT(0x67600) SUBALIGN(4) { build/us/si_raw_write.o(.text) }
     .cpu_after_si_raw_write 0x80066A4C : AT(0x6764C) { build/us/fallback.o(.rom_cpu_after_si_raw_write) }
     .os_interrupt 0x80067560 : AT(0x68160) SUBALIGN(4) { build/us/os_interrupt.o(.text) }
-    .cpu_after_os_interrupt 0x800675A0 : AT(0x681A0) { build/us/fallback.o(.rom_cpu_after_os_interrupt) }
-    .pi_access 0x800677D0 : AT(0x683D0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_access) }
-    .thread_get_priority 0x80067890 : AT(0x68490) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_get_priority) }
+    .thread_dequeue 0x800675A0 : AT(0x681A0) SUBALIGN(4) { build/us/thread_dequeue.o(.text) }
+    .after_thread_dequeue 0x800675E0 : AT(0x681E0) { build/us/fallback.o(.rom_after_thread_dequeue) }
+    .pi_access 0x800677D0 : AT(0x683D0) SUBALIGN(4) { build/us/pi_access.o(.text) }
+    .thread_get_priority 0x80067890 : AT(0x68490) SUBALIGN(4) { build/us/thread_get_priority.o(.text) }
     .cpu_after_thread_get_priority 0x800678A8 : AT(0x684A8) { build/us/fallback.o(.rom_cpu_after_thread_get_priority) }
-    .pi_raw_dma 0x800678B0 : AT(0x684B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_raw_dma) }
+    .pi_raw_dma 0x800678B0 : AT(0x684B0) SUBALIGN(4) { build/us/pi_raw_dma.o(.text) }
     .epi_dma 0x80067990 : AT(0x68590) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_epi_dma) }
     .cpu_after_epi_dma 0x80067BB4 : AT(0x687B4) { build/us/fallback.o(.rom_cpu_after_epi_dma) }
     .os_probe_tlb 0x80068190 : AT(0x68D90) SUBALIGN(4) { build/us/os_probe_tlb.o(.text) }
@@ -866,8 +867,8 @@ SECTIONS
     .cpu_after_pfs_contpfs 0x80069628 : AT(0x6A228) { build/us/fallback.o(.rom_cpu_after_pfs_contpfs) }
     .pfs_cont_ram_read 0x80069630 : AT(0x6A230) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_cont_ram_read) }
     .cpu_after_pfs_cont_ram_read 0x800699B4 : AT(0x6A5B4) { build/us/fallback.o(.rom_cpu_after_pfs_cont_ram_read) }
-    .si_access 0x800699C0 : AT(0x6A5C0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_si_access) }
-    .si_dma 0x80069A80 : AT(0x6A680) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_si_dma) }
+    .si_access 0x800699C0 : AT(0x6A5C0) SUBALIGN(4) { build/us/si_access.o(.text) }
+    .si_dma 0x80069A80 : AT(0x6A680) SUBALIGN(4) { build/us/si_dma.o(.text) }
     .cpu_after_si_dma 0x80069B2C : AT(0x6A72C) { build/us/fallback.o(.rom_cpu_after_si_dma) }
     .pfs_get_status 0x80069B30 : AT(0x6A730) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pfs_get_status) }
     .cpu_after_pfs_get_status 0x80069C3C : AT(0x6A83C) { build/us/fallback.o(.rom_cpu_after_pfs_get_status) }
@@ -878,22 +879,22 @@ SECTIONS
     .cpu_after_timer_set 0x8006AC74 : AT(0x6B874) { build/us/fallback.o(.rom_cpu_after_timer_set) }
     .vi_context 0x8006AC80 : AT(0x6B880) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_context) }
     .cpu_after_vi_context 0x8006AC8C : AT(0x6B88C) { build/us/fallback.o(.rom_cpu_after_vi_context) }
-    .sp_set_status 0x8006AFF0 : AT(0x6BBF0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_set_status) }
+    .sp_set_status 0x8006AFF0 : AT(0x6BBF0) SUBALIGN(4) { build/us/sp_set_status.o(.text) }
     .cpu_after_sp_set_status 0x8006AFFC : AT(0x6BBFC) { build/us/fallback.o(.rom_cpu_after_sp_set_status) }
-    .sp_get_status 0x8006B000 : AT(0x6BC00) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_get_status) }
+    .sp_get_status 0x8006B000 : AT(0x6BC00) SUBALIGN(4) { build/us/sp_get_status.o(.text) }
     .cpu_after_sp_get_status 0x8006B00C : AT(0x6BC0C) { build/us/fallback.o(.rom_cpu_after_sp_get_status) }
-    .sp_set_pc 0x8006B320 : AT(0x6BF20) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_set_pc) }
+    .sp_set_pc 0x8006B320 : AT(0x6BF20) SUBALIGN(4) { build/us/sp_set_pc.o(.text) }
     .cpu_after_sp_set_pc 0x8006B354 : AT(0x6BF54) { build/us/fallback.o(.rom_cpu_after_sp_set_pc) }
-    .sp_dma 0x8006B360 : AT(0x6BF60) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_dma) }
+    .sp_dma 0x8006B360 : AT(0x6BF60) SUBALIGN(4) { build/us/sp_dma.o(.text) }
     .cpu_after_sp_dma 0x8006B3EC : AT(0x6BFEC) { build/us/fallback.o(.rom_cpu_after_sp_dma) }
-    .sp_busy 0x8006B3F0 : AT(0x6BFF0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_busy) }
+    .sp_busy 0x8006B3F0 : AT(0x6BFF0) SUBALIGN(4) { build/us/sp_busy.o(.text) }
     .cpu_after_sp_busy 0x8006B41C : AT(0x6C01C) { build/us/fallback.o(.rom_cpu_after_sp_busy) }
     .message_jam 0x8006B420 : AT(0x6C020) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_message_jam) }
     .pi_get_queue 0x8006B570 : AT(0x6C170) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_get_queue) }
     .cpu_after_pi_get_queue 0x8006B598 : AT(0x6C198) { build/us/fallback.o(.rom_cpu_after_pi_get_queue) }
     .audio_synth_delete 0x8006B5A0 : AT(0x6C1A0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_synth_delete) }
     .cpu_after_audio_synth_delete 0x8006B5A8 : AT(0x6C1A8) { build/us/fallback.o(.rom_cpu_after_audio_synth_delete) }
-    .ai_busy 0x8006B5B0 : AT(0x6C1B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_ai_busy) }
+    .ai_busy 0x8006B5B0 : AT(0x6C1B0) SUBALIGN(4) { build/us/ai_busy.o(.text) }
     .audio_filter_constructors 0x8006B5E0 : AT(0x6C1E0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_filter_constructors) }
     .audio_effect_init 0x8006B940 : AT(0x6C540) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_effect_init) }
     .cpu_after_audio_effect_init 0x8006BD7C : AT(0x6C97C) { build/us/fallback.o(.rom_cpu_after_audio_effect_init) }
@@ -909,7 +910,7 @@ SECTIONS
     .audio_aux_bus 0x8006DA20 : AT(0x6E620) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_aux_bus) }
     .cpu_after_audio_aux_bus 0x8006DB28 : AT(0x6E728) { build/us/fallback.o(.rom_cpu_after_audio_aux_bus) }
     .audio_save 0x8006DB30 : AT(0x6E730) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_audio_save) }
-    .si_busy 0x8006DBF0 : AT(0x6E7F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_si_busy) }
+    .si_busy 0x8006DBF0 : AT(0x6E7F0) SUBALIGN(4) { build/us/si_busy.o(.text) }
     .cpu_after_si_busy 0x8006DC1C : AT(0x6E81C) { build/us/fallback.o(.rom_cpu_after_si_busy) }
     .pi_event 0x8006E3AC : AT(0x6EFAC) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_event) }
     .cpu_after_pi_event 0x8006E498 : AT(0x6F098) { build/us/fallback.o(.rom_cpu_after_pi_event) }
@@ -945,7 +946,7 @@ SECTIONS
     .after_compression_workspace_data 0x8008DBB0 : AT(0x8E7B0) { build/us/fallback.o(.rom_after_compression_workspace_data) }
     .sdk_pi_manager_data 0x8008E3D0 : AT(0x8EFD0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_pi_manager_data) }
     .data_after_sdk_pi_manager_data 0x9001EEDC : AT(0x8EFEC) { build/us/fallback.o(.rom_data_after_sdk_pi_manager_data) }
-    .sdk_random_data 0x8008F120 : AT(0x8FD20) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_random_data) }
+    .gu_random_data 0x8008F120 : AT(0x8FD20) SUBALIGN(4) { build/us/gu_random.o(.data) }
     .data_after_sdk_random_data 0x9001FC14 : AT(0x8FD24) { build/us/fallback.o(.rom_data_after_sdk_random_data) }
     .sdk_controller_init_data 0x8008F130 : AT(0x8FD30) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_controller_init_data) }
     .data_after_sdk_controller_init_data 0x9001FC24 : AT(0x8FD34) { build/us/fallback.o(.rom_data_after_sdk_controller_init_data) }
@@ -1405,7 +1406,7 @@ ASSERT(SIZEOF(.compression_workspace_data) == 0x170, "compression_workspace_data
 ASSERT(SIZEOF(.after_compression_workspace_data) == 0x820, "after_compression_workspace_data size changed")
 ASSERT(SIZEOF(.sdk_pi_manager_data) == 0x1c, "sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_pi_manager_data) == 0xd34, "data_after_sdk_pi_manager_data size changed")
-ASSERT(SIZEOF(.sdk_random_data) == 0x4, "sdk_random_data size changed")
+ASSERT(SIZEOF(.gu_random_data) == 0x4, "gu_random_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_random_data) == 0xc, "data_after_sdk_random_data size changed")
 ASSERT(SIZEOF(.sdk_controller_init_data) == 0x4, "sdk_controller_init_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_controller_init_data) == 0xc, "data_after_sdk_controller_init_data size changed")
@@ -1789,7 +1790,7 @@ ASSERT(SIZEOF(.thread_start) == 0x150, "thread_start size changed")
 ASSERT(SIZEOF(.pi_manager_create) == 0x188, "pi_manager_create size changed")
 ASSERT(SIZEOF(.cpu_after_pi_manager_create) == 0x8, "cpu_after_pi_manager_create size changed")
 ASSERT(SIZEOF(.thread_priority) == 0xe0, "thread_priority size changed")
-ASSERT(SIZEOF(.message_queue_create) == 0x2c, "message_queue_create size changed")
+ASSERT(SIZEOF(.message_queue) == 0x2c, "message_queue size changed")
 ASSERT(SIZEOF(.cpu_after_message_queue_create) == 0x64, "cpu_after_message_queue_create size changed")
 ASSERT(SIZEOF(.vi_features) == 0x1b8, "vi_features size changed")
 ASSERT(SIZEOF(.cpu_after_vi_features) == 0x8, "cpu_after_vi_features size changed")
@@ -1805,7 +1806,7 @@ ASSERT(SIZEOF(.gu_rotate_rpy) == 0x194, "gu_rotate_rpy size changed")
 ASSERT(SIZEOF(.cpu_after_gu_rotate_rpy) == 0xc, "cpu_after_gu_rotate_rpy size changed")
 ASSERT(SIZEOF(.time_get) == 0x84, "time_get size changed")
 ASSERT(SIZEOF(.cpu_after_time_get) == 0xc, "cpu_after_time_get size changed")
-ASSERT(SIZEOF(.compiler_arithmetic) == 0x2c0, "compiler_arithmetic size changed")
+ASSERT(SIZEOF(.compiler_integer64) == 0x2c0, "compiler_integer64 size changed")
 ASSERT(SIZEOF(.cpu_after_compiler_arithmetic) == 0x260, "cpu_after_compiler_arithmetic size changed")
 ASSERT(SIZEOF(.pfs_is_plug) == 0x36c, "pfs_is_plug size changed")
 ASSERT(SIZEOF(.cpu_after_pfs_is_plug) == 0x4, "cpu_after_pfs_is_plug size changed")
@@ -1854,12 +1855,12 @@ ASSERT(SIZEOF(.cpu_after_vi_event) == 0xa4, "cpu_after_vi_event size changed")
 ASSERT(SIZEOF(.sp_yield) == 0x20, "sp_yield size changed")
 ASSERT(SIZEOF(.sp_yielded) == 0x80, "sp_yielded size changed")
 ASSERT(SIZEOF(.sp_task) == 0x2ac, "sp_task size changed")
-ASSERT(SIZEOF(.audio_sp) == 0x40, "audio_sp size changed")
+ASSERT(SIZEOF(.sp_start) == 0x40, "sp_start size changed")
 ASSERT(SIZEOF(.cpu_after_audio_sp) == 0x4, "cpu_after_audio_sp size changed")
-ASSERT(SIZEOF(.audio_vi) == 0xd0, "audio_vi size changed")
+ASSERT(SIZEOF(.vi_framebuffer) == 0xd0, "vi_framebuffer size changed")
 ASSERT(SIZEOF(.audio_heap_init) == 0x34, "audio_heap_init size changed")
 ASSERT(SIZEOF(.cpu_after_audio_heap_init) == 0xc, "cpu_after_audio_heap_init size changed")
-ASSERT(SIZEOF(.audio_heap_alloc) == 0x54, "audio_heap_alloc size changed")
+ASSERT(SIZEOF(.audio_heap_allocate) == 0x54, "audio_heap_allocate size changed")
 ASSERT(SIZEOF(.cpu_after_audio_heap_alloc) == 0xbc, "cpu_after_audio_heap_alloc size changed")
 ASSERT(SIZEOF(.pi_start_dma) == 0x10c, "pi_start_dma size changed")
 ASSERT(SIZEOF(.cpu_after_pi_start_dma) == 0x4, "cpu_after_pi_start_dma size changed")
@@ -1890,7 +1891,8 @@ ASSERT(SIZEOF(.si_raw_read) == 0x50, "si_raw_read size changed")
 ASSERT(SIZEOF(.si_raw_write) == 0x4c, "si_raw_write size changed")
 ASSERT(SIZEOF(.cpu_after_si_raw_write) == 0xb14, "cpu_after_si_raw_write size changed")
 ASSERT(SIZEOF(.os_interrupt) == 0x40, "os_interrupt size changed")
-ASSERT(SIZEOF(.cpu_after_os_interrupt) == 0x230, "cpu_after_os_interrupt size changed")
+ASSERT(SIZEOF(.thread_dequeue) == 0x40, "thread_dequeue size changed")
+ASSERT(SIZEOF(.after_thread_dequeue) == 0x1f0, "after_thread_dequeue size changed")
 ASSERT(SIZEOF(.pi_access) == 0xc0, "pi_access size changed")
 ASSERT(SIZEOF(.thread_get_priority) == 0x18, "thread_get_priority size changed")
 ASSERT(SIZEOF(.cpu_after_thread_get_priority) == 0x8, "cpu_after_thread_get_priority size changed")

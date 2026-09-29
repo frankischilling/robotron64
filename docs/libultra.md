@@ -32,6 +32,12 @@ adds VI manager creation, mode/black/feature/event setters, and event-message
 registration. Those larger compiler-generated SDK routines remain separate
 from the handwritten assembly accounting here.
 
+The [SDK runtime recovery](sdk-runtime.md) now implements the complete thread
+creation/start, message send/receive/queue initialization, event registration,
+VI mode/black/feature/event/framebuffer services, and additional transfer and
+arithmetic routines in C. Their complete procedure and generated-data checks
+are recorded separately from these handwritten assembly functions.
+
 References inspected at SM64 revision
 `9921382a68bb0c865e5e45eb594d9c64db59b1af`:
 [disable interrupts](https://github.com/n64decomp/sm64/blob/9921382a68bb0c865e5e45eb594d9c64db59b1af/lib/asm/__osDisableInt.s),
