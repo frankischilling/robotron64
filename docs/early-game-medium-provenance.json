@@ -1,0 +1,63 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "recovery_catalog": ".local/runtime/.local/recovery71-audio-properties/extended-catalog.json",
+  "recovery_catalog_sha256": "c0da6d0dd236238999c174d3a66677f12d23d5886f72629c79cdcc24d5ff6e4b",
+  "shared_header": "include/early_game_medium.h",
+  "shared_header_sha256": "9488cfae751b8d72756c7a0be2d0db00c88e6e2f8410231c07b585d6c2241ad8",
+  "comparison_report": "build/worker4-early-game-medium/report.json",
+  "comparison_report_sha256": "afb9e7b925b83c763aff997e1a7374c11fcc500335eecc1a3024f0074030682b",
+  "integrated_rom_verification": "Matched all 8388608 bytes",
+  "integrated_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "owned_sections": [],
+  "external_reference_note": "No external game implementation was used for these functions; recovery used Robotron 64 target instructions, target callers, and local m2c output as a structural seed.",
+  "sources": [
+    {
+      "block": "early_actor_transition",
+      "source": "src/game/early_actor_transition.c",
+      "source_sha256": "4b89e962e1a8fdd27ea50245ab6a24c2acbea411c83f6623ae03263aba33a0de",
+      "vram_start": "0x80017C10",
+      "vram_end": "0x80017CDC",
+      "bytes": 204,
+      "functions": ["func_80017C10"],
+      "direct_callers": []
+    },
+    {
+      "block": "early_pointer_state",
+      "source": "src/game/early_pointer_state.c",
+      "source_sha256": "5b4173ceadee330d135a9cdd4d787eab720d11f0d56c1e5619e58e71716ff85f",
+      "vram_start": "0x8001A170",
+      "vram_end": "0x8001A1F0",
+      "bytes": 128,
+      "functions": ["func_8001A170"],
+      "direct_callers": ["0x8001A2C4"]
+    },
+    {
+      "block": "early_value_lookup",
+      "source": "src/game/early_value_lookup.c",
+      "source_sha256": "6298283acb341a980eea281192dd55ea799ec470141321eb11ece4e5d1bf85d4",
+      "vram_start": "0x8001BC38",
+      "vram_end": "0x8001BD24",
+      "bytes": 236,
+      "functions": ["func_8001BC38"],
+      "direct_callers": []
+    }
+  ],
+  "unmatched_neighbors": [
+    {
+      "function": "func_8001ADA0",
+      "vram_start": "0x8001ADA0",
+      "vram_end": "0x8001AEEC",
+      "target_bytes": 332,
+      "best_differing_words": 8,
+      "status": "exact extent and recovered state behavior; residual is confined to load/store scheduling in the default/mode-one path"
+    },
+    {
+      "function": "func_8001BF48",
+      "vram_start": "0x8001BF48",
+      "vram_end": "0x8001BFB0",
+      "target_bytes": 104,
+      "status": "backing short-array layout is not yet represented by a valid C object model; scalar pointer-arithmetic probe is rejected"
+    }
+  ]
+}

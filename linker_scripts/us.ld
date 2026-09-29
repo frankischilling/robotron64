@@ -96,8 +96,14 @@ SECTIONS
     .cpu_after_early_six_arg_forward 0x80016950 : AT(0x17550) { build/us/fallback.o(.rom_cpu_after_early_six_arg_forward) }
     .early_callback_false 0x80017364 : AT(0x17F64) SUBALIGN(4) { build/us/early_callback_false.o(.text) }
     .cpu_after_early_callback_false 0x8001737C : AT(0x17F7C) { build/us/fallback.o(.rom_cpu_after_early_callback_false) }
+    .early_actor_transition 0x80017C10 : AT(0x18810) SUBALIGN(4) { build/us/early_actor_transition.o(.text) }
+    .cpu_after_early_actor_transition 0x80017CDC : AT(0x188DC) { build/us/fallback.o(.rom_cpu_after_early_actor_transition) }
+    .early_pointer_state 0x8001A170 : AT(0x1AD70) SUBALIGN(4) { build/us/early_pointer_state.o(.text) }
+    .cpu_after_early_pointer_state 0x8001A1F0 : AT(0x1ADF0) { build/us/fallback.o(.rom_cpu_after_early_pointer_state) }
     .early_simple_forward 0x8001B448 : AT(0x1C048) SUBALIGN(4) { build/us/early_simple_forward.o(.text) }
     .cpu_after_early_simple_forward 0x8001B468 : AT(0x1C068) { build/us/fallback.o(.rom_cpu_after_early_simple_forward) }
+    .early_value_lookup 0x8001BC38 : AT(0x1C838) SUBALIGN(4) { build/us/early_value_lookup.o(.text) }
+    .cpu_after_early_value_lookup 0x8001BD24 : AT(0x1C924) { build/us/fallback.o(.rom_cpu_after_early_value_lookup) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
     .script_service_files 0x8001C790 : AT(0x1D390) SUBALIGN(4) { build/us/script_service_files.o(.text) }
     .script_service_cache_access 0x8001C8C4 : AT(0x1D4C4) SUBALIGN(4) { build/us/script_service_cache_access.o(.text) }
@@ -1014,9 +1020,15 @@ ASSERT(SIZEOF(.cpu_after_early_actor_mode0) == 0x5f8, "cpu_after_early_actor_mod
 ASSERT(SIZEOF(.early_six_arg_forward) == 0x3c, "early_six_arg_forward size changed")
 ASSERT(SIZEOF(.cpu_after_early_six_arg_forward) == 0xa14, "cpu_after_early_six_arg_forward size changed")
 ASSERT(SIZEOF(.early_callback_false) == 0x18, "early_callback_false size changed")
-ASSERT(SIZEOF(.cpu_after_early_callback_false) == 0x40cc, "cpu_after_early_callback_false size changed")
+ASSERT(SIZEOF(.cpu_after_early_callback_false) == 0x894, "cpu_after_early_callback_false size changed")
+ASSERT(SIZEOF(.early_actor_transition) == 0xcc, "early_actor_transition size changed")
+ASSERT(SIZEOF(.cpu_after_early_actor_transition) == 0x2494, "cpu_after_early_actor_transition size changed")
+ASSERT(SIZEOF(.early_pointer_state) == 0x80, "early_pointer_state size changed")
+ASSERT(SIZEOF(.cpu_after_early_pointer_state) == 0x1258, "cpu_after_early_pointer_state size changed")
 ASSERT(SIZEOF(.early_simple_forward) == 0x20, "early_simple_forward size changed")
-ASSERT(SIZEOF(.cpu_after_early_simple_forward) == 0x12d8, "cpu_after_early_simple_forward size changed")
+ASSERT(SIZEOF(.cpu_after_early_simple_forward) == 0x7d0, "cpu_after_early_simple_forward size changed")
+ASSERT(SIZEOF(.early_value_lookup) == 0xec, "early_value_lookup size changed")
+ASSERT(SIZEOF(.cpu_after_early_value_lookup) == 0xa1c, "cpu_after_early_value_lookup size changed")
 ASSERT(SIZEOF(.script_service_cache_reset) == 0x50, "script_service_cache_reset size changed")
 ASSERT(SIZEOF(.script_service_files) == 0x134, "script_service_files size changed")
 ASSERT(SIZEOF(.script_service_cache_access) == 0x284, "script_service_cache_access size changed")

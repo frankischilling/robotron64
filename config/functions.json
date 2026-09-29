@@ -848,6 +848,28 @@
     "evidence": "docs/early-game-helpers.md"
   },
   {
+    "name": "func_80017C10",
+    "rom": 100368,
+    "vram": 2147580944,
+    "size": 204,
+    "source": "src/game/early_actor_transition.c",
+    "object": "build/us/early_actor_transition.o",
+    "section": ".early_actor_transition",
+    "section_vram": 2147580944,
+    "evidence": "docs/early-game-medium.md"
+  },
+  {
+    "name": "func_8001A170",
+    "rom": 109936,
+    "vram": 2147590512,
+    "size": 128,
+    "source": "src/game/early_pointer_state.c",
+    "object": "build/us/early_pointer_state.o",
+    "section": ".early_pointer_state",
+    "section_vram": 2147590512,
+    "evidence": "docs/early-game-medium.md"
+  },
+  {
     "name": "func_8001B448",
     "rom": 114760,
     "vram": 2147595336,
@@ -857,6 +879,17 @@
     "section": ".early_simple_forward",
     "section_vram": 2147595336,
     "evidence": "docs/early-game-helpers.md"
+  },
+  {
+    "name": "func_8001BC38",
+    "rom": 116792,
+    "vram": 2147597368,
+    "size": 236,
+    "source": "src/game/early_value_lookup.c",
+    "object": "build/us/early_value_lookup.o",
+    "section": ".early_value_lookup",
+    "section_vram": 2147597368,
+    "evidence": "docs/early-game-medium.md"
   },
   {
     "name": "func_8001C740",
