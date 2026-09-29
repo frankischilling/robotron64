@@ -1,12 +1,11 @@
 # Recovery checkpoint
 
-The source checkpoint contains 949 matching C functions covering 125,384 bytes.
-It also contains the 56-byte assembly entry, 1,352 bytes of source-owned
-initialized data, and 4,179 bytes of source-owned BSS. The published checkpoint
-`9efb6ef` contained 927 C functions covering 121,048 bytes. The current source
-adds twenty-two complete functions, 4,336 C bytes, and 89 BSS bytes to that checkpoint.
-The preceding recovery from `84e19bf595301bbcc6f4cef99d3267f8ae510afd` contributed
-274 complete functions, 35,020 C bytes, 376 initialized bytes, and 4,090 BSS bytes.
+The source checkpoint contains 1,010 matching C functions covering 132,064 bytes.
+It also contains eight assembly functions covering 388 live bytes, 1,356 bytes
+of source-owned initialized data, and 4,187 bytes of source-owned BSS. The
+previously published checkpoint `9efb6ef` contained 927 C functions covering
+121,048 bytes. The current source adds 83 complete C functions, 11,016 C bytes,
+four initialized bytes, and 97 BSS bytes to that checkpoint.
 
 The complete ROM still uses extracted fallback ranges. The game is not fully
 decompiled, and neither the total executable size nor the complete function
@@ -32,7 +31,7 @@ and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. The full build
 passes all 108 tooling tests and verifies all 8,388,608 ROM bytes. Linked
 progress verifies the source inputs and complete procedure extents for all
-949 counted C functions. [Bank layout](audio-bank-layout.md),
+1,010 counted C functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
 
@@ -49,6 +48,19 @@ updates, vector clearing, global reset, and guarded actor service. The resource
 layout checks its complete 0x68-byte size and uses an integer declaration for
 the backing tuning value. Complete comparisons passed for all 23 source units
 affected by those additions and their shared resource header.
+
+Further early-game parser, name-mask, and actor-pair balancing routines are
+included in this checkpoint. The SDK recovery adds 50 complete C functions
+and 5,096 code bytes in 35 independently compared units. It covers thread
+creation and startup, blocking messages, event routing, video context updates,
+PI/SI/SP transfers, task yielding, aligned audio allocation, integer arithmetic,
+and the random-number generator. The generator owns its four-byte initialized
+seed. [SDK runtime](sdk-runtime.md) records the behavior, actual layouts,
+compiler profiles, and complete code/data proof identities.
+
+The eight assembly procedures comprise the startup entry, two audio interrupt
+services, interrupt disable/restore, TLB probing, Count reading, and Compare
+writing. Their complete extents are accounted separately from C source.
 
 Shared audio declarations now describe one consistent set of records and
 backend command interfaces. Early animation wrappers use the canonical actor
@@ -74,9 +86,9 @@ python3 tools/compare_assembly.py
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 516 complete source units. Startup/scheduler
+The runtime registry contains 562 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
-entry and its alignment. Linked progress independently checks every counted
+eight procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
 and generated data or private storage.
 
@@ -103,7 +115,8 @@ frame setup, text replacement, and further platform functions are unfinished.
 Their complete candidate comparisons and source investigations remain available
 locally, but their bytes are excluded from this checkpoint's source counts.
 
-SDK implementations researched from references remain a separate scope when
-their redistribution basis has not been established. No commercial ROM,
-extracted asset, object file, compiler executable, or generated disassembly is
-part of the public source checkpoint.
+Reference-adapted SDK experiments remain separate local research. The
+target-derived SDK runtime described above is part of this checkpoint; the
+remaining SDK routines still require recovery. No commercial ROM, extracted
+asset, object file, compiler executable, or generated disassembly is part of
+the public source checkpoint.

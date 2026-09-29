@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 949 matching C functions covering 125,384 bytes, plus a 56-byte reconstructed assembly entry, 1,352 bytes of source-owned initialized data, and 4,179 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,010 matching C functions covering 132,064 bytes, eight assembly functions covering 388 bytes, 1,356 bytes of source-owned initialized data, and 4,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -38,7 +38,7 @@ make verify
 make progress
 ```
 
-Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The recovered game sources use verified O2/MIPS I profiles, including the documented R4300 multiply option for pitch scaling; a project-wide original compiler identification remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
+Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallback regions locally. The recovered game sources use verified O2/MIPS I profiles, including the documented R4300 multiply option for pitch scaling. The recovered SDK routines use their verified O1/O2 MIPS II profiles, with MIPS III for the integer helpers; a project-wide original compiler identification remains under investigation. The build links compiled source with those fallbacks into `build/us/robotron64.z64`. Verification compares every byte with the target. `make clean` removes generated build files; `make test` runs tooling tests without a ROM.
 
 Progress is generated in `build/us/progress.json` from linked-byte comparisons, actual ELF section addresses, input-object symbols, and recorded source/header/object hashes. Every counted function belongs to a source file present in this checkout. The total executable size and function count are not established, so a whole-game percentage is not reported. See [matching evidence](docs/matching.md) and [toolchain investigation](docs/toolchain.md).
 
@@ -78,7 +78,7 @@ motion, Controller Pak menus, framebuffer drawing, and graphics helpers.
 The [checkpoint evidence](docs/recovery-checkpoint.md) records the combined scope
 and its reproduction commands.
 
-SDK implementations adapted directly from reference projects remain in local research. Their checkouts do not provide a redistribution license covering those implementations, so this public checkpoint uses extracted SDK fallback and excludes those functions from its source counts. SDK research notes identify that separate scope. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
+The [SDK runtime recovery](docs/sdk-runtime.md) adds complete target-derived thread and message services, direct transfers, task yielding, video contexts, heap allocation, integer arithmetic, and the random-number generator. Its 50 functions and initialized seed are included in the source counts. Reference-adapted SDK experiments remain separate local research; remaining SDK fallback code is excluded from source progress. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
 
 ## Development
 
@@ -112,8 +112,9 @@ Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks i
 
 `python3 tools/compare_startup.py` independently checks startup and scheduler
 creation/dispatch. `python3 tools/compare_assembly.py` separately reassembles
-the entry routine, verifies its live symbol extent, and compares its full
-linked text and alignment bytes with the target.
+the entry, audio interrupt services, and recovered SDK assembly routines,
+verifies their live symbol extents, and compares their full linked text and
+alignment bytes with the target.
 
 `tools/audit_publication.py --files <file-inventory.json>` checks a proposed
 public checkpoint after those comparisons. The input is a JSON array of
