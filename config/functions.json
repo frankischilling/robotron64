@@ -6040,6 +6040,50 @@
     "evidence": "docs/graphics-tasks.md"
   },
   {
+    "name": "func_80049DB0",
+    "rom": 305584,
+    "vram": 2147786160,
+    "size": 40,
+    "source": "src/game/graphics_state_helpers.c",
+    "object": "build/us/graphics_state_helpers.o",
+    "section": ".graphics_state_helpers",
+    "section_vram": 2147786160,
+    "evidence": "docs/graphics-runtime-state.md"
+  },
+  {
+    "name": "func_80049DD8",
+    "rom": 305624,
+    "vram": 2147786200,
+    "size": 28,
+    "source": "src/game/graphics_state_helpers.c",
+    "object": "build/us/graphics_state_helpers.o",
+    "section": ".graphics_state_helpers",
+    "section_vram": 2147786160,
+    "evidence": "docs/graphics-runtime-state.md"
+  },
+  {
+    "name": "func_80049DF4",
+    "rom": 305652,
+    "vram": 2147786228,
+    "size": 28,
+    "source": "src/game/graphics_state_helpers.c",
+    "object": "build/us/graphics_state_helpers.o",
+    "section": ".graphics_state_helpers",
+    "section_vram": 2147786160,
+    "evidence": "docs/graphics-runtime-state.md"
+  },
+  {
+    "name": "func_80049E10",
+    "rom": 305680,
+    "vram": 2147786256,
+    "size": 44,
+    "source": "src/game/graphics_state_helpers.c",
+    "object": "build/us/graphics_state_helpers.o",
+    "section": ".graphics_state_helpers",
+    "section_vram": 2147786160,
+    "evidence": "docs/graphics-runtime-state.md"
+  },
+  {
     "name": "func_8004C090",
     "rom": 314512,
     "vram": 2147795088,

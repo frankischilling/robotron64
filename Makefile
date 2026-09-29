@@ -2203,6 +2203,12 @@ build/us/save_menu_legacy_pages_tail.o: src/game/save_menu_legacy_pages_tail.c i
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_pages_tail.raw.o $@ .text 0x84
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
+build/us/graphics_state_helpers.o: src/game/graphics_state_helpers.c include/frame.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_state_helpers.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/graphics_state_helpers.raw.o $@ .text 0x8c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
 build/us/save_menu_nav_refresh.o: src/game/save_menu_nav_refresh.c include/actor.h include/game_memory.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/save_menu_nav_internal.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_nav_refresh.raw.o $<
@@ -2908,7 +2914,8 @@ RUNTIME_OBJECTS += \
     build/us/graphics_pool_initialize.o \
     build/us/graphics_frame_reset.o \
     build/us/graphics_mode_dispatch.o \
-    build/us/graphics_environment.o
+    build/us/graphics_environment.o \
+    build/us/graphics_state_helpers.o
 
 RUNTIME_OBJECTS += \
     build/us/save_level_lookup.o \

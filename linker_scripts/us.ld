@@ -414,7 +414,9 @@ SECTIONS
     .frame_timing 0x800495BC : AT(0x4A1BC) SUBALIGN(4) { build/us/frame_timing.o(.text) }
     .cpu_after_frame_timing 0x800496E0 : AT(0x4A2E0) { build/us/fallback.o(.rom_cpu_after_frame_timing) }
     .graphics_ucode 0x800498E0 : AT(0x4A4E0) SUBALIGN(4) { build/us/graphics_ucode.o(.text) }
-    .cpu_after_graphics_ucode 0x800498EC : AT(0x4A4EC) { build/us/fallback.o(.rom_cpu_after_graphics_ucode) }
+    .cpu_before_graphics_state_helpers 0x800498EC : AT(0x4A4EC) { build/us/fallback.o(.rom_cpu_before_graphics_state_helpers) }
+    .graphics_state_helpers 0x80049DB0 : AT(0x4A9B0) SUBALIGN(4) { build/us/graphics_state_helpers.o(.text) }
+    .cpu_after_graphics_state_helpers 0x80049E3C : AT(0x4AA3C) { build/us/fallback.o(.rom_cpu_after_graphics_state_helpers) }
     .controller_legacy_initialize 0x8004C090 : AT(0x4CC90) SUBALIGN(4) { build/us/controller_legacy_initialize.o(.text) }
     .controller_legacy_scan 0x8004C0D4 : AT(0x4CCD4) SUBALIGN(4) { build/us/controller_legacy_scan.o(.text) }
     .controller_legacy_present 0x8004C1C8 : AT(0x4CDC8) SUBALIGN(4) { build/us/controller_legacy_present.o(.text) }
@@ -1291,7 +1293,9 @@ ASSERT(SIZEOF(.frame_matrices) == 0xa8, "frame matrix commands size changed")
 ASSERT(SIZEOF(.frame_timing) == 0x124, "frame timing size changed")
 ASSERT(SIZEOF(.cpu_after_frame_timing) == 0x200, "CPU fallback after frame timing size changed")
 ASSERT(SIZEOF(.graphics_ucode) == 0xc, "graphics microcode selector size changed")
-ASSERT(SIZEOF(.cpu_after_graphics_ucode) == 0x27a4, "cpu_after_graphics_ucode size changed")
+ASSERT(SIZEOF(.cpu_before_graphics_state_helpers) == 0x4c4, "cpu_before_graphics_state_helpers size changed")
+ASSERT(SIZEOF(.graphics_state_helpers) == 0x8c, "graphics_state_helpers size changed")
+ASSERT(SIZEOF(.cpu_after_graphics_state_helpers) == 0x2254, "cpu_after_graphics_state_helpers size changed")
 ASSERT(SIZEOF(.controller_legacy_initialize) == 0x44, "controller_legacy_initialize size changed")
 ASSERT(SIZEOF(.controller_legacy_scan) == 0xf4, "controller_legacy_scan size changed")
 ASSERT(SIZEOF(.controller_legacy_present) == 0x18, "controller_legacy_present size changed")
