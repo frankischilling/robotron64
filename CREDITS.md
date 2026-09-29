@@ -142,6 +142,12 @@ rate approximation and historical nested assignment expression. Robotron's
 complete instruction stream and data sections determine the accepted source;
 all seven procedures and both emitted tables/constants sections are verified.
 
+The [effect construction](docs/sdk-audio-effect-construction.md) also consulted
+the pinned online libreultra `src/audio/drvrNew.c` for preset field meanings,
+delay units and low-pass coefficient construction. Robotron's instructions
+and initialized data verify the reconstructed allocation flow, record layouts,
+mixed-precision arithmetic and complete preset arrays.
+
 The [reference study](docs/reference-study.md) records concrete uses. Further
 source-specific references are in the [SDK arithmetic](docs/sdk-arithmetic.md),
 [audio effects](docs/sdk-audio-effects.md), [audio filters](docs/sdk-audio-filters.md),

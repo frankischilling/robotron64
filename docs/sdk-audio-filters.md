@@ -4,7 +4,8 @@
 > below remain in the private research worktree. Separate target-derived
 > reconstructions are documented in [filter construction](sdk-audio-filter-construction.md)
 > [audio output](sdk-audio-output.md), the [wavetable decoder](sdk-audio-decoder.md),
-> and the [envelope mixer](sdk-audio-envelope.md).
+> the [envelope mixer](sdk-audio-envelope.md), and
+> [effect construction](sdk-audio-effect-construction.md).
 > References to integration and
 > comparison artifacts in this historical report describe the research build.
 

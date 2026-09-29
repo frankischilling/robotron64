@@ -617,6 +617,9 @@ MATCHING_BLOCKS = (
     ("audio_save_filter", "src/sdk/audio_save_filter.c", 0x8006DB30, 0x8006DBF0),
     ("audio_decoder", "src/sdk/audio_decoder.c", 0x8006BF70, 0x8006CABC),
     ("audio_envelope", "src/sdk/audio_envelope.c", 0x8006CDC0, 0x8006DA14),
+    ("audio_low_pass", "src/sdk/audio_low_pass.c", 0x8006B8A0, 0x8006B940),
+    ("audio_effect_create", "src/sdk/audio_effect_create.c", 0x8006B940, 0x8006BD7C),
+    ("audio_effect_allocate", "src/sdk/audio_effect_allocate.c", 0x8006BD80, 0x8006BE18),
 )
 
 CANDIDATE_BLOCKS = (

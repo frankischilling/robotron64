@@ -77,6 +77,25 @@
   },
   {
     "input_section": ".data",
+    "vram": 2148069984,
+    "rom": 589408,
+    "size": 400,
+    "symbols": {},
+    "section": ".audio_effect_create_data",
+    "static_symbols": {
+      "smallRoomParameters": 0,
+      "bigRoomParameters": 104,
+      "echoParameters": 240,
+      "chorusParameters": 280,
+      "flangeParameters": 320,
+      "nullParameters": 360
+    },
+    "source": "src/sdk/audio_effect_create.c",
+    "object": "build/us/audio_effect_create.o",
+    "evidence": "docs/sdk-audio-effect-construction.md"
+  },
+  {
+    "input_section": ".data",
     "vram": 2148070384,
     "rom": 589808,
     "size": 320,
@@ -295,6 +314,18 @@
     "source": "src/sdk/audio_synthesizer.c",
     "object": "build/us/audio_synthesizer.o",
     "evidence": "docs/sdk-synthesizer-runtime.md"
+  },
+  {
+    "input_section": ".rodata",
+    "vram": 2148097760,
+    "rom": 617184,
+    "size": 32,
+    "symbols": {},
+    "section": ".audio_effect_create_rodata",
+    "static_symbols": {},
+    "source": "src/sdk/audio_effect_create.c",
+    "object": "build/us/audio_effect_create.o",
+    "evidence": "docs/sdk-audio-effect-construction.md"
   },
   {
     "input_section": ".rodata",

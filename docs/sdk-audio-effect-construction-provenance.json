@@ -1,0 +1,200 @@
+{
+  "note": "Retained complete source comparison. Reproduce current evidence with the registered runtime comparison and full-ROM build.",
+  "retained_integration_ledger_sha256": "9543e07375975b6ea824b09c5e1679654bb38e60e1c0af6b65219df2cb946c4e",
+  "units": [
+    {
+      "source": "src/sdk/audio_low_pass.c",
+      "source_sha256": "b61f72d98826a5f0b368e77f0c69a18d0999b08ddcb6c73b1c0cde75ed1f2605",
+      "headers_sha256": {
+        "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+        "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+        "include/audio_io.h": "18f39458fcbb5f841687450d76829a2e593b6debef131cdf6bd685775b23de22",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+        "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+        "include/sdk_audio_effect.h": "255cd3751e4df76c5adca95e4d49f29bcd49fb4666057fe07b6233749dd8f5a3",
+        "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a"
+      },
+      "compiler_profile": {
+        "name": "sdk-o3-mips2-r4300-mul",
+        "version": "5.3",
+        "flags": [
+          "-O3",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32",
+          "-Wab,-r4300_mul"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 160,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_8006B8A0",
+          "start": 2147924128,
+          "size": 160
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/audio_low_pass.c",
+      "candidate_source_sha256": "b1283e2822861b3309f53fc48ec9288222cd12136773c4a100418bd5f643996a",
+      "candidate_report": "build/sdk-reconstruction/audio_low_pass__sdk_o3_mips2_r4300_mul__low-pass-target-v2/report.json",
+      "candidate_report_sha256": "410cb8dc6d2224924ff90fdd53a819b0766a97b7efba00245e6864bbd7f47a61",
+      "linked_code_sha256": "806a712b699bb14ebb3ebbc909fb448f18c649b0937278d1a10d287ce8a1e81f"
+    },
+    {
+      "source": "src/sdk/audio_effect_create.c",
+      "source_sha256": "9c1fa16dba7f110c45d4c20cb5201079044de0d832e06c81fcb0dbc9dbd2d300",
+      "headers_sha256": {
+        "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+        "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+        "include/audio_io.h": "18f39458fcbb5f841687450d76829a2e593b6debef131cdf6bd685775b23de22",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+        "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+        "include/sdk_audio_effect.h": "255cd3751e4df76c5adca95e4d49f29bcd49fb4666057fe07b6233749dd8f5a3",
+        "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a"
+      },
+      "compiler_profile": {
+        "name": "sdk-o3-mips2-r4300-mul",
+        "version": "5.3",
+        "flags": [
+          "-O3",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32",
+          "-Wab,-r4300_mul"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 1084,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_8006B940",
+          "start": 2147924288,
+          "size": 1084
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".data",
+          "vram": 2148069984,
+          "rom": 589408,
+          "size": 400,
+          "symbols": {},
+          "section": ".audio_effect_create_data",
+          "static_symbols": {
+            "smallRoomParameters": 0,
+            "bigRoomParameters": 104,
+            "echoParameters": 240,
+            "chorusParameters": 280,
+            "flangeParameters": 320,
+            "nullParameters": 360
+          },
+          "source": "src/sdk/audio_effect_create.c",
+          "object": "build/us/audio_effect_create.o",
+          "evidence": "docs/sdk-audio-effect-construction.md"
+        },
+        {
+          "input_section": ".rodata",
+          "vram": 2148097760,
+          "rom": 617184,
+          "size": 32,
+          "symbols": {},
+          "section": ".audio_effect_create_rodata",
+          "static_symbols": {},
+          "source": "src/sdk/audio_effect_create.c",
+          "object": "build/us/audio_effect_create.o",
+          "evidence": "docs/sdk-audio-effect-construction.md"
+        }
+      ],
+      "candidate_source": ".local/sdk-target/audio_effect_create.c",
+      "candidate_source_sha256": "4c548b1dc2e7a43a195954bc34857a5907d594a447a5b28de32840aaee9193ab",
+      "candidate_report": "build/sdk-reconstruction/audio_effect_create__sdk_o3_mips2_r4300_mul__effect-target-v1/report.json",
+      "candidate_report_sha256": "833f98d97e98df4821e06be6b77cd0537e06e0a686bb3b87ace2959841f738cf",
+      "linked_code_sha256": "ce9ba454acbfff7619f2033e98abb8985877df34ddec13c9dd4f5ac38769a929"
+    },
+    {
+      "source": "src/sdk/audio_effect_allocate.c",
+      "source_sha256": "94812fe68b77ef804afe6a112dd3aa9f878bfd5e3d4e84d18fb9956a3f878ab7",
+      "headers_sha256": {
+        "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+        "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+        "include/audio_io.h": "18f39458fcbb5f841687450d76829a2e593b6debef131cdf6bd685775b23de22",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+        "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+        "include/sdk_audio_effect.h": "255cd3751e4df76c5adca95e4d49f29bcd49fb4666057fe07b6233749dd8f5a3",
+        "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a"
+      },
+      "compiler_profile": {
+        "name": "sdk-o3-mips2-r4300-mul",
+        "version": "5.3",
+        "flags": [
+          "-O3",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32",
+          "-Wab,-r4300_mul"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 152,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_8006BD80",
+          "start": 2147925376,
+          "size": 152
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/audio_effect_allocate.c",
+      "candidate_source_sha256": "e41337b7bea561797ae6ecc11275ffac328405e31dfd1f2e0d6de16973da635e",
+      "candidate_report": "build/sdk-reconstruction/audio_effect_allocate__sdk_o3_mips2_r4300_mul__effect-target-v1/report.json",
+      "candidate_report_sha256": "6130091fa3aa156885ea8db79113435ab3b1848851ff72019f9c3b4c4df2143c",
+      "linked_code_sha256": "7677801ae4b3350b33263d0b03489b969c282d01a7abe7e3782c35bdea9176e4"
+    }
+  ],
+  "canonical_comparison": {
+    "report": "build/registered-sdk-effect-create/report.json",
+    "report_sha256": "72828c973e680a4a1ef266c860f29be4e78939583badca80d19cd94e20aed119",
+    "complete_units": 3,
+    "matches": true
+  }
+}

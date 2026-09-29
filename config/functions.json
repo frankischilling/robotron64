@@ -11757,6 +11757,39 @@
     "evidence": "docs/sdk-audio-filter-construction.md"
   },
   {
+    "name": "func_8006B8A0",
+    "rom": 443552,
+    "vram": 2147924128,
+    "size": 160,
+    "source": "src/sdk/audio_low_pass.c",
+    "object": "build/us/audio_low_pass.o",
+    "section": ".audio_low_pass",
+    "section_vram": 2147924128,
+    "evidence": "docs/sdk-audio-effect-construction.md"
+  },
+  {
+    "name": "func_8006B940",
+    "rom": 443712,
+    "vram": 2147924288,
+    "size": 1084,
+    "source": "src/sdk/audio_effect_create.c",
+    "object": "build/us/audio_effect_create.o",
+    "section": ".audio_effect_create",
+    "section_vram": 2147924288,
+    "evidence": "docs/sdk-audio-effect-construction.md"
+  },
+  {
+    "name": "func_8006BD80",
+    "rom": 444800,
+    "vram": 2147925376,
+    "size": 152,
+    "source": "src/sdk/audio_effect_allocate.c",
+    "object": "build/us/audio_effect_allocate.o",
+    "section": ".audio_effect_allocate",
+    "section_vram": 2147925376,
+    "evidence": "docs/sdk-audio-effect-construction.md"
+  },
+  {
     "name": "func_8006BE20",
     "rom": 444960,
     "vram": 2147925536,
