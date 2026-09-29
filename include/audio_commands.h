@@ -6,7 +6,7 @@
 
 extern AudioContext *D_801902EC;
 
-void func_8005396C(AudioRecordSlot *slot, int index, int value,
+int func_8005396C(AudioRecordSlot *slot, int index, int value,
                    int flags, int argument);
 void func_80053C70(int index, int argument);
 int func_80053CC0(int index);

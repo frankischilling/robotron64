@@ -2,7 +2,8 @@
 #define ROBOTRON_AUDIO_PROPERTIES_INTERNAL_H
 
 typedef struct AudioRecordSlot {
-    unsigned int unknown00[3];
+    short voiceIndexCount;
+    unsigned char unknown02[10];
     void *value;
 } AudioRecordSlot;
 
@@ -25,7 +26,8 @@ typedef struct AudioInstance {
     unsigned char unknown06[2];
     int ownerTag;
     unsigned char *voiceIndices;
-    unsigned int unknown10[2];
+    unsigned char *gates;
+    unsigned char *iterations;
 } AudioInstance;
 
 typedef struct AudioVoice {
@@ -37,8 +39,8 @@ typedef struct AudioVoice {
     unsigned int flag04 : 1;
     unsigned int commandRedirect : 1;
     unsigned int unknownFlags : 1;
-    unsigned char unknown01;
-    unsigned char unknown02;
+    unsigned char index;
+    unsigned char instanceIndex;
     unsigned char category;
     short property04;
     short property06;
@@ -52,7 +54,7 @@ typedef struct AudioVoice {
     short unknown12;
     short property14;
     short property16;
-    short unknown18;
+    short labelCount;
     short record1A;
     int property1C;
     int unknown20;
@@ -61,23 +63,34 @@ typedef struct AudioVoice {
     int position2C;
     unsigned char *data;
     unsigned char *command;
-    int value38;
-    unsigned char unknown3C[0x10];
+    unsigned int *labelOffsets;
+    unsigned int unknown3C;
+    unsigned char **returnStack;
+    unsigned int unknown44[2];
     void *record4C;
 } AudioVoice;
+
+typedef void (*AudioEventCallback)(unsigned char code, short value);
 
 typedef struct AudioCallbackRecord {
     unsigned char active;
     unsigned char code;
-    unsigned char unknown02;
-    unsigned char unknown03;
-    int value;
+    short value;
+    AudioEventCallback callback;
 } AudioCallbackRecord;
+
+typedef struct AudioStatusRecord {
+    unsigned int active : 1;
+    unsigned int flag40 : 1;
+    unsigned int unknownFlags : 30;
+    unsigned char unknown04[16];
+} AudioStatusRecord;
 
 typedef struct AudioContext {
     unsigned int unknown00;
     unsigned char activeCount;
-    unsigned char unknown05[4];
+    unsigned char activeVoiceCount;
+    unsigned char unknown06[3];
     unsigned char callbackCount;
     unsigned char voiceIndexCount;
     unsigned char unknown0B;
@@ -86,26 +99,20 @@ typedef struct AudioContext {
     unsigned int unknown14;
     AudioInstance *instances;
     AudioVoice *voices;
+    AudioStatusRecord *statusRecords;
 } AudioContext;
+
+typedef void (*AudioVoiceCommand)(AudioVoice *voice);
 
 typedef struct AudioOperations {
     void *unknown00;
     void (*release)(AudioContext *context);
-    void *unknown08[3];
+    AudioVoiceCommand frameUpdate;
+    void *unknown0C[2];
     void (*stopVoice)(AudioVoice *voice);
     void (*pauseVoice)(AudioVoice *voice);
-    void (*command1C)(AudioVoice *voice);
-    void (*command20)(AudioVoice *voice);
-    void (*command24)(AudioVoice *voice);
-    void (*command28)(AudioVoice *voice);
-    void (*command2C)(AudioVoice *voice);
-    void (*updateVoice)(AudioVoice *voice);
-    void (*command34)(AudioVoice *voice);
-    void (*command38)(AudioVoice *voice);
-    void (*command3C)(AudioVoice *voice);
-    void (*command40)(AudioVoice *voice);
-    void (*command44)(AudioVoice *voice);
-    void (*command48)(AudioVoice *voice);
+    /* Encoded voice commands 7 through 18, indexed by command minus 7. */
+    AudioVoiceCommand commands[12];
 } AudioOperations;
 
 typedef struct AudioProperties {
@@ -125,6 +132,9 @@ typedef char AudioInstanceMustBe24Bytes[sizeof(AudioInstance) == 0x18 ? 1 : -1];
 typedef char AudioVoiceMustBe80Bytes[sizeof(AudioVoice) == 0x50 ? 1 : -1];
 typedef char AudioPropertiesMustBe20Bytes[sizeof(AudioProperties) == 0x14 ? 1 : -1];
 typedef char AudioCallbackRecordMustBe8Bytes[sizeof(AudioCallbackRecord) == 8 ? 1 : -1];
+typedef char AudioRecordSlotMustBe16Bytes[sizeof(AudioRecordSlot) == 16 ? 1 : -1];
+typedef char AudioStatusRecordMustBe20Bytes[sizeof(AudioStatusRecord) == 20 ? 1 : -1];
+typedef char AudioOperationsMustBe76Bytes[sizeof(AudioOperations) == 76 ? 1 : -1];
 
 extern AudioOperations *D_8008D800[];
 extern unsigned int D_8008D844;

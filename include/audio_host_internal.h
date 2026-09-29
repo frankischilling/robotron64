@@ -18,7 +18,7 @@ extern void (*D_80190330)(void);
 extern int (*D_80190334)(unsigned char, int, int, int, int);
 
 void func_80058938(void *allocation);
-void func_80059438(unsigned int *ticks, unsigned int *elapsed);
+void func_80059438(void);
 void func_8005A9AC(void);
 
 #endif

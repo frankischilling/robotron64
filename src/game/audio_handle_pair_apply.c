@@ -14,7 +14,7 @@ void func_80057D68(int handle, int slot, unsigned char first, unsigned char seco
             voice->command[0] = 17;
             voice->command[1] = first;
             voice->command[2] = second;
-            D_8008D800[voice->backend]->command44(voice);
+            D_8008D800[voice->backend]->commands[10](voice);
             voice->command = savedCommand;
         }
         func_8005899C();

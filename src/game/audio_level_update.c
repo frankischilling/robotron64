@@ -36,7 +36,7 @@ void func_800547FC(unsigned char value)
                                 command[0] = 12;
                                 voice->command[1] = voice->parameter0D;
                                 voice->parameter0D = 0;
-                                D_8008D800[voice->backend]->updateVoice(voice);
+                                D_8008D800[voice->backend]->commands[5](voice);
                                 voice->command = previous;
                             }
                             if (--voices == 0) {

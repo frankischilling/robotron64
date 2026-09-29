@@ -5,7 +5,7 @@ void func_800576E0(AudioVoice *voice, int value)
     voice->command[0] = 7;
     voice->command[1] = value & 255;
     voice->command[2] = value >> 8;
-    D_8008D800[voice->backend]->command1C(voice);
+    D_8008D800[voice->backend]->commands[0](voice);
 }
 
 void func_80057744(AudioVoice *voice, int value)
@@ -13,19 +13,19 @@ void func_80057744(AudioVoice *voice, int value)
     voice->command[0] = 9;
     voice->command[1] = value & 255;
     voice->command[2] = value >> 8;
-    D_8008D800[voice->backend]->command24(voice);
+    D_8008D800[voice->backend]->commands[2](voice);
 }
 
 void func_800577A8(AudioVoice *voice, int value)
 {
     voice->command[0] = 12;
     voice->command[1] = value;
-    D_8008D800[voice->backend]->updateVoice(voice);
+    D_8008D800[voice->backend]->commands[5](voice);
 }
 
 void func_80057800(AudioVoice *voice, int value)
 {
     voice->command[0] = 13;
     voice->command[1] = value;
-    D_8008D800[voice->backend]->command34(voice);
+    D_8008D800[voice->backend]->commands[6](voice);
 }

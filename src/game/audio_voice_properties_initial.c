@@ -13,7 +13,7 @@ void func_800557FC(AudioVoice *voice, AudioProperties *properties)
             voice->command = command;
             voice->command[0] = 12;
             voice->command[1] = properties->parameter04;
-            D_8008D800[voice->backend]->updateVoice(voice);
+            D_8008D800[voice->backend]->commands[5](voice);
             voice->command = savedCommand;
         }
         if (fields & 2) {
@@ -21,7 +21,7 @@ void func_800557FC(AudioVoice *voice, AudioProperties *properties)
             voice->command = command;
             voice->command[0] = 13;
             voice->command[1] = properties->parameter05;
-            D_8008D800[voice->backend]->command34(voice);
+            D_8008D800[voice->backend]->commands[6](voice);
             voice->command = savedCommand;
         }
         if (fields & 4) {
@@ -33,7 +33,7 @@ void func_800557FC(AudioVoice *voice, AudioProperties *properties)
             voice->command[0] = 9;
             voice->command[1] = properties->parameter08 & 255;
             voice->command[2] = (properties->parameter08 >> 8) & 255;
-            D_8008D800[voice->backend]->command24(voice);
+            D_8008D800[voice->backend]->commands[2](voice);
             voice->command = savedCommand;
         }
         if (fields & 16) {

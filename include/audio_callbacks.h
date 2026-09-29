@@ -44,7 +44,7 @@ AudioDmaCallback func_8005254C(void);
 void func_800526D0(void);
 void func_80052700(void);
 int func_80052754(void *argument);
-void func_80058A58(void);
+int func_80058A58(void);
 void func_80065B04(AudioSynth *synth);
 void func_80066310(AudioSynth *owner, AudioCallbackState *state);
 
