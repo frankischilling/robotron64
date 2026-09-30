@@ -1,8 +1,7 @@
 #ifndef ROBOTRON_ACTOR_DYNAMIC_POOL_INTERNAL_H
 #define ROBOTRON_ACTOR_DYNAMIC_POOL_INTERNAL_H
 
-/* The allocator and complete appenders establish the fixed heap and strides.
- * The meaning of each pair group's 200-byte tail remains unresolved. */
+/* The allocator and complete appenders establish the fixed heap and strides. */
 typedef struct ActorDynamicCommand {
     int opcode;
     int value04;
@@ -34,8 +33,14 @@ typedef struct ActorDynamicFirstCommand {
 typedef struct ActorDynamicPairGroup {
     int count;
     ActorDynamicPair pairs[50];
-    unsigned char unknown194[200];
+    int distances[50];
 } ActorDynamicPairGroup;
+
+typedef struct ActorDynamicPointCommand {
+    int opcode;
+    int x;
+    int y;
+} ActorDynamicPointCommand;
 
 typedef struct ActorDynamicParameter {
     int value00;
@@ -73,6 +78,8 @@ typedef struct ActorDynamicParameterCommand {
 } ActorDynamicParameterCommand;
 
 typedef char ActorDynamicPairGroupMustBe604Bytes[sizeof(ActorDynamicPairGroup) == 604 ? 1 : -1];
+typedef char ActorDynamicPointCommandMustBe12Bytes[
+    sizeof(ActorDynamicPointCommand) == 12 ? 1 : -1];
 typedef char ActorDynamicFirstEntryMustBe12Bytes[
     sizeof(ActorDynamicFirstEntry) == 12 ? 1 : -1];
 typedef char ActorDynamicFirstGroupMustBe124Bytes[
@@ -84,6 +91,8 @@ typedef char ActorDynamicPoolMustBe9096Bytes[sizeof(ActorDynamicPool) == 9096 ? 
 
 void func_8000CEC0(ActorDynamicCommand *command);
 void func_8000CF9C(ActorDynamicFirstCommand *command);
+void func_8000D090(ActorDynamicPointCommand *command);
+void func_8000DFB0(int *x, int *y);
 void func_8000D1FC(ActorDynamicCommand *command);
 void func_8000D2D4(ActorDynamicParameterCommand *command);
 

@@ -59,12 +59,14 @@ void func_8005BCD0(AudioVoice *voice);
 void func_8005BCD8(AudioVoice *voice);
 void func_8005BEFC(AudioVoice *voice);
 void func_8005C0A0(AudioVoice *voice);
+void func_8005C1D8(AudioVoice *voice);
 void func_8005C334(AudioStatusRecord *hardware, AudioVoice *voice, AudioPatchRegion *region,
                    AudioWaveRecord *wave, unsigned char key, unsigned char velocity);
 void func_8005C3E4(AudioStatusRecord *voice);
 void func_8005C4F8(AudioStatusRecord *voice, int releaseTime);
 void func_8005C5BC(AudioStatusRecord *voice);
 void func_8005C684(AudioStatusRecord *voice);
+void func_8005CA34(AudioVoice *voice);
 void func_8005CBB4(AudioVoice *voice);
 
 #endif

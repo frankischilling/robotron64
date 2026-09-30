@@ -23,7 +23,8 @@ entries, each holding resource index, x and y. Combined with the complete
 allocator, this establishes all ten groups in the heap's previously opaque
 1,240-byte first region. The full pool still occupies 9,096 bytes. The shared
 definition now exposes these entries and replaces the unused older prefix
-view. Pair-group tails remain unresolved.
+view. The complete [point appender](pan-patch-and-point-state.md) establishes
+the pair groups' distance tails.
 
 ## Scale and heading state
 

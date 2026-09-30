@@ -81,7 +81,7 @@ SECTIONS
     .early_pool_entry_clear 0x8000CF70 : AT(0xDB70) SUBALIGN(4) { build/us/early_pool_entry_clear.o(.text) }
     .actor_dynamic_first_append 0x8000CF9C : AT(0xDB9C) SUBALIGN(4) { build/us/actor_dynamic_first_append.o(.text) }
     .early_pool_count 0x8000D034 : AT(0xDC34) SUBALIGN(4) { build/us/early_pool_count.o(.text) }
-    .endgame_dc90_ddfc 0x8000D090 : AT(0xDC90) { build/us/fallback.o(.rom_endgame_dc90_ddfc) }
+    .actor_dynamic_point_append 0x8000D090 : AT(0xDC90) SUBALIGN(4) { build/us/actor_dynamic_point_append.o(.text) }
     .actor_dynamic_pair_append 0x8000D1FC : AT(0xDDFC) SUBALIGN(4) { build/us/actor_dynamic_pair_append.o(.text) }
     .early_pool_index 0x8000D2B4 : AT(0xDEB4) SUBALIGN(4) { build/us/early_pool_index.o(.text) }
     .actor_dynamic_parameter_append 0x8000D2D4 : AT(0xDED4) SUBALIGN(4) { build/us/actor_dynamic_parameter_append.o(.text) }
@@ -795,14 +795,14 @@ SECTIONS
     .after_audio_backend_patch 0x8005BA24 : AT(0x5C624) { build/us/fallback.o(.rom_after_audio_backend_patch) }
     .audio_backend_volume 0x8005BCC8 : AT(0x5C8C8) SUBALIGN(4) { build/us/audio_backend_volume.o(.text) }
     .audio_backend_pan_pedal 0x8005BEFC : AT(0x5CAFC) SUBALIGN(4) { build/us/audio_backend_pan_pedal.o(.text) }
-    .endgame_5cdd8_5cf2c 0x8005C1D8 : AT(0x5CDD8) { build/us/fallback.o(.rom_endgame_5cdd8_5cf2c) }
+    .audio_backend_pan_command 0x8005C1D8 : AT(0x5CDD8) SUBALIGN(4) { build/us/audio_backend_pan_command.o(.text) }
     .audio_unused_command 0x8005C32C : AT(0x5CF2C) SUBALIGN(4) { build/us/audio_unused_command.o(.text) }
     .audio_backend_voice_start 0x8005C334 : AT(0x5CF34) SUBALIGN(4) { build/us/audio_backend_voice_start.o(.text) }
     .audio_backend_voice_release 0x8005C3E4 : AT(0x5CFE4) SUBALIGN(4) { build/us/audio_backend_voice_release.o(.text) }
     .audio_backend_release 0x8005C4F8 : AT(0x5D0F8) SUBALIGN(4) { build/us/audio_backend_release.o(.text) }
     .audio_backend_decay 0x8005C684 : AT(0x5D284) SUBALIGN(4) { build/us/audio_backend_decay.o(.text) }
     .audio_backend_allocate 0x8005C7F8 : AT(0x5D3F8) SUBALIGN(4) { build/us/audio_backend_allocate.o(.text) }
-    .after_audio_backend_allocate 0x8005CA34 : AT(0x5D634) { build/us/fallback.o(.rom_after_audio_backend_allocate) }
+    .audio_backend_patch_trigger 0x8005CA34 : AT(0x5D634) SUBALIGN(4) { build/us/audio_backend_patch_trigger.o(.text) }
     .audio_backend_note_release 0x8005CBB4 : AT(0x5D7B4) SUBALIGN(4) { build/us/audio_backend_note_release.o(.text) }
     .after_audio_backend_note_release 0x8005CCBC : AT(0x5D8BC) { build/us/fallback.o(.rom_after_audio_backend_note_release) }
     .audio_file_services 0x8005CCC0 : AT(0x5D8C0) SUBALIGN(4) { build/us/audio_file_services.o(.text) }
@@ -1199,6 +1199,8 @@ SECTIONS
     .audio_callback_add_bss 0x801902F0 (NOLOAD) : SUBALIGN(4) { build/us/audio_callback_add.o(.bss) }
     .audio_callback_remove_bss 0x801902F8 (NOLOAD) : SUBALIGN(4) { build/us/audio_callback_remove.o(.bss) }
     .audio_backend_voice_release_bss 0x80192B38 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_voice_release.o(.bss) }
+    .audio_backend_pan_command_bss 0x80192B28 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_pan_command.o(.bss) }
+    .audio_backend_patch_trigger_bss 0x80192B5C (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_patch_trigger.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1893,7 +1895,6 @@ ASSERT(SIZEOF(.audio_backend_voice_start) == 0xb0, "audio_backend_voice_start si
 ASSERT(SIZEOF(.audio_backend_release) == 0x18c, "audio_backend_release size changed")
 ASSERT(SIZEOF(.audio_backend_decay) == 0x174, "audio_backend_decay size changed")
 ASSERT(SIZEOF(.audio_backend_allocate) == 0x23c, "audio_backend_allocate size changed")
-ASSERT(SIZEOF(.after_audio_backend_allocate) == 0x180, "after_audio_backend_allocate size changed")
 ASSERT(SIZEOF(.audio_backend_note_release) == 0x108, "audio_backend_note_release size changed")
 ASSERT(SIZEOF(.after_audio_backend_note_release) == 0x4, "after_audio_backend_note_release size changed")
 ASSERT(SIZEOF(.audio_file_services) == 0x14c, "audio_file_services size changed")
@@ -2174,7 +2175,6 @@ ASSERT(SIZEOF(.endgame_4aa3c_4b7bc) == 0xd80, "endgame_4aa3c_4b7bc size changed"
 ASSERT(SIZEOF(.endgame_4edc0_4f3d4) == 0x614, "endgame_4edc0_4f3d4 size changed")
 ASSERT(SIZEOF(.endgame_4ff30_50560) == 0x630, "endgame_4ff30_50560 size changed")
 ASSERT(SIZEOF(.endgame_50584_50590) == 0xc, "endgame_50584_50590 size changed")
-ASSERT(SIZEOF(.endgame_5cdd8_5cf2c) == 0x154, "endgame_5cdd8_5cf2c size changed")
 ASSERT(SIZEOF(.endgame_5edec_5f5d0) == 0x7e4, "endgame_5edec_5f5d0 size changed")
 ASSERT(SIZEOF(.endgame_6131c_61320) == 0x4, "endgame_6131c_61320 size changed")
 ASSERT(SIZEOF(.endgame_63e1c_63e20) == 0x4, "endgame_63e1c_63e20 size changed")
@@ -2368,7 +2368,6 @@ ASSERT(SIZEOF(.endgame_6160_6414) == 0x2b4, "endgame_6160_6414 size changed")
 ASSERT(SIZEOF(.endgame_64f0_ab58) == 0x4668, "endgame_64f0_ab58 size changed")
 ASSERT(SIZEOF(.endgame_af88_c564) == 0x15dc, "endgame_af88_c564 size changed")
 ASSERT(SIZEOF(.endgame_dab8_dac0) == 0x8, "endgame_dab8_dac0 size changed")
-ASSERT(SIZEOF(.endgame_dc90_ddfc) == 0x16c, "endgame_dc90_ddfc size changed")
 ASSERT(SIZEOF(.endgame_1bb44_1bf24) == 0x3e0, "endgame_1bb44_1bf24 size changed")
 ASSERT(SIZEOF(.endgame_450f8_45d24) == 0xc2c, "endgame_450f8_45d24 size changed")
 ASSERT(SIZEOF(.endgame_45e14_46114) == 0x300, "endgame_45e14_46114 size changed")
@@ -2471,3 +2470,16 @@ ASSERT(SIZEOF(.audio_callback_add_bss) == 0x8, "audio_callback_add_bss size chan
 ASSERT(SIZEOF(.audio_callback_remove_bss) == 0x8, "audio_callback_remove_bss size changed")
 ASSERT(SIZEOF(.audio_backend_voice_release_bss) == 0x4, "audio_backend_voice_release_bss size changed")
 ASSERT(SIZEOF(.endgame_17f7c_186cc) == 0x750, "endgame_17f7c_186cc size changed")
+D_8019281C = 0x8019281C;
+D_80192820 = 0x80192820;
+D_8019282C = 0x8019282C;
+D_80192830 = 0x80192830;
+D_80192834 = 0x80192834;
+D_8008F9A8 = 0x8008F9A8;
+D_8008F9C0 = 0x8008F9C0;
+func_8001C49C = 0x8001C49C;
+ASSERT(SIZEOF(.audio_backend_pan_command) == 0x154, "audio_backend_pan_command size changed")
+ASSERT(SIZEOF(.audio_backend_patch_trigger) == 0x180, "audio_backend_patch_trigger size changed")
+ASSERT(SIZEOF(.actor_dynamic_point_append) == 0x16c, "actor_dynamic_point_append size changed")
+ASSERT(SIZEOF(.audio_backend_pan_command_bss) == 0x10, "audio_backend_pan_command_bss size changed")
+ASSERT(SIZEOF(.audio_backend_patch_trigger_bss) == 0x14, "audio_backend_patch_trigger_bss size changed")

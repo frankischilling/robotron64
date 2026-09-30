@@ -14204,5 +14204,38 @@
     "section": ".actor_collision_health_result",
     "section_vram": 2147580620,
     "evidence": "docs/callback-and-release-state.md"
+  },
+  {
+    "name": "func_8005C1D8",
+    "rom": 380376,
+    "vram": 2147860952,
+    "size": 340,
+    "source": "src/game/audio_backend_pan_command.c",
+    "object": "build/us/audio_backend_pan_command.o",
+    "section": ".audio_backend_pan_command",
+    "section_vram": 2147860952,
+    "evidence": "docs/pan-patch-and-point-state.md"
+  },
+  {
+    "name": "func_8005CA34",
+    "rom": 382516,
+    "vram": 2147863092,
+    "size": 384,
+    "source": "src/game/audio_backend_patch_trigger.c",
+    "object": "build/us/audio_backend_patch_trigger.o",
+    "section": ".audio_backend_patch_trigger",
+    "section_vram": 2147863092,
+    "evidence": "docs/pan-patch-and-point-state.md"
+  },
+  {
+    "name": "func_8000D090",
+    "rom": 56464,
+    "vram": 2147537040,
+    "size": 364,
+    "source": "src/game/actor_dynamic_point_append.c",
+    "object": "build/us/actor_dynamic_point_append.o",
+    "section": ".actor_dynamic_point_append",
+    "section_vram": 2147537040,
+    "evidence": "docs/pan-patch-and-point-state.md"
   }
 ]

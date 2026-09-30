@@ -32,12 +32,13 @@ The shared heap view records these boundaries:
 | Offset | Extent | Confirmed content |
 | --- | ---: | --- |
 | `0x000` | 16 | Value and three count/index words |
-| `0x010` | 1,240 | First region, still represented by padding |
+| `0x010` | 1,240 | Ten first groups, recovered in the [resource notes](resource-and-cache-state.md) |
 | `0x4E8` | 6,040 | Ten pair groups with a 604-byte stride |
 | `0x1C80` | 1,800 | Fifty parameter records with a 36-byte stride |
 
 Each pair group has a count followed by fifty eight-byte pairs. Its last
-200 bytes remain padding. Pair append checks count 50 before writing but
+200 bytes hold fifty distance words, as established by the complete
+[point appender](pan-patch-and-point-state.md). Pair append checks count 50 before writing but
 continues after reporting it. It writes index `-1`, multiplies the supplied
 value by ten, and increments the count. The original reset/index helpers
 independently use offset `0x4E8` and stride 604.

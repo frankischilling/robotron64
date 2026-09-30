@@ -1413,5 +1413,42 @@
       "D_80192B38": 0
     },
     "evidence": "docs/callback-and-release-state.md"
+  },
+  {
+    "source": "src/game/audio_backend_pan_command.c",
+    "object": "build/us/audio_backend_pan_command.o",
+    "input_section": ".bss",
+    "section": ".audio_backend_pan_command_bss",
+    "vram": 2149133096,
+    "rom": null,
+    "size": 16,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192B28": 0,
+      "D_80192B2C": 4,
+      "D_80192B30": 8,
+      "D_80192B34": 12
+    },
+    "evidence": "docs/pan-patch-and-point-state.md"
+  },
+  {
+    "source": "src/game/audio_backend_patch_trigger.c",
+    "object": "build/us/audio_backend_patch_trigger.o",
+    "input_section": ".bss",
+    "section": ".audio_backend_patch_trigger_bss",
+    "vram": 2149133148,
+    "rom": null,
+    "size": 20,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192B5C": 0,
+      "D_80192B60": 4,
+      "D_80192B61": 5,
+      "D_80192B62": 6,
+      "D_80192B64": 8,
+      "D_80192B68": 12,
+      "D_80192B6C": 16
+    },
+    "evidence": "docs/pan-patch-and-point-state.md"
   }
 ]

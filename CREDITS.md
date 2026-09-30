@@ -311,6 +311,12 @@ Robotron's complete instructions establish callback slot handling, hardware
 voice ownership, collision results and the private storage boundaries.
 The existing pinned IDO and Super Mario 64 matching-build references apply.
 
+The [pan, patch and point recovery](docs/pan-patch-and-point-state.md)
+consulted pinned local libreultra `src/audio/synsetpan.c` for the SDK pan
+interface and update kind. Complete Robotron command and appender instructions
+establish the private work areas, patch iteration and group distance tail.
+The existing pinned IDO and Super Mario 64 matching-build references apply.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,
