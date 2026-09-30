@@ -1,0 +1,83 @@
+{
+  "note": "Archived candidate proof is retained. Reproduce current-source proof with the registered runtime comparison and full-ROM build.",
+  "retained_integration_ledger_sha256": "b6dfb06181881d9d49c780ec23fa1ac515726474116518edf3eb3d7adf8f3b61",
+  "units": [
+    {
+      "source": "src/game/audio_backend_initialize.c",
+      "source_sha256": "5ca527693c3549f634d08bcbcf3669811933b89b9ad4b1799702ece90ed7e44e",
+      "headers_sha256": {
+        "include/audio_backend_internal.h": "27b3ace1a8479abd40450e57e032f470e48231a46bbe476a1d097dff496242fe",
+        "include/audio_bank_layout_internal.h": "d9263498b304164fc052d45394e932e14497445d4cbf58ed3a8c06a682a156f7",
+        "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+        "include/audio_patch_table_internal.h": "1037a705b754ea3e3b8db43789cb00de8897ae64d83df9b5194cd8e3ebe9bba6",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683"
+      },
+      "candidate_source": ".local/audio-backend/audio_backend_initialize_next.c",
+      "candidate_source_sha256": "62781874cad3e5f0e1c397fa8f40c77cb4a60ee394f0c9db175b78695e8a02d0",
+      "candidate_report": ".local/backend-probes/audio_backend_initialize_next/report.json",
+      "candidate_report_sha256": "c7f6b36a19b65a796e8d71ee2f5e1eb095fbb979fcb8fe2300b77295de19c65e",
+      "linked_code_sha256": "2a28aed85f03249c6cc713546b25b02d983f4809ec3c915376b341bfb7041661",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005B3A8",
+          "start": 2147857320,
+          "end": 2147858028,
+          "size": 708
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_backend_initialize_bss",
+          "vram": 2149132988,
+          "rom": null,
+          "size": 4,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192ABC": 0
+          },
+          "source": "src/game/audio_backend_initialize.c",
+          "object": "build/us/audio_backend_initialize.o",
+          "evidence": "docs/audio-bank-layout.md"
+        }
+      ],
+      "complete_code_bytes": 708,
+      "different_words": 0,
+      "accepted_headers_sha256": {
+        "include/audio_backend_internal.h": "531a7b16ca65cd7d9929c2b0b021ce7a3cc58ab732d2f0d2070e5f105372b712",
+        "include/audio_bank_layout_internal.h": "d9263498b304164fc052d45394e932e14497445d4cbf58ed3a8c06a682a156f7",
+        "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+        "include/audio_patch_table_internal.h": "1037a705b754ea3e3b8db43789cb00de8897ae64d83df9b5194cd8e3ebe9bba6",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683"
+      }
+    }
+  ],
+  "canonical_comparison": {
+    "report": "build/registered-audio-session-next/report.json",
+    "report_sha256": "7ab54f0a711c422a22d530960dec4ab46987531bc856fc4d702c68dc0b4da437",
+    "complete_units": 4,
+    "matches": true
+  },
+  "linked_checkpoint": {
+    "progress_sha256": "ee7f05900362ebb159e91f8691e3bd59a8bbddb9e2cef9ce8753f66c6c3dba35",
+    "validation_sha256": "7d1d87fec288134ebd9c73c6c518bf5a3387bc96fec0e4ac84c212f98de857b2",
+    "matched_c_functions": 934,
+    "matched_c_bytes": 123276,
+    "source_owned_bss_bytes": 4135,
+    "whole_rom_matches": true
+  }
+}

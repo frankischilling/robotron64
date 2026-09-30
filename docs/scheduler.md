@@ -1,6 +1,6 @@
 # Scheduler creation and thread layout
 
-`src/boot/scheduler.c` reproduces the 496 bytes at ROM `0x51040..0x51230`, mapping to `0x80050440..0x80050630`. IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32` produces the complete block without trimming or instruction changes.
+The creation routines at the start of `src/boot/scheduler.c` reproduce the 496 bytes at ROM `0x51040..0x51230`, mapping to `0x80050440..0x80050630`. The same translation unit continues through `0x80050FB0` with the matched dispatcher bodies. IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32` produces that complete `0xB70`-byte range. See [scheduler runtime](scheduler-runtime.md) for its task protocol, profiling records, and alignment evidence.
 
 | Function | Bytes | Observed behavior |
 | --- | ---: | --- |
@@ -23,7 +23,7 @@ Each queue has a 24-byte control block and eight four-byte message slots. Offset
 | `0xE4` | `0xFC` | DP event 9, message `0x29C` |
 | `0x11C` | `0x134` | Used by thread 17's task coordination; complete protocol unresolved |
 
-After creating the queues, the initializer creates the VI manager at priority 254, selects `D_8008E400[mode]`, enables VI black, and sets the retrace notification interval. It registers SP, DP, and pre-NMI events before starting the three threads. The initial two halfwords become 1 and 3. Words at `0x66C`, `0x670`, `0x674`, and `0x668` are cleared, in that order, and the word at `0x678` becomes 1. The broader meanings of these fields remain under investigation.
+After creating the queues, the initializer creates the VI manager at priority 254, selects `D_8008E400[mode]`, enables VI black, and sets the retrace notification interval. It registers SP, DP, and pre-NMI events before starting the three threads. The initial two halfwords become 1 and 3. It clears the current graphics task, current audio task, waiting graphics task, and client-list head, in that order. The word at `0x678` becomes 1 and is cleared after the first completed graphics task disables VI black. These fields use the pointer types established by the runtime.
 
 ## Threads
 
@@ -37,7 +37,7 @@ All three entry points receive the scheduler pointer. Creation and start are pai
 
 The control blocks occupy successive `0x1B0`-byte storage slots. `include/scheduler.h` keeps their internal fields opaque. The observed scheduler accesses extend through offset `0x67B`; this establishes a minimum extent, not ownership of surrounding memory or the size of every original declaration. Stack-top arguments do not establish stack bases or allocation sizes.
 
-The dispatcher bodies remain fallback. `func_80050630` receives from `+0x74` and distinguishes messages `0x29A` and `0x29D`. `func_80050928` receives from `+0x04` and later waits for SP completion at `+0xAC`. `func_80050BD0` receives from `+0x3C` and uses `+0x11C` while coordinating tasks. Further analysis must recover the complete task-list fields, yield/completion policy, and RSP/RDP handoffs before replacing these routines.
+All three dispatcher bodies now match. `func_80050630` receives from `+0x74` and distinguishes messages `0x29A` and `0x29D`. `func_80050928` receives audio tasks from `+0x04`, yields an active graphics task when needed, and waits for SP completion at `+0xAC`. `func_80050BD0` receives graphics tasks from `+0x3C`, uses `+0x11C` for audio handoff and framebuffer fencing, and waits for both SP and DP completion. [Runtime evidence](scheduler-runtime.md) documents the full control flow and shared task layout.
 
 ## SDK and layout evidence
 
@@ -56,6 +56,6 @@ The VI mode table stride is 80 bytes: the initializer calculates `(mode * 5) << 
 
 ## Reproduce the comparison
 
-Run `python3 tools/compare_startup.py` to compile and link both startup source files independently at their target addresses. The scheduler block must have 496 bytes and no differing words. `make progress` additionally checks all three function symbols, source/header/object provenance, ELF placement, and the complete ROM.
+Run `python3 tools/compare_startup.py` to compile and link the startup and combined scheduler translation units independently at their target addresses. The scheduler range must have 2,928 bytes and no differing words. `python3 tools/compare_runtime.py` also checks its separate 236-byte tail. `make progress` checks every counted function symbol, source/header/object provenance, ELF placement, and the complete ROM.
 
 The initializer's matching 56-byte frame follows directly from expressions such as `&scheduler->spQueue` and `&scheduler->thread158`. Introducing four explicit pointer locals enlarged the frame to 72 bytes while leaving the live instructions otherwise unchanged. The integrated source uses the field expressions and reproduces the original argument spills and compiler-managed temporary slots.

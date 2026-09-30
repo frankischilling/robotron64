@@ -1,0 +1,84 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "recovery_catalog": ".local/runtime/.local/recovery71-audio-properties/extended-catalog.json",
+  "recovery_catalog_sha256": "c0da6d0dd236238999c174d3a66677f12d23d5886f72629c79cdcc24d5ff6e4b",
+  "shared_header": "include/early_game_medium.h",
+  "shared_header_sha256": "9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f",
+  "name_table_header": "include/early_name_table.h",
+  "name_table_header_sha256": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
+  "comparison_report": "build/worker4-early-game-medium/report.json",
+  "comparison_report_sha256": "afb9e7b925b83c763aff997e1a7374c11fcc500335eecc1a3024f0074030682b",
+  "current_correction_report": "build/worker1-early-interface-correction/report.json",
+  "current_correction_report_sha256": "27edcdbb414a6fc50752877a127aded68c80c43df5b2dde843422b1866af5897",
+  "additional_header": "include/early_resource_state.h",
+  "additional_header_sha256": "d5f560a8dba312fdd195194d3653b62c5e66d631dc669dc643017a0fb87b71f8",
+  "resource_layout_header": "include/actor_resource_internal.h",
+  "resource_layout_header_sha256": "cff60e1efe0fca370f8dbbda1b453163c6bcf9405c650a44581e861a913aa8fa",
+  "additional_comparison_report": "build/worker1-early-game-next/report.json",
+  "additional_comparison_report_sha256": "13c2876ff6c3c04a2468ca0b44626b8f2d1db26c9f1d0a34a304261d3bad844d",
+  "backing_type_validation_source": "src/game/tweak_bind_all.c",
+  "backing_type_validation_source_sha256": "180fbabcf1cdabf69e7ebda5de71ea020127ac748a6eb6a211a2fc3ca8e16f32",
+  "backing_type_validation_report": "build/worker1-early-game-next/tweak-bind-report.json",
+  "backing_type_validation_report_sha256": "9ee43725d532cac7281606dd636bb771c3e4ef01f302911707bf53e8cf0b4d3a",
+  "superseded_review_candidate": {
+    "source_sha256": "6e2e05e2c0bcf011410e75347fa56d550b4a9dad2fa110b77119569ba55e73e1",
+    "comparison_report_sha256": "1d4a6cb89196427f8a8f902630dcbc21fc58df47a8e4d0c3bba4352f5dabb1c5",
+    "reason": "mode-zero self-assignment and incompatible byte-array view of D_800B0090"
+  },
+  "integrated_rom_verification": "Matched all 8388608 bytes",
+  "integrated_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "owned_sections": [],
+  "external_reference_note": "No external game implementation was used for these functions; recovery used Robotron 64 target instructions, target callers, and local m2c output as a structural seed.",
+  "sources": [
+    {
+      "block": "early_actor_transition",
+      "source": "src/game/early_actor_transition.c",
+      "source_sha256": "4b89e962e1a8fdd27ea50245ab6a24c2acbea411c83f6623ae03263aba33a0de",
+      "vram_start": "0x80017C10",
+      "vram_end": "0x80017CDC",
+      "bytes": 204,
+      "functions": ["func_80017C10"],
+      "direct_callers": []
+    },
+    {
+      "block": "early_pointer_state",
+      "source": "src/game/early_pointer_state.c",
+      "source_sha256": "5b4173ceadee330d135a9cdd4d787eab720d11f0d56c1e5619e58e71716ff85f",
+      "vram_start": "0x8001A170",
+      "vram_end": "0x8001A1F0",
+      "bytes": 128,
+      "functions": ["func_8001A170"],
+      "direct_callers": ["0x8001A2C4"]
+    },
+    {
+      "block": "early_resource_state",
+      "source": "src/game/early_resource_state.c",
+      "source_sha256": "9ef65252ee629122b281d3594b77deb1c58fb67d9796d5a1fbe6048f918fc3f5",
+      "vram_start": "0x8001ADA0",
+      "vram_end": "0x8001AF44",
+      "bytes": 420,
+      "functions": ["func_8001ADA0", "func_8001AEEC"],
+      "direct_callers": ["0x8001AEEC"]
+    },
+    {
+      "block": "early_value_lookup",
+      "source": "src/game/early_value_lookup.c",
+      "source_sha256": "73ca4d36d769f175314aa783a0002ffc5c5f579123bf0cfe059aa979f3465527",
+      "vram_start": "0x8001BC38",
+      "vram_end": "0x8001BD24",
+      "bytes": 236,
+      "functions": ["func_8001BC38"],
+      "direct_callers": []
+    }
+  ],
+  "unmatched_neighbors": [
+    {
+      "function": "func_8001BF48",
+      "vram_start": "0x8001BF48",
+      "vram_end": "0x8001BFB0",
+      "target_bytes": 104,
+      "status": "backing short-array layout is not yet represented by a valid C object model; scalar pointer-arithmetic probe is rejected"
+    }
+  ]
+}

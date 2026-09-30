@@ -1,0 +1,31 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "early_game_state_header": "include/early_game_state.h",
+  "early_game_state_header_sha256": "cdf92f2fda83213eec889df679ba1eec4e7074430fcfb9fd95f3a8075c144d6a",
+  "early_game_medium_header": "include/early_game_medium.h",
+  "early_game_medium_header_sha256": "9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f",
+  "early_name_table_header": "include/early_name_table.h",
+  "early_name_table_header_sha256": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
+  "changed_sources": {
+    "src/game/early_actor_create.c": "609d0019e4cad9100c24a57fe39ad4dd4394cb1de5b97cafd73ba25771c53abc",
+    "src/game/early_actor_state.c": "85df2bcafe131ce240243ea549cafe23831bf9171e42a8bc6edb98347eed5902",
+    "src/game/early_actor_spawn_helper.c": "c5f29b9651d9eb12fde9c40b6e5697ebcb211c4d31e96cea5589215e9dce95c4",
+    "src/game/early_name_mask_lookup.c": "2fa0483f7023c9001bbf225a2d6e874695bb7dfee54f5640f49d6622ef35eb05",
+    "src/game/early_value_lookup.c": "73ca4d36d769f175314aa783a0002ffc5c5f579123bf0cfe059aa979f3465527"
+  },
+  "affected_comparison_report": "build/worker1-early-interface-correction/report.json",
+  "affected_comparison_report_sha256": "27edcdbb414a6fc50752877a127aded68c80c43df5b2dde843422b1866af5897",
+  "affected_comparison_summary": "11 blocks; 2044/2044 target bytes; zero differing words",
+  "medium_batch_report": "build/worker1-early-medium-correction/report.json",
+  "medium_batch_report_sha256": "4522a206681cebc88641d0d40f78f59153b6691cc1644b0c1ad60cefcc1cd473",
+  "medium_batch_summary": "3 blocks; 352/352 target bytes; zero differing words",
+  "integrated_rom_verification": "Matched all 8388608 bytes",
+  "integrated_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "layout_checks": [
+    "sizeof(EarlyGamePosition) == 0xC",
+    "sizeof(EarlyGameActor) == 0x7C"
+  ],
+  "callback_evidence": "func_80005560 moves a0 into saved actor register s1 at 0x80005570 and immediately dereferences the actor resource at offset 0x24",
+  "name_table_evidence": "Normalized ROM offset 0x76594 contains thirteen pointers from 0x80091A20 through 0x80091AA4 followed by null; those pointers resolve to the LEFT/RIGHT/UP/DOWN and action-name strings beginning at 0x80091A20"
+}

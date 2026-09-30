@@ -126,7 +126,7 @@ int func_80000750(int character, int scale, int mode, int object)
         case 149: func_80039E1C(object, 12); break;
         default: func_80039E1C(object, character); break;
         }
-        func_8003947C(object, resource->indices[0]);
+        func_8003947C(object, resource->animation.indices[0]);
         func_800399E4(object, (resource->scale * 4 * scale) / 40960.0f);
         func_80039DCC(object, 105);
         if (mode == 11) {

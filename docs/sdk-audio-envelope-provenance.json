@@ -1,0 +1,129 @@
+{
+  "note": "Retained complete source comparison. Reproduce current evidence with the registered runtime comparison and full-ROM build.",
+  "retained_integration_ledger_sha256": "c6719acaefe4592a8702262740cf31a020598ded1fe4e4cda82a4866133d91c7",
+  "units": [
+    {
+      "source": "src/sdk/audio_envelope.c",
+      "source_sha256": "2eecc136d556f82e527fd64b91d93480d956a30e83540a41ea50fdbfc26ceaa3",
+      "headers_sha256": {
+        "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+        "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+        "include/audio_io.h": "18f39458fcbb5f841687450d76829a2e593b6debef131cdf6bd685775b23de22",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+        "include/scheduler.h": "6dbb0d482bd19264bfb5b7e960996c86ad99f6aeb3d695c0de3d539c64f3a0df",
+        "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+        "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+        "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+        "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+        "include/sdk_audio_envelope.h": "bb3d93f3848cf32f203f33d3c1f0dd3f4db31ca61a725c5577110be4bb227b77",
+        "include/sdk_audio_mix_commands.h": "81a9225e07bf4a1fa53b2aa64d1dafe134976588b6a174bebc7964a9b84b43aa",
+        "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a",
+        "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76"
+      },
+      "compiler_profile": {
+        "name": "sdk-o3-mips2-r4300-mul",
+        "version": "5.3",
+        "flags": [
+          "-O3",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32",
+          "-Wab,-r4300_mul"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 3156,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_8006CDC0",
+          "start": 2147929536,
+          "size": 40
+        },
+        {
+          "name": "func_8006CDE8",
+          "start": 2147929576,
+          "size": 236
+        },
+        {
+          "name": "func_8006CED4",
+          "start": 2147929812,
+          "size": 224
+        },
+        {
+          "name": "getRate",
+          "start": 2147930036,
+          "size": 464,
+          "linkage": "static",
+          "target_name": "func_8006CFB4"
+        },
+        {
+          "name": "pullSubFrame",
+          "start": 2147930500,
+          "size": 664,
+          "linkage": "static",
+          "target_name": "func_8006D184"
+        },
+        {
+          "name": "getVolume",
+          "start": 2147931164,
+          "size": 176,
+          "linkage": "static",
+          "target_name": "func_8006D41C"
+        },
+        {
+          "name": "func_8006D4CC",
+          "start": 2147931340,
+          "size": 1352
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".data",
+          "vram": 2148070384,
+          "rom": 589808,
+          "size": 320,
+          "symbols": {},
+          "section": ".audio_envelope_data",
+          "static_symbols": {
+            "equalPower": 0
+          },
+          "source": "src/sdk/audio_envelope.c",
+          "object": "build/us/audio_envelope.o",
+          "evidence": "docs/sdk-audio-envelope.md"
+        },
+        {
+          "input_section": ".rodata",
+          "vram": 2148097856,
+          "rom": 617280,
+          "size": 96,
+          "symbols": {},
+          "section": ".audio_envelope_rodata",
+          "static_symbols": {},
+          "source": "src/sdk/audio_envelope.c",
+          "object": "build/us/audio_envelope.o",
+          "evidence": "docs/sdk-audio-envelope.md"
+        }
+      ],
+      "candidate_source": ".local/sdk-target/audio_envelope.c",
+      "candidate_source_sha256": "f00320414b923bcec5628db371899ece7437cfe9a72fd685498f8f8798bac1e4",
+      "candidate_report": "build/sdk-reconstruction/audio_envelope__sdk_o3_mips2_r4300_mul__envelope-target-v6-assignment/report.json",
+      "candidate_report_sha256": "aac7c22f29c3968191864744445a1bbd4f7d42557d6bbf9dd91dd30f8bd0b469",
+      "linked_code_sha256": "91ffaa95df5d9641f4ccb05ae304b84212742d65dc5ea2d1e3e14725142b1a9e"
+    }
+  ],
+  "canonical_comparison": {
+    "report": "build/registered-sdk-envelope/report.json",
+    "report_sha256": "52a8064d6afe5c7b4e8dc45a106b2d2834d2a7da2062ac79ef6f8df64ebf73e8",
+    "complete_units": 1,
+    "matches": true
+  }
+}

@@ -1,0 +1,13 @@
+#include "../../include/model_geometry_internal.h"
+
+void func_80040874(unsigned int address)
+{
+    FRAME_COMMAND(0xE7000000, 0);
+    FRAME_COMMAND(0xFD100000, address & ~7);
+    FRAME_COMMAND(0xF5100000, 0x07080200);
+    FRAME_COMMAND(0xE6000000, 0);
+    FRAME_COMMAND(0xF3000000, 0x0777F01A);
+    FRAME_COMMAND(0xE7000000, 0);
+    FRAME_COMMAND(0xF510A000, 0x00080200);
+    FRAME_COMMAND(0xF2000000, 0x004FC014);
+}

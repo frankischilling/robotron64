@@ -1,0 +1,56 @@
+{
+  "note": "Candidate input identities are historical. Matching requires a current complete canonical comparison and linked provenance.",
+  "retained_integration_ledger_sha256": "9269e1bddbeef145e512ff23574518488c4ed021d3b3292e11309bb9dbb1560f",
+  "units": [
+    {
+      "source": "src/game/audio_engine_iteration_set.c",
+      "source_sha256": "f54d74f63647f2661f75d674323b49cc458dab2dbd96827f118b6170a98b759a",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07"
+      },
+      "candidate_source": ".local/audio-backend/audio_engine_iteration_set_readonly_next.c",
+      "candidate_source_sha256": "f54d74f63647f2661f75d674323b49cc458dab2dbd96827f118b6170a98b759a",
+      "candidate_report": ".local/backend-probes/audio_engine_iteration_set_readonly_next/report.json",
+      "candidate_report_sha256": "c352cc973f0e5609319ef82c06668d7bfb953bba76c9e4786b72b752fd7423ef",
+      "linked_code_sha256": "c167f978fe5c3196bd4b5e890d24615391f723db2d5fc5073412d7d81342455a",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_80059DEC",
+          "start": 2147851756,
+          "end": 2147851820,
+          "size": 64
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".bss",
+          "section": ".audio_engine_iteration_set_bss",
+          "vram": 2149132184,
+          "rom": null,
+          "size": 4,
+          "symbols": {},
+          "static_symbols": {
+            "D_80192798": 0
+          },
+          "source": "src/game/audio_engine_iteration_set.c",
+          "object": "build/us/audio_engine_iteration_set.o",
+          "evidence": "docs/audio-command-engine.md"
+        }
+      ],
+      "complete_code_bytes": 64,
+      "different_words": 0
+    }
+  ]
+}

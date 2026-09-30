@@ -1,0 +1,31 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "source": "src/game/early_player_counter_reset.c",
+  "source_sha256": "2f8c5daab0ed27c63b0d39b6aebb9928b3f87a2dde7ea45be25f92e575a27807",
+  "compiler": {
+    "version": "5.3",
+    "flags": ["-O2", "-G", "0", "-non_shared", "-mips1", "-32"]
+  },
+  "functions": [
+    {
+      "name": "func_8001BF48",
+      "vram_start": "0x8001BF48",
+      "vram_end": "0x8001BFB0",
+      "bytes": 104
+    }
+  ],
+  "generated_sections": [],
+  "referenced_state": {
+    "base": "0x8009E9E0",
+    "layout": "two contiguous short[14] arrays",
+    "owned_by_source": false
+  },
+  "proof": {
+    "report": ".local/early-final-proofs/early_player_counter_reset-report.json",
+    "report_sha256": "3bdc3457429e58f8a148f5149b71b7ec6cb7cf854590edbc0557cb72730f874e",
+    "expected_bytes": 104,
+    "actual_bytes": 104,
+    "different_words": 0,
+    "matches": true
+  }
+}

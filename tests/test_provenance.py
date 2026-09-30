@@ -1,8 +1,10 @@
 from pathlib import Path
+import json
 import shutil
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from provenance import object_record, record, verify_record
@@ -10,6 +12,10 @@ from provenance import object_record, record, verify_record
 
 class ProvenanceTests(unittest.TestCase):
     def setUp(self):
+        self.identity = {"version": "5.3", "compiler_sha256": "synthetic compiler"}
+        self.identity_patch = patch("provenance.installed_identity", return_value=self.identity)
+        self.identity_patch.start()
+        self.addCleanup(self.identity_patch.stop)
         directory = tempfile.TemporaryDirectory()
         self.addCleanup(directory.cleanup)
         self.root = Path(directory.name)
@@ -55,3 +61,46 @@ class ProvenanceTests(unittest.TestCase):
                         object_record(self.root / "other.o"))
         with self.assertRaisesRegex(ValueError, "different object"):
             self.verify(object_name="other.o")
+
+    def test_record_requires_transitive_local_headers(self):
+        (self.root / "source.c").write_text('#include "types.h"\n')
+        (self.root / "types.h").write_text('#include "nested.h"\n')
+        (self.root / "nested.h").write_text('typedef int Value;\n')
+        with self.assertRaisesRegex(ValueError, "omits local header.*nested.h"):
+            record("source.c", "compiled.o", ["types.h"], self.root)
+        record("source.c", "compiled.o", ["types.h", "nested.h"], self.root)
+        self.verify()
+
+    def test_verify_rejects_header_omitted_from_record(self):
+        (self.root / "source.c").write_text('#include "types.h"\n')
+        record("source.c", "compiled.o", ["types.h"], self.root)
+        path = object_record(self.root / "compiled.o")
+        metadata = json.loads(path.read_text())
+        del metadata["inputs"]["types.h"]
+        path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, "omits local header.*types.h"):
+            self.verify()
+
+    def test_header_cycles_are_recorded_once(self):
+        (self.root / "source.c").write_text('#include "types.h"\n')
+        (self.root / "types.h").write_text('#include "nested.h"\n')
+        (self.root / "nested.h").write_text('#include "types.h"\n')
+        record("source.c", "compiled.o", ["types.h", "nested.h"], self.root)
+        self.verify()
+
+    def test_rejects_changed_or_missing_compiler_profile(self):
+        path = object_record(self.root / "compiled.o")
+        metadata = json.loads(path.read_text())
+        metadata["compiler_profile"]["flags"][0] = "-O1"
+        path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, "Compiler profile changed"):
+            self.verify()
+        del metadata["compiler_profile"]
+        path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, "Compiler profile changed"):
+            self.verify()
+
+    def test_rejects_different_compiler_identity(self):
+        self.identity["compiler_sha256"] = "a different synthetic compiler"
+        with self.assertRaisesRegex(ValueError, "Compiler identity changed"):
+            self.verify()

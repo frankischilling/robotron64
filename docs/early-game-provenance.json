@@ -1,0 +1,196 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "recovery_catalog": ".local/runtime/.local/recovery6-game/small-leaves.json",
+  "recovery_catalog_sha256": "e037f8daf6db1a56fde55440c98ec877f1345c17476baa9919842c2dc0577d6a",
+  "shared_header": "include/early_game_helpers.h",
+  "shared_header_sha256": "5c0402948e6912255cb0d61f7aaae4b5e20077cab07e2da6efeae908b87cf420",
+  "additional_shared_header": "include/early_game_more.h",
+  "additional_shared_header_sha256": "dfc08465550320b64f99b3107d5eff07982e436cecf9c7bd2ed90bd7c131169e",
+  "additional_comparison_report": "build/worker1-early-game-next/helpers-report.json",
+  "additional_comparison_report_sha256": "1bbe67352d26d2bcfe07f9124f90492ebf6a519b603231492f85bae18b9dd6aa",
+  "current_proof": "tools/compare_runtime.py recompiles each registered source against the current headers and symbol layout. comparison_result_sha256 hashes each exact block result as sorted compact JSON followed by a newline.",
+  "registration_verification_report_sha256": "c10b644b475b8e8edc048cab4bd6d12eb46074ebcf4ccd5732cfcd971ab852f2",
+  "sources": [
+    {
+      "block": "early_actor_tick",
+      "source": "src/game/early_actor_tick.c",
+      "source_sha256": "e37474312514bc260ed1beb15a918977918580213766e449b07409b1d44ad310",
+      "comparison_result_sha256": "353485ce1dd9f64ea1e763eb660c7f797ab1d6b692eb4ca60b94b15baadc0848",
+      "vram_start": "0x80009F58",
+      "vram_end": "0x80009F90",
+      "bytes": 56,
+      "functions": ["func_80009F58"]
+    },
+    {
+      "block": "early_render_color",
+      "source": "src/game/early_render_color.c",
+      "source_sha256": "034c627cadbd7913b88c9deac10592bdc2c0c9741193dbc3b90b4062bfe9d4a5",
+      "comparison_result_sha256": "0d27a3a1358cbeafb883086aec131010a4fc0c875a586e87164c653f92265ea3",
+      "vram_start": "0x8000A200",
+      "vram_end": "0x8000A21C",
+      "bytes": 28,
+      "functions": ["func_8000A200"]
+    },
+    {
+      "block": "early_render_presets",
+      "source": "src/game/early_render_presets.c",
+      "source_sha256": "13394fabf8909bb8b71a55d246edc82cca015c17e00d6e8139b0133f55831d85",
+      "comparison_result_sha256": "a93013284cb4ef43a0307ab446ccaabb2fb5d38e2dbd75e5dd87cc9b544a459b",
+      "vram_start": "0x8000B964",
+      "vram_end": "0x8000B9D4",
+      "bytes": 112,
+      "functions": ["func_8000B964", "func_8000B99C"]
+    },
+    {
+      "block": "early_render_dispatch",
+      "source": "src/game/early_render_dispatch.c",
+      "source_sha256": "9f5ddbc1e8d90ce87b8488cbba94e5da4b82ee212d23a269f212dd6f23857129",
+      "comparison_result_sha256": "c19d337537d9303a381b739a4e19b540b052ea75b33386822a013357aacaff9c",
+      "vram_start": "0x8000BE80",
+      "vram_end": "0x8000BEC0",
+      "bytes": 64,
+      "functions": ["func_8000BE80", "func_8000BEA0"]
+    },
+    {
+      "block": "early_pool_entry_clear",
+      "source": "src/game/early_pool_entry_clear.c",
+      "source_sha256": "d6c3d129890c0f5ad5cb3473fb856209a51e9e38bc796adf1cf373311a068b8e",
+      "comparison_result_sha256": "96baf8c8e9e51dc1cadaf473ef75c1f84d09a568d5ff21c47b1493e9ce66dff0",
+      "vram_start": "0x8000CF70",
+      "vram_end": "0x8000CF9C",
+      "bytes": 44,
+      "functions": ["func_8000CF70"]
+    },
+    {
+      "block": "early_pool_count",
+      "source": "src/game/early_pool_count.c",
+      "source_sha256": "0fc62d7aa120402d87f53095cd2d408b5d7ea602433b38968a7092212980967f",
+      "comparison_result_sha256": "d66c12fe75012f57f5b47ae23818242672f5c5d2278277e22efd682212a150af",
+      "vram_start": "0x8000D034",
+      "vram_end": "0x8000D090",
+      "bytes": 92,
+      "functions": ["func_8000D034", "func_8000D054"]
+    },
+    {
+      "block": "early_pool_index",
+      "source": "src/game/early_pool_index.c",
+      "source_sha256": "c5e5b40d93ff2c54e56e31fa4799704ca83e6d4fecbf74cbff4a6823b128697f",
+      "comparison_result_sha256": "cc188703f25cd4d2a188105f586b5743881e109136042d46d2586f08376f1abb",
+      "vram_start": "0x8000D2B4",
+      "vram_end": "0x8000D2D4",
+      "bytes": 32,
+      "functions": ["func_8000D2B4"]
+    },
+    {
+      "block": "early_byte_clear",
+      "source": "src/game/early_byte_clear.c",
+      "source_sha256": "af814d25a14c2a154c9a535e8f66299faf18b36b5395a5cc6fc47ce80f0025f5",
+      "comparison_result_sha256": "7ce4e6283792b33678f52229f59eb9306569e22cc5a51e5ec838cbdd7fe74a3e",
+      "vram_start": "0x8000D614",
+      "vram_end": "0x8000D620",
+      "bytes": 12,
+      "functions": ["func_8000D614"]
+    },
+    {
+      "block": "early_angle_normalize",
+      "source": "src/game/early_angle_normalize.c",
+      "source_sha256": "e11be0b95439b57b3cfaf7c04542bc003e7df77bf05c9459e83c4bab0c82cfcb",
+      "comparison_result_sha256": "0230555676010f1e276b47efc13e5b584bf051095d10c55ce8483d606ba68439",
+      "vram_start": "0x8000DF14",
+      "vram_end": "0x8000DF30",
+      "bytes": 28,
+      "functions": ["func_8000DF14"]
+    },
+    {
+      "block": "early_actor_vector_clear",
+      "source": "src/game/early_actor_vector_clear.c",
+      "source_sha256": "62852e63ed834ae3d2e43e9001081d8eff53b346bc7d1a6762be9e525eb3461d",
+      "comparison_result_sha256": "3f3e0bce6506a436338da7cad27b898a8e96b9c8238749b9743f6ce5176b99c4",
+      "vram_start": "0x8000EAE4",
+      "vram_end": "0x8000EAF8",
+      "bytes": 20,
+      "functions": ["func_8000EAE4"]
+    },
+    {
+      "block": "early_global_reset",
+      "source": "src/game/early_global_reset.c",
+      "source_sha256": "53b39d579f0037e564789efcdaebd211a4ce3a180c151c5e8eb790ee0789787b",
+      "comparison_result_sha256": "ed148301411e728ac19add2414c729c8b90eba76cd2986ebef9346502f1b9846",
+      "vram_start": "0x8000ECD0",
+      "vram_end": "0x8000ECE4",
+      "bytes": 20,
+      "functions": ["func_8000ECD0"]
+    },
+    {
+      "block": "early_callbacks_true",
+      "source": "src/game/early_callbacks_true.c",
+      "source_sha256": "24dfc7332a5ce36a2e3f78672680856a398113a37cb8d9aa718fdde53a62a7ee",
+      "comparison_result_sha256": "d2a86f67ff2165e3f98c184a97c7bfabd9e0e945c57f02aa4ac9f920a2991555",
+      "vram_start": "0x80015100",
+      "vram_end": "0x80015130",
+      "bytes": 48,
+      "functions": ["func_80015100", "func_80015118"]
+    },
+    {
+      "block": "early_actor_mode3",
+      "source": "src/game/early_actor_mode3.c",
+      "source_sha256": "46a94f7c35bfe5df11736aef34fd655e66861c723e252441f84757c104ead11a",
+      "comparison_result_sha256": "89fd8ac4a96928cfb1adce3bb26fab165d5f58fc4f63a71c58576bf13e2ba191",
+      "vram_start": "0x80015BD4",
+      "vram_end": "0x80015BF8",
+      "bytes": 36,
+      "functions": ["func_80015BD4"]
+    },
+    {
+      "block": "early_actor_guarded_service",
+      "source": "src/game/early_actor_guarded_service.c",
+      "source_sha256": "158132312723399705a5aee999bb3e7d9c182a0d7f441f8e6c7c402a2749f58c",
+      "comparison_result_sha256": "d325f549b268accb31ee9696d61075cbc78b778a41da3756910d7497f47c30f5",
+      "vram_start": "0x800162AC",
+      "vram_end": "0x800162F8",
+      "bytes": 76,
+      "functions": ["func_800162AC"]
+    },
+    {
+      "block": "early_actor_mode0",
+      "source": "src/game/early_actor_mode0.c",
+      "source_sha256": "c24b0023f23180a9b7a0ec257fd5ff93ac234e61f3a0e94f7b5cef3bb7707f7b",
+      "comparison_result_sha256": "2e884979177b5b0bafb14807f50fdbb4e90ea64feff748ba73dc43cb03898bc4",
+      "vram_start": "0x800162F8",
+      "vram_end": "0x8001631C",
+      "bytes": 36,
+      "functions": ["func_800162F8"]
+    },
+    {
+      "block": "early_six_arg_forward",
+      "source": "src/game/early_six_arg_forward.c",
+      "source_sha256": "b71b5b9b214bc3bccda19978d145a56fc4c47d544d2bd4b1f0ff561b5404e58c",
+      "comparison_result_sha256": "b97b9877a37a77cf3bac9b0ed6d1243551fb176f3302b914d8de64bf400ed42e",
+      "vram_start": "0x80016914",
+      "vram_end": "0x80016950",
+      "bytes": 60,
+      "functions": ["func_80016914"]
+    },
+    {
+      "block": "early_callback_false",
+      "source": "src/game/early_callback_false.c",
+      "source_sha256": "3b809533063b0b83dd65e330afb6557f712b410e61c1c791602c2a8a7a499cda",
+      "comparison_result_sha256": "ba6d5c9d5759b76bef3dee71e850b9d819d11d226dfadad12f7a15f8ee01ed9f",
+      "vram_start": "0x80017364",
+      "vram_end": "0x8001737C",
+      "bytes": 24,
+      "functions": ["func_80017364"]
+    },
+    {
+      "block": "early_simple_forward",
+      "source": "src/game/early_simple_forward.c",
+      "source_sha256": "a1d2b249ce138fd9fb70707230c30930c9b6abc173296f11093f98087b29cae4",
+      "comparison_result_sha256": "fa9792fd7b08ec8190a441653fc4659e4b4bff91348571ef05311a777367ceea",
+      "vram_start": "0x8001B448",
+      "vram_end": "0x8001B468",
+      "bytes": 32,
+      "functions": ["func_8001B448"]
+    }
+  ]
+}

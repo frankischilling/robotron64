@@ -1,0 +1,44 @@
+{
+  "note": "Candidate input identities are archived. Current-source comparisons and linked progress must pass before publication.",
+  "retained_integration_ledger_sha256": "1faf27021762076e81c8a87d96734e0b68557301af1555ea854c1be29c3e6fa1",
+  "units": [
+    {
+      "source": "src/game/audio_backend_voice_start.c",
+      "source_sha256": "794950ec72c034c01f4e6901b284902da19cd52f255aef6f3a62472fe84db398",
+      "headers_sha256": {
+        "include/audio_backend_internal.h": "27b3ace1a8479abd40450e57e032f470e48231a46bbe476a1d097dff496242fe",
+        "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07",
+        "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683"
+      },
+      "candidate_source": ".local/audio-backend/audio_backend_voice_start_current_next.c",
+      "candidate_source_sha256": "794950ec72c034c01f4e6901b284902da19cd52f255aef6f3a62472fe84db398",
+      "candidate_report": "build/audio-backend/audio_backend_voice_start_current_next/report.json",
+      "candidate_report_sha256": "c6c8b68685cdc2b72fb5992462643ae89e85967d9b8ce55c214ed85fdc5276ed",
+      "linked_code_sha256": "68c8528e73baac91898895d7e6f18b8b4ca1cdb19a95deebf367e94733cedfd5",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005C334",
+          "start": 2147861300,
+          "end": 2147861476,
+          "size": 176
+        }
+      ],
+      "owned_sections": [],
+      "complete_code_bytes": 176,
+      "different_words": 0
+    }
+  ]
+}

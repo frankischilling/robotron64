@@ -1,0 +1,250 @@
+{
+  "note": "Retained complete source comparison. Reproduce current evidence with the registered runtime comparison and full-ROM build.",
+  "retained_integration_ledger_sha256": "f6d20bcf30c24e4915fc5fc60ecf83db23c35f5d2cbf0664fcc149eed301c76e",
+  "units": [
+    {
+      "source": "src/game/runtime_angle.c",
+      "source_sha256": "be6e32f8537265bbd46c16e03b5cb1b137ca125b840e8dd42490f31699d9e4b2",
+      "headers_sha256": {
+        "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
+        "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02"
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 104,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_8004CE08",
+          "start": 2147798536,
+          "size": 104
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/runtime_angle.c",
+      "candidate_source_sha256": "563ef4721ca7c4cd9a15d479e05bfe2d4bc02b4c21c9713b5ef4b06a5f9a10db",
+      "candidate_report": "build/sdk-reconstruction/runtime_angle__game__runtime-angle-target-v1/report.json",
+      "candidate_report_sha256": "4be49315714164616c78b713ec6fea5d62d8429573b2d01e3140971b483a90e6",
+      "linked_code_sha256": "81ce7ec7fdab2ed43179caa1e0d0c4f854561c8764b37fe8d9a3ebb7c812144d"
+    },
+    {
+      "source": "src/sdk/camera_perspective.c",
+      "source_sha256": "765b52c4d9b69f45c4d6ab417891a6acc05ff49e48de1a743d0e18347c8621c3",
+      "headers_sha256": {
+        "include/sdk_camera.h": "d227c229ceae6bf2c7e2682705cab751e60faa760cb70230fd6431dfdd7f6d15",
+        "include/sdk_float_math.h": "16ab5392286945c018316e741102e1a35d03927f4f1ff5472a7eeb0b19d4510e",
+        "include/sdk_matrix.h": "d0a1e821bf9243ab3793d791c87924e507c9483d23f98f8914969eddf563c864"
+      },
+      "compiler_profile": {
+        "name": "sdk-o3-mips2-r4300-mul",
+        "version": "5.3",
+        "flags": [
+          "-O3",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32",
+          "-Wab,-r4300_mul"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 648,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_80060750",
+          "start": 2147878736,
+          "size": 560
+        },
+        {
+          "name": "func_80060980",
+          "start": 2147879296,
+          "size": 88
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".rodata",
+          "vram": 2148097264,
+          "rom": 616688,
+          "size": 16,
+          "symbols": {},
+          "section": ".camera_perspective_rodata",
+          "static_symbols": {},
+          "source": "src/sdk/camera_perspective.c",
+          "object": "build/us/camera_perspective.o",
+          "evidence": "docs/camera-projection-and-rotation.md"
+        }
+      ],
+      "candidate_source": ".local/sdk-target/camera_perspective.c",
+      "candidate_source_sha256": "2b60fc27f2af2c2f7edf8a16e147d32c43643874675e0e94b8efe825abaaf66d",
+      "candidate_report": "build/sdk-reconstruction/camera_perspective__sdk_o3_mips2_r4300_mul__camera-target-v1/report.json",
+      "candidate_report_sha256": "9a6349c772fbb7ae662e3eef8e60f271aeca669ec09783bd44eae223a3de5075",
+      "linked_code_sha256": "fb9f0c10f70a0052a650a3768d8efb89dae3d4d138284e78c3acc393e499e4cc"
+    },
+    {
+      "source": "src/sdk/camera_highlights.c",
+      "source_sha256": "cd0dd27df66a1a624629b27115802b22360517c07591fa62815deb757821e8c1",
+      "headers_sha256": {
+        "include/sdk_camera.h": "d227c229ceae6bf2c7e2682705cab751e60faa760cb70230fd6431dfdd7f6d15",
+        "include/sdk_float_math.h": "16ab5392286945c018316e741102e1a35d03927f4f1ff5472a7eeb0b19d4510e",
+        "include/sdk_matrix.h": "d0a1e821bf9243ab3793d791c87924e507c9483d23f98f8914969eddf563c864"
+      },
+      "compiler_profile": {
+        "name": "sdk-o3-mips2-r4300-mul",
+        "version": "5.3",
+        "flags": [
+          "-O3",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32",
+          "-Wab,-r4300_mul"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 2084,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_800609E0",
+          "start": 2147879392,
+          "size": 1900
+        },
+        {
+          "name": "func_8006114C",
+          "start": 2147881292,
+          "size": 184
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".rodata",
+          "vram": 2148097280,
+          "rom": 616704,
+          "size": 32,
+          "symbols": {},
+          "section": ".camera_highlights_rodata",
+          "static_symbols": {},
+          "source": "src/sdk/camera_highlights.c",
+          "object": "build/us/camera_highlights.o",
+          "evidence": "docs/camera-projection-and-rotation.md"
+        }
+      ],
+      "candidate_source": ".local/sdk-target/camera_highlights.c",
+      "candidate_source_sha256": "603bddb43222be84c27697fbb77e436d935081cfa1ef91ea5a601acc46669125",
+      "candidate_report": "build/sdk-reconstruction/camera_highlights__sdk_o3_mips2_r4300_mul__camera-target-v1/report.json",
+      "candidate_report_sha256": "a3d1fa22cc9435b4e25ef4132b334bca7823e7c95387cffb1ba9f349988170bc",
+      "linked_code_sha256": "59d9e8100aefbd9fe154a1a0fe85325c6bd27e4e7733cda55d6b68110c2069a1"
+    },
+    {
+      "source": "src/sdk/matrix_rotation.c",
+      "source_sha256": "5e6aebf56e398def3c90186a496a6fef1c382d7d1f6edaf00d7dae0543572665",
+      "headers_sha256": {
+        "include/sdk_camera.h": "d227c229ceae6bf2c7e2682705cab751e60faa760cb70230fd6431dfdd7f6d15",
+        "include/sdk_float_math.h": "16ab5392286945c018316e741102e1a35d03927f4f1ff5472a7eeb0b19d4510e",
+        "include/sdk_matrix.h": "d0a1e821bf9243ab3793d791c87924e507c9483d23f98f8914969eddf563c864"
+      },
+      "compiler_profile": {
+        "name": "sdk-o3-mips2-r4300-mul",
+        "version": "5.3",
+        "flags": [
+          "-O3",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32",
+          "-Wab,-r4300_mul"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 404,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_800612B0",
+          "start": 2147881648,
+          "size": 332
+        },
+        {
+          "name": "func_800613FC",
+          "start": 2147881980,
+          "size": 72
+        }
+      ],
+      "owned_sections": [
+        {
+          "input_section": ".rodata",
+          "vram": 2148097312,
+          "rom": 616736,
+          "size": 16,
+          "symbols": {},
+          "section": ".matrix_rotation_rodata",
+          "static_symbols": {},
+          "source": "src/sdk/matrix_rotation.c",
+          "object": "build/us/matrix_rotation.o",
+          "evidence": "docs/camera-projection-and-rotation.md"
+        },
+        {
+          "input_section": ".bss",
+          "section": ".matrix_rotation_bss",
+          "vram": 2149141776,
+          "rom": null,
+          "size": 4,
+          "symbols": {},
+          "static_symbols": {
+            "degreesToRadians": 0
+          },
+          "source": "src/sdk/matrix_rotation.c",
+          "object": "build/us/matrix_rotation.o",
+          "evidence": "docs/camera-projection-and-rotation.md"
+        }
+      ],
+      "candidate_source": ".local/sdk-target/matrix_rotation.c",
+      "candidate_source_sha256": "6beef12938ccb88cfe59de600cca5c85c212944463822e508cbad85878dff557",
+      "candidate_report": "build/sdk-reconstruction/matrix_rotation__sdk_o3_mips2_r4300_mul__camera-target-v1/report.json",
+      "candidate_report_sha256": "936ad4003e4f589ae5d29bcca62f1c9c8dcaada574eaa58722feb5711e13b584",
+      "linked_code_sha256": "9be52ac6655bbdd127eee252dd2ab7971c3eb5a478838ac23637274a74bdcf67"
+    }
+  ],
+  "canonical_comparison": {
+    "report": "build/registered-camera/report.json",
+    "report_sha256": "9834d556153483e5ed02c213931d9709d070b95de0577bb102b6a706f14d571e",
+    "complete_units": 4,
+    "matches": true
+  }
+}

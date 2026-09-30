@@ -1,0 +1,71 @@
+{
+  "scope": "Seven complete handwritten assembly procedures / 332 live code bytes. Two are game audio interrupt wrappers; five are identified libultra CP0/TLB services.",
+  "current_proof": "Run python3 tools/compare_assembly.py, make verify, make progress, and make test before claiming a current match.",
+  "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "reference": {
+    "project": "n64decomp/sm64",
+    "revision": "9921382a68bb0c865e5e45eb594d9c64db59b1af",
+    "note": "Reference files supplied conventional libultra names and independent instruction-shape comparisons. Robotron target bytes determine the matching source; no reference implementation was copied.",
+    "files": {
+      "lib/asm/__osDisableInt.s": "a497331ebbb42b44254f7f587d6896fa47901f103d7cb58bd7255670f20c6964",
+      "lib/asm/__osRestoreInt.s": "e1dfab3d92cafded374db6d36734d981bcc8790c20a3da21964b1ee41f2a21b5",
+      "lib/asm/__osProbeTLB.s": "ad2fd169f14b1f19e5ac069b3cfe0b5f5a4cb5f04ec7518f6fe7011afcd57023",
+      "lib/asm/osGetCount.s": "ce800585d91a0695fc64fd1b898c45db26c5e0d420357fd1b76285a01c365737",
+      "lib/asm/__osSetCompare.s": "89336159c3468c80a36be6ce4442e07e0042428800b11ff85534683db62bcff7"
+    }
+  },
+  "units": [
+    {
+      "source": "src/game/audio_interrupt_service.s",
+      "source_sha256": "2b2c8ff50f917e4fa0b74fd959453f90ad4c6035fb662c4e1d8d6d97cd94c536",
+      "section_rom": "0x5e5e0",
+      "section_size": 64,
+      "section_target_sha256": "dc68e2919fb5ec85ce558c75b0a00962b5717023e2ef0cd89641112160dcce67",
+      "functions": [
+        {"name": "func_8005D9E0", "rom": "0x5e5e0", "vram": "0x8005d9e0", "size": 32, "target_sha256": "b5ec893cd5c1e37c723f982142b67fc24befcf35b6e48b596abbcca4c4d44560"},
+        {"name": "func_8005DA00", "rom": "0x5e600", "vram": "0x8005da00", "size": 32, "target_sha256": "6604faa730644258db279f150ad1879e87c654324bea47e9ed0539864b787913"}
+      ]
+    },
+    {
+      "source": "src/sdk/os_interrupt.s",
+      "source_sha256": "91f338b7a3d8cb571f9dd135097bb69e89facd65bdef67eb3de78c6861a12775",
+      "section_rom": "0x68160",
+      "section_size": 64,
+      "section_target_sha256": "7686fc810c1b89b9990096e4e9d6b8fb2ce52bc3e7c230bce6c127f0438a5050",
+      "functions": [
+        {"name": "__osDisableInt", "rom": "0x68160", "vram": "0x80067560", "size": 32, "target_sha256": "b5ec893cd5c1e37c723f982142b67fc24befcf35b6e48b596abbcca4c4d44560"},
+        {"name": "__osRestoreInt", "rom": "0x68180", "vram": "0x80067580", "size": 28, "target_sha256": "b6f58a0412d63a52440645623c5a49320459a39befc7ea4359a374051eceb105"}
+      ]
+    },
+    {
+      "source": "src/sdk/os_probe_tlb.s",
+      "source_sha256": "4dbed6cc332eddbc4200eb3088d0edce9afb4781f3f5b7a35680e039012469de",
+      "section_rom": "0x68d90",
+      "section_size": 192,
+      "section_target_sha256": "349227b84b51cb246abaf9de4bf56eba78054d85575e1bfb09acfdb8d1bc0c28",
+      "functions": [
+        {"name": "__osProbeTLB", "rom": "0x68d90", "vram": "0x80068190", "size": 184, "target_sha256": "12b6f5b60134817aeedf2b981de4b804b3c6fa887e20414084efbbacb88b0052"}
+      ]
+    },
+    {
+      "source": "src/sdk/os_get_count.s",
+      "source_sha256": "a1b9f626281fa6575b5518c3b6d5097dcaafec5172c6935eb7598e36617e3d98",
+      "section_rom": "0x690c0",
+      "section_size": 16,
+      "section_target_sha256": "49439260d2ea325fd9d1049a302274c512c90775bbc3751b54513b65152f01ae",
+      "functions": [
+        {"name": "osGetCount", "rom": "0x690c0", "vram": "0x800684c0", "size": 12, "target_sha256": "923a8ad5844532bc55f28624d13567c9795c3f893ebf07353f29b4ea1df8bc84"}
+      ]
+    },
+    {
+      "source": "src/sdk/os_set_compare.s",
+      "source_sha256": "58d4ec4409c22e0a77bc1b82b62bf43c63c7a056f696b989b93335ad68ad0c3f",
+      "section_rom": "0x6f340",
+      "section_size": 16,
+      "section_target_sha256": "424b05c5a5a48f29b4669731a97ea63a5ee362e2b47fa58afc9317487695229c",
+      "functions": [
+        {"name": "__osSetCompare", "rom": "0x6f340", "vram": "0x8006e740", "size": 12, "target_sha256": "36d5b735ab25f9bb478700d6bf34d5e54555d915b3f13a889e07eade088947cd"}
+      ]
+    }
+  ]
+}

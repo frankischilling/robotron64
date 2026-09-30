@@ -1,0 +1,76 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "recovery_catalog": ".local/runtime/.local/recovery71-audio-properties/extended-catalog.json",
+  "recovery_catalog_sha256": "c0da6d0dd236238999c174d3a66677f12d23d5886f72629c79cdcc24d5ff6e4b",
+  "shared_header": "include/early_game_state.h",
+  "shared_header_sha256": "98cc4c6b7922eba0170ef0dd0a5170b27255bd042f6d08eb8e90ffdde454132a",
+  "comparison_report": "build/worker1-early-game-state-next/report.json",
+  "comparison_report_sha256": "07c0f34ce495bb04462906d5a5e67f57c4171d8dd7d59a85d7e425f42de9a7a0",
+  "comparison_summary": "1300/1300 target bytes; zero differing words",
+  "integrated_rom_verification": "Matched all 8388608 bytes",
+  "integrated_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "owned_sections": [],
+  "external_reference_note": "No external game implementation was used for these functions; recovery used Robotron 64 target instructions, target callers, and the local m2c output as a structural seed.",
+  "sources": [
+    {
+      "block": "early_float_step",
+      "source": "src/game/early_float_step.c",
+      "source_sha256": "eb3ec4cc3deeac401b482d5498af64468dea6edefa3a3473ed3cd02b95e037ca",
+      "vram_start": "0x80012690",
+      "vram_end": "0x800126E0",
+      "bytes": 80,
+      "functions": ["func_80012690"],
+      "direct_callers": []
+    },
+    {
+      "block": "early_selection_state",
+      "source": "src/game/early_selection_state.c",
+      "source_sha256": "540ec304548c9e88da13efd36e3836039edf3318e5c85193d0c8996b6feda90d",
+      "vram_start": "0x8001276C",
+      "vram_end": "0x80012950",
+      "bytes": 484,
+      "functions": ["func_8001276C", "func_8001288C"],
+      "direct_callers": ["0x8003C1A8", "0x800214D4", "0x8002205C", "0x80022D24"]
+    },
+    {
+      "block": "early_actor_pair_balance",
+      "source": "src/game/early_actor_pair_balance.c",
+      "source_sha256": "767adca8fa4b4c85e63da16b2cef0f3591de738e0478eee437c5ee3fad2f5271",
+      "vram_start": "0x80015130",
+      "vram_end": "0x80015184",
+      "bytes": 84,
+      "functions": ["func_80015130"],
+      "direct_callers": []
+    },
+    {
+      "block": "early_actor_create",
+      "source": "src/game/early_actor_create.c",
+      "source_sha256": "609d0019e4cad9100c24a57fe39ad4dd4394cb1de5b97cafd73ba25771c53abc",
+      "vram_start": "0x80015184",
+      "vram_end": "0x800152E8",
+      "bytes": 356,
+      "functions": ["func_80015184", "func_80015218", "func_800152AC"],
+      "direct_callers": ["0x8000E108", "0x8001631C", "0x80016C1C", "0x80017ACC", "0x80017CDC", "0x80017E50", "0x80038830"]
+    },
+    {
+      "block": "early_actor_state",
+      "source": "src/game/early_actor_state.c",
+      "source_sha256": "85df2bcafe131ce240243ea549cafe23831bf9171e42a8bc6edb98347eed5902",
+      "vram_start": "0x80015554",
+      "vram_end": "0x8001567C",
+      "bytes": 296,
+      "functions": ["func_80015554", "func_80015614"],
+      "direct_callers": ["0x8001567C", "0x80016950"]
+    }
+  ],
+  "unmatched_neighbors": [
+    {
+      "function": "func_800126E0",
+      "vram_start": "0x800126E0",
+      "vram_end": "0x8001276C",
+      "target_bytes": 140,
+      "status": "correct extent and table-search behavior; pointer/register allocation still differs"
+    }
+  ]
+}

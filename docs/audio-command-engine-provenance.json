@@ -1,0 +1,602 @@
+{
+  "scope": "Historical proof identities for 43 complete functions, 6032 code bytes, and 112 BSS bytes.",
+  "current_proof": "Rebuild the checkout with tools/compare_runtime.py and make progress; old reports do not establish a current match.",
+  "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler_profile": {
+    "version": "5.3",
+    "flags": [
+      "-O2",
+      "-G",
+      "0",
+      "-non_shared",
+      "-mips1",
+      "-32"
+    ]
+  },
+  "units": [
+    {
+      "source": "src/game/audio_diagnostics.c",
+      "source_sha256": "cb33949851560a95714b21f90017f96471a17404b1bad2669fb3fb97161fb9b3",
+      "candidate_source": ".local/audio-core/audio_diagnostics.c",
+      "candidate_source_sha256": "cb33949851560a95714b21f90017f96471a17404b1bad2669fb3fb97161fb9b3",
+      "candidate_report": "build/audio-core/audio_diagnostics/report.json",
+      "candidate_report_sha256": "54292982581ab4dae68589ac59983e72e31363a57b46c3c7226b05d01aba1c94",
+      "headers_sha256": {
+        "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_80058C00",
+          "start": 2147847168,
+          "size": 416
+        },
+        {
+          "name": "func_80058DA0",
+          "start": 2147847584,
+          "size": 412
+        },
+        {
+          "name": "func_80058F3C",
+          "start": 2147847996,
+          "size": 76
+        },
+        {
+          "name": "func_80058F88",
+          "start": 2147848072,
+          "size": 412
+        },
+        {
+          "name": "func_80059124",
+          "start": 2147848484,
+          "size": 412
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_engine_setup.c",
+      "source_sha256": "1ccc9e10731a68f91bf9bd5cc83baf6d74f9a4d827fe7bed5a78db9d67b58505",
+      "candidate_source": ".local/audio-core/audio_engine_setup.c",
+      "candidate_source_sha256": "53dea68e43b9b07158622ab8d3b636d8993324d3e3921af017c59776ca72ee88",
+      "candidate_report": "build/audio-core/audio_engine_setup/report.json",
+      "candidate_report_sha256": "c66a2e7432a62893754355d54e250c69bf027b3b0e1b741c64308f5ab40be03a",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_800596C4",
+          "start": 2147849924,
+          "size": 56
+        },
+        {
+          "name": "func_800596FC",
+          "start": 2147849980,
+          "size": 8
+        },
+        {
+          "name": "func_80059704",
+          "start": 2147849988,
+          "size": 8
+        },
+        {
+          "name": "func_8005970C",
+          "start": 2147849996,
+          "size": 8
+        },
+        {
+          "name": "func_80059714",
+          "start": 2147850004,
+          "size": 8
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_engine_voice_stop.c",
+      "source_sha256": "7d6b53ba345e928408145df768af3a8dba5c9e3680bd4dbfc4be32ced5ab8ada",
+      "candidate_source": ".local/audio-core-local/audio_engine_voice_stop.c",
+      "candidate_source_sha256": "57e132b519aa65a01a94db26e0d4eac7740d2dc9c8baa4a3ad3a3bba05ad1123",
+      "candidate_report": ".local/audio-core-local/audio_engine_voice_stop/report.json",
+      "candidate_report_sha256": "3956893e82fdf397abd759e93c51954cf9f232f6a8638711e8c1aed56623d50e",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005971C",
+          "start": 2147850012,
+          "size": 380
+        }
+      ],
+      "bss": {
+        "source": "src/game/audio_engine_voice_stop.c",
+        "object": "build/us/audio_engine_voice_stop.o",
+        "evidence": "docs/audio-command-engine.md",
+        "input_section": ".bss",
+        "section": ".audio_engine_voice_stop_bss",
+        "vram": 2149132120,
+        "rom": null,
+        "size": 12,
+        "symbols": {},
+        "static_symbols": {
+          "D_80192758": 0,
+          "D_8019275C": 4,
+          "D_80192760": 8
+        }
+      }
+    },
+    {
+      "source": "src/game/audio_engine_parameters.c",
+      "source_sha256": "ca2d92d32f5bfa60c6bcff88221b2fd1f5432adb07917ef43ec5436c0d48f681",
+      "candidate_source": ".local/audio-core/audio_engine_parameters.c",
+      "candidate_source_sha256": "9b02a2dbd36909cf27a507dafc61403876bf6d254c614ec991d241600f187d51",
+      "candidate_report": "build/audio-core/audio_engine_parameters/report.json",
+      "candidate_report_sha256": "ca2099920bde8aaceb9b73a8975bdd5f579a072683cd8e509544e828c6386b1d",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_80059898",
+          "start": 2147850392,
+          "size": 8
+        },
+        {
+          "name": "func_800598A0",
+          "start": 2147850400,
+          "size": 40
+        },
+        {
+          "name": "func_800598C8",
+          "start": 2147850440,
+          "size": 8
+        },
+        {
+          "name": "func_800598D0",
+          "start": 2147850448,
+          "size": 36
+        },
+        {
+          "name": "func_800598F4",
+          "start": 2147850484,
+          "size": 8
+        },
+        {
+          "name": "func_800598FC",
+          "start": 2147850492,
+          "size": 8
+        },
+        {
+          "name": "func_80059904",
+          "start": 2147850500,
+          "size": 28
+        },
+        {
+          "name": "func_80059920",
+          "start": 2147850528,
+          "size": 28
+        },
+        {
+          "name": "func_8005993C",
+          "start": 2147850556,
+          "size": 8
+        },
+        {
+          "name": "func_80059944",
+          "start": 2147850564,
+          "size": 8
+        },
+        {
+          "name": "func_8005994C",
+          "start": 2147850572,
+          "size": 8
+        },
+        {
+          "name": "func_80059954",
+          "start": 2147850580,
+          "size": 8
+        },
+        {
+          "name": "func_8005995C",
+          "start": 2147850588,
+          "size": 8
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_engine_tempo.c",
+      "source_sha256": "89df4c221c08f6ab3776cc9f43f441fc87980c09ccbcf9edd9a6cb79b19bfaf2",
+      "candidate_source": ".local/audio-core-local/audio_engine_tempo.c",
+      "candidate_source_sha256": "f986c72982ef8922f54dfa4768b48f520d68dde1b276735caae79161eb316fbc",
+      "candidate_report": ".local/audio-core-local/audio_engine_tempo/report.json",
+      "candidate_report_sha256": "b3503435d6bdd04e6432880be2e01f8d4a320da82c653d5c0ec924d62eef55ab",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_80059E2C",
+          "start": 2147851820,
+          "size": 412
+        }
+      ],
+      "bss": {
+        "source": "src/game/audio_engine_tempo.c",
+        "object": "build/us/audio_engine_tempo.o",
+        "evidence": "docs/audio-command-engine.md",
+        "input_section": ".bss",
+        "section": ".audio_engine_tempo_bss",
+        "vram": 2149132188,
+        "rom": null,
+        "size": 16,
+        "symbols": {},
+        "static_symbols": {
+          "D_8019279C": 0,
+          "D_8019279E": 2,
+          "D_801927A0": 4,
+          "D_801927A4": 8,
+          "D_801927A8": 12
+        }
+      }
+    },
+    {
+      "source": "src/game/audio_engine_sequence_call.c",
+      "source_sha256": "e51b2215addabebbde8334766569730c5cd3cb72a62383935287354c48669d1d",
+      "candidate_source": ".local/audio-core-existing/audio_engine_sequence_call.c",
+      "candidate_source_sha256": "e51b2215addabebbde8334766569730c5cd3cb72a62383935287354c48669d1d",
+      "candidate_report": ".local/audio-core-existing/audio_engine_sequence_call/report.json",
+      "candidate_report_sha256": "a17e39f2b382fd5ce41e20a748431c46bbb7d76f212e08f6e7df9cd393a9d1d3",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_80059FC8",
+          "start": 2147852232,
+          "size": 440
+        }
+      ],
+      "bss": {
+        "source": "src/game/audio_engine_sequence_call.c",
+        "object": "build/us/audio_engine_sequence_call.o",
+        "evidence": "docs/audio-command-engine.md",
+        "input_section": ".bss",
+        "section": ".audio_engine_sequence_call_bss",
+        "vram": 2149132204,
+        "rom": null,
+        "size": 24,
+        "symbols": {},
+        "static_symbols": {
+          "D_801927AC": 0,
+          "D_801927AE": 2,
+          "D_801927B0": 4,
+          "D_801927B4": 8,
+          "D_801927B8": 12,
+          "D_801927BC": 16,
+          "D_801927C0": 20
+        }
+      }
+    },
+    {
+      "source": "src/game/audio_engine_sequence_jump.c",
+      "source_sha256": "1519ee7872e09c666f6cc70ec0364b03e3d1b94a510f61b6629e584a0586ebce",
+      "candidate_source": ".local/audio-core-existing/audio_engine_sequence_jump.c",
+      "candidate_source_sha256": "1519ee7872e09c666f6cc70ec0364b03e3d1b94a510f61b6629e584a0586ebce",
+      "candidate_report": ".local/audio-core-existing/audio_engine_sequence_jump/report.json",
+      "candidate_report_sha256": "0383aab25af085b89f72ad007a7346c1e07165dfda4b503a4da20178a44738a7",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005A180",
+          "start": 2147852672,
+          "size": 400
+        }
+      ],
+      "bss": {
+        "source": "src/game/audio_engine_sequence_jump.c",
+        "object": "build/us/audio_engine_sequence_jump.o",
+        "evidence": "docs/audio-command-engine.md",
+        "input_section": ".bss",
+        "section": ".audio_engine_sequence_jump_bss",
+        "vram": 2149132228,
+        "rom": null,
+        "size": 24,
+        "symbols": {},
+        "static_symbols": {
+          "D_801927C4": 0,
+          "D_801927C6": 2,
+          "D_801927C8": 4,
+          "D_801927CC": 8,
+          "D_801927D0": 12,
+          "D_801927D4": 16,
+          "D_801927D8": 20
+        }
+      }
+    },
+    {
+      "source": "src/game/audio_engine_sequence_return.c",
+      "source_sha256": "698968b75d5eb936ea01e72aa453b159b63f6d8768f9e1e0ad9e57e9371554f4",
+      "candidate_source": ".local/audio-core-existing/audio_engine_sequence_return.c",
+      "candidate_source_sha256": "698968b75d5eb936ea01e72aa453b159b63f6d8768f9e1e0ad9e57e9371554f4",
+      "candidate_report": ".local/audio-core-existing/audio_engine_sequence_return/report.json",
+      "candidate_report_sha256": "7e387a5617bd36def41d7f746e34899fafb99f3233afb241e0f73568bda55079",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005A310",
+          "start": 2147853072,
+          "size": 312
+        }
+      ],
+      "bss": {
+        "source": "src/game/audio_engine_sequence_return.c",
+        "object": "build/us/audio_engine_sequence_return.o",
+        "evidence": "docs/audio-command-engine.md",
+        "input_section": ".bss",
+        "section": ".audio_engine_sequence_return_bss",
+        "vram": 2149132252,
+        "rom": null,
+        "size": 16,
+        "symbols": {},
+        "static_symbols": {
+          "D_801927DC": 0,
+          "D_801927DE": 2,
+          "D_801927E0": 4,
+          "D_801927E4": 8,
+          "D_801927E8": 12
+        }
+      }
+    },
+    {
+      "source": "src/game/audio_engine_sequence_stop.c",
+      "source_sha256": "7b9e8d515416f8dd1f731fa42fa2122a879f1397a9615c2a2f3ca499747f4d8a",
+      "candidate_source": ".local/audio-core-existing/audio_engine_sequence_stop.c",
+      "candidate_source_sha256": "7b9e8d515416f8dd1f731fa42fa2122a879f1397a9615c2a2f3ca499747f4d8a",
+      "candidate_report": ".local/audio-core-existing/audio_engine_sequence_stop/report.json",
+      "candidate_report_sha256": "515def7ea294314e560428c2a08fb9bddff5941fdb2aa91fa1486e4bd362a42c",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005A448",
+          "start": 2147853384,
+          "size": 656
+        }
+      ],
+      "bss": {
+        "source": "src/game/audio_engine_sequence_stop.c",
+        "object": "build/us/audio_engine_sequence_stop.o",
+        "evidence": "docs/audio-command-engine.md",
+        "input_section": ".bss",
+        "section": ".audio_engine_sequence_stop_bss",
+        "vram": 2149132268,
+        "rom": null,
+        "size": 20,
+        "symbols": {},
+        "static_symbols": {
+          "D_801927EC": 0,
+          "D_801927F0": 4,
+          "D_801927F4": 8,
+          "D_801927F8": 12,
+          "D_801927FC": 16
+        }
+      }
+    },
+    {
+      "source": "src/game/audio_engine_voice_tempo.c",
+      "source_sha256": "18a3919a6089884d859060d17cd6b775b5eceb399b952283c78b2b306583994c",
+      "candidate_source": ".local/audio-core/audio_engine_voice_tempo.c",
+      "candidate_source_sha256": "18a3919a6089884d859060d17cd6b775b5eceb399b952283c78b2b306583994c",
+      "candidate_report": "build/audio-core/audio_engine_voice_tempo/report.json",
+      "candidate_report_sha256": "cc7835fbab6fe3dc0d9c66a69a56d3ed45e7af096f6cf6c49b0ab1eb41cb797d",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005A6D8",
+          "start": 2147854040,
+          "size": 100
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_engine_voice_call.c",
+      "source_sha256": "b467013b34adcef4a5459276bb1c16904a1e05bc8cbbebda9ea7094f8d3eeee9",
+      "candidate_source": ".local/audio-core/audio_engine_voice_call.c",
+      "candidate_source_sha256": "b467013b34adcef4a5459276bb1c16904a1e05bc8cbbebda9ea7094f8d3eeee9",
+      "candidate_report": "build/audio-core/audio_engine_voice_call/report.json",
+      "candidate_report_sha256": "8dbf28c7e069b94260fb08048a3d8a83c879af2aed04bc0d04d92d658a533099",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005A73C",
+          "start": 2147854140,
+          "size": 136
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_engine_voice_jump.c",
+      "source_sha256": "2a2c567db3d2baa199e8e006eb592c4e4ae6bc330ea4af3ded710f8b04192f33",
+      "candidate_source": ".local/audio-core/audio_engine_voice_jump.c",
+      "candidate_source_sha256": "2a2c567db3d2baa199e8e006eb592c4e4ae6bc330ea4af3ded710f8b04192f33",
+      "candidate_report": "build/audio-core/audio_engine_voice_jump/report.json",
+      "candidate_report_sha256": "7ebf818c53f3736e5c85afaea79c9b1be5f353e66ff4b0f2a3011a588939f1b7",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005A7C4",
+          "start": 2147854276,
+          "size": 108
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_engine_voice_return.c",
+      "source_sha256": "ba651029d8c3d0d72c5ce8e7c55e99efbd8bf0075ffe78721e87326c6e863c28",
+      "candidate_source": ".local/audio-core/audio_engine_voice_return.c",
+      "candidate_source_sha256": "ba651029d8c3d0d72c5ce8e7c55e99efbd8bf0075ffe78721e87326c6e863c28",
+      "candidate_report": "build/audio-core/audio_engine_voice_return/report.json",
+      "candidate_report_sha256": "e5a72a7cec50cacaa2cd6fa66bb8d4ff78bb2f70a5adbd867a8397e48f035d62",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005A830",
+          "start": 2147854384,
+          "size": 92
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_engine_voice_end.c",
+      "source_sha256": "ea0277f99b24f2788b41128f60c312eb7a9891316674a57bdbda7bd6f9724fd2",
+      "candidate_source": ".local/audio-core/audio_engine_voice_end.c",
+      "candidate_source_sha256": "ea0277f99b24f2788b41128f60c312eb7a9891316674a57bdbda7bd6f9724fd2",
+      "candidate_report": "build/audio-core/audio_engine_voice_end/report.json",
+      "candidate_report_sha256": "1aa33a1294a05a6f6ec02dc87e68e9a9182dab3f30d675f9b96da5a73685231d",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005A88C",
+          "start": 2147854476,
+          "size": 280
+        },
+        {
+          "name": "func_8005A9A4",
+          "start": 2147854756,
+          "size": 8
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_rate_scale.c",
+      "source_sha256": "0fef766fd8acfc24f9a72358828e827719444d0a164a632868d95914f79a2a3a",
+      "candidate_source": ".local/audio-core/audio_rate_scale.c",
+      "candidate_source_sha256": "0fef766fd8acfc24f9a72358828e827719444d0a164a632868d95914f79a2a3a",
+      "candidate_report": "build/audio-core/audio_rate_scale/report.json",
+      "candidate_report_sha256": "12f2fcb722b1292d7e9beb294d11c9062d02e791ed4e9bc96a9714dc48a0dc25",
+      "headers_sha256": {},
+      "functions": [
+        {
+          "name": "func_8005AD50",
+          "start": 2147855696,
+          "size": 56
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_voice_capture_control.c",
+      "source_sha256": "dcad7567f73157bba82fa774034046c9492c58b3cf71eb056eb8a8e54f01dd5a",
+      "candidate_source": ".local/audio-core/audio_voice_capture_control.c",
+      "candidate_source_sha256": "86ce37f00a1591df6b885ee0790a63a6833342531afe477c73e01b8e3eb779b7",
+      "candidate_report": "build/audio-core/audio_voice_capture_control/report.json",
+      "candidate_report_sha256": "cc9f81dbf44e141412c7ec9920888f02e190677fb8f0b79439e609d46e22f951",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005AD88",
+          "start": 2147855752,
+          "size": 12
+        },
+        {
+          "name": "func_8005AD94",
+          "start": 2147855764,
+          "size": 48
+        },
+        {
+          "name": "func_8005ADC4",
+          "start": 2147855812,
+          "size": 12
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_voice_capture_resume.c",
+      "source_sha256": "1113c7d31e2b58fe2e73de352c233ab3b6381aa801e4bed7a3d5117616459511",
+      "candidate_source": ".local/audio-core/audio_voice_capture_resume.c",
+      "candidate_source_sha256": "2e66b9cf057944f66f97c65e063d9a6b32d942617b2b290f10b070168c36025e",
+      "candidate_report": "build/audio-core/audio_voice_capture_resume/report.json",
+      "candidate_report_sha256": "5460535e501b80057edf2a094081c78b4fe1a809a797333186df4617e008f0d9",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005ADD0",
+          "start": 2147855824,
+          "size": 216
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_voice_capture_append.c",
+      "source_sha256": "69f3cc502b22f6024df1c3a8a6efff75209376ce201937bfae1ebeadd30c90c0",
+      "candidate_source": ".local/audio-core/audio_voice_capture_append.c",
+      "candidate_source_sha256": "71709687d3ab8c67ef4ef9b3d539960dc6a206f6ca1f4fde6d4d32becf95f03c",
+      "candidate_report": "build/audio-core/audio_voice_capture_append/report.json",
+      "candidate_report_sha256": "903471e609f59b24e30f1cf99b65f91ec262d03c574dfaaf43b41a6fc2f14a24",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005AEA8",
+          "start": 2147856040,
+          "size": 316
+        }
+      ],
+      "bss": null
+    },
+    {
+      "source": "src/game/audio_voice_argument.c",
+      "source_sha256": "c9cf629218c6b7207925cb17480cec676675adf8c395941a5512aad5f785c137",
+      "candidate_source": ".local/audio-core/audio_voice_argument.c",
+      "candidate_source_sha256": "7c4413f63a22c4e1f7c19ab54003fc7693412bf1874c5122c8551a3b1f582205",
+      "candidate_report": "build/audio-core/audio_voice_argument/report.json",
+      "candidate_report_sha256": "3de5d8bd15834eef1b155d917f0defba3bf09f78da3c447533d49be76adaf7ca",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "bfce2d0dd910bc5367282035c8b9c1c94c5e749c189491ef06b6f9b7b513a753"
+      },
+      "functions": [
+        {
+          "name": "func_8005AFE4",
+          "start": 2147856356,
+          "size": 12
+        },
+        {
+          "name": "func_8005AFF0",
+          "start": 2147856368,
+          "size": 16
+        }
+      ],
+      "bss": null
+    }
+  ]
+}

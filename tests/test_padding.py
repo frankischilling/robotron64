@@ -54,3 +54,16 @@ class PaddingTests(unittest.TestCase):
             with self.subTest(name=name, length=len(data)):
                 with self.assertRaises(ValueError):
                     trim(data, name, 8)
+
+    def test_bss_padding_does_not_read_unrelated_file_bytes(self):
+        original = bytearray(fixture(tail=b'not-data'))
+        struct.pack_into('>I', original, 52 + 2 * 40 + 4, 8)
+        result = trim(bytes(original), '.rodata', 8)
+        self.assertEqual(result[320:336], original[320:336])
+        self.assertEqual(struct.unpack_from('>I', result, 52 + 2 * 40 + 20)[0], 8)
+
+    def test_bss_live_symbol_still_prevents_trimming(self):
+        original = bytearray(fixture(symbol_type=1))
+        struct.pack_into('>I', original, 52 + 2 * 40 + 4, 8)
+        with self.assertRaisesRegex(ValueError, 'Symbol'):
+            trim(bytes(original), '.rodata', 8)

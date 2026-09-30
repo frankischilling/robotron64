@@ -1,0 +1,621 @@
+{
+  "archive_root": ".local/runtime/.local/recovery71-audio-properties",
+  "scope": "Historical input identities for the initial 54-function upper-audio integration.",
+  "current_proof": "Recompile the checkout with tools/compare_runtime.py; archival reports alone do not prove current headers.",
+  "source_change": "Quoted header paths now resolve through include/; function bodies are unchanged.",
+  "units_with_changed_archived_headers": 29,
+  "historical_header_versions": {
+    "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e": {
+      "filename": "audio_properties_internal.h",
+      "retained_matching_copy": "archive/audio_handle_position-5.3-O2-mips1/20260928T204130.231960Z/inputs/.local/recovery71-audio-properties/audio_properties_internal.h"
+    },
+    "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da": {
+      "filename": "audio_properties_internal.h",
+      "retained_matching_copy": "archive/audio_host_callbacks-5.3-O2-mips1/20260928T210143.898475Z/inputs/.local/recovery71-audio-properties/audio_properties_internal.h"
+    },
+    "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4": {
+      "filename": "audio_property_pipeline_internal.h",
+      "retained_matching_copy": "archive/audio_stream_variable_read-5.3-O2-mips1/20260928T210142.037457Z/inputs/.local/recovery71-audio-properties/audio_property_pipeline_internal.h"
+    },
+    "659b548b09373c9adf038366c0d953cd62fc35a47874f4c94719699090b67be0": {
+      "filename": "audio_host_internal.h",
+      "retained_matching_copy": "audio_host_internal.h"
+    },
+    "e9fa8232a2b76c6a367d56de06d73a1ec1247158924b5d30f6f01f00a80f6819": {
+      "filename": "audio_host_internal.h",
+      "retained_matching_copy": "archive/audio_host_callbacks-5.3-O2-mips1/20260928T210143.898475Z/inputs/.local/recovery71-audio-properties/audio_host_internal.h"
+    }
+  },
+  "include_sha256_at_integration": {
+    "include/audio_host_internal.h": "659b548b09373c9adf038366c0d953cd62fc35a47874f4c94719699090b67be0",
+    "include/audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+    "include/audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+  },
+  "sources": [
+    {
+      "source": "src/game/audio_handle_create.c",
+      "source_sha256": "62aa04a04f9aed58996ba9070a42d53a8d3cef3d6800b787c98f56dc5c4b5af1",
+      "archived_source": "audio_handle_create.c",
+      "archived_source_sha256": "a18a33ef012ae9426a10e66ad8bf0c35f2c14573fd82d5746e627353ac01e2a8",
+      "archived_report": "probes/audio_handle_create-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "d5057b28f16a715155d965666adb3719a5e113c74c4b5f2987b1f7883f789d72",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 88,
+      "live_actual_size": 88
+    },
+    {
+      "source": "src/game/audio_handle_instance.c",
+      "source_sha256": "30edac74e17354dbca85e5900d788cc2666cd177311ed5f86b0dc1356100070d",
+      "archived_source": "audio_handle_instance.c",
+      "archived_source_sha256": "4e4ea04e857123f76d493961e310bb01b3e8517133abd3ab38cec5446f33a05e",
+      "archived_report": "probes/audio_handle_instance-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "0e8f9ee0f37f09a322880bb3cbb3a94a247d5b936f71a92670b99f6bdb5e9090",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 96,
+      "live_actual_size": 96
+    },
+    {
+      "source": "src/game/audio_handle_pair_apply.c",
+      "source_sha256": "260ab404150a9b88d1e10a45ca53d67f629c37828527ec19b019dad6976d435a",
+      "archived_source": "audio_handle_pair_apply.c",
+      "archived_source_sha256": "a0056341614fa6dffb98a4cc0767786a3a4f9acf1482a3a262c027d2410dee57",
+      "archived_report": "probes/audio_handle_pair_apply-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "26c5166b9f93bcdbd33488fefc95ec05d24fd6c194c391217edb4ef667bfb4bc",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 212,
+      "live_actual_size": 212
+    },
+    {
+      "source": "src/game/audio_handle_pair_decode.c",
+      "source_sha256": "90a23e82100abe2d3b0fa0ac2f5e238938ec1aaa00dc2d09d695d503d1d929eb",
+      "archived_source": "audio_handle_pair_decode.c",
+      "archived_source_sha256": "1950ecf21175fceba85803e134ca1c85ac33ced2d8961cd113b44faff48d8e8b",
+      "archived_report": "probes/audio_handle_pair_decode-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "4b28e1f59215165e2ebd436da59246b8de127ddb837eba4477943a78c003ac60",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 96,
+      "live_actual_size": 96
+    },
+    {
+      "source": "src/game/audio_handle_pair_request.c",
+      "source_sha256": "b24875c0f905512e3eae6fe343281500f34617b9d6792f94db37e5f6f874c485",
+      "archived_source": "audio_handle_pair_request.c",
+      "archived_source_sha256": "3d86fca6585f0a7f9dcd8cef20ab94a8663e0df19950e1248269f292177b4bf2",
+      "archived_report": "probes/audio_handle_pair_request-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "c288ba599ba19a35a29039e574cee272c03e6429ebe9972b0af29b98ae58d762",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 108,
+      "live_actual_size": 108
+    },
+    {
+      "source": "src/game/audio_handle_parameter_57c70.c",
+      "source_sha256": "12282d97388e0a34ebd156d3a60c119e38ba2585793e65121cd12fdfad950cb2",
+      "archived_source": "audio_handle_parameter_57c70.c",
+      "archived_source_sha256": "2d0993644597265e05a194876e07987ca35ae3b2950d4f07924df189fa43b3e7",
+      "archived_report": "probes/audio_handle_parameter_57c70-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "d292188b003999fa97734f37606aee06ec3b58e47085e49722da14b444b6cec6",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_57e94.c",
+      "source_sha256": "fe11f3fb8741b2ba54ef5b7c5f267884baaed341be0cc9b0a07574199a482c2e",
+      "archived_source": "audio_handle_parameter_57e94.c",
+      "archived_source_sha256": "93cf29b0ec859507cd9ba27e54e10c8f33db37894469528dc1ffde5ca29c4e13",
+      "archived_report": "probes/audio_handle_parameter_57e94-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "4b2b489cf7fb8b294548f82b2be35e79166996184ad324f3ca5b49aa7fc96d1c",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_57ec0.c",
+      "source_sha256": "a44d3fd70a7500891d9e945bf2ea11a5e39caaa45dcb91d67f855b4dea0ea688",
+      "archived_source": "audio_handle_parameter_57ec0.c",
+      "archived_source_sha256": "5ab83dc5414d653ec2c464494e7c9578d26432cb0a46aab44f3ba2e157789ef2",
+      "archived_report": "probes/audio_handle_parameter_57ec0-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "466e918e09441adf1ee3b0765c2f71d76d37abfdb2da62e7ced2f7639d1d9a29",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 48,
+      "live_actual_size": 48
+    },
+    {
+      "source": "src/game/audio_handle_parameter_57f48.c",
+      "source_sha256": "780b3f2b9a41b47ee35fa088a3c200b37b7faf5f9e437e8facc2be14eee920e1",
+      "archived_source": "audio_handle_parameter_57f48.c",
+      "archived_source_sha256": "64b0c5ebab141ae45901423ea9f6bb7deef2c86833b27de4d39aaa5a0d7d1b68",
+      "archived_report": "probes/audio_handle_parameter_57f48-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "41d0deb50f95910d37b20cc95594dbbc3a22495a25e3c75c729aff4a43f82772",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_57fcc.c",
+      "source_sha256": "63d0b6da610f0aa30b66a837dd7e135843976faee4a5569cca13a2554720467f",
+      "archived_source": "audio_handle_parameter_57fcc.c",
+      "archived_source_sha256": "0ca34025d2d4212afa1958d577c7c42d6e2ff3817e000d673684754fbeedf261",
+      "archived_report": "probes/audio_handle_parameter_57fcc-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "a42ceaa500aaef5aaedc3f566f85c7f353d9132f38ac1ea79ccf7b180321721d",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_57ff8.c",
+      "source_sha256": "a330ffd2970ad7db0f73d9e2dd18061dc9c31366863715ab9860d3c36ec60c20",
+      "archived_source": "audio_handle_parameter_57ff8.c",
+      "archived_source_sha256": "bfec23621610af2679f384f9e6ee0fe3fc70641752ed357c2eafe7add0ac4509",
+      "archived_report": "probes/audio_handle_parameter_57ff8-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "c5f8f0959bfb32055a087d58fecb385407c0f57ae68578fd867d2f04dffca032",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_58024.c",
+      "source_sha256": "4feb8bc2a281811767f78bbb7f206d8f65d91a391ca8872d176bf089249489cb",
+      "archived_source": "audio_handle_parameter_58024.c",
+      "archived_source_sha256": "3dd9b98adfb799ae82b87dcde1557fd9216117bcf3263f32570f49bce8bf5d2a",
+      "archived_report": "probes/audio_handle_parameter_58024-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "fb02515d0c43b9ba42e9b627e2a3a49bd083dba38cab30646cbe55e27b3f2df1",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_580a8.c",
+      "source_sha256": "7afdaa6ab426499fb2ffb075789f4118614b8e8fe8f25bfcfde5100c10a86352",
+      "archived_source": "audio_handle_parameter_580a8.c",
+      "archived_source_sha256": "6677a42c274fbc0e56c72e029a4f8b91ce3612d33a0d1ba3cb76e0888ccac35b",
+      "archived_report": "probes/audio_handle_parameter_580a8-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "17fe89d9d2ff0a8dc60cbaec1f439b262ce4bfd659cb32c005367917106c4f40",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_5812c.c",
+      "source_sha256": "ad673a38800a58ac29a9a9360a571574a237d8d72c3a25d0e20f82320e97d9de",
+      "archived_source": "audio_handle_parameter_5812c.c",
+      "archived_source_sha256": "5ea1df8b69cbcb09fb058cf7b5dfdfbb675cab1426c9b245bcf0848c5dd20262",
+      "archived_report": "probes/audio_handle_parameter_5812c-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "1a4477f26e942ef737167d2009b761a274d5e29ee8154e200db0cae49c92aa0f",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_581b0.c",
+      "source_sha256": "df951ac9483131f99b639a009e2b8a79dbcd7e1fc1cd5f166cc267bebd084a46",
+      "archived_source": "audio_handle_parameter_581b0.c",
+      "archived_source_sha256": "3ff03704838654c2b137cbba83564282d8da0d21736ed31941f697158f855dbe",
+      "archived_report": "probes/audio_handle_parameter_581b0-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "f2d62b23e7e0979fcd3bfa821186e0c1a7ea02c6a3915fc1529d82031c1c34b7",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 44,
+      "live_actual_size": 44
+    },
+    {
+      "source": "src/game/audio_handle_parameter_apply.c",
+      "source_sha256": "2ce080e1e16d6d62acdd8090a8cf61b7be00eb75ef3f9522c2d25bdc00f6608f",
+      "archived_source": "audio_handle_parameter_apply.c",
+      "archived_source_sha256": "e309d989476eb5e06086bcc1ad41e180f4da6af2fda56e85251d020b0abb0392",
+      "archived_report": "probes/audio_handle_parameter_apply-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "73e7f0093631c2e217b2b8f9bc30c46c3a39d8407097420739183cb075f5238c",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 108,
+      "live_actual_size": 108
+    },
+    {
+      "source": "src/game/audio_handle_parameter_decode.c",
+      "source_sha256": "f67d8766db44a45a6086753d65e1f890795f0903861e4c43f4d8dd344ea9eb22",
+      "archived_source": "audio_handle_parameter_decode.c",
+      "archived_source_sha256": "6a44d9eb8d1edfb873af552429f10831db0d0eb60b5e6b08053daa2187ba3c47",
+      "archived_report": "probes/audio_handle_parameter_decode-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "403bddb33ab86130dd4f8bdeb4fe8fcb6abfd46b027abf8d7b3d59eb41fd10ab",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 96,
+      "live_actual_size": 96
+    },
+    {
+      "source": "src/game/audio_handle_parameter_request.c",
+      "source_sha256": "36397bd6495b8f8944bc1877adc8d9b925a1053602401101049434778740f5b6",
+      "archived_source": "audio_handle_parameter_request.c",
+      "archived_source_sha256": "c48813878b4a43d408e603c9b3bc1f04e45be8977aa57712143d1b938513dff4",
+      "archived_report": "probes/audio_handle_parameter_request-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "5ded2222f45c880cf206f538e6e0f6c48a782b5b55c7c7b410d9141e54299ab5",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 108,
+      "live_actual_size": 108
+    },
+    {
+      "source": "src/game/audio_handle_properties_apply.c",
+      "source_sha256": "ccb3a3bfc4f50c7d6886cf21f49b2ac9b326f38d2fe3b12a54aaaaadd8232f47",
+      "archived_source": "audio_handle_properties_apply.c",
+      "archived_source_sha256": "c688977e10494d5c4a6fe2504d58793835930c6b9a9674bb9f58253c121b1cb3",
+      "archived_report": "probes/audio_handle_properties_apply-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "1d8adda893d6e9a83e638f32f84ef849ace42a8f9f961c8ca7729c5763f09d5b",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 240,
+      "live_actual_size": 240
+    },
+    {
+      "source": "src/game/audio_handle_properties_capture.c",
+      "source_sha256": "0e0c6993ad307e29921ae7f8a38c93fd86209ea4a4b60b977d49f9826069b278",
+      "archived_source": "audio_handle_properties_capture.c",
+      "archived_source_sha256": "cca01eb0c9ceb5e5f0808271224ad9960143736eae0534f0e08a8c888454f2f1",
+      "archived_report": "probes/audio_handle_properties_capture-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "f297b957b96e509d5d72ea86c37c5834125c0a68a42cf08fcc1407fb601228cf",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 240,
+      "live_actual_size": 240
+    },
+    {
+      "source": "src/game/audio_handle_rate.c",
+      "source_sha256": "9be1a932bd1425de5cfa884cb25ee38d51bfbecac00c62d397f6436e5a42dd05",
+      "archived_source": "audio_handle_rate.c",
+      "archived_source_sha256": "2709999c7b0121a84c33227569c5e59a8033dc9634d206585a97ffaa37f030c8",
+      "archived_report": "probes/audio_handle_rate-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "53756552331f79578451a46bd2d72f2fd2d81994808c7c816d46e331a034dba7",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 304,
+      "live_actual_size": 304
+    },
+    {
+      "source": "src/game/audio_handle_release.c",
+      "source_sha256": "7a65b9b44e859ea5d4b011486716b94d32df52191aef2d71537828d9db7f4e20",
+      "archived_source": "audio_handle_release.c",
+      "archived_source_sha256": "ae6201cfb071aa7daf306f2f07c5c74ac783d838d37ee21f07ef0ec2bcf41466",
+      "archived_report": "probes/audio_handle_release-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "b685d2c392f4a37a5ac82bf8df4b3705b7fdb579b7eed38da8549dff6f086bae",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 312,
+      "live_actual_size": 312
+    },
+    {
+      "source": "src/game/audio_handle_resume.c",
+      "source_sha256": "1a6a9ec80f79f4e04582ff30ce6225ce3fb58f48a6ba27e0b9fb31a8c4fdf1e8",
+      "archived_source": "audio_handle_resume.c",
+      "archived_source_sha256": "37f5de4044e317aaf608a9f0992f5b602f2dcd6511ccb88c9d41c823d4b43cb5",
+      "archived_report": "probes/audio_handle_resume-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "87ce90f7ac73d83f7a1a58ea77b75cf8362357f44fab4f19dc078e117b20aa25",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 280,
+      "live_actual_size": 280
+    },
+    {
+      "source": "src/game/audio_handle_resume_default.c",
+      "source_sha256": "a8cab4df482a843fd2d9056042dea7a418a5457292399c648f72f0469895c5b7",
+      "archived_source": "audio_handle_resume_default.c",
+      "archived_source_sha256": "45a8651e5bc1cbb1152ff6bce086968a4937f82ca91a95ed4cb9a3912e0fb2c7",
+      "archived_report": "probes/audio_handle_resume_default-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "7e286ec3aea937ecc661c3ef25b20ce37ef41b94a45b006b240c2656d0ac9c5a",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 32,
+      "live_actual_size": 32
+    },
+    {
+      "source": "src/game/audio_handle_rewind.c",
+      "source_sha256": "924b46e21b5fe44737d2be9914baab8421f22a52b6724621967dbacfce114074",
+      "archived_source": "audio_handle_rewind.c",
+      "archived_source_sha256": "c050b79b47e825bcaa46fe033265258e74fbe9b0b266d245cf6f122699b42060",
+      "archived_report": "probes/audio_handle_rewind-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "e0483d7336965dcdaff35fb65f2bdbccf85c0ee19c51b2c5586b2a5a509a9dcd",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 320,
+      "live_actual_size": 320
+    },
+    {
+      "source": "src/game/audio_handle_state.c",
+      "source_sha256": "09b2a100dedcb5af9740ab7c17a96ab2624671c15d541c61155b6eca676e1b9f",
+      "archived_source": "audio_handle_state.c",
+      "archived_source_sha256": "7417c1bb6ad0a7bac515878c5c845f16035ca23c22f9f5f736f2a37f97c5ef2d",
+      "archived_report": "probes/audio_handle_state-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "b03c747e6a75b5b11e4a8748ccd73c2ad96a461d21a8e5687ce674c8e0b10dd0",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 112,
+      "live_actual_size": 112
+    },
+    {
+      "source": "src/game/audio_handle_stop.c",
+      "source_sha256": "19a4fdd79708bfa6799859fc67f5f3754810404ff20048ed407e7d5e3752e811",
+      "archived_source": "audio_handle_stop.c",
+      "archived_source_sha256": "216007b130e036427c734de489cea2f69e40aac1f8ebed827379cddccbf4edb9",
+      "archived_report": "probes/audio_handle_stop-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "4f6660695095e7dc8552899068047934825d593a5cdd179fde66bb6a13f57ee0",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 276,
+      "live_actual_size": 276
+    },
+    {
+      "source": "src/game/audio_handle_validate_only.c",
+      "source_sha256": "316f4bc1701ecbb281a83be27c114d3ff386da7f6379f53087c42489bcbbcd21",
+      "archived_source": "audio_handle_validate_only.c",
+      "archived_source_sha256": "9354656d6dd34c47d2bb6c912d4618b337a47cc3f12d15ff382342acec4cf00f",
+      "archived_report": "probes/audio_handle_validate_only-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "1048ec794391bc78d0f75e95165b03f42e12cfcf176bf8b64ebc5119314c4510",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 40,
+      "live_actual_size": 40
+    },
+    {
+      "source": "src/game/audio_handle_voice_resume.c",
+      "source_sha256": "16bc7197159aab41bd8e52cde46b58b44f7f092b5a9af824474117acfe5cefd5",
+      "archived_source": "audio_handle_voice_resume.c",
+      "archived_source_sha256": "4fa065e21d858e46a8a75e93e28050daafeb07ff828c1e535c7e626b39cec4ab",
+      "archived_report": "probes/audio_handle_voice_resume-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "1668b24eaa0cfbbb9037d253ad7edeec32bd6a33f9a8368832d86056bacecac7",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 140,
+      "live_actual_size": 140
+    },
+    {
+      "source": "src/game/audio_handle_voice_resume_default.c",
+      "source_sha256": "20318b2b2798104816ff04b181edf04dc24de7234959db0ad233171761472534",
+      "archived_source": "audio_handle_voice_resume_default.c",
+      "archived_source_sha256": "c7cae7ab4913a33c061298f318c708b903d98433d30ad95fdb3cf373277f6d20",
+      "archived_report": "probes/audio_handle_voice_resume_default-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "c69f3f6a8e15a0b9b4daf60d76af8a4b7f67fcaac5143d6c1ebc28b4c1b8af8e",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 32,
+      "live_actual_size": 32
+    },
+    {
+      "source": "src/game/audio_host_callbacks.c",
+      "source_sha256": "9a8e24946aeda398553c2f7b05dcc08c52b9325eaf4a362f31eb4e168c989826",
+      "archived_source": "audio_host_callbacks.c",
+      "archived_source_sha256": "21eadf5ce281d46f687a87f079557a985d6fefe21335769ecd9db9eca23892ca",
+      "archived_report": "probes/audio_host_callbacks-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "639685d9715d3cf8590550db9399a9985c26d21acc9b84ef41af28f4c31ae0e4",
+      "archived_headers": {
+        "audio_host_internal.h": "659b548b09373c9adf038366c0d953cd62fc35a47874f4c94719699090b67be0",
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da"
+      },
+      "live_expected_size": 140,
+      "live_actual_size": 140
+    },
+    {
+      "source": "src/game/audio_stream_storage.c",
+      "source_sha256": "d5f59a43e04c7b0d1aa4fd96215301d6172e0be3d56d236025f55143f2d7c0be",
+      "archived_source": "audio_stream_storage.c",
+      "archived_source_sha256": "c021f69ac3338b4b467ae14b8f791a13ab51cb47e41f42f1f59ef2bdd0295923",
+      "archived_report": "probes/audio_stream_storage-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "8652bd4701b715993c166950671ce1ae39202f3c841bc8bea8022952d0c5a9c7",
+      "archived_headers": {
+        "audio_host_internal.h": "e9fa8232a2b76c6a367d56de06d73a1ec1247158924b5d30f6f01f00a80f6819",
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da"
+      },
+      "live_expected_size": 148,
+      "live_actual_size": 148
+    },
+    {
+      "source": "src/game/audio_stream_variable_read.c",
+      "source_sha256": "5858d0f4b27a80fd4a6575b64c146436a6da66d700545418a6289a94d08f597e",
+      "archived_source": "audio_stream_variable_read.c",
+      "archived_source_sha256": "6a9882f6deb43aea434b4792526455fe6a99bd9d12594d06a2017e66d6b1c4ab",
+      "archived_report": "probes/audio_stream_variable_read-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "cc3b74b430c04c8809389ac3b3506eea35cf1ec01812f8e76f1c355a531a484a",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 84,
+      "live_actual_size": 84
+    },
+    {
+      "source": "src/game/audio_timing_rate.c",
+      "source_sha256": "a2793342ddc8236d7ce01a1c115328522c106b4b2698e746a54ef0e909c81063",
+      "archived_source": "audio_timing_rate.c",
+      "archived_source_sha256": "22ebc4ad2aa979f9d591db4d5da6e2beb4f6dfd75290cc7c3550a6ea12b2a77c",
+      "archived_report": "probes/audio_timing_rate-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "5d336754b20f6f6023d405d989ae82b99b85601eb175c26a6a68e2ffc615b67e",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da"
+      },
+      "live_expected_size": 124,
+      "live_actual_size": 124
+    },
+    {
+      "source": "src/game/audio_voice_command_10.c",
+      "source_sha256": "c9beae0ef1fe113679b859c00ce1e68be05a84622ca55f2bb8503b97460b8024",
+      "archived_source": "audio_voice_command_10.c",
+      "archived_source_sha256": "03cac67c259c71c7dbd7cf2eefd1f3b71d6ac4d901cf79b22f32c9b386f5a9f7",
+      "archived_report": "probes/audio_voice_command_10-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "2163624806e913d3fc233a6bcbb8a250a3958799eee0747f4c8e481fe3fba491",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 88,
+      "live_actual_size": 88
+    },
+    {
+      "source": "src/game/audio_voice_command_11.c",
+      "source_sha256": "2ad2e066573dc8c875dfba136cdbcde476a4d0d257461ea20e0bc1ca61aac019",
+      "archived_source": "audio_voice_command_11.c",
+      "archived_source_sha256": "e50e50024d85aaa6b34fac1c4ecb9e1b8ad9b2062f5805d233ace4f4da38183d",
+      "archived_report": "probes/audio_voice_command_11-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "0bed9f639dba4286c49ed776f7de352b809f12359283c39541f21ea6fef0d29b",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 88,
+      "live_actual_size": 88
+    },
+    {
+      "source": "src/game/audio_voice_command_14.c",
+      "source_sha256": "d7369187a6a1b91522c52fa27af2fdbd2d5bdbb5b75207c2c6dd63bc54499b2e",
+      "archived_source": "audio_voice_command_14.c",
+      "archived_source_sha256": "6d8a73286af45ad6cc1b50187dac59cf056e2a775f40236ed42b7676ece00a9f",
+      "archived_report": "probes/audio_voice_command_14-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "eb70a9bce29904d021b8df0e5a679ef0519a811f8c1c1cd9acbf8ac0a9e2226a",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 88,
+      "live_actual_size": 88
+    },
+    {
+      "source": "src/game/audio_voice_command_15.c",
+      "source_sha256": "337203e0c8fe1d20305460b4ac812cbaf627a786057cbb1358e6048b13ac7988",
+      "archived_source": "audio_voice_command_15.c",
+      "archived_source_sha256": "e68977603e11497766d478fddb50e8fc0f438097b43d3f54b4285675b135440d",
+      "archived_report": "probes/audio_voice_command_15-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "1df8a027a86f614a961151883fdcab0eacec37c45e79c67086f5ac9c4a739cc4",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 88,
+      "live_actual_size": 88
+    },
+    {
+      "source": "src/game/audio_voice_command_16.c",
+      "source_sha256": "388927ce4d4c2153c72784e5e4f4ed1ac735d0b5fad6610eb8fee9cc325585cc",
+      "archived_source": "audio_voice_command_16.c",
+      "archived_source_sha256": "606ed5077de966bd39c67cece90b4f6a0f9fa87a2734876c0a37095d57109239",
+      "archived_report": "probes/audio_voice_command_16-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "17e4da5f9e3c25d811bd553d80234d68183f7e574ddff591527e61d5b761580c",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da",
+        "audio_property_pipeline_internal.h": "813c9d8c8c384551b6e2f88a65a5be88fff49bb29dd798e968c35c41480037d4"
+      },
+      "live_expected_size": 88,
+      "live_actual_size": 88
+    },
+    {
+      "source": "src/game/audio_voice_command_18.c",
+      "source_sha256": "b30e3aef4cc3a82de3c21361f78550b5c5c294c447eb4d7101c3d1fc2c9be2d9",
+      "archived_source": "audio_voice_command_18.c",
+      "archived_source_sha256": "99d71d117634de59f3eeb5c67ca5169d80b8031bdb1ee7f144e06841644a7aab",
+      "archived_report": "probes/audio_voice_command_18-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "94ccaf7f7a1b8421242bbfd723a486aa33496641a8e14c31ba07f290f1eb0541",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 88,
+      "live_actual_size": 88
+    },
+    {
+      "source": "src/game/audio_voice_command_parameter.c",
+      "source_sha256": "a80eee82712e34a50133b04fa5ea587389415eeaccf9f5c58b9715e7e68ff12c",
+      "archived_source": "audio_voice_command_parameter.c",
+      "archived_source_sha256": "9ca3a5f148cf3718767f3de8702e6d897625fe2cc6a733de4afe155e90c0e704",
+      "archived_report": "probes/audio_voice_command_parameter-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "5a487d159012b646b1f2fc7a07aa810edbce43951f2ed1081d547859f663947f",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da"
+      },
+      "live_expected_size": 376,
+      "live_actual_size": 376
+    },
+    {
+      "source": "src/game/audio_voice_command_temporary.c",
+      "source_sha256": "cb0d0f12701b266286dd81768bd8ac20b8924fd983a5f2337a45a78565fff463",
+      "archived_source": "audio_voice_command_temporary.c",
+      "archived_source_sha256": "9f58308c10784d4718d23bd3b7cd14ec741a34b6029e8d85020771867797bd0a",
+      "archived_report": "probes/audio_voice_command_temporary-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "69ef51cefc294a5d5174a426eac0e667f4136152ac1f5f6ee71b4de00289a5e4",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 68,
+      "live_actual_size": 68
+    },
+    {
+      "source": "src/game/audio_voice_properties_apply.c",
+      "source_sha256": "86d1ab0076db54e4ac41a4cc7ab9f08a0b6eff782a5c34e681ccb244684b9333",
+      "archived_source": "audio_voice_properties_apply.c",
+      "archived_source_sha256": "ddcaac588a250ab4d72e36843199dc23b8d845b51434d5d66bfae2982da76fec",
+      "archived_report": "probes/audio_voice_properties_apply-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "019d61ea6583324df5961acba188ba68e3484dc457b58909e876fb575d1b79f5",
+      "archived_headers": {
+        "audio_properties_internal.h": "a86dbc926fb6d5d588f10b9f2b3d9a300a2a9e4dc8674d2522b9536dd8f5444e"
+      },
+      "live_expected_size": 620,
+      "live_actual_size": 620
+    },
+    {
+      "source": "src/game/audio_voice_properties_capture.c",
+      "source_sha256": "ba23ac2b13c1ce4b695acdc75dcdfb7a15e13da95950cf55abf293c3d4e6d91f",
+      "archived_source": "audio_voice_properties_capture.c",
+      "archived_source_sha256": "8847441037c4cbb35544d5457986ab299631e9edeb950bd63373e8f50a213921",
+      "archived_report": "probes/audio_voice_properties_capture-5.3-O2-mips1/report.json",
+      "archived_report_sha256": "c6d6ae7d764cd5ef97cccc01631cc3cfb334654f20015efdc209011978250d6e",
+      "archived_headers": {
+        "audio_properties_internal.h": "d7b771e3b62b292c940b98487ac76801cc146abd8ab171d4ccedeff196d6d9da"
+      },
+      "live_expected_size": 348,
+      "live_actual_size": 348
+    }
+  ]
+}

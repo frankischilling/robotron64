@@ -1,0 +1,37 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "compiler": "IDO 5.3: -O2 -G 0 -non_shared -mips1 -32",
+  "current_proof": "tools/compare_runtime.py recompiles each registered source against the current headers and symbol layout. The comparison_result_sha256 values below hash each exact block result as sorted compact JSON followed by a newline.",
+  "registration_verification_report_sha256": "df38c3c455767d7c15f36895d52a2f45755f69f7af0d4d43372d5c68869840ce",
+  "sources": [
+    {
+      "block": "model_framebuffer_draw",
+      "source": "src/game/model_framebuffer_draw.c",
+      "source_sha256": "56f81f8a5b6530db96b0925eb4843363f89497358bb89c1f7ff07132d279293d",
+      "comparison_result_sha256": "a9d3320ec629bea61c55bd240d42c2476308303e2081333a21ee8091ae8e6e9c",
+      "vram_start": "0x80040560",
+      "vram_end": "0x80040724",
+      "bytes": 452,
+      "functions": [
+        "func_80040560"
+      ],
+      "recovery_inputs": ".local/runtime/.local/recovery66-geometry"
+    },
+    {
+      "block": "graphics_state_helpers",
+      "source": "src/game/graphics_state_helpers.c",
+      "source_sha256": "b656320305c99b25dffc50a0e685597f0a6a2604678ec11eecb06ab84486e00b",
+      "comparison_result_sha256": "c18458301e985ee6637d42b638612f88cbeee57de543343fa5b1a6d259708895",
+      "vram_start": "0x80049DB0",
+      "vram_end": "0x80049E3C",
+      "bytes": 140,
+      "functions": [
+        "func_80049DB0",
+        "func_80049DD8",
+        "func_80049DF4",
+        "func_80049E10"
+      ],
+      "recovery_inputs": "retail target disassembly and the existing frame command abstraction"
+    }
+  ]
+}

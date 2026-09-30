@@ -25,13 +25,28 @@ Offsets refer to the normalized big-endian ROM. The supplied file is byte-swappe
 | `0x048D70..0x048EA0` | Linked C bytes match original | Initial PI reads and thread handoff, confirmed |
 | `0x048EA0..0x049060` | Linked C bytes match original | Thread 3 initialization and outer game loop, confirmed |
 | `0x049060..0x049110` | Linked C bytes match original | Adjacent frame helper, confirmed |
-| `0x049110..0x051040` | Candidate executable inventory | Executable fallback; internal boundaries pending |
+| `0x049110..0x04978C` | Instructions and control flow | Frame setup and submission; excluded C candidates, extracted fallback |
+| `0x04978C..0x0499C0` | Linked C bytes match original | Frame palette, relative-position, and matrix helpers, confirmed |
+| `0x0499C0..0x04A1BC` | Instructions and control flow | Executable fallback, including the matrix-command candidate |
+| `0x04A1BC..0x04A2E0` | Linked C bytes match original | Clock conversion and frame completion helpers, confirmed |
+| `0x04A2E0..0x04A4E0` | Instructions and control flow | Executable fallback |
+| `0x04A4E0..0x04A4EC` | Linked C bytes match original | Graphics microcode selector setter, confirmed |
+| `0x04A4EC..0x04E0B4` | Instructions and control flow | Executable fallback |
+| `0x04E0B4..0x04E19C` | Linked C bytes match original | Three-component fixed-point matrix transform, confirmed |
+| `0x04E19C..0x04E734` | Instructions and control flow | Executable fallback |
+| `0x04E734..0x04E868` | Linked C bytes match original | Matrix initialization and angle helpers, confirmed |
+| `0x04E868..0x050A10` | Instructions and control flow | Executable fallback |
+| `0x050A10..0x050AA8` | Linked C bytes match original | Graphics completion queue and scheduler client setup, confirmed |
+| `0x050AA8..0x050C84` | Instructions and control flow | Alternate graphics pacing loop; excluded C candidate |
+| `0x050C84..0x051040` | Linked C bytes match original | Graphics task producer and RDP setup list; includes four trailing alignment bytes |
 | `0x051040..0x051230` | Linked C bytes match original | Scheduler creation and queue accessors, confirmed |
-| `0x051230..0x070040` | Candidate executable inventory | More executable fallback; internal boundaries pending |
+| `0x051230..0x051BB0` | Linked C bytes match original | Scheduler dispatch, client notification, and framebuffer fence; includes eight trailing alignment bytes |
+| `0x051BB0..0x051C9C` | Linked C bytes match original | Six runtime helpers following the scheduler, confirmed |
+| `0x051C9C..0x070040` | Candidate executable inventory | More executable fallback; internal boundaries pending |
 
 SDK instruction sequences have been identified at ROM `0x68160`, `0x68180`, and `0x690C0`; see [libultra evidence](libultra.md). Graphics microcode strings occur at `0x96E80` and `0x97680`; see [graphics evidence](graphics.md). These observations do not establish segment boundaries.
 
-The reconstructed startup block occupies ROM `0x48D70..0x49110`, mapping to RAM `0x80048170..0x80048510`. The scheduler block occupies ROM `0x51040..0x51230`, mapping to RAM `0x80050440..0x80050630`. See [startup evidence](startup.md) and [scheduler evidence](scheduler.md) for calls, object addresses, matching C, and input alignment. These function boundaries do not prove original object-file boundaries.
+The reconstructed startup block occupies ROM `0x48D70..0x49110`, mapping to RAM `0x80048170..0x80048510`. The scheduler and its separate tail occupy ROM `0x51040..0x51C9C`, mapping to RAM `0x80050440..0x8005109C`. See [startup evidence](startup.md), [scheduler creation](scheduler.md), and [scheduler runtime](scheduler-runtime.md) for calls, object addresses, matching C, and input alignment. These function boundaries do not prove original object-file boundaries.
 
 The CRC32 of bytes `0x40..0x1000` is `0x90BB6CB5`. CIC identification remains pending confirmation against an authoritative boot-code reference. Header CRC1 and CRC2 are recorded in `config/target.json`; they have not yet been independently recomputed using a CIC-specific algorithm.
 

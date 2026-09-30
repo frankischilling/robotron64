@@ -2,6 +2,7 @@
 #define ROBOTRON_TEXT_H
 
 #include "object.h"
+#include "game_memory.h"
 
 /* Recovered layouts; offset-based fields remain under investigation. */
 typedef struct TextValue3 {
@@ -32,32 +33,64 @@ typedef struct TextRecord {
     unsigned int sentinel[3];
 } TextRecord;
 
+/* Animation records are shared by text glyphs and live game actors. */
+typedef struct ActorAnimation {
+    short objectIndex;
+    short field02;
+    short track;
+    short frameIndex;
+    short field08;
+    short loopIndex;
+    short frameDuration;
+    unsigned char sound;
+    unsigned char soundMode;
+} ActorAnimation;
+
+typedef union ActorResourceFlags {
+    short value;
+    struct {
+        short loaded : 1;
+        unsigned short remaining : 15;
+    } bits;
+} ActorResourceFlags;
+
 typedef struct TextGlyphResource {
     unsigned char unk00;
     unsigned char kind;
-    unsigned char unk02[10];
+    unsigned char actorKind;
+    unsigned char unknown03[3];
+    ActorResourceFlags flags06;
+    int speed;
     int scale;
-    unsigned char unk10[24];
-    short *indices;
-    unsigned char unk2C[44];
+    unsigned char unknown10[2];
+    short field12;
+    short field14;
+    unsigned char unknown16[0x12];
+    union {
+        short *indices;
+        ActorAnimation *tracks[10];
+    } animation;
+    short playbackSpeed;
+    short unknown52;
+    int field54;
 } TextGlyphResource;
+
+typedef char ActorResourceFlagsMustBe2Bytes[sizeof(ActorResourceFlags) == 2 ? 1 : -1];
+typedef char TextGlyphResourceMustBe88Bytes[sizeof(TextGlyphResource) == 0x58 ? 1 : -1];
 
 extern int D_80072B40[];
 extern int D_80072BA8[];
 extern TextRecord D_800B6FF8[30];
-extern void *func_8003B694(void *destination, int value, int count);
 extern TextGlyphResource D_800B1BE8[];
 extern char D_8008F620[];
 extern void func_8001C0D0(char *format, ...);
 extern int func_8003921C(int kind, int value, int enabled, TextGlyphResource *resource);
 extern int func_80039E1C(int object, int value);
 extern int func_8003947C(int object, int index);
-extern void func_80039DCC(int object, int value);
+extern int func_80039DCC(int object, int value);
 extern int func_80039E0C(int object, int mode);
 extern void func_80039E5C(int object, int value);
 extern void func_80039E80(int object, int value);
-extern int func_8003B4FC(unsigned char *text);
-extern unsigned char *func_8003B704(unsigned char *destination, unsigned char *source, int limit);
 extern char D_8008F64C[];
 extern int func_800392F4(int object);
 extern int D_8009EFA4;
@@ -77,12 +110,9 @@ int func_80000E74(int slot);
 void func_80000EB4(int slot, TextValue3 *value);
 int func_80000F08(int slot);
 
-extern int func_8003B7FC(unsigned char *left, unsigned char *right);
 void func_80000F48(int slot, unsigned char *text);
 int func_800011AC(int *slot, unsigned char *text, int scale, int mode, int replace, int options);
 
-extern void *func_8003B520(void *destination, void *source, int count);
-extern unsigned char *func_8003B6E4(unsigned char *destination, unsigned char *source);
 int func_80001270(int slot, int offset, unsigned char *text);
 void func_80001360(void);
 

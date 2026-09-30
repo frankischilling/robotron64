@@ -1,0 +1,257 @@
+{
+  "note": "Retained complete source comparison. Reproduce current evidence with the registered runtime comparison and full-ROM build.",
+  "retained_integration_ledger_sha256": "08795bb204b9fc068aa10735a960a5fb5c08c13a5ab9275388aee3c002eeb766",
+  "units": [
+    {
+      "source": "src/game/early_actor_callback_install.c",
+      "source_sha256": "5b16dd541e7cc4a2d56a329efb5d3ce9f8a7123e19b044ca1dbf227ab431616b",
+      "headers_sha256": {
+        "include/actor.h": "4bcd911ca578f04239dddcda204bb891c817cdc54b30549f7b1849cfeae34035",
+        "include/actor_behavior_internal.h": "96e54e6703f52fd0d2bcf020d8bf9f1fc7795ed0973b8b0b56827fedd1c8d8d3",
+        "include/early_game_state.h": "98cc4c6b7922eba0170ef0dd0a5170b27255bd042f6d08eb8e90ffdde454132a",
+        "include/game_memory.h": "a07c94f91f3a6a19c62746bb0e7196ddca84ae08ed88f9af469a0b81446b5e25",
+        "include/object.h": "670f42fc1f11c77c1a9b4239b917b431dd5e6d448e36f7725233ddeb9d01eb64",
+        "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
+        "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
+        "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45"
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 144,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_8001B468",
+          "start": 2147595368,
+          "size": 144
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/early_actor_callback_install.c",
+      "candidate_source_sha256": "5b16dd541e7cc4a2d56a329efb5d3ce9f8a7123e19b044ca1dbf227ab431616b",
+      "candidate_report": "build/sdk-reconstruction/early_actor_callback_install__game__actor-callback-target-v3-interface/report.json",
+      "candidate_report_sha256": "26b3bfd255c4b1cc7571350a4f0154f31831e217f6de00a0044fb9dfa7e53323",
+      "linked_code_sha256": "6ea22673157d311ac5e2a45660457c3effa6cdbb5c3e1aedb9b7a01241d1e666"
+    },
+    {
+      "source": "src/game/renderer_glyph_map.c",
+      "source_sha256": "4b8a6bd9def125d51aaef87bdf80e363b4e063b7628f1918957725ca478e0649",
+      "headers_sha256": {},
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 488,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_800498F0",
+          "start": 2147784944,
+          "size": 488
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/renderer_glyph_map.c",
+      "candidate_source_sha256": "4b8a6bd9def125d51aaef87bdf80e363b4e063b7628f1918957725ca478e0649",
+      "candidate_report": "build/sdk-reconstruction/renderer_glyph_map__game__retained-game-queries-v1/report.json",
+      "candidate_report_sha256": "bbc933b38374ee22ffe21136b77ecfd045bc5126710ee80194c5ee9e9b8f246f",
+      "linked_code_sha256": "e1c38e36f97078fd75596bd1025985acf2b5fa7bf9f1f07a533fb15a8a9cde34"
+    },
+    {
+      "source": "src/game/audio_instance_count.c",
+      "source_sha256": "7172995a95873b0737eea06eb6beceac0ce8385fc4134e97e0976acb154ed16f",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07"
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 184,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_80056130",
+          "start": 2147836208,
+          "size": 184
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/audio_instance_count.c",
+      "candidate_source_sha256": "7172995a95873b0737eea06eb6beceac0ce8385fc4134e97e0976acb154ed16f",
+      "candidate_report": "build/sdk-reconstruction/audio_instance_count__game__retained-game-queries-v1/report.json",
+      "candidate_report_sha256": "7cf5d475e685146687d614e58d0d042b7d15e8fe9d27f64e835ec6c599dc5b55",
+      "linked_code_sha256": "972972d979fa8dff64e29e1b943af59fe7f948accea982fe914c39afd2228bf3"
+    },
+    {
+      "source": "src/game/audio_instance_enumerate.c",
+      "source_sha256": "3aacec7dd897166928a3245b7a6ddb2bb82e28891f41d6ba2ee629d7d6954704",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07"
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 236,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_800561E8",
+          "start": 2147836392,
+          "size": 236
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/audio_instance_enumerate.c",
+      "candidate_source_sha256": "3aacec7dd897166928a3245b7a6ddb2bb82e28891f41d6ba2ee629d7d6954704",
+      "candidate_report": "build/sdk-reconstruction/audio_instance_enumerate__game__retained-game-queries-v1/report.json",
+      "candidate_report_sha256": "baa57c0f77f922cbf30c27de852b3f29a2bdb8e0842be22fd6ca4917db5077c7",
+      "linked_code_sha256": "5c2bd2c61bf2f4e99b300ef6bb518ea448f085814581ca35f52c82fd9f524410"
+    },
+    {
+      "source": "src/game/audio_owner_count.c",
+      "source_sha256": "15178c95a0a38135928aca25e897e7b028c513b93f604638e0d8432378b348dd",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07"
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 184,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_800562D4",
+          "start": 2147836628,
+          "size": 184
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/audio_owner_count.c",
+      "candidate_source_sha256": "15178c95a0a38135928aca25e897e7b028c513b93f604638e0d8432378b348dd",
+      "candidate_report": "build/sdk-reconstruction/audio_owner_count__game__retained-game-queries-v1/report.json",
+      "candidate_report_sha256": "08ce13a2e2ef8095b1559307b26ac6a819942feec18cc2dcf9ca86545d2b3ed9",
+      "linked_code_sha256": "ef7f401df3552a68ee3f595b231a6343d112e9ba4d320cc8f4b56dcfb207390a"
+    },
+    {
+      "source": "src/game/audio_owner_enumerate.c",
+      "source_sha256": "8161b98ff50e28fa89c91dea9a32e801b907a34c927b3500d6cde43e53bff979",
+      "headers_sha256": {
+        "include/audio_properties_internal.h": "40bb3914cca76c77cfc389df64e4280dba9a70fb67b306bf20c2846cac963e07"
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "complete_code_bytes": 236,
+      "different_words": 0,
+      "functions": [
+        {
+          "name": "func_8005638C",
+          "start": 2147836812,
+          "size": 236
+        }
+      ],
+      "owned_sections": [],
+      "candidate_source": ".local/sdk-target/audio_owner_enumerate.c",
+      "candidate_source_sha256": "8161b98ff50e28fa89c91dea9a32e801b907a34c927b3500d6cde43e53bff979",
+      "candidate_report": "build/sdk-reconstruction/audio_owner_enumerate__game__retained-game-queries-v1/report.json",
+      "candidate_report_sha256": "6c09380b28d72ca7add579bfbdc2c3dd5aec22ef0bc136f00fafdf0169c29b0e",
+      "linked_code_sha256": "99dff02dd65452a34f245c44bcad94c66bf306b8140b7c636df2b9c9dee5c020"
+    }
+  ],
+  "canonical_comparison": {
+    "report": "build/registered-game-query/report.json",
+    "report_sha256": "9d6c96d3c4de3f7bc336693432635f6911254b177a9ae3c8cb4d262fc9331c5d",
+    "complete_units": 6,
+    "matches": true
+  }
+}

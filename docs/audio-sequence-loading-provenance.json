@@ -1,0 +1,259 @@
+{
+  "scope": "Historical input identities for nine complete sequence services / 1,560 bytes.",
+  "current_proof": "Recompile with tools/compare_runtime.py and make progress before claiming a current match.",
+  "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "units": [
+    {
+      "source": "src/game/audio_sequence_table_size.c",
+      "source_sha256": "999792767c1769ebafe790cdae197ee28f76f51406376d3257285e8b224232f2",
+      "candidate_source": ".local/audio-backend/audio_sequence_table_size_global_test.c",
+      "candidate_source_sha256": "a7dae74d0efc57b02ce8293ff449bb9ff92f22afa6e67116bb69ead59ec54916",
+      "comparison_report": "build/audio-backend/audio_sequence_table_size_global_test/report.json",
+      "comparison_report_sha256": "95bdb88b6fc807119fd2216e2da5f3d74f11024338ddf8d50c1055e542ad25b1",
+      "linked_code_sha256": "8ce4d3aca6d4e1f20c7078faab60bd0fbf81ac89dbb314b649d2c11d58c6671a",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D220",
+          "start": 2147865120,
+          "size": 196
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_sequence_table_load.c",
+      "source_sha256": "d395c78d62a282a58527e7da8449e34150436b943f2eec590289588dd0a51e6f",
+      "candidate_source": ".local/audio-backend/audio_sequence_table_load_separate_result.c",
+      "candidate_source_sha256": "1be7550cd548259948e8bca9a264f8918cab2bae9c9df5fc4936b2ce78ea42c5",
+      "comparison_report": "build/audio-backend/audio_sequence_table_load_separate_result/report.json",
+      "comparison_report_sha256": "3252979f6abe47bdb1f3507fa93f0908b524bb558cd942f9446f9a1fcf446183",
+      "linked_code_sha256": "213b2e896f9e0cfe1f59e65d39c1f21b7476fbce868d504fdfb3a8bd2635a3a6",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D2E4",
+          "start": 2147865316,
+          "size": 448
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_sequence_table_close.c",
+      "source_sha256": "b6ea44bea4180370a8dc7eaaa84d98fb764c8d130e929486453a6a357ef68270",
+      "candidate_source": ".local/audio-backend/audio_sequence_table_close.c",
+      "candidate_source_sha256": "6f43f05d2960f5b430782577d901fe8001884585101a98434660fdb42e481da7",
+      "comparison_report": "build/audio-backend/audio_sequence_table_close/report.json",
+      "comparison_report_sha256": "e9dd1cd1731af9433a78487735a6cb194f67ec767998969f0abac6a14eb8bcc2",
+      "linked_code_sha256": "b7a7534742852f4aaee135ba5728aeeb6c7187fb4798bf5d2c8134a8fe1dd3bb",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D4A4",
+          "start": 2147865764,
+          "size": 36
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_sequence_size.c",
+      "source_sha256": "0ae64fc64e8abc98960dceae35a3111565a4ae4fdb29811037b94756f0702279",
+      "candidate_source": ".local/audio-backend/audio_sequence_size_declarations2.c",
+      "candidate_source_sha256": "31d1de21968c0f48dbd5516326e7537850a0d47f3dc7db9e2dbf895e09e775bc",
+      "comparison_report": "build/audio-backend/audio_sequence_size_declarations2/report.json",
+      "comparison_report_sha256": "680fdec1bdf896312a7bed822c263be130791c399e66f6b7d0058ba65e937c13",
+      "linked_code_sha256": "bf11fc023263a9126d1b6b5b5327545d5d2bde5a5f674e2eeb1134d6d4e3b1e1",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D4C8",
+          "start": 2147865800,
+          "size": 188
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_sequence_load.c",
+      "source_sha256": "d74d07ef99983f72729a3d66e36c734a27ceebaf4ef83673495f9f30ffd4c127",
+      "candidate_source": ".local/audio-backend/audio_sequence_load.c",
+      "candidate_source_sha256": "aa73849c30e21f1414e1b3571805234e69f97f72cb7cf2cfbfa5676ff47bab9e",
+      "comparison_report": "build/audio-backend/audio_sequence_load/report.json",
+      "comparison_report_sha256": "3285a2410676b6c6a1b1e2d7deb2958c4b82f74bbf6186f0079f4cc31bd1d95e",
+      "linked_code_sha256": "61e83390214c5b69c70ba147354dccc3230277f818e57b413325f619b0c5aacd",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D584",
+          "start": 2147865988,
+          "size": 140
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_sequence_release.c",
+      "source_sha256": "03f8e98674d94eaa04bfcfa19f69d3b2cdfc575457ac327490a7764d7af1cc61",
+      "candidate_source": ".local/audio-backend/audio_sequence_release.c",
+      "candidate_source_sha256": "c19507e8171a4b82ee1b52fa336a5384e57c342a7557dd0c435db90fc4168cab",
+      "comparison_report": "build/audio-backend/audio_sequence_release/report.json",
+      "comparison_report_sha256": "dd6cf4bd6d48ea42b6e581b01d72f60e86746417d7553164df2c43a85587deac",
+      "linked_code_sha256": "523c16a6490932f6ecb90834ff24c270811e7aebaf5f043d4b31428d885e61cc",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D610",
+          "start": 2147866128,
+          "size": 128
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_sequence_range_size.c",
+      "source_sha256": "6d1242cf468cb6b4e0a7bc7909a3b1db09ae44196a36e56e11b9aa5d791be1fb",
+      "candidate_source": ".local/audio-backend/audio_sequence_range_size_index.c",
+      "candidate_source_sha256": "6ed9c582739b322ee896375307e4a7486fa90ee2d2b0f63d37ee9259b80ed1a2",
+      "comparison_report": "build/audio-backend/audio_sequence_range_size_index/report.json",
+      "comparison_report_sha256": "052f8fb867fb04a94fafad38e0ab295e7a32fca58c723b7903729e97609cd037",
+      "linked_code_sha256": "91eb0714b68ab2f1b38cc178f708dfef16fd5f58c716f70c830085ef609ed49a",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D830",
+          "start": 2147866672,
+          "size": 124
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_sequence_range_load.c",
+      "source_sha256": "886421d5241fb6f8937f2be247ea0ed35c14643f77dfd1b35121a59e49d4e768",
+      "candidate_source": ".local/audio-backend/audio_sequence_range_load_after_open.c",
+      "candidate_source_sha256": "44421226732fb3814da0358ffc145ea5eedceb68dfbae96f15fce0f262518345",
+      "comparison_report": "build/audio-backend/audio_sequence_range_load_after_open/report.json",
+      "comparison_report_sha256": "fa8f70069768767d786f5013620128c73135845e322c5c68245455c1e3307c70",
+      "linked_code_sha256": "3ce65252ed0f862cff28f780453357d209bee83a665cf9bcb5f24f867c7d5f0e",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D8AC",
+          "start": 2147866796,
+          "size": 176
+        }
+      ]
+    },
+    {
+      "source": "src/game/audio_sequence_range_release.c",
+      "source_sha256": "924dd962ade244d22ee36482b3fd2d1ea2a6e0cfc6951acf911903126ca160ec",
+      "candidate_source": ".local/audio-backend/audio_sequence_range_release_declarations.c",
+      "candidate_source_sha256": "8d97064c0c6cbe864158bfa8a5dc86841fdd3651d35033961e4bf49e2da03a23",
+      "comparison_report": "build/audio-backend/audio_sequence_range_release_declarations/report.json",
+      "comparison_report_sha256": "0d87b995b6888def08371192a42c3cb960eef7e87a01fccaa8ab275f063fde03",
+      "linked_code_sha256": "657d92590fabee58517bbb109aaa7dcc08f3ce421aa119e35daebf3ee4bdf25c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "functions": [
+        {
+          "name": "func_8005D95C",
+          "start": 2147866972,
+          "size": 124
+        }
+      ]
+    }
+  ]
+}

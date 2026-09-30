@@ -1,0 +1,12 @@
+#include "../../include/graphics_state_internal.h"
+
+void func_8004ABC8(void)
+{
+    FRAME_COMMAND(0xE7000000, 0);
+    FRAME_COMMAND(0xBA000801, 0);
+    FRAME_COMMAND(0xB9000002, 0);
+    FRAME_COMMAND(0xBA000C02, 0x2000);
+    FRAME_COMMAND(0xBA001001, 0);
+    FRAME_COMMAND(0xBA001301, 0x80000);
+    FRAME_COMMAND(0xBB000001, 0x80008000);
+}
