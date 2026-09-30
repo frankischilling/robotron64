@@ -14512,5 +14512,16 @@
     "section": ".early_actor_follow_owner",
     "section_vram": 2147540972,
     "evidence": "docs/early-parameter-slot-tick.md"
+  },
+  {
+    "name": "func_8004B340",
+    "rom": 311104,
+    "vram": 2147791680,
+    "size": 284,
+    "source": "src/game/renderer_status_text.c",
+    "object": "build/us/renderer_status_text.o",
+    "section": ".renderer_status_text",
+    "section_vram": 2147791680,
+    "evidence": "docs/renderer-controller-pak-notice.md"
   }
 ]

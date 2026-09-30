@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,287 matching C functions covering 210,712 bytes, twenty-nine assembly functions covering 4,372 bytes, 9,339 bytes of source-owned initialized data, and 21,629 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,288 matching C functions covering 210,996 bytes, twenty-nine assembly functions covering 4,372 bytes, 9,359 bytes of source-owned initialized data, and 21,629 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -69,6 +69,10 @@ The [renderer-state recovery](docs/graphics-state.md) covers display-list termin
 [Scheduled groups and attached actors](docs/early-parameter-slot-tick.md) recover
 timed group emission and parent-relative actor following, including timer
 overshoot, parent handler transitions, and movement field reset.
+
+The [Controller Pak notice](docs/renderer-controller-pak-notice.md) preserves
+the unsigned time window, character spacing, skipped spaces, and complete
+compiler-emitted string block.
 
 [Menu navigation](docs/save-menu-navigation.md) covers active-node changes,
 forward and back callbacks, preview creation and release, and cleanup.

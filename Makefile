@@ -5848,6 +5848,16 @@ build/us/early_actor_follow_owner.o: src/game/early_actor_follow_owner.c include
 RUNTIME_OBJECTS += \
     build/us/early_actor_follow_owner.o
 
+build/us/renderer_status_text.o: src/game/renderer_status_text.c include/debug_output.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/renderer_debug_text.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_status_text.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_status_text.raw.o build/us/renderer_status_text.text.o .text 0x11c
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_status_text.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/renderer_status_text.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

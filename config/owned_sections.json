@@ -1512,5 +1512,16 @@
     "size": 124,
     "symbols": {},
     "evidence": "docs/actor-follow-and-graphics-pacing.md"
+  },
+  {
+    "source": "src/game/renderer_status_text.c",
+    "object": "build/us/renderer_status_text.o",
+    "input_section": ".rodata",
+    "section": ".renderer_status_message",
+    "vram": 2148095152,
+    "rom": 614576,
+    "size": 20,
+    "symbols": {},
+    "evidence": "docs/renderer-controller-pak-notice.md"
   }
 ]

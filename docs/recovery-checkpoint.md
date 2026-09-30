@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,287 matching C functions covering 210,712 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,339 bytes
+The source checkpoint contains 1,288 matching C functions covering 210,996 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,359 bytes
 of source-owned initialized data, and 21,629 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-360 complete C functions, 89,664 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 7,691 reconstructed initialized bytes, and 17,539 BSS bytes.
+361 complete C functions, 89,948 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 7,711 reconstructed initialized bytes, and 17,539 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,11 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+The [Controller Pak notice](renderer-controller-pak-notice.md) adds one complete
+C procedure with 284 instruction bytes and its 20-byte string block. Its
+unsigned display window, doubled coordinate expression, per-character
+spacing, skipped spaces, and final render-state call match the target.
 
 [Scheduled groups and attached actors](early-parameter-slot-tick.md) add two
 complete C procedures with 500 instruction bytes. The slot tick preserves
@@ -214,7 +219,7 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 775 complete source units. Startup/scheduler
+The runtime registry contains 776 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-nine procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
