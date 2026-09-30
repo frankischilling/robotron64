@@ -36,7 +36,8 @@ struct EarlyGameActor {
     unsigned char animation1F;
     unsigned char mode20;
     unsigned char state21;
-    unsigned char unknown22[2];
+    unsigned char value22;
+    unsigned char unknown23;
     EarlyGameActorResource *resource24;
     int field28;
     int field2C;

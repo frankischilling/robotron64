@@ -67,6 +67,9 @@ actor callbacks, 204-byte records and 36-entry counter array are reconstructed
 from Robotron's instructions and initialization spans. The specific evidence
 and complete comparison requirements are documented in
 [early session animation](docs/early-session-animation.md).
+The following [actor animation and expiration recovery](docs/actor-animation-state.md)
+uses the same compiler references and records Robotron's complete comparisons
+for repeat values, counter updates, auxiliary animation data and child setup.
 
 Perfect Dark's `src/inflate/inflate.c` and Huffman entry declarations at the
 recorded revision supplied comparisons for the DEFLATE tables, bitstream, and

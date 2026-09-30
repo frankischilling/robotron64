@@ -13665,5 +13665,60 @@
     "section": ".early_transition_arrays_clear",
     "section_vram": 2147541800,
     "evidence": "docs/early-session-animation.md"
+  },
+  {
+    "name": "func_80029B80",
+    "rom": 173952,
+    "vram": 2147654528,
+    "size": 200,
+    "source": "src/game/actor_repeat_expire.c",
+    "object": "build/us/actor_repeat_expire.o",
+    "section": ".actor_repeat_expire",
+    "section_vram": 2147654528,
+    "evidence": "docs/actor-animation-state.md"
+  },
+  {
+    "name": "func_80029C48",
+    "rom": 174152,
+    "vram": 2147654728,
+    "size": 172,
+    "source": "src/game/actor_repeat_delay.c",
+    "object": "build/us/actor_repeat_delay.o",
+    "section": ".actor_repeat_delay",
+    "section_vram": 2147654728,
+    "evidence": "docs/actor-animation-state.md"
+  },
+  {
+    "name": "func_80029D98",
+    "rom": 174488,
+    "vram": 2147655064,
+    "size": 196,
+    "source": "src/game/actor_scene_counter_expire.c",
+    "object": "build/us/actor_scene_counter_expire.o",
+    "section": ".actor_scene_counter_expire",
+    "section_vram": 2147655064,
+    "evidence": "docs/actor-animation-state.md"
+  },
+  {
+    "name": "func_80029194",
+    "rom": 171412,
+    "vram": 2147651988,
+    "size": 124,
+    "source": "src/game/actor_animation_auxiliary.c",
+    "object": "build/us/actor_animation_auxiliary.o",
+    "section": ".actor_animation_auxiliary",
+    "section_vram": 2147651988,
+    "evidence": "docs/actor-animation-state.md"
+  },
+  {
+    "name": "func_800294A4",
+    "rom": 172196,
+    "vram": 2147652772,
+    "size": 160,
+    "source": "src/game/actor_child_animation.c",
+    "object": "build/us/actor_child_animation.o",
+    "section": ".actor_child_animation",
+    "section_vram": 2147652772,
+    "evidence": "docs/actor-animation-state.md"
   }
 ]

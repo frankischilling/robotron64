@@ -710,6 +710,11 @@ MATCHING_BLOCKS = (
     ("early_reset_parameter", "src/game/early_reset_parameter.c", 0x80010460, 0x8001049C),
     ("early_animation_restart", "src/game/early_animation_restart.c", 0x8000F4E0, 0x8000F564),
     ("early_transition_arrays_clear", "src/game/early_transition_arrays_clear.c", 0x8000E328, 0x8000E3B4),
+    ("actor_repeat_expire", "src/game/actor_repeat_expire.c", 0x80029B80, 0x80029C48),
+    ("actor_repeat_delay", "src/game/actor_repeat_delay.c", 0x80029C48, 0x80029CF4),
+    ("actor_scene_counter_expire", "src/game/actor_scene_counter_expire.c", 0x80029D98, 0x80029E5C),
+    ("actor_animation_auxiliary", "src/game/actor_animation_auxiliary.c", 0x80029194, 0x80029210),
+    ("actor_child_animation", "src/game/actor_child_animation.c", 0x800294A4, 0x80029544),
 )
 
 CANDIDATE_BLOCKS = (

@@ -5256,6 +5256,43 @@ RUNTIME_OBJECTS += \
     build/us/early_animation_restart.o \
     build/us/early_transition_arrays_clear.o
 
+build/us/actor_repeat_expire.o: src/game/actor_repeat_expire.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_repeat_expire.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_repeat_expire.raw.o $@ .text 0xc8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_repeat_delay.o: src/game/actor_repeat_delay.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_repeat_delay.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_repeat_delay.raw.o $@ .text 0xac
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_scene_counter_expire.o: src/game/actor_scene_counter_expire.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_scene_counter_expire.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_scene_counter_expire.raw.o $@ .text 0xc4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_animation_auxiliary.o: src/game/actor_animation_auxiliary.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_animation_auxiliary.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_animation_auxiliary.raw.o $@ .text 0x7c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_child_animation.o: src/game/actor_child_animation.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_child_animation.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_child_animation.raw.o $@ .text 0xa0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/actor_repeat_expire.o \
+    build/us/actor_repeat_delay.o \
+    build/us/actor_scene_counter_expire.o \
+    build/us/actor_animation_auxiliary.o \
+    build/us/actor_child_animation.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

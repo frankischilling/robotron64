@@ -15,7 +15,8 @@ typedef struct GameActor {
     unsigned char animationIndex;
     unsigned char unknown20;
     unsigned char state;
-    unsigned char unknown22[2];
+    unsigned char value22;
+    unsigned char unknown23;
     TextGlyphResource *resource;
     unsigned char unknown28[0xC];
     int field34;

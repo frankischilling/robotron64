@@ -1,11 +1,11 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,210 matching C functions covering 191,504 bytes.
+The source checkpoint contains 1,215 matching C functions covering 192,356 bytes.
 It also contains twenty-nine assembly functions covering 4,372 live bytes, 8,949 bytes
 of source-owned initialized data, and 18,933 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-283 complete C functions, 70,456 C bytes, twenty-eight assembly procedures with
+288 complete C functions, 71,308 C bytes, twenty-eight assembly procedures with
 4,316 live bytes, 7,301 reconstructed initialized bytes, and 14,843 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
@@ -15,6 +15,12 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Actor animation state and expiration](actor-animation-state.md) add five complete
+C procedures with 852 instruction bytes. They recover both repeat handlers,
+scene counter expiration, auxiliary animation setup and child creation with
+callback replacement. Shared actor views expose the confirmed byte at `0x22`
+without changing their size or other field offsets.
 
 [Early session animation and actor counters](early-session-animation.md) add six
 complete C procedures with 736 instruction bytes and twelve initialized bytes.
@@ -55,7 +61,7 @@ initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
 137 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
-the source inputs and complete procedure extents for all 1,210 counted C
+the source inputs and complete procedure extents for all 1,215 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
