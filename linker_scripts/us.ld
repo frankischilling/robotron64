@@ -1,3 +1,5 @@
+func_800077F4 = 0x800077F4;
+D_800B2480 = 0x800B2480;
 OUTPUT_ARCH(mips)
 OUTPUT_FORMAT("elf32-tradbigmips")
 ENTRY(_start)
@@ -68,7 +70,7 @@ SECTIONS
     .endgame_6a80_ab58 0x80005E80 : AT(0x6A80) { build/us/fallback.o(.rom_endgame_6a80_ab58) }
     .early_actor_tick 0x80009F58 : AT(0xAB58) SUBALIGN(4) { build/us/early_actor_tick.o(.text) }
     .early_effect_spawn 0x80009F90 : AT(0xAB90) SUBALIGN(4) { build/us/early_effect_spawn.o(.text) }
-    .endgame_ac74_ae00 0x8000A074 : AT(0xAC74) { build/us/fallback.o(.rom_endgame_ac74_ae00) }
+    .early_boundary_actor_spawn 0x8000A074 : AT(0xAC74) SUBALIGN(4) { build/us/early_boundary_actor_spawn.o(.text) }
     .early_render_color 0x8000A200 : AT(0xAE00) SUBALIGN(4) { build/us/early_render_color.o(.text) }
     .random_between 0x8000A21C : AT(0xAE1C) SUBALIGN(4) { build/us/random_between.o(.text) }
     .actor_relative_geometry 0x8000A2E0 : AT(0xAEE0) SUBALIGN(4) { build/us/actor_relative_geometry.o(.text) }
@@ -2411,7 +2413,6 @@ ASSERT(SIZEOF(.early_pool_tick) == 0x110, "early_pool_tick size changed")
 ASSERT(SIZEOF(.actor_collision_turn) == 0x118, "actor_collision_turn size changed")
 ASSERT(SIZEOF(.session_background_select_rodata) == 0x2c, "session_background_select_rodata size changed")
 ASSERT(SIZEOF(.early_effect_spawn_rodata) == 0x18, "early_effect_spawn_rodata size changed")
-ASSERT(SIZEOF(.endgame_ac74_ae00) == 0x18c, "endgame_ac74_ae00 size changed")
 ASSERT(SIZEOF(.endgame_e0f8_e214) == 0x11c, "endgame_e0f8_e214 size changed")
 ASSERT(SIZEOF(.endgame_13550_15c20) == 0x26d0, "endgame_13550_15c20 size changed")
 ASSERT(SIZEOF(.endgame_data_90570_90574) == 0x4, "endgame_data_90570_90574 size changed")
@@ -2580,3 +2581,4 @@ ASSERT(SIZEOF(.renderer_status_text) == 0x11c, "renderer_status_text size change
 ASSERT(SIZEOF(.renderer_status_message) == 0x14, "renderer_status_message size changed")
 ASSERT(SIZEOF(.endgame_data_960a4_960b0) == 0xc, "endgame_data_960a4_960b0 size changed")
 ASSERT(SIZEOF(.endgame_data_960c4_96734) == 0x670, "endgame_data_960c4_96734 size changed")
+ASSERT(SIZEOF(.early_boundary_actor_spawn) == 0x18c, "early_boundary_actor_spawn size changed")

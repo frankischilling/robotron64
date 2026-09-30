@@ -13,7 +13,6 @@ REGIONS = (
     ("endgame_6160_6414", 0x6160, 0x6414),
     ("endgame_64f0_69ec", 0x64f0, 0x69ec),
     ("endgame_6a80_ab58", 0x6a80, 0xab58),
-    ("endgame_ac74_ae00", 0xac74, 0xae00),
     ("endgame_af88_c564", 0xaf88, 0xc564),
     ("cpu_after_early_render_presets", 0xc5d4, 0xca80),
     ("endgame_cac0_da34", 0xcac0, 0xda34),

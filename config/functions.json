@@ -14523,5 +14523,16 @@
     "section": ".renderer_status_text",
     "section_vram": 2147791680,
     "evidence": "docs/renderer-controller-pak-notice.md"
+  },
+  {
+    "name": "func_8000A074",
+    "rom": 44148,
+    "vram": 2147524724,
+    "size": 396,
+    "source": "src/game/early_boundary_actor_spawn.c",
+    "object": "build/us/early_boundary_actor_spawn.o",
+    "section": ".early_boundary_actor_spawn",
+    "section_vram": 2147524724,
+    "evidence": "docs/early-boundary-actor-spawn.md"
   }
 ]

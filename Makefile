@@ -5858,6 +5858,15 @@ build/us/renderer_status_text.o: src/game/renderer_status_text.c include/debug_o
 RUNTIME_OBJECTS += \
     build/us/renderer_status_text.o
 
+build/us/early_boundary_actor_spawn.o: src/game/early_boundary_actor_spawn.c include/actor.h include/actor_behavior_internal.h include/early_game_more.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_boundary_actor_spawn.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_boundary_actor_spawn.raw.o $@ .text 0x18c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_boundary_actor_spawn.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

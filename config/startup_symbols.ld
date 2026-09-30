@@ -1,3 +1,5 @@
+func_800077F4 = 0x800077F4;
+D_800B2480 = 0x800B2480;
 /* Runtime addresses supported by startup and SDK disassembly. */
 D_80139280 = 0x80139280;
 D_8013A430 = 0x8013A430;
