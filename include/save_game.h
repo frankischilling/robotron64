@@ -7,7 +7,9 @@
 typedef struct SavedPlayerState {
     unsigned char unknown00[5];
     unsigned char selection05;
-    unsigned char unknown06[0x12];
+    unsigned char unknown06[2];
+    struct GameActor *actor08;
+    unsigned char unknown0C[0xC];
     int value18;
     int active;
     unsigned char unknown20[0x14];

@@ -675,6 +675,16 @@ MATCHING_BLOCKS = (
     ("pi_extended_write", "src/sdk/pi_extended_write.c", 0x8006E600, 0x8006E64C),
     ("pi_extended_read", "src/sdk/pi_extended_read.c", 0x8006E650, 0x8006E6A0),
     ("pi_queue_get", "src/sdk/pi_queue_get.c", 0x8006B570, 0x8006B598),
+    ("player_fields_clear", "src/game/player_fields_clear.c", 0x80032D00, 0x80032D28),
+    ("runtime_buffer_clear", "src/game/runtime_buffer_clear.c", 0x8004CCA4, 0x8004CCD0),
+    ("render_buffer_allocate", "src/game/render_buffer_allocate.c", 0x8004BC44, 0x8004BC8C),
+    ("scene_arrival_reactivate", "src/game/scene_arrival_reactivate.c", 0x80020F24, 0x80020F8C),
+    ("short_sine", "src/sdk/short_sine.c", 0x8005FBB0, 0x8005FC20),
+    ("short_cosine", "src/sdk/short_cosine.c", 0x8005FC20, 0x8005FC50),
+    ("ai_frequency", "src/sdk/ai_frequency.c", 0x80065950, 0x80065AB0),
+    ("thread_destroy", "src/sdk/thread_destroy.c", 0x8006E4A0, 0x8006E598),
+    ("pi_start_dma", "src/sdk/pi_start_dma.c", 0x80065840, 0x8006594C),
+    ("pi_event_notify", "src/sdk/pi_event_notify.c", 0x8006E3AC, 0x8006E498),
 )
 
 CANDIDATE_BLOCKS = (

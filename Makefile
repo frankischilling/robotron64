@@ -3969,7 +3969,7 @@ build/us/message_send.o: src/sdk/message_send.c include/scheduler.h include/sdk_
 	$(PYTHON) tools/trim_padding.py build/us/message_send.raw.o $@ .text 0x14c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/event_message.o: src/sdk/event_message.c include/scheduler.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/event_message.o: src/sdk/event_message.c include/scheduler.h include/sdk_time.h include/sdk_events.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/event_message.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/event_message.raw.o $@ .text 0x68
@@ -4889,6 +4889,80 @@ build/us/thread_dispatch.o: src/sdk/thread_dispatch.s Makefile tools/provenance.
 RUNTIME_OBJECTS += \
     build/us/pi_queue_get.o \
     build/us/thread_dispatch.o
+
+build/us/player_fields_clear.o: src/game/player_fields_clear.c include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/player_fields_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/player_fields_clear.raw.o $@ .text 0x28
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/runtime_buffer_clear.o: src/game/runtime_buffer_clear.c include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/runtime_buffer_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/runtime_buffer_clear.raw.o $@ .text 0x2c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/render_buffer_allocate.o: src/game/render_buffer_allocate.c include/heap.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/render_buffer_allocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/render_buffer_allocate.raw.o $@ .text 0x48
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/scene_arrival_reactivate.o: src/game/scene_arrival_reactivate.c include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_arrival_reactivate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/scene_arrival_reactivate.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/short_sine.o: src/sdk/short_sine.c include/sdk_short_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/short_sine.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/short_sine.raw.o $@ .text 0x70
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/short_cosine.o: src/sdk/short_cosine.c include/sdk_short_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/short_cosine.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/short_cosine.raw.o $@ .text 0x30
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/ai_frequency.o: src/sdk/ai_frequency.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/ai_frequency.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/ai_frequency.raw.o $@ .text 0x160
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_destroy.o: src/sdk/thread_destroy.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/thread_destroy.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/thread_destroy.raw.o $@ .text 0xf8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_start_dma.o: src/sdk/pi_start_dma.c include/scheduler.h include/sdk_pi_dma.h include/sdk_pi_word.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_start_dma.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_start_dma.raw.o $@ .text 0x10c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/player_fields_clear.o \
+    build/us/runtime_buffer_clear.o \
+    build/us/render_buffer_allocate.o \
+    build/us/scene_arrival_reactivate.o \
+    build/us/short_sine.o \
+    build/us/short_cosine.o \
+    build/us/ai_frequency.o \
+    build/us/thread_destroy.o \
+    build/us/pi_start_dma.o
+
+build/us/pi_event_notify.o: src/sdk/pi_event_notify.c include/scheduler.h include/sdk_events.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_event_notify.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_event_notify.raw.o $@ .text 0xec
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/pi_event_notify.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

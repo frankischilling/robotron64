@@ -1,11 +1,11 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,174 matching C functions covering 179,592 bytes.
+The source checkpoint contains 1,184 matching C functions covering 181,116 bytes.
 It also contains eighteen assembly functions covering 1,044 live bytes, 2,693 bytes
 of source-owned initialized data, and 4,983 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-247 complete C functions, 58,544 C bytes, seventeen assembly procedures with
+257 complete C functions, 60,068 C bytes, seventeen assembly procedures with
 988 live bytes, 1,045 reconstructed initialized bytes, and 893 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
@@ -33,7 +33,7 @@ initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
 114 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
-the source inputs and complete procedure extents for all 1,174 counted C
+the source inputs and complete procedure extents for all 1,184 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
@@ -47,6 +47,13 @@ invalidation, debugger mapping, square root, thread queue operations, dispatch,
 and the thread cleanup trampoline. Together with stored-block decoding, this
 batch contributes 23 C procedures with 2,040 bytes and ten assembly procedures
 with 656 live bytes. No newly recovered initialized data or BSS is counted.
+
+Ten further [transfer, thread, and short-math procedures](sdk-transfer-and-short-math.md)
+add 1,524 C bytes. These include PI DMA submission and event notification, thread destruction, AI
+frequency setup, signed short sine/cosine, player clearing, scene reactivation,
+and renderer buffer services. Their complete compiler profiles and structure
+layouts are independently verified. The quarter-wave sine table remains
+fallback data.
 
 The game work extends actor animation and movement callbacks, early actor
 creation and state changes, selection and value tables, Controller Pak menu
@@ -140,7 +147,7 @@ python3 tools/compare_assembly.py
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 665 complete source units. Startup/scheduler
+The runtime registry contains 675 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 eighteen procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,

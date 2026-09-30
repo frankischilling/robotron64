@@ -171,7 +171,9 @@ SECTIONS
     .scene_effect_apply 0x8001F87C : AT(0x2047C) SUBALIGN(4) { build/us/scene_effect_apply.o(.text) }
     .scene_audio_request 0x8001F8E8 : AT(0x204E8) SUBALIGN(4) { build/us/scene_audio_request.o(.text) }
     .scene_background 0x8001F90C : AT(0x2050C) SUBALIGN(4) { build/us/scene_background.o(.text) }
-    .cpu_after_scene_background 0x8001FCE4 : AT(0x208E4) { build/us/fallback.o(.rom_cpu_after_scene_background) }
+    .endgame_208e4_21b24 0x8001FCE4 : AT(0x208E4) { build/us/fallback.o(.rom_endgame_208e4_21b24) }
+    .scene_arrival_reactivate 0x80020F24 : AT(0x21B24) SUBALIGN(4) { build/us/scene_arrival_reactivate.o(.text) }
+    .endgame_21b8c_22720 0x80020F8C : AT(0x21B8C) { build/us/fallback.o(.rom_endgame_21b8c_22720) }
     .save_level_lookup 0x80021B20 : AT(0x22720) SUBALIGN(4) { build/us/save_level_lookup.o(.text) }
     .cpu_after_save_level_lookup 0x80021B38 : AT(0x22738) { build/us/fallback.o(.rom_cpu_after_save_level_lookup) }
     .save_menu_conditional_copy 0x80021C14 : AT(0x22814) SUBALIGN(4) { build/us/save_menu_conditional_copy.o(.text) }
@@ -339,7 +341,8 @@ SECTIONS
     .scene_transition_open 0x80032830 : AT(0x33430) SUBALIGN(4) { build/us/scene_transition_open.o(.text) }
     .scene_transition_close 0x80032880 : AT(0x33480) SUBALIGN(4) { build/us/scene_transition_close.o(.text) }
     .scene_transition_draw 0x800328E0 : AT(0x334E0) SUBALIGN(4) { build/us/scene_transition_draw.o(.text) }
-    .cpu_after_scene_transition_draw 0x80032A00 : AT(0x33600) { build/us/fallback.o(.rom_cpu_after_scene_transition_draw) }
+    .endgame_33600_33900 0x80032A00 : AT(0x33600) { build/us/fallback.o(.rom_endgame_33600_33900) }
+    .player_fields_clear 0x80032D00 : AT(0x33900) SUBALIGN(4) { build/us/player_fields_clear.o(.text) }
     .scene_player_setup 0x80032D28 : AT(0x33928) SUBALIGN(4) { build/us/scene_player_setup.o(.text) }
     .cpu_after_scene_player_setup 0x80032F70 : AT(0x33B70) { build/us/fallback.o(.rom_cpu_after_scene_player_setup) }
     .scene_signed_shift 0x800338CC : AT(0x344CC) SUBALIGN(4) { build/us/scene_signed_shift.o(.text) }
@@ -511,7 +514,9 @@ SECTIONS
     .renderer_flag_set 0x8004ABBC : AT(0x4B7BC) SUBALIGN(4) { build/us/renderer_flag_set.o(.text) }
     .endgame_4b7c8_4bee0 0x8004ABC8 : AT(0x4B7C8) { build/us/fallback.o(.rom_endgame_4b7c8_4bee0) }
     .renderer_digit_extract 0x8004B2E0 : AT(0x4BEE0) SUBALIGN(4) { build/us/renderer_digit_extract.o(.text) }
-    .endgame_4bf40_4cc90 0x8004B340 : AT(0x4BF40) { build/us/fallback.o(.rom_endgame_4bf40_4cc90) }
+    .endgame_4bf40_4c844 0x8004B340 : AT(0x4BF40) { build/us/fallback.o(.rom_endgame_4bf40_4c844) }
+    .render_buffer_allocate 0x8004BC44 : AT(0x4C844) SUBALIGN(4) { build/us/render_buffer_allocate.o(.text) }
+    .endgame_4c88c_4cc90 0x8004BC8C : AT(0x4C88C) { build/us/fallback.o(.rom_endgame_4c88c_4cc90) }
     .controller_legacy_initialize 0x8004C090 : AT(0x4CC90) SUBALIGN(4) { build/us/controller_legacy_initialize.o(.text) }
     .controller_legacy_scan 0x8004C0D4 : AT(0x4CCD4) SUBALIGN(4) { build/us/controller_legacy_scan.o(.text) }
     .controller_legacy_present 0x8004C1C8 : AT(0x4CDC8) SUBALIGN(4) { build/us/controller_legacy_present.o(.text) }
@@ -522,7 +527,9 @@ SECTIONS
     .pak_file_write 0x8004C5DC : AT(0x4D1DC) SUBALIGN(4) { build/us/pak_file_write.o(.text) }
     .pak_file_close 0x8004C648 : AT(0x4D248) SUBALIGN(4) { build/us/pak_file_close.o(.text) }
     .pak_file_encode_name 0x8004C65C : AT(0x4D25C) SUBALIGN(4) { build/us/pak_file_encode_name.o(.text) }
-    .endgame_4d2dc_4d9c0 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_endgame_4d2dc_4d9c0) }
+    .endgame_4d2dc_4d8a4 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_endgame_4d2dc_4d8a4) }
+    .runtime_buffer_clear 0x8004CCA4 : AT(0x4D8A4) SUBALIGN(4) { build/us/runtime_buffer_clear.o(.text) }
+    .endgame_4d8d0_4d9c0 0x8004CCD0 : AT(0x4D8D0) { build/us/fallback.o(.rom_endgame_4d8d0_4d9c0) }
     .runtime_sign 0x8004CDC0 : AT(0x4D9C0) SUBALIGN(4) { build/us/runtime_sign.o(.text) }
     .runtime_random 0x8004CDE8 : AT(0x4D9E8) SUBALIGN(4) { build/us/runtime_random.o(.text) }
     .runtime_angle 0x8004CE08 : AT(0x4DA08) SUBALIGN(4) { build/us/runtime_angle.o(.text) }
@@ -765,8 +772,8 @@ SECTIONS
     .compression_memory 0x8005FAB0 : AT(0x606B0) SUBALIGN(4) { build/us/compression_memory.o(.text) }
     .compression_cartridge 0x8005FB08 : AT(0x60708) SUBALIGN(4) { build/us/compression_cartridge.o(.text) }
     .compression_cartridge_bounded 0x8005FB58 : AT(0x60758) SUBALIGN(4) { build/us/compression_cartridge_bounded.o(.text) }
-    .gu_sine 0x8005FBB0 : AT(0x607B0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_sine) }
-    .gu_cosine 0x8005FC20 : AT(0x60820) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_cosine) }
+    .short_sine 0x8005FBB0 : AT(0x607B0) SUBALIGN(4) { build/us/short_sine.o(.text) }
+    .short_cosine 0x8005FC20 : AT(0x60820) SUBALIGN(4) { build/us/short_cosine.o(.text) }
     .cpu_after_gu_cosine 0x8005FC50 : AT(0x60850) { build/us/fallback.o(.rom_cpu_after_gu_cosine) }
     .pi_cartridge_read 0x8005FEE0 : AT(0x60AE0) SUBALIGN(4) { build/us/pi_cartridge_read.o(.text) }
     .cpu_after_pi_raw_read 0x8005FF34 : AT(0x60B34) { build/us/fallback.o(.rom_cpu_after_pi_raw_read) }
@@ -850,9 +857,9 @@ SECTIONS
     .cpu_after_audio_heap_init 0x80065724 : AT(0x66324) { build/us/fallback.o(.rom_cpu_after_audio_heap_init) }
     .audio_heap_allocate 0x80065730 : AT(0x66330) SUBALIGN(4) { build/us/audio_heap_allocate.o(.text) }
     .cpu_after_audio_heap_alloc 0x80065784 : AT(0x66384) { build/us/fallback.o(.rom_cpu_after_audio_heap_alloc) }
-    .pi_start_dma 0x80065840 : AT(0x66440) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_start_dma) }
+    .pi_start_dma 0x80065840 : AT(0x66440) SUBALIGN(4) { build/us/pi_start_dma.o(.text) }
     .cpu_after_pi_start_dma 0x8006594C : AT(0x6654C) { build/us/fallback.o(.rom_cpu_after_pi_start_dma) }
-    .ai_frequency 0x80065950 : AT(0x66550) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_ai_frequency) }
+    .ai_frequency 0x80065950 : AT(0x66550) SUBALIGN(4) { build/us/ai_frequency.o(.text) }
     .audio_link_nodes 0x80065AB0 : AT(0x666B0) SUBALIGN(4) { build/us/audio_link_nodes.o(.text) }
     .audio_synth_lifecycle 0x80065B04 : AT(0x66704) SUBALIGN(4) { build/us/audio_synth_lifecycle.o(.text) }
     .audio_buffer_submit 0x80065B70 : AT(0x66770) SUBALIGN(4) { build/us/audio_buffer_submit.o(.text) }
@@ -951,9 +958,9 @@ SECTIONS
     .audio_save_filter 0x8006DB30 : AT(0x6E730) SUBALIGN(4) { build/us/audio_save_filter.o(.text) }
     .si_busy 0x8006DBF0 : AT(0x6E7F0) SUBALIGN(4) { build/us/si_busy.o(.text) }
     .cpu_after_si_busy 0x8006DC1C : AT(0x6E81C) { build/us/fallback.o(.rom_cpu_after_si_busy) }
-    .pi_event 0x8006E3AC : AT(0x6EFAC) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_event) }
+    .pi_event_notify 0x8006E3AC : AT(0x6EFAC) SUBALIGN(4) { build/us/pi_event_notify.o(.text) }
     .cpu_after_pi_event 0x8006E498 : AT(0x6F098) { build/us/fallback.o(.rom_cpu_after_pi_event) }
-    .thread_destroy 0x8006E4A0 : AT(0x6F0A0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_destroy) }
+    .thread_destroy 0x8006E4A0 : AT(0x6F0A0) SUBALIGN(4) { build/us/thread_destroy.o(.text) }
     .cpu_after_thread_destroy 0x8006E598 : AT(0x6F198) { build/us/fallback.o(.rom_cpu_after_thread_destroy) }
     .interrupt_mask_reset 0x8006E5A0 : AT(0x6F1A0) SUBALIGN(4) { build/us/interrupt_mask_reset.o(.text) }
     .cpu_after_interrupt_global_clear 0x8006E5F8 : AT(0x6F1F8) { build/us/fallback.o(.rom_cpu_after_interrupt_global_clear) }
@@ -1186,7 +1193,6 @@ ASSERT(SIZEOF(.scene_mark_dirty) == 0x14, "scene_mark_dirty size changed")
 ASSERT(SIZEOF(.scene_effect_apply) == 0x6c, "scene_effect_apply size changed")
 ASSERT(SIZEOF(.scene_audio_request) == 0x24, "scene_audio_request size changed")
 ASSERT(SIZEOF(.scene_background) == 0x3d8, "scene_background size changed")
-ASSERT(SIZEOF(.cpu_after_scene_background) == 0x1e3c, "cpu_after_scene_background size changed")
 ASSERT(SIZEOF(.save_level_lookup) == 0x18, "save_level_lookup size changed")
 ASSERT(SIZEOF(.cpu_after_save_level_lookup) == 0xdc, "cpu_after_save_level_lookup size changed")
 ASSERT(SIZEOF(.save_menu_conditional_copy) == 0x28, "save_menu_conditional_copy size changed")
@@ -1352,7 +1358,6 @@ ASSERT(SIZEOF(.cpu_after_command_machine) == 0x4, "cpu_after_command_machine siz
 ASSERT(SIZEOF(.scene_transition_open) == 0x50, "scene_transition_open size changed")
 ASSERT(SIZEOF(.scene_transition_close) == 0x60, "scene_transition_close size changed")
 ASSERT(SIZEOF(.scene_transition_draw) == 0x120, "scene_transition_draw size changed")
-ASSERT(SIZEOF(.cpu_after_scene_transition_draw) == 0x328, "cpu_after_scene_transition_draw size changed")
 ASSERT(SIZEOF(.scene_player_setup) == 0x248, "scene_player_setup size changed")
 ASSERT(SIZEOF(.cpu_after_scene_player_setup) == 0x95c, "cpu_after_scene_player_setup size changed")
 ASSERT(SIZEOF(.scene_signed_shift) == 0x24, "scene_signed_shift size changed")
@@ -1829,8 +1834,6 @@ ASSERT(SIZEOF(.compression_decode) == 0x238, "compression_decode size changed")
 ASSERT(SIZEOF(.compression_memory) == 0x58, "compression_memory size changed")
 ASSERT(SIZEOF(.compression_cartridge) == 0x50, "compression_cartridge size changed")
 ASSERT(SIZEOF(.compression_cartridge_bounded) == 0x58, "compression_cartridge_bounded size changed")
-ASSERT(SIZEOF(.gu_sine) == 0x70, "gu_sine size changed")
-ASSERT(SIZEOF(.gu_cosine) == 0x30, "gu_cosine size changed")
 ASSERT(SIZEOF(.cpu_after_gu_cosine) == 0x290, "cpu_after_gu_cosine size changed")
 ASSERT(SIZEOF(.pi_cartridge_read) == 0x54, "pi_cartridge_read size changed")
 ASSERT(SIZEOF(.cpu_after_pi_raw_read) == 0xc, "cpu_after_pi_raw_read size changed")
@@ -2002,7 +2005,6 @@ ASSERT(SIZEOF(.cpu_after_audio_aux_bus) == 0x8, "cpu_after_audio_aux_bus size ch
 ASSERT(SIZEOF(.audio_save_filter) == 0xc0, "audio_save_filter size changed")
 ASSERT(SIZEOF(.si_busy) == 0x2c, "si_busy size changed")
 ASSERT(SIZEOF(.cpu_after_si_busy) == 0x790, "cpu_after_si_busy size changed")
-ASSERT(SIZEOF(.pi_event) == 0xec, "pi_event size changed")
 ASSERT(SIZEOF(.cpu_after_pi_event) == 0x8, "cpu_after_pi_event size changed")
 ASSERT(SIZEOF(.thread_destroy) == 0xf8, "thread_destroy size changed")
 ASSERT(SIZEOF(.cpu_after_thread_destroy) == 0x8, "cpu_after_thread_destroy size changed")
@@ -2097,8 +2099,6 @@ ASSERT(SIZEOF(.endgame_1cbb0_1d340) == 0x790, "endgame_1cbb0_1d340 size changed"
 ASSERT(SIZEOF(.endgame_31c34_31eb0) == 0x27c, "endgame_31c34_31eb0 size changed")
 ASSERT(SIZEOF(.endgame_4aa3c_4b7bc) == 0xd80, "endgame_4aa3c_4b7bc size changed")
 ASSERT(SIZEOF(.endgame_4b7c8_4bee0) == 0x718, "endgame_4b7c8_4bee0 size changed")
-ASSERT(SIZEOF(.endgame_4bf40_4cc90) == 0xd50, "endgame_4bf40_4cc90 size changed")
-ASSERT(SIZEOF(.endgame_4d2dc_4d9c0) == 0x6e4, "endgame_4d2dc_4d9c0 size changed")
 ASSERT(SIZEOF(.endgame_4edc0_4f3d4) == 0x614, "endgame_4edc0_4f3d4 size changed")
 ASSERT(SIZEOF(.endgame_4f420_4f760) == 0x340, "endgame_4f420_4f760 size changed")
 ASSERT(SIZEOF(.endgame_4ff30_50560) == 0x630, "endgame_4ff30_50560 size changed")
@@ -2112,3 +2112,20 @@ ASSERT(SIZEOF(.pi_queue_get) == 0x28, "pi_queue_get size changed")
 ASSERT(SIZEOF(.thread_dispatch) == 0x1e0, "thread_dispatch size changed")
 ASSERT(SIZEOF(.endgame_6764c_67d7c) == 0x730, "endgame_6764c_67d7c size changed")
 ASSERT(SIZEOF(.endgame_67f5c_68060) == 0x104, "endgame_67f5c_68060 size changed")
+ASSERT(SIZEOF(.player_fields_clear) == 0x28, "player_fields_clear size changed")
+ASSERT(SIZEOF(.runtime_buffer_clear) == 0x2c, "runtime_buffer_clear size changed")
+ASSERT(SIZEOF(.render_buffer_allocate) == 0x48, "render_buffer_allocate size changed")
+ASSERT(SIZEOF(.scene_arrival_reactivate) == 0x68, "scene_arrival_reactivate size changed")
+ASSERT(SIZEOF(.short_sine) == 0x70, "short_sine size changed")
+ASSERT(SIZEOF(.short_cosine) == 0x30, "short_cosine size changed")
+ASSERT(SIZEOF(.ai_frequency) == 0x160, "ai_frequency size changed")
+ASSERT(SIZEOF(.thread_destroy) == 0xf8, "thread_destroy size changed")
+ASSERT(SIZEOF(.pi_start_dma) == 0x10c, "pi_start_dma size changed")
+ASSERT(SIZEOF(.endgame_208e4_21b24) == 0x1240, "endgame_208e4_21b24 size changed")
+ASSERT(SIZEOF(.endgame_21b8c_22720) == 0xb94, "endgame_21b8c_22720 size changed")
+ASSERT(SIZEOF(.endgame_33600_33900) == 0x300, "endgame_33600_33900 size changed")
+ASSERT(SIZEOF(.endgame_4bf40_4c844) == 0x904, "endgame_4bf40_4c844 size changed")
+ASSERT(SIZEOF(.endgame_4c88c_4cc90) == 0x404, "endgame_4c88c_4cc90 size changed")
+ASSERT(SIZEOF(.endgame_4d2dc_4d8a4) == 0x5c8, "endgame_4d2dc_4d8a4 size changed")
+ASSERT(SIZEOF(.endgame_4d8d0_4d9c0) == 0xf0, "endgame_4d8d0_4d9c0 size changed")
+ASSERT(SIZEOF(.pi_event_notify) == 0xec, "pi_event_notify size changed")

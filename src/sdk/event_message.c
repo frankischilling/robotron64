@@ -1,12 +1,6 @@
 #include "../../include/scheduler.h"
 #include "../../include/sdk_time.h"
-
-typedef struct SdkEventMessage {
-    OSMesgQueue *queue;
-    OSMesg message;
-} SdkEventMessage;
-
-extern SdkEventMessage D_80195030[];
+#include "../../include/sdk_events.h"
 
 void osSetEventMesg(int event, OSMesgQueue *queue, OSMesg message)
 {

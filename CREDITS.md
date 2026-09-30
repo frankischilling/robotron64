@@ -107,6 +107,13 @@ delay slots, and source extents. These native SDK routines are counted as
 assembly. The stored-block decoder continues the credited Perfect Dark DEFLATE
 study and preserves Robotron's own input, window, and output-limit behavior.
 
+The [transfer and short-math notes](docs/sdk-transfer-and-short-math.md) record
+the local libreultra `src/gu/sins.c` and `src/gu/coss.c` interface comparisons.
+Their quarter-wave lookup and angular offset corroborate the target's signed
+short trigonometric interface. Robotron's independent comparisons establish
+the MIPS II profile and complete code extents. The sine table remains extracted
+fallback data.
+
 The subsequent [timer and priority recovery](docs/sdk-time-and-priority.md),
 [scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and
 [matrix conversion](docs/sdk-matrix-conversion.md) build on these interface

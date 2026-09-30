@@ -13137,5 +13137,115 @@
     "section_vram": 2147905916,
     "evidence": "docs/runtime-helpers-and-hardware.md",
     "language": "assembly"
+  },
+  {
+    "name": "func_80032D00",
+    "rom": 211200,
+    "vram": 2147691776,
+    "size": 40,
+    "source": "src/game/player_fields_clear.c",
+    "object": "build/us/player_fields_clear.o",
+    "section": ".player_fields_clear",
+    "section_vram": 2147691776,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_8004CCA4",
+    "rom": 317604,
+    "vram": 2147798180,
+    "size": 44,
+    "source": "src/game/runtime_buffer_clear.c",
+    "object": "build/us/runtime_buffer_clear.o",
+    "section": ".runtime_buffer_clear",
+    "section_vram": 2147798180,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_8004BC44",
+    "rom": 313412,
+    "vram": 2147793988,
+    "size": 72,
+    "source": "src/game/render_buffer_allocate.c",
+    "object": "build/us/render_buffer_allocate.o",
+    "section": ".render_buffer_allocate",
+    "section_vram": 2147793988,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_80020F24",
+    "rom": 138020,
+    "vram": 2147618596,
+    "size": 104,
+    "source": "src/game/scene_arrival_reactivate.c",
+    "object": "build/us/scene_arrival_reactivate.o",
+    "section": ".scene_arrival_reactivate",
+    "section_vram": 2147618596,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_8005FBB0",
+    "rom": 395184,
+    "vram": 2147875760,
+    "size": 112,
+    "source": "src/sdk/short_sine.c",
+    "object": "build/us/short_sine.o",
+    "section": ".short_sine",
+    "section_vram": 2147875760,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_8005FC20",
+    "rom": 395296,
+    "vram": 2147875872,
+    "size": 48,
+    "source": "src/sdk/short_cosine.c",
+    "object": "build/us/short_cosine.o",
+    "section": ".short_cosine",
+    "section_vram": 2147875872,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_80065950",
+    "rom": 419152,
+    "vram": 2147899728,
+    "size": 352,
+    "source": "src/sdk/ai_frequency.c",
+    "object": "build/us/ai_frequency.o",
+    "section": ".ai_frequency",
+    "section_vram": 2147899728,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_8006E4A0",
+    "rom": 454816,
+    "vram": 2147935392,
+    "size": 248,
+    "source": "src/sdk/thread_destroy.c",
+    "object": "build/us/thread_destroy.o",
+    "section": ".thread_destroy",
+    "section_vram": 2147935392,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_80065840",
+    "rom": 418880,
+    "vram": 2147899456,
+    "size": 268,
+    "source": "src/sdk/pi_start_dma.c",
+    "object": "build/us/pi_start_dma.o",
+    "section": ".pi_start_dma",
+    "section_vram": 2147899456,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_8006E3AC",
+    "rom": 454572,
+    "vram": 2147935148,
+    "size": 236,
+    "source": "src/sdk/pi_event_notify.c",
+    "object": "build/us/pi_event_notify.o",
+    "section": ".pi_event_notify",
+    "section_vram": 2147935148,
+    "evidence": "docs/sdk-transfer-and-short-math.md"
   }
 ]
