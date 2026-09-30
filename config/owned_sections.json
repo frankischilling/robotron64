@@ -1291,5 +1291,33 @@
     },
     "static_symbols": {},
     "evidence": "docs/menu-transition-and-texture-cache.md"
+  },
+  {
+    "source": "src/game/actor_position_pair_add.c",
+    "object": "build/us/actor_position_pair_add.o",
+    "input_section": ".bss",
+    "section": ".actor_position_pair_add_bss",
+    "vram": 2148156800,
+    "rom": null,
+    "size": 160,
+    "symbols": {
+      "D_800A4580": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "source": "src/game/actor_random_spawn.c",
+    "object": "build/us/actor_random_spawn.o",
+    "input_section": ".bss",
+    "section": ".actor_random_spawn_bss",
+    "vram": 2148192568,
+    "rom": null,
+    "size": 328,
+    "symbols": {
+      "D_800AD138": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/game-runtime-tables.md"
   }
 ]

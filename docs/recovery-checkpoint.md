@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,222 matching C functions covering 193,336 bytes.
+The source checkpoint contains 1,230 matching C functions covering 194,708 bytes.
 It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,035 bytes
-of source-owned initialized data, and 21,085 bytes of source-owned BSS. The
+of source-owned initialized data, and 21,573 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-295 complete C functions, 72,288 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 7,387 reconstructed initialized bytes, and 16,995 BSS bytes.
+303 complete C functions, 73,660 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 7,387 reconstructed initialized bytes, and 17,483 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,13 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Runtime tables and game services](game-runtime-tables.md) add eight complete
+C procedures with 1,372 instruction bytes and 488 BSS bytes. Number drawing,
+menu labels, actor pair insertion, random endpoint selection, input setup,
+random actor creation and the value transition match complete target extents.
+Four initialization spans establish the corrected session counter bounds and
+its 328-byte storage definition.
 
 [Menu transition and texture file cache](menu-transition-and-texture-cache.md)
 add two complete C procedures with 292 instruction bytes, eight initialized
@@ -72,7 +79,7 @@ initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
 137 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
-the source inputs and complete procedure extents for all 1,222 counted C
+the source inputs and complete procedure extents for all 1,230 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.

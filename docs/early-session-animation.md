@@ -47,8 +47,13 @@ The canonical `GameSessionState` now exposes the index at `0x9C`, state at
 `0xA8`, record pointer at `0xB4`, and signed short counters beginning at
 `0xB8`. The counter array has 36 entries: initialization at `0x80021874`
 clears exactly `0x48` bytes from `0x800AD1F0`, ending where the existing
-scene counters begin at session offset `0x100`. The complete session view
-remains `0x120` bytes, and its saved prefix remains `0x4C` bytes.
+scene counters begin at session offset `0x100`. The session view extends
+through its initialized counter arrays to `0x148` bytes; its saved prefix
+remains `0x4C` bytes. The scene, intermediate and random-spawn counter
+arrays have eight, eleven and sixteen short entries. Initialization clears
+`0x10`, `0x16` and `0x20` bytes at their respective offsets `0x100`, `0x110`
+and `0x126`. These spans establish the array bounds and correct the earlier
+sixteen-entry scene-counter view.
 
 Record indexing has stride `0xCC`. The wrapper reads the animation word
 at record offset `0x0C` and an unsigned byte at `0x15`, then supplies null

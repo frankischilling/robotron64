@@ -273,6 +273,12 @@ local libreultra `src/os/setintmask.s`, `src/os/exceptasm.s`,
 handler ordering, the sentinel, scratch context and disk stack. Generated
 declarations and complete relocated Robotron bytes establish all owned storage.
 
+The [runtime table recovery](docs/game-runtime-tables.md) retains the pinned
+local IDO and Super Mario 64 compiler/build reference basis. Complete Robotron
+procedures and four initialization spans establish the accepted digit loops,
+menu record stride, actor pair table and session counter bounds. Matching
+caller and storage comparisons determine the source ownership claims.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

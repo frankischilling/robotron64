@@ -5351,6 +5351,66 @@ RUNTIME_OBJECTS += \
     build/us/menu_transition_start.o \
     build/us/renderer_texture_file_cache.o
 
+build/us/renderer_number_forward.o: src/game/renderer_number_forward.c include/renderer_debug_text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_number_forward.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_number_forward.raw.o $@ .text 0x9c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_number_reverse.o: src/game/renderer_number_reverse.c include/renderer_debug_text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_number_reverse.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_number_reverse.raw.o $@ .text 0x98
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_position_pair_add.o: src/game/actor_position_pair_add.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_behavior_internal.h include/actor_position_pairs.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_position_pair_add.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_position_pair_add.raw.o build/us/actor_position_pair_add.text.o .text 0xa8
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_position_pair_add.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/menu_label_assign.o: src/game/menu_label_assign.c include/menu_label_internal.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_label_assign.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/menu_label_assign.raw.o $@ .text 0xc8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/random_between.o: src/game/random_between.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/random_between.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/random_between.raw.o $@ .text 0xc4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_input_initialize.o: src/game/session_input_initialize.c include/actor.h include/actor_behavior_internal.h include/early_game_medium.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/platform_services.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_input_initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_input_initialize.raw.o $@ .text 0x80
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_value_transition.o: src/game/actor_value_transition.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_value_transition.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_value_transition.raw.o $@ .text 0xb4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_random_spawn.o: src/game/actor_random_spawn.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_random_spawn.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_random_spawn.raw.o build/us/actor_random_spawn.text.o .text 0xc0
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_random_spawn.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/renderer_number_forward.o \
+    build/us/renderer_number_reverse.o \
+    build/us/actor_position_pair_add.o \
+    build/us/menu_label_assign.o \
+    build/us/random_between.o \
+    build/us/session_input_initialize.o \
+    build/us/actor_value_transition.o \
+    build/us/actor_random_spawn.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

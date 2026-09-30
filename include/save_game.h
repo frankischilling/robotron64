@@ -46,7 +46,9 @@ typedef struct GameSessionState {
     unsigned char unknownAC[8];
     struct EarlyAnimationRecord *animationRecordsB4;
     short activeBehaviorActors[36];
-    short activeSceneActors[16];
+    short activeSceneActors[8];
+    short unknownCounters110[11];
+    short randomSpawnActors[16];
 } GameSessionState;
 
 typedef struct GameOptionConfiguration {
@@ -89,7 +91,7 @@ typedef union GameSaveImage {
 typedef char SavedPlayerStateMustBe160Bytes[sizeof(SavedPlayerState) == 0xA0 ? 1 : -1];
 typedef char GamePlayerStateMustBe3508Bytes[sizeof(GamePlayerState) == 0xDB4 ? 1 : -1];
 typedef char SavedSessionStateMustBe76Bytes[sizeof(SavedSessionState) == 0x4C ? 1 : -1];
-typedef char GameSessionStateMustBe288Bytes[sizeof(GameSessionState) == 0x120 ? 1 : -1];
+typedef char GameSessionStateMustBe328Bytes[sizeof(GameSessionState) == 0x148 ? 1 : -1];
 typedef char SavedOptionsMustBe40Bytes[sizeof(SavedOptions) == 0x28 ? 1 : -1];
 typedef char GameOptionConfigurationMustBe24Bytes[
     sizeof(GameOptionConfiguration) == 0x18 ? 1 : -1];

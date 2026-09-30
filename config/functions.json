@@ -13797,5 +13797,93 @@
     "section": ".renderer_texture_file_cache",
     "section_vram": 2147756080,
     "evidence": "docs/menu-transition-and-texture-cache.md"
+  },
+  {
+    "name": "func_8004B45C",
+    "rom": 311388,
+    "vram": 2147791964,
+    "size": 156,
+    "source": "src/game/renderer_number_forward.c",
+    "object": "build/us/renderer_number_forward.o",
+    "section": ".renderer_number_forward",
+    "section_vram": 2147791964,
+    "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "name": "func_8004B4F8",
+    "rom": 311544,
+    "vram": 2147792120,
+    "size": 152,
+    "source": "src/game/renderer_number_reverse.c",
+    "object": "build/us/renderer_number_reverse.o",
+    "section": ".renderer_number_reverse",
+    "section_vram": 2147792120,
+    "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "name": "func_80027A10",
+    "rom": 165392,
+    "vram": 2147645968,
+    "size": 168,
+    "source": "src/game/actor_position_pair_add.c",
+    "object": "build/us/actor_position_pair_add.o",
+    "section": ".actor_position_pair_add",
+    "section_vram": 2147645968,
+    "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "name": "func_80027940",
+    "rom": 165184,
+    "vram": 2147645760,
+    "size": 200,
+    "source": "src/game/menu_label_assign.c",
+    "object": "build/us/menu_label_assign.o",
+    "section": ".menu_label_assign",
+    "section_vram": 2147645760,
+    "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "name": "func_8000A21C",
+    "rom": 44572,
+    "vram": 2147525148,
+    "size": 196,
+    "source": "src/game/random_between.c",
+    "object": "build/us/random_between.o",
+    "section": ".random_between",
+    "section_vram": 2147525148,
+    "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "name": "func_8001A2C4",
+    "rom": 110276,
+    "vram": 2147590852,
+    "size": 128,
+    "source": "src/game/session_input_initialize.c",
+    "object": "build/us/session_input_initialize.o",
+    "section": ".session_input_initialize",
+    "section_vram": 2147590852,
+    "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "name": "func_80035190",
+    "rom": 220560,
+    "vram": 2147701136,
+    "size": 180,
+    "source": "src/game/actor_value_transition.c",
+    "object": "build/us/actor_value_transition.o",
+    "section": ".actor_value_transition",
+    "section_vram": 2147701136,
+    "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "name": "func_8001A350",
+    "rom": 110416,
+    "vram": 2147590992,
+    "size": 192,
+    "source": "src/game/actor_random_spawn.c",
+    "object": "build/us/actor_random_spawn.o",
+    "section": ".actor_random_spawn",
+    "section_vram": 2147590992,
+    "evidence": "docs/game-runtime-tables.md"
   }
 ]
