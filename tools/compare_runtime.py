@@ -704,6 +704,12 @@ MATCHING_BLOCKS = (
     ("pi_disk_interrupt", "src/sdk/pi_disk_interrupt.c", 0x8006DC20, 0x8006E2C4),
     ("initialize", "src/sdk/initialize.c", 0x8005FC50, 0x8005FEDC),
     ("pfs_repair_id", "src/sdk/pfs_repair_id.c", 0x800617A0, 0x800619FC),
+    ("early_actor_counter_decrement", "src/game/early_actor_counter_decrement.c", 0x8000E6F0, 0x8000E720),
+    ("early_animation_callback", "src/game/early_animation_callback.c", 0x8000ECE4, 0x8000EDE0),
+    ("early_session_animation", "src/game/early_session_animation.c", 0x8000EDE0, 0x8000EE48),
+    ("early_reset_parameter", "src/game/early_reset_parameter.c", 0x80010460, 0x8001049C),
+    ("early_animation_restart", "src/game/early_animation_restart.c", 0x8000F4E0, 0x8000F564),
+    ("early_transition_arrays_clear", "src/game/early_transition_arrays_clear.c", 0x8000E328, 0x8000E3B4),
 )
 
 CANDIDATE_BLOCKS = (

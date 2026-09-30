@@ -1195,5 +1195,19 @@
     },
     "static_symbols": {},
     "evidence": "docs/sdk-interrupt-storage.md"
+  },
+  {
+    "source": "src/game/early_reset_parameter.c",
+    "object": "build/us/early_reset_parameter.o",
+    "input_section": ".data",
+    "section": ".early_reset_parameter_data",
+    "vram": 2147956396,
+    "rom": 475820,
+    "size": 12,
+    "symbols": {
+      "D_800736AC": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/early-session-animation.md"
   }
 ]

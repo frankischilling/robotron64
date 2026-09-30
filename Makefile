@@ -5209,6 +5209,53 @@ build/us/thread_state.o: src/sdk/thread_state.c include/scheduler.h include/sdk_
 
 RUNTIME_OBJECTS += build/us/cpu_interrupt_tables.o build/us/exception_state.o build/us/rcp_interrupt_masks.o build/us/thread_state.o
 
+build/us/early_actor_counter_decrement.o: src/game/early_actor_counter_decrement.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/early_session_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_counter_decrement.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_counter_decrement.raw.o $@ .text 0x30
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_animation_callback.o: src/game/early_animation_callback.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/early_session_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_animation_callback.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_animation_callback.raw.o $@ .text 0xfc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_session_animation.o: src/game/early_session_animation.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/early_session_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_session_animation.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_session_animation.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_reset_parameter.o: src/game/early_reset_parameter.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/early_session_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_reset_parameter.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_reset_parameter.raw.o build/us/early_reset_parameter.text.o .text 0x3c
+	$(PYTHON) tools/owned_sections.py $< build/us/early_reset_parameter.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_actor_counter_decrement.o \
+    build/us/early_animation_callback.o \
+    build/us/early_session_animation.o \
+    build/us/early_reset_parameter.o
+
+build/us/early_animation_restart.o: src/game/early_animation_restart.c include/actor.h include/actor_behavior_internal.h include/early_game_more.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_animation_restart.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_animation_restart.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_transition_arrays_clear.o: src/game/early_transition_arrays_clear.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_transition_arrays_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_transition_arrays_clear.raw.o $@ .text 0x8c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_animation_restart.o \
+    build/us/early_transition_arrays_clear.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

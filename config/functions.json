@@ -13599,5 +13599,71 @@
     "section_vram": 2147904080,
     "language": "assembly",
     "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_8000E6F0",
+    "rom": 62192,
+    "vram": 2147542768,
+    "size": 48,
+    "source": "src/game/early_actor_counter_decrement.c",
+    "object": "build/us/early_actor_counter_decrement.o",
+    "section": ".early_actor_counter_decrement",
+    "section_vram": 2147542768,
+    "evidence": "docs/early-session-animation.md"
+  },
+  {
+    "name": "func_8000ECE4",
+    "rom": 63716,
+    "vram": 2147544292,
+    "size": 252,
+    "source": "src/game/early_animation_callback.c",
+    "object": "build/us/early_animation_callback.o",
+    "section": ".early_animation_callback",
+    "section_vram": 2147544292,
+    "evidence": "docs/early-session-animation.md"
+  },
+  {
+    "name": "func_8000EDE0",
+    "rom": 63968,
+    "vram": 2147544544,
+    "size": 104,
+    "source": "src/game/early_session_animation.c",
+    "object": "build/us/early_session_animation.o",
+    "section": ".early_session_animation",
+    "section_vram": 2147544544,
+    "evidence": "docs/early-session-animation.md"
+  },
+  {
+    "name": "func_80010460",
+    "rom": 69728,
+    "vram": 2147550304,
+    "size": 60,
+    "source": "src/game/early_reset_parameter.c",
+    "object": "build/us/early_reset_parameter.o",
+    "section": ".early_reset_parameter",
+    "section_vram": 2147550304,
+    "evidence": "docs/early-session-animation.md"
+  },
+  {
+    "name": "func_8000F4E0",
+    "rom": 65760,
+    "vram": 2147546336,
+    "size": 132,
+    "source": "src/game/early_animation_restart.c",
+    "object": "build/us/early_animation_restart.o",
+    "section": ".early_animation_restart",
+    "section_vram": 2147546336,
+    "evidence": "docs/early-session-animation.md"
+  },
+  {
+    "name": "func_8000E328",
+    "rom": 61224,
+    "vram": 2147541800,
+    "size": 140,
+    "source": "src/game/early_transition_arrays_clear.c",
+    "object": "build/us/early_transition_arrays_clear.o",
+    "section": ".early_transition_arrays_clear",
+    "section_vram": 2147541800,
+    "evidence": "docs/early-session-animation.md"
   }
 ]

@@ -61,6 +61,13 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The early session animation recovery uses the recorded IDO compiler materials
+and Super Mario 64 build conventions for compiler and linker handling. Its
+actor callbacks, 204-byte records and 36-entry counter array are reconstructed
+from Robotron's instructions and initialization spans. The specific evidence
+and complete comparison requirements are documented in
+[early session animation](docs/early-session-animation.md).
+
 Perfect Dark's `src/inflate/inflate.c` and Huffman entry declarations at the
 recorded revision supplied comparisons for the DEFLATE tables, bitstream, and
 decoder research. The [compression runtime](docs/compression-runtime.md)
