@@ -1,13 +1,14 @@
 # Compression runtime
 
-Ten complete functions recover 1,748 code bytes. The workspace source also
+Eleven complete functions recover 2,476 code bytes. The workspace source also
 defines 368 initialized bytes and 3,928 bytes of BSS at their original addresses.
-The Huffman table builder and the stored, dynamic, and literal/distance decoding
+The Huffman table builder and the dynamic and literal/distance decoding
 loops remain extracted fallback code.
 
 | Source | Complete target range | Code bytes |
 | --- | --- | ---: |
 | `compression_table_release.c` | `0x8005E1E4..0x8005E1EC` | 8 |
+| `compression_stored.c` | `0x8005E9D0..0x8005ECA8` | 728 |
 | `compression_fixed.c` | `0x8005ECA8..0x8005EE98` | 496 |
 | `compression_fixed_release.c` | `0x8005EE98..0x8005EEE0` | 72 |
 | `compression_workspace.c` | `0x8005F71C..0x8005F7E0` | 196 |
@@ -37,6 +38,15 @@ stored, fixed, or dynamic decoding, returns error five for the reserved kind,
 and stops on either the final block or an error. Decoder result nine denotes
 the output-limit path and becomes success at the entry boundary. The fixed
 table cleanup calls the target's empty release hook and clears both references.
+
+The stored-block decoder discards the partial byte, reads the sixteen-bit
+length and its complement, and returns error three when they disagree. It
+clamps the copy to the remaining output limit, updates that limit, and copies
+input bytes while advancing the 32,768-byte window. It saves the window and
+bit-buffer state before returning zero or the output-limit result nine. Its
+complete 728-byte comparison includes both direct and refill input paths. The
+window-advance macro groups the pointer update and counter reset in one
+statement; that grouping reproduces the target's IDO register allocation.
 
 ## Source-owned tables and storage
 
@@ -89,6 +99,6 @@ and storage addresses described here. The broader N64 source collection is
 credited in [CREDITS.md](../CREDITS.md).
 
 The complete 8,592-byte compression unit is retained as local research. Its
-remaining four procedures still differ after compilation and are excluded from
+remaining three procedures still differ after compilation and are excluded from
 matching progress. No partly matching procedure or shifted instruction range
 is included in this batch.

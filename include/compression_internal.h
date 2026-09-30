@@ -74,4 +74,7 @@ int func_8005FB58(unsigned int source, void *destination, unsigned int outputLim
         bitCount -= (count); \
     } while (0)
 
+#define INFLATE_ADVANCE_WINDOW(count) \
+    do { D_80192BF0 += (count); (count) = 0; } while (0)
+
 #endif

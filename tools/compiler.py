@@ -22,6 +22,13 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/sdk/pi_queue_get.c": "sdk-o1-mips2",
+    "src/sdk/video_vertical_scale.c": "sdk-o1-mips2",
+    "src/sdk/thread_yield.c": "sdk-o1-mips2",
+    "src/sdk/interrupt_mask_set.c": "sdk-o1-mips2",
+    "src/sdk/interrupt_mask_reset.c": "sdk-o1-mips2",
+    "src/sdk/pi_extended_write.c": "sdk-o1-mips2",
+    "src/sdk/pi_extended_read.c": "sdk-o1-mips2",
     "src/sdk/controller_crc.c": "sdk-o1-mips2",
     "src/sdk/pfs_cont_ram_write.c": "sdk-o1-mips2",
     "src/sdk/pfs_checker.c": "sdk-o1-mips2",

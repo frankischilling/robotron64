@@ -97,6 +97,16 @@ eight-byte thread sentinel, heap alignment, and initialized generator state.
 The target instruction stream and complete code/data comparisons determine
 the accepted Robotron implementations and compiler profiles.
 
+The [runtime helpers and hardware interfaces](docs/runtime-helpers-and-hardware.md)
+also use the recorded local libreultra `src/os/setsr.s`, `src/os/getsr.s`,
+`src/gu/sqrtf.s`, and `src/os/exceptasm.s` as references for native hardware
+instructions and thread context layouts. Thread creation in Robotron confirms
+the separate cleanup trampoline referenced by its return address. Complete
+assembled procedure comparisons determine the accepted instruction order,
+delay slots, and source extents. These native SDK routines are counted as
+assembly. The stored-block decoder continues the credited Perfect Dark DEFLATE
+study and preserves Robotron's own input, window, and output-limit behavior.
+
 The subsequent [timer and priority recovery](docs/sdk-time-and-priority.md),
 [scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and
 [matrix conversion](docs/sdk-matrix-conversion.md) build on these interface

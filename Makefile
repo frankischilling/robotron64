@@ -4703,6 +4703,193 @@ RUNTIME_OBJECTS += \
     build/us/pfs_cont_ram_write.o \
     build/us/controller_crc.o
 
+build/us/runtime_sign.o: src/game/runtime_sign.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/runtime_sign.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/runtime_sign.raw.o $@ .text 0x28
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/runtime_sine.o: src/game/runtime_sine.c include/sdk_float_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/runtime_sine.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/runtime_sine.raw.o $@ .text 0x20
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/frame_interval_set.o: src/game/frame_interval_set.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/frame_interval_set.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/frame_interval_set.raw.o $@ .text 0x24
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_flag_set.o: src/game/renderer_flag_set.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_flag_set.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_flag_set.raw.o $@ .text 0xc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_unused_command.o: src/game/audio_unused_command.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_unused_command.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_unused_command.raw.o $@ .text 0x8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_pool_initialize.o: src/game/early_pool_initialize.c include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_pool_initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_pool_initialize.raw.o $@ .text 0x5c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_coordinate_rescale.o: src/game/early_coordinate_rescale.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_coordinate_rescale.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_coordinate_rescale.raw.o $@ .text 0x3c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/scene_index_code.o: src/game/scene_index_code.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_index_code.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/scene_index_code.raw.o $@ .text 0x48
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_digit_extract.o: src/game/renderer_digit_extract.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_digit_extract.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_digit_extract.raw.o $@ .text 0x60
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_selection_activate.o: src/game/early_selection_activate.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_selection_activate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_selection_activate.raw.o $@ .text 0x20
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/frame_slot_allocate.o: src/game/frame_slot_allocate.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/frame_slot_allocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/frame_slot_allocate.raw.o $@ .text 0x4c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_handle_tests.o: src/game/audio_handle_tests.c include/audio_control.h include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_handle_tests.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_handle_tests.raw.o $@ .text 0x80
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_player_counter_reset.o: src/game/early_player_counter_reset.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_player_counter_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_player_counter_reset.raw.o $@ .text 0x68
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_stored.o: src/game/compression_stored.c include/audio_io.h include/compression_internal.h include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_stored.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_stored.raw.o $@ .text 0x2d8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/video_vertical_scale.o: src/sdk/video_vertical_scale.c include/scheduler.h include/sdk_time.h include/sdk_video_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/video_vertical_scale.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/video_vertical_scale.raw.o $@ .text 0x58
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_yield.o: src/sdk/thread_yield.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/thread_yield.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/thread_yield.raw.o $@ .text 0x4c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/interrupt_mask_set.o: src/sdk/interrupt_mask_set.c include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/interrupt_mask_set.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/interrupt_mask_set.raw.o $@ .text 0x4c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/interrupt_mask_reset.o: src/sdk/interrupt_mask_reset.c include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/interrupt_mask_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/interrupt_mask_reset.raw.o $@ .text 0x58
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_extended_write.o: src/sdk/pi_extended_write.c include/sdk_pi_word.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_extended_write.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_extended_write.raw.o $@ .text 0x4c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_extended_read.o: src/sdk/pi_extended_read.c include/sdk_pi_word.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_extended_read.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_extended_read.raw.o $@ .text 0x50
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/os_status.o: src/sdk/os_status.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_fpcsr.o: src/sdk/os_fpcsr.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_invalidate_cache_all.o: src/sdk/os_invalidate_cache_all.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_map_debug_tlb.o: src/sdk/os_map_debug_tlb.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/square_root.o: src/sdk/square_root.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+RUNTIME_OBJECTS += \
+    build/us/runtime_sign.o \
+    build/us/runtime_sine.o \
+    build/us/frame_interval_set.o \
+    build/us/renderer_flag_set.o \
+    build/us/audio_unused_command.o \
+    build/us/early_pool_initialize.o \
+    build/us/early_coordinate_rescale.o \
+    build/us/scene_index_code.o \
+    build/us/renderer_digit_extract.o \
+    build/us/early_selection_activate.o \
+    build/us/frame_slot_allocate.o \
+    build/us/audio_handle_tests.o \
+    build/us/early_player_counter_reset.o \
+    build/us/compression_stored.o \
+    build/us/video_vertical_scale.o \
+    build/us/thread_yield.o \
+    build/us/interrupt_mask_set.o \
+    build/us/interrupt_mask_reset.o \
+    build/us/pi_extended_write.o \
+    build/us/pi_extended_read.o \
+    build/us/os_status.o \
+    build/us/os_fpcsr.o \
+    build/us/os_invalidate_cache_all.o \
+    build/us/os_map_debug_tlb.o \
+    build/us/square_root.o
+
+build/us/pi_queue_get.o: src/sdk/pi_queue_get.c include/scheduler.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_queue_get.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_queue_get.raw.o $@ .text 0x28
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_dispatch.o: src/sdk/thread_dispatch.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+RUNTIME_OBJECTS += \
+    build/us/pi_queue_get.o \
+    build/us/thread_dispatch.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

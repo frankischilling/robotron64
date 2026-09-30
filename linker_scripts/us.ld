@@ -75,11 +75,15 @@ SECTIONS
     .early_pool_count 0x8000D034 : AT(0xDC34) SUBALIGN(4) { build/us/early_pool_count.o(.text) }
     .cpu_after_early_pool_count 0x8000D090 : AT(0xDC90) { build/us/fallback.o(.rom_cpu_after_early_pool_count) }
     .early_pool_index 0x8000D2B4 : AT(0xDEB4) SUBALIGN(4) { build/us/early_pool_index.o(.text) }
-    .cpu_after_early_pool_index 0x8000D2D4 : AT(0xDED4) { build/us/fallback.o(.rom_cpu_after_early_pool_index) }
+    .endgame_ded4_df8c 0x8000D2D4 : AT(0xDED4) { build/us/fallback.o(.rom_endgame_ded4_df8c) }
+    .early_pool_initialize 0x8000D38C : AT(0xDF8C) SUBALIGN(4) { build/us/early_pool_initialize.o(.text) }
+    .endgame_dfe8_e214 0x8000D3E8 : AT(0xDFE8) { build/us/fallback.o(.rom_endgame_dfe8_e214) }
     .early_byte_clear 0x8000D614 : AT(0xE214) SUBALIGN(4) { build/us/early_byte_clear.o(.text) }
     .cpu_after_early_byte_clear 0x8000D620 : AT(0xE220) { build/us/fallback.o(.rom_cpu_after_early_byte_clear) }
     .early_angle_normalize 0x8000DF14 : AT(0xEB14) SUBALIGN(4) { build/us/early_angle_normalize.o(.text) }
-    .cpu_before_early_actor_vector_clear 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_cpu_before_early_actor_vector_clear) }
+    .endgame_eb30_ebb0 0x8000DF30 : AT(0xEB30) { build/us/fallback.o(.rom_endgame_eb30_ebb0) }
+    .early_coordinate_rescale 0x8000DFB0 : AT(0xEBB0) SUBALIGN(4) { build/us/early_coordinate_rescale.o(.text) }
+    .endgame_ebec_f6e4 0x8000DFEC : AT(0xEBEC) { build/us/fallback.o(.rom_endgame_ebec_f6e4) }
     .early_actor_vector_clear 0x8000EAE4 : AT(0xF6E4) SUBALIGN(4) { build/us/early_actor_vector_clear.o(.text) }
     .cpu_after_early_actor_vector_clear 0x8000EAF8 : AT(0xF6F8) { build/us/fallback.o(.rom_cpu_after_early_actor_vector_clear) }
     .early_global_reset 0x8000ECD0 : AT(0xF8D0) SUBALIGN(4) { build/us/early_global_reset.o(.text) }
@@ -106,7 +110,9 @@ SECTIONS
     .early_actor_transition 0x80017C10 : AT(0x18810) SUBALIGN(4) { build/us/early_actor_transition.o(.text) }
     .cpu_after_early_actor_transition 0x80017CDC : AT(0x188DC) { build/us/fallback.o(.rom_cpu_after_early_actor_transition) }
     .early_pointer_state 0x8001A170 : AT(0x1AD70) SUBALIGN(4) { build/us/early_pointer_state.o(.text) }
-    .cpu_after_early_pointer_state 0x8001A1F0 : AT(0x1ADF0) { build/us/fallback.o(.rom_cpu_after_early_pointer_state) }
+    .endgame_1adf0_1b128 0x8001A1F0 : AT(0x1ADF0) { build/us/fallback.o(.rom_endgame_1adf0_1b128) }
+    .early_selection_activate 0x8001A528 : AT(0x1B128) SUBALIGN(4) { build/us/early_selection_activate.o(.text) }
+    .endgame_1b148_1b9a0 0x8001A548 : AT(0x1B148) { build/us/fallback.o(.rom_endgame_1b148_1b9a0) }
     .early_resource_state 0x8001ADA0 : AT(0x1B9A0) SUBALIGN(4) { build/us/early_resource_state.o(.text) }
     .cpu_after_early_resource_state 0x8001AF44 : AT(0x1BB44) { build/us/fallback.o(.rom_cpu_after_early_resource_state) }
     .early_actor_spawn_helper 0x8001B3DC : AT(0x1BFDC) SUBALIGN(4) { build/us/early_actor_spawn_helper.o(.text) }
@@ -118,7 +124,9 @@ SECTIONS
     .early_name_mask_lookup 0x8001BBAC : AT(0x1C7AC) SUBALIGN(4) { build/us/early_name_mask_lookup.o(.text) }
     .early_value_lookup 0x8001BC38 : AT(0x1C838) SUBALIGN(4) { build/us/early_value_lookup.o(.text) }
     .early_name_mask_parse 0x8001BD24 : AT(0x1C924) SUBALIGN(4) { build/us/early_name_mask_parse.o(.text) }
-    .cpu_after_early_name_mask_parse 0x8001BE2C : AT(0x1CA2C) { build/us/fallback.o(.rom_cpu_after_early_name_mask_parse) }
+    .endgame_1ca2c_1cb48 0x8001BE2C : AT(0x1CA2C) { build/us/fallback.o(.rom_endgame_1ca2c_1cb48) }
+    .early_player_counter_reset 0x8001BF48 : AT(0x1CB48) SUBALIGN(4) { build/us/early_player_counter_reset.o(.text) }
+    .endgame_1cbb0_1d340 0x8001BFB0 : AT(0x1CBB0) { build/us/fallback.o(.rom_endgame_1cbb0_1d340) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
     .script_service_files 0x8001C790 : AT(0x1D390) SUBALIGN(4) { build/us/script_service_files.o(.text) }
     .script_service_cache_access 0x8001C8C4 : AT(0x1D4C4) SUBALIGN(4) { build/us/script_service_cache_access.o(.text) }
@@ -311,7 +319,8 @@ SECTIONS
     .save_menu_audio_apply 0x80030F50 : AT(0x31B50) SUBALIGN(4) { build/us/save_menu_audio_apply.o(.text) }
     .save_menu_audio_secondary 0x80030F94 : AT(0x31B94) SUBALIGN(4) { build/us/save_menu_audio_secondary.o(.text) }
     .save_menu_write_return 0x80030FB8 : AT(0x31BB8) SUBALIGN(4) { build/us/save_menu_write_return.o(.text) }
-    .cpu_after_save_menu_write_return 0x80030FEC : AT(0x31BEC) { build/us/fallback.o(.rom_cpu_after_save_menu_write_return) }
+    .scene_index_code 0x80030FEC : AT(0x31BEC) SUBALIGN(4) { build/us/scene_index_code.o(.text) }
+    .endgame_31c34_31eb0 0x80031034 : AT(0x31C34) { build/us/fallback.o(.rom_endgame_31c34_31eb0) }
     .save_menu_continue_encode 0x800312B0 : AT(0x31EB0) SUBALIGN(4) { build/us/save_menu_continue_encode.o(.text) }
     .save_menu_palette_index 0x80031420 : AT(0x32020) SUBALIGN(4) { build/us/save_menu_palette_index.o(.text) }
     .scene_palette_load 0x800314FC : AT(0x320FC) SUBALIGN(4) { build/us/scene_palette_load.o(.text) }
@@ -498,7 +507,11 @@ SECTIONS
     .renderer_glyph_map 0x800498F0 : AT(0x4A4F0) SUBALIGN(4) { build/us/renderer_glyph_map.o(.text) }
     .renderer_platform 0x80049AD8 : AT(0x4A6D8) SUBALIGN(4) { build/us/renderer_platform.o(.text) }
     .graphics_state_helpers 0x80049DB0 : AT(0x4A9B0) SUBALIGN(4) { build/us/graphics_state_helpers.o(.text) }
-    .cpu_after_graphics_state_helpers 0x80049E3C : AT(0x4AA3C) { build/us/fallback.o(.rom_cpu_after_graphics_state_helpers) }
+    .endgame_4aa3c_4b7bc 0x80049E3C : AT(0x4AA3C) { build/us/fallback.o(.rom_endgame_4aa3c_4b7bc) }
+    .renderer_flag_set 0x8004ABBC : AT(0x4B7BC) SUBALIGN(4) { build/us/renderer_flag_set.o(.text) }
+    .endgame_4b7c8_4bee0 0x8004ABC8 : AT(0x4B7C8) { build/us/fallback.o(.rom_endgame_4b7c8_4bee0) }
+    .renderer_digit_extract 0x8004B2E0 : AT(0x4BEE0) SUBALIGN(4) { build/us/renderer_digit_extract.o(.text) }
+    .endgame_4bf40_4cc90 0x8004B340 : AT(0x4BF40) { build/us/fallback.o(.rom_endgame_4bf40_4cc90) }
     .controller_legacy_initialize 0x8004C090 : AT(0x4CC90) SUBALIGN(4) { build/us/controller_legacy_initialize.o(.text) }
     .controller_legacy_scan 0x8004C0D4 : AT(0x4CCD4) SUBALIGN(4) { build/us/controller_legacy_scan.o(.text) }
     .controller_legacy_present 0x8004C1C8 : AT(0x4CDC8) SUBALIGN(4) { build/us/controller_legacy_present.o(.text) }
@@ -509,11 +522,12 @@ SECTIONS
     .pak_file_write 0x8004C5DC : AT(0x4D1DC) SUBALIGN(4) { build/us/pak_file_write.o(.text) }
     .pak_file_close 0x8004C648 : AT(0x4D248) SUBALIGN(4) { build/us/pak_file_close.o(.text) }
     .pak_file_encode_name 0x8004C65C : AT(0x4D25C) SUBALIGN(4) { build/us/pak_file_encode_name.o(.text) }
-    .cpu_after_pak_file_encode_name 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_cpu_after_pak_file_encode_name) }
+    .endgame_4d2dc_4d9c0 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_endgame_4d2dc_4d9c0) }
+    .runtime_sign 0x8004CDC0 : AT(0x4D9C0) SUBALIGN(4) { build/us/runtime_sign.o(.text) }
     .runtime_random 0x8004CDE8 : AT(0x4D9E8) SUBALIGN(4) { build/us/runtime_random.o(.text) }
     .runtime_angle 0x8004CE08 : AT(0x4DA08) SUBALIGN(4) { build/us/runtime_angle.o(.text) }
     .runtime_float_truncate 0x8004CE70 : AT(0x4DA70) SUBALIGN(4) { build/us/runtime_float_truncate.o(.text) }
-    .cpu_after_runtime_float_truncate 0x8004CEB0 : AT(0x4DAB0) { build/us/fallback.o(.rom_cpu_after_runtime_float_truncate) }
+    .runtime_sine 0x8004CEB0 : AT(0x4DAB0) SUBALIGN(4) { build/us/runtime_sine.o(.text) }
     .fixed_geometry_setup 0x8004CED0 : AT(0x4DAD0) SUBALIGN(4) { build/us/fixed_geometry_setup.o(.text) }
     .frame_transform 0x8004D4B4 : AT(0x4E0B4) SUBALIGN(4) { build/us/frame_transform.o(.text) }
     .fixed_geometry 0x8004D59C : AT(0x4E19C) SUBALIGN(4) { build/us/fixed_geometry.o(.text) }
@@ -524,7 +538,9 @@ SECTIONS
     .heap_empty 0x8004DED8 : AT(0x4EAD8) SUBALIGN(4) { build/us/heap_empty.o(.text) }
     .cpu_after_heap_empty 0x8004DEE0 : AT(0x4EAE0) { build/us/fallback.o(.rom_cpu_after_heap_empty) }
     .object_history 0x8004E168 : AT(0x4ED68) SUBALIGN(4) { build/us/object_history.o(.text) }
-    .cpu_after_object_history 0x8004E1C0 : AT(0x4EDC0) { build/us/fallback.o(.rom_cpu_after_object_history) }
+    .endgame_4edc0_4f3d4 0x8004E1C0 : AT(0x4EDC0) { build/us/fallback.o(.rom_endgame_4edc0_4f3d4) }
+    .frame_slot_allocate 0x8004E7D4 : AT(0x4F3D4) SUBALIGN(4) { build/us/frame_slot_allocate.o(.text) }
+    .endgame_4f420_4f760 0x8004E820 : AT(0x4F420) { build/us/fallback.o(.rom_endgame_4f420_4f760) }
     .actor_history_byte_clear 0x8004EB60 : AT(0x4F760) SUBALIGN(4) { build/us/actor_history_byte_clear.o(.text) }
     .cpu_after_actor_history_byte_clear 0x8004EB74 : AT(0x4F774) { build/us/fallback.o(.rom_cpu_after_actor_history_byte_clear) }
     .rom_directory 0x8004EB80 : AT(0x4F780) SUBALIGN(4) { build/us/rom_directory.o(.text) }
@@ -535,7 +551,9 @@ SECTIONS
     .cpu_after_controller_access 0x8004F06C : AT(0x4FC6C) { build/us/fallback.o(.rom_cpu_after_controller_access) }
     .controller_motor_commands 0x8004F178 : AT(0x4FD78) SUBALIGN(4) { build/us/controller_motor_commands.o(.text) }
     .controller_scan 0x8004F1EC : AT(0x4FDEC) SUBALIGN(4) { build/us/controller_scan.o(.text) }
-    .cpu_after_controller_scan 0x8004F330 : AT(0x4FF30) { build/us/fallback.o(.rom_cpu_after_controller_scan) }
+    .endgame_4ff30_50560 0x8004F330 : AT(0x4FF30) { build/us/fallback.o(.rom_endgame_4ff30_50560) }
+    .frame_interval_set 0x8004F960 : AT(0x50560) SUBALIGN(4) { build/us/frame_interval_set.o(.text) }
+    .endgame_50584_50590 0x8004F984 : AT(0x50584) { build/us/fallback.o(.rom_endgame_50584_50590) }
     .controller_pak_info 0x8004F990 : AT(0x50590) SUBALIGN(4) { build/us/controller_pak_info.o(.text) }
     .controller_pak_delete 0x8004FA14 : AT(0x50614) SUBALIGN(4) { build/us/controller_pak_delete.o(.text) }
     .controller_pak_name 0x8004FAC0 : AT(0x506C0) SUBALIGN(4) { build/us/controller_pak_name.o(.text) }
@@ -667,7 +685,7 @@ SECTIONS
     .audio_host_files 0x80058ADC : AT(0x596DC) SUBALIGN(4) { build/us/audio_host_files.o(.text) }
     .audio_diagnostics 0x80058C00 : AT(0x59800) SUBALIGN(4) { build/us/audio_diagnostics.o(.text) }
     .audio_command_queue 0x800592C0 : AT(0x59EC0) SUBALIGN(4) { build/us/audio_command_queue.o(.text) }
-    .cpu_after_audio_command_queue 0x80059500 : AT(0x5A100) { build/us/fallback.o(.rom_cpu_after_audio_command_queue) }
+    .audio_handle_tests 0x80059500 : AT(0x5A100) SUBALIGN(4) { build/us/audio_handle_tests.o(.text) }
     .audio_stream_variable_read 0x80059580 : AT(0x5A180) SUBALIGN(4) { build/us/audio_stream_variable_read.o(.text) }
     .audio_stream_variable_write 0x800595D4 : AT(0x5A1D4) SUBALIGN(4) { build/us/audio_stream_variable_write.o(.text) }
     .cpu_after_audio_stream_variable_write 0x80059644 : AT(0x5A244) { build/us/fallback.o(.rom_cpu_after_audio_stream_variable_write) }
@@ -706,7 +724,8 @@ SECTIONS
     .after_audio_backend_patch 0x8005BA24 : AT(0x5C624) { build/us/fallback.o(.rom_after_audio_backend_patch) }
     .audio_backend_volume 0x8005BCC8 : AT(0x5C8C8) SUBALIGN(4) { build/us/audio_backend_volume.o(.text) }
     .audio_backend_pan_pedal 0x8005BEFC : AT(0x5CAFC) SUBALIGN(4) { build/us/audio_backend_pan_pedal.o(.text) }
-    .after_audio_backend_pan_pedal 0x8005C1D8 : AT(0x5CDD8) { build/us/fallback.o(.rom_after_audio_backend_pan_pedal) }
+    .endgame_5cdd8_5cf2c 0x8005C1D8 : AT(0x5CDD8) { build/us/fallback.o(.rom_endgame_5cdd8_5cf2c) }
+    .audio_unused_command 0x8005C32C : AT(0x5CF2C) SUBALIGN(4) { build/us/audio_unused_command.o(.text) }
     .audio_backend_voice_start 0x8005C334 : AT(0x5CF34) SUBALIGN(4) { build/us/audio_backend_voice_start.o(.text) }
     .after_audio_backend_voice_start 0x8005C3E4 : AT(0x5CFE4) { build/us/fallback.o(.rom_after_audio_backend_voice_start) }
     .audio_backend_release 0x8005C4F8 : AT(0x5D0F8) SUBALIGN(4) { build/us/audio_backend_release.o(.text) }
@@ -734,7 +753,8 @@ SECTIONS
     .audio_interrupt_service 0x8005D9E0 : AT(0x5E5E0) SUBALIGN(4) { build/us/audio_interrupt_service.o(.text) }
     .cpu_after_audio_interrupt_service 0x8005DA20 : AT(0x5E620) { build/us/fallback.o(.rom_cpu_after_audio_interrupt_service) }
     .compression_table_release 0x8005E1E4 : AT(0x5EDE4) SUBALIGN(4) { build/us/compression_table_release.o(.text) }
-    .after_compression_table_release 0x8005E1EC : AT(0x5EDEC) { build/us/fallback.o(.rom_after_compression_table_release) }
+    .endgame_5edec_5f5d0 0x8005E1EC : AT(0x5EDEC) { build/us/fallback.o(.rom_endgame_5edec_5f5d0) }
+    .compression_stored 0x8005E9D0 : AT(0x5F5D0) SUBALIGN(4) { build/us/compression_stored.o(.text) }
     .compression_fixed 0x8005ECA8 : AT(0x5F8A8) SUBALIGN(4) { build/us/compression_fixed.o(.text) }
     .compression_fixed_release 0x8005EE98 : AT(0x5FA98) SUBALIGN(4) { build/us/compression_fixed_release.o(.text) }
     .after_compression_fixed_release 0x8005EEE0 : AT(0x5FAE0) { build/us/fallback.o(.rom_after_compression_fixed_release) }
@@ -761,7 +781,8 @@ SECTIONS
     .vi_features 0x800604E0 : AT(0x610E0) SUBALIGN(4) { build/us/vi_features.o(.text) }
     .cpu_after_vi_features 0x80060698 : AT(0x61298) { build/us/fallback.o(.rom_cpu_after_vi_features) }
     .virtual_to_physical 0x800606A0 : AT(0x612A0) SUBALIGN(4) { build/us/virtual_to_physical.o(.text) }
-    .cpu_after_virtual_to_physical 0x8006071C : AT(0x6131C) { build/us/fallback.o(.rom_cpu_after_virtual_to_physical) }
+    .endgame_6131c_61320 0x8006071C : AT(0x6131C) { build/us/fallback.o(.rom_endgame_6131c_61320) }
+    .os_invalidate_cache_all 0x80060720 : AT(0x61320) SUBALIGN(4) { build/us/os_invalidate_cache_all.o(.text) }
     .camera_perspective 0x80060750 : AT(0x61350) SUBALIGN(4) { build/us/camera_perspective.o(.text) }
     .cpu_after_gu_perspective 0x800609D8 : AT(0x615D8) { build/us/fallback.o(.rom_cpu_after_gu_perspective) }
     .camera_highlights 0x800609E0 : AT(0x615E0) SUBALIGN(4) { build/us/camera_highlights.o(.text) }
@@ -789,7 +810,8 @@ SECTIONS
     .pfs_read_write_file 0x80062CF0 : AT(0x638F0) SUBALIGN(4) { build/us/pfs_read_write_file.o(.text) }
     .cpu_after_pfs_read_write_file 0x800631EC : AT(0x63DEC) { build/us/fallback.o(.rom_cpu_after_pfs_read_write_file) }
     .gu_random 0x800631F0 : AT(0x63DF0) SUBALIGN(4) { build/us/gu_random.o(.text) }
-    .cpu_after_gu_random 0x8006321C : AT(0x63E1C) { build/us/fallback.o(.rom_cpu_after_gu_random) }
+    .endgame_63e1c_63e20 0x8006321C : AT(0x63E1C) { build/us/fallback.o(.rom_endgame_63e1c_63e20) }
+    .square_root 0x80063220 : AT(0x63E20) SUBALIGN(4) { build/us/square_root.o(.text) }
     .gu_sine_float 0x80063230 : AT(0x63E30) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_sine_float) }
     .gu_cosine_float 0x800633F0 : AT(0x63FF0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_gu_cosine_float) }
     .cpu_after_gu_cosine_float 0x80063558 : AT(0x64158) { build/us/fallback.o(.rom_cpu_after_gu_cosine_float) }
@@ -809,7 +831,7 @@ SECTIONS
     .pfs_delete_file 0x800643E0 : AT(0x64FE0) SUBALIGN(4) { build/us/pfs_delete_file.o(.text) }
     .cpu_after_pfs_delete_file 0x800649E8 : AT(0x655E8) { build/us/fallback.o(.rom_cpu_after_pfs_delete_file) }
     .pfs_file_state 0x800649F0 : AT(0x655F0) SUBALIGN(4) { build/us/pfs_file_state.o(.text) }
-    .vi_vertical_scale 0x80064CE0 : AT(0x658E0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_vertical_scale) }
+    .video_vertical_scale 0x80064CE0 : AT(0x658E0) SUBALIGN(4) { build/us/video_vertical_scale.o(.text) }
     .cpu_after_vi_vertical_scale 0x80064D38 : AT(0x65938) { build/us/fallback.o(.rom_cpu_after_vi_vertical_scale) }
     .vi_manager 0x80064D40 : AT(0x65940) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_vi_manager) }
     .cpu_after_vi_manager 0x80065094 : AT(0x65C94) { build/us/fallback.o(.rom_cpu_after_vi_manager) }
@@ -853,10 +875,15 @@ SECTIONS
     .cpu_after_audio_synth_stop 0x800668B8 : AT(0x674B8) { build/us/fallback.o(.rom_cpu_after_audio_synth_stop) }
     .voice_release 0x800668C0 : AT(0x674C0) SUBALIGN(4) { build/us/voice_release.o(.text) }
     .voice_priority 0x80066970 : AT(0x67570) SUBALIGN(4) { build/us/voice_priority.o(.text) }
-    .cpu_after_audio_synth_priority 0x80066980 : AT(0x67580) { build/us/fallback.o(.rom_cpu_after_audio_synth_priority) }
+    .os_status 0x80066980 : AT(0x67580) SUBALIGN(4) { build/us/os_status.o(.text) }
+    .os_fpcsr 0x800669A0 : AT(0x675A0) SUBALIGN(4) { build/us/os_fpcsr.o(.text) }
     .si_raw_read 0x800669B0 : AT(0x675B0) SUBALIGN(4) { build/us/si_raw_read.o(.text) }
     .si_raw_write 0x80066A00 : AT(0x67600) SUBALIGN(4) { build/us/si_raw_write.o(.text) }
-    .cpu_after_si_raw_write 0x80066A4C : AT(0x6764C) { build/us/fallback.o(.rom_cpu_after_si_raw_write) }
+    .endgame_6764c_67d7c 0x80066A4C : AT(0x6764C) { build/us/fallback.o(.rom_endgame_6764c_67d7c) }
+    .thread_dispatch 0x8006717C : AT(0x67D7C) SUBALIGN(4) { build/us/thread_dispatch.o(.text) }
+    .endgame_67f5c_68060 0x8006735C : AT(0x67F5C) { build/us/fallback.o(.rom_endgame_67f5c_68060) }
+    .os_map_debug_tlb 0x80067460 : AT(0x68060) SUBALIGN(4) { build/us/os_map_debug_tlb.o(.text) }
+    .endgame_680c0_68160 0x800674C0 : AT(0x680C0) { build/us/fallback.o(.rom_endgame_680c0_68160) }
     .os_interrupt 0x80067560 : AT(0x68160) SUBALIGN(4) { build/us/os_interrupt.o(.text) }
     .thread_dequeue 0x800675A0 : AT(0x681A0) SUBALIGN(4) { build/us/thread_dequeue.o(.text) }
     .after_thread_dequeue 0x800675E0 : AT(0x681E0) { build/us/fallback.o(.rom_after_thread_dequeue) }
@@ -901,7 +928,7 @@ SECTIONS
     .sp_busy 0x8006B3F0 : AT(0x6BFF0) SUBALIGN(4) { build/us/sp_busy.o(.text) }
     .cpu_after_sp_busy 0x8006B41C : AT(0x6C01C) { build/us/fallback.o(.rom_cpu_after_sp_busy) }
     .message_prepend 0x8006B420 : AT(0x6C020) SUBALIGN(4) { build/us/message_prepend.o(.text) }
-    .pi_get_queue 0x8006B570 : AT(0x6C170) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_get_queue) }
+    .pi_queue_get 0x8006B570 : AT(0x6C170) SUBALIGN(4) { build/us/pi_queue_get.o(.text) }
     .cpu_after_pi_get_queue 0x8006B598 : AT(0x6C198) { build/us/fallback.o(.rom_cpu_after_pi_get_queue) }
     .audio_synth_clear 0x8006B5A0 : AT(0x6C1A0) SUBALIGN(4) { build/us/audio_synth_clear.o(.text) }
     .cpu_after_audio_synth_delete 0x8006B5A8 : AT(0x6C1A8) { build/us/fallback.o(.rom_cpu_after_audio_synth_delete) }
@@ -928,14 +955,14 @@ SECTIONS
     .cpu_after_pi_event 0x8006E498 : AT(0x6F098) { build/us/fallback.o(.rom_cpu_after_pi_event) }
     .thread_destroy 0x8006E4A0 : AT(0x6F0A0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_destroy) }
     .cpu_after_thread_destroy 0x8006E598 : AT(0x6F198) { build/us/fallback.o(.rom_cpu_after_thread_destroy) }
-    .interrupt_global_clear 0x8006E5A0 : AT(0x6F1A0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_interrupt_global_clear) }
+    .interrupt_mask_reset 0x8006E5A0 : AT(0x6F1A0) SUBALIGN(4) { build/us/interrupt_mask_reset.o(.text) }
     .cpu_after_interrupt_global_clear 0x8006E5F8 : AT(0x6F1F8) { build/us/fallback.o(.rom_cpu_after_interrupt_global_clear) }
-    .epi_raw_write 0x8006E600 : AT(0x6F200) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_epi_raw_write) }
+    .pi_extended_write 0x8006E600 : AT(0x6F200) SUBALIGN(4) { build/us/pi_extended_write.o(.text) }
     .cpu_after_epi_raw_write 0x8006E64C : AT(0x6F24C) { build/us/fallback.o(.rom_cpu_after_epi_raw_write) }
-    .epi_raw_read 0x8006E650 : AT(0x6F250) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_epi_raw_read) }
-    .interrupt_global_set 0x8006E6A0 : AT(0x6F2A0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_interrupt_global_set) }
+    .pi_extended_read 0x8006E650 : AT(0x6F250) SUBALIGN(4) { build/us/pi_extended_read.o(.text) }
+    .interrupt_mask_set 0x8006E6A0 : AT(0x6F2A0) SUBALIGN(4) { build/us/interrupt_mask_set.o(.text) }
     .cpu_after_interrupt_global_set 0x8006E6EC : AT(0x6F2EC) { build/us/fallback.o(.rom_cpu_after_interrupt_global_set) }
-    .thread_yield 0x8006E6F0 : AT(0x6F2F0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_thread_yield) }
+    .thread_yield 0x8006E6F0 : AT(0x6F2F0) SUBALIGN(4) { build/us/thread_yield.o(.text) }
     .cpu_after_thread_yield 0x8006E73C : AT(0x6F33C) { build/us/fallback.o(.rom_cpu_after_thread_yield) }
     .os_set_compare 0x8006E740 : AT(0x6F340) SUBALIGN(4) { build/us/os_set_compare.o(.text) }
     .audio_filter_base 0x8006E750 : AT(0x6F350) SUBALIGN(4) { build/us/audio_filter_base.o(.text) }
@@ -1075,11 +1102,9 @@ ASSERT(SIZEOF(.cpu_after_early_pool_entry_clear) == 0x98, "cpu_after_early_pool_
 ASSERT(SIZEOF(.early_pool_count) == 0x5c, "early_pool_count size changed")
 ASSERT(SIZEOF(.cpu_after_early_pool_count) == 0x224, "cpu_after_early_pool_count size changed")
 ASSERT(SIZEOF(.early_pool_index) == 0x20, "early_pool_index size changed")
-ASSERT(SIZEOF(.cpu_after_early_pool_index) == 0x340, "cpu_after_early_pool_index size changed")
 ASSERT(SIZEOF(.early_byte_clear) == 0xc, "early_byte_clear size changed")
 ASSERT(SIZEOF(.cpu_after_early_byte_clear) == 0x8f4, "cpu_after_early_byte_clear size changed")
 ASSERT(SIZEOF(.early_angle_normalize) == 0x1c, "early_angle_normalize size changed")
-ASSERT(SIZEOF(.cpu_before_early_actor_vector_clear) == 0xbb4, "cpu_before_early_actor_vector_clear size changed")
 ASSERT(SIZEOF(.early_actor_vector_clear) == 0x14, "early_actor_vector_clear size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_vector_clear) == 0x1d8, "cpu_after_early_actor_vector_clear size changed")
 ASSERT(SIZEOF(.early_global_reset) == 0x14, "early_global_reset size changed")
@@ -1106,7 +1131,6 @@ ASSERT(SIZEOF(.cpu_after_early_callback_false) == 0x894, "cpu_after_early_callba
 ASSERT(SIZEOF(.early_actor_transition) == 0xcc, "early_actor_transition size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_transition) == 0x2494, "cpu_after_early_actor_transition size changed")
 ASSERT(SIZEOF(.early_pointer_state) == 0x80, "early_pointer_state size changed")
-ASSERT(SIZEOF(.cpu_after_early_pointer_state) == 0xbb0, "cpu_after_early_pointer_state size changed")
 ASSERT(SIZEOF(.early_resource_state) == 0x1a4, "early_resource_state size changed")
 ASSERT(SIZEOF(.cpu_after_early_resource_state) == 0x498, "cpu_after_early_resource_state size changed")
 ASSERT(SIZEOF(.early_actor_spawn_helper) == 0x6c, "early_actor_spawn_helper size changed")
@@ -1118,7 +1142,6 @@ ASSERT(SIZEOF(.cpu_after_early_file_state_reset) == 0x2d4, "cpu_after_early_file
 ASSERT(SIZEOF(.early_name_mask_lookup) == 0x8c, "early_name_mask_lookup size changed")
 ASSERT(SIZEOF(.early_value_lookup) == 0xec, "early_value_lookup size changed")
 ASSERT(SIZEOF(.early_name_mask_parse) == 0x108, "early_name_mask_parse size changed")
-ASSERT(SIZEOF(.cpu_after_early_name_mask_parse) == 0x914, "cpu_after_early_name_mask_parse size changed")
 ASSERT(SIZEOF(.script_service_cache_reset) == 0x50, "script_service_cache_reset size changed")
 ASSERT(SIZEOF(.script_service_files) == 0x134, "script_service_files size changed")
 ASSERT(SIZEOF(.script_service_cache_access) == 0x284, "script_service_cache_access size changed")
@@ -1311,7 +1334,6 @@ ASSERT(SIZEOF(.save_menu_sound_preview) == 0x30, "save_menu_sound_preview size c
 ASSERT(SIZEOF(.save_menu_audio_apply) == 0x44, "save_menu_audio_apply size changed")
 ASSERT(SIZEOF(.save_menu_audio_secondary) == 0x24, "save_menu_audio_secondary size changed")
 ASSERT(SIZEOF(.save_menu_write_return) == 0x34, "save_menu_write_return size changed")
-ASSERT(SIZEOF(.cpu_after_save_menu_write_return) == 0x2c4, "cpu_after_save_menu_write_return size changed")
 ASSERT(SIZEOF(.save_menu_continue_encode) == 0x170, "save_menu_continue_encode size changed")
 ASSERT(SIZEOF(.save_menu_palette_index) == 0xdc, "save_menu_palette_index size changed")
 ASSERT(SIZEOF(.scene_palette_load) == 0x68, "scene_palette_load size changed")
@@ -1568,7 +1590,6 @@ ASSERT(SIZEOF(.cpu_before_renderer_platform) == 0x4, "cpu_before_renderer_platfo
 ASSERT(SIZEOF(.renderer_glyph_map) == 0x1e8, "renderer_glyph_map size changed")
 ASSERT(SIZEOF(.renderer_platform) == 0x2d8, "renderer platform size changed")
 ASSERT(SIZEOF(.graphics_state_helpers) == 0x8c, "graphics_state_helpers size changed")
-ASSERT(SIZEOF(.cpu_after_graphics_state_helpers) == 0x2254, "cpu_after_graphics_state_helpers size changed")
 ASSERT(SIZEOF(.controller_legacy_initialize) == 0x44, "controller_legacy_initialize size changed")
 ASSERT(SIZEOF(.controller_legacy_scan) == 0xf4, "controller_legacy_scan size changed")
 ASSERT(SIZEOF(.controller_legacy_present) == 0x18, "controller_legacy_present size changed")
@@ -1579,11 +1600,9 @@ ASSERT(SIZEOF(.pak_file_read) == 0x78, "pak_file_read size changed")
 ASSERT(SIZEOF(.pak_file_write) == 0x6c, "pak_file_write size changed")
 ASSERT(SIZEOF(.pak_file_close) == 0x14, "pak_file_close size changed")
 ASSERT(SIZEOF(.pak_file_encode_name) == 0x80, "pak_file_encode_name size changed")
-ASSERT(SIZEOF(.cpu_after_pak_file_encode_name) == 0x70c, "cpu_after_pak_file_encode_name size changed")
 ASSERT(SIZEOF(.runtime_random) == 0x20, "runtime_random size changed")
 ASSERT(SIZEOF(.runtime_angle) == 0x68, "runtime_angle size changed")
 ASSERT(SIZEOF(.runtime_float_truncate) == 0x40, "runtime_float_truncate size changed")
-ASSERT(SIZEOF(.cpu_after_runtime_float_truncate) == 0x20, "cpu_after_runtime_float_truncate size changed")
 ASSERT(SIZEOF(.fixed_geometry_setup) == 0x5e4, "fixed_geometry_setup size changed")
 ASSERT(SIZEOF(.frame_transform) == 0xe8, "frame transform size changed")
 ASSERT(SIZEOF(.fixed_geometry) == 0x598, "fixed-point geometry size changed")
@@ -1594,7 +1613,6 @@ ASSERT(SIZEOF(.cpu_after_heap) == 0x4c, "cpu_after_heap size changed")
 ASSERT(SIZEOF(.heap_empty) == 0x8, "heap_empty size changed")
 ASSERT(SIZEOF(.cpu_after_heap_empty) == 0x288, "cpu_after_heap_empty size changed")
 ASSERT(SIZEOF(.object_history) == 0x58, "object_history size changed")
-ASSERT(SIZEOF(.cpu_after_object_history) == 0x9a0, "cpu_after_object_history size changed")
 ASSERT(SIZEOF(.actor_history_byte_clear) == 0x14, "actor_history_byte_clear size changed")
 ASSERT(SIZEOF(.cpu_after_actor_history_byte_clear) == 0xc, "cpu_after_actor_history_byte_clear size changed")
 ASSERT(SIZEOF(.rom_directory) == 0x194, "rom_directory size changed")
@@ -1605,7 +1623,6 @@ ASSERT(SIZEOF(.controller_access) == 0xbc, "controller_access size changed")
 ASSERT(SIZEOF(.cpu_after_controller_access) == 0x10c, "cpu_after_controller_access size changed")
 ASSERT(SIZEOF(.controller_motor_commands) == 0x74, "controller_motor_commands size changed")
 ASSERT(SIZEOF(.controller_scan) == 0x144, "controller_scan size changed")
-ASSERT(SIZEOF(.cpu_after_controller_scan) == 0x660, "cpu_after_controller_scan size changed")
 ASSERT(SIZEOF(.controller_pak_info) == 0x84, "controller_pak_info size changed")
 ASSERT(SIZEOF(.controller_pak_delete) == 0xac, "controller_pak_delete size changed")
 ASSERT(SIZEOF(.controller_pak_name) == 0x88, "controller_pak_name size changed")
@@ -1737,7 +1754,6 @@ ASSERT(SIZEOF(.cpu_after_audio_timing_rate) == 0x84, "cpu_after_audio_timing_rat
 ASSERT(SIZEOF(.audio_host_files) == 0x124, "audio_host_files size changed")
 ASSERT(SIZEOF(.audio_diagnostics) == 0x6c0, "audio_diagnostics size changed")
 ASSERT(SIZEOF(.audio_command_queue) == 0x240, "audio_command_queue size changed")
-ASSERT(SIZEOF(.cpu_after_audio_command_queue) == 0x80, "cpu_after_audio_command_queue size changed")
 ASSERT(SIZEOF(.audio_stream_variable_read) == 0x54, "audio_stream_variable_read size changed")
 ASSERT(SIZEOF(.audio_stream_variable_write) == 0x70, "audio_stream_variable_write size changed")
 ASSERT(SIZEOF(.cpu_after_audio_stream_variable_write) == 0x80, "cpu_after_audio_stream_variable_write size changed")
@@ -1776,7 +1792,6 @@ ASSERT(SIZEOF(.audio_backend_patch) == 0x2c, "audio_backend_patch size changed")
 ASSERT(SIZEOF(.after_audio_backend_patch) == 0x2a4, "after_audio_backend_patch size changed")
 ASSERT(SIZEOF(.audio_backend_volume) == 0x234, "audio_backend_volume size changed")
 ASSERT(SIZEOF(.audio_backend_pan_pedal) == 0x2dc, "audio_backend_pan_pedal size changed")
-ASSERT(SIZEOF(.after_audio_backend_pan_pedal) == 0x15c, "after_audio_backend_pan_pedal size changed")
 ASSERT(SIZEOF(.audio_backend_voice_start) == 0xb0, "audio_backend_voice_start size changed")
 ASSERT(SIZEOF(.after_audio_backend_voice_start) == 0x114, "after_audio_backend_voice_start size changed")
 ASSERT(SIZEOF(.audio_backend_release) == 0x18c, "audio_backend_release size changed")
@@ -1804,7 +1819,6 @@ ASSERT(SIZEOF(.after_audio_sequence_range_release) == 0x8, "after_audio_sequence
 ASSERT(SIZEOF(.audio_interrupt_service) == 0x40, "audio_interrupt_service size changed")
 ASSERT(SIZEOF(.cpu_after_audio_interrupt_service) == 0x7c4, "cpu_after_audio_interrupt_service size changed")
 ASSERT(SIZEOF(.compression_table_release) == 0x8, "compression_table_release size changed")
-ASSERT(SIZEOF(.after_compression_table_release) == 0xabc, "after_compression_table_release size changed")
 ASSERT(SIZEOF(.compression_fixed) == 0x1f0, "compression_fixed size changed")
 ASSERT(SIZEOF(.compression_fixed_release) == 0x48, "compression_fixed_release size changed")
 ASSERT(SIZEOF(.after_compression_fixed_release) == 0x83c, "after_compression_fixed_release size changed")
@@ -1831,7 +1845,6 @@ ASSERT(SIZEOF(.cpu_after_message_queue_create) == 0x64, "cpu_after_message_queue
 ASSERT(SIZEOF(.vi_features) == 0x1b8, "vi_features size changed")
 ASSERT(SIZEOF(.cpu_after_vi_features) == 0x8, "cpu_after_vi_features size changed")
 ASSERT(SIZEOF(.virtual_to_physical) == 0x7c, "virtual_to_physical size changed")
-ASSERT(SIZEOF(.cpu_after_virtual_to_physical) == 0x34, "cpu_after_virtual_to_physical size changed")
 ASSERT(SIZEOF(.camera_perspective) == 0x288, "camera_perspective size changed")
 ASSERT(SIZEOF(.cpu_after_gu_perspective) == 0x8, "cpu_after_gu_perspective size changed")
 ASSERT(SIZEOF(.camera_highlights) == 0x824, "camera_highlights size changed")
@@ -1859,7 +1872,6 @@ ASSERT(SIZEOF(.cpu_after_pfs_allocate_file) == 0x8, "cpu_after_pfs_allocate_file
 ASSERT(SIZEOF(.pfs_read_write_file) == 0x4fc, "pfs_read_write_file size changed")
 ASSERT(SIZEOF(.cpu_after_pfs_read_write_file) == 0x4, "cpu_after_pfs_read_write_file size changed")
 ASSERT(SIZEOF(.gu_random) == 0x2c, "gu_random size changed")
-ASSERT(SIZEOF(.cpu_after_gu_random) == 0x14, "cpu_after_gu_random size changed")
 ASSERT(SIZEOF(.gu_sine_float) == 0x1c0, "gu_sine_float size changed")
 ASSERT(SIZEOF(.gu_cosine_float) == 0x168, "gu_cosine_float size changed")
 ASSERT(SIZEOF(.cpu_after_gu_cosine_float) == 0x8, "cpu_after_gu_cosine_float size changed")
@@ -1879,7 +1891,6 @@ ASSERT(SIZEOF(.cpu_after_pfs_num_files) == 0xc, "cpu_after_pfs_num_files size ch
 ASSERT(SIZEOF(.pfs_delete_file) == 0x608, "pfs_delete_file size changed")
 ASSERT(SIZEOF(.cpu_after_pfs_delete_file) == 0x8, "cpu_after_pfs_delete_file size changed")
 ASSERT(SIZEOF(.pfs_file_state) == 0x2f0, "pfs_file_state size changed")
-ASSERT(SIZEOF(.vi_vertical_scale) == 0x58, "vi_vertical_scale size changed")
 ASSERT(SIZEOF(.cpu_after_vi_vertical_scale) == 0x8, "cpu_after_vi_vertical_scale size changed")
 ASSERT(SIZEOF(.vi_manager) == 0x354, "vi_manager size changed")
 ASSERT(SIZEOF(.cpu_after_vi_manager) == 0xc, "cpu_after_vi_manager size changed")
@@ -1923,10 +1934,8 @@ ASSERT(SIZEOF(.voice_stop) == 0x78, "voice_stop size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_stop) == 0x8, "cpu_after_audio_synth_stop size changed")
 ASSERT(SIZEOF(.voice_release) == 0xb0, "voice_release size changed")
 ASSERT(SIZEOF(.voice_priority) == 0x10, "voice_priority size changed")
-ASSERT(SIZEOF(.cpu_after_audio_synth_priority) == 0x30, "cpu_after_audio_synth_priority size changed")
 ASSERT(SIZEOF(.si_raw_read) == 0x50, "si_raw_read size changed")
 ASSERT(SIZEOF(.si_raw_write) == 0x4c, "si_raw_write size changed")
-ASSERT(SIZEOF(.cpu_after_si_raw_write) == 0xb14, "cpu_after_si_raw_write size changed")
 ASSERT(SIZEOF(.os_interrupt) == 0x40, "os_interrupt size changed")
 ASSERT(SIZEOF(.thread_dequeue) == 0x40, "thread_dequeue size changed")
 ASSERT(SIZEOF(.after_thread_dequeue) == 0x1f0, "after_thread_dequeue size changed")
@@ -1971,7 +1980,6 @@ ASSERT(SIZEOF(.cpu_after_sp_dma) == 0x4, "cpu_after_sp_dma size changed")
 ASSERT(SIZEOF(.sp_busy) == 0x2c, "sp_busy size changed")
 ASSERT(SIZEOF(.cpu_after_sp_busy) == 0x4, "cpu_after_sp_busy size changed")
 ASSERT(SIZEOF(.message_prepend) == 0x150, "message_prepend size changed")
-ASSERT(SIZEOF(.pi_get_queue) == 0x28, "pi_get_queue size changed")
 ASSERT(SIZEOF(.cpu_after_pi_get_queue) == 0x8, "cpu_after_pi_get_queue size changed")
 ASSERT(SIZEOF(.audio_synth_clear) == 0x8, "audio_synth_clear size changed")
 ASSERT(SIZEOF(.cpu_after_audio_synth_delete) == 0x8, "cpu_after_audio_synth_delete size changed")
@@ -1998,12 +2006,8 @@ ASSERT(SIZEOF(.pi_event) == 0xec, "pi_event size changed")
 ASSERT(SIZEOF(.cpu_after_pi_event) == 0x8, "cpu_after_pi_event size changed")
 ASSERT(SIZEOF(.thread_destroy) == 0xf8, "thread_destroy size changed")
 ASSERT(SIZEOF(.cpu_after_thread_destroy) == 0x8, "cpu_after_thread_destroy size changed")
-ASSERT(SIZEOF(.interrupt_global_clear) == 0x58, "interrupt_global_clear size changed")
 ASSERT(SIZEOF(.cpu_after_interrupt_global_clear) == 0x8, "cpu_after_interrupt_global_clear size changed")
-ASSERT(SIZEOF(.epi_raw_write) == 0x4c, "epi_raw_write size changed")
 ASSERT(SIZEOF(.cpu_after_epi_raw_write) == 0x4, "cpu_after_epi_raw_write size changed")
-ASSERT(SIZEOF(.epi_raw_read) == 0x50, "epi_raw_read size changed")
-ASSERT(SIZEOF(.interrupt_global_set) == 0x4c, "interrupt_global_set size changed")
 ASSERT(SIZEOF(.cpu_after_interrupt_global_set) == 0x4, "cpu_after_interrupt_global_set size changed")
 ASSERT(SIZEOF(.thread_yield) == 0x4c, "thread_yield size changed")
 ASSERT(SIZEOF(.cpu_after_thread_yield) == 0x4, "cpu_after_thread_yield size changed")
@@ -2057,3 +2061,54 @@ ASSERT(SIZEOF(.pfs_is_plug_bss) == 0x40, "pfs_is_plug BSS size changed")
 ASSERT(SIZEOF(.controller_read_bss) == 0x40, "controller_read BSS size changed")
 ASSERT(SIZEOF(.pfs_motor_bss) == 0x240, "pfs_motor BSS size changed")
 ASSERT(SIZEOF(.controller_init_bss) == 0x50, "controller_init BSS size changed")
+
+ASSERT(SIZEOF(.runtime_sign) == 0x28, "runtime_sign size changed")
+ASSERT(SIZEOF(.runtime_sine) == 0x20, "runtime_sine size changed")
+ASSERT(SIZEOF(.frame_interval_set) == 0x24, "frame_interval_set size changed")
+ASSERT(SIZEOF(.renderer_flag_set) == 0xc, "renderer_flag_set size changed")
+ASSERT(SIZEOF(.audio_unused_command) == 0x8, "audio_unused_command size changed")
+ASSERT(SIZEOF(.early_pool_initialize) == 0x5c, "early_pool_initialize size changed")
+ASSERT(SIZEOF(.early_coordinate_rescale) == 0x3c, "early_coordinate_rescale size changed")
+ASSERT(SIZEOF(.scene_index_code) == 0x48, "scene_index_code size changed")
+ASSERT(SIZEOF(.renderer_digit_extract) == 0x60, "renderer_digit_extract size changed")
+ASSERT(SIZEOF(.early_selection_activate) == 0x20, "early_selection_activate size changed")
+ASSERT(SIZEOF(.frame_slot_allocate) == 0x4c, "frame_slot_allocate size changed")
+ASSERT(SIZEOF(.audio_handle_tests) == 0x80, "audio_handle_tests size changed")
+ASSERT(SIZEOF(.early_player_counter_reset) == 0x68, "early_player_counter_reset size changed")
+ASSERT(SIZEOF(.compression_stored) == 0x2d8, "compression_stored size changed")
+ASSERT(SIZEOF(.video_vertical_scale) == 0x58, "video_vertical_scale size changed")
+ASSERT(SIZEOF(.interrupt_mask_set) == 0x4c, "interrupt_mask_set size changed")
+ASSERT(SIZEOF(.interrupt_mask_reset) == 0x58, "interrupt_mask_reset size changed")
+ASSERT(SIZEOF(.pi_extended_write) == 0x4c, "pi_extended_write size changed")
+ASSERT(SIZEOF(.pi_extended_read) == 0x50, "pi_extended_read size changed")
+ASSERT(SIZEOF(.os_status) == 0x20, "os_status size changed")
+ASSERT(SIZEOF(.os_fpcsr) == 0x10, "os_fpcsr size changed")
+ASSERT(SIZEOF(.os_invalidate_cache_all) == 0x30, "os_invalidate_cache_all size changed")
+ASSERT(SIZEOF(.os_map_debug_tlb) == 0x60, "os_map_debug_tlb size changed")
+ASSERT(SIZEOF(.square_root) == 0x10, "square_root size changed")
+ASSERT(SIZEOF(.endgame_ded4_df8c) == 0xb8, "endgame_ded4_df8c size changed")
+ASSERT(SIZEOF(.endgame_dfe8_e214) == 0x22c, "endgame_dfe8_e214 size changed")
+ASSERT(SIZEOF(.endgame_eb30_ebb0) == 0x80, "endgame_eb30_ebb0 size changed")
+ASSERT(SIZEOF(.endgame_ebec_f6e4) == 0xaf8, "endgame_ebec_f6e4 size changed")
+ASSERT(SIZEOF(.endgame_1adf0_1b128) == 0x338, "endgame_1adf0_1b128 size changed")
+ASSERT(SIZEOF(.endgame_1b148_1b9a0) == 0x858, "endgame_1b148_1b9a0 size changed")
+ASSERT(SIZEOF(.endgame_1ca2c_1cb48) == 0x11c, "endgame_1ca2c_1cb48 size changed")
+ASSERT(SIZEOF(.endgame_1cbb0_1d340) == 0x790, "endgame_1cbb0_1d340 size changed")
+ASSERT(SIZEOF(.endgame_31c34_31eb0) == 0x27c, "endgame_31c34_31eb0 size changed")
+ASSERT(SIZEOF(.endgame_4aa3c_4b7bc) == 0xd80, "endgame_4aa3c_4b7bc size changed")
+ASSERT(SIZEOF(.endgame_4b7c8_4bee0) == 0x718, "endgame_4b7c8_4bee0 size changed")
+ASSERT(SIZEOF(.endgame_4bf40_4cc90) == 0xd50, "endgame_4bf40_4cc90 size changed")
+ASSERT(SIZEOF(.endgame_4d2dc_4d9c0) == 0x6e4, "endgame_4d2dc_4d9c0 size changed")
+ASSERT(SIZEOF(.endgame_4edc0_4f3d4) == 0x614, "endgame_4edc0_4f3d4 size changed")
+ASSERT(SIZEOF(.endgame_4f420_4f760) == 0x340, "endgame_4f420_4f760 size changed")
+ASSERT(SIZEOF(.endgame_4ff30_50560) == 0x630, "endgame_4ff30_50560 size changed")
+ASSERT(SIZEOF(.endgame_50584_50590) == 0xc, "endgame_50584_50590 size changed")
+ASSERT(SIZEOF(.endgame_5cdd8_5cf2c) == 0x154, "endgame_5cdd8_5cf2c size changed")
+ASSERT(SIZEOF(.endgame_5edec_5f5d0) == 0x7e4, "endgame_5edec_5f5d0 size changed")
+ASSERT(SIZEOF(.endgame_6131c_61320) == 0x4, "endgame_6131c_61320 size changed")
+ASSERT(SIZEOF(.endgame_63e1c_63e20) == 0x4, "endgame_63e1c_63e20 size changed")
+ASSERT(SIZEOF(.endgame_680c0_68160) == 0xa0, "endgame_680c0_68160 size changed")
+ASSERT(SIZEOF(.pi_queue_get) == 0x28, "pi_queue_get size changed")
+ASSERT(SIZEOF(.thread_dispatch) == 0x1e0, "thread_dispatch size changed")
+ASSERT(SIZEOF(.endgame_6764c_67d7c) == 0x730, "endgame_6764c_67d7c size changed")
+ASSERT(SIZEOF(.endgame_67f5c_68060) == 0x104, "endgame_67f5c_68060 size changed")
