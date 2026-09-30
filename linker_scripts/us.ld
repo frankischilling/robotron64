@@ -133,7 +133,8 @@ SECTIONS
     .early_six_arg_forward 0x80016914 : AT(0x17514) SUBALIGN(4) { build/us/early_six_arg_forward.o(.text) }
     .cpu_after_early_six_arg_forward 0x80016950 : AT(0x17550) { build/us/fallback.o(.rom_cpu_after_early_six_arg_forward) }
     .early_callback_false 0x80017364 : AT(0x17F64) SUBALIGN(4) { build/us/early_callback_false.o(.text) }
-    .cpu_after_early_callback_false 0x8001737C : AT(0x17F7C) { build/us/fallback.o(.rom_cpu_after_early_callback_false) }
+    .endgame_17f7c_186cc 0x8001737C : AT(0x17F7C) { build/us/fallback.o(.rom_endgame_17f7c_186cc) }
+    .actor_collision_health_result 0x80017ACC : AT(0x186CC) SUBALIGN(4) { build/us/actor_collision_health_result.o(.text) }
     .early_actor_transition 0x80017C10 : AT(0x18810) SUBALIGN(4) { build/us/early_actor_transition.o(.text) }
     .cpu_after_early_actor_transition 0x80017CDC : AT(0x188DC) { build/us/fallback.o(.rom_cpu_after_early_actor_transition) }
     .early_pointer_state 0x8001A170 : AT(0x1AD70) SUBALIGN(4) { build/us/early_pointer_state.o(.text) }
@@ -661,7 +662,8 @@ SECTIONS
     .audio_instance_stop_all 0x80054178 : AT(0x54D78) SUBALIGN(4) { build/us/audio_instance_stop_all.o(.text) }
     .audio_stop_all_commands 0x80054268 : AT(0x54E68) SUBALIGN(4) { build/us/audio_stop_all_commands.o(.text) }
     .audio_voice_stop_all 0x80054304 : AT(0x54F04) SUBALIGN(4) { build/us/audio_voice_stop_all.o(.text) }
-    .cpu_after_audio_voice_stop_all 0x800544F0 : AT(0x550F0) { build/us/fallback.o(.rom_cpu_after_audio_voice_stop_all) }
+    .audio_callback_add 0x800544F0 : AT(0x550F0) SUBALIGN(4) { build/us/audio_callback_add.o(.text) }
+    .audio_callback_remove 0x800545F0 : AT(0x551F0) SUBALIGN(4) { build/us/audio_callback_remove.o(.text) }
     .audio_level_commands 0x80054720 : AT(0x55320) SUBALIGN(4) { build/us/audio_level_commands.o(.text) }
     .audio_level_update 0x800547FC : AT(0x553FC) SUBALIGN(4) { build/us/audio_level_update.o(.text) }
     .audio_level_commands_alt 0x800549DC : AT(0x555DC) SUBALIGN(4) { build/us/audio_level_commands_alt.o(.text) }
@@ -796,7 +798,7 @@ SECTIONS
     .endgame_5cdd8_5cf2c 0x8005C1D8 : AT(0x5CDD8) { build/us/fallback.o(.rom_endgame_5cdd8_5cf2c) }
     .audio_unused_command 0x8005C32C : AT(0x5CF2C) SUBALIGN(4) { build/us/audio_unused_command.o(.text) }
     .audio_backend_voice_start 0x8005C334 : AT(0x5CF34) SUBALIGN(4) { build/us/audio_backend_voice_start.o(.text) }
-    .after_audio_backend_voice_start 0x8005C3E4 : AT(0x5CFE4) { build/us/fallback.o(.rom_after_audio_backend_voice_start) }
+    .audio_backend_voice_release 0x8005C3E4 : AT(0x5CFE4) SUBALIGN(4) { build/us/audio_backend_voice_release.o(.text) }
     .audio_backend_release 0x8005C4F8 : AT(0x5D0F8) SUBALIGN(4) { build/us/audio_backend_release.o(.text) }
     .audio_backend_decay 0x8005C684 : AT(0x5D284) SUBALIGN(4) { build/us/audio_backend_decay.o(.text) }
     .audio_backend_allocate 0x8005C7F8 : AT(0x5D3F8) SUBALIGN(4) { build/us/audio_backend_allocate.o(.text) }
@@ -1194,6 +1196,9 @@ SECTIONS
     .renderer_texture_file_cache_bss 0x800CD3C0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.bss) }
     .actor_position_pair_add_bss 0x800A4580 (NOLOAD) : SUBALIGN(4) { build/us/actor_position_pair_add.o(.bss) }
     .actor_random_spawn_bss 0x800AD138 (NOLOAD) : SUBALIGN(4) { build/us/actor_random_spawn.o(.bss) }
+    .audio_callback_add_bss 0x801902F0 (NOLOAD) : SUBALIGN(4) { build/us/audio_callback_add.o(.bss) }
+    .audio_callback_remove_bss 0x801902F8 (NOLOAD) : SUBALIGN(4) { build/us/audio_callback_remove.o(.bss) }
+    .audio_backend_voice_release_bss 0x80192B38 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_voice_release.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1248,7 +1253,6 @@ ASSERT(SIZEOF(.early_actor_mode0) == 0x24, "early_actor_mode0 size changed")
 ASSERT(SIZEOF(.early_six_arg_forward) == 0x3c, "early_six_arg_forward size changed")
 ASSERT(SIZEOF(.cpu_after_early_six_arg_forward) == 0xa14, "cpu_after_early_six_arg_forward size changed")
 ASSERT(SIZEOF(.early_callback_false) == 0x18, "early_callback_false size changed")
-ASSERT(SIZEOF(.cpu_after_early_callback_false) == 0x894, "cpu_after_early_callback_false size changed")
 ASSERT(SIZEOF(.early_actor_transition) == 0xcc, "early_actor_transition size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_transition) == 0x2494, "cpu_after_early_actor_transition size changed")
 ASSERT(SIZEOF(.early_pointer_state) == 0x80, "early_pointer_state size changed")
@@ -1755,7 +1759,6 @@ ASSERT(SIZEOF(.audio_voice_stop) == 0x200, "audio_voice_stop size changed")
 ASSERT(SIZEOF(.audio_instance_stop_all) == 0xf0, "audio_instance_stop_all size changed")
 ASSERT(SIZEOF(.audio_stop_all_commands) == 0x9c, "audio_stop_all_commands size changed")
 ASSERT(SIZEOF(.audio_voice_stop_all) == 0x1ec, "audio_voice_stop_all size changed")
-ASSERT(SIZEOF(.cpu_after_audio_voice_stop_all) == 0x230, "cpu_after_audio_voice_stop_all size changed")
 ASSERT(SIZEOF(.audio_level_commands) == 0xdc, "audio_level_commands size changed")
 ASSERT(SIZEOF(.audio_level_update) == 0x1e0, "audio_level_update size changed")
 ASSERT(SIZEOF(.audio_level_commands_alt) == 0x6c, "audio_level_commands_alt size changed")
@@ -1887,7 +1890,6 @@ ASSERT(SIZEOF(.after_audio_backend_patch) == 0x2a4, "after_audio_backend_patch s
 ASSERT(SIZEOF(.audio_backend_volume) == 0x234, "audio_backend_volume size changed")
 ASSERT(SIZEOF(.audio_backend_pan_pedal) == 0x2dc, "audio_backend_pan_pedal size changed")
 ASSERT(SIZEOF(.audio_backend_voice_start) == 0xb0, "audio_backend_voice_start size changed")
-ASSERT(SIZEOF(.after_audio_backend_voice_start) == 0x114, "after_audio_backend_voice_start size changed")
 ASSERT(SIZEOF(.audio_backend_release) == 0x18c, "audio_backend_release size changed")
 ASSERT(SIZEOF(.audio_backend_decay) == 0x174, "audio_backend_decay size changed")
 ASSERT(SIZEOF(.audio_backend_allocate) == 0x23c, "audio_backend_allocate size changed")
@@ -2454,3 +2456,18 @@ ASSERT(SIZEOF(.endgame_f0f0_f1c8) == 0xd8, "endgame_f0f0_f1c8 size changed")
 ASSERT(SIZEOF(.endgame_4c900_4cc90) == 0x390, "endgame_4c900_4cc90 size changed")
 D_8009EF94 = 0x8009EF94;
 D_80078274 = 0x80078274;
+D_8008D857 = 0x8008D857;
+D_801902EC = 0x801902EC;
+D_80190200 = 0x80190200;
+D_80192810 = 0x80192810;
+D_80192818 = 0x80192818;
+D_800AD2F8 = 0x800AD2F8;
+func_80029E5C = 0x80029E5C;
+ASSERT(SIZEOF(.audio_callback_add) == 0x100, "audio_callback_add size changed")
+ASSERT(SIZEOF(.audio_callback_remove) == 0x130, "audio_callback_remove size changed")
+ASSERT(SIZEOF(.audio_backend_voice_release) == 0x114, "audio_backend_voice_release size changed")
+ASSERT(SIZEOF(.actor_collision_health_result) == 0x144, "actor_collision_health_result size changed")
+ASSERT(SIZEOF(.audio_callback_add_bss) == 0x8, "audio_callback_add_bss size changed")
+ASSERT(SIZEOF(.audio_callback_remove_bss) == 0x8, "audio_callback_remove_bss size changed")
+ASSERT(SIZEOF(.audio_backend_voice_release_bss) == 0x4, "audio_backend_voice_release_bss size changed")
+ASSERT(SIZEOF(.endgame_17f7c_186cc) == 0x750, "endgame_17f7c_186cc size changed")

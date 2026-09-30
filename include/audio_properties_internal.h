@@ -158,6 +158,8 @@ extern AudioContext *D_801902EC;
 
 int func_80052AA8(void);
 int func_80052ACC(int index);
+void func_800544F0(unsigned char code, AudioEventCallback callback);
+void func_800545F0(unsigned char code);
 int func_8005396C(AudioRecordSlot *slot, int index, int value, int flags, int argument);
 void func_8005895C(void);
 void func_8005899C(void);

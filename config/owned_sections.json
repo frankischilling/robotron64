@@ -1367,5 +1367,51 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/parameter-and-rendering-state.md"
+  },
+  {
+    "source": "src/game/audio_callback_add.c",
+    "object": "build/us/audio_callback_add.o",
+    "input_section": ".bss",
+    "section": ".audio_callback_add_bss",
+    "vram": 2149122800,
+    "rom": null,
+    "size": 8,
+    "symbols": {},
+    "static_symbols": {
+      "D_801902F0": 0,
+      "D_801902F1": 1,
+      "D_801902F4": 4
+    },
+    "evidence": "docs/callback-and-release-state.md"
+  },
+  {
+    "source": "src/game/audio_callback_remove.c",
+    "object": "build/us/audio_callback_remove.o",
+    "input_section": ".bss",
+    "section": ".audio_callback_remove_bss",
+    "vram": 2149122808,
+    "rom": null,
+    "size": 8,
+    "symbols": {},
+    "static_symbols": {
+      "D_801902F8": 0,
+      "D_801902F9": 1,
+      "D_801902FC": 4
+    },
+    "evidence": "docs/callback-and-release-state.md"
+  },
+  {
+    "source": "src/game/audio_backend_voice_release.c",
+    "object": "build/us/audio_backend_voice_release.o",
+    "input_section": ".bss",
+    "section": ".audio_backend_voice_release_bss",
+    "vram": 2149133112,
+    "rom": null,
+    "size": 4,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192B38": 0
+    },
+    "evidence": "docs/callback-and-release-state.md"
   }
 ]

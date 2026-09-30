@@ -14160,5 +14160,49 @@
     "section": ".renderer_cache_flags_clear",
     "section_vram": 2147794060,
     "evidence": "docs/resource-and-cache-state.md"
+  },
+  {
+    "name": "func_800544F0",
+    "rom": 348400,
+    "vram": 2147828976,
+    "size": 256,
+    "source": "src/game/audio_callback_add.c",
+    "object": "build/us/audio_callback_add.o",
+    "section": ".audio_callback_add",
+    "section_vram": 2147828976,
+    "evidence": "docs/callback-and-release-state.md"
+  },
+  {
+    "name": "func_800545F0",
+    "rom": 348656,
+    "vram": 2147829232,
+    "size": 304,
+    "source": "src/game/audio_callback_remove.c",
+    "object": "build/us/audio_callback_remove.o",
+    "section": ".audio_callback_remove",
+    "section_vram": 2147829232,
+    "evidence": "docs/callback-and-release-state.md"
+  },
+  {
+    "name": "func_8005C3E4",
+    "rom": 380900,
+    "vram": 2147861476,
+    "size": 276,
+    "source": "src/game/audio_backend_voice_release.c",
+    "object": "build/us/audio_backend_voice_release.o",
+    "section": ".audio_backend_voice_release",
+    "section_vram": 2147861476,
+    "evidence": "docs/callback-and-release-state.md"
+  },
+  {
+    "name": "func_80017ACC",
+    "rom": 100044,
+    "vram": 2147580620,
+    "size": 324,
+    "source": "src/game/actor_collision_health_result.c",
+    "object": "build/us/actor_collision_health_result.o",
+    "section": ".actor_collision_health_result",
+    "section_vram": 2147580620,
+    "evidence": "docs/callback-and-release-state.md"
   }
 ]

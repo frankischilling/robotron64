@@ -304,6 +304,13 @@ basis. Complete Robotron append, scale and cache-reset instructions establish
 the resource group entries, shared scale word and both cache strides.
 Existing caller comparisons check the updated shared definitions.
 
+The [callback and release recovery](docs/callback-and-release-state.md)
+consulted pinned local libreultra `src/audio/synstopvoice.c` and
+`src/audio/synfreevoice.c` for the SDK interfaces and stop/free ordering.
+Robotron's complete instructions establish callback slot handling, hardware
+voice ownership, collision results and the private storage boundaries.
+The existing pinned IDO and Super Mario 64 matching-build references apply.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,
