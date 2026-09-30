@@ -145,7 +145,6 @@ REGIONS = (
     ("endgame_4f568_4f760", 0x4f568, 0x4f760),
     ("cpu_after_actor_history_byte_clear", 0x4f774, 0x4f780),
     ("cpu_after_rom_files", 0x4fba8, 0x4fbb0),
-    ("cpu_after_controller_access", 0x4fc6c, 0x4fd78),
     ("endgame_4ff30_50560", 0x4ff30, 0x50560),
     ("endgame_50584_50590", 0x50584, 0x50590),
     ("cpu_after_controller_pak_directory", 0x50a04, 0x50a10),

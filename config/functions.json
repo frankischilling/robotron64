@@ -14479,5 +14479,16 @@
     "section": ".graphics_setup",
     "section_vram": 2147810832,
     "evidence": "docs/actor-follow-and-graphics-pacing.md"
+  },
+  {
+    "name": "func_8004F06C",
+    "rom": 326764,
+    "vram": 2147807340,
+    "size": 268,
+    "source": "src/game/controller_access.c",
+    "object": "build/us/controller_access.o",
+    "section": ".controller_access",
+    "section_vram": 2147807152,
+    "evidence": "docs/controller-motor-worker.md"
   }
 ]

@@ -1449,7 +1449,7 @@ build/us/pak_file_encode_name.o: src/game/pak_file_encode_name.c include/pak_fil
 build/us/controller_access.o: src/game/controller_access.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_access.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/controller_access.raw.o $@ .text 0xbc
+	$(PYTHON) tools/trim_padding.py build/us/controller_access.raw.o $@ .text 0x1c8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/controller_motor_commands.o: src/game/controller_motor_commands.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json

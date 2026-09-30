@@ -374,7 +374,7 @@ MATCHING_BLOCKS = (
     ("rom_directory", "src/game/rom_directory.c", 0x8004EB80, 0x8004ED14),
     ("rom_file_error", "src/game/rom_file_error.c", 0x8004ED14, 0x8004ED78),
     ("rom_files", "src/game/rom_files.c", 0x8004ED78, 0x8004EFA8),
-    ("controller_access", "src/game/controller_access.c", 0x8004EFB0, 0x8004F06C),
+    ("controller_access", "src/game/controller_access.c", 0x8004EFB0, 0x8004F178),
     ("controller_motor_commands", "src/game/controller_motor_commands.c", 0x8004F178, 0x8004F1EC),
     ("controller_scan", "src/game/controller_scan.c", 0x8004F1EC, 0x8004F330),
     ("controller_pak_info", "src/game/controller_pak_info.c", 0x8004F990, 0x8004FA14),

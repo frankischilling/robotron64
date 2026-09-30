@@ -635,7 +635,6 @@ SECTIONS
     .rom_files 0x8004ED78 : AT(0x4F978) SUBALIGN(4) { build/us/rom_files.o(.text) }
     .cpu_after_rom_files 0x8004EFA8 : AT(0x4FBA8) { build/us/fallback.o(.rom_cpu_after_rom_files) }
     .controller_access 0x8004EFB0 : AT(0x4FBB0) SUBALIGN(4) { build/us/controller_access.o(.text) }
-    .cpu_after_controller_access 0x8004F06C : AT(0x4FC6C) { build/us/fallback.o(.rom_cpu_after_controller_access) }
     .controller_motor_commands 0x8004F178 : AT(0x4FD78) SUBALIGN(4) { build/us/controller_motor_commands.o(.text) }
     .controller_scan 0x8004F1EC : AT(0x4FDEC) SUBALIGN(4) { build/us/controller_scan.o(.text) }
     .endgame_4ff30_50560 0x8004F330 : AT(0x4FF30) { build/us/fallback.o(.rom_endgame_4ff30_50560) }
@@ -1739,8 +1738,7 @@ ASSERT(SIZEOF(.rom_directory) == 0x194, "rom_directory size changed")
 ASSERT(SIZEOF(.rom_file_error) == 0x64, "rom_file_error size changed")
 ASSERT(SIZEOF(.rom_files) == 0x230, "rom_files size changed")
 ASSERT(SIZEOF(.cpu_after_rom_files) == 0x8, "cpu_after_rom_files size changed")
-ASSERT(SIZEOF(.controller_access) == 0xbc, "controller_access size changed")
-ASSERT(SIZEOF(.cpu_after_controller_access) == 0x10c, "cpu_after_controller_access size changed")
+ASSERT(SIZEOF(.controller_access) == 0x1c8, "controller_access size changed")
 ASSERT(SIZEOF(.controller_motor_commands) == 0x74, "controller_motor_commands size changed")
 ASSERT(SIZEOF(.controller_scan) == 0x144, "controller_scan size changed")
 ASSERT(SIZEOF(.controller_pak_info) == 0x84, "controller_pak_info size changed")
@@ -2574,3 +2572,4 @@ ASSERT(SIZEOF(.endgame_2a360_2a720) == 0x3c0, "endgame_2a360_2a720 size changed"
 ASSERT(SIZEOF(.endgame_35e44_35f60) == 0x11c, "endgame_35e44_35f60 size changed")
 ASSERT(SIZEOF(.endgame_360c8_368c8) == 0x800, "endgame_360c8_368c8 size changed")
 ASSERT(SIZEOF(.endgame_36a3c_36c64) == 0x228, "endgame_36a3c_36c64 size changed")
+D_80143408 = 0x80143408;

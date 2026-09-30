@@ -1,11 +1,11 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,284 matching C functions covering 209,944 bytes.
+The source checkpoint contains 1,285 matching C functions covering 210,212 bytes.
 It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,339 bytes
 of source-owned initialized data, and 21,629 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-357 complete C functions, 88,896 C bytes, twenty-eight assembly procedures with
+358 complete C functions, 89,164 C bytes, twenty-eight assembly procedures with
 4,316 live bytes, 7,691 reconstructed initialized bytes, and 17,539 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
