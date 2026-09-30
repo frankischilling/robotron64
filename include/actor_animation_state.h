@@ -22,5 +22,6 @@ void func_80029B80(ActorBehaviorActorInternal *actor);
 void func_80029C48(ActorBehaviorActorInternal *actor);
 void func_80029D98(ActorBehaviorActorInternal *actor);
 void func_80029E5C(ActorBehaviorActorInternal *actor);
+void func_80035CC8(int mode);
 
 #endif

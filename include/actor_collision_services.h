@@ -18,6 +18,8 @@ unsigned char func_80017ACC(ActorBehaviorActorInternal *first,
 
 void func_8001A410(ActorBehaviorActorInternal *first,
                     ActorBehaviorActorInternal *second);
+void func_80018CC8(ActorBehaviorActorInternal *first,
+                  ActorBehaviorActorInternal *second, int third, int fourth);
 int func_80016618(ActorBehaviorActorInternal *first,
                    ActorBehaviorActorInternal *second, int third, int fourth);
 

@@ -774,6 +774,9 @@ MATCHING_BLOCKS = (
     ("actor_collision_death_result", "src/game/actor_collision_death_result.c", 0x80017CDC, 0x80017E50),
     ("session_selection_lookup", "src/game/session_selection_lookup.c", 0x800126E0, 0x8001276C),
     ("early_angle_step", "src/game/early_angle_step.c", 0x8000DF30, 0x8000DFB0),
+    ("scene_actor_mode_list", "src/game/scene_actor_mode_list.c", 0x80035CC8, 0x80035E3C),
+    ("actor_child_random_motion", "src/game/actor_child_random_motion.c", 0x80029E5C, 0x80029FD8),
+    ("actor_collision_separate", "src/game/actor_collision_separate.c", 0x80018CC8, 0x80018E1C),
 )
 
 CANDIDATE_BLOCKS = (

@@ -14369,5 +14369,38 @@
     "section": ".early_angle_step",
     "section_vram": 2147540784,
     "evidence": "docs/collision-death-result.md"
+  },
+  {
+    "name": "func_80035CC8",
+    "rom": 223432,
+    "vram": 2147704008,
+    "size": 372,
+    "source": "src/game/scene_actor_mode_list.c",
+    "object": "build/us/scene_actor_mode_list.o",
+    "section": ".scene_actor_mode_list",
+    "section_vram": 2147704008,
+    "evidence": "docs/actor-motion-callback-state.md"
+  },
+  {
+    "name": "func_80029E5C",
+    "rom": 174684,
+    "vram": 2147655260,
+    "size": 380,
+    "source": "src/game/actor_child_random_motion.c",
+    "object": "build/us/actor_child_random_motion.o",
+    "section": ".actor_child_random_motion",
+    "section_vram": 2147655260,
+    "evidence": "docs/actor-motion-callback-state.md"
+  },
+  {
+    "name": "func_80018CC8",
+    "rom": 104648,
+    "vram": 2147585224,
+    "size": 340,
+    "source": "src/game/actor_collision_separate.c",
+    "object": "build/us/actor_collision_separate.o",
+    "section": ".actor_collision_separate",
+    "section_vram": 2147585224,
+    "evidence": "docs/actor-motion-callback-state.md"
   }
 ]

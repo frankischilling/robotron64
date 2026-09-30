@@ -1,10 +1,4 @@
-typedef struct FrameSlotState {
-    unsigned char unknown00[0x4C];
-    int value4C;
-    int index50;
-} FrameSlotState;
-
-extern unsigned char D_8008D4AC[20];
+#include "../../include/frame_slot.h"
 
 void func_8004E7D4(FrameSlotState *state)
 {

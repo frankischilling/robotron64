@@ -21,5 +21,6 @@ void func_80027CE4(GameActor *first, int firstOffset, GameActor *second, int sec
 GameActor *func_80027D8C(ActorMotionPositionInternal *position, int kind, int immediate,
                          int actorKindLimit, int animation);
 int func_80027ED4(ActorMotionPositionInternal *position, int constrainAxes, int spacing);
+void func_800290B0(int object, int *position);
 
 #endif
