@@ -109,7 +109,8 @@ SECTIONS
     .early_global_reset 0x8000ECD0 : AT(0xF8D0) SUBALIGN(4) { build/us/early_global_reset.o(.text) }
     .early_animation_callback 0x8000ECE4 : AT(0xF8E4) SUBALIGN(4) { build/us/early_animation_callback.o(.text) }
     .early_session_animation 0x8000EDE0 : AT(0xF9E0) SUBALIGN(4) { build/us/early_session_animation.o(.text) }
-    .endgame_fa48_100e0 0x8000EE48 : AT(0xFA48) { build/us/fallback.o(.rom_endgame_fa48_100e0) }
+    .endgame_fa48_ff18 0x8000EE48 : AT(0xFA48) { build/us/fallback.o(.rom_endgame_fa48_ff18) }
+    .early_bonus_pattern 0x8000F318 : AT(0xFF18) SUBALIGN(4) { build/us/early_bonus_pattern.o(.text) }
     .early_animation_restart 0x8000F4E0 : AT(0x100E0) SUBALIGN(4) { build/us/early_animation_restart.o(.text) }
     .endgame_10164_11060 0x8000F564 : AT(0x10164) { build/us/fallback.o(.rom_endgame_10164_11060) }
     .early_reset_parameter 0x80010460 : AT(0x11060) SUBALIGN(4) { build/us/early_reset_parameter.o(.text) }
@@ -288,7 +289,7 @@ SECTIONS
     .actor_behavior_release_29d6c 0x80029D6C : AT(0x2A96C) SUBALIGN(4) { build/us/actor_behavior_release_29d6c.o(.text) }
     .actor_scene_counter_expire 0x80029D98 : AT(0x2A998) SUBALIGN(4) { build/us/actor_scene_counter_expire.o(.text) }
     .actor_child_random_motion 0x80029E5C : AT(0x2AA5C) SUBALIGN(4) { build/us/actor_child_random_motion.o(.text) }
-    .endgame_2abd8_2ae44 0x80029FD8 : AT(0x2ABD8) { build/us/fallback.o(.rom_endgame_2abd8_2ae44) }
+    .actor_list_animation_tick 0x80029FD8 : AT(0x2ABD8) SUBALIGN(4) { build/us/actor_list_animation_tick.o(.text) }
     .actor_behavior_next_a244 0x8002A244 : AT(0x2AE44) SUBALIGN(4) { build/us/actor_behavior_next_a244.o(.text) }
     .actor_behavior_state 0x8002A3E8 : AT(0x2AFE8) SUBALIGN(4) { build/us/actor_behavior_state.o(.text) }
     .actor_behavior_blend_velocity 0x8002A414 : AT(0x2B014) SUBALIGN(4) { build/us/actor_behavior_blend_velocity.o(.text) }
@@ -2293,7 +2294,6 @@ D_800972F8 = 0x800972F8;
 ASSERT(SIZEOF(.early_animation_restart) == 0x84, "early_animation_restart size changed")
 ASSERT(SIZEOF(.early_transition_arrays_clear) == 0x8c, "early_transition_arrays_clear size changed")
 ASSERT(SIZEOF(.endgame_ebec_ef28) == 0x33c, "endgame_ebec_ef28 size changed")
-ASSERT(SIZEOF(.endgame_fa48_100e0) == 0x698, "endgame_fa48_100e0 size changed")
 ASSERT(SIZEOF(.endgame_10164_11060) == 0xefc, "endgame_10164_11060 size changed")
 D_8009AFC0 = 0x8009AFC0;
 D_8009F928 = 0x8009F928;
@@ -2548,3 +2548,13 @@ D_800AC97C = 0x800AC97C;
 D_800ACD90 = 0x800ACD90;
 ASSERT(SIZEOF(.actor_nearest_match) == 0x148, "actor_nearest_match size changed")
 ASSERT(SIZEOF(.actor_random_fan) == 0x194, "actor_random_fan size changed")
+D_800BB130 = 0x800BB130;
+D_800BB134 = 0x800BB134;
+D_80073570 = 0x80073570;
+D_80097340 = 0x80097340;
+D_80097344 = 0x80097344;
+D_80097348 = 0x80097348;
+D_8009734C = 0x8009734C;
+func_8000F030 = 0x8000F030;
+ASSERT(SIZEOF(.actor_list_animation_tick) == 0x26c, "actor_list_animation_tick size changed")
+ASSERT(SIZEOF(.early_bonus_pattern) == 0x1c8, "early_bonus_pattern size changed")

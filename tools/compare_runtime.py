@@ -779,6 +779,8 @@ MATCHING_BLOCKS = (
     ("actor_collision_separate", "src/game/actor_collision_separate.c", 0x80018CC8, 0x80018E1C),
     ("actor_nearest_match", "src/game/actor_nearest_match.c", 0x80027D8C, 0x80027ED4),
     ("actor_random_fan", "src/game/actor_random_fan.c", 0x800295CC, 0x80029760),
+    ("actor_list_animation_tick", "src/game/actor_list_animation_tick.c", 0x80029FD8, 0x8002A244),
+    ("early_bonus_pattern", "src/game/early_bonus_pattern.c", 0x8000F318, 0x8000F4E0),
 )
 
 CANDIDATE_BLOCKS = (

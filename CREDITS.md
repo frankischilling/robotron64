@@ -364,6 +364,12 @@ references. Complete Robotron instructions establish the search filters,
 signed distance, random fan count, capacity checks and forwarding interface.
 No reference implementation is copied into these procedures.
 
+The [actor animation and bonus pattern recovery](docs/actor-animation-and-bonus-pattern.md)
+retains the pinned local IDO, Super Mario 64 and libreultra workflow references.
+Complete Robotron instructions establish the wrapped elapsed-time subtraction,
+session timestamp, callback arguments, signed remainder and child spacing.
+No reference implementation is copied into these procedures.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

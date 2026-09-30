@@ -14424,5 +14424,27 @@
     "section": ".actor_random_fan",
     "section_vram": 2147653068,
     "evidence": "docs/actor-search-and-projectile-fan.md"
+  },
+  {
+    "name": "func_80029FD8",
+    "rom": 175064,
+    "vram": 2147655640,
+    "size": 620,
+    "source": "src/game/actor_list_animation_tick.c",
+    "object": "build/us/actor_list_animation_tick.o",
+    "section": ".actor_list_animation_tick",
+    "section_vram": 2147655640,
+    "evidence": "docs/actor-animation-and-bonus-pattern.md"
+  },
+  {
+    "name": "func_8000F318",
+    "rom": 65304,
+    "vram": 2147545880,
+    "size": 456,
+    "source": "src/game/early_bonus_pattern.c",
+    "object": "build/us/early_bonus_pattern.o",
+    "section": ".early_bonus_pattern",
+    "section_vram": 2147545880,
+    "evidence": "docs/actor-animation-and-bonus-pattern.md"
   }
 ]
