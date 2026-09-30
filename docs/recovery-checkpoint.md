@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,202 matching C functions covering 189,512 bytes.
-It also contains twenty-five assembly functions covering 2,792 live bytes, 8,677 bytes
-of source-owned initialized data, and 14,401 bytes of source-owned BSS. The
+The source checkpoint contains 1,204 matching C functions covering 190,768 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 8,697 bytes
+of source-owned initialized data, and 14,405 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-275 complete C functions, 68,464 C bytes, twenty-four assembly procedures with
-2,736 live bytes, 7,029 reconstructed initialized bytes, and 10,311 BSS bytes.
+277 complete C functions, 69,720 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 7,049 reconstructed initialized bytes, and 10,315 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -20,6 +20,12 @@ The [PI manager, device loop, and disk interrupts](sdk-pi-manager.md) add three 
 procedures with 3,260 instruction bytes, 68 initialized bytes, and 4,556 BSS
 bytes. Complete transfer records and the seven-entry switch table are checked
 alongside creation and DMA/disk completion paths.
+
+[SDK initialization, Pak ID repair, and exception context](sdk-initialization-and-exceptions.md)
+add two C procedures with 1,256 bytes, four native entries with 1,580 live
+bytes, twenty initialized bytes, and four BSS bytes. The exception preamble,
+main handler, event helper and coprocessor handler have distinct verified
+extents within the complete contiguous exception/thread unit.
 
 The audio work covers instance pause/resume and owner controls, handle and voice
 properties, host file services, sequence calls/jumps/returns, voice capture,
@@ -38,7 +44,7 @@ initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
 131 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
-the source inputs and complete procedure extents for all 1,202 counted C
+the source inputs and complete procedure extents for all 1,204 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
@@ -70,8 +76,8 @@ interrupt-mask application. Constants and handle storage remain fallback.
 Four [task-loading and actor forwarding procedures](sdk-task-loading-and-yield.md)
 add another 1,036 C bytes. RSP task preparation/loading and disk recovery now
 use recovered source. Native context saving and overlap-safe block copying
-add 1,028 live assembly bytes. An out-of-line exception fragment remains
-excluded until its complete procedure ownership can be proved.
+add 1,028 live assembly bytes. Subsequent exception recovery establishes
+separate complete extents for the event helper and coprocessor handler.
 
 The game work extends actor animation and movement callbacks, early actor
 creation and state changes, selection and value tables, Controller Pak menu
@@ -166,9 +172,9 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 692 complete source units. Startup/scheduler
+The runtime registry contains 694 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
-twenty-five procedures and their source-owned alignment. Linked progress independently checks every counted
+twenty-nine procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
 and generated data or private storage.
 

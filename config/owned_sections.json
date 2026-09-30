@@ -1075,5 +1075,36 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/sdk-pi-manager.md"
+  },
+  {
+    "source": "src/sdk/initialize.c",
+    "object": "build/us/initialize.o",
+    "input_section": ".data",
+    "section": ".initialize_data",
+    "vram": 2148066224,
+    "rom": 585648,
+    "size": 20,
+    "symbols": {
+      "D_8008E3B0": 0,
+      "D_8008E3B8": 8,
+      "D_8008E3BC": 12,
+      "D_8008E3C0": 16
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "source": "src/sdk/initialize.c",
+    "object": "build/us/initialize.o",
+    "input_section": ".bss",
+    "section": ".initialize_bss",
+    "vram": 2149137200,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_80193B30": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
   }
 ]

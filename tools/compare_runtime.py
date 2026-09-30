@@ -702,6 +702,8 @@ MATCHING_BLOCKS = (
     ("pi_manager_create", "src/sdk/pi_manager_create.c", 0x800601E0, 0x80060368),
     ("pi_device_manager", "src/sdk/pi_device_manager.c", 0x80067BC0, 0x80068050),
     ("pi_disk_interrupt", "src/sdk/pi_disk_interrupt.c", 0x8006DC20, 0x8006E2C4),
+    ("initialize", "src/sdk/initialize.c", 0x8005FC50, 0x8005FEDC),
+    ("pfs_repair_id", "src/sdk/pfs_repair_id.c", 0x800617A0, 0x800619FC),
 )
 
 CANDIDATE_BLOCKS = (

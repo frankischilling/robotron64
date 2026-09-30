@@ -70,9 +70,10 @@ reference collection and revisions.
 
 Boundary research also found that the provisional event-send catalog range
 at `80066F94` includes a separate exception-handler fragment at `80067048`.
-Those ranges remain fallback until the complete native exception procedure
-and its out-of-line control flow are represented and verified. No partial
-event-send or exception extent is counted here.
+No partial event-send or exception extent was counted in this batch.
+Subsequent [complete exception recovery](sdk-initialization-and-exceptions.md)
+establishes the preamble, main handler, 180-byte event helper and 52-byte
+coprocessor handler as distinct entries in the verified contiguous native unit.
 
 ## Verification
 

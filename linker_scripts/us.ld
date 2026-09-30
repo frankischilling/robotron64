@@ -778,7 +778,8 @@ SECTIONS
     .compression_cartridge_bounded 0x8005FB58 : AT(0x60758) SUBALIGN(4) { build/us/compression_cartridge_bounded.o(.text) }
     .short_sine 0x8005FBB0 : AT(0x607B0) SUBALIGN(4) { build/us/short_sine.o(.text) }
     .short_cosine 0x8005FC20 : AT(0x60820) SUBALIGN(4) { build/us/short_cosine.o(.text) }
-    .cpu_after_gu_cosine 0x8005FC50 : AT(0x60850) { build/us/fallback.o(.rom_cpu_after_gu_cosine) }
+    .initialize 0x8005FC50 : AT(0x60850) SUBALIGN(4) { build/us/initialize.o(.text) }
+    .endgame_60adc_60ae0 0x8005FEDC : AT(0x60ADC) { build/us/fallback.o(.rom_endgame_60adc_60ae0) }
     .pi_cartridge_read 0x8005FEE0 : AT(0x60AE0) SUBALIGN(4) { build/us/pi_cartridge_read.o(.text) }
     .cpu_after_pi_raw_read 0x8005FF34 : AT(0x60B34) { build/us/fallback.o(.rom_cpu_after_pi_raw_read) }
     .thread_create 0x8005FF40 : AT(0x60B40) SUBALIGN(4) { build/us/thread_create.o(.text) }
@@ -805,7 +806,8 @@ SECTIONS
     .system_time 0x80061450 : AT(0x62050) SUBALIGN(4) { build/us/system_time.o(.text) }
     .cpu_after_time_get 0x800614D4 : AT(0x620D4) { build/us/fallback.o(.rom_cpu_after_time_get) }
     .compiler_integer64 0x800614E0 : AT(0x620E0) SUBALIGN(4) { build/us/compiler_integer64.o(.text) }
-    .cpu_after_compiler_arithmetic 0x800617A0 : AT(0x623A0) { build/us/fallback.o(.rom_cpu_after_compiler_arithmetic) }
+    .pfs_repair_id 0x800617A0 : AT(0x623A0) SUBALIGN(4) { build/us/pfs_repair_id.o(.text) }
+    .endgame_625fc_62600 0x800619FC : AT(0x625FC) { build/us/fallback.o(.rom_endgame_625fc_62600) }
     .pfs_is_plug 0x80061A00 : AT(0x62600) SUBALIGN(4) { build/us/pfs_is_plug.o(.text) }
     .cpu_after_pfs_is_plug 0x80061D6C : AT(0x6296C) { build/us/fallback.o(.rom_cpu_after_pfs_is_plug) }
     .pfs_init_pak 0x80061D70 : AT(0x62970) SUBALIGN(4) { build/us/pfs_init_pak.o(.text) }
@@ -893,10 +895,8 @@ SECTIONS
     .os_fpcsr 0x800669A0 : AT(0x675A0) SUBALIGN(4) { build/us/os_fpcsr.o(.text) }
     .si_raw_read 0x800669B0 : AT(0x675B0) SUBALIGN(4) { build/us/si_raw_read.o(.text) }
     .si_raw_write 0x80066A00 : AT(0x67600) SUBALIGN(4) { build/us/si_raw_write.o(.text) }
-    .endgame_6764c_67c7c 0x80066A4C : AT(0x6764C) { build/us/fallback.o(.rom_endgame_6764c_67c7c) }
-    .thread_enqueue_and_yield 0x8006707C : AT(0x67C7C) SUBALIGN(4) { build/us/thread_enqueue_and_yield.o(.text) }
-    .thread_dispatch 0x8006717C : AT(0x67D7C) SUBALIGN(4) { build/us/thread_dispatch.o(.text) }
-    .endgame_67f5c_67f60 0x8006735C : AT(0x67F5C) { build/us/fallback.o(.rom_endgame_67f5c_67f60) }
+    .before_exception_context 0x80066A4C : AT(0x6764C) { build/us/fallback.o(.rom_before_exception_context) }
+    .exception_context 0x80066A50 : AT(0x67650) SUBALIGN(4) { build/us/exception_context.o(.text) }
     .os_writeback_cache 0x80067360 : AT(0x67F60) SUBALIGN(4) { build/us/os_writeback_cache.o(.text) }
     .os_invalidate_instruction_cache 0x800673E0 : AT(0x67FE0) SUBALIGN(4) { build/us/os_invalidate_instruction_cache.o(.text) }
     .os_map_debug_tlb 0x80067460 : AT(0x68060) SUBALIGN(4) { build/us/os_map_debug_tlb.o(.text) }
@@ -1011,7 +1011,8 @@ SECTIONS
     .data_after_movie_commands_data 0x800781B8 : AT(0x78DB8) { build/us/fallback.o(.rom_data_after_movie_commands_data) }
     .compression_workspace_data 0x8008DA40 : AT(0x8E640) SUBALIGN(4) { build/us/compression_workspace.o(.data) }
     .short_sine_data 0x8008DBB0 : AT(0x8E7B0) SUBALIGN(4) { build/us/short_sine.o(.data) }
-    .after_short_sine_data 0x8008E3B0 : AT(0x8EFB0) { build/us/fallback.o(.rom_after_short_sine_data) }
+    .initialize_data 0x8008E3B0 : AT(0x8EFB0) SUBALIGN(4) { build/us/initialize.o(.data) }
+    .after_initialize_data 0x8008E3C4 : AT(0x8EFC4) { build/us/fallback.o(.rom_after_initialize_data) }
     .pi_manager_create_data 0x8008E3D0 : AT(0x8EFD0) SUBALIGN(4) { build/us/pi_manager_create.o(.data) }
     .endgame_data_8eff8_8f000 0x8008E3F8 : AT(0x8EFF8) { build/us/fallback.o(.rom_endgame_data_8eff8_8f000) }
     .video_modes_data 0x8008E400 : AT(0x8F000) SUBALIGN(4) { build/us/video_modes.o(.data) }
@@ -1105,6 +1106,7 @@ SECTIONS
     .pi_cartridge_initialize_bss 0x80196310 (NOLOAD) : SUBALIGN(4) { build/us/pi_cartridge_initialize.o(.bss) }
     .pi_disk_initialize_bss 0x80196390 (NOLOAD) : SUBALIGN(4) { build/us/pi_disk_initialize.o(.bss) }
     .pi_manager_create_bss 0x80193B40 (NOLOAD) : SUBALIGN(4) { build/us/pi_manager_create.o(.bss) }
+    .initialize_bss 0x80193B30 (NOLOAD) : SUBALIGN(4) { build/us/initialize.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1865,7 +1867,6 @@ ASSERT(SIZEOF(.compression_decode) == 0x238, "compression_decode size changed")
 ASSERT(SIZEOF(.compression_memory) == 0x58, "compression_memory size changed")
 ASSERT(SIZEOF(.compression_cartridge) == 0x50, "compression_cartridge size changed")
 ASSERT(SIZEOF(.compression_cartridge_bounded) == 0x58, "compression_cartridge_bounded size changed")
-ASSERT(SIZEOF(.cpu_after_gu_cosine) == 0x290, "cpu_after_gu_cosine size changed")
 ASSERT(SIZEOF(.pi_cartridge_read) == 0x54, "pi_cartridge_read size changed")
 ASSERT(SIZEOF(.cpu_after_pi_raw_read) == 0xc, "cpu_after_pi_raw_read size changed")
 ASSERT(SIZEOF(.thread_create) == 0x144, "thread_create size changed")
@@ -1890,7 +1891,6 @@ ASSERT(SIZEOF(.cpu_after_gu_rotate_rpy) == 0xc, "cpu_after_gu_rotate_rpy size ch
 ASSERT(SIZEOF(.system_time) == 0x84, "system_time size changed")
 ASSERT(SIZEOF(.cpu_after_time_get) == 0xc, "cpu_after_time_get size changed")
 ASSERT(SIZEOF(.compiler_integer64) == 0x2c0, "compiler_integer64 size changed")
-ASSERT(SIZEOF(.cpu_after_compiler_arithmetic) == 0x260, "cpu_after_compiler_arithmetic size changed")
 ASSERT(SIZEOF(.pfs_is_plug) == 0x36c, "pfs_is_plug size changed")
 ASSERT(SIZEOF(.cpu_after_pfs_is_plug) == 0x4, "cpu_after_pfs_is_plug size changed")
 ASSERT(SIZEOF(.pfs_init_pak) == 0x264, "pfs_init_pak size changed")
@@ -2127,7 +2127,6 @@ ASSERT(SIZEOF(.endgame_5edec_5f5d0) == 0x7e4, "endgame_5edec_5f5d0 size changed"
 ASSERT(SIZEOF(.endgame_6131c_61320) == 0x4, "endgame_6131c_61320 size changed")
 ASSERT(SIZEOF(.endgame_63e1c_63e20) == 0x4, "endgame_63e1c_63e20 size changed")
 ASSERT(SIZEOF(.pi_queue_get) == 0x28, "pi_queue_get size changed")
-ASSERT(SIZEOF(.thread_dispatch) == 0x1e0, "thread_dispatch size changed")
 ASSERT(SIZEOF(.player_fields_clear) == 0x28, "player_fields_clear size changed")
 ASSERT(SIZEOF(.runtime_buffer_clear) == 0x2c, "runtime_buffer_clear size changed")
 ASSERT(SIZEOF(.render_buffer_allocate) == 0x48, "render_buffer_allocate size changed")
@@ -2159,18 +2158,14 @@ ASSERT(SIZEOF(.endgame_53970_544f8) == 0xb88, "endgame_53970_544f8 size changed"
 ASSERT(SIZEOF(.endgame_5456c_54850) == 0x2e4, "endgame_5456c_54850 size changed")
 ASSERT(SIZEOF(.endgame_65dec_65df0) == 0x4, "endgame_65dec_65df0 size changed")
 ASSERT(SIZEOF(.endgame_66384_66390) == 0xc, "endgame_66384_66390 size changed")
-ASSERT(SIZEOF(.endgame_67f5c_67f60) == 0x4, "endgame_67f5c_67f60 size changed")
 ASSERT(SIZEOF(.sp_task_physical) == 0x11c, "sp_task_physical size changed")
 ASSERT(SIZEOF(.sp_task_load) == 0x190, "sp_task_load size changed")
 ASSERT(SIZEOF(.pi_disk_recover) == 0xe8, "pi_disk_recover size changed")
 ASSERT(SIZEOF(.early_actor_forward_and_guard) == 0x78, "early_actor_forward_and_guard size changed")
-ASSERT(SIZEOF(.thread_enqueue_and_yield) == 0x100, "thread_enqueue_and_yield size changed")
 ASSERT(SIZEOF(.endgame_1627c_1675c) == 0x4e0, "endgame_1627c_1675c size changed")
-ASSERT(SIZEOF(.endgame_6764c_67c7c) == 0x630, "endgame_6764c_67c7c size changed")
 ASSERT(SIZEOF(.os_block_copy) == 0x310, "os_block_copy size changed")
 ASSERT(SIZEOF(.endgame_6bc0c_6bc10) == 0x4, "endgame_6bc0c_6bc10 size changed")
 ASSERT(SIZEOF(.short_sine_data) == 0x800, "short sine data size changed")
-ASSERT(SIZEOF(.after_short_sine_data) == 0x20, "after short sine data size changed")
 ASSERT(SIZEOF(.video_modes_data) == 0xd20, "video modes data size changed")
 ASSERT(SIZEOF(.video_default_modes_data) == 0xf0, "default video modes data size changed")
 ASSERT(SIZEOF(.after_video_default_modes_data) == 0x58, "after default video modes data size changed")
@@ -2201,3 +2196,12 @@ ASSERT(SIZEOF(.endgame_data_96a60_96ab0) == 0x50, "endgame_data_96a60_96ab0 size
 ASSERT(SIZEOF(.endgame_data_96acc_96ae0) == 0x14, "endgame_data_96acc_96ae0 size changed")
 ASSERT(SIZEOF(.pi_disk_interrupt) == 0x6a4, "PI disk interrupt size changed")
 ASSERT(SIZEOF(.endgame_6e81c_6e820) == 0x4, "endgame_6e81c_6e820 size changed")
+ASSERT(SIZEOF(.exception_context) == 0x910, "exception_context size changed")
+ASSERT(SIZEOF(.initialize) == 0x28c, "initialize size changed")
+ASSERT(SIZEOF(.pfs_repair_id) == 0x25c, "pfs_repair_id size changed")
+ASSERT(SIZEOF(.before_exception_context) == 0x4, "before_exception_context size changed")
+ASSERT(SIZEOF(.after_initialize_data) == 0xc, "after_initialize_data size changed")
+ASSERT(SIZEOF(.initialize_data) == 0x14, "initialize_data size changed")
+ASSERT(SIZEOF(.initialize_bss) == 0x4, "initialize_bss size changed")
+ASSERT(SIZEOF(.endgame_60adc_60ae0) == 0x4, "endgame_60adc_60ae0 size changed")
+ASSERT(SIZEOF(.endgame_625fc_62600) == 0x4, "endgame_625fc_62600 size changed")

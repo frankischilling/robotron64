@@ -3037,10 +3037,10 @@ RUNTIME_OBJECTS := build/us/frame_helpers.o \
     build/us/controller_button.o \
     build/us/controller_axes.o \
     build/us/debug_noop.o \
-    build/us/object_runtime_active.o \
+    build/us/object_runtime_active.o
 
 RUNTIME_OBJECTS += \
-    build/us/audio_task_build.o \
+    build/us/audio_task_build.o
 
 RUNTIME_OBJECTS += \
     build/us/game_string_case_compare.o \
@@ -3051,7 +3051,7 @@ RUNTIME_OBJECTS += \
     build/us/heap_empty.o \
     build/us/runtime_random.o \
     build/us/runtime_float_truncate.o \
-    build/us/actor_history_byte_clear.o \
+    build/us/actor_history_byte_clear.o
 
 RUNTIME_OBJECTS += \
     build/us/object_recovery_path_extension.o \
@@ -3060,7 +3060,7 @@ RUNTIME_OBJECTS += \
     build/us/object_recovery_angle_scale.o \
     build/us/object_recovery_direction_angle.o \
     build/us/object_recovery_angle_table.o \
-    build/us/game_debug_format.o \
+    build/us/game_debug_format.o
 
 RUNTIME_OBJECTS += \
     build/us/movie_parameters.o \
@@ -4885,14 +4885,8 @@ build/us/pi_queue_get.o: src/sdk/pi_queue_get.c include/scheduler.h $(IDO) Makef
 	$(PYTHON) tools/trim_padding.py build/us/pi_queue_get.raw.o $@ .text 0x28
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/thread_dispatch.o: src/sdk/thread_dispatch.s Makefile tools/provenance.py
-	mkdir -p $(@D)
-	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
-	$(PYTHON) tools/provenance.py $< $@
-
 RUNTIME_OBJECTS += \
-    build/us/pi_queue_get.o \
-    build/us/thread_dispatch.o
+    build/us/pi_queue_get.o
 
 build/us/player_fields_clear.o: src/game/player_fields_clear.c include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
@@ -5063,17 +5057,11 @@ build/us/early_actor_forward_and_guard.o: src/game/early_actor_forward_and_guard
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_forward_and_guard.raw.o $@ .text 0x78
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/thread_enqueue_and_yield.o: src/sdk/thread_enqueue_and_yield.s Makefile tools/provenance.py
-	mkdir -p $(@D)
-	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
-	$(PYTHON) tools/provenance.py $< $@
-
 RUNTIME_OBJECTS += \
     build/us/sp_task_physical.o \
     build/us/sp_task_load.o \
     build/us/pi_disk_recover.o \
-    build/us/early_actor_forward_and_guard.o \
-    build/us/thread_enqueue_and_yield.o
+    build/us/early_actor_forward_and_guard.o
 
 build/us/os_block_copy.o: src/sdk/os_block_copy.s Makefile tools/provenance.py
 	mkdir -p $(@D)
@@ -5168,6 +5156,30 @@ build/us/pi_disk_interrupt.o: src/sdk/pi_disk_interrupt.c include/sdk_pi_device.
 
 RUNTIME_OBJECTS += \
     build/us/pi_disk_interrupt.o
+
+build/us/initialize.o: src/sdk/initialize.c tools/owned_sections.py config/owned_sections.json include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/initialize.raw.o build/us/initialize.text.o .text 0x28c
+	$(PYTHON) tools/owned_sections.py $< build/us/initialize.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pfs_repair_id.o: src/sdk/pfs_repair_id.c include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pfs_repair_id.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pfs_repair_id.raw.o $@ .text 0x25c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/initialize.o \
+    build/us/pfs_repair_id.o
+
+build/us/exception_context.o: src/sdk/exception_context.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+RUNTIME_OBJECTS += build/us/exception_context.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

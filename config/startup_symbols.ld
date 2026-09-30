@@ -1,5 +1,4 @@
 /* Runtime addresses supported by startup and SDK disassembly. */
-osInitialize = 0x8005FC50;
 D_80139280 = 0x80139280;
 D_8013A430 = 0x8013A430;
 D_8013B430 = 0x8013B430;

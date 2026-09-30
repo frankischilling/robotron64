@@ -13091,54 +13091,6 @@
     "evidence": "docs/runtime-helpers-and-hardware.md"
   },
   {
-    "name": "func_8006717C",
-    "rom": 425340,
-    "vram": 2147905916,
-    "size": 72,
-    "source": "src/sdk/thread_dispatch.s",
-    "object": "build/us/thread_dispatch.o",
-    "section": ".thread_dispatch",
-    "section_vram": 2147905916,
-    "evidence": "docs/runtime-helpers-and-hardware.md",
-    "language": "assembly"
-  },
-  {
-    "name": "func_800671C4",
-    "rom": 425412,
-    "vram": 2147905988,
-    "size": 16,
-    "source": "src/sdk/thread_dispatch.s",
-    "object": "build/us/thread_dispatch.o",
-    "section": ".thread_dispatch",
-    "section_vram": 2147905916,
-    "evidence": "docs/runtime-helpers-and-hardware.md",
-    "language": "assembly"
-  },
-  {
-    "name": "func_800671D4",
-    "rom": 425428,
-    "vram": 2147906004,
-    "size": 380,
-    "source": "src/sdk/thread_dispatch.s",
-    "object": "build/us/thread_dispatch.o",
-    "section": ".thread_dispatch",
-    "section_vram": 2147905916,
-    "evidence": "docs/runtime-helpers-and-hardware.md",
-    "language": "assembly"
-  },
-  {
-    "name": "func_80067350",
-    "rom": 425808,
-    "vram": 2147906384,
-    "size": 8,
-    "source": "src/sdk/thread_dispatch.s",
-    "object": "build/us/thread_dispatch.o",
-    "section": ".thread_dispatch",
-    "section_vram": 2147905916,
-    "evidence": "docs/runtime-helpers-and-hardware.md",
-    "language": "assembly"
-  },
-  {
     "name": "func_80032D00",
     "rom": 211200,
     "vram": 2147691776,
@@ -13408,18 +13360,6 @@
     "evidence": "docs/sdk-task-loading-and-yield.md"
   },
   {
-    "name": "func_8006707C",
-    "rom": 425084,
-    "vram": 2147905660,
-    "size": 256,
-    "source": "src/sdk/thread_enqueue_and_yield.s",
-    "object": "build/us/thread_enqueue_and_yield.o",
-    "section": ".thread_enqueue_and_yield",
-    "section_vram": 2147905660,
-    "evidence": "docs/sdk-task-loading-and-yield.md",
-    "language": "assembly"
-  },
-  {
     "name": "func_8006B010",
     "rom": 441360,
     "vram": 2147921936,
@@ -13529,5 +13469,135 @@
     "section": ".pi_disk_interrupt",
     "section_vram": 2147933216,
     "evidence": "docs/sdk-pi-manager.md"
+  },
+  {
+    "name": "osInitialize",
+    "rom": 395344,
+    "vram": 2147875920,
+    "size": 652,
+    "source": "src/sdk/initialize.c",
+    "object": "build/us/initialize.o",
+    "section": ".initialize",
+    "section_vram": 2147875920,
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_800617A0",
+    "rom": 402336,
+    "vram": 2147882912,
+    "size": 604,
+    "source": "src/sdk/pfs_repair_id.c",
+    "object": "build/us/pfs_repair_id.o",
+    "section": ".pfs_repair_id",
+    "section_vram": 2147882912,
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_80066A50",
+    "rom": 423504,
+    "vram": 2147904080,
+    "size": 16,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_80066A60",
+    "rom": 423520,
+    "vram": 2147904096,
+    "size": 1332,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_80066F94",
+    "rom": 424852,
+    "vram": 2147905428,
+    "size": 180,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_80067048",
+    "rom": 425032,
+    "vram": 2147905608,
+    "size": 52,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_8006707C",
+    "rom": 425084,
+    "vram": 2147905660,
+    "size": 256,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_8006717C",
+    "rom": 425340,
+    "vram": 2147905916,
+    "size": 72,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_800671C4",
+    "rom": 425412,
+    "vram": 2147905988,
+    "size": 16,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_800671D4",
+    "rom": 425428,
+    "vram": 2147906004,
+    "size": 380,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "name": "func_80067350",
+    "rom": 425808,
+    "vram": 2147906384,
+    "size": 8,
+    "source": "src/sdk/exception_context.s",
+    "object": "build/us/exception_context.o",
+    "section": ".exception_context",
+    "section_vram": 2147904080,
+    "language": "assembly",
+    "evidence": "docs/sdk-initialization-and-exceptions.md"
   }
 ]

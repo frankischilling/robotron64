@@ -243,6 +243,13 @@ disk interrupts, and historical record layouts.
 Complete Robotron instructions and relocated storage establish the message
 constants, jump table, private thread/queue storage, and handle pointers.
 
+The [initialization and exception recovery](docs/sdk-initialization-and-exceptions.md)
+consulted pinned local libreultra `src/os/initialize.c`, `src/os/exceptasm.s`,
+`src/os/exceptasm.h`, and `src/io/pfsrepairid.c`. They corroborate SDK startup,
+Pak repair, context fields and the distinct native exception entries.
+Complete Robotron instruction comparisons establish their accepted sizes,
+control flow, initialized values and retained thread procedures.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,
