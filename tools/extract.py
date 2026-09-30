@@ -262,7 +262,7 @@ REGIONS = (
     ("rsp_boot", 0x70040, 0x70110),
     ("data_before_text_table", 0x70110, 0x78d50),
     ("data_after_movie_commands_data", 0x78db8, 0x8e640),
-    ("after_compression_workspace_data", 0x8e7b0, 0x8efd0),
+    ("after_short_sine_data", 0x8efb0, 0x8efd0),
     ("sdk_fallback_sdk_pi_manager_data", 0x8efd0, 0x8efec),
     ("data_after_sdk_pi_manager_data", 0x8efec, 0x8fd20),
     ("data_after_sdk_random_data", 0x8fd24, 0x8fd30),

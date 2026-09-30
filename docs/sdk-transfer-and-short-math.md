@@ -49,8 +49,9 @@ The signed short sine routine discards four angle bits and mirrors the
 1,024-entry quarter-wave table according to the next quadrant bit. The final
 quadrant bit chooses the sign. Cosine calls it with a wrapped `0x4000` angle
 offset. Both routines use `sdk-o2-mips2`; the MIPS I profile has instruction
-differences. The existing table remains fallback data and contributes no new
-source-owned data count.
+differences. The table remained fallback data at this batch's checkpoint.
+Its later [mathematical reconstruction](sdk-short-sine-table.md) adds 2,048
+source-owned initialized bytes.
 
 ## References and verification
 

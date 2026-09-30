@@ -4914,10 +4914,12 @@ build/us/scene_arrival_reactivate.o: src/game/scene_arrival_reactivate.c include
 	$(PYTHON) tools/trim_padding.py build/us/scene_arrival_reactivate.raw.o $@ .text 0x68
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/short_sine.o: src/sdk/short_sine.c include/sdk_short_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/short_sine.o: src/sdk/short_sine.c include/sdk_short_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py tools/generate_short_sine_table.py
 	mkdir -p $(@D)
+	$(PYTHON) tools/generate_short_sine_table.py --check
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/short_sine.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/short_sine.raw.o $@ .text 0x70
+	$(PYTHON) tools/trim_padding.py build/us/short_sine.raw.o build/us/short_sine.text.o .text 0x70
+	$(PYTHON) tools/owned_sections.py $< build/us/short_sine.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/short_cosine.o: src/sdk/short_cosine.c include/sdk_short_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json

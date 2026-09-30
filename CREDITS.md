@@ -111,8 +111,10 @@ The [transfer and short-math notes](docs/sdk-transfer-and-short-math.md) record
 the local libreultra `src/gu/sins.c` and `src/gu/coss.c` interface comparisons.
 Their quarter-wave lookup and angular offset corroborate the target's signed
 short trigonometric interface. Robotron's independent comparisons establish
-the MIPS II profile and complete code extents. The sine table remains extracted
-fallback data.
+the MIPS II profile and complete code extents. The later
+[sine-table reconstruction](docs/sdk-short-sine-table.md) uses the mathematical
+quarter-wave rule and compares every generated value with the target and the
+local libreultra `src/gu/sintable.h` entries.
 
 The [cache, cartridge, and float-math notes](docs/sdk-cache-and-transfer.md)
 record local libreultra comparisons for raw extended DMA and handle timing,

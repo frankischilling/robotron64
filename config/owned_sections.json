@@ -871,5 +871,19 @@
     "source": "src/sdk/timer_initialize.c",
     "object": "build/us/timer_initialize.o",
     "evidence": "docs/sdk-time-and-priority.md"
+  },
+  {
+    "source": "src/sdk/short_sine.c",
+    "object": "build/us/short_sine.o",
+    "input_section": ".data",
+    "section": ".short_sine_data",
+    "vram": 2148064176,
+    "rom": 583600,
+    "size": 2048,
+    "symbols": {
+      "D_8008DBB0": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-short-sine-table.md"
   }
 ]

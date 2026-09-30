@@ -1001,7 +1001,8 @@ SECTIONS
     .movie_commands_data 0x80078150 : AT(0x78D50) SUBALIGN(4) { build/us/movie_prepare.o(.data) }
     .data_after_movie_commands_data 0x800781B8 : AT(0x78DB8) { build/us/fallback.o(.rom_data_after_movie_commands_data) }
     .compression_workspace_data 0x8008DA40 : AT(0x8E640) SUBALIGN(4) { build/us/compression_workspace.o(.data) }
-    .after_compression_workspace_data 0x8008DBB0 : AT(0x8E7B0) { build/us/fallback.o(.rom_after_compression_workspace_data) }
+    .short_sine_data 0x8008DBB0 : AT(0x8E7B0) SUBALIGN(4) { build/us/short_sine.o(.data) }
+    .after_short_sine_data 0x8008E3B0 : AT(0x8EFB0) { build/us/fallback.o(.rom_after_short_sine_data) }
     .sdk_pi_manager_data 0x8008E3D0 : AT(0x8EFD0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_pi_manager_data) }
     .data_after_sdk_pi_manager_data 0x9001EEDC : AT(0x8EFEC) { build/us/fallback.o(.rom_data_after_sdk_pi_manager_data) }
     .gu_random_data 0x8008F120 : AT(0x8FD20) SUBALIGN(4) { build/us/gu_random.o(.data) }
@@ -1466,7 +1467,6 @@ ASSERT(SIZEOF(.data_before_text_table) == 0x8c40, "data_before_text_table size c
 ASSERT(SIZEOF(.movie_commands_data) == 0x68, "movie_commands_data size changed")
 ASSERT(SIZEOF(.data_after_movie_commands_data) == 0x15888, "data_after_movie_commands_data size changed")
 ASSERT(SIZEOF(.compression_workspace_data) == 0x170, "compression_workspace_data size changed")
-ASSERT(SIZEOF(.after_compression_workspace_data) == 0x820, "after_compression_workspace_data size changed")
 ASSERT(SIZEOF(.sdk_pi_manager_data) == 0x1c, "sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_pi_manager_data) == 0xd34, "data_after_sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.gu_random_data) == 0x4, "gu_random_data size changed")
@@ -2153,3 +2153,5 @@ ASSERT(SIZEOF(.endgame_6764c_67c7c) == 0x630, "endgame_6764c_67c7c size changed"
 ASSERT(SIZEOF(.endgame_6e81c_6eec4) == 0x6a8, "endgame_6e81c_6eec4 size changed")
 ASSERT(SIZEOF(.os_block_copy) == 0x310, "os_block_copy size changed")
 ASSERT(SIZEOF(.endgame_6bc0c_6bc10) == 0x4, "endgame_6bc0c_6bc10 size changed")
+ASSERT(SIZEOF(.short_sine_data) == 0x800, "short sine data size changed")
+ASSERT(SIZEOF(.after_short_sine_data) == 0x20, "after short sine data size changed")

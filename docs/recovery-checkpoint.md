@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
 The source checkpoint contains 1,193 matching C functions covering 183,740 bytes.
-It also contains twenty-five assembly functions covering 2,792 live bytes, 2,693 bytes
+It also contains twenty-five assembly functions covering 2,792 live bytes, 4,741 bytes
 of source-owned initialized data, and 4,983 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
 266 complete C functions, 62,692 C bytes, twenty-four assembly procedures with
-2,736 live bytes, 1,045 reconstructed initialized bytes, and 893 BSS bytes.
+2,736 live bytes, 3,093 reconstructed initialized bytes, and 893 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -32,7 +32,7 @@ functions recover sequence-list sizing, loading and release, hardware-voice
 initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
-114 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
+116 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
 the source inputs and complete procedure extents for all 1,193 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
@@ -52,8 +52,9 @@ Ten further [transfer, thread, and short-math procedures](sdk-transfer-and-short
 add 1,524 C bytes. These include PI DMA submission and event notification, thread destruction, AI
 frequency setup, signed short sine/cosine, player clearing, scene reactivation,
 and renderer buffer services. Their complete compiler profiles and structure
-layouts are independently verified. The quarter-wave sine table remains
-fallback data.
+layouts are independently verified. The [quarter-wave sine table](sdk-short-sine-table.md)
+is now reconstructed mathematically, adding 2,048 initialized bytes without
+increasing the function or BSS counts.
 
 The [cache, cartridge, and float-math batch](sdk-cache-and-transfer.md) adds
 five C functions with 1,588 bytes and five native assembly functions with
@@ -165,7 +166,7 @@ twenty-five procedures and their source-owned alignment. Linked progress indepen
 function, its procedure extent, section address, source/header/object hashes,
 and generated data or private storage.
 
-The tooling suite contains 114 tests. It can run without a commercial ROM or
+The tooling suite contains 116 tests. It can run without a commercial ROM or
 the IDO compiler installation. `tools/audit_publication.py --files <inventory>`
 checks an explicit JSON array of public file paths against the current build,
 comparison reports, owned sections, and progress. It rejects stale source or
