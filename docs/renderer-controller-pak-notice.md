@@ -22,6 +22,13 @@ expression reproduce the target's induction variables and register allocation.
 The literal has its own source-owned readonly section; its bytes are not taken
 from an executable fallback range.
 
+The [comparison ledger](renderer-controller-pak-notice-provenance.json) records
+the complete procedure and readonly block, compiler profile, and input hashes.
+A clean archive of commit `2ee8dd2` passed all 137 tooling tests, fresh extraction,
+build, ROM verification, and independent comparisons of 776 runtime units,
+two startup units, 18 assembly units, and six data units. The resulting progress
+report contains 1,288 matching C functions and 210,996 instruction bytes.
+
 The supplied Robotron 64 USA ROM determines the notice, control flow, command,
 and coordinates. The N64 projects and compiler sources consulted for the build
 and matching workflow are credited in [CREDITS.md](../CREDITS.md). Completion
