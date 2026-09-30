@@ -39,7 +39,12 @@ struct EarlyAnimationRecord;
 
 typedef struct GameSessionState {
     SavedSessionState saved;
-    unsigned char unknown4C[0x50];
+    int value4C;
+    unsigned char unknown50[4];
+    int parameterIndex54;
+    unsigned char unknown58[0x14];
+    int parameterStart6C;
+    unsigned char unknown70[0x2C];
     int animationIndex9C;
     unsigned char unknownA0[8];
     int animationStateA8;

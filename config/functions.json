@@ -14061,5 +14061,71 @@
     "section": ".actor_collision_turn",
     "section_vram": 2147591184,
     "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "name": "func_8000E3B4",
+    "rom": 61364,
+    "vram": 2147541940,
+    "size": 316,
+    "source": "src/game/early_parameter_schedule.c",
+    "object": "build/us/early_parameter_schedule.o",
+    "section": ".early_parameter_schedule",
+    "section_vram": 2147541940,
+    "evidence": "docs/parameter-and-rendering-state.md"
+  },
+  {
+    "name": "func_8000EAF8",
+    "rom": 63224,
+    "vram": 2147543800,
+    "size": 304,
+    "source": "src/game/early_parameter_complete.c",
+    "object": "build/us/early_parameter_complete.o",
+    "section": ".early_parameter_complete",
+    "section_vram": 2147543800,
+    "evidence": "docs/parameter-and-rendering-state.md"
+  },
+  {
+    "name": "func_80026A10",
+    "rom": 161296,
+    "vram": 2147641872,
+    "size": 252,
+    "source": "src/game/save_menu_pak_page_select.c",
+    "object": "build/us/save_menu_pak_page_select.o",
+    "section": ".save_menu_pak_page_select",
+    "section_vram": 2147641872,
+    "evidence": "docs/parameter-and-rendering-state.md"
+  },
+  {
+    "name": "func_80046C2C",
+    "rom": 292908,
+    "vram": 2147773484,
+    "size": 204,
+    "source": "src/game/renderer_tile_origin_mode.c",
+    "object": "build/us/renderer_tile_origin_mode.o",
+    "section": ".renderer_tile_origin_mode",
+    "section_vram": 2147773484,
+    "evidence": "docs/parameter-and-rendering-state.md"
+  },
+  {
+    "name": "func_80048020",
+    "rom": 298016,
+    "vram": 2147778592,
+    "size": 324,
+    "source": "src/game/fixed_matrix_rsp.c",
+    "object": "build/us/fixed_matrix_rsp.o",
+    "section": ".fixed_matrix_rsp",
+    "section_vram": 2147778592,
+    "evidence": "docs/parameter-and-rendering-state.md"
+  },
+  {
+    "name": "func_8004E820",
+    "rom": 324640,
+    "vram": 2147805216,
+    "size": 328,
+    "source": "src/game/object_history_write.c",
+    "object": "build/us/object_history_write.o",
+    "section": ".object_history_write",
+    "section_vram": 2147805216,
+    "evidence": "docs/parameter-and-rendering-state.md"
   }
 ]

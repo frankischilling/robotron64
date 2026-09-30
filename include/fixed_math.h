@@ -1,11 +1,14 @@
 #ifndef ROBOTRON_FIXED_MATH_H
 #define ROBOTRON_FIXED_MATH_H
 
+#include "sdk_matrix.h"
+
 typedef struct FixedMatrix {
     int m[3][3];
 } FixedMatrix;
 
 void func_8004D4B4(int *output, FixedMatrix *matrix, int *position);
+void func_80048020(FixedMatrix *matrix, SdkMatrix *output);
 void func_8004DB34(FixedMatrix *matrix);
 int func_8004DB60(int angle);
 int func_8004DB88(int angle);

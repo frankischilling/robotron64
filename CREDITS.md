@@ -291,6 +291,13 @@ complete instructions establish the accepted command words, dynamic heap
 layout, counter switch table and preserved metric bounds. The reference
 header implementation is not copied into these source units.
 
+The [parameter and rendering recovery](docs/parameter-and-rendering-state.md)
+consulted pinned local libreultra `src/gu/mtxutil.c` for matrix planes and
+Super Mario 64 `include/PR/gbi.h` for tile-size masks and geometry command
+fields. Complete Robotron instructions establish the recovered scheduling,
+completion counters, history conversion and command behavior. The new
+procedures retain the project's pinned IDO compiler and matching-build basis.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

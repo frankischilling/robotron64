@@ -1,8 +1,4 @@
-extern int D_800972C0;
-extern short D_800972C8[8];
-extern short D_80097318[8];
-extern short D_80097328[8];
-extern int D_800972F8[8];
+#include "../../include/early_parameter_internal.h"
 
 void func_8000E328(void)
 {

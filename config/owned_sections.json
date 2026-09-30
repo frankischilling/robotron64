@@ -1355,5 +1355,17 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "source": "src/game/object_history_write.c",
+    "object": "build/us/object_history_write.o",
+    "input_section": ".rodata",
+    "section": ".object_history_write_rodata",
+    "vram": 2148096820,
+    "rom": 616244,
+    "size": 4,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/parameter-and-rendering-state.md"
   }
 ]
