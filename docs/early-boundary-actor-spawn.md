@@ -27,3 +27,10 @@ The N64 and IDO reference projects used for compiler and matching work are
 credited in [CREDITS.md](../CREDITS.md). Complete-source comparison, linked
 procedure metadata, current input hashes, and full ROM verification are
 required before this function contributes to progress.
+
+The [provenance ledger](early-boundary-actor-spawn-provenance.json) records the
+complete source and compiler inputs, linked procedure range, and comparison
+from a clean archive of `c4b8074`. Fresh extraction and build, all 137 tooling
+tests, 777 runtime units, both startup units, eighteen assembly units, and six
+data units passed. The rebuilt 8 MiB ROM matched the supplied original byte
+for byte. The publication audit checked all 1,236 files in that archive.
