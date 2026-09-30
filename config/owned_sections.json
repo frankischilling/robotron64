@@ -1209,5 +1209,43 @@
     },
     "static_symbols": {},
     "evidence": "docs/early-session-animation.md"
+  },
+  {
+    "source": "src/game/early_render_handler_select.c",
+    "object": "build/us/early_render_handler_select.o",
+    "input_section": ".rodata",
+    "section": ".early_render_handler_select_rodata",
+    "vram": 2148071796,
+    "rom": 591220,
+    "size": 20,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/game-collision-and-selection.md"
+  },
+  {
+    "source": "src/game/actor_collision_kind_dispatch.c",
+    "object": "build/us/actor_collision_kind_dispatch.o",
+    "input_section": ".rodata",
+    "section": ".actor_collision_kind_dispatch_rodata",
+    "vram": 2148073224,
+    "rom": 592648,
+    "size": 20,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/game-collision-and-selection.md"
+  },
+  {
+    "source": "src/game/name_table_lookup.c",
+    "object": "build/us/name_table_lookup.o",
+    "input_section": ".data",
+    "section": ".name_table_lookup_data",
+    "vram": 2148074352,
+    "rom": 593776,
+    "size": 38,
+    "symbols": {
+      "D_80090370": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/game-collision-and-selection.md"
   }
 ]

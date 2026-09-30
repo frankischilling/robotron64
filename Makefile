@@ -5293,6 +5293,46 @@ RUNTIME_OBJECTS += \
     build/us/actor_animation_auxiliary.o \
     build/us/actor_child_animation.o
 
+build/us/early_render_handler_select.o: src/game/early_render_handler_select.c tools/owned_sections.py config/owned_sections.json include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_handler_select.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_render_handler_select.raw.o build/us/early_render_handler_select.text.o .text 0x84
+	$(PYTHON) tools/owned_sections.py $< build/us/early_render_handler_select.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_collision_kind_dispatch.o: src/game/actor_collision_kind_dispatch.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_behavior_internal.h include/actor_collision_services.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_collision_kind_dispatch.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_collision_kind_dispatch.raw.o build/us/actor_collision_kind_dispatch.text.o .text 0x84
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_collision_kind_dispatch.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/name_table_lookup.o: src/game/name_table_lookup.c tools/owned_sections.py config/owned_sections.json include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/name_table_lookup.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/name_table_lookup.raw.o build/us/name_table_lookup.text.o .text 0xa0
+	$(PYTHON) tools/owned_sections.py $< build/us/name_table_lookup.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/session_mode_advance.o: src/game/session_mode_advance.c include/actor.h include/audio_game.h include/frame.h include/game_memory.h include/object.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_audio.h include/scene_definition.h include/session_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_mode_advance.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/session_mode_advance.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/resource_selection_clear.o: src/game/resource_selection_clear.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/resource_selection_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/resource_selection_clear.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_render_handler_select.o \
+    build/us/actor_collision_kind_dispatch.o \
+    build/us/name_table_lookup.o \
+    build/us/session_mode_advance.o \
+    build/us/resource_selection_clear.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

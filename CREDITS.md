@@ -70,6 +70,9 @@ and complete comparison requirements are documented in
 The following [actor animation and expiration recovery](docs/actor-animation-state.md)
 uses the same compiler references and records Robotron's complete comparisons
 for repeat values, counter updates, auxiliary animation data and child setup.
+[Game collision and selection services](docs/game-collision-and-selection.md)
+continue those compiler comparisons and include complete relocated switch
+tables reconstructed from their C control flow.
 
 Perfect Dark's `src/inflate/inflate.c` and Huffman entry declarations at the
 recorded revision supplied comparisons for the DEFLATE tables, bitstream, and
