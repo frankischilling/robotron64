@@ -5411,6 +5411,72 @@ RUNTIME_OBJECTS += \
     build/us/actor_value_transition.o \
     build/us/actor_random_spawn.o
 
+build/us/actor_relative_geometry.o: src/game/actor_relative_geometry.c include/actor.h include/actor_behavior_internal.h include/early_game_helpers.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_relative_geometry.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_relative_geometry.raw.o $@ .text 0xa8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_quad_submit.o: src/game/renderer_quad_submit.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_quad_submit.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_quad_submit.raw.o $@ .text 0xf0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_texture_defaults.o: src/game/renderer_texture_defaults.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_texture_defaults.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_texture_defaults.raw.o $@ .text 0xdc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_metrics_update.o: src/game/renderer_metrics_update.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_metrics_update.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_metrics_update.raw.o $@ .text 0xe4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_dynamic_group_allocate.o: src/game/actor_dynamic_group_allocate.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/heap.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_dynamic_group_allocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_group_allocate.raw.o $@ .text 0xb0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_dynamic_pair_append.o: src/game/actor_dynamic_pair_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_dynamic_pair_append.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_pair_append.raw.o $@ .text 0xb8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_dynamic_parameter_append.o: src/game/actor_dynamic_parameter_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_dynamic_parameter_append.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_parameter_append.raw.o $@ .text 0xb8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_texture_index_draw.o: src/game/renderer_texture_index_draw.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_texture_index.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_texture_index_draw.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_texture_index_draw.raw.o $@ .text 0xdc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_behavior_counter_expire.o: src/game/actor_behavior_counter_expire.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_counter_expire.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_counter_expire.raw.o build/us/actor_behavior_counter_expire.text.o .text 0xb8
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_behavior_counter_expire.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/actor_relative_geometry.o \
+    build/us/renderer_quad_submit.o \
+    build/us/renderer_texture_defaults.o \
+    build/us/renderer_metrics_update.o \
+    build/us/actor_dynamic_group_allocate.o \
+    build/us/actor_dynamic_pair_append.o \
+    build/us/actor_dynamic_parameter_append.o \
+    build/us/renderer_texture_index_draw.o \
+    build/us/actor_behavior_counter_expire.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

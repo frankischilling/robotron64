@@ -279,6 +279,13 @@ procedures and four initialization spans establish the accepted digit loops,
 menu record stride, actor pair table and session counter bounds. Matching
 caller and storage comparisons determine the source ownership claims.
 
+The [actor and renderer services](docs/actor-and-renderer-services.md) consulted
+the pinned local Super Mario 64 `include/PR/gbi.h` and its online counterpart
+for F3DEX/F3DLP vertex and triangle formats and texture-state fields. Robotron's
+complete instructions establish the accepted command words, dynamic heap
+layout, counter switch table and preserved metric bounds. The reference
+header implementation is not copied into these source units.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

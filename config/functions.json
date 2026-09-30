@@ -13885,5 +13885,104 @@
     "section": ".actor_random_spawn",
     "section_vram": 2147590992,
     "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "name": "func_8000A2E0",
+    "rom": 44768,
+    "vram": 2147525344,
+    "size": 168,
+    "source": "src/game/actor_relative_geometry.c",
+    "object": "build/us/actor_relative_geometry.o",
+    "section": ".actor_relative_geometry",
+    "section_vram": 2147525344,
+    "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_80045124",
+    "rom": 285988,
+    "vram": 2147766564,
+    "size": 240,
+    "source": "src/game/renderer_quad_submit.c",
+    "object": "build/us/renderer_quad_submit.o",
+    "section": ".renderer_quad_submit",
+    "section_vram": 2147766564,
+    "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_8004ABC8",
+    "rom": 309192,
+    "vram": 2147789768,
+    "size": 220,
+    "source": "src/game/renderer_texture_defaults.c",
+    "object": "build/us/renderer_texture_defaults.o",
+    "section": ".renderer_texture_defaults",
+    "section_vram": 2147789768,
+    "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_8004CCD0",
+    "rom": 317648,
+    "vram": 2147798224,
+    "size": 228,
+    "source": "src/game/renderer_metrics_update.c",
+    "object": "build/us/renderer_metrics_update.o",
+    "section": ".renderer_metrics_update",
+    "section_vram": 2147798224,
+    "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_8000CEC0",
+    "rom": 56000,
+    "vram": 2147536576,
+    "size": 176,
+    "source": "src/game/actor_dynamic_group_allocate.c",
+    "object": "build/us/actor_dynamic_group_allocate.o",
+    "section": ".actor_dynamic_group_allocate",
+    "section_vram": 2147536576,
+    "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_8000D1FC",
+    "rom": 56828,
+    "vram": 2147537404,
+    "size": 184,
+    "source": "src/game/actor_dynamic_pair_append.c",
+    "object": "build/us/actor_dynamic_pair_append.o",
+    "section": ".actor_dynamic_pair_append",
+    "section_vram": 2147537404,
+    "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_8000D2D4",
+    "rom": 57044,
+    "vram": 2147537620,
+    "size": 184,
+    "source": "src/game/actor_dynamic_parameter_append.c",
+    "object": "build/us/actor_dynamic_parameter_append.o",
+    "section": ".actor_dynamic_parameter_append",
+    "section_vram": 2147537620,
+    "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_80005814",
+    "rom": 25620,
+    "vram": 2147506196,
+    "size": 220,
+    "source": "src/game/renderer_texture_index_draw.c",
+    "object": "build/us/renderer_texture_index_draw.o",
+    "section": ".renderer_texture_index_draw",
+    "section_vram": 2147506196,
+    "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_8001B324",
+    "rom": 114468,
+    "vram": 2147595044,
+    "size": 184,
+    "source": "src/game/actor_behavior_counter_expire.c",
+    "object": "build/us/actor_behavior_counter_expire.o",
+    "section": ".actor_behavior_counter_expire",
+    "section_vram": 2147595044,
+    "evidence": "docs/actor-and-renderer-services.md"
   }
 ]

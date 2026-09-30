@@ -1319,5 +1319,17 @@
     },
     "static_symbols": {},
     "evidence": "docs/game-runtime-tables.md"
+  },
+  {
+    "source": "src/game/actor_behavior_counter_expire.c",
+    "object": "build/us/actor_behavior_counter_expire.o",
+    "input_section": ".rodata",
+    "section": ".actor_behavior_counter_expire_rodata",
+    "vram": 2148074148,
+    "rom": 593572,
+    "size": 48,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/actor-and-renderer-services.md"
   }
 ]

@@ -730,6 +730,15 @@ MATCHING_BLOCKS = (
     ("session_input_initialize", "src/game/session_input_initialize.c", 0x8001A2C4, 0x8001A344),
     ("actor_value_transition", "src/game/actor_value_transition.c", 0x80035190, 0x80035244),
     ("actor_random_spawn", "src/game/actor_random_spawn.c", 0x8001A350, 0x8001A410),
+    ("actor_relative_geometry", "src/game/actor_relative_geometry.c", 0x8000A2E0, 0x8000A388),
+    ("renderer_quad_submit", "src/game/renderer_quad_submit.c", 0x80045124, 0x80045214),
+    ("renderer_texture_defaults", "src/game/renderer_texture_defaults.c", 0x8004ABC8, 0x8004ACA4),
+    ("renderer_metrics_update", "src/game/renderer_metrics_update.c", 0x8004CCD0, 0x8004CDB4),
+    ("actor_dynamic_group_allocate", "src/game/actor_dynamic_group_allocate.c", 0x8000CEC0, 0x8000CF70),
+    ("actor_dynamic_pair_append", "src/game/actor_dynamic_pair_append.c", 0x8000D1FC, 0x8000D2B4),
+    ("actor_dynamic_parameter_append", "src/game/actor_dynamic_parameter_append.c", 0x8000D2D4, 0x8000D38C),
+    ("renderer_texture_index_draw", "src/game/renderer_texture_index_draw.c", 0x80005814, 0x800058F0),
+    ("actor_behavior_counter_expire", "src/game/actor_behavior_counter_expire.c", 0x8001B324, 0x8001B3DC),
 )
 
 CANDIDATE_BLOCKS = (
