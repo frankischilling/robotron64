@@ -762,6 +762,9 @@ MATCHING_BLOCKS = (
     ("audio_backend_pan_command", "src/game/audio_backend_pan_command.c", 0x8005C1D8, 0x8005C32C),
     ("audio_backend_patch_trigger", "src/game/audio_backend_patch_trigger.c", 0x8005CA34, 0x8005CBB4),
     ("actor_dynamic_point_append", "src/game/actor_dynamic_point_append.c", 0x8000D090, 0x8000D1FC),
+    ("save_menu_pak_name_select", "src/game/save_menu_pak_name_select.c", 0x800266BC, 0x8002674C),
+    ("early_signature_gate", "src/game/early_signature_gate.c", 0x80005DEC, 0x80005E80),
+    ("early_resource_arguments", "src/game/early_resource_arguments.c", 0x8000EC30, 0x8000ECD0),
 )
 
 CANDIDATE_BLOCKS = (

@@ -10,7 +10,7 @@ unsigned char *func_8003B6E4(unsigned char *destination, unsigned char *source);
 unsigned char *func_8003B704(unsigned char *destination, unsigned char *source, int limit);
 unsigned char *func_8003B734(unsigned char *destination, unsigned char *source);
 int func_8003B768(unsigned char *left, unsigned char *right);
-int func_8003B7FC(unsigned char *left, unsigned char *right);
+int func_8003B7FC(const unsigned char *left, const unsigned char *right);
 int func_8003B838(unsigned char *left, unsigned char *right, int count);
 int func_8003B8E0(unsigned char *left, unsigned char *right, int count);
 void func_8003B928(int value, unsigned char *text, int radix);

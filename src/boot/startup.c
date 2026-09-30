@@ -28,7 +28,7 @@ void func_8004C090(void);
 void func_800470F4(void);
 void func_8002205C(void *);
 void func_80048DDC(void *);
-void func_80005DEC(void);
+int func_80005DEC(void);
 void func_80022D24(void);
 void func_800400D0(void);
 void func_800466E4(void);

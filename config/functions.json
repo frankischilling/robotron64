@@ -14237,5 +14237,38 @@
     "section": ".actor_dynamic_point_append",
     "section_vram": 2147537040,
     "evidence": "docs/pan-patch-and-point-state.md"
+  },
+  {
+    "name": "func_800266BC",
+    "rom": 160444,
+    "vram": 2147641020,
+    "size": 144,
+    "source": "src/game/save_menu_pak_name_select.c",
+    "object": "build/us/save_menu_pak_name_select.o",
+    "section": ".save_menu_pak_name_select",
+    "section_vram": 2147641020,
+    "evidence": "docs/pak-signature-and-argument-state.md"
+  },
+  {
+    "name": "func_80005DEC",
+    "rom": 27116,
+    "vram": 2147507692,
+    "size": 148,
+    "source": "src/game/early_signature_gate.c",
+    "object": "build/us/early_signature_gate.o",
+    "section": ".early_signature_gate",
+    "section_vram": 2147507692,
+    "evidence": "docs/pak-signature-and-argument-state.md"
+  },
+  {
+    "name": "func_8000EC30",
+    "rom": 63536,
+    "vram": 2147544112,
+    "size": 160,
+    "source": "src/game/early_resource_arguments.c",
+    "object": "build/us/early_resource_arguments.o",
+    "section": ".early_resource_arguments",
+    "section_vram": 2147544112,
+    "evidence": "docs/pak-signature-and-argument-state.md"
   }
 ]

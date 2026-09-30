@@ -1450,5 +1450,20 @@
       "D_80192B6C": 16
     },
     "evidence": "docs/pan-patch-and-point-state.md"
+  },
+  {
+    "source": "src/game/early_signature_gate.c",
+    "object": "build/us/early_signature_gate.o",
+    "input_section": ".rodata",
+    "section": ".early_signature_gate_rodata",
+    "vram": 2148071728,
+    "rom": 591152,
+    "size": 16,
+    "symbols": {
+      "D_8008F930": 0,
+      "D_8008F938": 8
+    },
+    "static_symbols": {},
+    "evidence": "docs/pak-signature-and-argument-state.md"
   }
 ]

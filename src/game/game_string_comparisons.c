@@ -17,7 +17,7 @@ unsigned char *func_8003B734(unsigned char *destination, unsigned char *source)
     return destination;
 }
 
-int func_8003B7FC(unsigned char *left, unsigned char *right)
+int func_8003B7FC(const unsigned char *left, const unsigned char *right)
 {
     unsigned char value;
 

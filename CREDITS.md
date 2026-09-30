@@ -317,6 +317,13 @@ interface and update kind. Complete Robotron command and appender instructions
 establish the private work areas, patch iteration and group distance tail.
 The existing pinned IDO and Super Mario 64 matching-build references apply.
 
+The [Pak, signature and argument recovery](docs/pak-signature-and-argument-state.md)
+consulted pinned local libreultra `src/io/pfsfilestate.c` for file metadata
+and name fields used by the existing Controller Pak services. Complete
+Robotron procedures establish the menu stride, saved-image literals and
+resource copy. The existing pinned IDO and Super Mario 64 matching-build
+references apply. No reference implementation is copied into these routines.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,
