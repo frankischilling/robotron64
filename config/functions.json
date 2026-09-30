@@ -13362,5 +13362,73 @@
     "section_vram": 2147897840,
     "evidence": "docs/sdk-cache-and-transfer.md",
     "language": "assembly"
+  },
+  {
+    "name": "func_80065330",
+    "rom": 417584,
+    "vram": 2147898160,
+    "size": 284,
+    "source": "src/sdk/sp_task_physical.c",
+    "object": "build/us/sp_task_physical.o",
+    "section": ".sp_task_physical",
+    "section_vram": 2147898160,
+    "evidence": "docs/sdk-task-loading-and-yield.md"
+  },
+  {
+    "name": "func_8006544C",
+    "rom": 417868,
+    "vram": 2147898444,
+    "size": 400,
+    "source": "src/sdk/sp_task_load.c",
+    "object": "build/us/sp_task_load.o",
+    "section": ".sp_task_load",
+    "section_vram": 2147898444,
+    "evidence": "docs/sdk-task-loading-and-yield.md"
+  },
+  {
+    "name": "func_8006E2C4",
+    "rom": 454340,
+    "vram": 2147934916,
+    "size": 232,
+    "source": "src/sdk/pi_disk_recover.c",
+    "object": "build/us/pi_disk_recover.o",
+    "section": ".pi_disk_recover",
+    "section_vram": 2147934916,
+    "evidence": "docs/sdk-task-loading-and-yield.md"
+  },
+  {
+    "name": "func_80015B5C",
+    "rom": 91996,
+    "vram": 2147572572,
+    "size": 120,
+    "source": "src/game/early_actor_forward_and_guard.c",
+    "object": "build/us/early_actor_forward_and_guard.o",
+    "section": ".early_actor_forward_and_guard",
+    "section_vram": 2147572572,
+    "evidence": "docs/sdk-task-loading-and-yield.md"
+  },
+  {
+    "name": "func_8006707C",
+    "rom": 425084,
+    "vram": 2147905660,
+    "size": 256,
+    "source": "src/sdk/thread_enqueue_and_yield.s",
+    "object": "build/us/thread_enqueue_and_yield.o",
+    "section": ".thread_enqueue_and_yield",
+    "section_vram": 2147905660,
+    "evidence": "docs/sdk-task-loading-and-yield.md",
+    "language": "assembly"
+  },
+  {
+    "name": "func_8006B010",
+    "rom": 441360,
+    "vram": 2147921936,
+    "size": 772,
+    "source": "src/sdk/os_block_copy.s",
+    "object": "build/us/os_block_copy.o",
+    "section": ".os_block_copy",
+    "section_vram": 2147921936,
+    "evidence": "docs/sdk-task-loading-and-yield.md",
+    "language": "assembly"
   }
 ]

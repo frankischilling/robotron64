@@ -5031,6 +5031,50 @@ RUNTIME_OBJECTS += \
     build/us/os_block_clear.o \
     build/us/os_interrupt_mask.o
 
+build/us/sp_task_physical.o: src/sdk/sp_task_physical.c include/scheduler.h include/scheduler_task.h include/sdk_io.h include/sdk_sp_task.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_task_physical.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_task_physical.raw.o $@ .text 0x11c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sp_task_load.o: src/sdk/sp_task_load.c include/scheduler.h include/scheduler_task.h include/sdk_io.h include/sdk_sp_task.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sp_task_load.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sp_task_load.raw.o $@ .text 0x190
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_disk_recover.o: src/sdk/pi_disk_recover.c include/sdk_pi_disk.h include/sdk_pi_word.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_disk_recover.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_disk_recover.raw.o $@ .text 0xe8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_actor_forward_and_guard.o: src/game/early_actor_forward_and_guard.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_forward_and_guard.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_forward_and_guard.raw.o $@ .text 0x78
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_enqueue_and_yield.o: src/sdk/thread_enqueue_and_yield.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+RUNTIME_OBJECTS += \
+    build/us/sp_task_physical.o \
+    build/us/sp_task_load.o \
+    build/us/pi_disk_recover.o \
+    build/us/early_actor_forward_and_guard.o \
+    build/us/thread_enqueue_and_yield.o
+
+build/us/os_block_copy.o: src/sdk/os_block_copy.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+RUNTIME_OBJECTS += \
+    build/us/os_block_copy.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

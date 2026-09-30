@@ -122,6 +122,14 @@ the VR4300 multiply scheduling profile for float math and the native assembly
 extents. The coefficients, timing-handle storage, and interrupt conversion
 table remain fallback data in this checkpoint.
 
+The [task-loading and yielding notes](docs/sdk-task-loading-and-yield.md)
+record local libreultra comparisons for RSP task copying and address conversion,
+disk error recovery, native thread context saving, and overlap-safe block copy.
+The consulted files are `src/io/sptask.c`, `src/io/leointerrupt.c`,
+`src/os/exceptasm.s`, and `src/libc/bcopy.s`. Robotron's complete instruction
+comparisons determine the accepted source; native procedures and their
+alignment are measured separately from C.
+
 The subsequent [timer and priority recovery](docs/sdk-time-and-priority.md),
 [scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and
 [matrix conversion](docs/sdk-matrix-conversion.md) build on these interface

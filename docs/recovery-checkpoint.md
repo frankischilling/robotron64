@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,189 matching C functions covering 182,704 bytes.
-It also contains twenty-three assembly functions covering 1,764 live bytes, 2,693 bytes
+The source checkpoint contains 1,193 matching C functions covering 183,740 bytes.
+It also contains twenty-five assembly functions covering 2,792 live bytes, 2,693 bytes
 of source-owned initialized data, and 4,983 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-262 complete C functions, 61,656 C bytes, twenty-two assembly procedures with
-1,708 live bytes, 1,045 reconstructed initialized bytes, and 893 BSS bytes.
+266 complete C functions, 62,692 C bytes, twenty-four assembly procedures with
+2,736 live bytes, 1,045 reconstructed initialized bytes, and 893 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -33,7 +33,7 @@ initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
 114 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
-the source inputs and complete procedure extents for all 1,189 counted C
+the source inputs and complete procedure extents for all 1,193 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
@@ -60,6 +60,12 @@ five C functions with 1,588 bytes and five native assembly functions with
 720 live bytes. It recovers extended PI DMA, float sine/cosine, renderer
 reservation, sequence binding, cache operations, block clearing, and CPU/RCP
 interrupt-mask application. Constants and handle storage remain fallback.
+
+Four [task-loading and actor forwarding procedures](sdk-task-loading-and-yield.md)
+add another 1,036 C bytes. RSP task preparation/loading and disk recovery now
+use recovered source. Native context saving and overlap-safe block copying
+add 1,028 live assembly bytes. An out-of-line exception fragment remains
+excluded until its complete procedure ownership can be proved.
 
 The game work extends actor animation and movement callbacks, early actor
 creation and state changes, selection and value tables, Controller Pak menu
@@ -153,9 +159,9 @@ python3 tools/compare_assembly.py
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 680 complete source units. Startup/scheduler
+The runtime registry contains 684 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
-twenty-three procedures and their source-owned alignment. Linked progress independently checks every counted
+twenty-five procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
 and generated data or private storage.
 

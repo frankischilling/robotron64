@@ -97,7 +97,8 @@ SECTIONS
     .early_actor_create 0x80015184 : AT(0x15D84) SUBALIGN(4) { build/us/early_actor_create.o(.text) }
     .cpu_after_early_actor_create 0x800152E8 : AT(0x15EE8) { build/us/fallback.o(.rom_cpu_after_early_actor_create) }
     .early_actor_state 0x80015554 : AT(0x16154) SUBALIGN(4) { build/us/early_actor_state.o(.text) }
-    .cpu_after_early_actor_state 0x8001567C : AT(0x1627C) { build/us/fallback.o(.rom_cpu_after_early_actor_state) }
+    .endgame_1627c_1675c 0x8001567C : AT(0x1627C) { build/us/fallback.o(.rom_endgame_1627c_1675c) }
+    .early_actor_forward_and_guard 0x80015B5C : AT(0x1675C) SUBALIGN(4) { build/us/early_actor_forward_and_guard.o(.text) }
     .early_actor_mode3 0x80015BD4 : AT(0x167D4) SUBALIGN(4) { build/us/early_actor_mode3.o(.text) }
     .cpu_after_early_actor_mode3 0x80015BF8 : AT(0x167F8) { build/us/fallback.o(.rom_cpu_after_early_actor_mode3) }
     .early_actor_guarded_service 0x800162AC : AT(0x16EAC) SUBALIGN(4) { build/us/early_actor_guarded_service.o(.text) }
@@ -853,7 +854,8 @@ SECTIONS
     .os_interrupt_mask 0x800651F0 : AT(0x65DF0) SUBALIGN(4) { build/us/os_interrupt_mask.o(.text) }
     .sp_yield 0x80065290 : AT(0x65E90) SUBALIGN(4) { build/us/sp_yield.o(.text) }
     .sp_yielded 0x800652B0 : AT(0x65EB0) SUBALIGN(4) { build/us/sp_yielded.o(.text) }
-    .sp_task 0x80065330 : AT(0x65F30) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sp_task) }
+    .sp_task_physical 0x80065330 : AT(0x65F30) SUBALIGN(4) { build/us/sp_task_physical.o(.text) }
+    .sp_task_load 0x8006544C : AT(0x6604C) SUBALIGN(4) { build/us/sp_task_load.o(.text) }
     .sp_start 0x800655DC : AT(0x661DC) SUBALIGN(4) { build/us/sp_start.o(.text) }
     .cpu_after_audio_sp 0x8006561C : AT(0x6621C) { build/us/fallback.o(.rom_cpu_after_audio_sp) }
     .vi_framebuffer 0x80065620 : AT(0x66220) SUBALIGN(4) { build/us/vi_framebuffer.o(.text) }
@@ -891,7 +893,8 @@ SECTIONS
     .os_fpcsr 0x800669A0 : AT(0x675A0) SUBALIGN(4) { build/us/os_fpcsr.o(.text) }
     .si_raw_read 0x800669B0 : AT(0x675B0) SUBALIGN(4) { build/us/si_raw_read.o(.text) }
     .si_raw_write 0x80066A00 : AT(0x67600) SUBALIGN(4) { build/us/si_raw_write.o(.text) }
-    .endgame_6764c_67d7c 0x80066A4C : AT(0x6764C) { build/us/fallback.o(.rom_endgame_6764c_67d7c) }
+    .endgame_6764c_67c7c 0x80066A4C : AT(0x6764C) { build/us/fallback.o(.rom_endgame_6764c_67c7c) }
+    .thread_enqueue_and_yield 0x8006707C : AT(0x67C7C) SUBALIGN(4) { build/us/thread_enqueue_and_yield.o(.text) }
     .thread_dispatch 0x8006717C : AT(0x67D7C) SUBALIGN(4) { build/us/thread_dispatch.o(.text) }
     .endgame_67f5c_67f60 0x8006735C : AT(0x67F5C) { build/us/fallback.o(.rom_endgame_67f5c_67f60) }
     .os_writeback_cache 0x80067360 : AT(0x67F60) SUBALIGN(4) { build/us/os_writeback_cache.o(.text) }
@@ -934,7 +937,8 @@ SECTIONS
     .sp_set_status 0x8006AFF0 : AT(0x6BBF0) SUBALIGN(4) { build/us/sp_set_status.o(.text) }
     .cpu_after_sp_set_status 0x8006AFFC : AT(0x6BBFC) { build/us/fallback.o(.rom_cpu_after_sp_set_status) }
     .sp_get_status 0x8006B000 : AT(0x6BC00) SUBALIGN(4) { build/us/sp_get_status.o(.text) }
-    .cpu_after_sp_get_status 0x8006B00C : AT(0x6BC0C) { build/us/fallback.o(.rom_cpu_after_sp_get_status) }
+    .endgame_6bc0c_6bc10 0x8006B00C : AT(0x6BC0C) { build/us/fallback.o(.rom_endgame_6bc0c_6bc10) }
+    .os_block_copy 0x8006B010 : AT(0x6BC10) SUBALIGN(4) { build/us/os_block_copy.o(.text) }
     .sp_set_pc 0x8006B320 : AT(0x6BF20) SUBALIGN(4) { build/us/sp_set_pc.o(.text) }
     .cpu_after_sp_set_pc 0x8006B354 : AT(0x6BF54) { build/us/fallback.o(.rom_cpu_after_sp_set_pc) }
     .sp_dma 0x8006B360 : AT(0x6BF60) SUBALIGN(4) { build/us/sp_dma.o(.text) }
@@ -964,7 +968,8 @@ SECTIONS
     .cpu_after_audio_aux_bus 0x8006DB28 : AT(0x6E728) { build/us/fallback.o(.rom_cpu_after_audio_aux_bus) }
     .audio_save_filter 0x8006DB30 : AT(0x6E730) SUBALIGN(4) { build/us/audio_save_filter.o(.text) }
     .si_busy 0x8006DBF0 : AT(0x6E7F0) SUBALIGN(4) { build/us/si_busy.o(.text) }
-    .cpu_after_si_busy 0x8006DC1C : AT(0x6E81C) { build/us/fallback.o(.rom_cpu_after_si_busy) }
+    .endgame_6e81c_6eec4 0x8006DC1C : AT(0x6E81C) { build/us/fallback.o(.rom_endgame_6e81c_6eec4) }
+    .pi_disk_recover 0x8006E2C4 : AT(0x6EEC4) SUBALIGN(4) { build/us/pi_disk_recover.o(.text) }
     .pi_event_notify 0x8006E3AC : AT(0x6EFAC) SUBALIGN(4) { build/us/pi_event_notify.o(.text) }
     .cpu_after_pi_event 0x8006E498 : AT(0x6F098) { build/us/fallback.o(.rom_cpu_after_pi_event) }
     .thread_destroy 0x8006E4A0 : AT(0x6F0A0) SUBALIGN(4) { build/us/thread_destroy.o(.text) }
@@ -1132,7 +1137,6 @@ ASSERT(SIZEOF(.early_actor_pair_balance) == 0x54, "early_actor_pair_balance size
 ASSERT(SIZEOF(.early_actor_create) == 0x164, "early_actor_create size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_create) == 0x26c, "cpu_after_early_actor_create size changed")
 ASSERT(SIZEOF(.early_actor_state) == 0x128, "early_actor_state size changed")
-ASSERT(SIZEOF(.cpu_after_early_actor_state) == 0x558, "cpu_after_early_actor_state size changed")
 ASSERT(SIZEOF(.early_actor_mode3) == 0x24, "early_actor_mode3 size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_mode3) == 0x6b4, "cpu_after_early_actor_mode3 size changed")
 ASSERT(SIZEOF(.early_actor_guarded_service) == 0x4c, "early_actor_guarded_service size changed")
@@ -1907,7 +1911,6 @@ ASSERT(SIZEOF(.vi_black) == 0x70, "vi_black size changed")
 ASSERT(SIZEOF(.vi_event) == 0x6c, "vi_event size changed")
 ASSERT(SIZEOF(.sp_yield) == 0x20, "sp_yield size changed")
 ASSERT(SIZEOF(.sp_yielded) == 0x80, "sp_yielded size changed")
-ASSERT(SIZEOF(.sp_task) == 0x2ac, "sp_task size changed")
 ASSERT(SIZEOF(.sp_start) == 0x40, "sp_start size changed")
 ASSERT(SIZEOF(.cpu_after_audio_sp) == 0x4, "cpu_after_audio_sp size changed")
 ASSERT(SIZEOF(.vi_framebuffer) == 0xd0, "vi_framebuffer size changed")
@@ -1976,7 +1979,6 @@ ASSERT(SIZEOF(.cpu_after_vi_context) == 0x364, "cpu_after_vi_context size change
 ASSERT(SIZEOF(.sp_set_status) == 0xc, "sp_set_status size changed")
 ASSERT(SIZEOF(.cpu_after_sp_set_status) == 0x4, "cpu_after_sp_set_status size changed")
 ASSERT(SIZEOF(.sp_get_status) == 0xc, "sp_get_status size changed")
-ASSERT(SIZEOF(.cpu_after_sp_get_status) == 0x314, "cpu_after_sp_get_status size changed")
 ASSERT(SIZEOF(.sp_set_pc) == 0x34, "sp_set_pc size changed")
 ASSERT(SIZEOF(.cpu_after_sp_set_pc) == 0xc, "cpu_after_sp_set_pc size changed")
 ASSERT(SIZEOF(.sp_dma) == 0x8c, "sp_dma size changed")
@@ -2005,7 +2007,6 @@ ASSERT(SIZEOF(.audio_auxiliary_bus) == 0x108, "audio_auxiliary_bus size changed"
 ASSERT(SIZEOF(.cpu_after_audio_aux_bus) == 0x8, "cpu_after_audio_aux_bus size changed")
 ASSERT(SIZEOF(.audio_save_filter) == 0xc0, "audio_save_filter size changed")
 ASSERT(SIZEOF(.si_busy) == 0x2c, "si_busy size changed")
-ASSERT(SIZEOF(.cpu_after_si_busy) == 0x790, "cpu_after_si_busy size changed")
 ASSERT(SIZEOF(.cpu_after_pi_event) == 0x8, "cpu_after_pi_event size changed")
 ASSERT(SIZEOF(.thread_destroy) == 0xf8, "thread_destroy size changed")
 ASSERT(SIZEOF(.cpu_after_thread_destroy) == 0x8, "cpu_after_thread_destroy size changed")
@@ -2110,7 +2111,6 @@ ASSERT(SIZEOF(.endgame_6131c_61320) == 0x4, "endgame_6131c_61320 size changed")
 ASSERT(SIZEOF(.endgame_63e1c_63e20) == 0x4, "endgame_63e1c_63e20 size changed")
 ASSERT(SIZEOF(.pi_queue_get) == 0x28, "pi_queue_get size changed")
 ASSERT(SIZEOF(.thread_dispatch) == 0x1e0, "thread_dispatch size changed")
-ASSERT(SIZEOF(.endgame_6764c_67d7c) == 0x730, "endgame_6764c_67d7c size changed")
 ASSERT(SIZEOF(.player_fields_clear) == 0x28, "player_fields_clear size changed")
 ASSERT(SIZEOF(.runtime_buffer_clear) == 0x2c, "runtime_buffer_clear size changed")
 ASSERT(SIZEOF(.render_buffer_allocate) == 0x48, "render_buffer_allocate size changed")
@@ -2143,3 +2143,13 @@ ASSERT(SIZEOF(.endgame_5456c_54850) == 0x2e4, "endgame_5456c_54850 size changed"
 ASSERT(SIZEOF(.endgame_65dec_65df0) == 0x4, "endgame_65dec_65df0 size changed")
 ASSERT(SIZEOF(.endgame_66384_66390) == 0xc, "endgame_66384_66390 size changed")
 ASSERT(SIZEOF(.endgame_67f5c_67f60) == 0x4, "endgame_67f5c_67f60 size changed")
+ASSERT(SIZEOF(.sp_task_physical) == 0x11c, "sp_task_physical size changed")
+ASSERT(SIZEOF(.sp_task_load) == 0x190, "sp_task_load size changed")
+ASSERT(SIZEOF(.pi_disk_recover) == 0xe8, "pi_disk_recover size changed")
+ASSERT(SIZEOF(.early_actor_forward_and_guard) == 0x78, "early_actor_forward_and_guard size changed")
+ASSERT(SIZEOF(.thread_enqueue_and_yield) == 0x100, "thread_enqueue_and_yield size changed")
+ASSERT(SIZEOF(.endgame_1627c_1675c) == 0x4e0, "endgame_1627c_1675c size changed")
+ASSERT(SIZEOF(.endgame_6764c_67c7c) == 0x630, "endgame_6764c_67c7c size changed")
+ASSERT(SIZEOF(.endgame_6e81c_6eec4) == 0x6a8, "endgame_6e81c_6eec4 size changed")
+ASSERT(SIZEOF(.os_block_copy) == 0x310, "os_block_copy size changed")
+ASSERT(SIZEOF(.endgame_6bc0c_6bc10) == 0x4, "endgame_6bc0c_6bc10 size changed")

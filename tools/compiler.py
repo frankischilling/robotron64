@@ -22,6 +22,9 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/sdk/sp_task_physical.c": "sdk-o1-mips2",
+    "src/sdk/sp_task_load.c": "sdk-o1-mips2",
+    "src/sdk/pi_disk_recover.c": "sdk-o1-mips2",
     "src/sdk/pi_extended_dma.c": "sdk-o1-mips2",
     "src/sdk/sine_float.c": "sdk-o2-mips2-r4300-mul",
     "src/sdk/cosine_float.c": "sdk-o2-mips2-r4300-mul",

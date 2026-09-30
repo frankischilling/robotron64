@@ -690,6 +690,10 @@ MATCHING_BLOCKS = (
     ("cosine_float", "src/sdk/cosine_float.c", 0x800633F0, 0x80063558),
     ("audio_voice_sequence_bind", "src/game/audio_voice_sequence_bind.c", 0x800538F8, 0x8005396C),
     ("render_buffer_reserve", "src/game/render_buffer_reserve.c", 0x8004BBD0, 0x8004BC44),
+    ("sp_task_physical", "src/sdk/sp_task_physical.c", 0x80065330, 0x8006544C),
+    ("sp_task_load", "src/sdk/sp_task_load.c", 0x8006544C, 0x800655DC),
+    ("pi_disk_recover", "src/sdk/pi_disk_recover.c", 0x8006E2C4, 0x8006E3AC),
+    ("early_actor_forward_and_guard", "src/game/early_actor_forward_and_guard.c", 0x80015B5C, 0x80015BD4),
 )
 
 CANDIDATE_BLOCKS = (
