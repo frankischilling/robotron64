@@ -644,9 +644,9 @@ SECTIONS
     .cpu_after_audio_io 0x80051A0C : AT(0x5260C) { build/us/fallback.o(.rom_cpu_after_audio_io) }
     .audio_task_select 0x8005211C : AT(0x52D1C) SUBALIGN(4) { build/us/audio_task_select.o(.text) }
     .audio_task_build 0x800521C8 : AT(0x52DC8) SUBALIGN(4) { build/us/audio_task_build.o(.text) }
-    .cpu_after_audio_task_build 0x80052378 : AT(0x52F78) { build/us/fallback.o(.rom_cpu_after_audio_task_build) }
+    .audio_dma_read 0x80052378 : AT(0x52F78) SUBALIGN(4) { build/us/audio_dma_read.o(.text) }
     .audio_pool_callback 0x8005254C : AT(0x5314C) SUBALIGN(4) { build/us/audio_pool_callback.o(.text) }
-    .cpu_after_audio_pool_callback 0x80052580 : AT(0x53180) { build/us/fallback.o(.rom_cpu_after_audio_pool_callback) }
+    .audio_dma_recycle 0x80052580 : AT(0x53180) SUBALIGN(4) { build/us/audio_dma_recycle.o(.text) }
     .audio_shutdown 0x800526D0 : AT(0x532D0) SUBALIGN(4) { build/us/audio_shutdown.o(.text) }
     .cpu_after_audio_shutdown 0x800526FC : AT(0x532FC) { build/us/fallback.o(.rom_cpu_after_audio_shutdown) }
     .audio_callback_registration 0x80052700 : AT(0x53300) SUBALIGN(4) { build/us/audio_callback_registration.o(.text) }
@@ -1141,7 +1141,10 @@ SECTIONS
     .frame_projection_rodata 0x80095498 : AT(0x96098) SUBALIGN(4) { build/us/frame_projection.o(.rodata) }
     .endgame_data_960a4_96734 0x800954A4 : AT(0x960A4) { build/us/fallback.o(.rom_endgame_data_960a4_96734) }
     .object_history_write_rodata 0x80095B34 : AT(0x96734) SUBALIGN(4) { build/us/object_history_write.o(.rodata) }
-    .endgame_data_96738_968c4 0x80095B38 : AT(0x96738) { build/us/fallback.o(.rom_endgame_data_96738_968c4) }
+    .endgame_96738_96890 0x80095B38 : AT(0x96738) { build/us/fallback.o(.rom_endgame_96738_96890) }
+    .audio_dma_read_rodata 0x80095C90 : AT(0x96890) SUBALIGN(4) { build/us/audio_dma_read.o(.rodata) }
+    .audio_dma_recycle_rodata 0x80095C9C : AT(0x9689C) SUBALIGN(4) { build/us/audio_dma_recycle.o(.rodata) }
+    .endgame_968a8_968c4 0x80095CA8 : AT(0x968A8) { build/us/fallback.o(.rom_endgame_968a8_968c4) }
     .audio_pitch_scale_rodata 0x80095CC4 : AT(0x968C4) SUBALIGN(4) { build/us/audio_pitch_scale.o(.rodata) }
     .after_audio_pitch_scale_rodata 0x80095CCC : AT(0x968CC) { build/us/fallback.o(.rom_after_audio_pitch_scale_rodata) }
     .camera_perspective_rodata 0x80095CF0 : AT(0x968F0) SUBALIGN(4) { build/us/camera_perspective.o(.rodata) }
@@ -1747,9 +1750,7 @@ ASSERT(SIZEOF(.audio_io) == 0x12c, "audio_io size changed")
 ASSERT(SIZEOF(.cpu_after_audio_io) == 0x710, "cpu_after_audio_io size changed")
 ASSERT(SIZEOF(.audio_task_select) == 0xac, "audio_task_select size changed")
 ASSERT(SIZEOF(.audio_task_build) == 0x1b0, "audio_task_build size changed")
-ASSERT(SIZEOF(.cpu_after_audio_task_build) == 0x1d4, "cpu_after_audio_task_build size changed")
 ASSERT(SIZEOF(.audio_pool_callback) == 0x34, "audio_pool_callback size changed")
-ASSERT(SIZEOF(.cpu_after_audio_pool_callback) == 0x150, "cpu_after_audio_pool_callback size changed")
 ASSERT(SIZEOF(.audio_shutdown) == 0x2c, "audio_shutdown size changed")
 ASSERT(SIZEOF(.cpu_after_audio_shutdown) == 0x4, "cpu_after_audio_shutdown size changed")
 ASSERT(SIZEOF(.audio_callback_registration) == 0x54, "audio_callback_registration size changed")
@@ -2428,7 +2429,6 @@ ASSERT(SIZEOF(.endgame_48168_48c20) == 0xab8, "endgame_48168_48c20 size changed"
 ASSERT(SIZEOF(.endgame_48d64_48d70) == 0xc, "endgame_48d64_48d70 size changed")
 ASSERT(SIZEOF(.endgame_4f568_4f760) == 0x1f8, "endgame_4f568_4f760 size changed")
 ASSERT(SIZEOF(.endgame_data_960a4_96734) == 0x690, "endgame_data_960a4_96734 size changed")
-ASSERT(SIZEOF(.endgame_data_96738_968c4) == 0x18c, "endgame_data_96738_968c4 size changed")
 D_8007C970 = 0x8007C970;
 D_8013823C = 0x8013823C;
 D_80138254 = 0x80138254;
@@ -2504,3 +2504,16 @@ ASSERT(SIZEOF(.endgame_6a80_ab58) == 0x40d8, "endgame_6a80_ab58 size changed")
 ASSERT(SIZEOF(.endgame_f828_f830) == 0x8, "endgame_f828_f830 size changed")
 ASSERT(SIZEOF(.endgame_903a0_90530) == 0x190, "endgame_903a0_90530 size changed")
 ASSERT(SIZEOF(.endgame_90540_90558) == 0x18, "endgame_90540_90558 size changed")
+D_8008D790 = 0x8008D790;
+D_8008D794 = 0x8008D794;
+D_8008D830 = 0x8008D830;
+D_801901E0 = 0x801901E0;
+D_80190208 = 0x80190208;
+D_80190220 = 0x80190220;
+D_8008D838 = 0x8008D838;
+ASSERT(SIZEOF(.audio_dma_read) == 0x1d4, "audio_dma_read size changed")
+ASSERT(SIZEOF(.audio_dma_recycle) == 0x150, "audio_dma_recycle size changed")
+ASSERT(SIZEOF(.audio_dma_read_rodata) == 0xc, "audio_dma_read_rodata size changed")
+ASSERT(SIZEOF(.audio_dma_recycle_rodata) == 0xc, "audio_dma_recycle_rodata size changed")
+ASSERT(SIZEOF(.endgame_96738_96890) == 0x158, "endgame_96738_96890 size changed")
+ASSERT(SIZEOF(.endgame_968a8_968c4) == 0x1c, "endgame_968a8_968c4 size changed")

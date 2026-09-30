@@ -765,6 +765,8 @@ MATCHING_BLOCKS = (
     ("save_menu_pak_name_select", "src/game/save_menu_pak_name_select.c", 0x800266BC, 0x8002674C),
     ("early_signature_gate", "src/game/early_signature_gate.c", 0x80005DEC, 0x80005E80),
     ("early_resource_arguments", "src/game/early_resource_arguments.c", 0x8000EC30, 0x8000ECD0),
+    ("audio_dma_read", "src/game/audio_dma_read.c", 0x80052378, 0x8005254C),
+    ("audio_dma_recycle", "src/game/audio_dma_recycle.c", 0x80052580, 0x800526D0),
 )
 
 CANDIDATE_BLOCKS = (

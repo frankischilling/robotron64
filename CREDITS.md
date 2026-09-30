@@ -324,6 +324,13 @@ Robotron procedures establish the menu stride, saved-image literals and
 resource copy. The existing pinned IDO and Super Mario 64 matching-build
 references apply. No reference implementation is copied into these routines.
 
+The [audio DMA cache recovery](docs/audio-dma-cache.md) consulted pinned local
+libreultra `src/audio/event.c` for SDK link-prefix use through explicit casts.
+Complete Robotron procedures establish the cache ordering, transfer
+submission, expiration rule and preserved error paths. The existing pinned
+IDO and Super Mario 64 matching-build references apply. No reference
+implementation is copied into these routines.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

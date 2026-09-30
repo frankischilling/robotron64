@@ -1465,5 +1465,29 @@
     },
     "static_symbols": {},
     "evidence": "docs/pak-signature-and-argument-state.md"
+  },
+  {
+    "source": "src/game/audio_dma_read.c",
+    "object": "build/us/audio_dma_read.o",
+    "input_section": ".rodata",
+    "section": ".audio_dma_read_rodata",
+    "vram": 2148097168,
+    "rom": 616592,
+    "size": 12,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/audio-dma-cache.md"
+  },
+  {
+    "source": "src/game/audio_dma_recycle.c",
+    "object": "build/us/audio_dma_recycle.o",
+    "input_section": ".rodata",
+    "section": ".audio_dma_recycle_rodata",
+    "vram": 2148097180,
+    "rom": 616604,
+    "size": 12,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/audio-dma-cache.md"
   }
 ]

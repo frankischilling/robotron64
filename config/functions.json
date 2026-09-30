@@ -14270,5 +14270,27 @@
     "section": ".early_resource_arguments",
     "section_vram": 2147544112,
     "evidence": "docs/pak-signature-and-argument-state.md"
+  },
+  {
+    "name": "func_80052378",
+    "rom": 339832,
+    "vram": 2147820408,
+    "size": 468,
+    "source": "src/game/audio_dma_read.c",
+    "object": "build/us/audio_dma_read.o",
+    "section": ".audio_dma_read",
+    "section_vram": 2147820408,
+    "evidence": "docs/audio-dma-cache.md"
+  },
+  {
+    "name": "func_80052580",
+    "rom": 340352,
+    "vram": 2147820928,
+    "size": 336,
+    "source": "src/game/audio_dma_recycle.c",
+    "object": "build/us/audio_dma_recycle.o",
+    "section": ".audio_dma_recycle",
+    "section_vram": 2147820928,
+    "evidence": "docs/audio-dma-cache.md"
   }
 ]
