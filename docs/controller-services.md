@@ -13,14 +13,15 @@ independent comparison and integrated build checks.
 
 ## Matching source
 
-Eight source units contain twelve matching functions and 1,768 bytes. Each
+Nine source units contain fourteen matching functions and 2,072 bytes. Each
 complete unit passed an independent comparison and the full public ROM build.
 
 | Source | Complete range | Functions | Bytes |
 | --- | --- | ---: | ---: |
-| `controller_access.c` | `0x8004EFB0..0x8004F06C` | 3 | 188 |
+| `controller_access.c` | `0x8004EFB0..0x8004F178` | 4 | 456 |
 | `controller_motor_commands.c` | `0x8004F178..0x8004F1EC` | 2 | 116 |
 | `controller_scan.c` | `0x8004F1EC..0x8004F330` | 1 | 324 |
+| `frame_interval_set.c` | `0x8004F960..0x8004F984` | 1 | 36 |
 | `controller_pak_info.c` | `0x8004F990..0x8004FA14` | 2 | 132 |
 | `controller_pak_delete.c` | `0x8004FA14..0x8004FAC0` | 1 | 172 |
 | `controller_pak_name.c` | `0x8004FAC0..0x8004FB48` | 1 | 136 |
@@ -38,15 +39,18 @@ the trimmed build object has SHA-256
 Its only allocated program section is `.text`, exactly `0x150` bytes. The
 integrated 8,388,608-byte ROM has SHA-256
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`,
-identical to the accepted target, and the manifest validates 940 function
-records plus 29 source-owned data/BSS sections.
+identical to the accepted target. Those hashes describe the earlier Pak-entry
+recovery checkpoint. Current manifests, full comparisons, and progress are
+regenerated for the current source checkout.
 
 The extension decoder uses the same real table backing as the Pak-name decoder:
 `D_8008D520[character - 15]` for codes 15 through 65. Direct target comparison
 confirmed this natural indexing emits the target address calculation exactly,
 so no shifted table alias is required.
 
-These units define no initialized data or BSS. The motor thread, polling,
+These units define no initialized data or BSS. The motor worker now matches
+in the same translation unit as its access helpers; [its recovery notes](controller-motor-worker.md)
+record the command protocol and object-relative alignment. Polling,
 initialization/rescan, and rumble update routines remain
 excluded candidates. Their private comparison records include code-size,
 instruction-scheduling, and register-allocation differences; they contribute
