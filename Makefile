@@ -4972,16 +4972,18 @@ build/us/pi_extended_dma.o: src/sdk/pi_extended_dma.c include/sdk_pi_word.h $(ID
 	$(PYTHON) tools/trim_padding.py build/us/pi_extended_dma.raw.o $@ .text 0x224
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/sine_float.o: src/sdk/sine_float.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/sine_float.o: src/sdk/sine_float.c include/sdk_float_values.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sine_float.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/sine_float.raw.o $@ .text 0x1c0
+	$(PYTHON) tools/trim_padding.py build/us/sine_float.raw.o build/us/sine_float.text.o .text 0x1c0
+	$(PYTHON) tools/owned_sections.py $< build/us/sine_float.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/cosine_float.o: src/sdk/cosine_float.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/cosine_float.o: src/sdk/cosine_float.c include/sdk_float_values.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/cosine_float.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/cosine_float.raw.o $@ .text 0x168
+	$(PYTHON) tools/trim_padding.py build/us/cosine_float.raw.o build/us/cosine_float.text.o .text 0x168
+	$(PYTHON) tools/owned_sections.py $< build/us/cosine_float.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/audio_voice_sequence_bind.o: src/game/audio_voice_sequence_bind.c include/audio_file_services_internal.h include/audio_host_internal.h include/audio_properties_internal.h include/audio_sequence_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -5076,6 +5078,40 @@ build/us/os_block_copy.o: src/sdk/os_block_copy.s Makefile tools/provenance.py
 
 RUNTIME_OBJECTS += \
     build/us/os_block_copy.o
+
+build/us/video_manager.o: src/sdk/video_manager.c tools/owned_sections.py config/owned_sections.json include/scheduler.h include/sdk_pi_word.h include/sdk_time.h include/sdk_timers.h include/sdk_video_internal.h include/sdk_video_manager.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/video_manager.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/video_manager.raw.o build/us/video_manager.text.o .text 0x354
+	$(PYTHON) tools/owned_sections.py $< build/us/video_manager.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/video_initialize.o: src/sdk/video_initialize.c tools/owned_sections.py config/owned_sections.json include/scheduler.h include/sdk_pi_word.h include/sdk_time.h include/sdk_video_internal.h include/sdk_video_manager.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/video_initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/video_initialize.raw.o build/us/video_initialize.text.o .text 0x13c
+	$(PYTHON) tools/owned_sections.py $< build/us/video_initialize.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_cartridge_initialize.o: src/sdk/pi_cartridge_initialize.c tools/owned_sections.py config/owned_sections.json include/sdk_pi_device.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_cartridge_initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_cartridge_initialize.raw.o build/us/pi_cartridge_initialize.text.o .text 0xec
+	$(PYTHON) tools/owned_sections.py $< build/us/pi_cartridge_initialize.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/pi_disk_initialize.o: src/sdk/pi_disk_initialize.c tools/owned_sections.py config/owned_sections.json include/sdk_pi_device.h include/sdk_pi_disk.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_disk_initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_disk_initialize.raw.o build/us/pi_disk_initialize.text.o .text 0xf8
+	$(PYTHON) tools/owned_sections.py $< build/us/pi_disk_initialize.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/video_manager.o \
+    build/us/video_initialize.o \
+    build/us/pi_cartridge_initialize.o \
+    build/us/pi_disk_initialize.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

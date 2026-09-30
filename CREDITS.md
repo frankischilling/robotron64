@@ -121,8 +121,8 @@ record local libreultra comparisons for raw extended DMA and handle timing,
 float sine/cosine, data and instruction cache operations, block clearing, and
 CPU/RCP interrupt-mask application. Robotron's complete comparisons establish
 the VR4300 multiply scheduling profile for float math and the native assembly
-extents. The coefficients, timing-handle storage, and interrupt conversion
-table remain fallback data in this checkpoint.
+extents. At that checkpoint, the coefficients, timing-handle storage, and
+interrupt conversion table remained fallback data.
 
 The [task-loading and yielding notes](docs/sdk-task-loading-and-yield.md)
 record local libreultra comparisons for RSP task copying and address conversion,
@@ -131,6 +131,13 @@ The consulted files are `src/io/sptask.c`, `src/io/leointerrupt.c`,
 `src/os/exceptasm.s`, and `src/libc/bcopy.s`. Robotron's complete instruction
 comparisons determine the accepted source; native procedures and their
 alignment are measured separately from C.
+
+The [float constants](docs/sdk-float-math-constants.md) and
+[video/device initialization](docs/sdk-video-and-device-initialization.md)
+record further local libreultra comparisons with `src/gu/sinf.c`,
+`src/gu/cosf.c`, `src/io/vi.c`, `src/io/vimgr.c`, `src/io/viint.h`,
+`src/io/cartrominit.c`, and `src/io/leodiskinit.c`. These comparisons corroborate
+numeric representations, SDK interfaces, and complete storage layouts.
 
 The subsequent [timer and priority recovery](docs/sdk-time-and-priority.md),
 [scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and

@@ -13430,5 +13430,60 @@
     "section_vram": 2147921936,
     "evidence": "docs/sdk-task-loading-and-yield.md",
     "language": "assembly"
+  },
+  {
+    "name": "osCreateViManager",
+    "rom": 416064,
+    "vram": 2147896640,
+    "size": 392,
+    "source": "src/sdk/video_manager.c",
+    "object": "build/us/video_manager.o",
+    "section": ".video_manager",
+    "section_vram": 2147896640,
+    "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "name": "func_80064EC8",
+    "rom": 416456,
+    "vram": 2147897032,
+    "size": 460,
+    "source": "src/sdk/video_manager.c",
+    "object": "build/us/video_manager.o",
+    "section": ".video_manager",
+    "section_vram": 2147896640,
+    "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "name": "func_80068050",
+    "rom": 429136,
+    "vram": 2147909712,
+    "size": 316,
+    "source": "src/sdk/video_initialize.c",
+    "object": "build/us/video_initialize.o",
+    "section": ".video_initialize",
+    "section_vram": 2147909712,
+    "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "name": "func_800675E0",
+    "rom": 426464,
+    "vram": 2147907040,
+    "size": 236,
+    "source": "src/sdk/pi_cartridge_initialize.c",
+    "object": "build/us/pi_cartridge_initialize.o",
+    "section": ".pi_cartridge_initialize",
+    "section_vram": 2147907040,
+    "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "name": "func_800676D0",
+    "rom": 426704,
+    "vram": 2147907280,
+    "size": 248,
+    "source": "src/sdk/pi_disk_initialize.c",
+    "object": "build/us/pi_disk_initialize.o",
+    "section": ".pi_disk_initialize",
+    "section_vram": 2147907280,
+    "evidence": "docs/sdk-video-and-device-initialization.md"
   }
 ]

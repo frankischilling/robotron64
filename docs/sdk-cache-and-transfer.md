@@ -30,7 +30,8 @@ order retain the retail behavior.
 The accepted `sdk-o2-mips2-r4300-mul` profile is established by full comparisons.
 Its multiply scheduling option supplies the three required multiply-delay
 instructions in cosine and the corresponding delays in sine. The existing
-polynomial coefficients and reduction constants remain fallback data.
+polynomial coefficients and reduction constants are reconstructed in
+[the float constant recovery](sdk-float-math-constants.md).
 
 ## Game buffer and sequence services
 

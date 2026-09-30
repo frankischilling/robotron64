@@ -885,5 +885,120 @@
     },
     "static_symbols": {},
     "evidence": "docs/sdk-short-sine-table.md"
+  },
+  {
+    "source": "src/sdk/sine_float.c",
+    "object": "build/us/sine_float.o",
+    "input_section": ".rodata",
+    "section": ".sine_float_rodata",
+    "vram": 2148097328,
+    "rom": 616752,
+    "size": 68,
+    "symbols": {
+      "D_DBL_80095D30": 0,
+      "D_DBL_80095D58": 40,
+      "D_DBL_80095D60": 48,
+      "D_DBL_80095D68": 56,
+      "D_FLT_80095D70": 64
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-float-math-constants.md"
+  },
+  {
+    "source": "src/sdk/cosine_float.c",
+    "object": "build/us/cosine_float.o",
+    "input_section": ".rodata",
+    "section": ".cosine_float_rodata",
+    "vram": 2148097408,
+    "rom": 616832,
+    "size": 68,
+    "symbols": {
+      "D_DBL_80095D80": 0,
+      "D_DBL_80095DA8": 40,
+      "D_DBL_80095DB0": 48,
+      "D_DBL_80095DB8": 56,
+      "D_FLT_80095DC0": 64
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-float-math-constants.md"
+  },
+  {
+    "source": "src/sdk/video_manager.c",
+    "object": "build/us/video_manager.o",
+    "input_section": ".data",
+    "section": ".video_manager_data",
+    "vram": 2148069696,
+    "rom": 589120,
+    "size": 28,
+    "symbols": {
+      "D_8008F140": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "source": "src/sdk/video_manager.c",
+    "object": "build/us/video_manager.o",
+    "input_section": ".bss",
+    "section": ".video_manager_bss",
+    "vram": 2149142704,
+    "rom": null,
+    "size": 4626,
+    "symbols": {
+      "D_801950B0": 0,
+      "D_80195260": 432,
+      "D_80196260": 4528,
+      "D_80196278": 4552,
+      "D_80196290": 4576,
+      "D_801962A8": 4600,
+      "D_801962C0": 4624
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "source": "src/sdk/video_initialize.c",
+    "object": "build/us/video_initialize.o",
+    "input_section": ".data",
+    "section": ".video_initialize_data",
+    "vram": 2148069840,
+    "rom": 589264,
+    "size": 104,
+    "symbols": {
+      "D_8008F1D0": 0,
+      "D_8008F230": 96,
+      "D_8008F234": 100
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "source": "src/sdk/pi_cartridge_initialize.c",
+    "object": "build/us/pi_cartridge_initialize.o",
+    "input_section": ".bss",
+    "section": ".pi_cartridge_initialize_bss",
+    "vram": 2149147408,
+    "rom": null,
+    "size": 116,
+    "symbols": {
+      "D_80196310": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "source": "src/sdk/pi_disk_initialize.c",
+    "object": "build/us/pi_disk_initialize.o",
+    "input_section": ".bss",
+    "section": ".pi_disk_initialize_bss",
+    "vram": 2149147536,
+    "rom": null,
+    "size": 120,
+    "symbols": {
+      "D_80196390": 0,
+      "D_80196404": 116
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-video-and-device-initialization.md"
   }
 ]

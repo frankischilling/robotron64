@@ -694,6 +694,10 @@ MATCHING_BLOCKS = (
     ("sp_task_load", "src/sdk/sp_task_load.c", 0x8006544C, 0x800655DC),
     ("pi_disk_recover", "src/sdk/pi_disk_recover.c", 0x8006E2C4, 0x8006E3AC),
     ("early_actor_forward_and_guard", "src/game/early_actor_forward_and_guard.c", 0x80015B5C, 0x80015BD4),
+    ("video_manager", "src/sdk/video_manager.c", 0x80064D40, 0x80065094),
+    ("video_initialize", "src/sdk/video_initialize.c", 0x80068050, 0x8006818C),
+    ("pi_cartridge_initialize", "src/sdk/pi_cartridge_initialize.c", 0x800675E0, 0x800676CC),
+    ("pi_disk_initialize", "src/sdk/pi_disk_initialize.c", 0x800676D0, 0x800677C8),
 )
 
 CANDIDATE_BLOCKS = (
