@@ -73,6 +73,9 @@ for repeat values, counter updates, auxiliary animation data and child setup.
 [Game collision and selection services](docs/game-collision-and-selection.md)
 continue those compiler comparisons and include complete relocated switch
 tables reconstructed from their C control flow.
+[Menu transition and texture cache recovery](docs/menu-transition-and-texture-cache.md)
+uses libreultra button definitions and Super Mario 64 GBI definitions alongside
+Robotron's menu initialization and complete RDP load/tile commands.
 
 Perfect Dark's `src/inflate/inflate.c` and Huffman entry declarations at the
 recorded revision supplied comparisons for the DEFLATE tables, bitstream, and

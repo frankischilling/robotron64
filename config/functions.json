@@ -13775,5 +13775,27 @@
     "section": ".resource_selection_clear",
     "section_vram": 2147694832,
     "evidence": "docs/game-collision-and-selection.md"
+  },
+  {
+    "name": "func_800278AC",
+    "rom": 165036,
+    "vram": 2147645612,
+    "size": 148,
+    "source": "src/game/menu_transition_start.c",
+    "object": "build/us/menu_transition_start.o",
+    "section": ".menu_transition_start",
+    "section_vram": 2147645612,
+    "evidence": "docs/menu-transition-and-texture-cache.md"
+  },
+  {
+    "name": "func_80042830",
+    "rom": 275504,
+    "vram": 2147756080,
+    "size": 144,
+    "source": "src/game/renderer_texture_file_cache.c",
+    "object": "build/us/renderer_texture_file_cache.o",
+    "section": ".renderer_texture_file_cache",
+    "section_vram": 2147756080,
+    "evidence": "docs/menu-transition-and-texture-cache.md"
   }
 ]

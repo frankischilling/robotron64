@@ -1247,5 +1247,49 @@
     },
     "static_symbols": {},
     "evidence": "docs/game-collision-and-selection.md"
+  },
+  {
+    "source": "src/game/menu_transition_start.c",
+    "object": "build/us/menu_transition_start.o",
+    "input_section": ".bss",
+    "section": ".menu_transition_start_bss",
+    "vram": 2148200088,
+    "rom": null,
+    "size": 100,
+    "symbols": {
+      "D_800AEE98": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/menu-transition-and-texture-cache.md"
+  },
+  {
+    "source": "src/game/renderer_texture_file_cache.c",
+    "object": "build/us/renderer_texture_file_cache.o",
+    "input_section": ".data",
+    "section": ".renderer_texture_file_cache_data",
+    "vram": 2147995020,
+    "rom": 514444,
+    "size": 8,
+    "symbols": {
+      "D_8007CD8C": 0,
+      "D_8007CD90": 4
+    },
+    "static_symbols": {},
+    "evidence": "docs/menu-transition-and-texture-cache.md"
+  },
+  {
+    "source": "src/game/renderer_texture_file_cache.c",
+    "object": "build/us/renderer_texture_file_cache.o",
+    "input_section": ".bss",
+    "section": ".renderer_texture_file_cache_bss",
+    "vram": 2148324288,
+    "rom": null,
+    "size": 2052,
+    "symbols": {
+      "D_800CD3C0": 0,
+      "D_800CDBC0": 2048
+    },
+    "static_symbols": {},
+    "evidence": "docs/menu-transition-and-texture-cache.md"
   }
 ]

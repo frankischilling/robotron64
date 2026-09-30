@@ -56,7 +56,9 @@ typedef struct SaveMenuNavigationStateInternal {
     unsigned char unknown4C[4];
     SaveMenuNodeInternal *selected50;
     int transition54;
-    unsigned char unknown58[0xC];
+    int restoreCamera58;
+    int releasePreview5C;
+    void (*callback60)(void);
 } SaveMenuNavigationStateInternal;
 
 typedef char SaveMenuNodeInternalMustBe48Bytes[
@@ -89,5 +91,6 @@ void func_80025D9C(SaveMenuActorInternal *actor);
 void func_80025E68(SaveMenuActorInternal *actor);
 void func_80025EF0(int x, int y, int z);
 void func_80026044(void);
+void func_8002606C(int restoreCamera, int releasePreview);
 
 #endif

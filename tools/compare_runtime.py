@@ -720,6 +720,8 @@ MATCHING_BLOCKS = (
     ("name_table_lookup", "src/game/name_table_lookup.c", 0x8001B7D0, 0x8001B870),
     ("session_mode_advance", "src/game/session_mode_advance.c", 0x80022B78, 0x80022BFC),
     ("resource_selection_clear", "src/game/resource_selection_clear.c", 0x800338F0, 0x80033974),
+    ("menu_transition_start", "src/game/menu_transition_start.c", 0x800278AC, 0x80027940),
+    ("renderer_texture_file_cache", "src/game/renderer_texture_file_cache.c", 0x80042830, 0x800428C0),
 )
 
 CANDIDATE_BLOCKS = (
