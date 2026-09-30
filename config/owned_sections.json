@@ -1030,5 +1030,50 @@
     },
     "static_symbols": {},
     "evidence": "docs/sdk-video-modes-and-swap.md"
+  },
+  {
+    "source": "src/sdk/pi_manager_create.c",
+    "object": "build/us/pi_manager_create.o",
+    "input_section": ".data",
+    "section": ".pi_manager_create_data",
+    "vram": 2148066256,
+    "rom": 585680,
+    "size": 40,
+    "symbols": {
+      "D_8008E3D0": 0,
+      "D_8008E3EC": 28,
+      "D_8008E3F0": 32
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-pi-manager.md"
+  },
+  {
+    "source": "src/sdk/pi_manager_create.c",
+    "object": "build/us/pi_manager_create.o",
+    "input_section": ".bss",
+    "section": ".pi_manager_create_bss",
+    "vram": 2149137216,
+    "rom": null,
+    "size": 4556,
+    "symbols": {
+      "D_80193B40": 0,
+      "D_80193CF0": 432,
+      "D_80194CF0": 4528,
+      "D_80194D08": 4552
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-pi-manager.md"
+  },
+  {
+    "source": "src/sdk/pi_device_manager.c",
+    "object": "build/us/pi_device_manager.o",
+    "input_section": ".rodata",
+    "section": ".pi_device_manager_rodata",
+    "vram": 2148097712,
+    "rom": 617136,
+    "size": 28,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/sdk-pi-manager.md"
   }
 ]

@@ -13496,5 +13496,38 @@
     "section": ".video_context_swap",
     "section_vram": 2147921040,
     "evidence": "docs/sdk-video-modes-and-swap.md"
+  },
+  {
+    "name": "osCreatePiManager",
+    "rom": 396768,
+    "vram": 2147877344,
+    "size": 392,
+    "source": "src/sdk/pi_manager_create.c",
+    "object": "build/us/pi_manager_create.o",
+    "section": ".pi_manager_create",
+    "section_vram": 2147877344,
+    "evidence": "docs/sdk-pi-manager.md"
+  },
+  {
+    "name": "func_80067BC0",
+    "rom": 427968,
+    "vram": 2147908544,
+    "size": 1168,
+    "source": "src/sdk/pi_device_manager.c",
+    "object": "build/us/pi_device_manager.o",
+    "section": ".pi_device_manager",
+    "section_vram": 2147908544,
+    "evidence": "docs/sdk-pi-manager.md"
+  },
+  {
+    "name": "func_8006DC20",
+    "rom": 452640,
+    "vram": 2147933216,
+    "size": 1700,
+    "source": "src/sdk/pi_disk_interrupt.c",
+    "object": "build/us/pi_disk_interrupt.o",
+    "section": ".pi_disk_interrupt",
+    "section_vram": 2147933216,
+    "evidence": "docs/sdk-pi-manager.md"
   }
 ]

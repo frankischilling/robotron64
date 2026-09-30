@@ -7,7 +7,7 @@ int func_80065840(SdkPiDmaMessage *message, int priority, int direction,
     register int result;
     register OSMesgQueue *queue;
 
-    if (!D_8008E3D0) {
+    if (!D_8008E3D0.active) {
         return -1;
     }
     if (direction == 0) {

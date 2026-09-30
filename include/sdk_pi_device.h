@@ -2,8 +2,9 @@
 #define ROBOTRON_SDK_PI_DEVICE_H
 
 #include "sdk_time.h"
+#include "sdk_pi_transfer.h"
 
-/* The initialization services clear the complete 96-byte transfer workspace. */
+/* PI initialization clears this workspace; the device manager uses its fields. */
 typedef struct SdkPiDeviceHandle {
     struct SdkPiDeviceHandle *next;
     unsigned char type;
@@ -15,7 +16,7 @@ typedef struct SdkPiDeviceHandle {
     unsigned char unknown0A[2];
     unsigned int baseAddress;
     unsigned int unknown10;
-    unsigned char transferInfo[96];
+    SdkPiTransferInfo transferInfo;
 } SdkPiDeviceHandle;
 
 typedef char SdkPiDeviceHandleMustBe116Bytes[

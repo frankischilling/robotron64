@@ -1,10 +1,14 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,199 matching C functions covering 186,252 bytes, twenty-five assembly functions covering 2,792 bytes, 8,609 bytes of source-owned initialized data, and 9,845 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,202 matching C functions covering 189,512 bytes, twenty-five assembly functions covering 2,792 bytes, 8,677 bytes of source-owned initialized data, and 14,401 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
 ## Target
+
+The [PI manager](docs/sdk-pi-manager.md) recovers creation, DMA and disk
+completion, disk interrupts, complete transfer records, switch table, handle pointers, and
+private thread/queue storage.
 
 USA, game ID `NRXE`, header revision 0, 8 MiB. Hashes refer to big-endian byte order:
 

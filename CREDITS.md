@@ -236,6 +236,13 @@ and [additional runtime recovery](docs/runtime-recovery.md).
 Those documents distinguish target-confirmed facts from reference
 comparisons and remaining hypotheses.
 
+The [PI manager reconstruction](docs/sdk-pi-manager.md) consulted pinned local
+libreultra `src/io/pimgr.c`, `src/io/devmgr.c`, `src/io/leointerrupt.c`, and
+`include/2.0I/PR/os.h`. They corroborate creation, DMA/disk completion,
+disk interrupts, and historical record layouts.
+Complete Robotron instructions and relocated storage establish the message
+constants, jump table, private thread/queue storage, and handle pointers.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

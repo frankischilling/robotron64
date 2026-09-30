@@ -52,9 +52,9 @@ handle, and installs the pointer used by disk error recovery.
 
 Each complete handle has 116 bytes, including the confirmed 96-byte transfer
 workspace. The cartridge handle is at `80196310`; the disk handle and recovery
-pointer occupy 120 bytes at `80196390`. The transfer contents and unused word
-at offset `10` remain opaque. Error recovery retains its confirmed partial
-view of the same disk handle.
+pointer occupy 120 bytes at `80196390`. Subsequent [PI manager recovery](sdk-pi-manager.md)
+establishes the complete transfer layout. The unused word at offset `10`
+retains its unknown name. Error recovery retains its confirmed partial view.
 
 Definitions remain in their owning translation units. Their visibility affects
 IDO's address scheduling and is required for the exact instruction matches.

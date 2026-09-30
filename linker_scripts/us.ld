@@ -784,7 +784,7 @@ SECTIONS
     .thread_create 0x8005FF40 : AT(0x60B40) SUBALIGN(4) { build/us/thread_create.o(.text) }
     .cpu_after_thread_create 0x80060084 : AT(0x60C84) { build/us/fallback.o(.rom_cpu_after_thread_create) }
     .thread_start 0x80060090 : AT(0x60C90) SUBALIGN(4) { build/us/thread_start.o(.text) }
-    .pi_manager_create 0x800601E0 : AT(0x60DE0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_pi_manager_create) }
+    .pi_manager_create 0x800601E0 : AT(0x60DE0) SUBALIGN(4) { build/us/pi_manager_create.o(.text) }
     .cpu_after_pi_manager_create 0x80060368 : AT(0x60F68) { build/us/fallback.o(.rom_cpu_after_pi_manager_create) }
     .thread_set_priority 0x80060370 : AT(0x60F70) SUBALIGN(4) { build/us/thread_set_priority.o(.text) }
     .message_queue 0x80060450 : AT(0x61050) SUBALIGN(4) { build/us/message_queue.o(.text) }
@@ -912,7 +912,8 @@ SECTIONS
     .cpu_after_thread_get_priority 0x800678A8 : AT(0x684A8) { build/us/fallback.o(.rom_cpu_after_thread_get_priority) }
     .pi_raw_dma 0x800678B0 : AT(0x684B0) SUBALIGN(4) { build/us/pi_raw_dma.o(.text) }
     .pi_extended_dma 0x80067990 : AT(0x68590) SUBALIGN(4) { build/us/pi_extended_dma.o(.text) }
-    .endgame_687b4_68c50 0x80067BB4 : AT(0x687B4) { build/us/fallback.o(.rom_endgame_687b4_68c50) }
+    .endgame_687b4_687c0 0x80067BB4 : AT(0x687B4) { build/us/fallback.o(.rom_endgame_687b4_687c0) }
+    .pi_device_manager 0x80067BC0 : AT(0x687C0) SUBALIGN(4) { build/us/pi_device_manager.o(.text) }
     .video_initialize 0x80068050 : AT(0x68C50) SUBALIGN(4) { build/us/video_initialize.o(.text) }
     .endgame_68d8c_68d90 0x8006818C : AT(0x68D8C) { build/us/fallback.o(.rom_endgame_68d8c_68d90) }
     .os_probe_tlb 0x80068190 : AT(0x68D90) SUBALIGN(4) { build/us/os_probe_tlb.o(.text) }
@@ -975,7 +976,8 @@ SECTIONS
     .cpu_after_audio_aux_bus 0x8006DB28 : AT(0x6E728) { build/us/fallback.o(.rom_cpu_after_audio_aux_bus) }
     .audio_save_filter 0x8006DB30 : AT(0x6E730) SUBALIGN(4) { build/us/audio_save_filter.o(.text) }
     .si_busy 0x8006DBF0 : AT(0x6E7F0) SUBALIGN(4) { build/us/si_busy.o(.text) }
-    .endgame_6e81c_6eec4 0x8006DC1C : AT(0x6E81C) { build/us/fallback.o(.rom_endgame_6e81c_6eec4) }
+    .endgame_6e81c_6e820 0x8006DC1C : AT(0x6E81C) { build/us/fallback.o(.rom_endgame_6e81c_6e820) }
+    .pi_disk_interrupt 0x8006DC20 : AT(0x6E820) SUBALIGN(4) { build/us/pi_disk_interrupt.o(.text) }
     .pi_disk_recover 0x8006E2C4 : AT(0x6EEC4) SUBALIGN(4) { build/us/pi_disk_recover.o(.text) }
     .pi_event_notify 0x8006E3AC : AT(0x6EFAC) SUBALIGN(4) { build/us/pi_event_notify.o(.text) }
     .cpu_after_pi_event 0x8006E498 : AT(0x6F098) { build/us/fallback.o(.rom_cpu_after_pi_event) }
@@ -1010,8 +1012,8 @@ SECTIONS
     .compression_workspace_data 0x8008DA40 : AT(0x8E640) SUBALIGN(4) { build/us/compression_workspace.o(.data) }
     .short_sine_data 0x8008DBB0 : AT(0x8E7B0) SUBALIGN(4) { build/us/short_sine.o(.data) }
     .after_short_sine_data 0x8008E3B0 : AT(0x8EFB0) { build/us/fallback.o(.rom_after_short_sine_data) }
-    .sdk_pi_manager_data 0x8008E3D0 : AT(0x8EFD0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_pi_manager_data) }
-    .before_video_modes_data 0x8008E3EC : AT(0x8EFEC) { build/us/fallback.o(.rom_before_video_modes_data) }
+    .pi_manager_create_data 0x8008E3D0 : AT(0x8EFD0) SUBALIGN(4) { build/us/pi_manager_create.o(.data) }
+    .endgame_data_8eff8_8f000 0x8008E3F8 : AT(0x8EFF8) { build/us/fallback.o(.rom_endgame_data_8eff8_8f000) }
     .video_modes_data 0x8008E400 : AT(0x8F000) SUBALIGN(4) { build/us/video_modes.o(.data) }
     .gu_random_data 0x8008F120 : AT(0x8FD20) SUBALIGN(4) { build/us/gu_random.o(.data) }
     .data_after_sdk_random_data 0x9001FC14 : AT(0x8FD24) { build/us/fallback.o(.rom_data_after_sdk_random_data) }
@@ -1063,7 +1065,9 @@ SECTIONS
     .after_cosine_float_rodata 0x80095DC4 : AT(0x969C4) { build/us/fallback.o(.rom_after_cosine_float_rodata) }
     .data_after_sdk_float_math_constants 0x80095DD0 : AT(0x969D0) { build/us/fallback.o(.rom_data_after_sdk_float_math_constants) }
     .audio_synthesizer_rodata 0x80095E50 : AT(0x96A50) SUBALIGN(4) { build/us/audio_synthesizer.o(.rodata) }
-    .data_after_sdk_audio_synthesizer_constants 0x910066C0 : AT(0x96A60) { build/us/fallback.o(.rom_data_after_sdk_audio_synthesizer_constants) }
+    .endgame_data_96a60_96ab0 0x80095E60 : AT(0x96A60) { build/us/fallback.o(.rom_endgame_data_96a60_96ab0) }
+    .pi_device_manager_rodata 0x80095EB0 : AT(0x96AB0) SUBALIGN(4) { build/us/pi_device_manager.o(.rodata) }
+    .endgame_data_96acc_96ae0 0x80095ECC : AT(0x96ACC) { build/us/fallback.o(.rom_endgame_data_96acc_96ae0) }
     .audio_effect_create_rodata 0x80095EE0 : AT(0x96AE0) SUBALIGN(4) { build/us/audio_effect_create.o(.rodata) }
     .audio_resample_rodata 0x80095F00 : AT(0x96B00) SUBALIGN(4) { build/us/audio_resample.o(.rodata) }
     .data_after_sdk_audio_resample_constants 0x91006794 : AT(0x96B34) { build/us/fallback.o(.rom_data_after_sdk_audio_resample_constants) }
@@ -1100,6 +1104,7 @@ SECTIONS
     .video_manager_bss 0x801950B0 (NOLOAD) : SUBALIGN(4) { build/us/video_manager.o(.bss) }
     .pi_cartridge_initialize_bss 0x80196310 (NOLOAD) : SUBALIGN(4) { build/us/pi_cartridge_initialize.o(.bss) }
     .pi_disk_initialize_bss 0x80196390 (NOLOAD) : SUBALIGN(4) { build/us/pi_disk_initialize.o(.bss) }
+    .pi_manager_create_bss 0x80193B40 (NOLOAD) : SUBALIGN(4) { build/us/pi_manager_create.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1475,7 +1480,6 @@ ASSERT(SIZEOF(.cosine_float_rodata) == 0x44, "cosine float constants size change
 ASSERT(SIZEOF(.after_cosine_float_rodata) == 0xc, "cosine float alignment size changed")
 ASSERT(SIZEOF(.data_after_sdk_float_math_constants) == 0x80, "after float constants size changed")
 ASSERT(SIZEOF(.audio_synthesizer_rodata) == 0x10, "audio_synthesizer_rodata size changed")
-ASSERT(SIZEOF(.data_after_sdk_audio_synthesizer_constants) == 0x80, "data_after_sdk_audio_synthesizer_constants size changed")
 ASSERT(SIZEOF(.audio_effect_create_rodata) == 0x20, "audio_effect_create_rodata size changed")
 ASSERT(SIZEOF(.audio_resample_rodata) == 0x34, "audio_resample_rodata size changed")
 ASSERT(SIZEOF(.data_after_sdk_audio_resample_constants) == 0xc, "data_after_sdk_audio_resample_constants size changed")
@@ -1489,7 +1493,6 @@ ASSERT(SIZEOF(.data_before_text_table) == 0x8c40, "data_before_text_table size c
 ASSERT(SIZEOF(.movie_commands_data) == 0x68, "movie_commands_data size changed")
 ASSERT(SIZEOF(.data_after_movie_commands_data) == 0x15888, "data_after_movie_commands_data size changed")
 ASSERT(SIZEOF(.compression_workspace_data) == 0x170, "compression_workspace_data size changed")
-ASSERT(SIZEOF(.sdk_pi_manager_data) == 0x1c, "sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.gu_random_data) == 0x4, "gu_random_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_random_data) == 0xc, "data_after_sdk_random_data size changed")
 ASSERT(SIZEOF(.controller_init_data) == 0x4, "controller_init_data size changed")
@@ -2164,12 +2167,10 @@ ASSERT(SIZEOF(.early_actor_forward_and_guard) == 0x78, "early_actor_forward_and_
 ASSERT(SIZEOF(.thread_enqueue_and_yield) == 0x100, "thread_enqueue_and_yield size changed")
 ASSERT(SIZEOF(.endgame_1627c_1675c) == 0x4e0, "endgame_1627c_1675c size changed")
 ASSERT(SIZEOF(.endgame_6764c_67c7c) == 0x630, "endgame_6764c_67c7c size changed")
-ASSERT(SIZEOF(.endgame_6e81c_6eec4) == 0x6a8, "endgame_6e81c_6eec4 size changed")
 ASSERT(SIZEOF(.os_block_copy) == 0x310, "os_block_copy size changed")
 ASSERT(SIZEOF(.endgame_6bc0c_6bc10) == 0x4, "endgame_6bc0c_6bc10 size changed")
 ASSERT(SIZEOF(.short_sine_data) == 0x800, "short sine data size changed")
 ASSERT(SIZEOF(.after_short_sine_data) == 0x20, "after short sine data size changed")
-ASSERT(SIZEOF(.before_video_modes_data) == 0x14, "before video modes data size changed")
 ASSERT(SIZEOF(.video_modes_data) == 0xd20, "video modes data size changed")
 ASSERT(SIZEOF(.video_default_modes_data) == 0xf0, "default video modes data size changed")
 ASSERT(SIZEOF(.after_video_default_modes_data) == 0x58, "after default video modes data size changed")
@@ -2186,8 +2187,17 @@ ASSERT(SIZEOF(.pi_cartridge_initialize) == 0xec, "pi_cartridge_initialize size c
 ASSERT(SIZEOF(.pi_disk_initialize) == 0xf8, "pi_disk_initialize size changed")
 ASSERT(SIZEOF(.endgame_682cc_682d0) == 0x4, "endgame_682cc_682d0 size changed")
 ASSERT(SIZEOF(.endgame_683c8_683d0) == 0x8, "endgame_683c8_683d0 size changed")
-ASSERT(SIZEOF(.endgame_687b4_68c50) == 0x49c, "endgame_687b4_68c50 size changed")
 ASSERT(SIZEOF(.endgame_68d8c_68d90) == 0x4, "endgame_68d8c_68d90 size changed")
 ASSERT(SIZEOF(.video_context_swap) == 0x35c, "video context swap size changed")
 ASSERT(SIZEOF(.endgame_6b88c_6b890) == 0x4, "endgame_6b88c_6b890 size changed")
 ASSERT(SIZEOF(.endgame_6bbec_6bbf0) == 0x4, "endgame_6bbec_6bbf0 size changed")
+ASSERT(SIZEOF(.pi_device_manager) == 0x490, "pi_device_manager size changed")
+ASSERT(SIZEOF(.pi_manager_create_data) == 0x28, "pi_manager_create_data size changed")
+ASSERT(SIZEOF(.pi_manager_create_bss) == 0x11cc, "pi_manager_create_bss size changed")
+ASSERT(SIZEOF(.pi_device_manager_rodata) == 0x1c, "pi_device_manager_rodata size changed")
+ASSERT(SIZEOF(.endgame_687b4_687c0) == 0xc, "endgame_687b4_687c0 size changed")
+ASSERT(SIZEOF(.endgame_data_8eff8_8f000) == 0x8, "endgame_data_8eff8_8f000 size changed")
+ASSERT(SIZEOF(.endgame_data_96a60_96ab0) == 0x50, "endgame_data_96a60_96ab0 size changed")
+ASSERT(SIZEOF(.endgame_data_96acc_96ae0) == 0x14, "endgame_data_96acc_96ae0 size changed")
+ASSERT(SIZEOF(.pi_disk_interrupt) == 0x6a4, "PI disk interrupt size changed")
+ASSERT(SIZEOF(.endgame_6e81c_6e820) == 0x4, "endgame_6e81c_6e820 size changed")

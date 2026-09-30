@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,199 matching C functions covering 186,252 bytes.
-It also contains twenty-five assembly functions covering 2,792 live bytes, 8,609 bytes
-of source-owned initialized data, and 9,845 bytes of source-owned BSS. The
+The source checkpoint contains 1,202 matching C functions covering 189,512 bytes.
+It also contains twenty-five assembly functions covering 2,792 live bytes, 8,677 bytes
+of source-owned initialized data, and 14,401 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-272 complete C functions, 65,204 C bytes, twenty-four assembly procedures with
-2,736 live bytes, 6,961 reconstructed initialized bytes, and 5,755 BSS bytes.
+275 complete C functions, 68,464 C bytes, twenty-four assembly procedures with
+2,736 live bytes, 7,029 reconstructed initialized bytes, and 10,311 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,11 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+The [PI manager, device loop, and disk interrupts](sdk-pi-manager.md) add three complete C
+procedures with 3,260 instruction bytes, 68 initialized bytes, and 4,556 BSS
+bytes. Complete transfer records and the seven-entry switch table are checked
+alongside creation and DMA/disk completion paths.
 
 The audio work covers instance pause/resume and owner controls, handle and voice
 properties, host file services, sequence calls/jumps/returns, voice capture,
@@ -33,7 +38,7 @@ initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
 131 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
-the source inputs and complete procedure extents for all 1,199 counted C
+the source inputs and complete procedure extents for all 1,202 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
@@ -161,7 +166,7 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 689 complete source units. Startup/scheduler
+The runtime registry contains 692 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-five procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
