@@ -1501,5 +1501,16 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/collision-death-result.md"
+  },
+  {
+    "source": "src/boot/graphics_setup.c",
+    "object": "build/us/graphics_setup.o",
+    "input_section": ".rodata",
+    "section": ".graphics_setup_table",
+    "vram": 2148097008,
+    "rom": 616432,
+    "size": 124,
+    "symbols": {},
+    "evidence": "docs/actor-follow-and-graphics-pacing.md"
   }
 ]

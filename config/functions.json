@@ -14446,5 +14446,38 @@
     "section": ".early_bonus_pattern",
     "section_vram": 2147545880,
     "evidence": "docs/actor-animation-and-bonus-pattern.md"
+  },
+  {
+    "name": "func_80029020",
+    "rom": 171040,
+    "vram": 2147651616,
+    "size": 144,
+    "source": "src/game/actor_position_follow.c",
+    "object": "build/us/actor_position_follow.o",
+    "section": ".actor_position_follow",
+    "section_vram": 2147651616,
+    "evidence": "docs/actor-follow-and-graphics-pacing.md"
+  },
+  {
+    "name": "func_80035360",
+    "rom": 221024,
+    "vram": 2147701600,
+    "size": 324,
+    "source": "src/game/actor_value_follow.c",
+    "object": "build/us/actor_value_follow.o",
+    "section": ".actor_value_follow",
+    "section_vram": 2147701600,
+    "evidence": "docs/actor-follow-and-graphics-pacing.md"
+  },
+  {
+    "name": "func_8004FEA8",
+    "rom": 330408,
+    "vram": 2147810984,
+    "size": 476,
+    "source": "src/boot/graphics_setup.c",
+    "object": "build/us/graphics_setup.o",
+    "section": ".graphics_setup",
+    "section_vram": 2147810832,
+    "evidence": "docs/actor-follow-and-graphics-pacing.md"
   }
 ]

@@ -382,7 +382,7 @@ MATCHING_BLOCKS = (
     ("controller_pak_name", "src/game/controller_pak_name.c", 0x8004FAC0, 0x8004FB48),
     ("controller_pak_entry", "src/game/controller_pak_entry.c", 0x8004FB48, 0x8004FC98),
     ("controller_pak_directory", "src/game/controller_pak_directory.c", 0x8004FC98, 0x8004FE04),
-    ("graphics_setup", "src/boot/graphics_setup.c", 0x8004FE10, 0x8004FEA8),
+    ("graphics_setup", "src/boot/graphics_setup.c", 0x8004FE10, 0x80050084),
     ("graphics_tasks", "src/boot/graphics_tasks.c", 0x80050084, 0x80050440),
     ("scheduler", "src/boot/scheduler.c", 0x80050440, 0x80050FB0),
     ("scheduler_runtime_tail", "src/boot/scheduler_runtime_tail.c", 0x80050FB0, 0x8005109C),
@@ -781,6 +781,8 @@ MATCHING_BLOCKS = (
     ("actor_random_fan", "src/game/actor_random_fan.c", 0x800295CC, 0x80029760),
     ("actor_list_animation_tick", "src/game/actor_list_animation_tick.c", 0x80029FD8, 0x8002A244),
     ("early_bonus_pattern", "src/game/early_bonus_pattern.c", 0x8000F318, 0x8000F4E0),
+    ("actor_position_follow", "src/game/actor_position_follow.c", 0x80029020, 0x800290B0),
+    ("actor_value_follow", "src/game/actor_value_follow.c", 0x80035360, 0x800354A4),
 )
 
 CANDIDATE_BLOCKS = (
@@ -792,7 +794,6 @@ CANDIDATE_BLOCKS = (
     ("game_number_parse", "src/game/game_number_parse.c", 0x8003BD4C, 0x8003BF5C),
     ("controller_input", "src/game/controller_input.c", 0x8003C1A8, 0x8003C4C8),
     ("frame_begin", "src/boot/frame_begin.c", 0x80048510, 0x800489F4),
-    ("graphics_pacing", "src/boot/graphics_pacing.c", 0x8004FEA8, 0x80050084),
 )
 
 

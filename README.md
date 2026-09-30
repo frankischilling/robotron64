@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,230 matching C functions covering 194,708 bytes, twenty-nine assembly functions covering 4,372 bytes, 9,035 bytes of source-owned initialized data, and 21,573 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,284 matching C functions covering 209,944 bytes, twenty-nine assembly functions covering 4,372 bytes, 9,339 bytes of source-owned initialized data, and 21,629 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -63,6 +63,8 @@ The reconstructed game source covers text and object helpers, movie commands and
 The [tweak and string services](docs/tweaks-and-strings.md) recover the 100 named gameplay bindings, difficulty application, string lookup, and companion-file loading. [Script services](docs/script-services.md) cover file registration, cache lifecycle, and script-setup commands. [Actor motion](docs/actor-motion.md) and [actor behaviors](docs/actor-behaviors.md) describe the recovered motion blends, heading selection, and animation callback transitions.
 
 The [renderer-state recovery](docs/graphics-state.md) covers display-list termination and calls, render-mode switching, directional lights, vertex-pool accounting, and environment colors. [Renderer geometry](docs/renderer-geometry.md) records hardware vertex attributes, material selection, texture uploads, and vertex-copy loops. [Sound bridges](docs/sound-bridge.md) and [geometry bridges](docs/geometry-bridges.md) document the game-side sound queue and transform wrappers. All counted functions and their generated tables or strings pass complete comparisons.
+
+[Actor following and graphics pacing](docs/actor-follow-and-graphics-pacing.md) recover both position followers and the complete graphics message loop, including its compiler-generated 31-entry dispatch table.
 
 [Menu navigation](docs/save-menu-navigation.md) covers active-node changes,
 forward and back callbacks, preview creation and release, and cleanup.

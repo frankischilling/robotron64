@@ -303,10 +303,11 @@ build/us/fixed_math.o: src/game/fixed_math.c include/fixed_math.h include/sdk_ma
 	$(PYTHON) tools/trim_padding.py build/us/fixed_math.raw.o $@ .text 0x134
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_setup.o: src/boot/graphics_setup.c include/graphics_tasks.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_setup.o: src/boot/graphics_setup.c include/graphics_tasks.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_setup.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/graphics_setup.raw.o $@ .text 0x98
+	$(PYTHON) tools/trim_padding.py build/us/graphics_setup.raw.o build/us/graphics_setup.text.o .text 0x274
+	$(PYTHON) tools/owned_sections.py $< build/us/graphics_setup.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/graphics_tasks.o: src/boot/graphics_tasks.c include/graphics_tasks.h include/scheduler.h include/scheduler_task.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -5812,6 +5813,22 @@ build/us/early_bonus_pattern.o: src/game/early_bonus_pattern.c include/actor.h i
 RUNTIME_OBJECTS += \
     build/us/actor_list_animation_tick.o \
     build/us/early_bonus_pattern.o
+
+build/us/actor_position_follow.o: src/game/actor_position_follow.c include/actor.h include/actor_behavior_internal.h include/actor_position_pairs.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_position_follow.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_position_follow.raw.o $@ .text 0x90
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_value_follow.o: src/game/actor_value_follow.c include/actor.h include/actor_behavior_internal.h include/actor_position_pairs.h include/actor_resource_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_value_follow.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_value_follow.raw.o $@ .text 0x144
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/actor_position_follow.o \
+    build/us/actor_value_follow.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

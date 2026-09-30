@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,230 matching C functions covering 194,708 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,035 bytes
-of source-owned initialized data, and 21,573 bytes of source-owned BSS. The
+The source checkpoint contains 1,284 matching C functions covering 209,944 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,339 bytes
+of source-owned initialized data, and 21,629 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-303 complete C functions, 73,660 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 7,387 reconstructed initialized bytes, and 17,483 BSS bytes.
+357 complete C functions, 88,896 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 7,691 reconstructed initialized bytes, and 17,539 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -207,7 +207,7 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 694 complete source units. Startup/scheduler
+The runtime registry contains 773 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-nine procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
@@ -255,11 +255,12 @@ frame setup, text replacement, and further platform functions are unfinished.
 Their complete candidate comparisons and source investigations remain available
 locally, but their bytes are excluded from this checkpoint's source counts.
 
-The retained combined graphics setup/pacing experiment reproduces 628 code
-bytes and its 124-byte dispatch table. Its sparse empty case labels remain
-unexplained by the target's callers, so that pacing candidate is excluded from
-this checkpoint. The existing 152-byte setup source remains counted; no
-synthetic prefix or partial pacing extent is substituted for recovered source.
+The combined graphics setup/pacing source now reproduces all 628 code
+bytes and its 124-byte dispatch table and is included in this checkpoint.
+The precise original selection of empty case labels is not uniquely recoverable
+from the shared table destinations; the source retains equivalent empty cases
+and the target's full dispatch bounds. [Actor following and graphics pacing](actor-follow-and-graphics-pacing.md)
+also add both complete follower routines, for 944 new instruction bytes in total.
 
 Reference-adapted SDK experiments remain separate local research. The
 target-derived SDK runtime described above is part of this checkpoint; the
