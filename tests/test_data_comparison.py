@@ -5,7 +5,7 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
-from compare_data import data_only_sources, verify_data_sections
+from compare_data import data_linker_script, data_only_sources, verify_data_sections
 from audit_publication import check_data_report
 
 
@@ -44,6 +44,21 @@ class DataComparisonTests(unittest.TestCase):
     def test_executable_content_is_rejected_even_if_zero(self):
         with self.assertRaisesRegex(ValueError, "unowned allocated|executable"):
             verify_data_sections({".text": {"size": 4, "flags": 6}}, {}, [self.record])
+
+    def test_adjacent_sections_keep_explicit_placement_without_abi_orphans(self):
+        records = [{"input_section": ".rodata", "section": ".offsets",
+                    "vram": 0x80001000, "rom": 0x2000},
+                   {"input_section": ".data", "section": ".jumps",
+                    "vram": 0x80001020, "rom": 0x2020}]
+        script = data_linker_script(set(), {}, records)
+        self.assertIn(".offsets 0x80001000 : AT(0x2000)", script)
+        self.assertIn(".jumps 0x80001020 : AT(0x2020)", script)
+        self.assertIn("/DISCARD/ : { *(.reginfo .MIPS.abiflags) }", script)
+        self.assertNotIn("*(.text)", script)
+
+    def test_bss_only_unit_is_allowed_without_executable_content(self):
+        record = {"input_section": ".bss", "size": 4528}
+        verify_data_sections({".bss": {"size": 4528, "flags": 3}}, {}, [record])
 
     def test_unowned_initialized_section_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "unowned allocated"):

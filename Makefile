@@ -5181,6 +5181,34 @@ build/us/exception_context.o: src/sdk/exception_context.s Makefile tools/provena
 
 RUNTIME_OBJECTS += build/us/exception_context.o
 
+build/us/cpu_interrupt_tables.o: src/sdk/cpu_interrupt_tables.c  tools/generate_interrupt_tables.py $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/generate_interrupt_tables.py --check
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/cpu_interrupt_tables.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/cpu_interrupt_tables.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/exception_state.o: src/sdk/exception_state.c include/scheduler.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/exception_state.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/exception_state.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/rcp_interrupt_masks.o: src/sdk/rcp_interrupt_masks.c  tools/generate_interrupt_tables.py $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/generate_interrupt_tables.py --check
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/rcp_interrupt_masks.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/rcp_interrupt_masks.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/thread_state.o: src/sdk/thread_state.c include/scheduler.h include/sdk_thread_internal.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/thread_state.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/thread_state.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/cpu_interrupt_tables.o build/us/exception_state.o build/us/rcp_interrupt_masks.o build/us/thread_state.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

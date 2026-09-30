@@ -250,6 +250,13 @@ Pak repair, context fields and the distinct native exception entries.
 Complete Robotron instruction comparisons establish their accepted sizes,
 control flow, initialized values and retained thread procedures.
 
+The [interrupt storage recovery](docs/sdk-interrupt-storage.md) consulted pinned
+local libreultra `src/os/setintmask.s`, `src/os/exceptasm.s`,
+`src/os/exceptasm.h`, `src/os/thread.c`, `src/os/osint.h`, and
+`src/io/leointerrupt.c`. They corroborate interrupt bit rules, priority and
+handler ordering, the sentinel, scratch context and disk stack. Generated
+declarations and complete relocated Robotron bytes establish all owned storage.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

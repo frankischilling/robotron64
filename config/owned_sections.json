@@ -1106,5 +1106,94 @@
     },
     "static_symbols": {},
     "evidence": "docs/sdk-initialization-and-exceptions.md"
+  },
+  {
+    "source": "src/sdk/cpu_interrupt_tables.c",
+    "object": "build/us/cpu_interrupt_tables.o",
+    "input_section": ".rodata",
+    "section": ".cpu_interrupt_tables_rodata",
+    "vram": 2148097632,
+    "rom": 617056,
+    "size": 32,
+    "symbols": {
+      "D_80095E60": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-interrupt-storage.md"
+  },
+  {
+    "source": "src/sdk/cpu_interrupt_tables.c",
+    "object": "build/us/cpu_interrupt_tables.o",
+    "input_section": ".data",
+    "section": ".cpu_interrupt_tables_data",
+    "vram": 2148097664,
+    "rom": 617088,
+    "size": 36,
+    "symbols": {
+      "D_80095E80": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-interrupt-storage.md"
+  },
+  {
+    "source": "src/sdk/exception_state.c",
+    "object": "build/us/exception_state.o",
+    "input_section": ".data",
+    "section": ".exception_state_data",
+    "vram": 2148069760,
+    "rom": 589184,
+    "size": 20,
+    "symbols": {
+      "D_8008F180": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-interrupt-storage.md"
+  },
+  {
+    "source": "src/sdk/exception_state.c",
+    "object": "build/us/exception_state.o",
+    "input_section": ".bss",
+    "section": ".exception_state_bss",
+    "vram": 2149147792,
+    "rom": null,
+    "size": 4528,
+    "symbols": {
+      "D_80196490": 0,
+      "D_80196640": 432
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-interrupt-storage.md"
+  },
+  {
+    "source": "src/sdk/thread_state.c",
+    "object": "build/us/thread_state.o",
+    "input_section": ".data",
+    "section": ".thread_state_data",
+    "vram": 2148069792,
+    "rom": 589216,
+    "size": 24,
+    "symbols": {
+      "D_8008F1A0": 0,
+      "D_8008F1A8": 8,
+      "D_8008F1AC": 12,
+      "D_8008F1B0": 16,
+      "D_8008F1B4": 20
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-interrupt-storage.md"
+  },
+  {
+    "source": "src/sdk/rcp_interrupt_masks.c",
+    "object": "build/us/rcp_interrupt_masks.o",
+    "input_section": ".rodata",
+    "section": ".rcp_interrupt_masks_rodata",
+    "vram": 2148097488,
+    "rom": 616912,
+    "size": 128,
+    "symbols": {
+      "D_80095DD0": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-interrupt-storage.md"
   }
 ]

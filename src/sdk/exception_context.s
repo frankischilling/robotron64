@@ -179,12 +179,18 @@ func_80066A60:
     lw          $t2, %lo(D_80095E80)($at)
     jr          $t2
     nop
+    .globl D_80066C98
+D_80066C98:
     addiu       $at, $zero, -0x2001
     b           .L80066C60
     and        $s0, $s0, $at
+    .globl D_80066CA4
+D_80066CA4:
     addiu       $at, $zero, -0x4001
     b           .L80066C60
     and        $s0, $s0, $at
+    .globl D_80066CB0
+D_80066CB0:
     mfc0        $t1, $11
     mtc0        $t1, $11
     jal         func_80066F94
@@ -193,6 +199,8 @@ func_80066A60:
     ori         $at, $at, (0xFFFF7FFF & 0xFFFF)
     b           .L80066C60
     and        $s0, $s0, $at
+    .globl D_80066CD0
+D_80066CD0:
     addiu       $at, $zero, -0x801
     and         $s0, $s0, $at
     addiu       $t2, $zero, 0x4
@@ -216,6 +224,8 @@ func_80066A60:
     b           .L80066C60
     nop
     /* RCP interrupts: signal processor, video, audio, serial, PI and display. */
+    .globl D_80066D24
+D_80066D24:
     lui         $t0, %hi(D_8008E3C0)
     addiu       $t0, $t0, %lo(D_8008E3C0)
     lw          $t0, 0x0($t0)
@@ -303,6 +313,8 @@ func_80066A60:
     addiu       $at, $zero, -0x401
     b           .L80066C60
     and        $s0, $s0, $at
+    .globl D_80066E64
+D_80066E64:
     lw          $k1, 0x118($k0)
     addiu       $at, $zero, -0x1001
     lui         $t1, %hi(D_8008E3BC)
@@ -327,6 +339,8 @@ func_80066A60:
     and         $k1, $k1, $at
     b           .L80066F18
     sw         $k1, 0x118($t2)
+    .globl D_80066EC0
+D_80066EC0:
     addiu       $at, $zero, -0x201
     and         $t0, $t0, $at
     mtc0        $t0, $13
@@ -335,6 +349,8 @@ func_80066A60:
     addiu       $at, $zero, -0x201
     b           .L80066C60
     and        $s0, $s0, $at
+    .globl D_80066EE0
+D_80066EE0:
     addiu       $at, $zero, -0x101
     and         $t0, $t0, $at
     mtc0        $t0, $13
@@ -351,6 +367,8 @@ func_80066A60:
     b           .L80066F18
     nop
 .L80066F18:
+    .globl D_80066F18
+D_80066F18:
     /* Resume the current thread or enqueue it behind a higher-priority peer. */
     lui         $t2, %hi(D_8008F1A8)
     lw          $t2, %lo(D_8008F1A8)($t2)

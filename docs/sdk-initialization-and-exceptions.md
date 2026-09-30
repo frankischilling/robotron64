@@ -68,8 +68,9 @@ The existing yield, priority insertion, queue pop, dispatch and cleanup routines
 now share this original contiguous unit. Their instructions and complete
 procedure extents are unchanged. Keeping the complete exception/thread block
 together also preserves its authentic tail alignment without modifying the
-assembler or comparison rules. Interrupt tables and scratch storage remain
-separate recovery work and are excluded from this batch's storage counts.
+assembler or comparison rules. Subsequent [interrupt storage recovery](sdk-interrupt-storage.md)
+owns the interrupt tables, queue state and scratch storage. They are excluded
+from this batch's historical storage counts.
 
 ## References and proof
 

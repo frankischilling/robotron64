@@ -49,6 +49,13 @@ def data_input_hashes(source, root=ROOT):
     return hashes
 
 
+def data_linker_script(undefined, addresses, records):
+    # ABI metadata must not become an orphan between adjacent owned sections.
+    return (external_assignments(undefined, addresses) +
+            "SECTIONS { " + linker_placements(records) +
+            "\n/DISCARD/ : { *(.reginfo .MIPS.abiflags) } }\n")
+
+
 def compare_unit(source, records, target, layout):
     directory = comparison_directory(source)
     directory.mkdir(parents=True, exist_ok=True)
@@ -63,8 +70,7 @@ def compare_unit(source, records, target, layout):
     undefined = {line.split()[-1] for line in subprocess.check_output(
         ["mips-linux-gnu-nm", "-u", str(obj)], text=True).splitlines() if line.strip()}
     script = directory / "source.ld"
-    script.write_text(external_assignments(undefined, layout.addresses) +
-                      "SECTIONS { " + linker_placements(records) + " }\n")
+    script.write_text(data_linker_script(undefined, layout.addresses, records))
     subprocess.run(["mips-linux-gnu-ld", "-T", str(script), "-e", "0", "-o", str(elf), str(obj)],
                    check=True, cwd=ROOT)
     verify_owned_binary(elf, records, target)

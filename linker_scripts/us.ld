@@ -1025,7 +1025,11 @@ SECTIONS
     .audio_synth_lifecycle_data 0x8008F160 : AT(0x8FD60) SUBALIGN(4) { build/us/audio_synth_lifecycle.o(.data) }
     .data_after_sdk_audio_globals_data 0x8008F164 : AT(0x8FD64) { build/us/fallback.o(.rom_data_after_sdk_audio_globals_data) }
     .audio_buffer_submit_data 0x8008F170 : AT(0x8FD70) SUBALIGN(4) { build/us/audio_buffer_submit.o(.data) }
-    .before_video_context_data 0x8008F171 : AT(0x8FD71) { build/us/fallback.o(.rom_before_video_context_data) }
+    .endgame_data_8fd71_8fd80 0x8008F171 : AT(0x8FD71) { build/us/fallback.o(.rom_endgame_data_8fd71_8fd80) }
+    .exception_state_data 0x8008F180 : AT(0x8FD80) SUBALIGN(4) { build/us/exception_state.o(.data) }
+    .endgame_data_8fd94_8fda0 0x8008F194 : AT(0x8FD94) { build/us/fallback.o(.rom_endgame_data_8fd94_8fda0) }
+    .thread_state_data 0x8008F1A0 : AT(0x8FDA0) SUBALIGN(4) { build/us/thread_state.o(.data) }
+    .endgame_data_8fdb8_8fdd0 0x8008F1B8 : AT(0x8FDB8) { build/us/fallback.o(.rom_endgame_data_8fdb8_8fdd0) }
     .video_initialize_data 0x8008F1D0 : AT(0x8FDD0) SUBALIGN(4) { build/us/video_initialize.o(.data) }
     .after_video_context_data 0x8008F238 : AT(0x8FE38) { build/us/fallback.o(.rom_after_video_context_data) }
     .audio_effect_create_data 0x8008F260 : AT(0x8FE60) SUBALIGN(4) { build/us/audio_effect_create.o(.data) }
@@ -1064,9 +1068,11 @@ SECTIONS
     .after_sine_float_rodata 0x80095D74 : AT(0x96974) { build/us/fallback.o(.rom_after_sine_float_rodata) }
     .cosine_float_rodata 0x80095D80 : AT(0x96980) SUBALIGN(4) { build/us/cosine_float.o(.rodata) }
     .after_cosine_float_rodata 0x80095DC4 : AT(0x969C4) { build/us/fallback.o(.rom_after_cosine_float_rodata) }
-    .data_after_sdk_float_math_constants 0x80095DD0 : AT(0x969D0) { build/us/fallback.o(.rom_data_after_sdk_float_math_constants) }
+    .rcp_interrupt_masks_rodata 0x80095DD0 : AT(0x969D0) SUBALIGN(4) { build/us/rcp_interrupt_masks.o(.rodata) }
     .audio_synthesizer_rodata 0x80095E50 : AT(0x96A50) SUBALIGN(4) { build/us/audio_synthesizer.o(.rodata) }
-    .endgame_data_96a60_96ab0 0x80095E60 : AT(0x96A60) { build/us/fallback.o(.rom_endgame_data_96a60_96ab0) }
+    .cpu_interrupt_tables_rodata 0x80095E60 : AT(0x96A60) SUBALIGN(4) { build/us/cpu_interrupt_tables.o(.rodata) }
+    .cpu_interrupt_tables_data 0x80095E80 : AT(0x96A80) SUBALIGN(4) { build/us/cpu_interrupt_tables.o(.data) }
+    .endgame_data_96aa4_96ab0 0x80095EA4 : AT(0x96AA4) { build/us/fallback.o(.rom_endgame_data_96aa4_96ab0) }
     .pi_device_manager_rodata 0x80095EB0 : AT(0x96AB0) SUBALIGN(4) { build/us/pi_device_manager.o(.rodata) }
     .endgame_data_96acc_96ae0 0x80095ECC : AT(0x96ACC) { build/us/fallback.o(.rom_endgame_data_96acc_96ae0) }
     .audio_effect_create_rodata 0x80095EE0 : AT(0x96AE0) SUBALIGN(4) { build/us/audio_effect_create.o(.rodata) }
@@ -1107,6 +1113,7 @@ SECTIONS
     .pi_disk_initialize_bss 0x80196390 (NOLOAD) : SUBALIGN(4) { build/us/pi_disk_initialize.o(.bss) }
     .pi_manager_create_bss 0x80193B40 (NOLOAD) : SUBALIGN(4) { build/us/pi_manager_create.o(.bss) }
     .initialize_bss 0x80193B30 (NOLOAD) : SUBALIGN(4) { build/us/initialize.o(.bss) }
+    .exception_state_bss 0x80196490 (NOLOAD) : SUBALIGN(4) { build/us/exception_state.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1480,7 +1487,6 @@ ASSERT(SIZEOF(.sine_float_rodata) == 0x44, "sine float constants size changed")
 ASSERT(SIZEOF(.after_sine_float_rodata) == 0xc, "sine float alignment size changed")
 ASSERT(SIZEOF(.cosine_float_rodata) == 0x44, "cosine float constants size changed")
 ASSERT(SIZEOF(.after_cosine_float_rodata) == 0xc, "cosine float alignment size changed")
-ASSERT(SIZEOF(.data_after_sdk_float_math_constants) == 0x80, "after float constants size changed")
 ASSERT(SIZEOF(.audio_synthesizer_rodata) == 0x10, "audio_synthesizer_rodata size changed")
 ASSERT(SIZEOF(.audio_effect_create_rodata) == 0x20, "audio_effect_create_rodata size changed")
 ASSERT(SIZEOF(.audio_resample_rodata) == 0x34, "audio_resample_rodata size changed")
@@ -2172,7 +2178,6 @@ ASSERT(SIZEOF(.after_video_default_modes_data) == 0x58, "after default video mod
 ASSERT(SIZEOF(.video_manager_data) == 0x1c, "video manager data size changed")
 ASSERT(SIZEOF(.video_manager_bss) == 0x1212, "video manager BSS size changed")
 ASSERT(SIZEOF(.video_initialize_data) == 0x68, "video context data size changed")
-ASSERT(SIZEOF(.before_video_context_data) == 0x5f, "before video context data size changed")
 ASSERT(SIZEOF(.after_video_context_data) == 0x28, "after video context data size changed")
 ASSERT(SIZEOF(.pi_cartridge_initialize_bss) == 0x74, "cartridge handle BSS size changed")
 ASSERT(SIZEOF(.pi_disk_initialize_bss) == 0x78, "disk handle BSS size changed")
@@ -2192,7 +2197,6 @@ ASSERT(SIZEOF(.pi_manager_create_bss) == 0x11cc, "pi_manager_create_bss size cha
 ASSERT(SIZEOF(.pi_device_manager_rodata) == 0x1c, "pi_device_manager_rodata size changed")
 ASSERT(SIZEOF(.endgame_687b4_687c0) == 0xc, "endgame_687b4_687c0 size changed")
 ASSERT(SIZEOF(.endgame_data_8eff8_8f000) == 0x8, "endgame_data_8eff8_8f000 size changed")
-ASSERT(SIZEOF(.endgame_data_96a60_96ab0) == 0x50, "endgame_data_96a60_96ab0 size changed")
 ASSERT(SIZEOF(.endgame_data_96acc_96ae0) == 0x14, "endgame_data_96acc_96ae0 size changed")
 ASSERT(SIZEOF(.pi_disk_interrupt) == 0x6a4, "PI disk interrupt size changed")
 ASSERT(SIZEOF(.endgame_6e81c_6e820) == 0x4, "endgame_6e81c_6e820 size changed")
@@ -2205,3 +2209,13 @@ ASSERT(SIZEOF(.initialize_data) == 0x14, "initialize_data size changed")
 ASSERT(SIZEOF(.initialize_bss) == 0x4, "initialize_bss size changed")
 ASSERT(SIZEOF(.endgame_60adc_60ae0) == 0x4, "endgame_60adc_60ae0 size changed")
 ASSERT(SIZEOF(.endgame_625fc_62600) == 0x4, "endgame_625fc_62600 size changed")
+ASSERT(SIZEOF(.cpu_interrupt_tables_rodata) == 0x20, "cpu_interrupt_tables_rodata size changed")
+ASSERT(SIZEOF(.cpu_interrupt_tables_data) == 0x24, "cpu_interrupt_tables_data size changed")
+ASSERT(SIZEOF(.exception_state_data) == 0x14, "exception_state_data size changed")
+ASSERT(SIZEOF(.exception_state_bss) == 0x11b0, "exception_state_bss size changed")
+ASSERT(SIZEOF(.thread_state_data) == 0x18, "thread_state_data size changed")
+ASSERT(SIZEOF(.rcp_interrupt_masks_rodata) == 0x80, "rcp_interrupt_masks_rodata size changed")
+ASSERT(SIZEOF(.endgame_data_8fd71_8fd80) == 0xf, "endgame_data_8fd71_8fd80 size changed")
+ASSERT(SIZEOF(.endgame_data_8fd94_8fda0) == 0xc, "endgame_data_8fd94_8fda0 size changed")
+ASSERT(SIZEOF(.endgame_data_8fdb8_8fdd0) == 0x18, "endgame_data_8fdb8_8fdd0 size changed")
+ASSERT(SIZEOF(.endgame_data_96aa4_96ab0) == 0xc, "endgame_data_96aa4_96ab0 size changed")
