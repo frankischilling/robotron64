@@ -514,133 +514,133 @@ build/us/audio_mode.o: src/game/audio_mode.c include/audio_commands.h include/au
 	$(PYTHON) tools/trim_padding.py build/us/audio_mode.raw.o $@ .text 0x20
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_instance_state_query.o: src/game/audio_instance_state_query.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_instance_state_query.o: src/game/audio_instance_state_query.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_instance_state_query.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_instance_state_query.raw.o $@ .text 0xec
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_voice_pause_state.o: src/game/audio_voice_pause_state.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_voice_pause_state.o: src/game/audio_voice_pause_state.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_voice_pause_state.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_voice_pause_state.raw.o $@ .text 0xa0
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_pause_request.o: src/game/audio_pause_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_pause_request.o: src/game/audio_pause_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_pause_request.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_pause_request.raw.o $@ .text 0xc8
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_pause_decode.o: src/game/audio_pause_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_pause_decode.o: src/game/audio_pause_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_pause_decode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_pause_decode.raw.o $@ .text 0x40
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_pause_apply.o: src/game/audio_pause_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_pause_apply.o: src/game/audio_pause_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_pause_apply.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_pause_apply.raw.o $@ .text 0x1cc
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_resume_request.o: src/game/audio_resume_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_resume_request.o: src/game/audio_resume_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_resume_request.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_resume_request.raw.o $@ .text 0xb8
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_resume_decode.o: src/game/audio_resume_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_resume_decode.o: src/game/audio_resume_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_resume_decode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_resume_decode.raw.o $@ .text 0x30
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_resume_apply.o: src/game/audio_resume_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_resume_apply.o: src/game/audio_resume_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_resume_apply.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_resume_apply.raw.o $@ .text 0x168
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_pause_all_request.o: src/game/audio_pause_all_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_pause_all_request.o: src/game/audio_pause_all_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_pause_all_request.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_pause_all_request.raw.o $@ .text 0xb8
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_pause_all_decode.o: src/game/audio_pause_all_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_pause_all_decode.o: src/game/audio_pause_all_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_pause_all_decode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_pause_all_decode.raw.o $@ .text 0x40
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_pause_all_apply.o: src/game/audio_pause_all_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_pause_all_apply.o: src/game/audio_pause_all_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_pause_all_apply.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_pause_all_apply.raw.o $@ .text 0x1e8
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_resume_all_request.o: src/game/audio_resume_all_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_resume_all_request.o: src/game/audio_resume_all_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_resume_all_request.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_resume_all_request.raw.o $@ .text 0xa8
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_resume_all_decode.o: src/game/audio_resume_all_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_resume_all_decode.o: src/game/audio_resume_all_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_resume_all_decode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_resume_all_decode.raw.o $@ .text 0x30
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_resume_all_apply.o: src/game/audio_resume_all_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_resume_all_apply.o: src/game/audio_resume_all_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_resume_all_apply.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_resume_all_apply.raw.o $@ .text 0x18c
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_voice_properties_initial.o: src/game/audio_voice_properties_initial.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_voice_properties_initial.o: src/game/audio_voice_properties_initial.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_voice_properties_initial.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_voice_properties_initial.raw.o $@ .text 0x264
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_owner_properties_request.o: src/game/audio_owner_properties_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_owner_properties_request.o: src/game/audio_owner_properties_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_properties_request.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_owner_properties_request.raw.o $@ .text 0x4c
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_owner_properties_decode.o: src/game/audio_owner_properties_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_owner_properties_decode.o: src/game/audio_owner_properties_decode.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_properties_decode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_owner_properties_decode.raw.o $@ .text 0x3c
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_owner_properties_apply.o: src/game/audio_owner_properties_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_owner_properties_apply.o: src/game/audio_owner_properties_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_properties_apply.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_owner_properties_apply.raw.o $@ .text 0x184
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_owner_state_query.o: src/game/audio_owner_state_query.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_owner_state_query.o: src/game/audio_owner_state_query.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_state_query.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_owner_state_query.raw.o $@ .text 0xec
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_owner_stop_request.o: src/game/audio_owner_stop_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_owner_stop_request.o: src/game/audio_owner_stop_request.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_stop_request.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_owner_stop_request.raw.o $@ .text 0x110
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_owner_stop_commands.o: src/game/audio_owner_stop_commands.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_owner_stop_commands.o: src/game/audio_owner_stop_commands.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_stop_commands.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_owner_stop_commands.raw.o $@ .text 0xbc
 	$(PYTHON) tools/provenance.py $< $@ src/game/audio_properties_internal.h include/audio_properties_internal.h
 
-build/us/audio_owner_stop_apply.o: src/game/audio_owner_stop_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_owner_stop_apply.o: src/game/audio_owner_stop_apply.c include/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h src/game/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_owner_stop_apply.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_owner_stop_apply.raw.o $@ .text 0x200
@@ -1775,7 +1775,7 @@ build/us/actor_setup_noop.o: src/game/actor_setup_noop.c $(IDO) Makefile tools/t
 	$(PYTHON) tools/trim_padding.py build/us/actor_setup_noop.raw.o $@ .text 0x8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/actor_setup_strings.o: src/game/actor_setup_strings.c include/actor.h include/actor_resource_internal.h include/actor_setup_internal.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_setup_strings.o: src/game/actor_setup_strings.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_setup_strings.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/actor_setup_strings.raw.o $@ .text 0x110
@@ -1793,7 +1793,7 @@ build/us/actor_setup_text_begin.o: src/game/actor_setup_text_begin.c include/gam
 	$(PYTHON) tools/trim_padding.py build/us/actor_setup_text_begin.raw.o $@ .text 0x44
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/actor_setup_text_reset.o: src/game/actor_setup_text_reset.c include/actor.h include/actor_resource_internal.h include/actor_setup_internal.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_setup_text_reset.o: src/game/actor_setup_text_reset.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_setup_text_reset.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/actor_setup_text_reset.raw.o $@ .text 0x60
@@ -5490,14 +5490,14 @@ build/us/scene_definition_byteorder.o: src/game/scene_definition_byteorder.c inc
 	$(PYTHON) tools/trim_padding.py build/us/scene_definition_byteorder.raw.o $@ .text 0xdc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_effect_spawn.o: src/game/early_effect_spawn.c include/actor.h include/actor_behavior_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/early_game_more.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_definition.h include/text.h tools/owned_sections.py config/owned_sections.json $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_effect_spawn.o: src/game/early_effect_spawn.c include/actor.h include/actor_behavior_internal.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/early_game_more.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_definition.h include/text.h tools/owned_sections.py config/owned_sections.json $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_effect_spawn.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_effect_spawn.raw.o build/us/early_effect_spawn.text.o .text 0xe4
 	$(PYTHON) tools/owned_sections.py $< build/us/early_effect_spawn.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/scene_bonus_spawn.o: src/game/scene_bonus_spawn.c include/actor.h include/actor_behavior_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_counter_internal.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/scene_bonus_spawn.o: src/game/scene_bonus_spawn.c include/actor.h include/actor_behavior_internal.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_counter_internal.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_bonus_spawn.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/scene_bonus_spawn.raw.o $@ .text 0xf4
@@ -5574,6 +5574,29 @@ RUNTIME_OBJECTS += \
     build/us/renderer_tile_origin_mode.o \
     build/us/fixed_matrix_rsp.o \
     build/us/object_history_write.o
+
+build/us/actor_dynamic_first_append.o: src/game/actor_dynamic_first_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_dynamic_first_append.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_first_append.raw.o $@ .text 0x98
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_actor_scale_decay.o: src/game/early_actor_scale_decay.c include/actor.h include/actor_behavior_internal.h include/early_game_more.h include/early_game_state.h include/early_session_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_scale_decay.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_scale_decay.raw.o $@ .text 0x128
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_cache_flags_clear.o: src/game/renderer_cache_flags_clear.c include/actor.h include/actor_resource_internal.h include/game_memory.h include/object.h include/object_runtime.h include/renderer_peak_metrics.h include/resource_bridge_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_cache_flags_clear.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_cache_flags_clear.raw.o $@ .text 0x74
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/actor_dynamic_first_append.o \
+    build/us/early_actor_scale_decay.o \
+    build/us/renderer_cache_flags_clear.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

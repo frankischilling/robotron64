@@ -4,6 +4,25 @@
 #include "actor_resource_internal.h"
 #include "object_runtime.h"
 
+typedef struct ResourceBridgeModelCacheEntry {
+    unsigned char loaded;
+    unsigned char unknown01;
+    short identifier;
+    unsigned char unknown04[16];
+} ResourceBridgeModelCacheEntry;
+
+typedef struct ResourceBridgeAnimationCacheEntry {
+    unsigned char loaded;
+    unsigned char unknown01;
+    short identifier;
+    unsigned char unknown04[12];
+} ResourceBridgeAnimationCacheEntry;
+
+typedef char ResourceBridgeModelCacheEntryMustBe20Bytes[
+    sizeof(ResourceBridgeModelCacheEntry) == 20 ? 1 : -1];
+typedef char ResourceBridgeAnimationCacheEntryMustBe16Bytes[
+    sizeof(ResourceBridgeAnimationCacheEntry) == 16 ? 1 : -1];
+
 /* Prefix views are indexed by the target's separate record strides. */
 typedef struct ResourceBridgeModelView {
     unsigned char unknown00[0x14];
@@ -37,6 +56,8 @@ extern int D_8007BB10;
 extern int D_8007BB14;
 
 void func_8004BD00(int model, int animation, int bitmap);
+void func_8004BC8C(void);
+void func_8001D260(void);
 int func_8003CB10(int kind, int current, unsigned char *path, int identifier);
 
 #endif

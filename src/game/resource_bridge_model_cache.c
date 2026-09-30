@@ -1,12 +1,5 @@
 #include "../../include/resource_bridge_internal.h"
 
-typedef struct ResourceBridgeModelCacheEntry {
-    unsigned char loaded;
-    unsigned char unknown01;
-    short identifier;
-    unsigned char unknown04[0x10];
-} ResourceBridgeModelCacheEntry;
-
 int func_8003C94C(int kind, int current, unsigned char *path, int identifier)
 {
     unsigned char filename[128];

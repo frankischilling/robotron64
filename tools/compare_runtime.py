@@ -752,6 +752,9 @@ MATCHING_BLOCKS = (
     ("renderer_tile_origin_mode", "src/game/renderer_tile_origin_mode.c", 0x80046C2C, 0x80046CF8),
     ("fixed_matrix_rsp", "src/game/fixed_matrix_rsp.c", 0x80048020, 0x80048164),
     ("object_history_write", "src/game/object_history_write.c", 0x8004E820, 0x8004E968),
+    ("actor_dynamic_first_append", "src/game/actor_dynamic_first_append.c", 0x8000CF9C, 0x8000D034),
+    ("early_actor_scale_decay", "src/game/early_actor_scale_decay.c", 0x8000E5C8, 0x8000E6F0),
+    ("renderer_cache_flags_clear", "src/game/renderer_cache_flags_clear.c", 0x8004BC8C, 0x8004BD00),
 )
 
 CANDIDATE_BLOCKS = (

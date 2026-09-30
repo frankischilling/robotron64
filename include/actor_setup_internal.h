@@ -3,6 +3,7 @@
 
 #include "actor_resource_internal.h"
 #include "scene_definition.h"
+#include "actor_dynamic_pool_internal.h"
 
 typedef SceneResourceState ActorSetupStateInternal;
 
@@ -28,20 +29,6 @@ typedef struct ActorSetupRequestViewInternal {
     unsigned char unknown48[2];
     short value4A;
 } ActorSetupRequestViewInternal;
-
-typedef struct ActorSetupDynamicEntryInternal {
-    int resourceIndex;
-    unsigned char unknown04[8];
-} ActorSetupDynamicEntryInternal;
-
-typedef struct ActorSetupDynamicGroupInternal {
-    unsigned char unknown00[4];
-    int groupCount;
-    unsigned char unknown08[8];
-    int resourceCount;
-    ActorSetupDynamicEntryInternal resources[8];
-    unsigned char unknown74[8];
-} ActorSetupDynamicGroupInternal;
 
 typedef struct ActorSetupChainEntryInternal {
     unsigned char unknown00[8];
@@ -73,10 +60,6 @@ typedef struct ActorSetupTextLayoutInternal {
     int stepZ;
 } ActorSetupTextLayoutInternal;
 
-typedef char ActorSetupDynamicEntryInternalMustBe12Bytes[
-    sizeof(ActorSetupDynamicEntryInternal) == 0xC ? 1 : -1];
-typedef char ActorSetupDynamicGroupInternalMustBe124Bytes[
-    sizeof(ActorSetupDynamicGroupInternal) == 0x7C ? 1 : -1];
 typedef char ActorSetupChainEntryInternalMustBe28Bytes[
     sizeof(ActorSetupChainEntryInternal) == 0x1C ? 1 : -1];
 typedef char ActorSetupGroupedResourcesInternalMustBe1004Bytes[
@@ -95,7 +78,6 @@ extern ActorSetupOptionsInternal D_800AD2D8;
 extern int D_80074A20;
 extern int D_80073598;
 extern ActorSetupChainEntryInternal D_80073590[];
-extern ActorSetupDynamicGroupInternal *D_800AE4F4;
 extern int D_800BA740;
 
 extern TextGlyphResource D_800B5658[];

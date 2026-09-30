@@ -79,7 +79,7 @@ SECTIONS
     .endgame_dab8_dac0 0x8000CEB8 : AT(0xDAB8) { build/us/fallback.o(.rom_endgame_dab8_dac0) }
     .actor_dynamic_group_allocate 0x8000CEC0 : AT(0xDAC0) SUBALIGN(4) { build/us/actor_dynamic_group_allocate.o(.text) }
     .early_pool_entry_clear 0x8000CF70 : AT(0xDB70) SUBALIGN(4) { build/us/early_pool_entry_clear.o(.text) }
-    .cpu_after_early_pool_entry_clear 0x8000CF9C : AT(0xDB9C) { build/us/fallback.o(.rom_cpu_after_early_pool_entry_clear) }
+    .actor_dynamic_first_append 0x8000CF9C : AT(0xDB9C) SUBALIGN(4) { build/us/actor_dynamic_first_append.o(.text) }
     .early_pool_count 0x8000D034 : AT(0xDC34) SUBALIGN(4) { build/us/early_pool_count.o(.text) }
     .endgame_dc90_ddfc 0x8000D090 : AT(0xDC90) { build/us/fallback.o(.rom_endgame_dc90_ddfc) }
     .actor_dynamic_pair_append 0x8000D1FC : AT(0xDDFC) SUBALIGN(4) { build/us/actor_dynamic_pair_append.o(.text) }
@@ -96,7 +96,8 @@ SECTIONS
     .endgame_ebec_ef28 0x8000DFEC : AT(0xEBEC) { build/us/fallback.o(.rom_endgame_ebec_ef28) }
     .early_transition_arrays_clear 0x8000E328 : AT(0xEF28) SUBALIGN(4) { build/us/early_transition_arrays_clear.o(.text) }
     .early_parameter_schedule 0x8000E3B4 : AT(0xEFB4) SUBALIGN(4) { build/us/early_parameter_schedule.o(.text) }
-    .endgame_f0f0_f2f0 0x8000E4F0 : AT(0xF0F0) { build/us/fallback.o(.rom_endgame_f0f0_f2f0) }
+    .endgame_f0f0_f1c8 0x8000E4F0 : AT(0xF0F0) { build/us/fallback.o(.rom_endgame_f0f0_f1c8) }
+    .early_actor_scale_decay 0x8000E5C8 : AT(0xF1C8) SUBALIGN(4) { build/us/early_actor_scale_decay.o(.text) }
     .early_actor_counter_decrement 0x8000E6F0 : AT(0xF2F0) SUBALIGN(4) { build/us/early_actor_counter_decrement.o(.text) }
     .endgame_f320_f6e4 0x8000E720 : AT(0xF320) { build/us/fallback.o(.rom_endgame_f320_f6e4) }
     .early_actor_vector_clear 0x8000EAE4 : AT(0xF6E4) SUBALIGN(4) { build/us/early_actor_vector_clear.o(.text) }
@@ -572,7 +573,8 @@ SECTIONS
     .endgame_4c190_4c7d0 0x8004B590 : AT(0x4C190) { build/us/fallback.o(.rom_endgame_4c190_4c7d0) }
     .render_buffer_reserve 0x8004BBD0 : AT(0x4C7D0) SUBALIGN(4) { build/us/render_buffer_reserve.o(.text) }
     .render_buffer_allocate 0x8004BC44 : AT(0x4C844) SUBALIGN(4) { build/us/render_buffer_allocate.o(.text) }
-    .endgame_4c88c_4cc90 0x8004BC8C : AT(0x4C88C) { build/us/fallback.o(.rom_endgame_4c88c_4cc90) }
+    .renderer_cache_flags_clear 0x8004BC8C : AT(0x4C88C) SUBALIGN(4) { build/us/renderer_cache_flags_clear.o(.text) }
+    .endgame_4c900_4cc90 0x8004BD00 : AT(0x4C900) { build/us/fallback.o(.rom_endgame_4c900_4cc90) }
     .controller_legacy_initialize 0x8004C090 : AT(0x4CC90) SUBALIGN(4) { build/us/controller_legacy_initialize.o(.text) }
     .controller_legacy_scan 0x8004C0D4 : AT(0x4CCD4) SUBALIGN(4) { build/us/controller_legacy_scan.o(.text) }
     .controller_legacy_present 0x8004C1C8 : AT(0x4CDC8) SUBALIGN(4) { build/us/controller_legacy_present.o(.text) }
@@ -1224,7 +1226,6 @@ ASSERT(SIZEOF(.early_render_presets) == 0x70, "early_render_presets size changed
 ASSERT(SIZEOF(.cpu_after_early_render_presets) == 0x4ac, "cpu_after_early_render_presets size changed")
 ASSERT(SIZEOF(.early_render_dispatch) == 0x40, "early_render_dispatch size changed")
 ASSERT(SIZEOF(.early_pool_entry_clear) == 0x2c, "early_pool_entry_clear size changed")
-ASSERT(SIZEOF(.cpu_after_early_pool_entry_clear) == 0x98, "cpu_after_early_pool_entry_clear size changed")
 ASSERT(SIZEOF(.early_pool_count) == 0x5c, "early_pool_count size changed")
 ASSERT(SIZEOF(.early_pool_index) == 0x20, "early_pool_index size changed")
 ASSERT(SIZEOF(.early_byte_clear) == 0xc, "early_byte_clear size changed")
@@ -2188,7 +2189,6 @@ ASSERT(SIZEOF(.pi_start_dma) == 0x10c, "pi_start_dma size changed")
 ASSERT(SIZEOF(.endgame_208e4_21b24) == 0x1240, "endgame_208e4_21b24 size changed")
 ASSERT(SIZEOF(.endgame_21b8c_22720) == 0xb94, "endgame_21b8c_22720 size changed")
 ASSERT(SIZEOF(.endgame_33600_33900) == 0x300, "endgame_33600_33900 size changed")
-ASSERT(SIZEOF(.endgame_4c88c_4cc90) == 0x404, "endgame_4c88c_4cc90 size changed")
 ASSERT(SIZEOF(.endgame_4d2dc_4d8a4) == 0x5c8, "endgame_4d2dc_4d8a4 size changed")
 ASSERT(SIZEOF(.pi_event_notify) == 0xec, "pi_event_notify size changed")
 ASSERT(SIZEOF(.pi_extended_dma) == 0x224, "pi_extended_dma size changed")
@@ -2419,7 +2419,6 @@ ASSERT(SIZEOF(.renderer_tile_origin_mode) == 0xcc, "renderer_tile_origin_mode si
 ASSERT(SIZEOF(.fixed_matrix_rsp) == 0x144, "fixed_matrix_rsp size changed")
 ASSERT(SIZEOF(.object_history_write) == 0x148, "object_history_write size changed")
 ASSERT(SIZEOF(.object_history_write_rodata) == 0x4, "object_history_write_rodata size changed")
-ASSERT(SIZEOF(.endgame_f0f0_f2f0) == 0x200, "endgame_f0f0_f2f0 size changed")
 ASSERT(SIZEOF(.endgame_f828_f8d0) == 0xa8, "endgame_f828_f8d0 size changed")
 ASSERT(SIZEOF(.endgame_273bc_27610) == 0x254, "endgame_273bc_27610 size changed")
 ASSERT(SIZEOF(.endgame_2770c_284ac) == 0xda0, "endgame_2770c_284ac size changed")
@@ -2448,3 +2447,10 @@ D_80077A94 = 0x80077A94;
 D_80077A98 = 0x80077A98;
 func_80026178 = 0x80026178;
 func_800267BC = 0x800267BC;
+ASSERT(SIZEOF(.actor_dynamic_first_append) == 0x98, "actor_dynamic_first_append size changed")
+ASSERT(SIZEOF(.early_actor_scale_decay) == 0x128, "early_actor_scale_decay size changed")
+ASSERT(SIZEOF(.renderer_cache_flags_clear) == 0x74, "renderer_cache_flags_clear size changed")
+ASSERT(SIZEOF(.endgame_f0f0_f1c8) == 0xd8, "endgame_f0f0_f1c8 size changed")
+ASSERT(SIZEOF(.endgame_4c900_4cc90) == 0x390, "endgame_4c900_4cc90 size changed")
+D_8009EF94 = 0x8009EF94;
+D_80078274 = 0x80078274;

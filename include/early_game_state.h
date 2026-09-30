@@ -12,7 +12,9 @@ typedef struct EarlyGamePosition {
 } EarlyGamePosition;
 
 typedef struct EarlyGameActorResource {
-    unsigned char unknown00[0x54];
+    unsigned char unknown00[12];
+    int scale0C;
+    unsigned char unknown10[0x44];
     EarlyGameResourceCallback callback54;
 } EarlyGameActorResource;
 

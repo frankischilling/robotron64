@@ -298,6 +298,12 @@ fields. Complete Robotron instructions establish the recovered scheduling,
 completion counters, history conversion and command behavior. The new
 procedures retain the project's pinned IDO compiler and matching-build basis.
 
+The [resource and cache state recovery](docs/resource-and-cache-state.md)
+retains the pinned local IDO and Super Mario 64 compiler/build reference
+basis. Complete Robotron append, scale and cache-reset instructions establish
+the resource group entries, shared scale word and both cache strides.
+Existing caller comparisons check the updated shared definitions.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

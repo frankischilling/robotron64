@@ -14127,5 +14127,38 @@
     "section": ".object_history_write",
     "section_vram": 2147805216,
     "evidence": "docs/parameter-and-rendering-state.md"
+  },
+  {
+    "name": "func_8000CF9C",
+    "rom": 56220,
+    "vram": 2147536796,
+    "size": 152,
+    "source": "src/game/actor_dynamic_first_append.c",
+    "object": "build/us/actor_dynamic_first_append.o",
+    "section": ".actor_dynamic_first_append",
+    "section_vram": 2147536796,
+    "evidence": "docs/resource-and-cache-state.md"
+  },
+  {
+    "name": "func_8000E5C8",
+    "rom": 61896,
+    "vram": 2147542472,
+    "size": 296,
+    "source": "src/game/early_actor_scale_decay.c",
+    "object": "build/us/early_actor_scale_decay.o",
+    "section": ".early_actor_scale_decay",
+    "section_vram": 2147542472,
+    "evidence": "docs/resource-and-cache-state.md"
+  },
+  {
+    "name": "func_8004BC8C",
+    "rom": 313484,
+    "vram": 2147794060,
+    "size": 116,
+    "source": "src/game/renderer_cache_flags_clear.c",
+    "object": "build/us/renderer_cache_flags_clear.o",
+    "section": ".renderer_cache_flags_clear",
+    "section_vram": 2147794060,
+    "evidence": "docs/resource-and-cache-state.md"
   }
 ]
