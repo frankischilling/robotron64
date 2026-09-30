@@ -45,3 +45,10 @@ zero in the supplied ROM. The thread state occupies 8,712 BSS bytes from
 active motor words. The compiled symbols reproduce every boundary. The
 compiler's unused BSS tail alignment is excluded from live ownership. The
 diagnostic strings retain their existing fallback ownership.
+
+The [provenance ledger](controller-service-setup-provenance.json) records both
+complete procedures and the two independent storage units from a clean
+archive of `0ce034b`. Fresh extraction and build, all 137 tooling tests, 778
+runtime units, both startup units, eighteen assembly units, and eight data
+units passed. The rebuilt 8 MiB ROM matched the supplied original byte for
+byte. The publication audit checked all 1,241 files in that archive.
