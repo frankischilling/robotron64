@@ -685,6 +685,11 @@ MATCHING_BLOCKS = (
     ("thread_destroy", "src/sdk/thread_destroy.c", 0x8006E4A0, 0x8006E598),
     ("pi_start_dma", "src/sdk/pi_start_dma.c", 0x80065840, 0x8006594C),
     ("pi_event_notify", "src/sdk/pi_event_notify.c", 0x8006E3AC, 0x8006E498),
+    ("pi_extended_dma", "src/sdk/pi_extended_dma.c", 0x80067990, 0x80067BB4),
+    ("sine_float", "src/sdk/sine_float.c", 0x80063230, 0x800633F0),
+    ("cosine_float", "src/sdk/cosine_float.c", 0x800633F0, 0x80063558),
+    ("audio_voice_sequence_bind", "src/game/audio_voice_sequence_bind.c", 0x800538F8, 0x8005396C),
+    ("render_buffer_reserve", "src/game/render_buffer_reserve.c", 0x8004BBD0, 0x8004BC44),
 )
 
 CANDIDATE_BLOCKS = (

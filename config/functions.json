@@ -13247,5 +13247,120 @@
     "section": ".pi_event_notify",
     "section_vram": 2147935148,
     "evidence": "docs/sdk-transfer-and-short-math.md"
+  },
+  {
+    "name": "func_80067990",
+    "rom": 427408,
+    "vram": 2147907984,
+    "size": 548,
+    "source": "src/sdk/pi_extended_dma.c",
+    "object": "build/us/pi_extended_dma.o",
+    "section": ".pi_extended_dma",
+    "section_vram": 2147907984,
+    "evidence": "docs/sdk-cache-and-transfer.md"
+  },
+  {
+    "name": "func_80063230",
+    "rom": 409136,
+    "vram": 2147889712,
+    "size": 448,
+    "source": "src/sdk/sine_float.c",
+    "object": "build/us/sine_float.o",
+    "section": ".sine_float",
+    "section_vram": 2147889712,
+    "evidence": "docs/sdk-cache-and-transfer.md"
+  },
+  {
+    "name": "func_800633F0",
+    "rom": 409584,
+    "vram": 2147890160,
+    "size": 360,
+    "source": "src/sdk/cosine_float.c",
+    "object": "build/us/cosine_float.o",
+    "section": ".cosine_float",
+    "section_vram": 2147890160,
+    "evidence": "docs/sdk-cache-and-transfer.md"
+  },
+  {
+    "name": "func_800538F8",
+    "rom": 345336,
+    "vram": 2147825912,
+    "size": 116,
+    "source": "src/game/audio_voice_sequence_bind.c",
+    "object": "build/us/audio_voice_sequence_bind.o",
+    "section": ".audio_voice_sequence_bind",
+    "section_vram": 2147825912,
+    "evidence": "docs/sdk-cache-and-transfer.md"
+  },
+  {
+    "name": "func_8004BBD0",
+    "rom": 313296,
+    "vram": 2147793872,
+    "size": 116,
+    "source": "src/game/render_buffer_reserve.c",
+    "object": "build/us/render_buffer_reserve.o",
+    "section": ".render_buffer_reserve",
+    "section_vram": 2147793872,
+    "evidence": "docs/sdk-cache-and-transfer.md"
+  },
+  {
+    "name": "func_80067360",
+    "rom": 425824,
+    "vram": 2147906400,
+    "size": 116,
+    "source": "src/sdk/os_writeback_cache.s",
+    "object": "build/us/os_writeback_cache.o",
+    "section": ".os_writeback_cache",
+    "section_vram": 2147906400,
+    "evidence": "docs/sdk-cache-and-transfer.md",
+    "language": "assembly"
+  },
+  {
+    "name": "func_800673E0",
+    "rom": 425952,
+    "vram": 2147906528,
+    "size": 116,
+    "source": "src/sdk/os_invalidate_instruction_cache.s",
+    "object": "build/us/os_invalidate_instruction_cache.o",
+    "section": ".os_invalidate_instruction_cache",
+    "section_vram": 2147906528,
+    "evidence": "docs/sdk-cache-and-transfer.md",
+    "language": "assembly"
+  },
+  {
+    "name": "func_80065790",
+    "rom": 418704,
+    "vram": 2147899280,
+    "size": 172,
+    "source": "src/sdk/os_invalidate_data_cache.s",
+    "object": "build/us/os_invalidate_data_cache.o",
+    "section": ".os_invalidate_data_cache",
+    "section_vram": 2147899280,
+    "evidence": "docs/sdk-cache-and-transfer.md",
+    "language": "assembly"
+  },
+  {
+    "name": "func_800674C0",
+    "rom": 426176,
+    "vram": 2147906752,
+    "size": 156,
+    "source": "src/sdk/os_block_clear.s",
+    "object": "build/us/os_block_clear.o",
+    "section": ".os_block_clear",
+    "section_vram": 2147906752,
+    "evidence": "docs/sdk-cache-and-transfer.md",
+    "language": "assembly"
+  },
+  {
+    "name": "func_800651F0",
+    "rom": 417264,
+    "vram": 2147897840,
+    "size": 160,
+    "source": "src/sdk/os_interrupt_mask.s",
+    "object": "build/us/os_interrupt_mask.o",
+    "section": ".os_interrupt_mask",
+    "section_vram": 2147897840,
+    "evidence": "docs/sdk-cache-and-transfer.md",
+    "language": "assembly"
   }
 ]

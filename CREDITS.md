@@ -114,6 +114,14 @@ short trigonometric interface. Robotron's independent comparisons establish
 the MIPS II profile and complete code extents. The sine table remains extracted
 fallback data.
 
+The [cache, cartridge, and float-math notes](docs/sdk-cache-and-transfer.md)
+record local libreultra comparisons for raw extended DMA and handle timing,
+float sine/cosine, data and instruction cache operations, block clearing, and
+CPU/RCP interrupt-mask application. Robotron's complete comparisons establish
+the VR4300 multiply scheduling profile for float math and the native assembly
+extents. The coefficients, timing-handle storage, and interrupt conversion
+table remain fallback data in this checkpoint.
+
 The subsequent [timer and priority recovery](docs/sdk-time-and-priority.md),
 [scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and
 [matrix conversion](docs/sdk-matrix-conversion.md) build on these interface

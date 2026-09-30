@@ -4964,6 +4964,73 @@ build/us/pi_event_notify.o: src/sdk/pi_event_notify.c include/scheduler.h includ
 RUNTIME_OBJECTS += \
     build/us/pi_event_notify.o
 
+build/us/pi_extended_dma.o: src/sdk/pi_extended_dma.c include/sdk_pi_word.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pi_extended_dma.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pi_extended_dma.raw.o $@ .text 0x224
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/sine_float.o: src/sdk/sine_float.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sine_float.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sine_float.raw.o $@ .text 0x1c0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/cosine_float.o: src/sdk/cosine_float.c  $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/cosine_float.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/cosine_float.raw.o $@ .text 0x168
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_voice_sequence_bind.o: src/game/audio_voice_sequence_bind.c include/audio_file_services_internal.h include/audio_host_internal.h include/audio_properties_internal.h include/audio_sequence_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_voice_sequence_bind.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_voice_sequence_bind.raw.o $@ .text 0x74
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/render_buffer_reserve.o: src/game/render_buffer_reserve.c include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/render_buffer_reserve.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/render_buffer_reserve.raw.o $@ .text 0x74
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/os_writeback_cache.o: src/sdk/os_writeback_cache.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_invalidate_instruction_cache.o: src/sdk/os_invalidate_instruction_cache.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_invalidate_data_cache.o: src/sdk/os_invalidate_data_cache.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_block_clear.o: src/sdk/os_block_clear.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+build/us/os_interrupt_mask.o: src/sdk/os_interrupt_mask.s Makefile tools/provenance.py
+	mkdir -p $(@D)
+	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@
+
+RUNTIME_OBJECTS += \
+    build/us/pi_extended_dma.o \
+    build/us/sine_float.o \
+    build/us/cosine_float.o \
+    build/us/audio_voice_sequence_bind.o \
+    build/us/render_buffer_reserve.o \
+    build/us/os_writeback_cache.o \
+    build/us/os_invalidate_instruction_cache.o \
+    build/us/os_invalidate_data_cache.o \
+    build/us/os_block_clear.o \
+    build/us/os_interrupt_mask.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
