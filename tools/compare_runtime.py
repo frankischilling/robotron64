@@ -739,6 +739,13 @@ MATCHING_BLOCKS = (
     ("actor_dynamic_parameter_append", "src/game/actor_dynamic_parameter_append.c", 0x8000D2D4, 0x8000D38C),
     ("renderer_texture_index_draw", "src/game/renderer_texture_index_draw.c", 0x80005814, 0x800058F0),
     ("actor_behavior_counter_expire", "src/game/actor_behavior_counter_expire.c", 0x8001B324, 0x8001B3DC),
+    ("session_background_select", "src/game/session_background_select.c", 0x80022BFC, 0x80022CF8),
+    ("scene_definition_byteorder", "src/game/scene_definition_byteorder.c", 0x80021B38, 0x80021C14),
+    ("early_effect_spawn", "src/game/early_effect_spawn.c", 0x80009F90, 0x8000A074),
+    ("scene_bonus_spawn", "src/game/scene_bonus_spawn.c", 0x80037050, 0x80037144),
+    ("early_collision_distance", "src/game/early_collision_distance.c", 0x80015020, 0x80015100),
+    ("early_pool_tick", "src/game/early_pool_tick.c", 0x8000D3E8, 0x8000D4F8),
+    ("actor_collision_turn", "src/game/actor_collision_turn.c", 0x8001A410, 0x8001A528),
 )
 
 CANDIDATE_BLOCKS = (

@@ -73,6 +73,11 @@ for repeat values, counter updates, auxiliary animation data and child setup.
 [Game collision and selection services](docs/game-collision-and-selection.md)
 continue those compiler comparisons and include complete relocated switch
 tables reconstructed from their C control flow.
+[Scene and actor transitions](docs/scene-and-actor-transitions.md) continue
+the recorded IDO and Super Mario 64 build references for scene conversion,
+actor creation, collision transitions and the early pool timer. Robotron's
+complete instructions and two relocated switch tables determine the game
+implementations and recovered record prefixes.
 [Menu transition and texture cache recovery](docs/menu-transition-and-texture-cache.md)
 uses libreultra button definitions and Super Mario 64 GBI definitions alongside
 Robotron's menu initialization and complete RDP load/tile commands.

@@ -2,6 +2,7 @@
 #include "../../include/game_memory.h"
 #include "../../include/debug_output.h"
 #include "../../include/pi.h"
+#include "../../include/scene_definition.h"
 
 extern unsigned char D_80095B50[];
 extern unsigned char D_80095B84[];
@@ -9,8 +10,6 @@ extern unsigned char D_80095B90[];
 extern unsigned char D_80095B98[];
 extern unsigned char D_80095BA0[];
 extern unsigned char D_80095BA8[];
-
-void func_80021B38(void *resource);
 
 int func_8004ED78(unsigned char *name)
 {

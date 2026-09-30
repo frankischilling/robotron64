@@ -1,6 +1,5 @@
 #include "../../include/early_game_helpers.h"
-
-void func_80009F90(void *state, int kind);
+#include "../../include/early_game_more.h"
 
 void func_8001B448(void *state, int kind)
 {

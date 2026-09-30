@@ -1,11 +1,5 @@
 #include "../../include/save_game.h"
-
-typedef struct SceneBucketCounter {
-    unsigned char unknown00[0x18];
-    int value18;
-} SceneBucketCounter;
-
-extern void func_80037050(int amount, SceneBucketCounter *counter);
+#include "../../include/scene_counter_internal.h"
 
 int func_80037144(int amount, SceneBucketCounter *counter)
 {

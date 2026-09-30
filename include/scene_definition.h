@@ -68,4 +68,6 @@ typedef char SceneResourceStateMustBe416Bytes[sizeof(SceneResourceState) == 0x1A
 extern SceneDefinition D_800B9A78;
 extern SceneResourceState D_800B8F78;
 
+void func_80021B38(SceneDefinition *scene);
+
 #endif

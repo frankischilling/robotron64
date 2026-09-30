@@ -1331,5 +1331,29 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "source": "src/game/session_background_select.c",
+    "object": "build/us/session_background_select.o",
+    "input_section": ".rodata",
+    "section": ".session_background_select_rodata",
+    "vram": 2148084376,
+    "rom": 603800,
+    "size": 44,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "source": "src/game/early_effect_spawn.c",
+    "object": "build/us/early_effect_spawn.o",
+    "input_section": ".rodata",
+    "section": ".early_effect_spawn_rodata",
+    "vram": 2148071768,
+    "rom": 591192,
+    "size": 24,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/scene-and-actor-transitions.md"
   }
 ]

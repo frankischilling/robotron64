@@ -13984,5 +13984,82 @@
     "section": ".actor_behavior_counter_expire",
     "section_vram": 2147595044,
     "evidence": "docs/actor-and-renderer-services.md"
+  },
+  {
+    "name": "func_80022BFC",
+    "rom": 145404,
+    "vram": 2147625980,
+    "size": 252,
+    "source": "src/game/session_background_select.c",
+    "object": "build/us/session_background_select.o",
+    "section": ".session_background_select",
+    "section_vram": 2147625980,
+    "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "name": "func_80021B38",
+    "rom": 141112,
+    "vram": 2147621688,
+    "size": 220,
+    "source": "src/game/scene_definition_byteorder.c",
+    "object": "build/us/scene_definition_byteorder.o",
+    "section": ".scene_definition_byteorder",
+    "section_vram": 2147621688,
+    "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "name": "func_80009F90",
+    "rom": 43920,
+    "vram": 2147524496,
+    "size": 228,
+    "source": "src/game/early_effect_spawn.c",
+    "object": "build/us/early_effect_spawn.o",
+    "section": ".early_effect_spawn",
+    "section_vram": 2147524496,
+    "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "name": "func_80037050",
+    "rom": 228432,
+    "vram": 2147709008,
+    "size": 244,
+    "source": "src/game/scene_bonus_spawn.c",
+    "object": "build/us/scene_bonus_spawn.o",
+    "section": ".scene_bonus_spawn",
+    "section_vram": 2147709008,
+    "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "name": "func_80015020",
+    "rom": 89120,
+    "vram": 2147569696,
+    "size": 224,
+    "source": "src/game/early_collision_distance.c",
+    "object": "build/us/early_collision_distance.o",
+    "section": ".early_collision_distance",
+    "section_vram": 2147569696,
+    "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "name": "func_8000D3E8",
+    "rom": 57320,
+    "vram": 2147537896,
+    "size": 272,
+    "source": "src/game/early_pool_tick.c",
+    "object": "build/us/early_pool_tick.o",
+    "section": ".early_pool_tick",
+    "section_vram": 2147537896,
+    "evidence": "docs/scene-and-actor-transitions.md"
+  },
+  {
+    "name": "func_8001A410",
+    "rom": 110608,
+    "vram": 2147591184,
+    "size": 280,
+    "source": "src/game/actor_collision_turn.c",
+    "object": "build/us/actor_collision_turn.o",
+    "section": ".actor_collision_turn",
+    "section_vram": 2147591184,
+    "evidence": "docs/scene-and-actor-transitions.md"
   }
 ]
