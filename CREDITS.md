@@ -331,6 +331,12 @@ submission, expiration rule and preserved error paths. The existing pinned
 IDO and Super Mario 64 matching-build references apply. No reference
 implementation is copied into these routines.
 
+The [collision callback recovery](docs/collision-callback-state.md) retains
+the pinned local IDO and Super Mario 64 compiler and matching-build reference
+basis. Complete Robotron instructions establish the actor-kind switch,
+score response, midpoint arithmetic and session word at offset `0x8C`.
+No reference implementation is copied into these routines.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

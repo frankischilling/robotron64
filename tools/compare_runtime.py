@@ -767,6 +767,8 @@ MATCHING_BLOCKS = (
     ("early_resource_arguments", "src/game/early_resource_arguments.c", 0x8000EC30, 0x8000ECD0),
     ("audio_dma_read", "src/game/audio_dma_read.c", 0x80052378, 0x8005254C),
     ("audio_dma_recycle", "src/game/audio_dma_recycle.c", 0x80052580, 0x800526D0),
+    ("actor_collision_animation", "src/game/actor_collision_animation.c", 0x80017A2C, 0x80017ACC),
+    ("actor_collision_score_result", "src/game/actor_collision_score_result.c", 0x80017E50, 0x80017F9C),
 )
 
 CANDIDATE_BLOCKS = (

@@ -14292,5 +14292,27 @@
     "section": ".audio_dma_recycle",
     "section_vram": 2147820928,
     "evidence": "docs/audio-dma-cache.md"
+  },
+  {
+    "name": "func_80017A2C",
+    "rom": 99884,
+    "vram": 2147580460,
+    "size": 160,
+    "source": "src/game/actor_collision_animation.c",
+    "object": "build/us/actor_collision_animation.o",
+    "section": ".actor_collision_animation",
+    "section_vram": 2147580460,
+    "evidence": "docs/collision-callback-state.md"
+  },
+  {
+    "name": "func_80017E50",
+    "rom": 100944,
+    "vram": 2147581520,
+    "size": 332,
+    "source": "src/game/actor_collision_score_result.c",
+    "object": "build/us/actor_collision_score_result.o",
+    "section": ".actor_collision_score_result",
+    "section_vram": 2147581520,
+    "evidence": "docs/collision-callback-state.md"
   }
 ]

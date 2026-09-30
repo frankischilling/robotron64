@@ -136,10 +136,13 @@ SECTIONS
     .early_six_arg_forward 0x80016914 : AT(0x17514) SUBALIGN(4) { build/us/early_six_arg_forward.o(.text) }
     .cpu_after_early_six_arg_forward 0x80016950 : AT(0x17550) { build/us/fallback.o(.rom_cpu_after_early_six_arg_forward) }
     .early_callback_false 0x80017364 : AT(0x17F64) SUBALIGN(4) { build/us/early_callback_false.o(.text) }
-    .endgame_17f7c_186cc 0x8001737C : AT(0x17F7C) { build/us/fallback.o(.rom_endgame_17f7c_186cc) }
+    .endgame_17f7c_1862c 0x8001737C : AT(0x17F7C) { build/us/fallback.o(.rom_endgame_17f7c_1862c) }
+    .actor_collision_animation 0x80017A2C : AT(0x1862C) SUBALIGN(4) { build/us/actor_collision_animation.o(.text) }
     .actor_collision_health_result 0x80017ACC : AT(0x186CC) SUBALIGN(4) { build/us/actor_collision_health_result.o(.text) }
     .early_actor_transition 0x80017C10 : AT(0x18810) SUBALIGN(4) { build/us/early_actor_transition.o(.text) }
-    .cpu_after_early_actor_transition 0x80017CDC : AT(0x188DC) { build/us/fallback.o(.rom_cpu_after_early_actor_transition) }
+    .endgame_188dc_18a50 0x80017CDC : AT(0x188DC) { build/us/fallback.o(.rom_endgame_188dc_18a50) }
+    .actor_collision_score_result 0x80017E50 : AT(0x18A50) SUBALIGN(4) { build/us/actor_collision_score_result.o(.text) }
+    .endgame_18b9c_1ad70 0x80017F9C : AT(0x18B9C) { build/us/fallback.o(.rom_endgame_18b9c_1ad70) }
     .early_pointer_state 0x8001A170 : AT(0x1AD70) SUBALIGN(4) { build/us/early_pointer_state.o(.text) }
     .endgame_1adf0_1aec4 0x8001A1F0 : AT(0x1ADF0) { build/us/fallback.o(.rom_endgame_1adf0_1aec4) }
     .session_input_initialize 0x8001A2C4 : AT(0x1AEC4) SUBALIGN(4) { build/us/session_input_initialize.o(.text) }
@@ -1264,7 +1267,6 @@ ASSERT(SIZEOF(.early_six_arg_forward) == 0x3c, "early_six_arg_forward size chang
 ASSERT(SIZEOF(.cpu_after_early_six_arg_forward) == 0xa14, "cpu_after_early_six_arg_forward size changed")
 ASSERT(SIZEOF(.early_callback_false) == 0x18, "early_callback_false size changed")
 ASSERT(SIZEOF(.early_actor_transition) == 0xcc, "early_actor_transition size changed")
-ASSERT(SIZEOF(.cpu_after_early_actor_transition) == 0x2494, "cpu_after_early_actor_transition size changed")
 ASSERT(SIZEOF(.early_pointer_state) == 0x80, "early_pointer_state size changed")
 ASSERT(SIZEOF(.early_resource_state) == 0x1a4, "early_resource_state size changed")
 ASSERT(SIZEOF(.early_actor_spawn_helper) == 0x6c, "early_actor_spawn_helper size changed")
@@ -2276,7 +2278,6 @@ ASSERT(SIZEOF(.endgame_f320_f6e4) == 0x3c4, "endgame_f320_f6e4 size changed")
 ASSERT(SIZEOF(.endgame_1109c_13290) == 0x21f4, "endgame_1109c_13290 size changed")
 ASSERT(SIZEOF(.endgame_data_70110_742ac) == 0x419c, "endgame_data_70110_742ac size changed")
 ASSERT(SIZEOF(.endgame_data_742b8_78d50) == 0x4a98, "endgame_data_742b8_78d50 size changed")
-D_800AD1C4 = 0x800AD1C4;
 D_800AD1C8 = 0x800AD1C8;
 func_8000FBC0 = 0x8000FBC0;
 D_800972C0 = 0x800972C0;
@@ -2470,7 +2471,6 @@ ASSERT(SIZEOF(.actor_collision_health_result) == 0x144, "actor_collision_health_
 ASSERT(SIZEOF(.audio_callback_add_bss) == 0x8, "audio_callback_add_bss size changed")
 ASSERT(SIZEOF(.audio_callback_remove_bss) == 0x8, "audio_callback_remove_bss size changed")
 ASSERT(SIZEOF(.audio_backend_voice_release_bss) == 0x4, "audio_backend_voice_release_bss size changed")
-ASSERT(SIZEOF(.endgame_17f7c_186cc) == 0x750, "endgame_17f7c_186cc size changed")
 D_8019281C = 0x8019281C;
 D_80192820 = 0x80192820;
 D_8019282C = 0x8019282C;
@@ -2517,3 +2517,7 @@ ASSERT(SIZEOF(.audio_dma_read_rodata) == 0xc, "audio_dma_read_rodata size change
 ASSERT(SIZEOF(.audio_dma_recycle_rodata) == 0xc, "audio_dma_recycle_rodata size changed")
 ASSERT(SIZEOF(.endgame_96738_96890) == 0x158, "endgame_96738_96890 size changed")
 ASSERT(SIZEOF(.endgame_968a8_968c4) == 0x1c, "endgame_968a8_968c4 size changed")
+func_80018E1C = 0x80018E1C;
+D_800739CC = 0x800739CC;
+ASSERT(SIZEOF(.actor_collision_animation) == 0xa0, "actor_collision_animation size changed")
+ASSERT(SIZEOF(.actor_collision_score_result) == 0x14c, "actor_collision_score_result size changed")
