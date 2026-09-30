@@ -698,6 +698,7 @@ MATCHING_BLOCKS = (
     ("video_initialize", "src/sdk/video_initialize.c", 0x80068050, 0x8006818C),
     ("pi_cartridge_initialize", "src/sdk/pi_cartridge_initialize.c", 0x800675E0, 0x800676CC),
     ("pi_disk_initialize", "src/sdk/pi_disk_initialize.c", 0x800676D0, 0x800677C8),
+    ("video_context_swap", "src/sdk/video_context_swap.c", 0x8006AC90, 0x8006AFEC),
 )
 
 CANDIDATE_BLOCKS = (

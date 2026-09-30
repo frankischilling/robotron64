@@ -22,6 +22,9 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/sdk/video_modes.c": "sdk-o1-mips2",
+    "src/sdk/video_default_modes.c": "sdk-o1-mips2",
+    "src/sdk/video_context_swap.c": "sdk-o1-mips2",
     "src/sdk/video_manager.c": "sdk-o1-mips2",
     "src/sdk/video_initialize.c": "sdk-o1-mips2",
     "src/sdk/pi_cartridge_initialize.c": "sdk-o1-mips2",

@@ -74,14 +74,14 @@ void func_800482A0(void *arg)
         D_8008E400[28].width = 320;
         D_8008E400[28].xScale *= 320;
         D_8008E400[28].xScale /= 320;
-        D_8008E400[28].field0Origin = 640;
+        D_8008E400[28].fields[0].origin = 640;
         func_80050440(&D_801378D0, 28, 1);
     }
     if (D_80000300 == TV_NTSC) {
         D_8008E400[0].width = 320;
         D_8008E400[0].xScale *= 320;
         D_8008E400[0].xScale /= 320;
-        D_8008E400[0].field0Origin = 640;
+        D_8008E400[0].fields[0].origin = 640;
         func_80050440(&D_801378D0, 0, 1);
     }
     osViSetSpecialFeatures(VI_GAMMA_OFF);

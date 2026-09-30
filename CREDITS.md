@@ -139,6 +139,13 @@ record further local libreultra comparisons with `src/gu/sinf.c`,
 `src/io/cartrominit.c`, and `src/io/leodiskinit.c`. These comparisons corroborate
 numeric representations, SDK interfaces, and complete storage layouts.
 
+The [video timing and swap recovery](docs/sdk-video-modes-and-swap.md) also
+consulted local libreultra `src/io/viswapcontext.c`, `src/io/vitbl.c`, and
+`src/io/vimodepallan1.c`, `src/io/vimodempallan1.c`, and
+`src/io/vimodentsclan1.c`. The source generator expresses the confirmed region
+timings and pixel/field rules; independent target comparisons cover all 45
+complete mode records and the complete swap procedure.
+
 The subsequent [timer and priority recovery](docs/sdk-time-and-priority.md),
 [scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and
 [matrix conversion](docs/sdk-matrix-conversion.md) build on these interface

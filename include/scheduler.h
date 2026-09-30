@@ -97,16 +97,30 @@ struct Scheduler {
 };
 
 /* The target indexes this table with an 80-byte stride. */
+typedef struct VideoField {
+    unsigned int origin;
+    unsigned int yScale;
+    unsigned int vStart;
+    unsigned int vBurst;
+    unsigned int vInterrupt;
+} VideoField;
+
 typedef struct VideoMode {
     unsigned char type;
     unsigned int control;
     unsigned int width;
-    unsigned int unknown0C[5];
+    unsigned int burst;
+    unsigned int vSync;
+    unsigned int hSync;
+    unsigned int leap;
+    unsigned int hStart;
     unsigned int xScale;
-    unsigned int unknown24;
-    unsigned int field0Origin;
-    unsigned int unknown2C[9];
+    unsigned int current;
+    VideoField fields[2];
 } VideoMode;
+
+typedef char VideoFieldMustBe20Bytes[sizeof(VideoField) == 20 ? 1 : -1];
+typedef char VideoModeMustBe80Bytes[sizeof(VideoMode) == 80 ? 1 : -1];
 
 extern VideoMode D_8008E400[];
 extern Scheduler D_801378D0;

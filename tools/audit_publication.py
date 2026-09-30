@@ -7,10 +7,13 @@ import json
 from pathlib import Path
 
 from compare_runtime import MATCHING_BLOCKS
+from compare_data import (comparison_directory, data_input_hashes, data_only_sources,
+                          verify_data_sections)
 from compare_startup import MATCHING_BLOCKS as STARTUP_BLOCKS, SymbolLayoutSnapshot
 from compiler import profile_for_source
 from manifest import load_manifest, project_path
-from owned_sections import load_owned_sections, validate_function_ranges
+from owned_sections import (elf_sections_and_symbols, load_owned_sections,
+                            validate_function_ranges, verify_owned_binary)
 from provenance import local_headers
 from rom import ROOT
 from toolchain import installed_identity
@@ -83,6 +86,26 @@ def check_report(root, family, report, expected):
         check_inputs(root, block.get("inputs_sha256"), required)
 
 
+def check_data_report(root, report, groups):
+    if report.get("matches") is not True or not isinstance(report.get("blocks"), dict):
+        raise ValueError("Incomplete data comparison")
+    if set(report["blocks"]) != set(groups):
+        raise ValueError("Data comparison source inventory is stale")
+    for source, records in groups.items():
+        block = report["blocks"][source]
+        if block.get("source") != source or block.get("matches") is not True:
+            raise ValueError("Data comparison source disagrees with current ownership")
+        profile = profile_for_source(source)
+        if (block.get("compiler_profile") != profile or
+                block.get("toolchain_identity") != installed_identity(profile["version"])):
+            raise ValueError(f"Stale data compiler identity: {source}")
+        sections = block.get("sections")
+        if (not isinstance(sections, list) or
+                [item.get("ownership") for item in sections] != records):
+            raise ValueError(f"Data comparison section inventory is stale: {source}")
+        check_inputs(root, block.get("inputs_sha256"), data_input_hashes(source, root))
+
+
 def current_comparisons(functions):
     groups = defaultdict(list)
     for item in functions:
@@ -119,7 +142,7 @@ def check_public_files(root, files, functions, owned):
     required = {item[field] for item in functions for field in ("source", "evidence")}
     required.update(item["source"] for item in owned)
     required.update(item["evidence"] for item in owned)
-    for source in {item["source"] for item in functions}:
+    for source in {item["source"] for item in functions} | {item["source"] for item in owned}:
         required.update(local_headers(root / source, root))
     required.update(("Makefile", "config/functions.json", "config/owned_sections.json",
                      "config/target.json", "config/startup_symbols.ld", "config/runtime_symbols.ld",
@@ -205,6 +228,33 @@ def main():
     check_report(ROOT, family, report, expected)
     results[family] = {"units": len(expected), "text_bytes": sum(end-start for _, start, end in expected.values()),
                        "report_sha256": sha256(path)}
+
+    data_groups = data_only_sources(functions, owned)
+    if data_groups:
+        path = ROOT / "build/data-comparison/report.json"
+        report = json.loads(path.read_text())
+        check_data_report(ROOT, report, data_groups)
+        for source, records in data_groups.items():
+            directory = comparison_directory(source)
+            obj, elf = directory / "compiled.o", directory / "compiled.elf"
+            sections, symbols = elf_sections_and_symbols(obj)
+            verify_data_sections(sections, symbols, records)
+            verify_owned_binary(obj, records, linked=False)
+            verify_owned_binary(elf, records, target)
+            sections, _ = elf_sections_and_symbols(elf)
+            for item in report["blocks"][source]["sections"]:
+                data = sections[item["ownership"]["section"]]["bytes"]
+                digest = None if data is None else hashlib.sha256(data).hexdigest()
+                if item.get("bytes_sha256") != digest:
+                    raise ValueError(f"Independent data bytes changed: {source}")
+        results["data-comparison"] = {
+            "units": len(data_groups),
+            "initialized_bytes": sum(r["size"] for records in data_groups.values()
+                                     for r in records if r["rom"] is not None),
+            "bss_bytes": sum(r["size"] for records in data_groups.values()
+                             for r in records if r["rom"] is None),
+            "report_sha256": sha256(path),
+        }
 
     from progress import measure
     saved = json.loads((ROOT / "build/us/progress.json").read_text())

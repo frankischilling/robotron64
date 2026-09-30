@@ -1000,5 +1000,35 @@
     },
     "static_symbols": {},
     "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "source": "src/sdk/video_modes.c",
+    "object": "build/us/video_modes.o",
+    "input_section": ".data",
+    "section": ".video_modes_data",
+    "vram": 2148066304,
+    "rom": 585728,
+    "size": 3360,
+    "symbols": {
+      "D_8008E400": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-video-modes-and-swap.md"
+  },
+  {
+    "source": "src/sdk/video_default_modes.c",
+    "object": "build/us/video_default_modes.o",
+    "input_section": ".data",
+    "section": ".video_default_modes_data",
+    "vram": 2148070704,
+    "rom": 590128,
+    "size": 240,
+    "symbols": {
+      "D_8008F530": 0,
+      "D_8008F580": 80,
+      "D_8008F5D0": 160
+    },
+    "static_symbols": {},
+    "evidence": "docs/sdk-video-modes-and-swap.md"
   }
 ]

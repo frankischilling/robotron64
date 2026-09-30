@@ -13485,5 +13485,16 @@
     "section": ".pi_disk_initialize",
     "section_vram": 2147907280,
     "evidence": "docs/sdk-video-and-device-initialization.md"
+  },
+  {
+    "name": "func_8006AC90",
+    "rom": 440464,
+    "vram": 2147921040,
+    "size": 860,
+    "source": "src/sdk/video_context_swap.c",
+    "object": "build/us/video_context_swap.o",
+    "section": ".video_context_swap",
+    "section_vram": 2147921040,
+    "evidence": "docs/sdk-video-modes-and-swap.md"
   }
 ]

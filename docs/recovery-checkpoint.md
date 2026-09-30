@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,198 matching C functions covering 185,392 bytes.
-It also contains twenty-five assembly functions covering 2,792 live bytes, 5,009 bytes
+The source checkpoint contains 1,199 matching C functions covering 186,252 bytes.
+It also contains twenty-five assembly functions covering 2,792 live bytes, 8,609 bytes
 of source-owned initialized data, and 9,845 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-271 complete C functions, 64,344 C bytes, twenty-four assembly procedures with
-2,736 live bytes, 3,361 reconstructed initialized bytes, and 5,755 BSS bytes.
+272 complete C functions, 65,204 C bytes, twenty-four assembly procedures with
+2,736 live bytes, 6,961 reconstructed initialized bytes, and 5,755 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -32,8 +32,8 @@ functions recover sequence-list sizing, loading and release, hardware-voice
 initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
-118 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
-the source inputs and complete procedure extents for all 1,198 counted C
+131 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
+the source inputs and complete procedure extents for all 1,199 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
 record the behavior, private storage, and retained candidate identities.
@@ -156,23 +156,25 @@ make progress
 python3 tools/compare_runtime.py --jobs 4
 python3 tools/compare_startup.py
 python3 tools/compare_assembly.py
+make compare-data
 ```
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 688 complete source units. Startup/scheduler
+The runtime registry contains 689 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-five procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
 and generated data or private storage.
 
-The tooling suite contains 116 tests. It can run without a commercial ROM or
+The tooling suite contains 131 tests. It can run without a commercial ROM or
 the IDO compiler installation. `tools/audit_publication.py --files <inventory>`
 checks an explicit JSON array of public file paths against the current build,
 comparison reports, owned sections, and progress. It rejects stale source or
 header evidence and does not count a partial or shifted function comparison.
 Every counted C source must belong to a complete independent comparison;
-successful linkage cannot substitute for a missing comparison. The runtime
+data-only units require complete independent data proofs.
+Successful linkage cannot substitute for a missing comparison. The runtime
 tool can compile independent units concurrently while preserving registered
 report order, distinct output directories and all input-integrity checks.
 
@@ -189,6 +191,13 @@ The [float constant recovery](sdk-float-math-constants.md) owns both complete
 recovery adds five complete SDK procedures, both video contexts, the video
 manager and thread storage, and the cartridge/disk handles. These four new
 runtime units retain their complete instruction and storage comparisons.
+
+The [video timing and context swap recovery](sdk-video-modes-and-swap.md)
+adds the complete 860-byte video register procedure and reconstructs all 42
+SDK table modes and three defaults from confirmed timing parameters. Two
+independent data comparisons verify their 3,600 bytes without increasing the
+procedure count. Full startup and runtime comparisons validate the completed
+`VideoMode` layout and preserve startup's first-field origin writes.
 
 ## Remaining work
 

@@ -31,5 +31,6 @@ extern SdkVideoContext *D_8008F234;
 void func_80065620(void *framebuffer);
 void *func_80065670(void);
 void *func_800656B0(void);
+void func_8006AC90(void);
 
 #endif

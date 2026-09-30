@@ -938,7 +938,9 @@ SECTIONS
     .timer_schedule 0x8006ABA0 : AT(0x6B7A0) SUBALIGN(4) { build/us/timer_schedule.o(.text) }
     .cpu_after_timer_set 0x8006AC74 : AT(0x6B874) { build/us/fallback.o(.rom_cpu_after_timer_set) }
     .video_context_get 0x8006AC80 : AT(0x6B880) SUBALIGN(4) { build/us/video_context_get.o(.text) }
-    .cpu_after_vi_context 0x8006AC8C : AT(0x6B88C) { build/us/fallback.o(.rom_cpu_after_vi_context) }
+    .endgame_6b88c_6b890 0x8006AC8C : AT(0x6B88C) { build/us/fallback.o(.rom_endgame_6b88c_6b890) }
+    .video_context_swap 0x8006AC90 : AT(0x6B890) SUBALIGN(4) { build/us/video_context_swap.o(.text) }
+    .endgame_6bbec_6bbf0 0x8006AFEC : AT(0x6BBEC) { build/us/fallback.o(.rom_endgame_6bbec_6bbf0) }
     .sp_set_status 0x8006AFF0 : AT(0x6BBF0) SUBALIGN(4) { build/us/sp_set_status.o(.text) }
     .cpu_after_sp_set_status 0x8006AFFC : AT(0x6BBFC) { build/us/fallback.o(.rom_cpu_after_sp_set_status) }
     .sp_get_status 0x8006B000 : AT(0x6BC00) SUBALIGN(4) { build/us/sp_get_status.o(.text) }
@@ -1009,7 +1011,8 @@ SECTIONS
     .short_sine_data 0x8008DBB0 : AT(0x8E7B0) SUBALIGN(4) { build/us/short_sine.o(.data) }
     .after_short_sine_data 0x8008E3B0 : AT(0x8EFB0) { build/us/fallback.o(.rom_after_short_sine_data) }
     .sdk_pi_manager_data 0x8008E3D0 : AT(0x8EFD0) SUBALIGN(4) { build/us/fallback.o(.rom_sdk_fallback_sdk_pi_manager_data) }
-    .data_after_sdk_pi_manager_data 0x9001EEDC : AT(0x8EFEC) { build/us/fallback.o(.rom_data_after_sdk_pi_manager_data) }
+    .before_video_modes_data 0x8008E3EC : AT(0x8EFEC) { build/us/fallback.o(.rom_before_video_modes_data) }
+    .video_modes_data 0x8008E400 : AT(0x8F000) SUBALIGN(4) { build/us/video_modes.o(.data) }
     .gu_random_data 0x8008F120 : AT(0x8FD20) SUBALIGN(4) { build/us/gu_random.o(.data) }
     .data_after_sdk_random_data 0x9001FC14 : AT(0x8FD24) { build/us/fallback.o(.rom_data_after_sdk_random_data) }
     .controller_init_data 0x8008F130 : AT(0x8FD30) SUBALIGN(4) { build/us/controller_init.o(.data) }
@@ -1024,7 +1027,8 @@ SECTIONS
     .after_video_context_data 0x8008F238 : AT(0x8FE38) { build/us/fallback.o(.rom_after_video_context_data) }
     .audio_effect_create_data 0x8008F260 : AT(0x8FE60) SUBALIGN(4) { build/us/audio_effect_create.o(.data) }
     .audio_envelope_data 0x8008F3F0 : AT(0x8FFF0) SUBALIGN(4) { build/us/audio_envelope.o(.data) }
-    .data_after_sdk_audio_envelope_data 0x90020020 : AT(0x90130) { build/us/fallback.o(.rom_data_after_sdk_audio_envelope_data) }
+    .video_default_modes_data 0x8008F530 : AT(0x90130) SUBALIGN(4) { build/us/video_default_modes.o(.data) }
+    .after_video_default_modes_data 0x8008F620 : AT(0x90220) { build/us/fallback.o(.rom_after_video_default_modes_data) }
     .text_table 0x8008F678 : AT(0x90278) SUBALIGN(4) { build/us/text.o(.rodata) }
     .remainder 0x91000000 : AT(0x903A0) { build/us/fallback.o(.rom_remainder) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
@@ -1486,7 +1490,6 @@ ASSERT(SIZEOF(.movie_commands_data) == 0x68, "movie_commands_data size changed")
 ASSERT(SIZEOF(.data_after_movie_commands_data) == 0x15888, "data_after_movie_commands_data size changed")
 ASSERT(SIZEOF(.compression_workspace_data) == 0x170, "compression_workspace_data size changed")
 ASSERT(SIZEOF(.sdk_pi_manager_data) == 0x1c, "sdk_pi_manager_data size changed")
-ASSERT(SIZEOF(.data_after_sdk_pi_manager_data) == 0xd34, "data_after_sdk_pi_manager_data size changed")
 ASSERT(SIZEOF(.gu_random_data) == 0x4, "gu_random_data size changed")
 ASSERT(SIZEOF(.data_after_sdk_random_data) == 0xc, "data_after_sdk_random_data size changed")
 ASSERT(SIZEOF(.controller_init_data) == 0x4, "controller_init_data size changed")
@@ -1497,7 +1500,6 @@ ASSERT(SIZEOF(.data_after_sdk_audio_globals_data) == 0xc, "data_after_sdk_audio_
 ASSERT(SIZEOF(.audio_buffer_submit_data) == 0x1, "audio_buffer_submit_data size changed")
 ASSERT(SIZEOF(.audio_effect_create_data) == 0x190, "audio_effect_create_data size changed")
 ASSERT(SIZEOF(.audio_envelope_data) == 0x140, "audio_envelope_data size changed")
-ASSERT(SIZEOF(.data_after_sdk_audio_envelope_data) == 0x148, "data_after_sdk_audio_envelope_data size changed")
 
 ASSERT(SIZEOF(.text_replacement) == 0x264, "replacement fallback size changed")
 ASSERT(SIZEOF(.text_wrapper) == 0xc4, "text wrapper size changed")
@@ -1988,7 +1990,6 @@ ASSERT(SIZEOF(.controller_crc) == 0x180, "controller_crc size changed")
 ASSERT(SIZEOF(.timer_schedule) == 0xd4, "timer_schedule size changed")
 ASSERT(SIZEOF(.cpu_after_timer_set) == 0xc, "cpu_after_timer_set size changed")
 ASSERT(SIZEOF(.video_context_get) == 0xc, "video_context_get size changed")
-ASSERT(SIZEOF(.cpu_after_vi_context) == 0x364, "cpu_after_vi_context size changed")
 ASSERT(SIZEOF(.sp_set_status) == 0xc, "sp_set_status size changed")
 ASSERT(SIZEOF(.cpu_after_sp_set_status) == 0x4, "cpu_after_sp_set_status size changed")
 ASSERT(SIZEOF(.sp_get_status) == 0xc, "sp_get_status size changed")
@@ -2168,6 +2169,10 @@ ASSERT(SIZEOF(.os_block_copy) == 0x310, "os_block_copy size changed")
 ASSERT(SIZEOF(.endgame_6bc0c_6bc10) == 0x4, "endgame_6bc0c_6bc10 size changed")
 ASSERT(SIZEOF(.short_sine_data) == 0x800, "short sine data size changed")
 ASSERT(SIZEOF(.after_short_sine_data) == 0x20, "after short sine data size changed")
+ASSERT(SIZEOF(.before_video_modes_data) == 0x14, "before video modes data size changed")
+ASSERT(SIZEOF(.video_modes_data) == 0xd20, "video modes data size changed")
+ASSERT(SIZEOF(.video_default_modes_data) == 0xf0, "default video modes data size changed")
+ASSERT(SIZEOF(.after_video_default_modes_data) == 0x58, "after default video modes data size changed")
 ASSERT(SIZEOF(.video_manager_data) == 0x1c, "video manager data size changed")
 ASSERT(SIZEOF(.video_manager_bss) == 0x1212, "video manager BSS size changed")
 ASSERT(SIZEOF(.video_initialize_data) == 0x68, "video context data size changed")
@@ -2183,3 +2188,6 @@ ASSERT(SIZEOF(.endgame_682cc_682d0) == 0x4, "endgame_682cc_682d0 size changed")
 ASSERT(SIZEOF(.endgame_683c8_683d0) == 0x8, "endgame_683c8_683d0 size changed")
 ASSERT(SIZEOF(.endgame_687b4_68c50) == 0x49c, "endgame_687b4_68c50 size changed")
 ASSERT(SIZEOF(.endgame_68d8c_68d90) == 0x4, "endgame_68d8c_68d90 size changed")
+ASSERT(SIZEOF(.video_context_swap) == 0x35c, "video context swap size changed")
+ASSERT(SIZEOF(.endgame_6b88c_6b890) == 0x4, "endgame_6b88c_6b890 size changed")
+ASSERT(SIZEOF(.endgame_6bbec_6bbf0) == 0x4, "endgame_6bbec_6bbf0 size changed")

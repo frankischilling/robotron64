@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,198 matching C functions covering 185,392 bytes, twenty-five assembly functions covering 2,792 bytes, 5,009 bytes of source-owned initialized data, and 9,845 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,199 matching C functions covering 186,252 bytes, twenty-five assembly functions covering 2,792 bytes, 8,609 bytes of source-owned initialized data, and 9,845 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -63,8 +63,9 @@ The recent recovery extends the game-side audio pipeline. [Audio properties](doc
 [hardware voice management](docs/audio-hardware-driver.md), and [sequence loading](docs/audio-sequence-loading.md)
 record the recovered audio pipeline. [Compression runtime](docs/compression-runtime.md)
 covers input handling, workspace allocation, block dispatch, fixed-block decoding,
-and the source-owned Huffman tables and buffers. The table builder and stored,
-dynamic, and literal/distance decoding loops still use fallback code.
+and the source-owned Huffman tables and buffers. The stored-block decoder is
+recovered. The table builder, dynamic, and literal/distance decoding loops
+still use fallback code.
 
 [Bank initialization](docs/audio-bank-layout.md) and the
 [volume, pan, and pedal commands](docs/audio-driver-commands.md) preserve the
@@ -145,6 +146,11 @@ compilations concurrently. Each uses a separate output directory and the same
 checked layout and input hashes. Reports retain registration order, and any
 compiler, ownership, changed-input or byte-comparison failure still fails the
 run. The default remains one compilation at a time.
+
+`make compare-data` independently compiles both video timing files, rejects
+executable content, and checks their complete owned data and linked symbols.
+The [video timing and swap notes](docs/sdk-video-modes-and-swap.md) describe the
+parameter generator and separate data proofs.
 
 `python3 tools/compare_startup.py` independently checks startup and scheduler
 creation/dispatch. `python3 tools/compare_assembly.py` separately reassembles

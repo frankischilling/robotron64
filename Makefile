@@ -4,7 +4,11 @@ CROSS := mips-linux-gnu-
 IDO := .local/toolchain/5.3/cc
 BASEROM ?= baseroms/us/baserom.z64
 
-.PHONY: all setup toolchain verify progress clean test analysis-setup analyze resources
+.PHONY: all setup toolchain verify progress clean test analysis-setup analyze resources compare-data
+
+compare-data: toolchain
+	$(PYTHON) tools/compare_data.py
+
 all: build/us/robotron64.z64
 
 resources:
@@ -5112,6 +5116,31 @@ RUNTIME_OBJECTS += \
     build/us/video_initialize.o \
     build/us/pi_cartridge_initialize.o \
     build/us/pi_disk_initialize.o
+
+build/us/video_context_swap.o: src/sdk/video_context_swap.c include/scheduler.h include/sdk_io.h include/sdk_time.h include/sdk_video_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/video_context_swap.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/video_context_swap.raw.o $@ .text 0x35c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/video_context_swap.o
+
+build/us/video_modes.o: src/sdk/video_modes.c include/scheduler.h tools/generate_video_modes.py $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/generate_video_modes.py --check
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/video_modes.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/video_modes.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/video_default_modes.o: src/sdk/video_default_modes.c include/scheduler.h tools/generate_video_modes.py $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/generate_video_modes.py --check
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/video_default_modes.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/video_default_modes.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/video_modes.o build/us/video_default_modes.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
