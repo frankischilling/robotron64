@@ -38,6 +38,9 @@ not advance the offset independently.
 Together these routines recover two complete procedures and 500 instruction
 bytes. They add no initialized data or BSS ownership.
 
-The corresponding provenance ledger records the complete independent object
-comparison and linked function metadata. ROM equality alone does not establish
-whole-game source completion while executable fallback remains.
+The [provenance ledger](early-parameter-slot-tick-provenance.json) records the
+complete independent object comparisons and linked function metadata from a
+clean archive of `f9aa8e1`. Fresh extraction and build, all 137 tooling tests,
+775 runtime units, both startup units, eighteen assembly units, and six data
+units pass. The ROM matches all 8,388,608 target bytes. ROM equality alone does
+not establish whole-game source completion while executable fallback remains.
