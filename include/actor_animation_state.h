@@ -18,6 +18,7 @@ void func_80029D6C(ActorBehaviorActorInternal *actor);
 
 void func_80029194(ActorBehaviorActorInternal *actor);
 void func_800294A4(ActorBehaviorActorInternal *actor);
+void func_800295CC(ActorBehaviorActorInternal *actor);
 void func_80029B80(ActorBehaviorActorInternal *actor);
 void func_80029C48(ActorBehaviorActorInternal *actor);
 void func_80029D98(ActorBehaviorActorInternal *actor);

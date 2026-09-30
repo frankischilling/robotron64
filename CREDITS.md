@@ -358,6 +358,12 @@ references. Complete Robotron procedures establish the list traversal,
 callback flag reload, random motion, history-slot prefix and axis separation.
 No reference implementation is copied into these procedures.
 
+The [actor search and projectile fan recovery](docs/actor-search-and-projectile-fan.md)
+retains the pinned local IDO and Super Mario 64 compiler and matching-build
+references. Complete Robotron instructions establish the search filters,
+signed distance, random fan count, capacity checks and forwarding interface.
+No reference implementation is copied into these procedures.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

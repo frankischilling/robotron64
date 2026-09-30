@@ -1,6 +1,6 @@
-extern void func_8004E1C0(void);
+#include "../../include/actor_projectile_internal.h"
 
-void func_8003919C(void)
+GameActor *func_8003919C(GameActor *parent, int angleOffset, int unusedKind)
 {
-    func_8004E1C0();
+    return func_8004E1C0(parent, angleOffset, unusedKind);
 }

@@ -264,7 +264,8 @@ SECTIONS
     .actor_animation 0x80027AB8 : AT(0x286B8) SUBALIGN(4) { build/us/actor_animation.o(.text) }
     .actor_motion_mode 0x80027B9C : AT(0x2879C) SUBALIGN(4) { build/us/actor_motion_mode.o(.text) }
     .actor_motion_facing 0x80027CE4 : AT(0x288E4) SUBALIGN(4) { build/us/actor_motion_facing.o(.text) }
-    .cpu_after_actor_motion_facing 0x80027D8C : AT(0x2898C) { build/us/fallback.o(.rom_cpu_after_actor_motion_facing) }
+    .actor_nearest_match 0x80027D8C : AT(0x2898C) SUBALIGN(4) { build/us/actor_nearest_match.o(.text) }
+    .endgame_28ad4_28d8c 0x80027ED4 : AT(0x28AD4) { build/us/fallback.o(.rom_endgame_28ad4_28d8c) }
     .actor_pool_reset 0x8002818C : AT(0x28D8C) SUBALIGN(4) { build/us/actor_pool_reset.o(.text) }
     .actor_cleanup 0x800281C4 : AT(0x28DC4) SUBALIGN(4) { build/us/actor_cleanup.o(.text) }
     .actor_remove 0x80028274 : AT(0x28E74) SUBALIGN(4) { build/us/actor_remove.o(.text) }
@@ -278,7 +279,8 @@ SECTIONS
     .actor_behavior_animation_2945c 0x8002945C : AT(0x2A05C) SUBALIGN(4) { build/us/actor_behavior_animation_2945c.o(.text) }
     .actor_child_animation 0x800294A4 : AT(0x2A0A4) SUBALIGN(4) { build/us/actor_child_animation.o(.text) }
     .actor_behavior_callback_29544 0x80029544 : AT(0x2A144) SUBALIGN(4) { build/us/actor_behavior_callback_29544.o(.text) }
-    .cpu_after_actor_behavior_callback_29544 0x800295CC : AT(0x2A1CC) { build/us/fallback.o(.rom_cpu_after_actor_behavior_callback_29544) }
+    .actor_random_fan 0x800295CC : AT(0x2A1CC) SUBALIGN(4) { build/us/actor_random_fan.o(.text) }
+    .endgame_2a360_2a720 0x80029760 : AT(0x2A360) { build/us/fallback.o(.rom_endgame_2a360_2a720) }
     .actor_behavior_spawn 0x80029B20 : AT(0x2A720) SUBALIGN(4) { build/us/actor_behavior_spawn.o(.text) }
     .actor_repeat_expire 0x80029B80 : AT(0x2A780) SUBALIGN(4) { build/us/actor_repeat_expire.o(.text) }
     .actor_repeat_delay 0x80029C48 : AT(0x2A848) SUBALIGN(4) { build/us/actor_repeat_delay.o(.text) }
@@ -1365,7 +1367,6 @@ ASSERT(SIZEOF(.save_menu_pak_result) == 0x70, "save_menu_pak_result size changed
 ASSERT(SIZEOF(.actor_animation) == 0xe4, "actor_animation size changed")
 ASSERT(SIZEOF(.actor_motion_mode) == 0x148, "actor_motion_mode size changed")
 ASSERT(SIZEOF(.actor_motion_facing) == 0xa8, "actor_motion_facing size changed")
-ASSERT(SIZEOF(.cpu_after_actor_motion_facing) == 0x400, "cpu_after_actor_motion_facing size changed")
 ASSERT(SIZEOF(.actor_pool_reset) == 0x38, "actor_pool_reset size changed")
 ASSERT(SIZEOF(.actor_cleanup) == 0xb0, "actor_cleanup size changed")
 ASSERT(SIZEOF(.actor_remove) == 0xf8, "actor_remove size changed")
@@ -1377,7 +1378,6 @@ ASSERT(SIZEOF(.actor_behavior_motion_guarded) == 0xc0, "actor_behavior_motion_gu
 ASSERT(SIZEOF(.actor_behavior_motion_scaled) == 0xe0, "actor_behavior_motion_scaled size changed")
 ASSERT(SIZEOF(.actor_behavior_animation_2945c) == 0x48, "actor_behavior_animation_2945c size changed")
 ASSERT(SIZEOF(.actor_behavior_callback_29544) == 0x88, "actor_behavior_callback_29544 size changed")
-ASSERT(SIZEOF(.cpu_after_actor_behavior_callback_29544) == 0x554, "cpu_after_actor_behavior_callback_29544 size changed")
 ASSERT(SIZEOF(.actor_behavior_spawn) == 0x60, "actor_behavior_spawn size changed")
 ASSERT(SIZEOF(.actor_behavior_spawn_restore) == 0x78, "actor_behavior_spawn_restore size changed")
 ASSERT(SIZEOF(.actor_behavior_release_29d6c) == 0x2c, "actor_behavior_release_29d6c size changed")
@@ -2544,3 +2544,7 @@ func_800290B0 = 0x800290B0;
 ASSERT(SIZEOF(.scene_actor_mode_list) == 0x174, "scene_actor_mode_list size changed")
 ASSERT(SIZEOF(.actor_child_random_motion) == 0x17c, "actor_child_random_motion size changed")
 ASSERT(SIZEOF(.actor_collision_separate) == 0x154, "actor_collision_separate size changed")
+D_800AC97C = 0x800AC97C;
+D_800ACD90 = 0x800ACD90;
+ASSERT(SIZEOF(.actor_nearest_match) == 0x148, "actor_nearest_match size changed")
+ASSERT(SIZEOF(.actor_random_fan) == 0x194, "actor_random_fan size changed")

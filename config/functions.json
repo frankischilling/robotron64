@@ -14402,5 +14402,27 @@
     "section": ".actor_collision_separate",
     "section_vram": 2147585224,
     "evidence": "docs/actor-motion-callback-state.md"
+  },
+  {
+    "name": "func_80027D8C",
+    "rom": 166284,
+    "vram": 2147646860,
+    "size": 328,
+    "source": "src/game/actor_nearest_match.c",
+    "object": "build/us/actor_nearest_match.o",
+    "section": ".actor_nearest_match",
+    "section_vram": 2147646860,
+    "evidence": "docs/actor-search-and-projectile-fan.md"
+  },
+  {
+    "name": "func_800295CC",
+    "rom": 172492,
+    "vram": 2147653068,
+    "size": 404,
+    "source": "src/game/actor_random_fan.c",
+    "object": "build/us/actor_random_fan.o",
+    "section": ".actor_random_fan",
+    "section_vram": 2147653068,
+    "evidence": "docs/actor-search-and-projectile-fan.md"
   }
 ]
