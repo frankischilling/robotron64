@@ -14490,5 +14490,27 @@
     "section": ".controller_access",
     "section_vram": 2147807152,
     "evidence": "docs/controller-motor-worker.md"
+  },
+  {
+    "name": "func_8000E4F0",
+    "rom": 61680,
+    "vram": 2147542256,
+    "size": 216,
+    "source": "src/game/early_parameter_slot_tick.c",
+    "object": "build/us/early_parameter_slot_tick.o",
+    "section": ".early_parameter_slot_tick",
+    "section_vram": 2147542256,
+    "evidence": "docs/early-parameter-slot-tick.md"
+  },
+  {
+    "name": "func_8000DFEC",
+    "rom": 60396,
+    "vram": 2147540972,
+    "size": 284,
+    "source": "src/game/early_actor_follow_owner.c",
+    "object": "build/us/early_actor_follow_owner.o",
+    "section": ".early_actor_follow_owner",
+    "section_vram": 2147540972,
+    "evidence": "docs/early-parameter-slot-tick.md"
   }
 ]

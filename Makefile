@@ -5830,6 +5830,24 @@ RUNTIME_OBJECTS += \
     build/us/actor_position_follow.o \
     build/us/actor_value_follow.o
 
+build/us/early_parameter_slot_tick.o: src/game/early_parameter_slot_tick.c include/actor.h include/actor_behavior_internal.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/early_game_more.h include/early_game_state.h include/early_parameter_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_counter_internal.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_parameter_slot_tick.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_parameter_slot_tick.raw.o $@ .text 0xd8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_parameter_slot_tick.o
+
+build/us/early_actor_follow_owner.o: src/game/early_actor_follow_owner.c include/actor.h include/actor_behavior_internal.h include/early_game_more.h include/early_game_state.h include/early_session_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_follow_owner.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_follow_owner.raw.o $@ .text 0x11c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_actor_follow_owner.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

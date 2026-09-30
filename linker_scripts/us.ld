@@ -95,10 +95,11 @@ SECTIONS
     .early_angle_normalize 0x8000DF14 : AT(0xEB14) SUBALIGN(4) { build/us/early_angle_normalize.o(.text) }
     .early_angle_step 0x8000DF30 : AT(0xEB30) SUBALIGN(4) { build/us/early_angle_step.o(.text) }
     .early_coordinate_rescale 0x8000DFB0 : AT(0xEBB0) SUBALIGN(4) { build/us/early_coordinate_rescale.o(.text) }
-    .endgame_ebec_ef28 0x8000DFEC : AT(0xEBEC) { build/us/fallback.o(.rom_endgame_ebec_ef28) }
+    .early_actor_follow_owner 0x8000DFEC : AT(0xEBEC) SUBALIGN(4) { build/us/early_actor_follow_owner.o(.text) }
+    .endgame_ed08_ef28 0x8000E108 : AT(0xED08) { build/us/fallback.o(.rom_endgame_ed08_ef28) }
     .early_transition_arrays_clear 0x8000E328 : AT(0xEF28) SUBALIGN(4) { build/us/early_transition_arrays_clear.o(.text) }
     .early_parameter_schedule 0x8000E3B4 : AT(0xEFB4) SUBALIGN(4) { build/us/early_parameter_schedule.o(.text) }
-    .endgame_f0f0_f1c8 0x8000E4F0 : AT(0xF0F0) { build/us/fallback.o(.rom_endgame_f0f0_f1c8) }
+    .early_parameter_slot_tick 0x8000E4F0 : AT(0xF0F0) SUBALIGN(4) { build/us/early_parameter_slot_tick.o(.text) }
     .early_actor_scale_decay 0x8000E5C8 : AT(0xF1C8) SUBALIGN(4) { build/us/early_actor_scale_decay.o(.text) }
     .early_actor_counter_decrement 0x8000E6F0 : AT(0xF2F0) SUBALIGN(4) { build/us/early_actor_counter_decrement.o(.text) }
     .endgame_f320_f6e4 0x8000E720 : AT(0xF320) { build/us/fallback.o(.rom_endgame_f320_f6e4) }
@@ -2293,7 +2294,6 @@ D_80097328 = 0x80097328;
 D_800972F8 = 0x800972F8;
 ASSERT(SIZEOF(.early_animation_restart) == 0x84, "early_animation_restart size changed")
 ASSERT(SIZEOF(.early_transition_arrays_clear) == 0x8c, "early_transition_arrays_clear size changed")
-ASSERT(SIZEOF(.endgame_ebec_ef28) == 0x33c, "endgame_ebec_ef28 size changed")
 ASSERT(SIZEOF(.endgame_10164_11060) == 0xefc, "endgame_10164_11060 size changed")
 D_8009AFC0 = 0x8009AFC0;
 D_8009F928 = 0x8009F928;
@@ -2440,7 +2440,6 @@ D_800972D8 = 0x800972D8;
 D_8009EFA0 = 0x8009EFA0;
 D_800AE304 = 0x800AE304;
 D_800AE4F4 = 0x800AE4F4;
-func_8000E4F0 = 0x8000E4F0;
 D_800972B0 = 0x800972B0;
 func_8000E894 = 0x8000E894;
 func_800283D4 = 0x800283D4;
@@ -2455,7 +2454,6 @@ func_800267BC = 0x800267BC;
 ASSERT(SIZEOF(.actor_dynamic_first_append) == 0x98, "actor_dynamic_first_append size changed")
 ASSERT(SIZEOF(.early_actor_scale_decay) == 0x128, "early_actor_scale_decay size changed")
 ASSERT(SIZEOF(.renderer_cache_flags_clear) == 0x74, "renderer_cache_flags_clear size changed")
-ASSERT(SIZEOF(.endgame_f0f0_f1c8) == 0xd8, "endgame_f0f0_f1c8 size changed")
 ASSERT(SIZEOF(.endgame_4c900_4cc90) == 0x390, "endgame_4c900_4cc90 size changed")
 D_8009EF94 = 0x8009EF94;
 D_80078274 = 0x80078274;
@@ -2573,3 +2571,8 @@ ASSERT(SIZEOF(.endgame_35e44_35f60) == 0x11c, "endgame_35e44_35f60 size changed"
 ASSERT(SIZEOF(.endgame_360c8_368c8) == 0x800, "endgame_360c8_368c8 size changed")
 ASSERT(SIZEOF(.endgame_36a3c_36c64) == 0x228, "endgame_36a3c_36c64 size changed")
 D_80143408 = 0x80143408;
+ASSERT(SIZEOF(.early_parameter_slot_tick) == 0xd8, "early_parameter_slot_tick size changed")
+ASSERT(SIZEOF(.endgame_ed08_ef28) == 0x220, "endgame_ed08_ef28 size changed")
+func_8000E108 = 0x8000E108;
+func_8000E720 = 0x8000E720;
+ASSERT(SIZEOF(.early_actor_follow_owner) == 0x11c, "early_actor_follow_owner size changed")

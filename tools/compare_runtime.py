@@ -783,6 +783,8 @@ MATCHING_BLOCKS = (
     ("early_bonus_pattern", "src/game/early_bonus_pattern.c", 0x8000F318, 0x8000F4E0),
     ("actor_position_follow", "src/game/actor_position_follow.c", 0x80029020, 0x800290B0),
     ("actor_value_follow", "src/game/actor_value_follow.c", 0x80035360, 0x800354A4),
+    ("early_parameter_slot_tick", "src/game/early_parameter_slot_tick.c", 0x8000E4F0, 0x8000E5C8),
+    ("early_actor_follow_owner", "src/game/early_actor_follow_owner.c", 0x8000DFEC, 0x8000E108),
 )
 
 CANDIDATE_BLOCKS = (
