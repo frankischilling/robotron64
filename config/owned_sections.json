@@ -1523,5 +1523,41 @@
     "size": 20,
     "symbols": {},
     "evidence": "docs/renderer-controller-pak-notice.md"
+  },
+  {
+    "source": "src/game/controller_motor_state.c",
+    "object": "build/us/controller_motor_state.o",
+    "input_section": ".data",
+    "section": ".controller_motor_state_data",
+    "vram": 2148062436,
+    "rom": 581860,
+    "size": 32,
+    "symbols": {
+      "D_8008D4E4": 0,
+      "D_8008D4F4": 16
+    },
+    "static_symbols": {},
+    "evidence": "docs/controller-service-setup.md"
+  },
+  {
+    "source": "src/game/controller_thread_state.c",
+    "object": "build/us/controller_thread_state.o",
+    "input_section": ".bss",
+    "section": ".controller_thread_state_bss",
+    "vram": 2148798992,
+    "rom": null,
+    "size": 8712,
+    "symbols": {
+      "D_80141210": 0,
+      "D_80141228": 24,
+      "D_80141240": 48,
+      "D_80141244": 52,
+      "D_80141248": 56,
+      "D_801413F8": 488,
+      "D_801433F8": 8680,
+      "D_80143408": 8696
+    },
+    "static_symbols": {},
+    "evidence": "docs/controller-service-setup.md"
   }
 ]

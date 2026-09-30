@@ -14534,5 +14534,27 @@
     "section": ".early_boundary_actor_spawn",
     "section_vram": 2147524724,
     "evidence": "docs/early-boundary-actor-spawn.md"
+  },
+  {
+    "name": "func_8004F4D8",
+    "rom": 327896,
+    "vram": 2147808472,
+    "size": 476,
+    "source": "src/game/controller_service_setup.c",
+    "object": "build/us/controller_service_setup.o",
+    "section": ".controller_service_setup",
+    "section_vram": 2147808472,
+    "evidence": "docs/controller-service-setup.md"
+  },
+  {
+    "name": "func_8004F6B4",
+    "rom": 328372,
+    "vram": 2147808948,
+    "size": 412,
+    "source": "src/game/controller_service_setup.c",
+    "object": "build/us/controller_service_setup.o",
+    "section": ".controller_service_setup",
+    "section_vram": 2147808472,
+    "evidence": "docs/controller-service-setup.md"
   }
 ]

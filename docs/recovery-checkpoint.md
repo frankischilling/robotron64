@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,289 matching C functions covering 211,392 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,359 bytes
-of source-owned initialized data, and 21,629 bytes of source-owned BSS. The
+The source checkpoint contains 1,291 matching C functions covering 212,280 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,391 bytes
+of source-owned initialized data, and 30,341 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-362 complete C functions, 90,344 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 7,711 reconstructed initialized bytes, and 17,539 BSS bytes.
+364 complete C functions, 91,232 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 7,743 reconstructed initialized bytes, and 26,251 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,11 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Controller initialization and refresh](controller-service-setup.md) add two
+complete C procedures with 888 instruction bytes, 32 initialized motor flag
+bytes, and 8,712 BSS bytes. Queue and thread setup, four-port Pak checks,
+motor detection, and the port-zero result states retain the target behavior.
 
 The [boundary actor spawner](early-boundary-actor-spawn.md) adds one complete
 C procedure with 396 instruction bytes. It preserves allocation failure,
