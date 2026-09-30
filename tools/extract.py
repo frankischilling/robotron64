@@ -115,7 +115,7 @@ REGIONS = (
     ("cpu_after_model_rotation", 0x3e03c, 0x3f77c),
     ("cpu_after_model_polygons_color", 0x3fa20, 0x3fd68),
     ("cpu_after_model_hierarchy_vertices", 0x3ff14, 0x4022c),
-    ("cpu_after_model_normals_blend", 0x40618, 0x40c0c),
+    ("endgame_409c4_40c0c", 0x409c4, 0x40c0c),
     ("cpu_after_model_vertices_scatter", 0x40cc4, 0x410f4),
     ("cpu_after_model_framebuffer_draw", 0x41324, 0x41474),
     ("endgame_41568_43430", 0x41568, 0x43430),

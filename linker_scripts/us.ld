@@ -513,7 +513,9 @@ SECTIONS
     .model_camera_rotation 0x8003F650 : AT(0x40250) SUBALIGN(4) { build/us/model_camera_rotation.o(.text) }
     .model_mesh_iteration 0x8003F7F4 : AT(0x403F4) SUBALIGN(4) { build/us/model_mesh_iteration.o(.text) }
     .model_normals_blend 0x8003F818 : AT(0x40418) SUBALIGN(4) { build/us/model_normals_blend.o(.text) }
-    .cpu_after_model_normals_blend 0x8003FA18 : AT(0x40618) { build/us/fallback.o(.rom_cpu_after_model_normals_blend) }
+    .geometry_axis_scale 0x8003FA18 : AT(0x40618) SUBALIGN(4) { build/us/geometry_axis_scale.o(.text) }
+    .geometry_uniform_scale 0x8003FC14 : AT(0x40814) SUBALIGN(4) { build/us/geometry_uniform_scale.o(.text) }
+    .endgame_409c4_40c0c 0x8003FDC4 : AT(0x409C4) { build/us/fallback.o(.rom_endgame_409c4_40c0c) }
     .model_vertices_scatter 0x8004000C : AT(0x40C0C) SUBALIGN(4) { build/us/model_vertices_scatter.o(.text) }
     .cpu_after_model_vertices_scatter 0x800400C4 : AT(0x40CC4) { build/us/fallback.o(.rom_cpu_after_model_vertices_scatter) }
     .model_framebuffer_copy 0x800404F4 : AT(0x410F4) SUBALIGN(4) { build/us/model_framebuffer_copy.o(.text) }
@@ -1654,7 +1656,6 @@ ASSERT(SIZEOF(.model_camera_identity) == 0x24, "model_camera_identity size chang
 ASSERT(SIZEOF(.model_camera_rotation) == 0x1a4, "model_camera_rotation size changed")
 ASSERT(SIZEOF(.model_mesh_iteration) == 0x24, "model_mesh_iteration size changed")
 ASSERT(SIZEOF(.model_normals_blend) == 0x200, "model_normals_blend size changed")
-ASSERT(SIZEOF(.cpu_after_model_normals_blend) == 0x5f4, "cpu_after_model_normals_blend size changed")
 ASSERT(SIZEOF(.model_vertices_scatter) == 0xb8, "model_vertices_scatter size changed")
 ASSERT(SIZEOF(.cpu_after_model_vertices_scatter) == 0x430, "cpu_after_model_vertices_scatter size changed")
 ASSERT(SIZEOF(.model_framebuffer_copy) == 0x6c, "model_framebuffer_copy size changed")
@@ -2521,3 +2522,6 @@ func_80018E1C = 0x80018E1C;
 D_800739CC = 0x800739CC;
 ASSERT(SIZEOF(.actor_collision_animation) == 0xa0, "actor_collision_animation size changed")
 ASSERT(SIZEOF(.actor_collision_score_result) == 0x14c, "actor_collision_score_result size changed")
+D_800CD2A0 = 0x800CD2A0;
+ASSERT(SIZEOF(.geometry_axis_scale) == 0x1fc, "geometry_axis_scale size changed")
+ASSERT(SIZEOF(.geometry_uniform_scale) == 0x1b0, "geometry_uniform_scale size changed")

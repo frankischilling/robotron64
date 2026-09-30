@@ -337,6 +337,12 @@ basis. Complete Robotron instructions establish the actor-kind switch,
 score response, midpoint arithmetic and session word at offset `0x8C`.
 No reference implementation is copied into these routines.
 
+The [geometry scaling recovery](docs/geometry-scaling.md) retains the pinned
+local IDO and Super Mario 64 compiler and matching-build reference basis.
+Complete Robotron instructions establish the twelve-byte points, argument
+order, separate and uniform factors, signed shifts and existing bridge calls.
+No reference implementation is copied into these procedures.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,

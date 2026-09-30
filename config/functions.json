@@ -14314,5 +14314,27 @@
     "section": ".actor_collision_score_result",
     "section_vram": 2147581520,
     "evidence": "docs/collision-callback-state.md"
+  },
+  {
+    "name": "func_8003FA18",
+    "rom": 263704,
+    "vram": 2147744280,
+    "size": 508,
+    "source": "src/game/geometry_axis_scale.c",
+    "object": "build/us/geometry_axis_scale.o",
+    "section": ".geometry_axis_scale",
+    "section_vram": 2147744280,
+    "evidence": "docs/geometry-scaling.md"
+  },
+  {
+    "name": "func_8003FC14",
+    "rom": 264212,
+    "vram": 2147744788,
+    "size": 432,
+    "source": "src/game/geometry_uniform_scale.c",
+    "object": "build/us/geometry_uniform_scale.o",
+    "section": ".geometry_uniform_scale",
+    "section_vram": 2147744788,
+    "evidence": "docs/geometry-scaling.md"
   }
 ]

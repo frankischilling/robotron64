@@ -769,6 +769,8 @@ MATCHING_BLOCKS = (
     ("audio_dma_recycle", "src/game/audio_dma_recycle.c", 0x80052580, 0x800526D0),
     ("actor_collision_animation", "src/game/actor_collision_animation.c", 0x80017A2C, 0x80017ACC),
     ("actor_collision_score_result", "src/game/actor_collision_score_result.c", 0x80017E50, 0x80017F9C),
+    ("geometry_axis_scale", "src/game/geometry_axis_scale.c", 0x8003FA18, 0x8003FC14),
+    ("geometry_uniform_scale", "src/game/geometry_uniform_scale.c", 0x8003FC14, 0x8003FDC4),
 )
 
 CANDIDATE_BLOCKS = (
