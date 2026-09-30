@@ -14336,5 +14336,38 @@
     "section": ".geometry_uniform_scale",
     "section_vram": 2147744788,
     "evidence": "docs/geometry-scaling.md"
+  },
+  {
+    "name": "func_80017CDC",
+    "rom": 100572,
+    "vram": 2147581148,
+    "size": 372,
+    "source": "src/game/actor_collision_death_result.c",
+    "object": "build/us/actor_collision_death_result.o",
+    "section": ".actor_collision_death_result",
+    "section_vram": 2147581148,
+    "evidence": "docs/collision-death-result.md"
+  },
+  {
+    "name": "func_800126E0",
+    "rom": 78560,
+    "vram": 2147559136,
+    "size": 140,
+    "source": "src/game/session_selection_lookup.c",
+    "object": "build/us/session_selection_lookup.o",
+    "section": ".session_selection_lookup",
+    "section_vram": 2147559136,
+    "evidence": "docs/collision-death-result.md"
+  },
+  {
+    "name": "func_8000DF30",
+    "rom": 60208,
+    "vram": 2147540784,
+    "size": 128,
+    "source": "src/game/early_angle_step.c",
+    "object": "build/us/early_angle_step.o",
+    "section": ".early_angle_step",
+    "section_vram": 2147540784,
+    "evidence": "docs/collision-death-result.md"
   }
 ]

@@ -8,6 +8,9 @@ int func_80017A2C(ActorBehaviorActorInternal *first,
                   ActorBehaviorActorInternal *second, int third, int fourth);
 int func_80017E50(EarlyGameActor *first, EarlyGameActor *second,
                   int *firstPosition, int *secondPosition);
+unsigned char func_80017CDC(ActorBehaviorActorInternal *first,
+                           ActorBehaviorActorInternal *second,
+                           int *firstPosition, int *secondPosition);
 
 unsigned char func_80017ACC(ActorBehaviorActorInternal *first,
                           ActorBehaviorActorInternal *second,

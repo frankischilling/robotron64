@@ -22,6 +22,7 @@ void func_8000D054(int unused);
 void func_8000D2B4(int unused);
 void func_8000D614(int unused, unsigned char *output);
 int func_8000DF14(int angle);
+int func_8000DF30(int target, int current, int maximum);
 int func_80015100(int first, int second, int third, int fourth);
 int func_80015118(int first, int second, int third, int fourth);
 void func_80015BD4(void *state);

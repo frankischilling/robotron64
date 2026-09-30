@@ -69,5 +69,6 @@ is copied into these routines.
 Validation covers tooling tests, extraction and build, every runtime,
 startup, native assembly and data comparison unit, complete linked procedure
 extents and the exact USA ROM. Publication also checks a fresh committed
-archive and public source inventory. The adjacent death callback remains
-unrecovered and is excluded from these matching totals.
+archive and public source inventory. The separate
+[death callback recovery](collision-death-result.md) records its own complete
+procedure and jump table; it is excluded from this ledger's two-procedure totals.

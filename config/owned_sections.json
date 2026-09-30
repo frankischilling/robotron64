@@ -1489,5 +1489,17 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/audio-dma-cache.md"
+  },
+  {
+    "source": "src/game/actor_collision_death_result.c",
+    "object": "build/us/actor_collision_death_result.o",
+    "input_section": ".rodata",
+    "section": ".actor_collision_death_result_rodata",
+    "vram": 2148073624,
+    "rom": 593048,
+    "size": 20,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/collision-death-result.md"
   }
 ]

@@ -343,6 +343,15 @@ Complete Robotron instructions establish the twelve-byte points, argument
 order, separate and uniform factors, signed shifts and existing bridge calls.
 No reference implementation is copied into these procedures.
 
+The [collision death recovery](docs/collision-death-result.md) retains the
+pinned local IDO and Super Mario 64 compiler and matching-build reference
+basis. Complete Robotron instructions establish the midpoint, effect cases,
+unsigned-byte result and all five jump-table destinations. No reference
+implementation is copied into the callback or the accompanying selection
+lookup, whose complete instructions establish the parallel word lists,
+player stride and missing fallthrough return. The accompanying angle helper
+retains the verified wrapper, signed limit and low-word arithmetic.
+
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
 repository does not redistribute the reference checkouts, compiler executables,
