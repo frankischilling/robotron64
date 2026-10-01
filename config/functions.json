@@ -15040,5 +15040,16 @@
     "section": ".controller_input",
     "section_vram": 2147729832,
     "evidence": "docs/controller-input-mapping.md"
+  },
+  {
+    "name": "func_8003BDE8",
+    "rom": 248296,
+    "vram": 2147728872,
+    "size": 372,
+    "source": "src/game/game_float_parse.c",
+    "object": "build/us/game_float_parse.o",
+    "section": ".game_float_parse",
+    "section_vram": 2147728872,
+    "evidence": "docs/float-parser-controller-state.md"
   }
 ]

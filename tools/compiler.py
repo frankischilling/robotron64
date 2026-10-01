@@ -22,6 +22,7 @@ PROFILES = {
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/game/game_float_parse.c": "game-r4300-mul",
     "src/game/renderer_projection_highlight.c": "game-r4300-mul",
     "src/sdk/cpu_interrupt_tables.c": "sdk-o1-mips2",
     "src/sdk/exception_state.c": "sdk-o1-mips2",

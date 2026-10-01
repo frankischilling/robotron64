@@ -5,6 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 import json
 
 from compare_startup import SymbolLayoutSnapshot, compare_block
+from manifest import load_manifest
 from rom import ROOT, validate
 from toolchain import install
 
@@ -828,16 +829,28 @@ MATCHING_BLOCKS = (
     ("object_camera_angles", "src/game/object_camera_angles.c", 0x80039FCC, 0x8003A070),
     ("object_camera_angles_alt", "src/game/object_camera_angles_alt.c", 0x8003A128, 0x8003A1C8),
     ("controller_input", "src/game/controller_input.c", 0x8003C1A8, 0x8003C4C8),
+    ("game_float_parse", "src/game/game_float_parse.c", 0x8003BDE8, 0x8003BF5C),
 )
 
 CANDIDATE_BLOCKS = (
     ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),
     ("object_runtime_projection", "src/game/object_runtime_projection.c", 0x8003B2B0, 0x8003B428),
-    ("game_string_comparisons", "src/game/game_string_comparisons.c", 0x8003B734, 0x8003B928),
-    ("game_number_parse", "src/game/game_number_parse.c", 0x8003BD4C, 0x8003BF5C),
     ("frame_begin", "src/boot/frame_begin.c", 0x80048510, 0x800489F4),
 )
+
+
+def validate_candidate_ranges(records, functions):
+    """Keep excluded comparisons outside already recovered instruction spans."""
+    for name, source, start, end in records:
+        if start >= end or start % 4 or end % 4:
+            raise ValueError(f"Invalid candidate instruction range: {name}")
+        for function in functions:
+            first = function["vram"]
+            last = first + function["size"]
+            if start < last and first < end:
+                raise ValueError(
+                    f"Candidate {name} overlaps recovered function {function['name']}")
 
 
 def compare_blocks(records, target, family, layout, jobs=1):
@@ -865,6 +878,8 @@ def compare_blocks(records, target, family, layout, jobs=1):
 
 
 def run(candidates=False, jobs=1):
+    if candidates:
+        validate_candidate_ranges(CANDIDATE_BLOCKS, load_manifest())
     install("5.3")
     target = (ROOT / "baseroms/us/baserom.z64").read_bytes()
     validate(target)

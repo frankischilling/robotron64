@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,335 matching C functions covering 232,984 bytes.
+The source checkpoint contains 1,336 matching C functions covering 233,356 bytes.
 It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,047 bytes
-of source-owned initialized data, and 60,317 bytes of source-owned BSS. The
+of source-owned initialized data, and 60,423 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-408 complete C functions, 111,936 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 8,399 reconstructed initialized bytes, and 56,227 BSS bytes.
+409 complete C functions, 112,308 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 8,399 reconstructed initialized bytes, and 56,333 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,11 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Decimal parsing and controller input storage](float-parser-controller-state.md)
+add the complete 372-byte floating parser and 106 BSS bytes for four SDK pad
+records, five input arrays, and the legacy button halfword. Obsolete overlapping
+candidate registrations are retired, with a regression check against recurrence.
 
 [Camera angle setters](camera-angles.md) add two complete routines with 324
 instruction bytes, eight constant bytes, and 156 shared camera BSS bytes.
@@ -252,7 +257,7 @@ functions recover sequence-list sizing, loading and release, hardware-voice
 initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
-147 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
+151 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
 the source inputs and complete procedure extents for all 1,230 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
@@ -387,7 +392,7 @@ twenty-nine procedures and their source-owned alignment. Linked progress indepen
 function, its procedure extent, section address, source/header/object hashes,
 and generated data or private storage.
 
-The tooling suite contains 147 tests. It can run without a commercial ROM or
+The tooling suite contains 151 tests. It can run without a commercial ROM or
 the IDO compiler installation. `tools/audit_publication.py --files <inventory>`
 checks an explicit JSON array of public file paths against the current build,
 comparison reports, owned sections, and progress. It rejects stale source or

@@ -1892,5 +1892,24 @@
       "D_800CD250": 0
     },
     "evidence": "docs/camera-angles.md"
+  },
+  {
+    "source": "src/game/controller_pad_state.c",
+    "object": "build/us/controller_pad_state.o",
+    "input_section": ".bss",
+    "section": ".controller_pad_state_bss",
+    "vram": 2148785056,
+    "rom": null,
+    "size": 106,
+    "symbols": {
+      "D_8013DBA0": 0,
+      "D_8013DBB8": 24,
+      "D_8013DBC8": 40,
+      "D_8013DBD8": 56,
+      "D_8013DBE8": 72,
+      "D_8013DBF8": 88,
+      "D_8013DC08": 104
+    },
+    "evidence": "docs/float-parser-controller-state.md"
   }
 ]
