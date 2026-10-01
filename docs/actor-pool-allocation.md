@@ -65,3 +65,14 @@ revisions, and licenses remain credited for local and online use in
 [CREDITS.md](../CREDITS.md). Further actor recovery is tracked by
 [issue #43](https://github.com/frankischilling/robotron64/issues/43) and
 [draft PR #46](https://github.com/frankischilling/robotron64/pull/46).
+
+A clean Git archive of `11addb70fb11e7b3ff0499a8769efcba4d86f1f9`
+passes fresh extraction and build, all 137 tooling tests, 805 runtime
+comparison units, both startup units, eighteen assembly units, eight
+data-only units, and linked progress verification. Every affected
+shared-header user and both existing object-creation callers still match.
+The complete rebuilt 8 MiB ROM equals the supplied target, SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks all 1,324 tracked files. The checkpoint has
+1,322 matching C procedures and 228,788 matching instruction bytes;
+unrecovered executable fallback remains excluded from those counts.

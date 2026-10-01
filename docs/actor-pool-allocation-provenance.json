@@ -2,7 +2,7 @@
   "units": [
     {
       "source": "src/game/actor_pool_allocate.c",
-      "source_sha256": "fc214538a22443b9ad6c75a175e4273231a5e29625c8e6ce876a81f209832575",
+      "source_sha256": "c41220d6e26c2cf793a87908f4bf9b13bc236b5f715ff39cc034d0fbb54cc3d3",
       "procedures": [
         {
           "name": "func_800283D4",
@@ -219,11 +219,11 @@
         "include/sound_bridge_internal.h": "2121f8ad17064388cf0b3dd9b6a9c401429696b7cf06b4c39aa8b4c1b8cde16d",
         "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-        "src/game/actor_pool_allocate.c": "fc214538a22443b9ad6c75a175e4273231a5e29625c8e6ce876a81f209832575",
+        "src/game/actor_pool_allocate.c": "c41220d6e26c2cf793a87908f4bf9b13bc236b5f715ff39cc034d0fbb54cc3d3",
         "tools/compiler.py": "356374906eb87a1521fd6ebd50716cff36b4921a6a510239df9e89574c8b0416",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "aff62343326219d387ec18d998899c42af21cfdb27282e994f6077f5ffa20f61"
+      "complete_comparison_sha256": "c944b027934aeebdfd36910ddc4fd3a31f812277d31941d7ad0945bf5c91e464"
     }
   ],
   "complete_procedures": 1,
@@ -234,6 +234,6 @@
   "source_owned_bss_bytes": 24800,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "cd4b4992f894603801b97655fb29cc3b15badab6985e1724bcf78bfda7e006a1",
+  "runtime_report_sha256": "2ea0c7b998188f6a674ef2017bc5a96b6cd3bc0d47b1d45a876577d5915f58a6",
   "note": "Historical complete instruction and storage proof. The actor allocator owns its complete diagnostics and confirmed 200-entry pool. Current progress requires current input comparisons."
 }
