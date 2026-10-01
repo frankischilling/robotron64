@@ -6288,6 +6288,24 @@ build/us/controller_pad_state.o: src/game/controller_pad_state.c include/control
 
 RUNTIME_OBJECTS += build/us/controller_pad_state.o
 
+build/us/actor_position_submit.o: src/game/actor_position_submit.c include/actor.h include/actor_motion_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_position_submit.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_position_submit.raw.o build/us/actor_position_submit.text.o .text 0xa4
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_position_submit.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_position_submit.o
+
+build/us/save_menu_score_step.o: src/game/save_menu_score_step.c include/pak_file.h include/save_game.h include/save_menu_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_score_step.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_score_step.raw.o build/us/save_menu_score_step.text.o .text 0xec
+	$(PYTHON) tools/owned_sections.py $< build/us/save_menu_score_step.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/save_menu_score_step.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

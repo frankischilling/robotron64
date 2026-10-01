@@ -830,6 +830,8 @@ MATCHING_BLOCKS = (
     ("object_camera_angles_alt", "src/game/object_camera_angles_alt.c", 0x8003A128, 0x8003A1C8),
     ("controller_input", "src/game/controller_input.c", 0x8003C1A8, 0x8003C4C8),
     ("game_float_parse", "src/game/game_float_parse.c", 0x8003BDE8, 0x8003BF5C),
+    ("actor_position_submit", "src/game/actor_position_submit.c", 0x800290B0, 0x80029154),
+    ("save_menu_score_step", "src/game/save_menu_score_step.c", 0x80030DC0, 0x80030EAC),
 )
 
 CANDIDATE_BLOCKS = (

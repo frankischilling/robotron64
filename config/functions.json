@@ -15051,5 +15051,27 @@
     "section": ".game_float_parse",
     "section_vram": 2147728872,
     "evidence": "docs/float-parser-controller-state.md"
+  },
+  {
+    "name": "func_800290B0",
+    "rom": 171184,
+    "vram": 2147651760,
+    "size": 164,
+    "source": "src/game/actor_position_submit.c",
+    "object": "build/us/actor_position_submit.o",
+    "section": ".actor_position_submit",
+    "section_vram": 2147651760,
+    "evidence": "docs/actor-position-score-option.md"
+  },
+  {
+    "name": "func_80030DC0",
+    "rom": 203200,
+    "vram": 2147683776,
+    "size": 236,
+    "source": "src/game/save_menu_score_step.c",
+    "object": "build/us/save_menu_score_step.o",
+    "section": ".save_menu_score_step",
+    "section_vram": 2147683776,
+    "evidence": "docs/actor-position-score-option.md"
   }
 ]
