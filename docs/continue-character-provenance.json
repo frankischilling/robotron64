@@ -183,6 +183,6 @@
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "5e5a7bc65e3ae7c7c3146564c5e2164877ebe586d8351b104efb3e111a19dee1",
+  "runtime_report_sha256": "ad6af706d99b589c225677d77b5ad884077274b8178e87a17d699fe9f13667e7",
   "note": "Historical complete instruction and storage proof. The character helper retains the original signed adjustments. Current progress requires current input comparisons."
 }

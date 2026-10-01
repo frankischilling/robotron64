@@ -29,3 +29,13 @@ revisions, and licenses remain in [CREDITS.md](../CREDITS.md). Further menu
 and scene recovery remains tracked by
 [issue #45](https://github.com/frankischilling/robotron64/issues/45) and
 [draft PR #46](https://github.com/frankischilling/robotron64/pull/46).
+
+A clean Git archive of `ff4db6581f785baacdbaf565867479686d297519`
+passes fresh extraction and build, all 137 tooling tests, 797 runtime
+comparison units, both startup units, eighteen assembly units, eight
+data-only units, and linked progress verification. The complete rebuilt
+8 MiB ROM equals the supplied target, SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks all 1,299 tracked files. That checkpoint has
+1,314 matching C procedures and 223,236 matching instruction bytes; its
+unrecovered executable fallback remains excluded from those counts.
