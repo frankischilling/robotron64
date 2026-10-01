@@ -14578,5 +14578,49 @@
     "section": ".renderer_textured_submit",
     "section_vram": 2147765016,
     "evidence": "docs/renderer-textured-submission.md"
+  },
+  {
+    "name": "func_8004A6B4",
+    "rom": 307892,
+    "vram": 2147788468,
+    "size": 644,
+    "source": "src/game/renderer_texture_squares.c",
+    "object": "build/us/renderer_texture_squares.o",
+    "section": ".renderer_texture_squares",
+    "section_vram": 2147788468,
+    "evidence": "docs/renderer-image-quads.md"
+  },
+  {
+    "name": "func_8004A938",
+    "rom": 308536,
+    "vram": 2147789112,
+    "size": 644,
+    "source": "src/game/renderer_texture_squares.c",
+    "object": "build/us/renderer_texture_squares.o",
+    "section": ".renderer_texture_squares",
+    "section_vram": 2147788468,
+    "evidence": "docs/renderer-image-quads.md"
+  },
+  {
+    "name": "func_8004AD64",
+    "rom": 309604,
+    "vram": 2147790180,
+    "size": 576,
+    "source": "src/game/renderer_image_quad_ci.c",
+    "object": "build/us/renderer_image_quad_ci.o",
+    "section": ".renderer_image_quad_ci",
+    "section_vram": 2147790180,
+    "evidence": "docs/renderer-image-quads.md"
+  },
+  {
+    "name": "func_8004B098",
+    "rom": 310424,
+    "vram": 2147791000,
+    "size": 576,
+    "source": "src/game/renderer_image_quad_rgba.c",
+    "object": "build/us/renderer_image_quad_rgba.o",
+    "section": ".renderer_image_quad_rgba",
+    "section_vram": 2147791000,
+    "evidence": "docs/renderer-image-quads.md"
   }
 ]

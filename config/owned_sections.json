@@ -1590,5 +1590,19 @@
     },
     "static_symbols": {},
     "evidence": "docs/renderer-textured-submission.md"
+  },
+  {
+    "source": "src/game/renderer_texture_squares.c",
+    "object": "build/us/renderer_texture_squares.o",
+    "input_section": ".data",
+    "section": ".renderer_texture_square_extent",
+    "vram": 2148059936,
+    "rom": 579360,
+    "size": 4,
+    "symbols": {
+      "D_8008CB20": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-image-quads.md"
   }
 ]

@@ -61,6 +61,14 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [image quad recovery](docs/renderer-image-quads.md) uses local Super Mario
+64 `include/PR/gbi.h` and libreultra `include/2.0I/PR/gbi.h`, together with
+their online sources, to decode indexed eight-bit and RGBA sixteen-bit
+texture image, tile and load-block words. Robotron's complete instructions
+establish its vertex store order, quad winding, address alignment, cache
+writes, and allocation failure behavior. Its shared extent scalar is
+reconstructed and checked against the target's complete four-byte value.
+
 The [textured polygon submission recovery](docs/renderer-textured-submission.md)
 uses the local Super Mario 64 `include/PR/gbi.h` and libreultra
 `include/2.0I/PR/gbi.h`, together with their online sources, for hardware
