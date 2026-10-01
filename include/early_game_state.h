@@ -77,6 +77,8 @@ void func_80015130(EarlyGameActor *first, EarlyGameActor *second);
 void func_80015184(int index, int *position);
 void func_80015218(EarlyGameActor *source);
 int func_800152AC(int first, int second, int third, int fourth);
+int func_800152E8(EarlyGameActor *actor, EarlyGameActor *pickup,
+                  int unused2, int unused3);
 void func_80015554(EarlyGameActor *actor);
 int func_80015614(EarlyGameActor *first, EarlyGameActor *second,
                   int third, int fourth);

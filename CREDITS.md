@@ -67,6 +67,12 @@ callers, instructions, and double constant establish its arithmetic and
 platform return interface. No reference implementation is copied. The
 requested repositories remain credited for local and online use.
 
+The [actor pickup recovery](docs/actor-pickups.md) retains the same
+pinned IDO and N64 matching-workflow references. Robotron's dispatch
+table, instructions, matching setup routine, and bonus helper establish
+the behavior and shared player view. No reference implementation is
+copied; all thirteen requested repositories remain credited below.
+
 The [early actor pair helper](docs/early-actor-pair-spawn.md) uses the
 same pinned IDO and N64 matching-workflow references. Robotron's
 instructions and existing matching actor helpers establish placement,

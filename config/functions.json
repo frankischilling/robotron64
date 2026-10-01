@@ -14787,5 +14787,16 @@
     "section": ".early_actor_pair_spawn",
     "section_vram": 2147546468,
     "evidence": "docs/early-actor-pair-spawn.md"
+  },
+  {
+    "name": "func_800152E8",
+    "rom": 89832,
+    "vram": 2147570408,
+    "size": 620,
+    "source": "src/game/actor_pickup.c",
+    "object": "build/us/actor_pickup.o",
+    "section": ".actor_pickup",
+    "section_vram": 2147570408,
+    "evidence": "docs/actor-pickups.md"
   }
 ]

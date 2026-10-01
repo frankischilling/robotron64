@@ -1,3 +1,6 @@
+D_8008FDC8 = 0x8008FDC8;
+D_8009D118 = 0x8009D118;
+D_8009B0E0 = 0x8009B0E0;
 D_800B4B00 = 0x800B4B00;
 D_80097350 = 0x80097350;
 D_80073574 = 0x80073574;
@@ -166,7 +169,7 @@ SECTIONS
     .early_callbacks_true 0x80015100 : AT(0x15D00) SUBALIGN(4) { build/us/early_callbacks_true.o(.text) }
     .early_actor_pair_balance 0x80015130 : AT(0x15D30) SUBALIGN(4) { build/us/early_actor_pair_balance.o(.text) }
     .early_actor_create 0x80015184 : AT(0x15D84) SUBALIGN(4) { build/us/early_actor_create.o(.text) }
-    .cpu_after_early_actor_create 0x800152E8 : AT(0x15EE8) { build/us/fallback.o(.rom_cpu_after_early_actor_create) }
+    .actor_pickup 0x800152E8 : AT(0x15EE8) SUBALIGN(4) { build/us/actor_pickup.o(.text) }
     .early_actor_state 0x80015554 : AT(0x16154) SUBALIGN(4) { build/us/early_actor_state.o(.text) }
     .endgame_1627c_1675c 0x8001567C : AT(0x1627C) { build/us/fallback.o(.rom_endgame_1627c_1675c) }
     .early_actor_forward_and_guard 0x80015B5C : AT(0x1675C) SUBALIGN(4) { build/us/early_actor_forward_and_guard.o(.text) }
@@ -1190,7 +1193,9 @@ SECTIONS
     .early_effect_spawn_rodata 0x8008F958 : AT(0x90558) SUBALIGN(4) { build/us/early_effect_spawn.o(.rodata) }
     .endgame_data_90570_90574 0x8008F970 : AT(0x90570) { build/us/fallback.o(.rom_endgame_data_90570_90574) }
     .early_render_handler_select_rodata 0x8008F974 : AT(0x90574) SUBALIGN(4) { build/us/early_render_handler_select.o(.rodata) }
-    .endgame_data_90588_90b08 0x8008F988 : AT(0x90588) { build/us/fallback.o(.rom_endgame_data_90588_90b08) }
+    .endgame_data_90588_90a04 0x8008F988 : AT(0x90588) { build/us/fallback.o(.rom_endgame_data_90588_90a04) }
+    .actor_pickup_dispatch 0x8008FE04 : AT(0x90A04) SUBALIGN(4) { build/us/actor_pickup.o(.rodata) }
+    .endgame_data_90a44_90b08 0x8008FE44 : AT(0x90A44) { build/us/fallback.o(.rom_endgame_data_90a44_90b08) }
     .actor_collision_kind_dispatch_rodata 0x8008FF08 : AT(0x90B08) SUBALIGN(4) { build/us/actor_collision_kind_dispatch.o(.rodata) }
     .endgame_90b1c_90c98 0x8008FF1C : AT(0x90B1C) { build/us/fallback.o(.rom_endgame_90b1c_90c98) }
     .actor_collision_death_result_rodata 0x80090098 : AT(0x90C98) SUBALIGN(4) { build/us/actor_collision_death_result.o(.rodata) }
@@ -1345,7 +1350,6 @@ ASSERT(SIZEOF(.early_selection_state) == 0x1e4, "early_selection_state size chan
 ASSERT(SIZEOF(.early_callbacks_true) == 0x30, "early_callbacks_true size changed")
 ASSERT(SIZEOF(.early_actor_pair_balance) == 0x54, "early_actor_pair_balance size changed")
 ASSERT(SIZEOF(.early_actor_create) == 0x164, "early_actor_create size changed")
-ASSERT(SIZEOF(.cpu_after_early_actor_create) == 0x26c, "cpu_after_early_actor_create size changed")
 ASSERT(SIZEOF(.early_actor_state) == 0x128, "early_actor_state size changed")
 ASSERT(SIZEOF(.early_actor_mode3) == 0x24, "early_actor_mode3 size changed")
 ASSERT(SIZEOF(.cpu_after_early_actor_mode3) == 0x6b4, "cpu_after_early_actor_mode3 size changed")
@@ -2379,7 +2383,6 @@ ASSERT(SIZEOF(.endgame_cac0_da34) == 0xf74, "endgame_cac0_da34 size changed")
 ASSERT(SIZEOF(.endgame_16f1c_17218) == 0x2fc, "endgame_16f1c_17218 size changed")
 ASSERT(SIZEOF(.endgame_1729c_17514) == 0x278, "endgame_1729c_17514 size changed")
 ASSERT(SIZEOF(.endgame_1c0f8_1c3d0) == 0x2d8, "endgame_1c0f8_1c3d0 size changed")
-ASSERT(SIZEOF(.endgame_data_90588_90b08) == 0x580, "endgame_data_90588_90b08 size changed")
 ASSERT(SIZEOF(.endgame_data_90f96_92558) == 0x15c2, "endgame_data_90f96_92558 size changed")
 D_8007CCC0 = 0x8007CCC0;
 D_8013DBF8 = 0x8013DBF8;
@@ -2688,3 +2691,7 @@ ASSERT(SIZEOF(.endgame_data_94f00_957e0) == 0x8e0, "endgame_data_94f00_957e0 siz
 ASSERT(SIZEOF(.endgame_data_957e8_95b20) == 0x338, "endgame_data_957e8_95b20 size changed")
 ASSERT(SIZEOF(.endgame_103d8_11060) == 0xc88, "endgame_103d8_11060 size changed")
 ASSERT(SIZEOF(.early_actor_pair_spawn) == 0x274, "early actor pair text size changed")
+ASSERT(SIZEOF(.actor_pickup) == 0x26c, "actor_pickup size changed")
+ASSERT(SIZEOF(.actor_pickup_dispatch) == 0x40, "actor_pickup_dispatch size changed")
+ASSERT(SIZEOF(.endgame_data_90588_90a04) == 0x47c, "endgame_data_90588_90a04 size changed")
+ASSERT(SIZEOF(.endgame_data_90a44_90b08) == 0xc4, "endgame_data_90a44_90b08 size changed")

@@ -2668,7 +2668,7 @@ build/us/scene_transition_draw.o: src/game/scene_transition_draw.c include/debug
 	$(PYTHON) tools/trim_padding.py build/us/scene_transition_draw.raw.o $@ .text 0x120
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/scene_player_setup.o: src/game/scene_player_setup.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/scene_player_setup.o: src/game/scene_player_setup.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_definition.h include/scene_player_runtime_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_player_setup.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/scene_player_setup.raw.o $@ .text 0x248
@@ -6042,6 +6042,16 @@ build/us/early_actor_pair_spawn.o: src/game/early_actor_pair_spawn.c include/act
 
 RUNTIME_OBJECTS += \
     build/us/early_actor_pair_spawn.o
+
+build/us/actor_pickup.o: src/game/actor_pickup.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_audio.h include/scene_counter_internal.h include/scene_player_runtime_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_pickup.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_pickup.raw.o build/us/actor_pickup.text.o .text 0x26c
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_pickup.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/actor_pickup.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

@@ -1663,5 +1663,17 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/scene-frame-tick.md"
+  },
+  {
+    "source": "src/game/actor_pickup.c",
+    "object": "build/us/actor_pickup.o",
+    "input_section": ".rodata",
+    "section": ".actor_pickup_dispatch",
+    "vram": 2148072964,
+    "rom": 592388,
+    "size": 64,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/actor-pickups.md"
   }
 ]
