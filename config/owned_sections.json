@@ -1911,5 +1911,16 @@
       "D_8013DC08": 104
     },
     "evidence": "docs/float-parser-controller-state.md"
+  },
+  {
+    "source": "src/game/actor_position_submit.c",
+    "object": "build/us/actor_position_submit.o",
+    "input_section": ".rodata",
+    "section": ".actor_position_submit_constant",
+    "vram": 2148088256,
+    "rom": 607680,
+    "size": 4,
+    "symbols": {},
+    "evidence": "docs/actor-position-score-option.md"
   }
 ]

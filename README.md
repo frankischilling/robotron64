@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,336 matching C functions covering 233,356 bytes, twenty-nine assembly functions covering 4,372 bytes, 10,047 bytes of source-owned initialized data, and 60,423 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,338 matching C functions covering 233,756 bytes, twenty-nine assembly functions covering 4,372 bytes, 10,051 bytes of source-owned initialized data, and 60,423 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -178,6 +178,9 @@ The [startup evidence](docs/startup.md) records the reconstructed assembly entry
 [Camera angles](docs/camera-angles.md) recover both complete angle setters,
 their exact constants, and shared camera storage. [Controller input mapping](docs/controller-input-mapping.md)
 recovers stick filtering, game-button bits, and the legacy polling call.
+
+[Actor position conversion and score option adjustment](docs/actor-position-score-option.md)
+recover two complete routines and the position scale literal.
 
 [Decimal parsing and input storage](docs/float-parser-controller-state.md)
 recover the complete floating parser and 106 bytes of shared controller BSS.
