@@ -31,25 +31,27 @@ and returns that index. Otherwise the function returns `-1` without rewriting
 the session's sequence index. The narrowing timer arithmetic and unchecked
 button-list access are retained.
 
-## Sampling candidate
+## Input sampling
 
-`src/game/early_player_input_sample.c` is an excluded 212-byte candidate for
+`src/game/early_player_input_sample.c` matches all 212 instruction bytes at
 `0x8001A1F0..0x8001A2C4`. It samples the selected controller, conditionally merges
 the controller two ports away, updates current and newly pressed masks, and
 calls the matching recognizer. The two confirmed menu pointers suppress the
 second-controller merge. Its `GameSessionState` argument follows the existing
 save-menu callers; the input view covers only the observed prefix.
 
-Its complete comparison has three differing instruction words: the new-press
-result occupies `v1` instead of the target's `t6`, affecting the AND and both
-stores. The remaining words, calls, branches, stack frame, offsets, and argument
-interfaces match. This candidate is retained in `compare_runtime.py --candidates`
-and contributes no matching function or instruction bytes.
+The routine retains a second input pointer for the pressed-mask copy. Both
+pointers refer to the same confirmed session prefix. IDO eliminates the pointer
+assignment while allocating the new-press result to the target's `t6` register.
+The complete comparison checks every instruction, call, branch, stack offset,
+and argument interface. The source contains no instruction patches or inline
+assembly and now belongs to the matching runtime comparisons.
 
 The matching recognizer and reset helper belong to the independent runtime
 comparison and linked-progress checks. Full ROM verification remains required
 before publishing a source checkpoint. [Provenance](early-input-sequences-provenance.json)
-records the complete instruction hashes and the excluded caller result.
+records the current instruction hashes and complete matching caller,
+recognizer and reset comparisons.
 Controller and early-game recovery are
 tracked in GitHub issues [#39](https://github.com/frankischilling/robotron64/issues/39)
 and [#43](https://github.com/frankischilling/robotron64/issues/43).

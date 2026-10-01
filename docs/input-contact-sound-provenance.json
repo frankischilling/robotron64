@@ -188,42 +188,71 @@
       "source_owned_sections": []
     },
     {
-      "source": "src/game/early_player_sequence.c",
-      "source_sha256": "17abe3f41252a4ae62ee78d67e2a05e63dcf568d0e197d345a066abde88659e5",
+      "source": "src/game/early_relative_position.c",
+      "source_sha256": "b18c0ac9d1676dbb7898a4a6b9488e579019a43ab26c3b7cd15273938ec41f41",
       "procedures": [
         {
-          "name": "func_8001BFB0",
-          "vram": 2147598256,
-          "rom": 117680,
-          "size": 280
+          "name": "func_8000CD50",
+          "vram": 2147536208,
+          "rom": 55632,
+          "size": 228
         }
       ],
-      "expected_bytes": 280,
-      "actual_bytes": 280,
+      "expected_bytes": 228,
+      "actual_bytes": 228,
       "different_words": 0,
       "matches": true,
-      "compiled_bytes_sha256": "a174b3c8a7ce0f74aa867bc8b401af6352ae5d444c224a52ae45a7af21c8e8ad",
-      "target_bytes_sha256": "a174b3c8a7ce0f74aa867bc8b401af6352ae5d444c224a52ae45a7af21c8e8ad",
+      "compiled_bytes_sha256": "6deb996f3b6057f1329ec949be7a75c20d7246fc6f10e6d1c92c809ed291858a",
+      "target_bytes_sha256": "6deb996f3b6057f1329ec949be7a75c20d7246fc6f10e6d1c92c809ed291858a",
       "source_owned_sections": []
     },
     {
-      "source": "src/game/early_player_counter_reset.c",
-      "source_sha256": "df74eefe08589b95c7a48c72c74ee67f17bdc9f2c00e1e106f50f497e825605d",
+      "source": "src/game/actor_contact_gate.c",
+      "source_sha256": "c062e0d6069a3fb9200edc14b6a302048e764ba1dc11df167ce68527a6800c9e",
       "procedures": [
         {
-          "name": "func_8001BF48",
-          "vram": 2147598152,
-          "rom": 117576,
-          "size": 104
+          "name": "func_8001669C",
+          "vram": 2147575452,
+          "rom": 94876,
+          "size": 632
         }
       ],
-      "expected_bytes": 104,
-      "actual_bytes": 104,
+      "expected_bytes": 632,
+      "actual_bytes": 632,
       "different_words": 0,
       "matches": true,
-      "compiled_bytes_sha256": "a1018a65eeceda24a9a209352454fb9883a061cb30c7c3e8d02158c5cab685de",
-      "target_bytes_sha256": "a1018a65eeceda24a9a209352454fb9883a061cb30c7c3e8d02158c5cab685de",
+      "compiled_bytes_sha256": "c69ede84bb281f41b4fe1c9c4201eabed890582cb01d78b86de1cc911d1e5af0",
+      "target_bytes_sha256": "c69ede84bb281f41b4fe1c9c4201eabed890582cb01d78b86de1cc911d1e5af0",
       "source_owned_sections": []
+    },
+    {
+      "source": "src/game/sound_request_dispatch.c",
+      "source_sha256": "45866831525f7e7669ba85ae8ae79ad13247405d64768bed9269705a90d633a1",
+      "procedures": [
+        {
+          "name": "func_8003614C",
+          "vram": 2147705164,
+          "rom": 224588,
+          "size": 176
+        }
+      ],
+      "expected_bytes": 176,
+      "actual_bytes": 176,
+      "different_words": 0,
+      "matches": true,
+      "compiled_bytes_sha256": "c8846c7942a02e8ebaa25e03e87a4f54e752a497fcf3387262e4709bcb5a2588",
+      "target_bytes_sha256": "c8846c7942a02e8ebaa25e03e87a4f54e752a497fcf3387262e4709bcb5a2588",
+      "source_owned_sections": [
+        {
+          "input_section": ".rodata",
+          "vram": 2148090560,
+          "rom": 609984,
+          "size": 32,
+          "compiled_sha256": "2124c3bb3be73d96249b31f7cffb8009ef52acf99e53a36c5b3d1af095eb0c7b",
+          "target_sha256": "2124c3bb3be73d96249b31f7cffb8009ef52acf99e53a36c5b3d1af095eb0c7b",
+          "different_bytes": 0
+        }
+      ]
     }
   ]
 }

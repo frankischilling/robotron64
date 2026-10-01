@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,322 matching C functions covering 228,788 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,979 bytes
+The source checkpoint contains 1,328 matching C functions covering 230,368 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,011 bytes
 of source-owned initialized data, and 55,553 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-395 complete C functions, 107,740 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 8,331 reconstructed initialized bytes, and 51,463 BSS bytes.
+401 complete C functions, 109,320 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 8,363 reconstructed initialized bytes, and 51,463 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -410,7 +410,7 @@ procedure count. Full startup and runtime comparisons validate the completed
 
 The [input-sequence recognizer](early-input-sequences.md) and
 [string append helper](game-memory.md#string-append) now have complete matching
-source comparisons. Their sampling caller still has three register differences.
+source comparisons. Their sampling caller now matches all 212 instruction bytes.
 `make remaining` generates the current unresolved CPU span inventory from the
 layout declarations; [measurement notes](remaining-ranges.md) explain its limits.
 
@@ -422,11 +422,11 @@ frame setup, text replacement, and further platform functions are unfinished.
 Their complete candidate comparisons and source investigations remain available
 locally, but their bytes are excluded from this checkpoint's source counts.
 
-The [actor contact gate](actor-contact-gate.md) has a complete 632-byte C
-candidate with three remaining branch operand-order differences. Its stack,
-copied positions, kind ordering, flag updates, hover-height gate, and callback
-arguments match the remaining target words. It is included in the excluded
-candidate report and contributes no matching functions or bytes.
+The [input, contact and sound recovery](input-contact-sound.md) now replaces
+four complete procedures with 1,248 matching C bytes and a 32-byte warning
+span. The actor contact gate's previously differing branch words are exact.
+The relative-field helper and immediate sound dispatcher also pass full
+independent comparisons.
 
 The combined graphics setup/pacing source now reproduces all 628 code
 bytes and its 124-byte dispatch table and is included in this checkpoint.

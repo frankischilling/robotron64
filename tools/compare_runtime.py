@@ -55,6 +55,7 @@ MATCHING_BLOCKS = (
     ("early_callback_false", "src/game/early_callback_false.c", 0x80017364, 0x8001737C),
     ("early_actor_transition", "src/game/early_actor_transition.c", 0x80017C10, 0x80017CDC),
     ("early_pointer_state", "src/game/early_pointer_state.c", 0x8001A170, 0x8001A1F0),
+    ("early_player_input_sample", "src/game/early_player_input_sample.c", 0x8001A1F0, 0x8001A2C4),
     ("early_resource_state", "src/game/early_resource_state.c", 0x8001ADA0, 0x8001AF44),
     ("early_actor_spawn_helper", "src/game/early_actor_spawn_helper.c", 0x8001B3DC, 0x8001B448),
     ("early_simple_forward", "src/game/early_simple_forward.c", 0x8001B448, 0x8001B468),
@@ -817,11 +818,12 @@ MATCHING_BLOCKS = (
     ("collision_dispatch_initialize", "src/game/collision_dispatch_initialize.c", 0x80019E40, 0x8001A168),
     ("renderer_projection_highlight", "src/game/renderer_projection_highlight.c", 0x8004913C, 0x800493F4),
     ("actor_pool_allocate", "src/game/actor_pool_allocate.c", 0x800283D4, 0x800286E8),
+    ("early_relative_position", "src/game/early_relative_position.c", 0x8000CD50, 0x8000CE34),
+    ("actor_contact_gate", "src/game/actor_contact_gate.c", 0x8001669C, 0x80016914),
+    ("sound_request_dispatch", "src/game/sound_request_dispatch.c", 0x8003614C, 0x800361FC),
 )
 
 CANDIDATE_BLOCKS = (
-    ("early_player_input_sample", "src/game/early_player_input_sample.c", 0x8001A1F0, 0x8001A2C4),
-    ("actor_contact_gate", "src/game/actor_contact_gate.c", 0x8001669C, 0x80016914),
     ("object_camera_angles", "src/game/object_camera_angles.c", 0x80039FCC, 0x8003A070),
     ("object_camera_angles_alt", "src/game/object_camera_angles_alt.c", 0x8003A128, 0x8003A1C8),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),
