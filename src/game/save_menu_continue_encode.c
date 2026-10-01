@@ -1,15 +1,5 @@
 #include "../../include/save_menu_internal.h"
 
-typedef struct SaveMenuContinueCode {
-    unsigned int checksum : 3;
-    unsigned int value18 : 15;
-    unsigned int option08 : 3;
-    unsigned int option0C : 4;
-    unsigned int value1C : 7;
-    unsigned int level : 8;
-    unsigned int unused : 24;
-} SaveMenuContinueCode;
-
 typedef struct SaveMenuContinueCodeStorage {
     unsigned int unknown00[2];
     SaveMenuContinueCode code;

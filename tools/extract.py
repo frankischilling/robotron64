@@ -72,7 +72,7 @@ REGIONS = (
     ("cpu_after_session_setup_noop", 0x2f264, 0x2f8c4),
     ("cpu_after_session_setup_value58_word", 0x300c4, 0x300d0),
     ("cpu_after_save_menu_status", 0x319c0, 0x31aac),
-    ("endgame_31c34_31eb0", 0x31c34, 0x31eb0),
+    ("endgame_31c34_31c80", 0x31c34, 0x31c80),
     ("cpu_after_palette_fade_controls", 0x322ac, 0x32810),
     ("cpu_after_palette_transition_range", 0x32acc, 0x32f7c),
     ("cpu_after_palette_commands", 0x33134, 0x33140),

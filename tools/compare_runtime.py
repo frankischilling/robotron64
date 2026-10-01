@@ -802,6 +802,7 @@ MATCHING_BLOCKS = (
     ("scene_menu_string_schedule", "src/game/scene_menu_string_schedule.c", 0x80022858, 0x80022A08),
     ("session_scene_start", "src/game/session_scene_start.c", 0x80022528, 0x800226E8),
     ("early_scene_animation_advance", "src/game/early_scene_animation_advance.c", 0x8000EE48, 0x8000F030),
+    ("save_menu_continue_decode", "src/game/save_menu_continue_decode.c", 0x80031080, 0x800312B0),
 )
 
 CANDIDATE_BLOCKS = (

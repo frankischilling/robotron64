@@ -1,3 +1,7 @@
+func_80031034 = 0x80031034;
+D_80094064 = 0x80094064;
+D_80094054 = 0x80094054;
+D_8009404C = 0x8009404C;
 D_8008FB70 = 0x8008FB70;
 D_80073164 = 0x80073164;
 D_800922FC = 0x800922FC;
@@ -406,7 +410,8 @@ SECTIONS
     .save_menu_audio_secondary 0x80030F94 : AT(0x31B94) SUBALIGN(4) { build/us/save_menu_audio_secondary.o(.text) }
     .save_menu_write_return 0x80030FB8 : AT(0x31BB8) SUBALIGN(4) { build/us/save_menu_write_return.o(.text) }
     .scene_index_code 0x80030FEC : AT(0x31BEC) SUBALIGN(4) { build/us/scene_index_code.o(.text) }
-    .endgame_31c34_31eb0 0x80031034 : AT(0x31C34) { build/us/fallback.o(.rom_endgame_31c34_31eb0) }
+    .endgame_31c34_31c80 0x80031034 : AT(0x31C34) { build/us/fallback.o(.rom_endgame_31c34_31c80) }
+    .save_menu_continue_decode 0x80031080 : AT(0x31C80) SUBALIGN(4) { build/us/save_menu_continue_decode.o(.text) }
     .save_menu_continue_encode 0x800312B0 : AT(0x31EB0) SUBALIGN(4) { build/us/save_menu_continue_encode.o(.text) }
     .save_menu_palette_index 0x80031420 : AT(0x32020) SUBALIGN(4) { build/us/save_menu_palette_index.o(.text) }
     .scene_palette_load 0x800314FC : AT(0x320FC) SUBALIGN(4) { build/us/scene_palette_load.o(.text) }
@@ -2230,7 +2235,6 @@ ASSERT(SIZEOF(.square_root) == 0x10, "square_root size changed")
 ASSERT(SIZEOF(.endgame_1b148_1b9a0) == 0x858, "endgame_1b148_1b9a0 size changed")
 ASSERT(SIZEOF(.endgame_1ca2c_1cb48) == 0x11c, "endgame_1ca2c_1cb48 size changed")
 ASSERT(SIZEOF(.endgame_1cbb0_1d340) == 0x790, "endgame_1cbb0_1d340 size changed")
-ASSERT(SIZEOF(.endgame_31c34_31eb0) == 0x27c, "endgame_31c34_31eb0 size changed")
 ASSERT(SIZEOF(.endgame_4edc0_4f3d4) == 0x614, "endgame_4edc0_4f3d4 size changed")
 ASSERT(SIZEOF(.endgame_50584_50590) == 0xc, "endgame_50584_50590 size changed")
 ASSERT(SIZEOF(.endgame_5edec_5f5d0) == 0x7e4, "endgame_5edec_5f5d0 size changed")
@@ -2662,3 +2666,5 @@ ASSERT(SIZEOF(.endgame_22c5c_23128) == 0x4cc, "endgame_22c5c_23128 size changed"
 ASSERT(SIZEOF(.session_scene_start) == 0x1C0, "session scene start text size changed")
 ASSERT(SIZEOF(.endgame_fc30_ff18) == 0x2e8, "endgame_fc30_ff18 size changed")
 ASSERT(SIZEOF(.early_scene_animation_advance) == 0x1E8, "early scene animation advance text size changed")
+ASSERT(SIZEOF(.endgame_31c34_31c80) == 0x4c, "endgame_31c34_31c80 size changed")
+ASSERT(SIZEOF(.save_menu_continue_decode) == 0x230, "continue decoder text size changed")

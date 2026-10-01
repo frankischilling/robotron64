@@ -14754,5 +14754,16 @@
     "section": ".early_scene_animation_advance",
     "section_vram": 2147544648,
     "evidence": "docs/early-scene-animation-advance.md"
+  },
+  {
+    "name": "func_80031080",
+    "rom": 203904,
+    "vram": 2147684480,
+    "size": 560,
+    "source": "src/game/save_menu_continue_decode.c",
+    "object": "build/us/save_menu_continue_decode.o",
+    "section": ".save_menu_continue_decode",
+    "section_vram": 2147684480,
+    "evidence": "docs/continue-code.md"
   }
 ]

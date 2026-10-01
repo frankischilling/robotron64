@@ -61,6 +61,12 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [continue-code decoder](docs/continue-code.md) uses the same pinned
+IDO and N64 matching-workflow references. Robotron's instructions and its
+matching encoder establish the bitfield layout, checksum, field limits,
+diagnostics, and scene setup. No reference implementation is copied. Local
+and online credits for all thirteen requested repositories remain below.
+
 The [early scene animation advance](docs/early-scene-animation-advance.md)
 retains the pinned local IDO and N64 matching-workflow references. Robotron's
 instructions establish the child resource stride, actor fields, scale
