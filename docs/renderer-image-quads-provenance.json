@@ -54,10 +54,10 @@
         ]
       },
       "inputs_sha256": {
-        "config/functions.json": "ccc7e5bda9f52236ef6bde6882224327338f61077ef3a89e6128da9c0902c1e0",
-        "config/owned_sections.json": "2ec51efa86e38ef2f2266f1cf2562062e3584edb3318b4a5d2d4dc3adc73f0c5",
-        "config/runtime_symbols.ld": "90b6f58da4878ad5e174f3b2fbb76422cfe256ae24b3c3b9d8e567a0f82c9f5b",
-        "config/startup_symbols.ld": "c79f24206e569e697d2e73b354fdbd1af3f7127977fdb499899a7b744c3c586c",
+        "config/functions.json": "24688f190563a8dd991a22bd087e8bff6667dae6c4f762351863ad5f55470013",
+        "config/owned_sections.json": "cd1d760fab22424a36fb2b062120218d438d95de1b757fa1bf582761f016388b",
+        "config/runtime_symbols.ld": "6d337ffb7923ae8065ca2db9ccd90bd1d878d84c874ab2f0c3589d51b81e4544",
+        "config/startup_symbols.ld": "66f96e8ac9848a2fb6c12e714b88e1e991edd7f0b00aa1bb33189fca6af10ed8",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -66,7 +66,7 @@
         "include/actor_behavior_more_internal.h": "528343f72c030cf31e20898810277d92cb214f65e7ec80a051ccd406c8290088",
         "include/actor_behavior_next_internal.h": "bb0980b227ed20ff6e426199c5ba90c2cc5a5fbd8e3c8b20f951d12e7ff39a54",
         "include/actor_collision_services.h": "6403076413456a024afcc2ea7528dfb31c0450eae6de4cef1fc14b8053893f4a",
-        "include/actor_dynamic_pool_internal.h": "22941ad519e99ef51ab1d7a02ee0fbcbba082bcf79ea4fd57a0576ebb3ffdd76",
+        "include/actor_dynamic_pool_internal.h": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
         "include/actor_motion_internal.h": "c311a16b465c8dea95438a609a479007bd93e3493c6f547ae65e5f69cea50f57",
         "include/actor_position_pairs.h": "5ee0f4c87fc1a42c72cb90b9b2b781a44dfbfb6c736af64e3bbcc2c90e4b45a9",
         "include/actor_projectile_internal.h": "8baf67e69fe26649c1fe07531f0eec0ca97ba04075d6a871f4e65a93ae343228",
@@ -111,7 +111,7 @@
         "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
         "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
         "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
-        "include/game_memory.h": "23c50ca64a287ddbeb2b62d83bb0bfe215b1280e4b26a8bac9efc3deace942bc",
+        "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
         "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
         "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
         "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
@@ -195,10 +195,10 @@
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
         "src/game/renderer_texture_squares.c": "3165c8600d2b75069e8462ca5c8deab58a5902f2384b49e7bceca1f370d65aca",
-        "tools/compiler.py": "f2fb8744185d2390518ac75116cae3e3714132430b4850def5ae1dff3f3e7909",
+        "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "57d230c212e84568aca4d0c5b17d959618b9d8c778ee548326823d641e7d1bcc"
+      "complete_comparison_sha256": "b312920592a22410c4c520700a3aede726c50cf683bae2a96485331c7ff7147d"
     },
     {
       "source": "src/game/renderer_image_quad_ci.c",
@@ -227,10 +227,10 @@
         ]
       },
       "inputs_sha256": {
-        "config/functions.json": "ccc7e5bda9f52236ef6bde6882224327338f61077ef3a89e6128da9c0902c1e0",
-        "config/owned_sections.json": "2ec51efa86e38ef2f2266f1cf2562062e3584edb3318b4a5d2d4dc3adc73f0c5",
-        "config/runtime_symbols.ld": "90b6f58da4878ad5e174f3b2fbb76422cfe256ae24b3c3b9d8e567a0f82c9f5b",
-        "config/startup_symbols.ld": "c79f24206e569e697d2e73b354fdbd1af3f7127977fdb499899a7b744c3c586c",
+        "config/functions.json": "24688f190563a8dd991a22bd087e8bff6667dae6c4f762351863ad5f55470013",
+        "config/owned_sections.json": "cd1d760fab22424a36fb2b062120218d438d95de1b757fa1bf582761f016388b",
+        "config/runtime_symbols.ld": "6d337ffb7923ae8065ca2db9ccd90bd1d878d84c874ab2f0c3589d51b81e4544",
+        "config/startup_symbols.ld": "66f96e8ac9848a2fb6c12e714b88e1e991edd7f0b00aa1bb33189fca6af10ed8",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -239,7 +239,7 @@
         "include/actor_behavior_more_internal.h": "528343f72c030cf31e20898810277d92cb214f65e7ec80a051ccd406c8290088",
         "include/actor_behavior_next_internal.h": "bb0980b227ed20ff6e426199c5ba90c2cc5a5fbd8e3c8b20f951d12e7ff39a54",
         "include/actor_collision_services.h": "6403076413456a024afcc2ea7528dfb31c0450eae6de4cef1fc14b8053893f4a",
-        "include/actor_dynamic_pool_internal.h": "22941ad519e99ef51ab1d7a02ee0fbcbba082bcf79ea4fd57a0576ebb3ffdd76",
+        "include/actor_dynamic_pool_internal.h": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
         "include/actor_motion_internal.h": "c311a16b465c8dea95438a609a479007bd93e3493c6f547ae65e5f69cea50f57",
         "include/actor_position_pairs.h": "5ee0f4c87fc1a42c72cb90b9b2b781a44dfbfb6c736af64e3bbcc2c90e4b45a9",
         "include/actor_projectile_internal.h": "8baf67e69fe26649c1fe07531f0eec0ca97ba04075d6a871f4e65a93ae343228",
@@ -284,7 +284,7 @@
         "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
         "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
         "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
-        "include/game_memory.h": "23c50ca64a287ddbeb2b62d83bb0bfe215b1280e4b26a8bac9efc3deace942bc",
+        "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
         "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
         "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
         "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
@@ -368,10 +368,10 @@
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
         "src/game/renderer_image_quad_ci.c": "db796cf6c2cebf513df37fe3935c4b43a4c3b669057db341813f18019f52fb6a",
-        "tools/compiler.py": "f2fb8744185d2390518ac75116cae3e3714132430b4850def5ae1dff3f3e7909",
+        "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "b74ba59f394ee2a579a0b24a4fbf449adb6bd018d4b6d85a89d760af5492c57c"
+      "complete_comparison_sha256": "816146c8763116f086bd066998a3260659a4f941623783eddd16c18a97733bab"
     },
     {
       "source": "src/game/renderer_image_quad_rgba.c",
@@ -400,10 +400,10 @@
         ]
       },
       "inputs_sha256": {
-        "config/functions.json": "ccc7e5bda9f52236ef6bde6882224327338f61077ef3a89e6128da9c0902c1e0",
-        "config/owned_sections.json": "2ec51efa86e38ef2f2266f1cf2562062e3584edb3318b4a5d2d4dc3adc73f0c5",
-        "config/runtime_symbols.ld": "90b6f58da4878ad5e174f3b2fbb76422cfe256ae24b3c3b9d8e567a0f82c9f5b",
-        "config/startup_symbols.ld": "c79f24206e569e697d2e73b354fdbd1af3f7127977fdb499899a7b744c3c586c",
+        "config/functions.json": "24688f190563a8dd991a22bd087e8bff6667dae6c4f762351863ad5f55470013",
+        "config/owned_sections.json": "cd1d760fab22424a36fb2b062120218d438d95de1b757fa1bf582761f016388b",
+        "config/runtime_symbols.ld": "6d337ffb7923ae8065ca2db9ccd90bd1d878d84c874ab2f0c3589d51b81e4544",
+        "config/startup_symbols.ld": "66f96e8ac9848a2fb6c12e714b88e1e991edd7f0b00aa1bb33189fca6af10ed8",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -412,7 +412,7 @@
         "include/actor_behavior_more_internal.h": "528343f72c030cf31e20898810277d92cb214f65e7ec80a051ccd406c8290088",
         "include/actor_behavior_next_internal.h": "bb0980b227ed20ff6e426199c5ba90c2cc5a5fbd8e3c8b20f951d12e7ff39a54",
         "include/actor_collision_services.h": "6403076413456a024afcc2ea7528dfb31c0450eae6de4cef1fc14b8053893f4a",
-        "include/actor_dynamic_pool_internal.h": "22941ad519e99ef51ab1d7a02ee0fbcbba082bcf79ea4fd57a0576ebb3ffdd76",
+        "include/actor_dynamic_pool_internal.h": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
         "include/actor_motion_internal.h": "c311a16b465c8dea95438a609a479007bd93e3493c6f547ae65e5f69cea50f57",
         "include/actor_position_pairs.h": "5ee0f4c87fc1a42c72cb90b9b2b781a44dfbfb6c736af64e3bbcc2c90e4b45a9",
         "include/actor_projectile_internal.h": "8baf67e69fe26649c1fe07531f0eec0ca97ba04075d6a871f4e65a93ae343228",
@@ -457,7 +457,7 @@
         "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
         "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
         "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
-        "include/game_memory.h": "23c50ca64a287ddbeb2b62d83bb0bfe215b1280e4b26a8bac9efc3deace942bc",
+        "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
         "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
         "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
         "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
@@ -541,10 +541,10 @@
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
         "src/game/renderer_image_quad_rgba.c": "d288d4933f7666e3a5b333957aabd81c9fe41e456df0808f3f279e8d2aff305e",
-        "tools/compiler.py": "f2fb8744185d2390518ac75116cae3e3714132430b4850def5ae1dff3f3e7909",
+        "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "db02458dd288aa64368eef2a46d6b6e6bd18d4d9045bebcff1dc0a355268a050"
+      "complete_comparison_sha256": "57d1440ea7051be33abc3688f85a507a367abceed20cc65d5bb574fe5c1d569e"
     }
   ],
   "complete_procedures": 4,
@@ -555,6 +555,6 @@
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "08c159a8b88fdfd6486caaafca11394b854f9d3ce95bfd5b5f4256f9e01857ff",
+  "runtime_report_sha256": "e60d1479060f4fff522af7b7bb56e9ee66a0f4c50c95049696c7f24a463c83b6",
   "note": "Historical complete instruction and storage proof. Current progress requires current input comparisons."
 }

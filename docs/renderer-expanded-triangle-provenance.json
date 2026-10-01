@@ -49,8 +49,8 @@
       "inputs_sha256": {
         "config/functions.json": "24688f190563a8dd991a22bd087e8bff6667dae6c4f762351863ad5f55470013",
         "config/owned_sections.json": "cd1d760fab22424a36fb2b062120218d438d95de1b757fa1bf582761f016388b",
-        "config/runtime_symbols.ld": "1a06508d6453638cc7b8d4b75c7c2317334019d5a339ce73fcf258b591c22557",
-        "config/startup_symbols.ld": "912461940d10489df1a96062dfadd5979e564894b98fc962e72e36d8c9b5d408",
+        "config/runtime_symbols.ld": "6d337ffb7923ae8065ca2db9ccd90bd1d878d84c874ab2f0c3589d51b81e4544",
+        "config/startup_symbols.ld": "66f96e8ac9848a2fb6c12e714b88e1e991edd7f0b00aa1bb33189fca6af10ed8",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -188,10 +188,10 @@
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
         "src/game/renderer_expanded_triangle.c": "ed2461824989947d838d16f2ad4e609dc53847d0bb0b166f73966ebdfcc4acd2",
-        "tools/compiler.py": "f2fb8744185d2390518ac75116cae3e3714132430b4850def5ae1dff3f3e7909",
+        "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "63f15214d36902623d15905295786f3af5839c32ea15f393f241988526664553"
+      "complete_comparison_sha256": "f887431f72989a797df9b70d6507e76e1a814f13b88303f44359114f750a033e"
     }
   ],
   "complete_procedures": 1,
@@ -202,6 +202,6 @@
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "5aa6bb49be1e24e7289ef5147f35479e27dfb84491efd1a44038e5c84a9814b3",
+  "runtime_report_sha256": "e60d1479060f4fff522af7b7bb56e9ee66a0f4c50c95049696c7f24a463c83b6",
   "note": "Historical complete instruction and storage proof. Current progress requires current input comparisons."
 }

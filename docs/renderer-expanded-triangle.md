@@ -39,6 +39,13 @@ current build inputs, and whole ROM equality. Instruction patches, inline
 assembly, and unused local padding are absent. Complete hashes appear in
 [the provenance ledger](renderer-expanded-triangle-provenance.json).
 
+The clean archive `0c0b02e` also passed extraction, the full build, all 137
+tooling tests, whole ROM equality, 783 independent runtime units, both startup
+units, 18 assembly units, and eight data-only units. Its linked checkpoint
+contains 1,298 matching C functions and 216,544 instruction bytes. The
+1,255-file publication inventory passes the public audit. Broader checkpoint
+results are recorded with [the image quad recovery](renderer-image-quads.md).
+
 The local and online Super Mario 64 and libreultra GBI definitions support
 the hardware vertex and command layouts:
 [Super Mario 64 GBI definitions](https://github.com/n64decomp/sm64/blob/master/include/PR/gbi.h)

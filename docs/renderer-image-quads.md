@@ -64,6 +64,14 @@ No instruction patches, inline assembly, or unused local padding appear in
 these procedures. Complete hashes and source ownership are recorded in
 [the provenance ledger](renderer-image-quads-provenance.json).
 
+A clean Git archive of `0c0b02e` passed fresh extraction, the complete build,
+all 137 tooling tests, and byte-for-byte ROM verification. Independent
+comparisons passed for all 783 runtime units, both startup units, 18 assembly
+units, and eight data-only units. Linked progress confirms 1,298 matching C
+functions with 216,544 instruction bytes, 9,531 initialized bytes, and
+30,341 BSS bytes. The explicit 1,255-file inventory passes the publication
+audit. Executable fallback remains outside these matching source totals.
+
 ## References
 
 Local Super Mario 64 `include/PR/gbi.h` and libreultra
