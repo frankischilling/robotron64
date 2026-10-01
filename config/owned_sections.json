@@ -1619,5 +1619,25 @@
       "D_80095080": 32
     },
     "evidence": "docs/renderer-expanded-triangle.md"
+  },
+  {
+    "source": "src/game/audio_engine_parameters.c",
+    "object": "build/us/audio_engine_parameters.o",
+    "input_section": ".bss",
+    "section": ".audio_engine_parameter_callback_state",
+    "vram": 2149132132,
+    "rom": null,
+    "size": 12,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192764": 0,
+      "D_80192766": 2,
+      "D_80192768": 4,
+      "D_80192769": 5,
+      "D_8019276A": 6,
+      "D_8019276B": 7,
+      "D_8019276C": 8
+    },
+    "evidence": "docs/audio-command-callback-scan.md"
   }
 ]

@@ -490,7 +490,7 @@ MATCHING_BLOCKS = (
     ("audio_diagnostics", "src/game/audio_diagnostics.c", 0x80058C00, 0x800592C0),
     ("audio_engine_setup", "src/game/audio_engine_setup.c", 0x800596C4, 0x8005971C),
     ("audio_engine_voice_stop", "src/game/audio_engine_voice_stop.c", 0x8005971C, 0x80059898),
-    ("audio_engine_parameters", "src/game/audio_engine_parameters.c", 0x80059898, 0x80059964),
+    ("audio_engine_parameters", "src/game/audio_engine_parameters.c", 0x80059898, 0x80059A88),
     ("audio_engine_tempo", "src/game/audio_engine_tempo.c", 0x80059E2C, 0x80059FC8),
     ("audio_engine_sequence_call", "src/game/audio_engine_sequence_call.c", 0x80059FC8, 0x8005A180),
     ("audio_engine_sequence_jump", "src/game/audio_engine_sequence_jump.c", 0x8005A180, 0x8005A310),

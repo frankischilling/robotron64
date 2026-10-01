@@ -61,6 +61,14 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [audio command callback scan](docs/audio-command-callback-scan.md) uses
+the local and online decomp-permuter project to search equivalent C forms
+for a remaining comparison operand difference. The accepted explicit member
+access was independently rebuilt with the IDO compiler and checked across
+the complete parameter and callback unit. Robotron's instructions establish
+its eight-byte callback records, command value, stopping conditions, retained
+state, and twelve-byte static BSS layout.
+
 The [expanded textured triangle recovery](docs/renderer-expanded-triangle.md)
 uses the same local and online GBI references for vertex and triangle
 command layouts. Robotron's instructions and complete byte comparisons

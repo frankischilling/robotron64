@@ -3434,10 +3434,11 @@ build/us/audio_engine_voice_stop.o: src/game/audio_engine_voice_stop.c include/a
 	$(PYTHON) tools/trim_padding.py build/us/audio_engine_voice_stop.text.o $@ .bss 0xc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_engine_parameters.o: src/game/audio_engine_parameters.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_engine_parameters.o: src/game/audio_engine_parameters.c tools/owned_sections.py config/owned_sections.json include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_parameters.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/audio_engine_parameters.raw.o $@ .text 0xcc
+	$(PYTHON) tools/trim_padding.py build/us/audio_engine_parameters.raw.o build/us/audio_engine_parameters.text.o .text 0x1f0
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_engine_parameters.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/audio_engine_tempo.o: src/game/audio_engine_tempo.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json tools/owned_sections.py

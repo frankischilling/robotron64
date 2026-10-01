@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,298 matching C functions covering 216,544 bytes.
+The source checkpoint contains 1,299 matching C functions covering 216,836 bytes.
 It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,531 bytes
-of source-owned initialized data, and 30,341 bytes of source-owned BSS. The
+of source-owned initialized data, and 30,353 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-371 complete C functions, 95,496 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 7,883 reconstructed initialized bytes, and 26,251 BSS bytes.
+372 complete C functions, 95,788 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 7,883 reconstructed initialized bytes, and 26,263 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,11 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Audio command callback scanning](audio-command-callback-scan.md) adds one
+complete 292-byte procedure and twelve BSS bytes to the existing parameter
+unit. Active-record scanning, little-endian signed values, callback
+arguments, byte-index wraparound, and retained state match the target.
 
 [Expanded textured triangle submission](renderer-expanded-triangle.md)
 adds one complete 728-byte C procedure and 40 diagnostic string bytes.

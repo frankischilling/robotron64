@@ -14633,5 +14633,16 @@
     "section": ".renderer_expanded_triangle",
     "section_vram": 2147763448,
     "evidence": "docs/renderer-expanded-triangle.md"
+  },
+  {
+    "name": "func_80059964",
+    "rom": 370020,
+    "vram": 2147850596,
+    "size": 292,
+    "source": "src/game/audio_engine_parameters.c",
+    "object": "build/us/audio_engine_parameters.o",
+    "section": ".audio_engine_parameters",
+    "section_vram": 2147850392,
+    "evidence": "docs/audio-command-callback-scan.md"
   }
 ]
