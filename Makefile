@@ -6024,6 +6024,16 @@ build/us/save_menu_continue_decode.o: src/game/save_menu_continue_decode.c inclu
 RUNTIME_OBJECTS += \
     build/us/save_menu_continue_decode.o
 
+build/us/scene_frame_tick.o: src/game/scene_frame_tick.c tools/owned_sections.py config/owned_sections.json include/game_memory.h include/platform_services.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_frame_tick.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/scene_frame_tick.raw.o build/us/scene_frame_tick.text.o .text 0x230
+	$(PYTHON) tools/owned_sections.py $< build/us/scene_frame_tick.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/scene_frame_tick.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

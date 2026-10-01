@@ -61,6 +61,12 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [scene frame timing update](docs/scene-frame-tick.md) retains the
+pinned IDO and N64 matching-workflow references. Robotron's timing helper,
+callers, instructions, and double constant establish its arithmetic and
+platform return interface. No reference implementation is copied. The
+requested repositories remain credited for local and online use.
+
 The [continue-code decoder](docs/continue-code.md) uses the same pinned
 IDO and N64 matching-workflow references. Robotron's instructions and its
 matching encoder establish the bitfield layout, checksum, field limits,

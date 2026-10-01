@@ -37,9 +37,9 @@ void func_8003BF9C(void)
 {
 }
 
-void func_8003BFA4(void)
+int func_8003BFA4(void)
 {
-    func_800495BC(0);
+    return func_800495BC(0);
 }
 
 void func_8003BFC4(void)

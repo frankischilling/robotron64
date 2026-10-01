@@ -1,19 +1,36 @@
 {
   "units": [
     {
-      "source": "src/game/save_menu_continue_decode.c",
-      "source_sha256": "f5d456073aae0a2b110f2d471eba2deef0afd37501bbaab5e5c2cb336029e6d9",
+      "source": "src/game/scene_frame_tick.c",
+      "source_sha256": "915e0534700f03c7274326b9f7b641b24f4601ce1b3ef67e88ffd5de4207e3ea",
       "procedures": [
         {
-          "name": "func_80031080",
-          "vram": 2147684480,
-          "rom": 203904,
+          "name": "func_80038598",
+          "vram": 2147714456,
+          "rom": 233880,
           "size": 560,
-          "bytes_sha256": "24c798c7d89b3c428bb43d512447b7b5da9c90b895e3da88cc924fc5665d5596",
-          "target_bytes_sha256": "24c798c7d89b3c428bb43d512447b7b5da9c90b895e3da88cc924fc5665d5596"
+          "bytes_sha256": "c60e2d535e789316a0dbcd0b24c22bae89bf2d1bba51e7e9546bede54ed93c89",
+          "target_bytes_sha256": "c60e2d535e789316a0dbcd0b24c22bae89bf2d1bba51e7e9546bede54ed93c89"
         }
       ],
-      "storage": [],
+      "storage": [
+        {
+          "ownership": {
+            "source": "src/game/scene_frame_tick.c",
+            "object": "build/us/scene_frame_tick.o",
+            "input_section": ".rodata",
+            "section": ".scene_frame_tick_constants",
+            "vram": 2148092896,
+            "rom": 612320,
+            "size": 8,
+            "symbols": {},
+            "static_symbols": {},
+            "evidence": "docs/scene-frame-tick.md"
+          },
+          "bytes_sha256": "cef9cb44d11e407be7e32c81ca085681fb9ffaaa0f78426d2e78fc214df2a014",
+          "target_bytes_sha256": "cef9cb44d11e407be7e32c81ca085681fb9ffaaa0f78426d2e78fc214df2a014"
+        }
+      ],
       "compiler_profile": {
         "name": "game",
         "version": "5.3",
@@ -167,23 +184,135 @@
         "include/sound_bridge_internal.h": "2121f8ad17064388cf0b3dd9b6a9c401429696b7cf06b4c39aa8b4c1b8cde16d",
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-        "src/game/save_menu_continue_decode.c": "f5d456073aae0a2b110f2d471eba2deef0afd37501bbaab5e5c2cb336029e6d9",
+        "src/game/scene_frame_tick.c": "915e0534700f03c7274326b9f7b641b24f4601ce1b3ef67e88ffd5de4207e3ea",
         "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "56e4e2d74ef26f0c3521a741f233a179b0c9c9bfd052f5cef4728f320a3593ca"
+      "complete_comparison_sha256": "d51d43b23f45d1777c4959d717ddc098c59bcaef9cedc9b1a3a011a925214886"
     },
     {
-      "source": "src/game/save_menu_continue_encode.c",
-      "source_sha256": "ac7090edce90e0d72843e0bdb6207c9fecac95ab709e955c7bf3274abc427b05",
+      "source": "src/game/platform_empty.c",
+      "source_sha256": "28714ee17dddc26f3fb0169974dbadecb85ae42b51f88a336371cd09f05a8748",
       "procedures": [
         {
-          "name": "func_800312B0",
-          "vram": 2147685040,
-          "rom": 204464,
-          "size": 368,
-          "bytes_sha256": "855851edafcd7f91fe14d56868f0a63003219870a8b552a722b7f323a9af9c5f",
-          "target_bytes_sha256": "855851edafcd7f91fe14d56868f0a63003219870a8b552a722b7f323a9af9c5f"
+          "name": "func_8003BF5C",
+          "vram": 2147729244,
+          "rom": 248668,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BF64",
+          "vram": 2147729252,
+          "rom": 248676,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BF6C",
+          "vram": 2147729260,
+          "rom": 248684,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BF74",
+          "vram": 2147729268,
+          "rom": 248692,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BF7C",
+          "vram": 2147729276,
+          "rom": 248700,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BF84",
+          "vram": 2147729284,
+          "rom": 248708,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BF8C",
+          "vram": 2147729292,
+          "rom": 248716,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BF94",
+          "vram": 2147729300,
+          "rom": 248724,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BF9C",
+          "vram": 2147729308,
+          "rom": 248732,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BFA4",
+          "vram": 2147729316,
+          "rom": 248740,
+          "size": 32,
+          "bytes_sha256": "d4ebafc3561ae0a99267305973f3f5579376f9dff1bda15ef2a699ccac014fec",
+          "target_bytes_sha256": "d4ebafc3561ae0a99267305973f3f5579376f9dff1bda15ef2a699ccac014fec"
+        },
+        {
+          "name": "func_8003BFC4",
+          "vram": 2147729348,
+          "rom": 248772,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BFCC",
+          "vram": 2147729356,
+          "rom": 248780,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BFD4",
+          "vram": 2147729364,
+          "rom": 248788,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BFDC",
+          "vram": 2147729372,
+          "rom": 248796,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
+        },
+        {
+          "name": "func_8003BFE4",
+          "vram": 2147729380,
+          "rom": 248804,
+          "size": 8,
+          "bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378",
+          "target_bytes_sha256": "78aa5094d5ec7291c79f799c009d04f06c2f20187988e3dcc8d35ee5efdbb378"
         }
       ],
       "storage": [],
@@ -340,21 +469,21 @@
         "include/sound_bridge_internal.h": "2121f8ad17064388cf0b3dd9b6a9c401429696b7cf06b4c39aa8b4c1b8cde16d",
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-        "src/game/save_menu_continue_encode.c": "ac7090edce90e0d72843e0bdb6207c9fecac95ab709e955c7bf3274abc427b05",
+        "src/game/platform_empty.c": "28714ee17dddc26f3fb0169974dbadecb85ae42b51f88a336371cd09f05a8748",
         "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "49edf1b47e4298757631556c2255cc2a6e5f5ab267b1972c38f391a58dce9110"
+      "complete_comparison_sha256": "83970c71ce69fa1e3a2031e856d12a9d03753020496ce2618eabfb84cb581f17"
     }
   ],
-  "complete_procedures": 2,
-  "complete_instruction_bytes": 928,
+  "complete_procedures": 16,
+  "complete_instruction_bytes": 704,
   "new_complete_procedures": 1,
   "new_complete_instruction_bytes": 560,
-  "source_owned_initialized_bytes": 0,
+  "source_owned_initialized_bytes": 8,
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "runtime_report_sha256": "27900a8d60d46950365e656bbdb1efe08c8926de256432870a11d5c2dd0ed01d",
-  "note": "Historical complete instruction and storage proof. The encoder was previously recovered; its packed layout is now shared with the decoder. Current progress requires current input comparisons."
+  "note": "Historical complete instruction and storage proof. The platform adapter object contains fifteen previously recovered procedures; its timing adapter now explicitly returns the observed millisecond result. Current progress requires current input comparisons."
 }

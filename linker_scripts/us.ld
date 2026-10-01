@@ -1,3 +1,12 @@
+func_80031ECC = 0x80031ECC;
+D_FLT_800C8DF8 = 0x800C8DF8;
+D_FLT_800C8DF4 = 0x800C8DF4;
+D_800781D0 = 0x800781D0;
+D_800BF120 = 0x800BF120;
+D_800BF2B0 = 0x800BF2B0;
+D_8009EF9C = 0x8009EF9C;
+D_8009EF98 = 0x8009EF98;
+D_8009EFAC = 0x8009EFAC;
 func_80031034 = 0x80031034;
 D_80094064 = 0x80094064;
 D_80094054 = 0x80094054;
@@ -483,7 +492,7 @@ SECTIONS
     .resource_string_load 0x80038498 : AT(0x39098) SUBALIGN(4) { build/us/resource_string_load.o(.text) }
     .cpu_after_resource_string_load 0x8003856C : AT(0x3916C) { build/us/fallback.o(.rom_cpu_after_resource_string_load) }
     .scene_timer_capture 0x80038570 : AT(0x39170) SUBALIGN(4) { build/us/scene_timer_capture.o(.text) }
-    .cpu_after_scene_timer_capture 0x80038598 : AT(0x39198) { build/us/fallback.o(.rom_cpu_after_scene_timer_capture) }
+    .scene_frame_tick 0x80038598 : AT(0x39198) SUBALIGN(4) { build/us/scene_frame_tick.o(.text) }
     .scene_timer_initialize 0x800387C8 : AT(0x393C8) SUBALIGN(4) { build/us/scene_timer_initialize.o(.text) }
     .scene_timer_service 0x80038810 : AT(0x39410) SUBALIGN(4) { build/us/scene_timer_service.o(.text) }
     .cpu_after_scene_timer_service 0x80038830 : AT(0x39430) { build/us/fallback.o(.rom_cpu_after_scene_timer_service) }
@@ -1195,7 +1204,9 @@ SECTIONS
     .command_machine_table 0x8009416C : AT(0x94D6C) SUBALIGN(4) { build/us/command_machine.o(.rodata) }
     .data_after_command_machine_table 0x910049EC : AT(0x94D8C) { build/us/fallback.o(.rom_data_after_command_machine_table) }
     .sound_bridge_future_queue_strings 0x800942E0 : AT(0x94EE0) SUBALIGN(4) { build/us/sound_bridge_future_queue.o(.rodata) }
-    .data_after_sound_bridge_future_queue_strings 0x91004B60 : AT(0x94F00) { build/us/fallback.o(.rom_data_after_sound_bridge_future_queue_strings) }
+    .endgame_data_94f00_957e0 0x80094300 : AT(0x94F00) { build/us/fallback.o(.rom_endgame_data_94f00_957e0) }
+    .scene_frame_tick_constants 0x80094BE0 : AT(0x957E0) SUBALIGN(4) { build/us/scene_frame_tick.o(.rodata) }
+    .endgame_data_957e8_95b20 0x80094BE8 : AT(0x957E8) { build/us/fallback.o(.rom_endgame_data_957e8_95b20) }
     .renderer_vertex_attributes_strings 0x80094F20 : AT(0x95B20) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.rodata) }
     .renderer_vertex_positions_strings 0x80095010 : AT(0x95C10) SUBALIGN(4) { build/us/renderer_vertex_positions.o(.rodata) }
     .renderer_expanded_triangle_strings 0x80095060 : AT(0x95C60) SUBALIGN(4) { build/us/renderer_expanded_triangle.o(.rodata) }
@@ -1585,7 +1596,6 @@ ASSERT(SIZEOF(.resource_string_find) == 0xa0, "resource_string_find size changed
 ASSERT(SIZEOF(.resource_string_load) == 0xd4, "resource_string_load size changed")
 ASSERT(SIZEOF(.cpu_after_resource_string_load) == 0x4, "cpu_after_resource_string_load size changed")
 ASSERT(SIZEOF(.scene_timer_capture) == 0x28, "scene_timer_capture size changed")
-ASSERT(SIZEOF(.cpu_after_scene_timer_capture) == 0x230, "cpu_after_scene_timer_capture size changed")
 ASSERT(SIZEOF(.scene_timer_initialize) == 0x48, "scene_timer_initialize size changed")
 ASSERT(SIZEOF(.scene_timer_service) == 0x20, "scene_timer_service size changed")
 ASSERT(SIZEOF(.cpu_after_scene_timer_service) == 0x96c, "cpu_after_scene_timer_service size changed")
@@ -1603,7 +1613,6 @@ ASSERT(SIZEOF(.data_after_save_menu_status_tables) == 0xb8, "data_after_save_men
 ASSERT(SIZEOF(.command_machine_table) == 0x20, "command_machine_table size changed")
 ASSERT(SIZEOF(.data_after_command_machine_table) == 0x154, "data_after_command_machine_table size changed")
 ASSERT(SIZEOF(.sound_bridge_future_queue_strings) == 0x20, "sound_bridge_future_queue_strings size changed")
-ASSERT(SIZEOF(.data_after_sound_bridge_future_queue_strings) == 0xc20, "data_after_sound_bridge_future_queue_strings size changed")
 ASSERT(SIZEOF(.renderer_vertex_attributes_strings) == 0xf0, "renderer_vertex_attributes_strings size changed")
 ASSERT(SIZEOF(.renderer_vertex_positions_strings) == 0x50, "renderer_vertex_positions_strings size changed")
 ASSERT(SIZEOF(.renderer_mesh_positions_strings) == 0x28, "renderer_mesh_positions_strings size changed")
@@ -2668,3 +2677,7 @@ ASSERT(SIZEOF(.endgame_fc30_ff18) == 0x2e8, "endgame_fc30_ff18 size changed")
 ASSERT(SIZEOF(.early_scene_animation_advance) == 0x1E8, "early scene animation advance text size changed")
 ASSERT(SIZEOF(.endgame_31c34_31c80) == 0x4c, "endgame_31c34_31c80 size changed")
 ASSERT(SIZEOF(.save_menu_continue_decode) == 0x230, "continue decoder text size changed")
+ASSERT(SIZEOF(.scene_frame_tick) == 0x230, "scene_frame_tick size changed")
+ASSERT(SIZEOF(.scene_frame_tick_constants) == 0x8, "scene_frame_tick_constants size changed")
+ASSERT(SIZEOF(.endgame_data_94f00_957e0) == 0x8e0, "endgame_data_94f00_957e0 size changed")
+ASSERT(SIZEOF(.endgame_data_957e8_95b20) == 0x338, "endgame_data_957e8_95b20 size changed")

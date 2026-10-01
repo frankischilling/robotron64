@@ -14765,5 +14765,16 @@
     "section": ".save_menu_continue_decode",
     "section_vram": 2147684480,
     "evidence": "docs/continue-code.md"
+  },
+  {
+    "name": "func_80038598",
+    "rom": 233880,
+    "vram": 2147714456,
+    "size": 560,
+    "source": "src/game/scene_frame_tick.c",
+    "object": "build/us/scene_frame_tick.o",
+    "section": ".scene_frame_tick",
+    "section_vram": 2147714456,
+    "evidence": "docs/scene-frame-tick.md"
   }
 ]
