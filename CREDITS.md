@@ -79,6 +79,11 @@ instructions and existing matching actor helpers establish placement,
 callback arguments, and the retained unwritten position coordinate.
 No reference implementation is copied.
 
+The [continue-code character helper](docs/continue-character.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions and matching character encoder establish its adjustments
+and alphabet. No reference implementation is copied.
+
 The [continue-code decoder](docs/continue-code.md) uses the same pinned
 IDO and N64 matching-workflow references. Robotron's instructions and its
 matching encoder establish the bitfield layout, checksum, field limits,

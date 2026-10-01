@@ -14798,5 +14798,16 @@
     "section": ".actor_pickup",
     "section_vram": 2147570408,
     "evidence": "docs/actor-pickups.md"
+  },
+  {
+    "name": "func_80031034",
+    "rom": 203828,
+    "vram": 2147684404,
+    "size": 76,
+    "source": "src/game/save_menu_continue_character.c",
+    "object": "build/us/save_menu_continue_character.o",
+    "section": ".save_menu_continue_character",
+    "section_vram": 2147684404,
+    "evidence": "docs/continue-character.md"
   }
 ]

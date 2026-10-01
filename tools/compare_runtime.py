@@ -806,6 +806,7 @@ MATCHING_BLOCKS = (
     ("scene_frame_tick", "src/game/scene_frame_tick.c", 0x80038598, 0x800387C8),
     ("early_actor_pair_spawn", "src/game/early_actor_pair_spawn.c", 0x8000F564, 0x8000F7D8),
     ("actor_pickup", "src/game/actor_pickup.c", 0x800152E8, 0x80015554),
+    ("save_menu_continue_character", "src/game/save_menu_continue_character.c", 0x80031034, 0x80031080),
 )
 
 CANDIDATE_BLOCKS = (

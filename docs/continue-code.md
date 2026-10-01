@@ -38,8 +38,9 @@ The decoder rejects a string containing any character in `D_8009404C`, whose
 target contents are `aeiou`. It retains the repeated string-length call
 around the character search. It then reads ten characters as five pairs,
 decoding the low nibble first and adding the second nibble shifted left by
-four. The existing numeric service `func_80031034` supplies each nibble.
-That service remains executable fallback and is not counted as recovered C.
+four. The complete matching character service `func_80031034` supplies each
+nibble. Its signed adjustments and full 76-byte procedure are documented
+in [continue-code characters](continue-character.md).
 
 The checksum sums the five stored fields and masks the result with seven.
 The target compares an unsigned calculated checksum with the stored three
