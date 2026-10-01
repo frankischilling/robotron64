@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,338 matching C functions covering 233,756 bytes, twenty-nine assembly functions covering 4,372 bytes, 10,051 bytes of source-owned initialized data, and 60,423 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,339 matching C functions covering 233,884 bytes, twenty-nine assembly functions covering 4,372 bytes, 10,131 bytes of source-owned initialized data, and 61,675 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -182,6 +182,10 @@ recovers stick filtering, game-button bits, and the legacy polling call.
 [Actor position conversion and score option adjustment](docs/actor-position-score-option.md)
 recover two complete routines and the position scale literal.
 
+[Audio stream sizing and input sequence storage](docs/input-stream-storage.md)
+recover the complete size helper, fixed input sequences, timing words, and
+typed input storage.
+
 [Decimal parsing and input storage](docs/float-parser-controller-state.md)
 recover the complete floating parser and 106 bytes of shared controller BSS.
 
@@ -191,7 +195,7 @@ model transforms. The shared history pool owns 24 flags and 4,608 BSS bytes.
 
 [Graphics task production](docs/graphics-tasks.md) covers the shared task record, both microcode choices, completion waits, and RDP setup commands. [Frame helpers](docs/frame-runtime.md) cover palette state, elapsed-time sampling, and fixed-point transforms.
 
-Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame, object-update, record-copy, and inverse-camera sources and exits nonzero while they differ. Candidate spans must not overlap recovered functions. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
+Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame, object-update, record-copy, inverse-camera, and input-sequence definition sources and exits nonzero while they differ. Candidate spans must not overlap recovered functions. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
 
 `python3 tools/compare_runtime.py --jobs 4` runs four independent source
 compilations concurrently. Each uses a separate output directory and the same

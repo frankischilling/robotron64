@@ -1,10 +1,9 @@
 #include "../../include/early_game_medium_next.h"
+#include "../../include/early_input_internal.h"
 #include "../../include/game_memory.h"
 #include "../../include/platform_services.h"
 
 extern unsigned char D_800903A0[];
-extern unsigned char D_8009E590[];
-extern int D_8009E588;
 extern int D_8009E574;
 extern int D_8009E57C;
 extern int D_8009E584;

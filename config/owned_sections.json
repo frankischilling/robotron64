@@ -1922,5 +1922,88 @@
     "size": 4,
     "symbols": {},
     "evidence": "docs/actor-position-score-option.md"
+  },
+  {
+    "source": "src/game/early_input_cursor_data.c",
+    "object": "build/us/early_input_cursor_data.o",
+    "input_section": ".bss",
+    "section": ".early_input_cursor_data_bss",
+    "vram": 2148132232,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_8009E588": 0
+    },
+    "evidence": "docs/input-stream-storage.md"
+  },
+  {
+    "source": "src/game/early_input_button_data.c",
+    "object": "build/us/early_input_button_data.o",
+    "input_section": ".bss",
+    "section": ".early_input_button_data_bss",
+    "vram": 2148132240,
+    "rom": null,
+    "size": 800,
+    "symbols": {
+      "D_8009E590": 0
+    },
+    "evidence": "docs/input-stream-storage.md"
+  },
+  {
+    "source": "src/game/early_input_counter_data.c",
+    "object": "build/us/early_input_counter_data.o",
+    "input_section": ".bss",
+    "section": ".early_input_counter_data_bss",
+    "vram": 2148133344,
+    "rom": null,
+    "size": 56,
+    "symbols": {
+      "D_8009E9E0": 0
+    },
+    "evidence": "docs/input-stream-storage.md"
+  },
+  {
+    "source": "src/game/early_input_sequence_data.c",
+    "object": "build/us/early_input_sequence_data.o",
+    "input_section": ".bss",
+    "section": ".early_input_sequence_data_bss",
+    "vram": 2148134408,
+    "rom": null,
+    "size": 392,
+    "symbols": {
+      "D_8009EE08": 0
+    },
+    "evidence": "docs/input-stream-storage.md"
+  },
+  {
+    "source": "src/game/early_input_fixed_data.c",
+    "object": "build/us/early_input_fixed_data.o",
+    "input_section": ".data",
+    "section": ".early_input_fixed_data_data",
+    "vram": 2147957320,
+    "rom": 476744,
+    "size": 64,
+    "symbols": {
+      "D_80073A48": 0,
+      "D_80073A78": 48,
+      "D_80073A80": 56
+    },
+    "evidence": "docs/input-stream-storage.md"
+  },
+  {
+    "source": "src/game/audio_timing_data.c",
+    "object": "build/us/audio_timing_data.o",
+    "input_section": ".data",
+    "section": ".audio_timing_data_data",
+    "vram": 2148063336,
+    "rom": 582760,
+    "size": 16,
+    "symbols": {
+      "D_8008D868": 0,
+      "D_8008D86C": 4,
+      "D_8008D870": 8,
+      "D_8008D874": 12
+    },
+    "evidence": "docs/input-stream-storage.md"
   }
 ]

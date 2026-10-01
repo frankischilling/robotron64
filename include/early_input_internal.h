@@ -39,6 +39,11 @@ typedef char EarlyPlayerCountersMustBe56Bytes[
 typedef char EarlyPlayerInputPrefixMustBe36Bytes[
     sizeof(EarlyPlayerInputState) == 0x24 ? 1 : -1];
 
+extern short D_80073A48[24];
+extern short D_80073A78[3];
+extern short D_80073A80[4];
+extern int D_8009E588;
+extern short D_8009E590[400];
 extern EarlyPlayerCounters D_8009E9E0;
 extern EarlyInputSequence D_8009EE08[14];
 extern int D_80097648;

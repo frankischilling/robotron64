@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,338 matching C functions covering 233,756 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,051 bytes
-of source-owned initialized data, and 60,423 bytes of source-owned BSS. The
+The source checkpoint contains 1,339 matching C functions covering 233,884 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,131 bytes
+of source-owned initialized data, and 61,675 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-411 complete C functions, 112,708 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 8,403 reconstructed initialized bytes, and 56,333 BSS bytes.
+412 complete C functions, 112,836 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 8,483 reconstructed initialized bytes, and 57,585 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,11 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Audio stream sizing and input sequence storage](input-stream-storage.md)
+add the complete 128-byte size helper, 80 initialized bytes for fixed input
+sequences and audio timing words, and 1,252 BSS bytes for the input pool,
+sequence records, cursor, and paired progress/timer arrays.
 
 [Actor position conversion and score option adjustment](actor-position-score-option.md)
 add two complete routines covering 400 instruction bytes and the four-byte

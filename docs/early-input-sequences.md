@@ -17,8 +17,9 @@ The recognizer records newly pressed bits as `(held ^ previous) & held` in
 `D_8009764C`, then updates the previous mask in `D_80097648`. It walks fourteen
 28-byte definition records at `D_8009EE08`. Each record supplies a sequence
 length at offset `0x14` and a signed-short button-list pointer at `0x18`.
-The other five words remain unnamed. These globals retain their existing ROM
-or BSS placement; this recovery introduces no source-owned storage.
+The other five words remain unnamed. [Input storage evidence](input-stream-storage.md)
+records the source-owned sequence records, counters, button pool, cursor, and
+three fixed arrays at their recovered placements.
 
 For each sequence, a negative position becomes zero. The routine captures that
 position before subtracting the frame delta from its signed-short timer. An
@@ -55,3 +56,8 @@ recognizer and reset comparisons.
 Controller and early-game recovery are
 tracked in GitHub issues [#39](https://github.com/frankischilling/robotron64/issues/39)
 and [#43](https://github.com/frankischilling/robotron64/issues/43).
+
+The complete sequence-definition candidate is in
+`src/game/early_input_sequence_define.c`. It preserves the command-field stores,
+400-halfword limit diagnostic, cursor update, and fixed-sequence overrides. Its
+compiler differences remain excluded from matching progress.
