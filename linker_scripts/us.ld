@@ -1,3 +1,12 @@
+D_800922FC = 0x800922FC;
+D_800922DC = 0x800922DC;
+D_800922C8 = 0x800922C8;
+D_800922BC = 0x800922BC;
+D_800922AC = 0x800922AC;
+D_800BA7A0 = 0x800BA7A0;
+D_80075FD0 = 0x80075FD0;
+D_80075FFC = 0x80075FFC;
+D_8009E57C = 0x8009E57C;
 D_800925E4 = 0x800925E4;
 D_80076014 = 0x80076014;
 D_800B6FEC = 0x800B6FEC;
@@ -234,7 +243,8 @@ SECTIONS
     .save_menu_conditional_copy 0x80021C14 : AT(0x22814) SUBALIGN(4) { build/us/save_menu_conditional_copy.o(.text) }
     .cpu_after_save_menu_conditional_copy 0x80021C3C : AT(0x2283C) { build/us/fallback.o(.rom_cpu_after_save_menu_conditional_copy) }
     .save_menu_flag_setter 0x80022050 : AT(0x22C50) SUBALIGN(4) { build/us/save_menu_flag_setter.o(.text) }
-    .cpu_after_save_menu_flag_setter 0x8002205C : AT(0x22C5C) { build/us/fallback.o(.rom_cpu_after_save_menu_flag_setter) }
+    .endgame_22c5c_23128 0x8002205C : AT(0x22C5C) { build/us/fallback.o(.rom_endgame_22c5c_23128) }
+    .session_scene_start 0x80022528 : AT(0x23128) SUBALIGN(4) { build/us/session_scene_start.o(.text) }
     .save_menu_text_flags 0x800226E8 : AT(0x232E8) SUBALIGN(4) { build/us/save_menu_text_flags.o(.text) }
     .scene_menu_string_schedule 0x80022858 : AT(0x23458) SUBALIGN(4) { build/us/scene_menu_string_schedule.o(.text) }
     .scene_menu_string_refresh 0x80022A08 : AT(0x23608) SUBALIGN(4) { build/us/scene_menu_string_refresh.o(.text) }
@@ -1378,7 +1388,6 @@ ASSERT(SIZEOF(.save_level_lookup) == 0x18, "save_level_lookup size changed")
 ASSERT(SIZEOF(.save_menu_conditional_copy) == 0x28, "save_menu_conditional_copy size changed")
 ASSERT(SIZEOF(.cpu_after_save_menu_conditional_copy) == 0x414, "cpu_after_save_menu_conditional_copy size changed")
 ASSERT(SIZEOF(.save_menu_flag_setter) == 0xc, "save_menu_flag_setter size changed")
-ASSERT(SIZEOF(.cpu_after_save_menu_flag_setter) == 0x68c, "cpu_after_save_menu_flag_setter size changed")
 ASSERT(SIZEOF(.save_menu_text_flags) == 0x170, "save_menu_text_flags size changed")
 ASSERT(SIZEOF(.save_menu_state_reset) == 0x2c, "save_menu_state_reset size changed")
 ASSERT(SIZEOF(.cpu_after_save_menu_state_reset) == 0x2964, "cpu_after_save_menu_state_reset size changed")
@@ -2647,3 +2656,5 @@ ASSERT(SIZEOF(.endgame_data_903a0_90428) == 0x88, "endgame_data_903a0_90428 size
 ASSERT(SIZEOF(.endgame_data_90438_90530) == 0xf8, "endgame_data_90438_90530 size changed")
 ASSERT(SIZEOF(.model_normal_polygon_dispatch) == 0x348, "model normal polygon dispatch text size changed")
 ASSERT(SIZEOF(.scene_menu_string_schedule) == 0x1b0, "scene menu string schedule text size changed")
+ASSERT(SIZEOF(.endgame_22c5c_23128) == 0x4cc, "endgame_22c5c_23128 size changed")
+ASSERT(SIZEOF(.session_scene_start) == 0x1C0, "session scene start text size changed")

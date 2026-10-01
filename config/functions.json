@@ -14732,5 +14732,16 @@
     "section": ".scene_menu_string_schedule",
     "section_vram": 2147625048,
     "evidence": "docs/scene-menu-string-schedule.md"
+  },
+  {
+    "name": "func_80022528",
+    "rom": 143656,
+    "vram": 2147624232,
+    "size": 448,
+    "source": "src/game/session_scene_start.c",
+    "object": "build/us/session_scene_start.o",
+    "section": ".session_scene_start",
+    "section_vram": 2147624232,
+    "evidence": "docs/session-scene-start.md"
   }
 ]

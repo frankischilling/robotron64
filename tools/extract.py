@@ -53,7 +53,7 @@ REGIONS = (
     ("endgame_208e4_21b24", 0x208e4, 0x21b24),
     ("endgame_21b8c_22720", 0x21b8c, 0x22720),
     ("cpu_after_save_menu_conditional_copy", 0x2283c, 0x22c50),
-    ("cpu_after_save_menu_flag_setter", 0x22c5c, 0x232e8),
+    ("endgame_22c5c_23128", 0x22c5c, 0x23128),
     ("cpu_after_save_menu_state_reset", 0x23924, 0x26288),
     ("cpu_after_save_menu_legacy_reset", 0x262b8, 0x262c0),
     ("cpu_after_save_menu_legacy_heap", 0x26308, 0x26310),

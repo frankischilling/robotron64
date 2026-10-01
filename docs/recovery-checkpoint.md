@@ -1,11 +1,11 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,307 matching C functions covering 219,856 bytes.
+The source checkpoint contains 1,308 matching C functions covering 220,304 bytes.
 It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,547 bytes
 of source-owned initialized data, and 30,353 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-380 complete C functions, 98,808 C bytes, twenty-eight assembly procedures with
+381 complete C functions, 99,256 C bytes, twenty-eight assembly procedures with
 4,316 live bytes, 7,899 reconstructed initialized bytes, and 26,263 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
@@ -15,6 +15,13 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Session scene start](session-scene-start.md) adds one complete 448-byte C
+procedure. Its automatic level selection, player initialization, selection
+reset, scene transition, and second-player scene words match the target.
+The shared save-state layout retains its verified sizes and exposes the
+two player-choice words and the aligned word at player offset `0xD70`.
+No new initialized data or BSS is claimed.
 
 [Model polygon normal dispatch](model-normal-polygon-dispatch.md) adds two
 complete 420-byte C procedures. Vertex caching, both material paths, all
@@ -286,7 +293,7 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 790 complete source units. Startup/scheduler
+The runtime registry contains 791 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-nine procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,

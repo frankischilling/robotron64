@@ -61,6 +61,13 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [session scene start](docs/session-scene-start.md) retains the pinned
+local IDO and N64 matching-workflow references. Robotron's instructions and
+the recovered menu callers establish the mode values, two-player storage,
+automatic level selection, reset ordering, and scene words. No reference
+implementation is copied into the procedure. All requested reference
+repositories retain their local and online credits below.
+
 The [model polygon normal dispatch](docs/model-normal-polygon-dispatch.md)
 retains the pinned IDO and N64 matching-build references. A local
 decomp-permuter search suggested source line grouping for the cursor
