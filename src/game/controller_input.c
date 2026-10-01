@@ -13,7 +13,8 @@ int func_8003C1A8(int port, int mode)
 
     result = 0;
     triggers = 0;
-    D_8007C334 = func_8004F330(port);
+    /* Legacy call: the target leaves the incoming port in a0. */
+    D_8007C334 = func_8004F330();
     if ((1 << port) & D_8007C334) {
         if (func_8004CEF0(D_8013DBB8[port]) >
             func_8004CEF0(D_8013DBC8[port]) * 8) {

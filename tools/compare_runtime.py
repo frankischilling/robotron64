@@ -825,16 +825,17 @@ MATCHING_BLOCKS = (
     ("model_hierarchy_transform", "src/game/model_hierarchy_transform.c", 0x8003F314, 0x8003F480),
     ("actor_history_projectile", "src/game/actor_history_projectile.c", 0x8004E1C0, 0x8004E364),
     ("actor_history_tick", "src/game/actor_history_tick.c", 0x8004DEE0, 0x8004E168),
+    ("object_camera_angles", "src/game/object_camera_angles.c", 0x80039FCC, 0x8003A070),
+    ("object_camera_angles_alt", "src/game/object_camera_angles_alt.c", 0x8003A128, 0x8003A1C8),
+    ("controller_input", "src/game/controller_input.c", 0x8003C1A8, 0x8003C4C8),
 )
 
 CANDIDATE_BLOCKS = (
-    ("object_camera_angles", "src/game/object_camera_angles.c", 0x80039FCC, 0x8003A070),
-    ("object_camera_angles_alt", "src/game/object_camera_angles_alt.c", 0x8003A128, 0x8003A1C8),
+    ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),
     ("object_runtime_projection", "src/game/object_runtime_projection.c", 0x8003B2B0, 0x8003B428),
     ("game_string_comparisons", "src/game/game_string_comparisons.c", 0x8003B734, 0x8003B928),
     ("game_number_parse", "src/game/game_number_parse.c", 0x8003BD4C, 0x8003BF5C),
-    ("controller_input", "src/game/controller_input.c", 0x8003C1A8, 0x8003C4C8),
     ("frame_begin", "src/boot/frame_begin.c", 0x80048510, 0x800489F4),
 )
 
