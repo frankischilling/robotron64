@@ -61,6 +61,13 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [early pool and camera reset](docs/early-pool-scene-reset.md) follows
+the recorded IDO compiler materials and N64 matching workflows. Robotron's
+complete instructions and the previously recovered services establish the
+camera arguments, reset loops, shared state offsets, object enable writes,
+and debug-context call. The documented prefix does not claim the complete
+allocation or add unverified BSS ownership.
+
 The [camera-relative square recovery](docs/renderer-camera-square.md) uses
 the local and online Super Mario 64 and libreultra GBI definitions for the
 existing vertex layout. Robotron's complete instructions establish the

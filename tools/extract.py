@@ -17,7 +17,6 @@ REGIONS = (
     ("cpu_after_early_render_presets", 0xc5d4, 0xca80),
     ("endgame_cac0_da34", 0xcac0, 0xda34),
     ("endgame_dab8_dac0", 0xdab8, 0xdac0),
-    ("endgame_e0f8_e214", 0xe0f8, 0xe214),
     ("cpu_after_early_byte_clear", 0xe220, 0xeb14),
     ("endgame_ed08_ef28", 0xed08, 0xef28),
     ("endgame_f320_f6e4", 0xf320, 0xf6e4),

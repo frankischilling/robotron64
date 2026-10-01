@@ -1,16 +1,16 @@
 {
   "units": [
     {
-      "source": "src/game/renderer_camera_square.c",
-      "source_sha256": "df4c28bf58b40649a739ebfa8bd6bc86caf211981ada0eecb5e36d9047114bc5",
+      "source": "src/game/early_pool_scene_reset.c",
+      "source_sha256": "49e17f17f4dbc978136bf222d8db4f20d78813f1c7a815893cc6721145ab3829",
       "procedures": [
         {
-          "name": "func_80043070",
-          "vram": 2147758192,
-          "rom": 277616,
-          "size": 336,
-          "bytes_sha256": "9719d00d2bd7d43969a215b3bcbb4aa69314a3cb44a8515128ccb58423490212",
-          "target_bytes_sha256": "9719d00d2bd7d43969a215b3bcbb4aa69314a3cb44a8515128ccb58423490212"
+          "name": "func_8000D4F8",
+          "vram": 2147538168,
+          "rom": 57592,
+          "size": 284,
+          "bytes_sha256": "33c094b89476becf38778d9e3bd0a8b8d564af3eec2fddacdffc505b41a0045b",
+          "target_bytes_sha256": "33c094b89476becf38778d9e3bd0a8b8d564af3eec2fddacdffc505b41a0045b"
         }
       ],
       "storage": [],
@@ -27,7 +27,7 @@
         ]
       },
       "inputs_sha256": {
-        "config/functions.json": "041fe77131d8157cff68eb33df4aab35c9d05196c6ee9aa2048076a3ebae619e",
+        "config/functions.json": "a8201401e950fac12288f68522e31c6a18a666a69b59ebfa0b7c72da7740e6c6",
         "config/owned_sections.json": "d49f8965ec2a0055e65dd197f12fb5a6b0877896be7152c4853d8f89b0efbb3d",
         "config/runtime_symbols.ld": "cf95da7d748971bfe51e38b5a893e32ea6fac29342b3ff0e34c4cb43708c3b88",
         "config/startup_symbols.ld": "9c3fbefb7ea722683ad8f479219fde1f2e8b4f9cdbff1eae0bc89f0355dd53eb",
@@ -77,7 +77,7 @@
         "include/early_game_state.h": "07c326ea48d5ca4bba426eb74a8408cbb7b04acb3219442e1010298d620c9c5a",
         "include/early_name_table.h": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
         "include/early_parameter_internal.h": "214559c65a54c222506ba13cfc4a7ac848c7bd197ee3c339b6ba076055cfdc2f",
-        "include/early_pool_tick.h": "f33217060b0f4e1f5dca99f93adcb7f68bfafbda9a3026093b9b82fb0c2a1a9a",
+        "include/early_pool_tick.h": "8e7d304f605c0bb879d3332e385fea4e0b83e3e69dce3ed17f09adab74fdf60d",
         "include/early_resource_state.h": "d5f560a8dba312fdd195194d3653b62c5e66d631dc669dc643017a0fb87b71f8",
         "include/early_session_state.h": "d1a8e3db9b120424da49a06ba7ef85ef21cd990573b5327f972b910e245985d0",
         "include/fixed_geometry.h": "530e2dc24043761f8b2b4db04e47a0e7fe30070d82cd036ba4e21e1af74f5055",
@@ -167,21 +167,21 @@
         "include/sound_bridge_internal.h": "2121f8ad17064388cf0b3dd9b6a9c401429696b7cf06b4c39aa8b4c1b8cde16d",
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-        "src/game/renderer_camera_square.c": "df4c28bf58b40649a739ebfa8bd6bc86caf211981ada0eecb5e36d9047114bc5",
+        "src/game/early_pool_scene_reset.c": "49e17f17f4dbc978136bf222d8db4f20d78813f1c7a815893cc6721145ab3829",
         "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "81ddfa2170c914497e07830d40e21fa5ab92e6f1f4b7328a229eb92c89e15982"
+      "complete_comparison_sha256": "d59d5a8a6ae3dbcd0ab3543411e42f2279cabc8148064eaf25fe0adcec7003eb"
     }
   ],
   "complete_procedures": 1,
-  "complete_instruction_bytes": 336,
+  "complete_instruction_bytes": 284,
   "new_complete_procedures": 1,
-  "new_complete_instruction_bytes": 336,
+  "new_complete_instruction_bytes": 284,
   "source_owned_initialized_bytes": 0,
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "1afeea52c2dff977a2cc33286fb044b0b80a13f87ae8d751db6ecebc7230f35a",
+  "runtime_report_sha256": "4c98fdd8cf18d0c4f7f8932027359eae73d8454ffc54342f8f88d3ab03d76035",
   "note": "Historical complete instruction and storage proof. Current progress requires current input comparisons."
 }

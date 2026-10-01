@@ -35,6 +35,12 @@ and full ROM equality. This source unit owns no additional initialized data
 or BSS. Complete procedure hashes and build inputs are recorded in
 [the provenance ledger](renderer-camera-square-provenance.json).
 
+A clean archive of `7411aaa` passes all 137 tooling tests, fresh extraction
+and build, 784 complete runtime units, both startup units, eighteen assembly
+units, and eight data-only units. Linked verification reports 1,300 complete
+matching C functions and 217,172 instruction bytes. The rebuilt USA ROM
+matches byte for byte, and the publication audit checks all 1,260 public files.
+
 Robotron's instructions establish the geometry, signed shifts, transform
 order, texture-coordinate stores, and final call. The local and online
 [Super Mario 64 GBI definitions](https://github.com/n64decomp/sm64/blob/master/include/PR/gbi.h)

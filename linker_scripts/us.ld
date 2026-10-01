@@ -91,7 +91,7 @@ SECTIONS
     .actor_dynamic_parameter_append 0x8000D2D4 : AT(0xDED4) SUBALIGN(4) { build/us/actor_dynamic_parameter_append.o(.text) }
     .early_pool_initialize 0x8000D38C : AT(0xDF8C) SUBALIGN(4) { build/us/early_pool_initialize.o(.text) }
     .early_pool_tick 0x8000D3E8 : AT(0xDFE8) SUBALIGN(4) { build/us/early_pool_tick.o(.text) }
-    .endgame_e0f8_e214 0x8000D4F8 : AT(0xE0F8) { build/us/fallback.o(.rom_endgame_e0f8_e214) }
+    .early_pool_scene_reset 0x8000D4F8 : AT(0xE0F8) SUBALIGN(4) { build/us/early_pool_scene_reset.o(.text) }
     .early_byte_clear 0x8000D614 : AT(0xE214) SUBALIGN(4) { build/us/early_byte_clear.o(.text) }
     .cpu_after_early_byte_clear 0x8000D620 : AT(0xE220) { build/us/fallback.o(.rom_cpu_after_early_byte_clear) }
     .early_angle_normalize 0x8000DF14 : AT(0xEB14) SUBALIGN(4) { build/us/early_angle_normalize.o(.text) }
@@ -2426,7 +2426,6 @@ ASSERT(SIZEOF(.early_pool_tick) == 0x110, "early_pool_tick size changed")
 ASSERT(SIZEOF(.actor_collision_turn) == 0x118, "actor_collision_turn size changed")
 ASSERT(SIZEOF(.session_background_select_rodata) == 0x2c, "session_background_select_rodata size changed")
 ASSERT(SIZEOF(.early_effect_spawn_rodata) == 0x18, "early_effect_spawn_rodata size changed")
-ASSERT(SIZEOF(.endgame_e0f8_e214) == 0x11c, "endgame_e0f8_e214 size changed")
 ASSERT(SIZEOF(.endgame_13550_15c20) == 0x26d0, "endgame_13550_15c20 size changed")
 ASSERT(SIZEOF(.endgame_data_90570_90574) == 0x4, "endgame_data_90570_90574 size changed")
 ASSERT(SIZEOF(.endgame_data_92560_93698) == 0x1138, "endgame_data_92560_93698 size changed")
@@ -2629,3 +2628,4 @@ ASSERT(SIZEOF(.endgame_434c0_43c70) == 0x7b0, "endgame_434c0_43c70 size changed"
 ASSERT(SIZEOF(.endgame_43dc0_44530) == 0x770, "endgame_43dc0_44530 size changed")
 ASSERT(SIZEOF(.renderer_camera_square) == 0x150, "renderer camera square text size changed")
 func_80045214 = 0x80045214;
+ASSERT(SIZEOF(.early_pool_scene_reset) == 0x11c, "early pool scene reset text size changed")

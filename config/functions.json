@@ -14655,5 +14655,16 @@
     "section": ".renderer_camera_square",
     "section_vram": 2147758192,
     "evidence": "docs/renderer-camera-square.md"
+  },
+  {
+    "name": "func_8000D4F8",
+    "rom": 57592,
+    "vram": 2147538168,
+    "size": 284,
+    "source": "src/game/early_pool_scene_reset.c",
+    "object": "build/us/early_pool_scene_reset.o",
+    "section": ".early_pool_scene_reset",
+    "section_vram": 2147538168,
+    "evidence": "docs/early-pool-scene-reset.md"
   }
 ]
