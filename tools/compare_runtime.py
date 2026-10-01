@@ -811,6 +811,7 @@ MATCHING_BLOCKS = (
     ("renderer_matrix_submit", "src/game/renderer_matrix_submit.c", 0x80047D88, 0x80048020),
     ("model_file_relocate", "src/game/model_file_relocate.c", 0x8003C6B8, 0x8003C94C),
     ("audio_voice_defaults", "src/game/audio_voice_defaults.c", 0x8005362C, 0x800538F8),
+    ("audio_memory_size", "src/game/audio_memory_size.c", 0x80052D70, 0x8005303C),
 )
 
 CANDIDATE_BLOCKS = (

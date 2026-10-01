@@ -1704,5 +1704,19 @@
       "D_80094C50": 0
     },
     "evidence": "docs/model-file-relocation.md"
+  },
+  {
+    "source": "src/game/audio_memory_size.c",
+    "object": "build/us/audio_memory_size.o",
+    "input_section": ".rodata",
+    "section": ".audio_memory_size_strings",
+    "vram": 2148097200,
+    "rom": 616624,
+    "size": 8,
+    "symbols": {},
+    "static_symbols": {
+      "D_80095CB0": 0
+    },
+    "evidence": "docs/audio-memory-size.md"
   }
 ]

@@ -14853,5 +14853,16 @@
     "section": ".audio_voice_defaults",
     "section_vram": 2147825196,
     "evidence": "docs/audio-voice-defaults.md"
+  },
+  {
+    "name": "func_80052D70",
+    "rom": 342384,
+    "vram": 2147822960,
+    "size": 716,
+    "source": "src/game/audio_memory_size.c",
+    "object": "build/us/audio_memory_size.o",
+    "section": ".audio_memory_size",
+    "section_vram": 2147822960,
+    "evidence": "docs/audio-memory-size.md"
   }
 ]
