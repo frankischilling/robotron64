@@ -522,9 +522,9 @@ SECTIONS
     .object_helpers_properties 0x80039DAC : AT(0x3A9AC) SUBALIGN(4) { build/us/object_helpers_properties.o(.text) }
     .object_helpers_camera_state 0x80039EA0 : AT(0x3AAA0) SUBALIGN(4) { build/us/object_helpers_camera_state.o(.text) }
     .object_helpers_camera_position 0x80039F10 : AT(0x3AB10) SUBALIGN(4) { build/us/object_helpers_camera_position.o(.text) }
-    .cpu_after_object_helpers_camera_position 0x80039FCC : AT(0x3ABCC) { build/us/fallback.o(.rom_cpu_after_object_helpers_camera_position) }
+    .object_camera_angles 0x80039FCC : AT(0x3ABCC) SUBALIGN(4) { build/us/object_camera_angles.o(.text) }
     .object_helpers_camera_position_alt 0x8003A070 : AT(0x3AC70) SUBALIGN(4) { build/us/object_helpers_camera_position_alt.o(.text) }
-    .cpu_after_object_helpers_camera_position_alt 0x8003A128 : AT(0x3AD28) { build/us/fallback.o(.rom_cpu_after_object_helpers_camera_position_alt) }
+    .object_camera_angles_alt 0x8003A128 : AT(0x3AD28) SUBALIGN(4) { build/us/object_camera_angles_alt.o(.text) }
     .object_helpers_camera_accessors 0x8003A1C8 : AT(0x3ADC8) SUBALIGN(4) { build/us/object_helpers_camera_accessors.o(.text) }
     .object_helpers_pool_alloc 0x8003A2F8 : AT(0x3AEF8) SUBALIGN(4) { build/us/object_helpers_pool_alloc.o(.text) }
     .object_helpers_pool_status 0x8003A3F8 : AT(0x3AFF8) SUBALIGN(4) { build/us/object_helpers_pool_status.o(.text) }
@@ -549,7 +549,7 @@ SECTIONS
     .platform_empty 0x8003BF5C : AT(0x3CB5C) SUBALIGN(4) { build/us/platform_empty.o(.text) }
     .palette 0x8003BFEC : AT(0x3CBEC) SUBALIGN(4) { build/us/palette.o(.text) }
     .controller_button 0x8003C180 : AT(0x3CD80) SUBALIGN(4) { build/us/controller_button.o(.text) }
-    .cpu_after_controller_button 0x8003C1A8 : AT(0x3CDA8) { build/us/fallback.o(.rom_cpu_after_controller_button) }
+    .controller_input 0x8003C1A8 : AT(0x3CDA8) SUBALIGN(4) { build/us/controller_input.o(.text) }
     .controller_axes 0x8003C4C8 : AT(0x3D0C8) SUBALIGN(4) { build/us/controller_axes.o(.text) }
     .platform_io 0x8003C5C4 : AT(0x3D1C4) SUBALIGN(4) { build/us/platform_io.o(.text) }
     .model_file_relocate 0x8003C6B8 : AT(0x3D2B8) SUBALIGN(4) { build/us/model_file_relocate.o(.text) }
@@ -1235,7 +1235,9 @@ SECTIONS
     .sound_bridge_future_queue_strings 0x800942E0 : AT(0x94EE0) SUBALIGN(4) { build/us/sound_bridge_future_queue.o(.rodata) }
     .endgame_data_94f00_957e0 0x80094300 : AT(0x94F00) { build/us/fallback.o(.rom_endgame_data_94f00_957e0) }
     .scene_frame_tick_constants 0x80094BE0 : AT(0x957E0) SUBALIGN(4) { build/us/scene_frame_tick.o(.rodata) }
-    .endgame_data_957e8_95850 0x80094BE8 : AT(0x957E8) { build/us/fallback.o(.rom_endgame_data_957e8_95850) }
+    .camera_fallback_957e8_95848 0x80094BE8 : AT(0x957E8) { build/us/fallback.o(.rom_camera_fallback_957e8_95848) }
+    .object_camera_angles_constant 0x80094C48 : AT(0x95848) SUBALIGN(4) { build/us/object_camera_angles.o(.rodata) }
+    .object_camera_angles_alt_constant 0x80094C4C : AT(0x9584C) SUBALIGN(4) { build/us/object_camera_angles_alt.o(.rodata) }
     .model_file_relocate_strings 0x80094C50 : AT(0x95850) SUBALIGN(4) { build/us/model_file_relocate.o(.rodata) }
     .endgame_data_95880_95b20 0x80094C80 : AT(0x95880) { build/us/fallback.o(.rom_endgame_data_95880_95b20) }
     .renderer_vertex_attributes_strings 0x80094F20 : AT(0x95B20) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.rodata) }
@@ -1339,6 +1341,8 @@ SECTIONS
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
+    .camera_state_data_bss 0x800C8B88 (NOLOAD) : SUBALIGN(4) { build/us/camera_state_data.o(.bss) }
+    .camera_matrix_data_bss 0x800CD250 (NOLOAD) : SUBALIGN(4) { build/us/camera_matrix_data.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -1706,9 +1710,7 @@ ASSERT(SIZEOF(.object_helpers_index_set) == 0x60, "object_helpers_index_set size
 ASSERT(SIZEOF(.object_helpers_properties) == 0xf4, "object_helpers_properties size changed")
 ASSERT(SIZEOF(.object_helpers_camera_state) == 0x70, "object_helpers_camera_state size changed")
 ASSERT(SIZEOF(.object_helpers_camera_position) == 0xbc, "object_helpers_camera_position size changed")
-ASSERT(SIZEOF(.cpu_after_object_helpers_camera_position) == 0xa4, "cpu_after_object_helpers_camera_position size changed")
 ASSERT(SIZEOF(.object_helpers_camera_position_alt) == 0xb8, "object_helpers_camera_position_alt size changed")
-ASSERT(SIZEOF(.cpu_after_object_helpers_camera_position_alt) == 0xa0, "cpu_after_object_helpers_camera_position_alt size changed")
 ASSERT(SIZEOF(.object_helpers_camera_accessors) == 0x130, "object_helpers_camera_accessors size changed")
 ASSERT(SIZEOF(.object_helpers_pool_alloc) == 0x100, "object_helpers_pool_alloc size changed")
 ASSERT(SIZEOF(.object_helpers_pool_status) == 0x68, "object_helpers_pool_status size changed")
@@ -1733,7 +1735,6 @@ ASSERT(SIZEOF(.cpu_after_game_integer_parse) == 0x174, "cpu_after_game_integer_p
 ASSERT(SIZEOF(.platform_empty) == 0x90, "platform_empty size changed")
 ASSERT(SIZEOF(.palette) == 0x194, "palette size changed")
 ASSERT(SIZEOF(.controller_button) == 0x28, "controller_button size changed")
-ASSERT(SIZEOF(.cpu_after_controller_button) == 0x320, "cpu_after_controller_button size changed")
 ASSERT(SIZEOF(.controller_axes) == 0xfc, "controller_axes size changed")
 ASSERT(SIZEOF(.platform_io) == 0xf4, "platform_io size changed")
 ASSERT(SIZEOF(.resource_bridge_model_cache) == 0xd8, "resource_bridge_model_cache size changed")
@@ -2709,7 +2710,6 @@ ASSERT(SIZEOF(.endgame_48168_48988) == 0x820, "endgame_48168_48988 size changed"
 ASSERT(SIZEOF(.endgame_data_95f60_95fe0) == 0x80, "endgame_data_95f60_95fe0 size changed")
 ASSERT(SIZEOF(.model_file_relocate) == 0x294, "model_file_relocate size changed")
 ASSERT(SIZEOF(.model_file_relocate_strings) == 0x30, "model_file_relocate_strings size changed")
-ASSERT(SIZEOF(.endgame_data_957e8_95850) == 0x68, "endgame_data_957e8_95850 size changed")
 ASSERT(SIZEOF(.endgame_data_95880_95b20) == 0x2a0, "endgame_data_95880_95b20 size changed")
 ASSERT(SIZEOF(.audio_voice_defaults) == 0x2CC, "audio voice defaults text size changed")
 ASSERT(SIZEOF(.audio_memory_size) == 0x2cc, "audio_memory_size size changed")
@@ -2740,7 +2740,6 @@ D_80138268 = 0x80138268;
 D_FLT_8007D904 = 0x8007D904;
 D_FLT_8007D908 = 0x8007D908;
 D_8013D958 = 0x8013D958;
-D_800CD250 = 0x800CD250;
 ASSERT(SIZEOF(.actor_pool_allocate) == 0x314, "actor_pool_allocate size changed")
 ASSERT(SIZEOF(.actor_pool_allocate_strings) == 0x60, "actor_pool_allocate_strings size changed")
 ASSERT(SIZEOF(.endgame_292e8_29c20) == 0x938, "endgame_292e8_29c20 size changed")
@@ -2770,3 +2769,11 @@ ASSERT(SIZEOF(.actor_history_points_bss) == 0x1200, "actor_history_points_bss si
 ASSERT(SIZEOF(.actor_history_tick) == 0x288, "actor_history_tick size changed")
 ASSERT(SIZEOF(.endgame_960c4_96730) == 0x66c, "endgame_960c4_96730 size changed")
 ASSERT(SIZEOF(.actor_history_tick_constant) == 0x4, "actor_history_tick_constant size changed")
+ASSERT(SIZEOF(.object_camera_angles) == 0xa4, "object_camera_angles size changed")
+ASSERT(SIZEOF(.camera_fallback_957e8_95848) == 0x60, "camera_fallback_957e8_95848 size changed")
+ASSERT(SIZEOF(.object_camera_angles_constant) == 0x4, "object_camera_angles_constant size changed")
+ASSERT(SIZEOF(.object_camera_angles_alt) == 0xa0, "object_camera_angles_alt size changed")
+ASSERT(SIZEOF(.object_camera_angles_alt_constant) == 0x4, "object_camera_angles_alt_constant size changed")
+ASSERT(SIZEOF(.camera_state_data_bss) == 0x78, "camera_state_data BSS size changed")
+ASSERT(SIZEOF(.camera_matrix_data_bss) == 0x24, "camera_matrix_data BSS size changed")
+ASSERT(SIZEOF(.controller_input) == 0x320, "controller_input size changed")

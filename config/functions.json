@@ -15007,5 +15007,38 @@
     "section": ".actor_history_tick",
     "section_vram": 2147802848,
     "evidence": "docs/actor-history-model.md"
+  },
+  {
+    "name": "func_80039FCC",
+    "rom": 240588,
+    "vram": 2147721164,
+    "size": 164,
+    "source": "src/game/object_camera_angles.c",
+    "object": "build/us/object_camera_angles.o",
+    "section": ".object_camera_angles",
+    "section_vram": 2147721164,
+    "evidence": "docs/camera-angles.md"
+  },
+  {
+    "name": "func_8003A128",
+    "rom": 240936,
+    "vram": 2147721512,
+    "size": 160,
+    "source": "src/game/object_camera_angles_alt.c",
+    "object": "build/us/object_camera_angles_alt.o",
+    "section": ".object_camera_angles_alt",
+    "section_vram": 2147721512,
+    "evidence": "docs/camera-angles.md"
+  },
+  {
+    "name": "func_8003C1A8",
+    "rom": 249256,
+    "vram": 2147729832,
+    "size": 800,
+    "source": "src/game/controller_input.c",
+    "object": "build/us/controller_input.o",
+    "section": ".controller_input",
+    "section_vram": 2147729832,
+    "evidence": "docs/controller-input-mapping.md"
   }
 ]

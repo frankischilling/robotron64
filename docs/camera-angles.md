@@ -1,49 +1,83 @@
-# Camera angle conversion probes
+# Camera angle setters and shared storage
 
-The two camera-angle gaps use the same conversion pattern with different
-fixed-angle Y handling and different scale globals.
+`func_80039FCC` and `func_8003A128` set the three camera angles in both
+floating-point and integer representations. Their complete instruction spans
+are 164 and 160 bytes respectively. Both use the established IDO 5.3 game
+profile, `-O2 -G 0 -non_shared -mips1 -32`.
 
-| Function | VRAM range | Bytes | Scale | Fixed Y |
-| --- | --- | ---: | --- | --- |
-| `func_80039FCC` | `0x80039FCC..0x8003A070` | 164 | `D_FLT_80094C48` | `(y + 0x800) & 0xFFD` |
-| `func_8003A128` | `0x8003A128..0x8003A1C8` | 160 | `D_FLT_80094C4C` | `y & 0xFFD` |
+The floating-point angles multiply each signed input by `3.141592f`, then
+divide by 2048. The first routine adds 2048 to the integer Y angle before
+masking; the second uses Y directly. Both integer paths retain the unusual
+`0xFFD` mask. Each floating result is stored at camera-state offsets
+`0x24..0x2C`, reloaded, and copied to `0x04..0x0C`.
 
-Both write the three fixed angles in `D_800C8BD8`, convert X, Y and Z through
-the float scale and `2048`, write the results to `D_800C8B88.angle24`, and
-copy those values to `D_800C8B88.angle04`. The existing candidates preserve
-that behavior but remain excluded from matching integration. Under IDO 5.3
-with `-O2 -G 0 -non_shared -mips1 -32`, using integer literal `2048` preserves
-the intended division and prevents IDO from strength-reducing the expression
-to a reciprocal multiply. With that source form, `func_80039FCC` is 152 bytes
-against the 164-byte target with 35 differing words, while `func_8003A128` is
-148 bytes against the 160-byte target with 34 differing words.
+The constant is the ROM's approximation, with float bits `0x40490FD8`.
+Replacing it with a more accurate value of pi would change game behavior
+and the binary. Each object owns its separately emitted four-byte constant,
+at `0x80094C48` and `0x80094C4C`. A mutable external declaration changes
+instruction scheduling; using the literal reproduces the target's loads,
+multiplications, divisions, and stores. Independent comparisons check the
+complete functions and both generated constants.
 
-The retail functions contain three additional scheduler stalls beyond those
-ordinary candidates. Source-order, temporary-float, pointer-local, explicit
-cast, global-qualifier, and compiler-profile probes did not reproduce that
-schedule with source-meaningful C. IDO 7.1 emits the same 148-byte
-`func_8003A128` result for the baseline expression, `-mips2` increases the
-word differences without fixing the size, and `-O1` expands the function well
-beyond the target.
+The signed 32-bit parameter types follow the callers: `0x80026140` loads Y
+with a full word load, and `0x80004080` adds `0x800` to a 32-bit Y value.
+The integer divisor `2048` retains the target's floating division under
+IDO; a floating divisor permits reciprocal multiplication.
 
-A diagnostic decomp-permuter run proves the schedule is compiler reachable:
-wrapping the normal `func_8003A128` body in a constant `if (1)` produces an
-exact 160-byte function with zero differing words. A plain lexical scope does
-not; it remains 148 bytes with 34 differing words. The constant branch is a
-code-generation artifact with no source or behavioral evidence, so it is
-retained only as probe evidence and is not accepted as recovered C. A second
-permuter run with constant-control-flow, no-op arithmetic, padding variables,
-fake references, duplicate assignments and similar shaping passes disabled
-found no acceptable improvement.
+Earlier mutable-scale experiments, including rejected constant-branch and
+narrowed-argument variants, remain under
+`.local/continuation2-worker2-20260927`. Their baseline sizes and differences
+describe those historical inputs. The current literal-based source needs
+none of those code-generation workarounds.
 
-Caller inspection does not support narrowing any angle parameter to 16 bits.
-For example, the direct FCC call at `0x80026140` loads its Y argument with a
-full 32-bit `lw` from offset `0x3C` of the caller's record. The sole direct
-A128 call at `0x80004080` forms its Y argument by adding `0x800` to another
-32-bit value. Permuter candidates that introduce `short` temporaries are
-therefore retained only as rejected probe evidence.
+## Shared camera storage
 
-The saved comparison artifacts are under
-`.local/continuation2-worker2-20260927`, including `camera_fcc_baseline`,
-`camera_a128_baseline`, `a128_target.s`, `fcc_target.s`, and the rejected
-exact diagnostic in `camera_a128_if_only`.
+`camera_state_data.c` defines the existing camera records and scalar state.
+The compiler emits the following layout, with one alignment byte before the
+integer view:
+
+| Address | Size | Definition |
+| --- | ---: | --- |
+| `0x800C8B88` | 72 | `ObjectCameraState` |
+| `0x800C8BD0` | 4 | Single-precision scalar |
+| `0x800C8BD4` | 1 | State byte |
+| `0x800C8BD5` | 1 | State byte |
+| `0x800C8BD6` | 1 | State byte |
+| `0x800C8BD8` | 40 | `FrameView`, including integer angles and position |
+
+`camera_matrix_data.c` defines the 36-byte `FixedMatrix` at `0x800CD250`.
+The already recovered identity, projection, geometry and history helpers
+use this same matrix declaration. The two files own 156 BSS bytes including
+the camera-state alignment byte. BSS has no stored ROM payload; the data
+verifier checks section bounds, object symbols, linked placement, and lack
+of executable content. Existing consumers are rebuilt and independently
+compared against the target.
+
+## Remaining inverse rotation
+
+`view_inverse_matrix.c` is an excluded candidate for the complete 428-byte
+routine at `0x8003F480`. It samples sine and cosine for each negated integer
+camera angle and constructs the shared matrix using signed products and
+arithmetic shifts by fifteen. Intermediate shifts are retained in the C
+expressions; they cannot be replaced by one final shift without changing
+rounding and overflow behavior.
+
+The candidate's register allocation and stack size still differ. Run
+`python3 tools/compare_runtime.py --candidates` for the complete comparison;
+the command must fail while any candidate differs. Its instructions remain
+fallback and contribute no matching bytes. Matching the angle setters and
+owning the matrix storage do not establish a match for this writer.
+
+## Verification
+
+[The source provenance ledger](camera-input-provenance.json) records the
+complete camera and input-mapper comparisons, both constants, and the two
+data-only units. Current reports are regenerated by the runtime, data,
+startup, and assembly comparison commands. The integrated ROM comparison
+and linked progress checks cover all existing consumers of these globals.
+
+The local [SM64 camera source](https://github.com/n64decomp/sm64/blob/master/src/game/camera.c)
+and the fixed-point matrix conventions in libreultra provide N64 context.
+Robotron's instructions establish the masks, constants, arithmetic, layouts,
+and ordering described here. No reference implementation was copied.
+All requested reference projects remain credited in [CREDITS.md](../CREDITS.md).

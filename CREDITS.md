@@ -1,5 +1,11 @@
 # Credits and references
 
+The [camera and input recovery](docs/camera-angles.md) uses the pinned local
+Super Mario 64 camera source for angle conventions and libreultra controller
+headers for pad fields and button bits. Robotron's complete instruction spans
+determine the exact angle constant, mask, input mapping, and legacy call.
+No reference implementation was copied into these game routines.
+
 This project benefits from the work of the N64 decompilation community and
 the maintainers and contributors of the projects below. Their public sources
 and local checkouts provide references for N64 programming, SDK algorithms,

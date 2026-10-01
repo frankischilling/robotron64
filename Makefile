@@ -6230,6 +6230,48 @@ build/us/actor_history_tick.o: src/game/actor_history_tick.c include/actor.h inc
 
 RUNTIME_OBJECTS += build/us/actor_history_tick.o
 
+build/us/object_camera_angles.o: src/game/object_camera_angles.c include/frame.h include/object_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_camera_angles.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/object_camera_angles.raw.o build/us/object_camera_angles.text.o .text 0xa4
+	$(PYTHON) tools/owned_sections.py $< build/us/object_camera_angles.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/object_camera_angles.o
+
+build/us/object_camera_angles_alt.o: src/game/object_camera_angles_alt.c include/frame.h include/object_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_camera_angles_alt.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/object_camera_angles_alt.raw.o build/us/object_camera_angles_alt.text.o .text 0xa0
+	$(PYTHON) tools/owned_sections.py $< build/us/object_camera_angles_alt.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/object_camera_angles_alt.o
+
+build/us/camera_state_data.o: src/game/camera_state_data.c include/frame.h include/object_helpers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/camera_state_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/camera_state_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/camera_state_data.o
+
+build/us/camera_matrix_data.o: src/game/camera_matrix_data.c include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/camera_matrix_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/camera_matrix_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/camera_matrix_data.o
+
+build/us/controller_input.o: src/game/controller_input.c include/controller_input.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_input.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/controller_input.raw.o $@ .text 0x320
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_input.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

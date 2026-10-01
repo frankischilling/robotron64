@@ -11,6 +11,7 @@ int func_8003C180(void);
 int func_8003C1A8(int port, int mode);
 int func_8003C4C8(void);
 int func_8003C514(void);
-int func_8004F330(int port);
+/* Unspecified arguments preserve the legacy caller; see controller-input-mapping.md. */
+int func_8004F330();
 
 #endif

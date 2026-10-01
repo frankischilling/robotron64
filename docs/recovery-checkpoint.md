@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,332 matching C functions covering 231,860 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,039 bytes
-of source-owned initialized data, and 60,161 bytes of source-owned BSS. The
+The source checkpoint contains 1,335 matching C functions covering 232,984 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,047 bytes
+of source-owned initialized data, and 60,317 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-405 complete C functions, 110,812 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 8,391 reconstructed initialized bytes, and 56,071 BSS bytes.
+408 complete C functions, 111,936 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 8,399 reconstructed initialized bytes, and 56,227 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,12 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Camera angle setters](camera-angles.md) add two complete routines with 324
+instruction bytes, eight constant bytes, and 156 shared camera BSS bytes.
+[Controller input mapping](controller-input-mapping.md) adds the complete
+800-byte mapper, including the legacy polling call and shoulder-button
+behavior. The inverse-camera matrix candidate remains excluded.
 
 [Actor history and model transforms](actor-history-model.md) add four complete
 procedures covering 1,492 instruction bytes. Projectile allocation and its
@@ -246,7 +252,7 @@ functions recover sequence-list sizing, loading and release, hardware-voice
 initialization, gate and iteration resets, and the iteration setter. The gate
 and iteration branch commands add another 460 code bytes and 24 BSS bytes.
 These nine audio units pass complete independent comparisons. Validation runs
-137 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
+147 tooling tests and compares all 8,388,608 ROM bytes. Linked progress checks
 the source inputs and complete procedure extents for all 1,230 counted C
 functions. [Bank layout](audio-bank-layout.md),
 [driver commands](audio-driver-commands.md), and [session setup](session-setup.md)
