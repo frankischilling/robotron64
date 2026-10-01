@@ -808,6 +808,8 @@ MATCHING_BLOCKS = (
     ("actor_pickup", "src/game/actor_pickup.c", 0x800152E8, 0x80015554),
     ("save_menu_continue_character", "src/game/save_menu_continue_character.c", 0x80031034, 0x80031080),
     ("object_history_render", "src/game/object_history_render.c", 0x8004E968, 0x8004EB60),
+    ("renderer_matrix_submit", "src/game/renderer_matrix_submit.c", 0x80047D88, 0x80048020),
+    ("model_file_relocate", "src/game/model_file_relocate.c", 0x8003C6B8, 0x8003C94C),
 )
 
 CANDIDATE_BLOCKS = (

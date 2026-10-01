@@ -1675,5 +1675,34 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/actor-pickups.md"
+  },
+  {
+    "source": "src/game/renderer_matrix_submit.c",
+    "object": "build/us/renderer_matrix_submit.o",
+    "input_section": ".rodata",
+    "section": ".renderer_matrix_submit_strings",
+    "vram": 2148094944,
+    "rom": 614368,
+    "size": 64,
+    "symbols": {},
+    "static_symbols": {
+      "D_800953E0": 0,
+      "D_80095414": 52
+    },
+    "evidence": "docs/renderer-matrix-submission.md"
+  },
+  {
+    "source": "src/game/model_file_relocate.c",
+    "object": "build/us/model_file_relocate.o",
+    "input_section": ".rodata",
+    "section": ".model_file_relocate_strings",
+    "vram": 2148093008,
+    "rom": 612432,
+    "size": 48,
+    "symbols": {},
+    "static_symbols": {
+      "D_80094C50": 0
+    },
+    "evidence": "docs/model-file-relocation.md"
   }
 ]

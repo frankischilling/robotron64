@@ -21,6 +21,8 @@ typedef char RendererDrawStateMustBe60Bytes[
 
 extern unsigned char D_8008D4C0[][3];
 extern FixedMatrix D_800CD250;
+extern SdkMatrix D_80126B90[][2];
+extern int D_8007D910;
 
 int func_80047D88(RendererDrawState *draw, FixedMatrix *matrix);
 void func_8000A910(int angle, int size);

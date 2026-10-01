@@ -6071,6 +6071,26 @@ build/us/object_history_render.o: src/game/object_history_render.c include/actor
 RUNTIME_OBJECTS += \
     build/us/object_history_render.o
 
+build/us/renderer_matrix_submit.o: src/game/renderer_matrix_submit.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_submit.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_matrix_submit.raw.o build/us/renderer_matrix_submit.text.o .text 0x298
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_matrix_submit.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/renderer_matrix_submit.o
+
+build/us/model_file_relocate.o: src/game/model_file_relocate.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/object_recovery.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_file_relocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/model_file_relocate.raw.o build/us/model_file_relocate.text.o .text 0x294
+	$(PYTHON) tools/owned_sections.py $< build/us/model_file_relocate.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/model_file_relocate.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

@@ -79,6 +79,17 @@ instructions and existing matching actor helpers establish placement,
 callback arguments, and the retained unwritten position coordinate.
 No reference implementation is copied.
 
+The [model file relocation](docs/model-file-relocation.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions and existing recovered object callers establish the header,
+point and record strides, pointer relocations, and signed scaling.
+
+The [renderer matrix submission](docs/renderer-matrix-submission.md)
+uses the same pinned IDO and N64 matching-workflow references. Robotron's
+instructions, matching callers, and recovered fixed-matrix converter
+establish the packing, translation, command, and counter behavior. The
+SDK matrix layout is checked against the credited local SDK sources.
+
 The [object history renderer](docs/object-history-rendering.md) uses the
 same pinned IDO and N64 matching-workflow references. Robotron's complete
 instructions, matching object callers, and history writer establish the

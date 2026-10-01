@@ -14820,5 +14820,27 @@
     "section": ".object_history_render",
     "section_vram": 2147805544,
     "evidence": "docs/object-history-rendering.md"
+  },
+  {
+    "name": "func_80047D88",
+    "rom": 297352,
+    "vram": 2147777928,
+    "size": 664,
+    "source": "src/game/renderer_matrix_submit.c",
+    "object": "build/us/renderer_matrix_submit.o",
+    "section": ".renderer_matrix_submit",
+    "section_vram": 2147777928,
+    "evidence": "docs/renderer-matrix-submission.md"
+  },
+  {
+    "name": "func_8003C6B8",
+    "rom": 250552,
+    "vram": 2147731128,
+    "size": 660,
+    "source": "src/game/model_file_relocate.c",
+    "object": "build/us/model_file_relocate.o",
+    "section": ".model_file_relocate",
+    "section_vram": 2147731128,
+    "evidence": "docs/model-file-relocation.md"
   }
 ]
