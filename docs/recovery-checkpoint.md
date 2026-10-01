@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
 The source checkpoint contains 1,340 matching C functions covering 234,260 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,131 bytes
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,235 bytes
 of source-owned initialized data, and 413,691 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
 413 complete C functions, 113,212 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 8,483 reconstructed initialized bytes, and 409,601 BSS bytes.
+4,316 live bytes, 8,587 reconstructed initialized bytes, and 409,601 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,14 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Early tube and star rendering](early-render-effects.md) owns 104 initialized
+bytes for the shared angle, depth, and eight RGB triples. Three complete C
+candidates cover 3,116 retail instruction bytes, but remain nonmatching and
+excluded from executable progress. Their matrix setup, camera-relative
+positions, animated bands, alternating star radii, and vertex accounting are
+documented. The already matching color presets share the recovered callee
+signature and retain their full 112-byte match.
 
 [Early quad rendering and command-file execution](early-render-command-streams.md)
 add the complete 376-byte quad submission routine, the 352,000-byte vertex

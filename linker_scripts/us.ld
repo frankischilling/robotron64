@@ -1157,7 +1157,9 @@ SECTIONS
     /* CPU-visible storage address. The RSP executes this at 0x04001000. */
     .rsp_boot 0x8006F440 : AT(0x70040) { build/us/fallback.o(.rom_rsp_boot) }
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
-    .endgame_data_70110_742ac 0x8006F510 : AT(0x70110) { build/us/fallback.o(.rom_endgame_data_70110_742ac) }
+    .early_effects_fallback_70110_73cd8 0x8006F510 : AT(0x70110) { build/us/fallback.o(.rom_early_effects_fallback_70110_73cd8) }
+    .early_render_tube_data 0x800730D8 : AT(0x73CD8) SUBALIGN(4) { build/us/early_render_tube_data.o(.data) }
+    .early_effects_fallback_73d40_742ac 0x80073140 : AT(0x73D40) { build/us/fallback.o(.rom_early_effects_fallback_73d40_742ac) }
     .early_reset_parameter_data 0x800736AC : AT(0x742AC) SUBALIGN(4) { build/us/early_reset_parameter.o(.data) }
     .input_stream_fallback_742b8_74648 0x800736B8 : AT(0x742B8) { build/us/fallback.o(.rom_input_stream_fallback_742b8_74648) }
     .early_input_fixed_data_data 0x80073A48 : AT(0x74648) SUBALIGN(4) { build/us/early_input_fixed_data.o(.data) }
@@ -2383,7 +2385,6 @@ ASSERT(SIZEOF(.early_reset_parameter) == 0x3c, "early_reset_parameter size chang
 ASSERT(SIZEOF(.early_reset_parameter_data) == 0xc, "early_reset_parameter_data size changed")
 ASSERT(SIZEOF(.endgame_f320_f6e4) == 0x3c4, "endgame_f320_f6e4 size changed")
 ASSERT(SIZEOF(.endgame_1109c_13290) == 0x21f4, "endgame_1109c_13290 size changed")
-ASSERT(SIZEOF(.endgame_data_70110_742ac) == 0x419c, "endgame_data_70110_742ac size changed")
 D_800AD1C8 = 0x800AD1C8;
 func_8000FBC0 = 0x8000FBC0;
 D_800972C0 = 0x800972C0;
@@ -2802,3 +2803,6 @@ ASSERT(SIZEOF(.early_render_quad) == 0x178, "early_render_quad size changed")
 ASSERT(SIZEOF(.render_stream_fallback_bde4_c564) == 0x780, "render_stream_fallback_bde4_c564 size changed")
 ASSERT(SIZEOF(.renderer_vertex_arena_data_bss) == 0x55f00, "renderer_vertex_arena_data BSS size changed")
 ASSERT(SIZEOF(.early_render_color_data_bss) == 0x10, "early_render_color_data BSS size changed")
+ASSERT(SIZEOF(.early_effects_fallback_70110_73cd8) == 0x3bc8, "early_effects_fallback_70110_73cd8 size changed")
+ASSERT(SIZEOF(.early_render_tube_data) == 0x68, "early_render_tube_data size changed")
+ASSERT(SIZEOF(.early_effects_fallback_73d40_742ac) == 0x56c, "early_effects_fallback_73d40_742ac size changed")
