@@ -14875,5 +14875,16 @@
     "section": ".collision_dispatch_initialize",
     "section_vram": 2147589696,
     "evidence": "docs/collision-dispatch-initialization.md"
+  },
+  {
+    "name": "func_8004913C",
+    "rom": 302396,
+    "vram": 2147782972,
+    "size": 696,
+    "source": "src/game/renderer_projection_highlight.c",
+    "object": "build/us/renderer_projection_highlight.o",
+    "section": ".renderer_projection_highlight",
+    "section_vram": 2147782972,
+    "evidence": "docs/renderer-projection-highlight.md"
   }
 ]

@@ -629,7 +629,8 @@ SECTIONS
     .frame_render 0x800489F4 : AT(0x495F4) SUBALIGN(4) { build/us/frame_render.o(.text) }
     .frame_helpers 0x80048B8C : AT(0x4978C) SUBALIGN(4) { build/us/frame_helpers.o(.text) }
     .debug_noop 0x80048DC0 : AT(0x499C0) SUBALIGN(4) { build/us/debug_noop.o(.text) }
-    .cpu_after_debug_noop 0x80048DDC : AT(0x499DC) { build/us/fallback.o(.rom_cpu_after_debug_noop) }
+    .endgame_499dc_49d3c 0x80048DDC : AT(0x499DC) { build/us/fallback.o(.rom_endgame_499dc_49d3c) }
+    .renderer_projection_highlight 0x8004913C : AT(0x49D3C) SUBALIGN(4) { build/us/renderer_projection_highlight.o(.text) }
     .frame_projection 0x800493F4 : AT(0x49FF4) SUBALIGN(4) { build/us/frame_projection.o(.text) }
     .frame_matrices 0x80049514 : AT(0x4A114) SUBALIGN(4) { build/us/frame_matrices.o(.text) }
     .frame_timing 0x800495BC : AT(0x4A1BC) SUBALIGN(4) { build/us/frame_timing.o(.text) }
@@ -1239,7 +1240,8 @@ SECTIONS
     .graphics_mode_dispatch_table 0x80095300 : AT(0x95F00) SUBALIGN(4) { build/us/graphics_mode_dispatch.o(.rodata) }
     .endgame_data_95f60_95fe0 0x80095360 : AT(0x95F60) { build/us/fallback.o(.rom_endgame_data_95f60_95fe0) }
     .renderer_matrix_submit_strings 0x800953E0 : AT(0x95FE0) SUBALIGN(4) { build/us/renderer_matrix_submit.o(.rodata) }
-    .endgame_data_96020_96098 0x80095420 : AT(0x96020) { build/us/fallback.o(.rom_endgame_data_96020_96098) }
+    .endgame_data_96020_96068 0x80095420 : AT(0x96020) { build/us/fallback.o(.rom_endgame_data_96020_96068) }
+    .renderer_projection_highlight_constants 0x80095468 : AT(0x96068) SUBALIGN(4) { build/us/renderer_projection_highlight.o(.rodata) }
     .frame_projection_rodata 0x80095498 : AT(0x96098) SUBALIGN(4) { build/us/frame_projection.o(.rodata) }
     .endgame_data_960a4_960b0 0x800954A4 : AT(0x960A4) { build/us/fallback.o(.rom_endgame_data_960a4_960b0) }
     .renderer_status_message 0x800954B0 : AT(0x960B0) SUBALIGN(4) { build/us/renderer_status_text.o(.rodata) }
@@ -1782,7 +1784,6 @@ ASSERT(SIZEOF(.cpu_after_startup) == 0x4e4, "CPU fallback after startup size cha
 ASSERT(SIZEOF(.frame_render) == 0x198, "frame submission size changed")
 ASSERT(SIZEOF(.frame_helpers) == 0x234, "frame helpers size changed")
 ASSERT(SIZEOF(.debug_noop) == 0x1c, "debug_noop size changed")
-ASSERT(SIZEOF(.cpu_after_debug_noop) == 0x618, "cpu_after_debug_noop size changed")
 ASSERT(SIZEOF(.frame_projection) == 0x120, "frame projection size changed")
 ASSERT(SIZEOF(.frame_matrices) == 0xa8, "frame matrix commands size changed")
 ASSERT(SIZEOF(.frame_timing) == 0x124, "frame timing size changed")
@@ -2704,7 +2705,6 @@ ASSERT(SIZEOF(.renderer_matrix_submit) == 0x298, "renderer_matrix_submit size ch
 ASSERT(SIZEOF(.renderer_matrix_submit_strings) == 0x40, "renderer_matrix_submit_strings size changed")
 ASSERT(SIZEOF(.endgame_48168_48988) == 0x820, "endgame_48168_48988 size changed")
 ASSERT(SIZEOF(.endgame_data_95f60_95fe0) == 0x80, "endgame_data_95f60_95fe0 size changed")
-ASSERT(SIZEOF(.endgame_data_96020_96098) == 0x78, "endgame_data_96020_96098 size changed")
 ASSERT(SIZEOF(.model_file_relocate) == 0x294, "model_file_relocate size changed")
 ASSERT(SIZEOF(.model_file_relocate_strings) == 0x30, "model_file_relocate_strings size changed")
 ASSERT(SIZEOF(.endgame_data_957e8_95850) == 0x68, "endgame_data_957e8_95850 size changed")
@@ -2730,3 +2730,12 @@ func_8001669C = 0x8001669C;
 func_80016950 = 0x80016950;
 func_80016C1C = 0x80016C1C;
 func_8001737C = 0x8001737C;
+ASSERT(SIZEOF(.renderer_projection_highlight) == 0x2b8, "renderer_projection_highlight size changed")
+ASSERT(SIZEOF(.renderer_projection_highlight_constants) == 0x30, "renderer_projection_highlight_constants size changed")
+ASSERT(SIZEOF(.endgame_499dc_49d3c) == 0x360, "endgame_499dc_49d3c size changed")
+ASSERT(SIZEOF(.endgame_data_96020_96068) == 0x48, "endgame_data_96020_96068 size changed")
+D_80138268 = 0x80138268;
+D_FLT_8007D904 = 0x8007D904;
+D_FLT_8007D908 = 0x8007D908;
+D_8013D958 = 0x8013D958;
+D_800CD250 = 0x800CD250;

@@ -79,6 +79,12 @@ instructions and existing matching actor helpers establish placement,
 callback arguments, and the retained unwritten position coordinate.
 No reference implementation is copied.
 
+The [renderer projection and highlights](docs/renderer-projection-highlight.md)
+use the same pinned IDO and N64 matching-workflow references. The credited
+local libreultra `gu/lookathil.c` and SDK type definitions supply the matrix,
+look-at, highlight, and argument-layout references. Robotron's complete
+instructions and matching SDK callees establish the values and commands.
+
 The [collision dispatch initialization](docs/collision-dispatch-initialization.md)
 uses the same pinned IDO and N64 matching-workflow references. Robotron's
 instructions, all three compiler tables, callback consumer, and neighboring
