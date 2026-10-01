@@ -182,6 +182,6 @@
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "201ea88ef94fab76cabdb0a4eb45015609cea572271ede218d8430cba04da40f",
+  "runtime_report_sha256": "79531523a3520c4073ffee2fa4d6dd5be5010ace15a993adc483bc87321412f7",
   "note": "Historical complete instruction and storage proof. The helper preserves the retail caller's unwritten third position coordinate. Current progress requires current input comparisons."
 }
