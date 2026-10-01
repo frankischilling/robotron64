@@ -45,3 +45,13 @@ renderer and actor work remains tracked by
 [issue #41](https://github.com/frankischilling/robotron64/issues/41),
 [issue #43](https://github.com/frankischilling/robotron64/issues/43), and
 [draft PR #46](https://github.com/frankischilling/robotron64/pull/46).
+
+A clean Git archive of `a9f9ca0ea12005f58b5cd9f1389376846e5b15dd`
+passes fresh extraction and build, all 137 tooling tests, 798 runtime
+comparison units, both startup units, eighteen assembly units, eight
+data-only units, and linked progress verification. The complete rebuilt
+8 MiB ROM equals the supplied target, SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks all 1,303 tracked files. That checkpoint has
+1,315 matching C procedures and 223,740 matching instruction bytes; its
+unrecovered executable fallback remains excluded from those counts.
