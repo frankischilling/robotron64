@@ -31,6 +31,15 @@ compiler inputs, and whole-ROM equality. The choice structure has a
 compile-time 12-byte size check. This recovery adds one complete C
 procedure and no initialized data or BSS ownership.
 
+A clean archive of `738831b` passes fresh extraction and build, all 137
+tooling tests, 790 complete runtime comparisons, both startup units,
+eighteen assembly units, and eight data-only units. Linked progress records
+1,307 matching C procedures and 219,856 instruction bytes, with 9,547
+initialized and 30,353 BSS bytes owned by source. The complete ROM matches
+the supplied USA target, SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks all 1,278 public files.
+
 Complete procedure hashes and inputs are recorded in
 [the provenance ledger](scene-menu-string-schedule-provenance.json).
 Robotron's instructions and the existing string and movie callback

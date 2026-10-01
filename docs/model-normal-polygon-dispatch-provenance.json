@@ -190,6 +190,6 @@
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "bbe693744fe98ac6b271965c9f30655e7ff1ad74e538fd8dfe40dd4b9968e3c4",
+  "runtime_report_sha256": "6d389f19525bf77c1da088c467a2014e8bd411107c7297797bac3b79fe7e3833",
   "note": "Historical complete instruction and storage proof. Current progress requires current input comparisons."
 }
