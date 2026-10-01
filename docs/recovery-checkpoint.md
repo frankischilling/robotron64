@@ -276,6 +276,12 @@ frame setup, text replacement, and further platform functions are unfinished.
 Their complete candidate comparisons and source investigations remain available
 locally, but their bytes are excluded from this checkpoint's source counts.
 
+The [actor contact gate](actor-contact-gate.md) has a complete 632-byte C
+candidate with three remaining branch operand-order differences. Its stack,
+copied positions, kind ordering, flag updates, hover-height gate, and callback
+arguments match the remaining target words. It is included in the excluded
+candidate report and contributes no matching functions or bytes.
+
 The combined graphics setup/pacing source now reproduces all 628 code
 bytes and its 124-byte dispatch table and is included in this checkpoint.
 The precise original selection of empty case labels is not uniquely recoverable

@@ -791,6 +791,7 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("actor_contact_gate", "src/game/actor_contact_gate.c", 0x8001669C, 0x80016914),
     ("object_camera_angles", "src/game/object_camera_angles.c", 0x80039FCC, 0x8003A070),
     ("object_camera_angles_alt", "src/game/object_camera_angles_alt.c", 0x8003A128, 0x8003A1C8),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),
