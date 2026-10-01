@@ -849,7 +849,7 @@ SECTIONS
     .audio_handle_tests 0x80059500 : AT(0x5A100) SUBALIGN(4) { build/us/audio_handle_tests.o(.text) }
     .audio_stream_variable_read 0x80059580 : AT(0x5A180) SUBALIGN(4) { build/us/audio_stream_variable_read.o(.text) }
     .audio_stream_variable_write 0x800595D4 : AT(0x5A1D4) SUBALIGN(4) { build/us/audio_stream_variable_write.o(.text) }
-    .cpu_after_audio_stream_variable_write 0x80059644 : AT(0x5A244) { build/us/fallback.o(.rom_cpu_after_audio_stream_variable_write) }
+    .audio_variable_length_size 0x80059644 : AT(0x5A244) SUBALIGN(4) { build/us/audio_variable_length_size.o(.text) }
     .audio_engine_setup 0x800596C4 : AT(0x5A2C4) SUBALIGN(4) { build/us/audio_engine_setup.o(.text) }
     .audio_engine_voice_stop 0x8005971C : AT(0x5A31C) SUBALIGN(4) { build/us/audio_engine_voice_stop.o(.text) }
     .audio_engine_parameters 0x80059898 : AT(0x5A498) SUBALIGN(4) { build/us/audio_engine_parameters.o(.text) }
@@ -1157,7 +1157,9 @@ SECTIONS
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
     .endgame_data_70110_742ac 0x8006F510 : AT(0x70110) { build/us/fallback.o(.rom_endgame_data_70110_742ac) }
     .early_reset_parameter_data 0x800736AC : AT(0x742AC) SUBALIGN(4) { build/us/early_reset_parameter.o(.data) }
-    .endgame_data_742b8_78d50 0x800736B8 : AT(0x742B8) { build/us/fallback.o(.rom_endgame_data_742b8_78d50) }
+    .input_stream_fallback_742b8_74648 0x800736B8 : AT(0x742B8) { build/us/fallback.o(.rom_input_stream_fallback_742b8_74648) }
+    .early_input_fixed_data_data 0x80073A48 : AT(0x74648) SUBALIGN(4) { build/us/early_input_fixed_data.o(.data) }
+    .input_stream_fallback_74688_78d50 0x80073A88 : AT(0x74688) { build/us/fallback.o(.rom_input_stream_fallback_74688_78d50) }
     .movie_commands_data 0x80078150 : AT(0x78D50) SUBALIGN(4) { build/us/movie_prepare.o(.data) }
     .endgame_data_78db8_7d98c 0x800781B8 : AT(0x78DB8) { build/us/fallback.o(.rom_endgame_data_78db8_7d98c) }
     .renderer_texture_file_cache_data 0x8007CD8C : AT(0x7D98C) SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.data) }
@@ -1169,7 +1171,9 @@ SECTIONS
     .actor_history_flags 0x8008D494 : AT(0x8E094) SUBALIGN(4) { build/us/actor_history_data.o(.data) }
     .endgame_8e0ac_8e0e4 0x8008D4AC : AT(0x8E0AC) { build/us/fallback.o(.rom_endgame_8e0ac_8e0e4) }
     .controller_motor_state_data 0x8008D4E4 : AT(0x8E0E4) SUBALIGN(4) { build/us/controller_motor_state.o(.data) }
-    .endgame_data_8e104_8e640 0x8008D504 : AT(0x8E104) { build/us/fallback.o(.rom_endgame_data_8e104_8e640) }
+    .input_stream_fallback_8e104_8e468 0x8008D504 : AT(0x8E104) { build/us/fallback.o(.rom_input_stream_fallback_8e104_8e468) }
+    .audio_timing_data_data 0x8008D868 : AT(0x8E468) SUBALIGN(4) { build/us/audio_timing_data.o(.data) }
+    .input_stream_fallback_8e478_8e640 0x8008D878 : AT(0x8E478) { build/us/fallback.o(.rom_input_stream_fallback_8e478_8e640) }
     .compression_workspace_data 0x8008DA40 : AT(0x8E640) SUBALIGN(4) { build/us/compression_workspace.o(.data) }
     .short_sine_data 0x8008DBB0 : AT(0x8E7B0) SUBALIGN(4) { build/us/short_sine.o(.data) }
     .initialize_data 0x8008E3B0 : AT(0x8EFB0) SUBALIGN(4) { build/us/initialize.o(.data) }
@@ -1345,6 +1349,10 @@ SECTIONS
     .camera_state_data_bss 0x800C8B88 (NOLOAD) : SUBALIGN(4) { build/us/camera_state_data.o(.bss) }
     .camera_matrix_data_bss 0x800CD250 (NOLOAD) : SUBALIGN(4) { build/us/camera_matrix_data.o(.bss) }
     .controller_pad_state_bss 0x8013DBA0 (NOLOAD) : SUBALIGN(4) { build/us/controller_pad_state.o(.bss) }
+    .early_input_cursor_data_bss 0x8009E588 (NOLOAD) : SUBALIGN(4) { build/us/early_input_cursor_data.o(.bss) }
+    .early_input_button_data_bss 0x8009E590 (NOLOAD) : SUBALIGN(4) { build/us/early_input_button_data.o(.bss) }
+    .early_input_counter_data_bss 0x8009E9E0 (NOLOAD) : SUBALIGN(4) { build/us/early_input_counter_data.o(.bss) }
+    .early_input_sequence_data_bss 0x8009EE08 (NOLOAD) : SUBALIGN(4) { build/us/early_input_sequence_data.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -1964,7 +1972,6 @@ ASSERT(SIZEOF(.audio_diagnostics) == 0x6c0, "audio_diagnostics size changed")
 ASSERT(SIZEOF(.audio_command_queue) == 0x240, "audio_command_queue size changed")
 ASSERT(SIZEOF(.audio_stream_variable_read) == 0x54, "audio_stream_variable_read size changed")
 ASSERT(SIZEOF(.audio_stream_variable_write) == 0x70, "audio_stream_variable_write size changed")
-ASSERT(SIZEOF(.cpu_after_audio_stream_variable_write) == 0x80, "cpu_after_audio_stream_variable_write size changed")
 ASSERT(SIZEOF(.audio_engine_setup) == 0x58, "audio_engine_setup size changed")
 ASSERT(SIZEOF(.audio_engine_voice_stop) == 0x17c, "audio_engine_voice_stop size changed")
 ASSERT(SIZEOF(.audio_engine_parameters) == 0x1f0, "audio_engine_parameters size changed")
@@ -2373,7 +2380,6 @@ ASSERT(SIZEOF(.early_reset_parameter_data) == 0xc, "early_reset_parameter_data s
 ASSERT(SIZEOF(.endgame_f320_f6e4) == 0x3c4, "endgame_f320_f6e4 size changed")
 ASSERT(SIZEOF(.endgame_1109c_13290) == 0x21f4, "endgame_1109c_13290 size changed")
 ASSERT(SIZEOF(.endgame_data_70110_742ac) == 0x419c, "endgame_data_70110_742ac size changed")
-ASSERT(SIZEOF(.endgame_data_742b8_78d50) == 0x4a98, "endgame_data_742b8_78d50 size changed")
 D_800AD1C8 = 0x800AD1C8;
 func_8000FBC0 = 0x8000FBC0;
 D_800972C0 = 0x800972C0;
@@ -2649,7 +2655,6 @@ D_80095BC8 = 0x80095BC8;
 func_800640D0 = 0x800640D0;
 ASSERT(SIZEOF(.controller_motor_state_data) == 0x20, "controller_motor_state_data size changed")
 ASSERT(SIZEOF(.controller_thread_state_bss) == 0x2208, "controller_thread_state_bss size changed")
-ASSERT(SIZEOF(.endgame_data_8e104_8e640) == 0x53c, "endgame_data_8e104_8e640 size changed")
 ASSERT(SIZEOF(.renderer_textured_submit) == 0x448, "renderer_textured_submit size changed")
 ASSERT(SIZEOF(.renderer_textured_submit_strings) == 0x50, "renderer_textured_submit_strings size changed")
 ASSERT(SIZEOF(.endgame_45b60_45d24) == 0x1c4, "endgame_45b60_45d24 size changed")
@@ -2779,3 +2784,14 @@ ASSERT(SIZEOF(.actor_position_submit) == 0xa4, "actor_position_submit size chang
 ASSERT(SIZEOF(.actor_menu_fallback_9456c_945c0) == 0x54, "actor_menu_fallback_9456c_945c0 size changed")
 ASSERT(SIZEOF(.actor_position_submit_constant) == 0x4, "actor_position_submit_constant size changed")
 ASSERT(SIZEOF(.save_menu_score_step) == 0xec, "save_menu_score_step size changed")
+ASSERT(SIZEOF(.audio_variable_length_size) == 0x80, "audio_variable_length_size size changed")
+ASSERT(SIZEOF(.early_input_cursor_data_bss) == 0x4, "early_input_cursor_data BSS size changed")
+ASSERT(SIZEOF(.early_input_button_data_bss) == 0x320, "early_input_button_data BSS size changed")
+ASSERT(SIZEOF(.early_input_counter_data_bss) == 0x38, "early_input_counter_data BSS size changed")
+ASSERT(SIZEOF(.early_input_sequence_data_bss) == 0x188, "early_input_sequence_data BSS size changed")
+ASSERT(SIZEOF(.input_stream_fallback_742b8_74648) == 0x390, "input_stream_fallback_742b8_74648 size changed")
+ASSERT(SIZEOF(.early_input_fixed_data_data) == 0x40, "early_input_fixed_data_data size changed")
+ASSERT(SIZEOF(.input_stream_fallback_74688_78d50) == 0x46c8, "input_stream_fallback_74688_78d50 size changed")
+ASSERT(SIZEOF(.input_stream_fallback_8e104_8e468) == 0x364, "input_stream_fallback_8e104_8e468 size changed")
+ASSERT(SIZEOF(.audio_timing_data_data) == 0x10, "audio_timing_data_data size changed")
+ASSERT(SIZEOF(.input_stream_fallback_8e478_8e640) == 0x1c8, "input_stream_fallback_8e478_8e640 size changed")

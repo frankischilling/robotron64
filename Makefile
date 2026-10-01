@@ -215,7 +215,7 @@ build/us/early_actor_spawn_helper.o: src/game/early_actor_spawn_helper.c include
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_spawn_helper.raw.o $@ .text 0x6c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_file_state_reset.o: src/game/early_file_state_reset.c include/early_game_medium_next.h include/game_memory.h include/platform_services.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_file_state_reset.o: src/game/early_file_state_reset.c include/controller_input.h include/early_game_medium_next.h include/early_input_internal.h include/game_memory.h include/pak_file.h include/platform_services.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_file_state_reset.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_file_state_reset.raw.o $@ .text 0x68
@@ -6305,6 +6305,62 @@ build/us/save_menu_score_step.o: src/game/save_menu_score_step.c include/pak_fil
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/save_menu_score_step.o
+
+build/us/audio_variable_length_size.o: src/game/audio_variable_length_size.c include/audio_properties_internal.h include/audio_property_pipeline_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_variable_length_size.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_variable_length_size.raw.o $@ .text 0x80
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_variable_length_size.o
+
+build/us/early_input_cursor_data.o: src/game/early_input_cursor_data.c include/controller_input.h include/early_input_internal.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_input_cursor_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/early_input_cursor_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_input_cursor_data.o
+
+build/us/early_input_button_data.o: src/game/early_input_button_data.c include/controller_input.h include/early_input_internal.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_input_button_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/early_input_button_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_input_button_data.o
+
+build/us/early_input_counter_data.o: src/game/early_input_counter_data.c include/controller_input.h include/early_input_internal.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_input_counter_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/early_input_counter_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_input_counter_data.o
+
+build/us/early_input_sequence_data.o: src/game/early_input_sequence_data.c include/controller_input.h include/early_input_internal.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_input_sequence_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/early_input_sequence_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_input_sequence_data.o
+
+build/us/early_input_fixed_data.o: src/game/early_input_fixed_data.c include/controller_input.h include/early_input_internal.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_input_fixed_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/early_input_fixed_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_input_fixed_data.o
+
+build/us/audio_timing_data.o: src/game/audio_timing_data.c include/audio_host_internal.h include/audio_properties_internal.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_timing_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_timing_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_timing_data.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

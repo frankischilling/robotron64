@@ -15073,5 +15073,16 @@
     "section": ".save_menu_score_step",
     "section_vram": 2147683776,
     "evidence": "docs/actor-position-score-option.md"
+  },
+  {
+    "name": "func_80059644",
+    "rom": 369220,
+    "vram": 2147849796,
+    "size": 128,
+    "source": "src/game/audio_variable_length_size.c",
+    "object": "build/us/audio_variable_length_size.o",
+    "section": ".audio_variable_length_size",
+    "section_vram": 2147849796,
+    "evidence": "docs/input-stream-storage.md"
   }
 ]

@@ -832,9 +832,11 @@ MATCHING_BLOCKS = (
     ("game_float_parse", "src/game/game_float_parse.c", 0x8003BDE8, 0x8003BF5C),
     ("actor_position_submit", "src/game/actor_position_submit.c", 0x800290B0, 0x80029154),
     ("save_menu_score_step", "src/game/save_menu_score_step.c", 0x80030DC0, 0x80030EAC),
+    ("audio_variable_length_size", "src/game/audio_variable_length_size.c", 0x80059644, 0x800596C4),
 )
 
 CANDIDATE_BLOCKS = (
+    ("early_input_sequence_define", "src/game/early_input_sequence_define.c", 0x8001BE2C, 0x8001BF48),
     ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),
     ("object_runtime_projection", "src/game/object_runtime_projection.c", 0x8003B2B0, 0x8003B428),
