@@ -2005,5 +2005,34 @@
       "D_8008D874": 12
     },
     "evidence": "docs/input-stream-storage.md"
+  },
+  {
+    "source": "src/game/renderer_vertex_arena_data.c",
+    "object": "build/us/renderer_vertex_arena_data.o",
+    "input_section": ".bss",
+    "section": ".renderer_vertex_arena_data_bss",
+    "vram": 2148326352,
+    "rom": null,
+    "size": 352000,
+    "symbols": {
+      "D_800CDBD0": 0
+    },
+    "evidence": "docs/early-render-command-streams.md"
+  },
+  {
+    "source": "src/game/early_render_color_data.c",
+    "object": "build/us/early_render_color_data.o",
+    "input_section": ".bss",
+    "section": ".early_render_color_data_bss",
+    "vram": 2148762216,
+    "rom": null,
+    "size": 16,
+    "symbols": {
+      "D_80138268": 0,
+      "D_8013826C": 4,
+      "D_80138270": 8,
+      "D_80138274": 12
+    },
+    "evidence": "docs/early-render-command-streams.md"
   }
 ]

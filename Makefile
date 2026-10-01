@@ -65,7 +65,7 @@ build/us/early_actor_tick.o: src/game/early_actor_tick.c include/actor.h include
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_tick.raw.o $@ .text 0x38
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_render_color.o: src/game/early_render_color.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_render_color.o: src/game/early_render_color.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_color.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_render_color.raw.o $@ .text 0x1c
@@ -6120,7 +6120,7 @@ build/us/collision_dispatch_initialize.o: src/game/collision_dispatch_initialize
 RUNTIME_OBJECTS += \
     build/us/collision_dispatch_initialize.o
 
-build/us/renderer_projection_highlight.o: src/game/renderer_projection_highlight.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object_recovery.h include/rom_files.h include/runtime_angle.h include/scalar_math.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_projection_highlight.o: src/game/renderer_projection_highlight.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object_recovery.h include/renderer_geometry_internal.h include/rom_files.h include/runtime_angle.h include/scalar_math.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_projection_highlight.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_projection_highlight.raw.o build/us/renderer_projection_highlight.text.o .text 0x2b8
@@ -6361,6 +6361,30 @@ build/us/audio_timing_data.o: src/game/audio_timing_data.c include/audio_host_in
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/audio_timing_data.o
+
+build/us/early_render_quad.o: src/game/early_render_quad.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_quad.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_render_quad.raw.o $@ .text 0x178
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_render_quad.o
+
+build/us/renderer_vertex_arena_data.o: src/game/renderer_vertex_arena_data.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_vertex_arena_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_vertex_arena_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_vertex_arena_data.o
+
+build/us/early_render_color_data.o: src/game/early_render_color_data.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_color_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/early_render_color_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_render_color_data.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

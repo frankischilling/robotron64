@@ -3,9 +3,9 @@
 #include "../../include/fixed_math.h"
 #include "../../include/scalar_math.h"
 #include "../../include/runtime_angle.h"
+#include "../../include/early_render_internal.h"
 
 extern float func_8004CEB0(float angle);
-extern int D_80138268;
 extern float D_FLT_8007D904, D_FLT_8007D908;
 extern FixedMatrix D_800CD250;
 extern SdkMatrix D_8013D958;
