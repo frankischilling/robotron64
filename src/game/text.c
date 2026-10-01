@@ -118,7 +118,8 @@ int func_80000750(int character, int scale, int mode, int object)
         return -1;
     }
     resource = &D_800B1BE8[normalized];
-    object = func_8003921C(resource->kind, 0, object, resource);
+    object = func_8003921C(resource->kind, 0, (ObjectDrawResource *)object,
+                            (ObjectModel *)resource);
     if (object != -1) {
         switch (character) {
         case '&': func_80039E1C(object, 13); break;

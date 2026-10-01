@@ -79,6 +79,11 @@ instructions and existing matching actor helpers establish placement,
 callback arguments, and the retained unwritten position coordinate.
 No reference implementation is copied.
 
+The [actor pool allocation](docs/actor-pool-allocation.md) uses the same
+pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions, matching pool reset, object creation, resource loader, and
+124-byte actor layout establish the allocator and its 200-entry BSS pool.
+
 The [renderer projection and highlights](docs/renderer-projection-highlight.md)
 use the same pinned IDO and N64 matching-workflow references. The credited
 local libreultra `gu/lookathil.c` and SDK type definitions supply the matrix,

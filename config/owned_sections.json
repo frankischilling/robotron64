@@ -1756,5 +1756,37 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/renderer-projection-highlight.md"
+  },
+  {
+    "source": "src/game/actor_pool_allocate.c",
+    "object": "build/us/actor_pool_allocate.o",
+    "input_section": ".rodata",
+    "section": ".actor_pool_allocate_strings",
+    "vram": 2148088076,
+    "rom": 607500,
+    "size": 96,
+    "symbols": {},
+    "static_symbols": {
+      "D_8009390C": 0,
+      "D_80093938": 44,
+      "D_80093954": 72,
+      "D_8009395C": 80,
+      "D_80093964": 88
+    },
+    "evidence": "docs/actor-pool-allocation.md"
+  },
+  {
+    "source": "src/game/actor_pool_allocate.c",
+    "object": "build/us/actor_pool_allocate.o",
+    "input_section": ".bss",
+    "section": ".actor_pool_allocate_bss",
+    "vram": 2148156968,
+    "rom": null,
+    "size": 24800,
+    "symbols": {
+      "D_800A4628": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/actor-pool-allocation.md"
   }
 ]

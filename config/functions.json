@@ -14886,5 +14886,16 @@
     "section": ".renderer_projection_highlight",
     "section_vram": 2147782972,
     "evidence": "docs/renderer-projection-highlight.md"
+  },
+  {
+    "name": "func_800283D4",
+    "rom": 167892,
+    "vram": 2147648468,
+    "size": 788,
+    "source": "src/game/actor_pool_allocate.c",
+    "object": "build/us/actor_pool_allocate.o",
+    "section": ".actor_pool_allocate",
+    "section_vram": 2147648468,
+    "evidence": "docs/actor-pool-allocation.md"
   }
 ]

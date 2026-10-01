@@ -84,7 +84,6 @@ extern TextRecord D_800B6FF8[30];
 extern TextGlyphResource D_800B1BE8[];
 extern char D_8008F620[];
 extern void func_8001C0D0(char *format, ...);
-extern int func_8003921C(int kind, int value, int enabled, TextGlyphResource *resource);
 extern int func_80039E1C(int object, int value);
 extern int func_8003947C(int object, int index);
 extern int func_80039DCC(int object, int value);

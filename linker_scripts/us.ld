@@ -320,7 +320,8 @@ SECTIONS
     .actor_cleanup 0x800281C4 : AT(0x28DC4) SUBALIGN(4) { build/us/actor_cleanup.o(.text) }
     .actor_remove 0x80028274 : AT(0x28E74) SUBALIGN(4) { build/us/actor_remove.o(.text) }
     .actor_sweep 0x8002836C : AT(0x28F6C) SUBALIGN(4) { build/us/actor_sweep.o(.text) }
-    .endgame_28fd4_29c20 0x800283D4 : AT(0x28FD4) { build/us/fallback.o(.rom_endgame_28fd4_29c20) }
+    .actor_pool_allocate 0x800283D4 : AT(0x28FD4) SUBALIGN(4) { build/us/actor_pool_allocate.o(.text) }
+    .endgame_292e8_29c20 0x800286E8 : AT(0x292E8) { build/us/fallback.o(.rom_endgame_292e8_29c20) }
     .actor_position_follow 0x80029020 : AT(0x29C20) SUBALIGN(4) { build/us/actor_position_follow.o(.text) }
     .endgame_29cb0_29d54 0x800290B0 : AT(0x29CB0) { build/us/fallback.o(.rom_endgame_29cb0_29d54) }
     .actor_behavior_frame_sync 0x80029154 : AT(0x29D54) SUBALIGN(4) { build/us/actor_behavior_frame_sync.o(.text) }
@@ -1214,7 +1215,9 @@ SECTIONS
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
     .endgame_data_92560_93698 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_93698) }
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
-    .endgame_data_936c4_945c4 0x80092AC4 : AT(0x936C4) { build/us/fallback.o(.rom_endgame_data_936c4_945c4) }
+    .endgame_data_936c4_9450c 0x80092AC4 : AT(0x936C4) { build/us/fallback.o(.rom_endgame_data_936c4_9450c) }
+    .actor_pool_allocate_strings 0x8009390C : AT(0x9450C) SUBALIGN(4) { build/us/actor_pool_allocate.o(.rodata) }
+    .endgame_data_9456c_945c4 0x8009396C : AT(0x9456C) { build/us/fallback.o(.rom_endgame_data_9456c_945c4) }
     .actor_behavior_next_a244_rodata 0x800939C4 : AT(0x945C4) SUBALIGN(4) { build/us/actor_behavior_next_a244.o(.rodata) }
     .data_after_actor_behavior_next_a244_rodata 0x91004258 : AT(0x945F8) { build/us/fallback.o(.rom_data_after_actor_behavior_next_a244_rodata) }
     .save_menu_status_tables 0x80094084 : AT(0x94C84) SUBALIGN(4) { build/us/save_menu_status.o(.rodata) }
@@ -1322,6 +1325,7 @@ SECTIONS
     .controller_thread_state_bss 0x80141210 (NOLOAD) : SUBALIGN(4) { build/us/controller_thread_state.o(.bss) }
     .audio_engine_parameter_callback_state 0x80192764 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_parameters.o(.bss) }
     .collision_dispatch_initialize_bss 0x800974A0 (NOLOAD) : SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.bss) }
+    .actor_pool_allocate_bss 0x800A4628 (NOLOAD) : SUBALIGN(4) { build/us/actor_pool_allocate.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -2482,7 +2486,6 @@ ASSERT(SIZEOF(.early_effect_spawn_rodata) == 0x18, "early_effect_spawn_rodata si
 ASSERT(SIZEOF(.endgame_13550_15c20) == 0x26d0, "endgame_13550_15c20 size changed")
 ASSERT(SIZEOF(.endgame_data_90570_90574) == 0x4, "endgame_data_90570_90574 size changed")
 ASSERT(SIZEOF(.endgame_data_92560_93698) == 0x1138, "endgame_data_92560_93698 size changed")
-ASSERT(SIZEOF(.endgame_data_936c4_945c4) == 0xf00, "endgame_data_936c4_945c4 size changed")
 D_800AD160 = 0x800AD160;
 D_800B23D0 = 0x800B23D0;
 D_800B2428 = 0x800B2428;
@@ -2506,7 +2509,6 @@ D_800AE304 = 0x800AE304;
 D_800AE4F4 = 0x800AE4F4;
 D_800972B0 = 0x800972B0;
 func_8000E894 = 0x8000E894;
-func_800283D4 = 0x800283D4;
 D_80076474 = 0x80076474;
 D_800767E0 = 0x800767E0;
 D_80076C34 = 0x80076C34;
@@ -2623,7 +2625,6 @@ ASSERT(SIZEOF(.actor_value_follow) == 0x144, "actor_value_follow size changed")
 D_8008D578 = 0x8008D578;
 ASSERT(SIZEOF(.endgame_18b9c_198c8) == 0xd2c, "endgame_18b9c_198c8 size changed")
 ASSERT(SIZEOF(.endgame_28ad4_28d8c) == 0x2b8, "endgame_28ad4_28d8c size changed")
-ASSERT(SIZEOF(.endgame_28fd4_29c20) == 0xc4c, "endgame_28fd4_29c20 size changed")
 ASSERT(SIZEOF(.endgame_29cb0_29d54) == 0xa4, "endgame_29cb0_29d54 size changed")
 ASSERT(SIZEOF(.endgame_2a360_2a720) == 0x3c0, "endgame_2a360_2a720 size changed")
 ASSERT(SIZEOF(.endgame_35e44_35f60) == 0x11c, "endgame_35e44_35f60 size changed")
@@ -2739,3 +2740,13 @@ D_FLT_8007D904 = 0x8007D904;
 D_FLT_8007D908 = 0x8007D908;
 D_8013D958 = 0x8013D958;
 D_800CD250 = 0x800CD250;
+ASSERT(SIZEOF(.actor_pool_allocate) == 0x314, "actor_pool_allocate size changed")
+ASSERT(SIZEOF(.actor_pool_allocate_strings) == 0x60, "actor_pool_allocate_strings size changed")
+ASSERT(SIZEOF(.endgame_292e8_29c20) == 0x938, "endgame_292e8_29c20 size changed")
+ASSERT(SIZEOF(.endgame_data_936c4_9450c) == 0xe48, "endgame_data_936c4_9450c size changed")
+ASSERT(SIZEOF(.endgame_data_9456c_945c4) == 0x58, "endgame_data_9456c_945c4 size changed")
+ASSERT(SIZEOF(.actor_pool_allocate_bss) == 0x60E0, "actor pool size changed")
+D_800A4620 = 0x800A4620;
+D_800759EC = 0x800759EC;
+D_800AF1F0 = 0x800AF1F0;
+D_800AC998 = 0x800AC998;

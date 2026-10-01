@@ -814,6 +814,7 @@ MATCHING_BLOCKS = (
     ("audio_memory_size", "src/game/audio_memory_size.c", 0x80052D70, 0x8005303C),
     ("collision_dispatch_initialize", "src/game/collision_dispatch_initialize.c", 0x80019E40, 0x8001A168),
     ("renderer_projection_highlight", "src/game/renderer_projection_highlight.c", 0x8004913C, 0x800493F4),
+    ("actor_pool_allocate", "src/game/actor_pool_allocate.c", 0x800283D4, 0x800286E8),
 )
 
 CANDIDATE_BLOCKS = (
