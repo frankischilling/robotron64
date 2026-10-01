@@ -53,6 +53,15 @@ The provenance ledger includes the new update and all fifteen existing
 adapter procedures, without counting those existing functions as new
 progress: [scene-frame-tick-provenance.json](scene-frame-tick-provenance.json).
 
+A clean archive of `97f2e8d` passes fresh extraction and build, all 137
+tooling tests, 794 complete runtime comparisons, both startup units,
+eighteen assembly units, and eight data-only units. Linked progress records
+1,311 matching C procedures and 221,912 instruction bytes, with 9,555
+initialized and 30,353 BSS bytes owned by source. The full 8 MiB ROM matches
+the supplied USA target, SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks all 1,289 public files.
+
 Robotron's matching timing helper, callers, and instructions establish the
 behavior. The pinned IDO and all thirteen requested N64 projects remain
 credited for local and online use in [CREDITS.md](../CREDITS.md). Further

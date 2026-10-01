@@ -86,6 +86,15 @@ The accepted source and first complete proof are preserved under
 comparison, complete procedure bounds, compiler identity, and current
 transitive-header evidence are under `.local/recovery61-integration`.
 
+A clean archive of `97f2e8d` passes fresh extraction and build, all 137
+tooling tests, 794 complete runtime comparisons, both startup units,
+eighteen assembly units, and eight data-only units. Linked progress records
+1,311 matching C procedures and 221,912 instruction bytes, with 9,555
+initialized and 30,353 BSS bytes owned by source. The full 8 MiB ROM matches
+the supplied USA target, SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks all 1,289 public files.
+
 Robotron's instructions establish the decoding behavior. The pinned IDO
 and all thirteen requested N64 reference projects remain credited for local
 and online use in [CREDITS.md](../CREDITS.md). Scene and menu recovery
