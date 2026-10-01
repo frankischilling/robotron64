@@ -61,6 +61,20 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [model polygon normal dispatch](docs/model-normal-polygon-dispatch.md)
+retains the pinned IDO and N64 matching-build references. A local
+decomp-permuter search suggested source line grouping for the cursor
+initialization and do loop; the complete two-procedure unit was then
+checked independently. Robotron's instructions establish the index cache,
+material variants, all four normal submissions, and primitive dispatch.
+No reference implementation is copied into these procedures.
+
+The [scene menu string setup](docs/scene-menu-string-schedule.md) retains
+the pinned IDO and N64 matching-build references for local and online use.
+Robotron's instructions establish the choice stride, selection index,
+global flag, string calls, signed scheduled-frame expression, and callback
+registration. No reference implementation is copied into this procedure.
+
 The [movie string position submission](docs/movie-string-position-submit.md)
 retains the pinned IDO and established N64 matching-build references for
 local and online use. Complete Robotron instructions and the movie update

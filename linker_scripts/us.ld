@@ -1,3 +1,5 @@
+D_800925E4 = 0x800925E4;
+D_80076014 = 0x80076014;
 D_800B6FEC = 0x800B6FEC;
 func_8000177C = 0x8000177C;
 D_800925E8 = 0x800925E8;
@@ -234,7 +236,7 @@ SECTIONS
     .save_menu_flag_setter 0x80022050 : AT(0x22C50) SUBALIGN(4) { build/us/save_menu_flag_setter.o(.text) }
     .cpu_after_save_menu_flag_setter 0x8002205C : AT(0x22C5C) { build/us/fallback.o(.rom_cpu_after_save_menu_flag_setter) }
     .save_menu_text_flags 0x800226E8 : AT(0x232E8) SUBALIGN(4) { build/us/save_menu_text_flags.o(.text) }
-    .endgame_23458_23608 0x80022858 : AT(0x23458) { build/us/fallback.o(.rom_endgame_23458_23608) }
+    .scene_menu_string_schedule 0x80022858 : AT(0x23458) SUBALIGN(4) { build/us/scene_menu_string_schedule.o(.text) }
     .scene_menu_string_refresh 0x80022A08 : AT(0x23608) SUBALIGN(4) { build/us/scene_menu_string_refresh.o(.text) }
     .session_mode_advance 0x80022B78 : AT(0x23778) SUBALIGN(4) { build/us/session_mode_advance.o(.text) }
     .session_background_select 0x80022BFC : AT(0x237FC) SUBALIGN(4) { build/us/session_background_select.o(.text) }
@@ -529,7 +531,7 @@ SECTIONS
     .cpu_after_model_rotation 0x8003D43C : AT(0x3E03C) { build/us/fallback.o(.rom_cpu_after_model_rotation) }
     .model_polygons_plain 0x8003EB7C : AT(0x3F77C) SUBALIGN(4) { build/us/model_polygons_plain.o(.text) }
     .model_polygons_color 0x8003EC98 : AT(0x3F898) SUBALIGN(4) { build/us/model_polygons_color.o(.text) }
-    .cpu_after_model_polygons_color 0x8003EE20 : AT(0x3FA20) { build/us/fallback.o(.rom_cpu_after_model_polygons_color) }
+    .model_normal_polygon_dispatch 0x8003EE20 : AT(0x3FA20) SUBALIGN(4) { build/us/model_normal_polygon_dispatch.o(.text) }
     .model_hierarchy_vertices 0x8003F168 : AT(0x3FD68) SUBALIGN(4) { build/us/model_hierarchy_vertices.o(.text) }
     .cpu_after_model_hierarchy_vertices 0x8003F314 : AT(0x3FF14) { build/us/fallback.o(.rom_cpu_after_model_hierarchy_vertices) }
     .model_camera_identity 0x8003F62C : AT(0x4022C) SUBALIGN(4) { build/us/model_camera_identity.o(.text) }
@@ -1692,7 +1694,6 @@ ASSERT(SIZEOF(.model_rotation) == 0x17c, "model_rotation size changed")
 ASSERT(SIZEOF(.cpu_after_model_rotation) == 0x1740, "cpu_after_model_rotation size changed")
 ASSERT(SIZEOF(.model_polygons_plain) == 0x11c, "model_polygons_plain size changed")
 ASSERT(SIZEOF(.model_polygons_color) == 0x188, "model_polygons_color size changed")
-ASSERT(SIZEOF(.cpu_after_model_polygons_color) == 0x348, "cpu_after_model_polygons_color size changed")
 ASSERT(SIZEOF(.model_hierarchy_vertices) == 0x1ac, "model_hierarchy_vertices size changed")
 ASSERT(SIZEOF(.cpu_after_model_hierarchy_vertices) == 0x318, "cpu_after_model_hierarchy_vertices size changed")
 ASSERT(SIZEOF(.model_camera_identity) == 0x24, "model_camera_identity size changed")
@@ -2638,10 +2639,11 @@ func_80045214 = 0x80045214;
 ASSERT(SIZEOF(.early_pool_scene_reset) == 0x11c, "early pool scene reset text size changed")
 ASSERT(SIZEOF(.endgame_33cf8_344cc) == 0x7d4, "endgame_33cf8_344cc size changed")
 ASSERT(SIZEOF(.scene_actor_reset_begin) == 0x188, "scene actor reset begin text size changed")
-ASSERT(SIZEOF(.endgame_23458_23608) == 0x1b0, "endgame_23458_23608 size changed")
 ASSERT(SIZEOF(.scene_menu_string_refresh) == 0x170, "scene menu string refresh text size changed")
 ASSERT(SIZEOF(.movie_string_position_submit) == 0x170, "movie_string_position_submit size changed")
 ASSERT(SIZEOF(.movie_string_position_submit_constants) == 0x10, "movie_string_position_submit_constants size changed")
 ASSERT(SIZEOF(.endgame_237c_3970) == 0x15f4, "endgame_237c_3970 size changed")
 ASSERT(SIZEOF(.endgame_data_903a0_90428) == 0x88, "endgame_data_903a0_90428 size changed")
 ASSERT(SIZEOF(.endgame_data_90438_90530) == 0xf8, "endgame_data_90438_90530 size changed")
+ASSERT(SIZEOF(.model_normal_polygon_dispatch) == 0x348, "model normal polygon dispatch text size changed")
+ASSERT(SIZEOF(.scene_menu_string_schedule) == 0x1b0, "scene menu string schedule text size changed")

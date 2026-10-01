@@ -798,6 +798,8 @@ MATCHING_BLOCKS = (
     ("scene_actor_reset_begin", "src/game/scene_actor_reset_begin.c", 0x80032F70, 0x800330F8),
     ("scene_menu_string_refresh", "src/game/scene_menu_string_refresh.c", 0x80022A08, 0x80022B78),
     ("movie_string_position_submit", "src/game/movie_string_position_submit.c", 0x80002D70, 0x80002EE0),
+    ("model_normal_polygon_dispatch", "src/game/model_normal_polygon_dispatch.c", 0x8003EE20, 0x8003F168),
+    ("scene_menu_string_schedule", "src/game/scene_menu_string_schedule.c", 0x80022858, 0x80022A08),
 )
 
 CANDIDATE_BLOCKS = (

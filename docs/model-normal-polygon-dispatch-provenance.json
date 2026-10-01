@@ -1,36 +1,27 @@
 {
   "units": [
     {
-      "source": "src/game/movie_string_position_submit.c",
-      "source_sha256": "afd6dc8370c5419a4c2796576da00e08cbd8128096e9854fadd1678886d77002",
+      "source": "src/game/model_normal_polygon_dispatch.c",
+      "source_sha256": "0c42b815b18a8ceb589898c67ccf04993c636db447d1b4d7b949bb54ee83fe22",
       "procedures": [
         {
-          "name": "func_80002D70",
-          "vram": 2147495280,
-          "rom": 14704,
-          "size": 368,
-          "bytes_sha256": "3041351f6ac648d574a3d220dbb6fa0250bfe4507c94ad10b13c394df9108d1d",
-          "target_bytes_sha256": "3041351f6ac648d574a3d220dbb6fa0250bfe4507c94ad10b13c394df9108d1d"
-        }
-      ],
-      "storage": [
+          "name": "func_8003EE20",
+          "vram": 2147741216,
+          "rom": 260640,
+          "size": 420,
+          "bytes_sha256": "0ac1e1f8e5c0579b03b67182b1d3b11c6f679fe2825927272b476e7e6cfca023",
+          "target_bytes_sha256": "0ac1e1f8e5c0579b03b67182b1d3b11c6f679fe2825927272b476e7e6cfca023"
+        },
         {
-          "ownership": {
-            "source": "src/game/movie_string_position_submit.c",
-            "object": "build/us/movie_string_position_submit.o",
-            "input_section": ".rodata",
-            "section": ".movie_string_position_submit_constants",
-            "vram": 2148071464,
-            "rom": 590888,
-            "size": 16,
-            "symbols": {},
-            "static_symbols": {},
-            "evidence": "docs/movie-string-position-submit.md"
-          },
-          "bytes_sha256": "ccb512ebe516f7df93421916df04badeacabf7ad567f71f49f4016ee69f00c49",
-          "target_bytes_sha256": "ccb512ebe516f7df93421916df04badeacabf7ad567f71f49f4016ee69f00c49"
+          "name": "func_8003EFC4",
+          "vram": 2147741636,
+          "rom": 261060,
+          "size": 420,
+          "bytes_sha256": "0a452fa459ec8260d8a6657cdc0c6e731ab47ace3c62c4dde1e6f961ee44a5d9",
+          "target_bytes_sha256": "0a452fa459ec8260d8a6657cdc0c6e731ab47ace3c62c4dde1e6f961ee44a5d9"
         }
       ],
+      "storage": [],
       "compiler_profile": {
         "name": "game",
         "version": "5.3",
@@ -184,18 +175,18 @@
         "include/sound_bridge_internal.h": "2121f8ad17064388cf0b3dd9b6a9c401429696b7cf06b4c39aa8b4c1b8cde16d",
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-        "src/game/movie_string_position_submit.c": "afd6dc8370c5419a4c2796576da00e08cbd8128096e9854fadd1678886d77002",
+        "src/game/model_normal_polygon_dispatch.c": "0c42b815b18a8ceb589898c67ccf04993c636db447d1b4d7b949bb54ee83fe22",
         "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "c6c1663e21375a2097abc6cc97c9340df6e70bcaf422774da2a24613a2b2987b"
+      "complete_comparison_sha256": "a4325939844276245e7c0c88d3af093c487e84c49cc175bc38df12b49a5135c0"
     }
   ],
-  "complete_procedures": 1,
-  "complete_instruction_bytes": 368,
-  "new_complete_procedures": 1,
-  "new_complete_instruction_bytes": 368,
-  "source_owned_initialized_bytes": 16,
+  "complete_procedures": 2,
+  "complete_instruction_bytes": 840,
+  "new_complete_procedures": 2,
+  "new_complete_instruction_bytes": 840,
+  "source_owned_initialized_bytes": 0,
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",

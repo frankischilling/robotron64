@@ -14699,5 +14699,38 @@
     "section": ".movie_string_position_submit",
     "section_vram": 2147495280,
     "evidence": "docs/movie-string-position-submit.md"
+  },
+  {
+    "name": "func_8003EE20",
+    "rom": 260640,
+    "vram": 2147741216,
+    "size": 420,
+    "source": "src/game/model_normal_polygon_dispatch.c",
+    "object": "build/us/model_normal_polygon_dispatch.o",
+    "section": ".model_normal_polygon_dispatch",
+    "section_vram": 2147741216,
+    "evidence": "docs/model-normal-polygon-dispatch.md"
+  },
+  {
+    "name": "func_8003EFC4",
+    "rom": 261060,
+    "vram": 2147741636,
+    "size": 420,
+    "source": "src/game/model_normal_polygon_dispatch.c",
+    "object": "build/us/model_normal_polygon_dispatch.o",
+    "section": ".model_normal_polygon_dispatch",
+    "section_vram": 2147741216,
+    "evidence": "docs/model-normal-polygon-dispatch.md"
+  },
+  {
+    "name": "func_80022858",
+    "rom": 144472,
+    "vram": 2147625048,
+    "size": 432,
+    "source": "src/game/scene_menu_string_schedule.c",
+    "object": "build/us/scene_menu_string_schedule.o",
+    "section": ".scene_menu_string_schedule",
+    "section_vram": 2147625048,
+    "evidence": "docs/scene-menu-string-schedule.md"
   }
 ]

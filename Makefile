@@ -5981,6 +5981,22 @@ build/us/movie_string_position_submit.o: src/game/movie_string_position_submit.c
 RUNTIME_OBJECTS += \
     build/us/movie_string_position_submit.o
 
+build/us/model_normal_polygon_dispatch.o: src/game/model_normal_polygon_dispatch.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_normal_polygon_dispatch.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/model_normal_polygon_dispatch.raw.o $@ .text 0x348
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/scene_menu_string_schedule.o: src/game/scene_menu_string_schedule.c include/game_memory.h include/movie.h include/object.h include/palette.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_menu_string_schedule.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/scene_menu_string_schedule.raw.o $@ .text 0x1b0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/model_normal_polygon_dispatch.o \
+    build/us/scene_menu_string_schedule.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
