@@ -56,3 +56,13 @@ N64 references, pinned revisions, and licenses remain credited for local
 and online use in [CREDITS.md](../CREDITS.md). Further renderer recovery is
 tracked by [issue #41](https://github.com/frankischilling/robotron64/issues/41)
 and [draft PR #46](https://github.com/frankischilling/robotron64/pull/46).
+
+A clean Git archive of `1916ce343be4fafa4f4f6a1e82591dd7c91fa04f`
+passes fresh extraction and build, all 137 tooling tests, 804 runtime
+comparison units, both startup units, eighteen assembly units, eight
+data-only units, and linked progress verification. The complete rebuilt
+8 MiB ROM equals the supplied target, SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks all 1,321 tracked files. The checkpoint has
+1,321 matching C procedures and 228,000 matching instruction bytes;
+unrecovered executable fallback remains excluded from those counts.
