@@ -3,8 +3,11 @@
 `src/game/platform_empty.c` reconstructs the 144-byte interval at
 `0x8003BF5C..0x8003BFEC`. Fourteen of these functions are empty in the retail
 executable: each consists of a return and its zero delay slot. The remaining
-function, `func_8003BFA4`, calls the existing frame-completion helper with a null
-timestamp pointer. Each boundary and all 144 bytes match independently.
+function, `func_8003BFA4`, returns the existing frame-completion helper's
+integer result with a null timestamp pointer. The helper returns elapsed
+milliseconds; both scene timer capture and initialization consume that
+result. Its shared declaration and explicit return preserve all 32 adapter
+instruction bytes. Each boundary and all 144 bytes match independently.
 
 `src/game/platform_io.c` covers `0x8003C5C4..0x8003C6B8`, totaling 244 bytes.
 Fourteen functions in this interval are also retail no-ops. `func_8003C624`

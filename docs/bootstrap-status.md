@@ -25,10 +25,18 @@ also have complete source comparisons. [Checkpoint evidence](recovery-checkpoint
 record the functions and source-owned storage. The README contains the measured
 combined totals; individual recovery notes retain their historical batch counts.
 
-The latest seven functions add 2,228 C bytes and 45 private BSS bytes for bank
+An earlier seven-function recovery added 2,228 C bytes and 45 private BSS bytes for bank
 initialization, volume, pan, pedal release, and the extra kinemation command.
 All four new source units have complete independent comparisons; the full
-build and linked progress verify 934 C functions and the entire target ROM.
+build and linked progress at that checkpoint verified 934 C functions and the entire target ROM.
+
+The [input-sequence recovery](early-input-sequences.md) adds the complete
+280-byte recognizer and shares its counter layout with the matching reset
+helper. The [string append helper](game-memory.md#string-append) adds another
+52 exact instruction bytes. The sampling caller remains an excluded candidate.
+The [remaining-range inventory](remaining-ranges.md) records unresolved CPU
+fallback spans without treating every span as code or claiming a completion
+percentage.
 
 Most remaining ROM content uses extracted fallback. Total executable bytes and function count are unknown, and no whole-game percentage is claimed. SDK implementations adapted from reference checkouts remain outside this public source checkpoint pending a verified redistribution basis; their private comparison results do not contribute to these totals.
 

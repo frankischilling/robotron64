@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,308 matching C functions covering 220,304 bytes, twenty-nine assembly functions covering 4,372 bytes, 9,547 bytes of source-owned initialized data, and 30,353 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,324 matching C functions covering 229,120 bytes, twenty-nine assembly functions covering 4,372 bytes, 9,979 bytes of source-owned initialized data, and 55,553 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -54,6 +54,13 @@ Setup downloads a checksum-pinned IDO 5.3 static recompiler and extracts fallbac
 
 Progress is generated in `build/us/progress.json` from linked-byte comparisons, actual ELF section addresses, input-object symbols, and recorded source/header/object hashes. Every counted function belongs to a source file present in this checkout. The total executable size and function count are not established, so a whole-game percentage is not reported. See [matching evidence](docs/matching.md) and [toolchain investigation](docs/toolchain.md).
 
+`make remaining` inventories the unresolved fallback spans in the candidate CPU
+range and writes `build/us/remaining.json`. It runs without a ROM, orders the
+spans by size, reports ROM and runtime addresses, and rejects overlapping source
+ownership. These declared layout bytes include possible data and padding;
+[the remaining-range notes](docs/remaining-ranges.md) explain how to use them
+alongside verified matching progress.
+
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
@@ -61,6 +68,12 @@ Progress is generated in `build/us/progress.json` from linked-byte comparisons, 
 The reconstructed game source covers text and object helpers, movie commands and track files, actor lifecycle and resource loading, object-definition and scene commands, shell and save menus, background scrolling, palette controls, startup and scheduler dispatch, graphics tasks, frame helpers, fixed-point math, memory and ROM-file services, controller input, save files, and substantial game-side audio management. [Movie recovery](docs/movie-commands.md), [actor resources](docs/actor-resources.md), [object definitions and shell menus](docs/session-setup.md), [scene commands and backgrounds](docs/scene-commands.md), [save menus](docs/save-menus.md), [palette effects](docs/palette-effects.md), [controller services](docs/controller-services.md), [save format](docs/save-game.md), and [Pak files](docs/pak-files.md) record the recovered ranges and layouts.
 
 The [tweak and string services](docs/tweaks-and-strings.md) recover the 100 named gameplay bindings, difficulty application, string lookup, and companion-file loading. [Script services](docs/script-services.md) cover file registration, cache lifecycle, and script-setup commands. [Actor motion](docs/actor-motion.md) and [actor behaviors](docs/actor-behaviors.md) describe the recovered motion blends, heading selection, and animation callback transitions.
+
+[Input sequences](docs/early-input-sequences.md) recover the fourteen-sequence
+recognizer and share the checked counter layout with its matching reset helper.
+The controller-sampling caller remains an excluded candidate with three
+instruction differences. The [string append helper](docs/game-memory.md#string-append)
+also has a complete matching source comparison.
 
 The [renderer-state recovery](docs/graphics-state.md) covers display-list termination and calls, render-mode switching, directional lights, vertex-pool accounting, and environment colors. [Renderer geometry](docs/renderer-geometry.md) records hardware vertex attributes, material selection, texture uploads, and vertex-copy loops. [Sound bridges](docs/sound-bridge.md) and [geometry bridges](docs/geometry-bridges.md) document the game-side sound queue and transform wrappers. All counted functions and their generated tables or strings pass complete comparisons.
 

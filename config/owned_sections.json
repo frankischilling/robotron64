@@ -1651,5 +1651,142 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/movie-string-position-submit.md"
+  },
+  {
+    "source": "src/game/scene_frame_tick.c",
+    "object": "build/us/scene_frame_tick.o",
+    "input_section": ".rodata",
+    "section": ".scene_frame_tick_constants",
+    "vram": 2148092896,
+    "rom": 612320,
+    "size": 8,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/scene-frame-tick.md"
+  },
+  {
+    "source": "src/game/actor_pickup.c",
+    "object": "build/us/actor_pickup.o",
+    "input_section": ".rodata",
+    "section": ".actor_pickup_dispatch",
+    "vram": 2148072964,
+    "rom": 592388,
+    "size": 64,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/actor-pickups.md"
+  },
+  {
+    "source": "src/game/renderer_matrix_submit.c",
+    "object": "build/us/renderer_matrix_submit.o",
+    "input_section": ".rodata",
+    "section": ".renderer_matrix_submit_strings",
+    "vram": 2148094944,
+    "rom": 614368,
+    "size": 64,
+    "symbols": {},
+    "static_symbols": {
+      "D_800953E0": 0,
+      "D_80095414": 52
+    },
+    "evidence": "docs/renderer-matrix-submission.md"
+  },
+  {
+    "source": "src/game/model_file_relocate.c",
+    "object": "build/us/model_file_relocate.o",
+    "input_section": ".rodata",
+    "section": ".model_file_relocate_strings",
+    "vram": 2148093008,
+    "rom": 612432,
+    "size": 48,
+    "symbols": {},
+    "static_symbols": {
+      "D_80094C50": 0
+    },
+    "evidence": "docs/model-file-relocation.md"
+  },
+  {
+    "source": "src/game/audio_memory_size.c",
+    "object": "build/us/audio_memory_size.o",
+    "input_section": ".rodata",
+    "section": ".audio_memory_size_strings",
+    "vram": 2148097200,
+    "rom": 616624,
+    "size": 8,
+    "symbols": {},
+    "static_symbols": {
+      "D_80095CB0": 0
+    },
+    "evidence": "docs/audio-memory-size.md"
+  },
+  {
+    "source": "src/game/collision_dispatch_initialize.c",
+    "object": "build/us/collision_dispatch_initialize.o",
+    "input_section": ".rodata",
+    "section": ".collision_dispatch_initialize_strings",
+    "vram": 2148073788,
+    "rom": 593212,
+    "size": 96,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/collision-dispatch-initialization.md"
+  },
+  {
+    "source": "src/game/collision_dispatch_initialize.c",
+    "object": "build/us/collision_dispatch_initialize.o",
+    "input_section": ".bss",
+    "section": ".collision_dispatch_initialize_bss",
+    "vram": 2148103328,
+    "rom": null,
+    "size": 400,
+    "symbols": {
+      "D_800974A0": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/collision-dispatch-initialization.md"
+  },
+  {
+    "source": "src/game/renderer_projection_highlight.c",
+    "object": "build/us/renderer_projection_highlight.o",
+    "input_section": ".rodata",
+    "section": ".renderer_projection_highlight_constants",
+    "vram": 2148095080,
+    "rom": 614504,
+    "size": 48,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/renderer-projection-highlight.md"
+  },
+  {
+    "source": "src/game/actor_pool_allocate.c",
+    "object": "build/us/actor_pool_allocate.o",
+    "input_section": ".rodata",
+    "section": ".actor_pool_allocate_strings",
+    "vram": 2148088076,
+    "rom": 607500,
+    "size": 96,
+    "symbols": {},
+    "static_symbols": {
+      "D_8009390C": 0,
+      "D_80093938": 44,
+      "D_80093954": 72,
+      "D_8009395C": 80,
+      "D_80093964": 88
+    },
+    "evidence": "docs/actor-pool-allocation.md"
+  },
+  {
+    "source": "src/game/actor_pool_allocate.c",
+    "object": "build/us/actor_pool_allocate.o",
+    "input_section": ".bss",
+    "section": ".actor_pool_allocate_bss",
+    "vram": 2148156968,
+    "rom": null,
+    "size": 24800,
+    "symbols": {
+      "D_800A4628": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/actor-pool-allocation.md"
   }
 ]

@@ -40,6 +40,8 @@ typedef struct SavedSessionState {
 } SavedSessionState;
 
 struct EarlyAnimationRecord;
+struct EarlyGameActor;
+struct EarlySceneResourceRecord;
 
 typedef struct GameSessionState {
     SavedSessionState saved;
@@ -49,7 +51,10 @@ typedef struct GameSessionState {
     unsigned char unknown58[0x10];
     unsigned int timestamp68;
     int parameterStart6C;
-    unsigned char unknown70[0x1C];
+    unsigned char unknown70[0x10];
+    struct EarlyGameActor *animationActor80;
+    struct EarlySceneResourceRecord *animationResources84;
+    unsigned char unknown88[4];
     int value8C;
     unsigned char unknown90[0xC];
     int animationIndex9C;

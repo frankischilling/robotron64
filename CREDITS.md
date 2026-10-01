@@ -61,6 +61,85 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [scene frame timing update](docs/scene-frame-tick.md) retains the
+pinned IDO and N64 matching-workflow references. Robotron's timing helper,
+callers, instructions, and double constant establish its arithmetic and
+platform return interface. No reference implementation is copied. The
+requested repositories remain credited for local and online use.
+
+The [actor pickup recovery](docs/actor-pickups.md) retains the same
+pinned IDO and N64 matching-workflow references. Robotron's dispatch
+table, instructions, matching setup routine, and bonus helper establish
+the behavior and shared player view. No reference implementation is
+copied; all thirteen requested repositories remain credited below.
+
+The [early actor pair helper](docs/early-actor-pair-spawn.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's
+instructions and existing matching actor helpers establish placement,
+callback arguments, and the retained unwritten position coordinate.
+No reference implementation is copied.
+
+The [actor pool allocation](docs/actor-pool-allocation.md) uses the same
+pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions, matching pool reset, object creation, resource loader, and
+124-byte actor layout establish the allocator and its 200-entry BSS pool.
+
+The [renderer projection and highlights](docs/renderer-projection-highlight.md)
+use the same pinned IDO and N64 matching-workflow references. The credited
+local libreultra `gu/lookathil.c` and SDK type definitions supply the matrix,
+look-at, highlight, and argument-layout references. Robotron's complete
+instructions and matching SDK callees establish the values and commands.
+
+The [collision dispatch initialization](docs/collision-dispatch-initialization.md)
+uses the same pinned IDO and N64 matching-workflow references. Robotron's
+instructions, all three compiler tables, callback consumer, and neighboring
+BSS address establish its symmetric dispatch and 400-byte storage.
+
+The [audio memory-size calculation](docs/audio-memory-size.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions, matching file services, caller, and confirmed audio record
+sizes establish its header checks, offsets, and alignment arithmetic.
+
+The [audio voice defaults](docs/audio-voice-defaults.md) use the same
+pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions, track loader, caller, and matching property consumers
+establish the sequence-header layout and initialization behavior.
+
+The [model file relocation](docs/model-file-relocation.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions and existing recovered object callers establish the header,
+point and record strides, pointer relocations, and signed scaling.
+
+The [renderer matrix submission](docs/renderer-matrix-submission.md)
+uses the same pinned IDO and N64 matching-workflow references. Robotron's
+instructions, matching callers, and recovered fixed-matrix converter
+establish the packing, translation, command, and counter behavior. The
+SDK matrix layout is checked against the credited local SDK sources.
+
+The [object history renderer](docs/object-history-rendering.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions, matching object callers, and history writer establish the
+record layouts and rendering behavior. No reference implementation is
+copied.
+
+The [continue-code character helper](docs/continue-character.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions and matching character encoder establish its adjustments
+and alphabet. No reference implementation is copied.
+
+The [continue-code decoder](docs/continue-code.md) uses the same pinned
+IDO and N64 matching-workflow references. Robotron's instructions and its
+matching encoder establish the bitfield layout, checksum, field limits,
+diagnostics, and scene setup. No reference implementation is copied. Local
+and online credits for all thirteen requested repositories remain below.
+
+The [early scene animation advance](docs/early-scene-animation-advance.md)
+retains the pinned local IDO and N64 matching-workflow references. Robotron's
+instructions establish the child resource stride, actor fields, scale
+arithmetic, animation selection, callback ordering, and reset-slot layout.
+No reference implementation is copied into the procedure. Local and online
+credits for all requested repositories remain in the reference collection.
+
 The [session scene start](docs/session-scene-start.md) retains the pinned
 local IDO and N64 matching-workflow references. Robotron's instructions and
 the recovered menu callers establish the mode values, two-player storage,

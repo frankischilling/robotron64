@@ -5050,6 +5050,17 @@
     "evidence": "docs/game-memory.md"
   },
   {
+    "name": "func_8003B734",
+    "rom": 246580,
+    "vram": 2147727156,
+    "size": 52,
+    "source": "src/game/game_string_append.c",
+    "object": "build/us/game_string_append.o",
+    "section": ".game_string_append",
+    "section_vram": 2147727156,
+    "evidence": "docs/game-memory.md"
+  },
+  {
     "name": "func_8003B768",
     "rom": 246632,
     "vram": 2147727208,
@@ -14743,5 +14754,170 @@
     "section": ".session_scene_start",
     "section_vram": 2147624232,
     "evidence": "docs/session-scene-start.md"
+  },
+  {
+    "name": "func_8000EE48",
+    "rom": 64072,
+    "vram": 2147544648,
+    "size": 488,
+    "source": "src/game/early_scene_animation_advance.c",
+    "object": "build/us/early_scene_animation_advance.o",
+    "section": ".early_scene_animation_advance",
+    "section_vram": 2147544648,
+    "evidence": "docs/early-scene-animation-advance.md"
+  },
+  {
+    "name": "func_80031080",
+    "rom": 203904,
+    "vram": 2147684480,
+    "size": 560,
+    "source": "src/game/save_menu_continue_decode.c",
+    "object": "build/us/save_menu_continue_decode.o",
+    "section": ".save_menu_continue_decode",
+    "section_vram": 2147684480,
+    "evidence": "docs/continue-code.md"
+  },
+  {
+    "name": "func_80038598",
+    "rom": 233880,
+    "vram": 2147714456,
+    "size": 560,
+    "source": "src/game/scene_frame_tick.c",
+    "object": "build/us/scene_frame_tick.o",
+    "section": ".scene_frame_tick",
+    "section_vram": 2147714456,
+    "evidence": "docs/scene-frame-tick.md"
+  },
+  {
+    "name": "func_8000F564",
+    "rom": 65892,
+    "vram": 2147546468,
+    "size": 628,
+    "source": "src/game/early_actor_pair_spawn.c",
+    "object": "build/us/early_actor_pair_spawn.o",
+    "section": ".early_actor_pair_spawn",
+    "section_vram": 2147546468,
+    "evidence": "docs/early-actor-pair-spawn.md"
+  },
+  {
+    "name": "func_800152E8",
+    "rom": 89832,
+    "vram": 2147570408,
+    "size": 620,
+    "source": "src/game/actor_pickup.c",
+    "object": "build/us/actor_pickup.o",
+    "section": ".actor_pickup",
+    "section_vram": 2147570408,
+    "evidence": "docs/actor-pickups.md"
+  },
+  {
+    "name": "func_80031034",
+    "rom": 203828,
+    "vram": 2147684404,
+    "size": 76,
+    "source": "src/game/save_menu_continue_character.c",
+    "object": "build/us/save_menu_continue_character.o",
+    "section": ".save_menu_continue_character",
+    "section_vram": 2147684404,
+    "evidence": "docs/continue-character.md"
+  },
+  {
+    "name": "func_8004E968",
+    "rom": 324968,
+    "vram": 2147805544,
+    "size": 504,
+    "source": "src/game/object_history_render.c",
+    "object": "build/us/object_history_render.o",
+    "section": ".object_history_render",
+    "section_vram": 2147805544,
+    "evidence": "docs/object-history-rendering.md"
+  },
+  {
+    "name": "func_80047D88",
+    "rom": 297352,
+    "vram": 2147777928,
+    "size": 664,
+    "source": "src/game/renderer_matrix_submit.c",
+    "object": "build/us/renderer_matrix_submit.o",
+    "section": ".renderer_matrix_submit",
+    "section_vram": 2147777928,
+    "evidence": "docs/renderer-matrix-submission.md"
+  },
+  {
+    "name": "func_8003C6B8",
+    "rom": 250552,
+    "vram": 2147731128,
+    "size": 660,
+    "source": "src/game/model_file_relocate.c",
+    "object": "build/us/model_file_relocate.o",
+    "section": ".model_file_relocate",
+    "section_vram": 2147731128,
+    "evidence": "docs/model-file-relocation.md"
+  },
+  {
+    "name": "func_8005362C",
+    "rom": 344620,
+    "vram": 2147825196,
+    "size": 716,
+    "source": "src/game/audio_voice_defaults.c",
+    "object": "build/us/audio_voice_defaults.o",
+    "section": ".audio_voice_defaults",
+    "section_vram": 2147825196,
+    "evidence": "docs/audio-voice-defaults.md"
+  },
+  {
+    "name": "func_80052D70",
+    "rom": 342384,
+    "vram": 2147822960,
+    "size": 716,
+    "source": "src/game/audio_memory_size.c",
+    "object": "build/us/audio_memory_size.o",
+    "section": ".audio_memory_size",
+    "section_vram": 2147822960,
+    "evidence": "docs/audio-memory-size.md"
+  },
+  {
+    "name": "func_80019E40",
+    "rom": 109120,
+    "vram": 2147589696,
+    "size": 808,
+    "source": "src/game/collision_dispatch_initialize.c",
+    "object": "build/us/collision_dispatch_initialize.o",
+    "section": ".collision_dispatch_initialize",
+    "section_vram": 2147589696,
+    "evidence": "docs/collision-dispatch-initialization.md"
+  },
+  {
+    "name": "func_8004913C",
+    "rom": 302396,
+    "vram": 2147782972,
+    "size": 696,
+    "source": "src/game/renderer_projection_highlight.c",
+    "object": "build/us/renderer_projection_highlight.o",
+    "section": ".renderer_projection_highlight",
+    "section_vram": 2147782972,
+    "evidence": "docs/renderer-projection-highlight.md"
+  },
+  {
+    "name": "func_800283D4",
+    "rom": 167892,
+    "vram": 2147648468,
+    "size": 788,
+    "source": "src/game/actor_pool_allocate.c",
+    "object": "build/us/actor_pool_allocate.o",
+    "section": ".actor_pool_allocate",
+    "section_vram": 2147648468,
+    "evidence": "docs/actor-pool-allocation.md"
+  },
+  {
+    "name": "func_8001BFB0",
+    "rom": 117680,
+    "vram": 2147598256,
+    "size": 280,
+    "source": "src/game/early_player_sequence.c",
+    "object": "build/us/early_player_sequence.o",
+    "section": ".early_player_sequence",
+    "section_vram": 2147598256,
+    "evidence": "docs/early-input-sequences.md"
   }
 ]

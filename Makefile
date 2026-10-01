@@ -4,7 +4,7 @@ CROSS := mips-linux-gnu-
 IDO := .local/toolchain/5.3/cc
 BASEROM ?= baseroms/us/baserom.z64
 
-.PHONY: all setup toolchain verify progress clean test analysis-setup analyze resources compare-data
+.PHONY: all setup toolchain verify progress remaining clean test analysis-setup analyze resources compare-data
 
 compare-data: toolchain
 	$(PYTHON) tools/compare_data.py
@@ -2668,7 +2668,7 @@ build/us/scene_transition_draw.o: src/game/scene_transition_draw.c include/debug
 	$(PYTHON) tools/trim_padding.py build/us/scene_transition_draw.raw.o $@ .text 0x120
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/scene_player_setup.o: src/game/scene_player_setup.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/scene_player_setup.o: src/game/scene_player_setup.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_definition.h include/scene_player_runtime_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_player_setup.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/scene_player_setup.raw.o $@ .text 0x248
@@ -4781,7 +4781,7 @@ build/us/audio_handle_tests.o: src/game/audio_handle_tests.c include/audio_contr
 	$(PYTHON) tools/trim_padding.py build/us/audio_handle_tests.raw.o $@ .text 0x80
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_player_counter_reset.o: src/game/early_player_counter_reset.c $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_player_counter_reset.o: src/game/early_player_counter_reset.c include/early_input_internal.h include/save_game.h include/pak_file.h include/scene_definition.h include/controller_input.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_player_counter_reset.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_player_counter_reset.raw.o $@ .text 0x68
@@ -6006,6 +6006,156 @@ build/us/session_scene_start.o: src/game/session_scene_start.c include/pak_file.
 RUNTIME_OBJECTS += \
     build/us/session_scene_start.o
 
+build/us/early_scene_animation_advance.o: src/game/early_scene_animation_advance.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/early_session_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_scene_animation_advance.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_scene_animation_advance.raw.o $@ .text 0x1e8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_scene_animation_advance.o
+
+build/us/save_menu_continue_decode.o: src/game/save_menu_continue_decode.c include/game_memory.h include/pak_file.h include/save_game.h include/save_menu_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_continue_decode.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_continue_decode.raw.o $@ .text 0x230
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/save_menu_continue_decode.o
+
+build/us/scene_frame_tick.o: src/game/scene_frame_tick.c tools/owned_sections.py config/owned_sections.json include/game_memory.h include/platform_services.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_frame_tick.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/scene_frame_tick.raw.o build/us/scene_frame_tick.text.o .text 0x230
+	$(PYTHON) tools/owned_sections.py $< build/us/scene_frame_tick.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/scene_frame_tick.o
+
+build/us/early_actor_pair_spawn.o: src/game/early_actor_pair_spawn.c include/actor.h include/actor_behavior_internal.h include/early_game_medium_next.h include/early_game_more.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_pair_spawn.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_actor_pair_spawn.raw.o $@ .text 0x274
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/early_actor_pair_spawn.o
+
+build/us/actor_pickup.o: src/game/actor_pickup.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_audio.h include/scene_counter_internal.h include/scene_player_runtime_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_pickup.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_pickup.raw.o build/us/actor_pickup.text.o .text 0x26c
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_pickup.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/actor_pickup.o
+
+build/us/save_menu_continue_character.o: src/game/save_menu_continue_character.c include/pak_file.h include/save_game.h include/save_menu_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_continue_character.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/save_menu_continue_character.raw.o $@ .text 0x4c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/save_menu_continue_character.o
+
+build/us/object_history_render.o: src/game/object_history_render.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_history_internal.h include/object_recovery.h include/renderer_draw_state_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_history_render.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/object_history_render.raw.o $@ .text 0x1f8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/object_history_render.o
+
+build/us/renderer_matrix_submit.o: src/game/renderer_matrix_submit.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_submit.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_matrix_submit.raw.o build/us/renderer_matrix_submit.text.o .text 0x298
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_matrix_submit.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/renderer_matrix_submit.o
+
+build/us/model_file_relocate.o: src/game/model_file_relocate.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/object_recovery.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_file_relocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/model_file_relocate.raw.o build/us/model_file_relocate.text.o .text 0x294
+	$(PYTHON) tools/owned_sections.py $< build/us/model_file_relocate.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/model_file_relocate.o
+
+build/us/audio_voice_defaults.o: src/game/audio_voice_defaults.c include/audio_file_services_internal.h include/audio_host_internal.h include/audio_properties_internal.h include/audio_sequence_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_voice_defaults.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_voice_defaults.raw.o $@ .text 0x2cc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_voice_defaults.o
+
+build/us/audio_memory_size.o: src/game/audio_memory_size.c tools/owned_sections.py config/owned_sections.json include/audio_control.h include/audio_file_services_internal.h include/audio_host_internal.h include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_memory_size.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_memory_size.raw.o build/us/audio_memory_size.text.o .text 0x2cc
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_memory_size.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/audio_memory_size.o
+
+build/us/collision_dispatch_initialize.o: src/game/collision_dispatch_initialize.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_behavior_internal.h include/actor_collision_services.h include/early_game_helpers.h include/early_game_medium.h include/early_game_more.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/collision_dispatch_initialize.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/collision_dispatch_initialize.raw.o build/us/collision_dispatch_initialize.text.o .text 0x328
+	$(PYTHON) tools/owned_sections.py $< build/us/collision_dispatch_initialize.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/collision_dispatch_initialize.o
+
+build/us/renderer_projection_highlight.o: src/game/renderer_projection_highlight.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object_recovery.h include/rom_files.h include/runtime_angle.h include/scalar_math.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_projection_highlight.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_projection_highlight.raw.o build/us/renderer_projection_highlight.text.o .text 0x2b8
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_projection_highlight.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/renderer_projection_highlight.o
+
+build/us/actor_pool_allocate.o: src/game/actor_pool_allocate.c tools/owned_sections.py config/owned_sections.json include/actor.h include/actor_resource_internal.h include/game_memory.h include/object.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_pool_allocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_pool_allocate.raw.o build/us/actor_pool_allocate.text.o .text 0x314
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_pool_allocate.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/actor_pool_allocate.o
+
+build/us/game_string_append.o: src/game/game_string_append.c include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_string_append.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/game_string_append.raw.o $@ .text 0x34
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/game_string_append.o
+
+build/us/early_player_sequence.o: src/game/early_player_sequence.c include/early_input_internal.h include/save_game.h include/pak_file.h include/scene_definition.h include/controller_input.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_player_sequence.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_player_sequence.raw.o $@ .text 0x118
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_player_sequence.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -6018,9 +6168,13 @@ verify: all
 progress: verify
 	$(PYTHON) tools/progress.py
 
+remaining:
+	$(PYTHON) tools/remaining.py
+
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 	$(PYTHON) tools/manifest.py
+	$(PYTHON) tools/remaining.py --limit 0
 
 analysis-setup:
 	$(PYTHON) -m venv .venv

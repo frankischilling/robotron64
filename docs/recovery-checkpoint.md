@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,308 matching C functions covering 220,304 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,547 bytes
-of source-owned initialized data, and 30,353 bytes of source-owned BSS. The
+The source checkpoint contains 1,322 matching C functions covering 228,788 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,979 bytes
+of source-owned initialized data, and 55,553 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-381 complete C functions, 99,256 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 7,899 reconstructed initialized bytes, and 26,263 BSS bytes.
+395 complete C functions, 107,740 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 8,331 reconstructed initialized bytes, and 51,463 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,81 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Actor pool allocation](actor-pool-allocation.md) adds the complete
+788-byte allocator, 96 diagnostic bytes, and the verified 200-entry
+actor pool containing 24,800 BSS bytes. It restores resource loading,
+object creation, linked-list insertion, initial animation, and transforms.
+
+[Renderer projection and highlights](renderer-projection-highlight.md) adds
+the complete 696-byte procedure and 48 constant bytes. It preserves the
+angle conversion, animated light directions, perspective and highlight
+matrices, normalization, and five display-list commands.
+
+[Collision dispatch initialization](collision-dispatch-initialization.md) adds
+the complete 808-byte initializer, 96 bytes of compiler dispatch tables,
+and the 400-byte callback matrix. It clears all entries and installs the
+original handlers symmetrically for the ten actor kinds.
+
+[Audio memory-size calculation](audio-memory-size.md) adds the complete
+716-byte procedure and its eight-byte signature span. It validates the
+SN64 header, assigns temporary offsets, and computes the aligned bytes
+for instances, voices, status records, callbacks, and working buffers.
+
+[Audio voice defaults](audio-voice-defaults.md) adds the complete
+716-byte initializer. It restores sequence-header defaults, optional
+property overrides, initial flags and counters, and timing conversion.
+Its recovered header fields preserve the existing twenty-byte layout.
+
+[Model file relocation](model-file-relocation.md) adds the complete
+660-byte loader and 48 diagnostic bytes including compiler alignment.
+Its existing typed header describes five offsets, signed vertex and
+record scaling, and the selected record whose position is cleared.
+
+[Renderer matrix submission](renderer-matrix-submission.md) adds the
+complete 664-byte procedure and 64 bytes of diagnostic strings. It clamps
+projected coordinates, writes both fixed-point matrix halves, emits the
+original matrix command, and preserves the pool counter and diagnostic.
+
+[Object history rendering](object-history-rendering.md) adds the complete
+504-byte trail renderer. It preserves color selection, the sixteen-record
+ring, alternate-history sampling, view transforms, and shrinking draw
+sizes. Its typed draw view contains sixty bytes; it adds no storage.
+
+[Continue-code characters](continue-character.md) adds the complete
+76-byte nibble decoder. All four signed adjustment branches and the
+final argument decrement match. It adds no initialized data or BSS.
+
+[Actor pickups](actor-pickups.md) adds one complete 620-byte C procedure
+and its 64-byte dispatch table. Shield creation and hit allowance,
+bonus awards, pickup slots, animation updates, and sounds match.
+The confirmed player layout is shared with the matching setup
+routine. Observed unwritten sound paths and shift behavior remain.
+
+[Early actor pair spawning](early-actor-pair-spawn.md) adds one complete
+628-byte C procedure. Random position offsets, angle-based placement,
+both allocation attempts, the resource callback, and both repeated
+motion calls match. The source preserves the retail caller's unwritten
+third position coordinate. No new data or BSS is claimed.
+
+[Scene frame timing](scene-frame-tick.md) adds one complete 560-byte C
+procedure and eight initialized double-constant bytes. Timestamp capture,
+signed time scaling, the history loop, unsigned division, double-to-float
+rate conversion, and paused-frame behavior match. The platform adapter now
+explicitly returns its callee's millisecond result without changing its
+instructions.
+
+[Continue-code decoding](continue-code.md) adds one complete 560-byte C
+procedure. Five packed bytes, both checksum diagnostic arguments, field
+limits, player setup, option restoration, and the scene-state copy match.
+The shared 8-byte bitfield layout also preserves the matching encoder. No
+new initialized data or BSS is claimed.
+
+[Early scene animation advance](early-scene-animation-advance.md) adds one
+complete 488-byte C procedure. Child creation, scale and angle transfer,
+callback selection, and the three-slot reset loop match the target. The
+96-byte resource record and shared 204-byte animation record preserve all
+verified strides and existing users. No new data or BSS is claimed.
 
 [Session scene start](session-scene-start.md) adds one complete 448-byte C
 procedure. Its automatic level selection, player initialization, selection
@@ -293,7 +368,7 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 791 complete source units. Startup/scheduler
+The runtime registry contains 805 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-nine procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
@@ -332,6 +407,12 @@ procedure count. Full startup and runtime comparisons validate the completed
 `VideoMode` layout and preserve startup's first-field origin writes.
 
 ## Remaining work
+
+The [input-sequence recognizer](early-input-sequences.md) and
+[string append helper](game-memory.md#string-append) now have complete matching
+source comparisons. Their sampling caller still has three register differences.
+`make remaining` generates the current unresolved CPU span inventory from the
+layout declarations; [measurement notes](remaining-ranges.md) explain its limits.
 
 Three central compression procedures still have compiler differences. The
 full audio sequence reader, several sequencer

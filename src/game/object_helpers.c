@@ -2,12 +2,11 @@
 #include "../../include/object_helpers.h"
 
 extern char D_800ACDC0[];
-extern int func_8003921C(int, int, int, void *);
 
 int func_80039C78(int value, int unused1, int unused2, int unused3)
 {
     if (D_800C86C0[0] != 0) {
-        func_8003921C(0, 0, 0, D_800ACDC0);
+        func_8003921C(0, 0, 0, (ObjectModel *)D_800ACDC0);
     }
     return value;
 }

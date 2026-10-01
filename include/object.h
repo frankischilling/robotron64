@@ -32,6 +32,9 @@ typedef struct ObjectRecord {
 } ObjectRecord;
 
 typedef char ObjectRecordMustBe120Bytes[sizeof(ObjectRecord) == 0x78 ? 1 : -1];
+int func_8003921C(int type, int count, ObjectDrawResource *draw,
+                  ObjectModel *model);
+
 extern ObjectRecord D_800BF918[];
 extern float D_FLT_80094C20;
 extern float D_FLT_80094C24;

@@ -11,7 +11,7 @@ void func_8003BF84(void);
 void func_8003BF8C(void);
 void func_8003BF94(void);
 void func_8003BF9C(void);
-void func_8003BFA4(void);
+int func_8003BFA4(void);
 void func_8003BFC4(void);
 void func_8003BFCC(void);
 void func_8003BFD4(void);
