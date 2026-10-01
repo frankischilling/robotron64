@@ -54,3 +54,14 @@ their pinned revisions, and licenses remain in [CREDITS.md](../CREDITS.md).
 Further actor and contact work remains tracked by
 [issue #43](https://github.com/frankischilling/robotron64/issues/43) and
 [issue #40](https://github.com/frankischilling/robotron64/issues/40).
+
+A clean archive of `5c1f5604d0c119c372dfcf9fedaf29d2601edd50` passes fresh
+extraction and build, 137 tooling tests, 796 runtime units, both startup
+units, eighteen assembly units, eight data-only units, and linked progress
+verification. It reports 1,313 matching C functions / 223,160 instruction
+bytes, 9,619 source-owned initialized bytes, and 30,353 source-owned BSS
+bytes. All bytes of the rebuilt 8 MiB USA ROM match the supplied target,
+with SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks 1,296 files. Executable fallback remains
+outside the matching C totals.

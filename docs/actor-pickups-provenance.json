@@ -374,6 +374,6 @@
   "source_owned_bss_bytes": 0,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "598277a5a25680470bc5aa8b89b7eae7d96a0528a5d16f44e63abe0bf1ae60c1",
+  "runtime_report_sha256": "bccff2b521dfa11a2cf08ff00e531cb77ab321ca50b267066734526f9fadc1cb",
   "note": "Historical complete instruction and storage proof. The previously recovered player setup unit shares the confirmed runtime layout with pickup handling. Current progress requires current input comparisons."
 }
