@@ -14864,5 +14864,16 @@
     "section": ".audio_memory_size",
     "section_vram": 2147822960,
     "evidence": "docs/audio-memory-size.md"
+  },
+  {
+    "name": "func_80019E40",
+    "rom": 109120,
+    "vram": 2147589696,
+    "size": 808,
+    "source": "src/game/collision_dispatch_initialize.c",
+    "object": "build/us/collision_dispatch_initialize.o",
+    "section": ".collision_dispatch_initialize",
+    "section_vram": 2147589696,
+    "evidence": "docs/collision-dispatch-initialization.md"
   }
 ]

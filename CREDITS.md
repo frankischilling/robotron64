@@ -79,6 +79,11 @@ instructions and existing matching actor helpers establish placement,
 callback arguments, and the retained unwritten position coordinate.
 No reference implementation is copied.
 
+The [collision dispatch initialization](docs/collision-dispatch-initialization.md)
+uses the same pinned IDO and N64 matching-workflow references. Robotron's
+instructions, all three compiler tables, callback consumer, and neighboring
+BSS address establish its symmetric dispatch and 400-byte storage.
+
 The [audio memory-size calculation](docs/audio-memory-size.md) uses the
 same pinned IDO and N64 matching-workflow references. Robotron's complete
 instructions, matching file services, caller, and confirmed audio record

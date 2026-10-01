@@ -1718,5 +1718,31 @@
       "D_80095CB0": 0
     },
     "evidence": "docs/audio-memory-size.md"
+  },
+  {
+    "source": "src/game/collision_dispatch_initialize.c",
+    "object": "build/us/collision_dispatch_initialize.o",
+    "input_section": ".rodata",
+    "section": ".collision_dispatch_initialize_strings",
+    "vram": 2148073788,
+    "rom": 593212,
+    "size": 96,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/collision-dispatch-initialization.md"
+  },
+  {
+    "source": "src/game/collision_dispatch_initialize.c",
+    "object": "build/us/collision_dispatch_initialize.o",
+    "input_section": ".bss",
+    "section": ".collision_dispatch_initialize_bss",
+    "vram": 2148103328,
+    "rom": null,
+    "size": 400,
+    "symbols": {
+      "D_800974A0": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/collision-dispatch-initialization.md"
   }
 ]

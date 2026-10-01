@@ -190,7 +190,9 @@ SECTIONS
     .actor_collision_score_result 0x80017E50 : AT(0x18A50) SUBALIGN(4) { build/us/actor_collision_score_result.o(.text) }
     .endgame_18b9c_198c8 0x80017F9C : AT(0x18B9C) { build/us/fallback.o(.rom_endgame_18b9c_198c8) }
     .actor_collision_separate 0x80018CC8 : AT(0x198C8) SUBALIGN(4) { build/us/actor_collision_separate.o(.text) }
-    .endgame_19a1c_1ad70 0x80018E1C : AT(0x19A1C) { build/us/fallback.o(.rom_endgame_19a1c_1ad70) }
+    .endgame_19a1c_1aa40 0x80018E1C : AT(0x19A1C) { build/us/fallback.o(.rom_endgame_19a1c_1aa40) }
+    .collision_dispatch_initialize 0x80019E40 : AT(0x1AA40) SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.text) }
+    .endgame_1ad68_1ad70 0x8001A168 : AT(0x1AD68) { build/us/fallback.o(.rom_endgame_1ad68_1ad70) }
     .early_pointer_state 0x8001A170 : AT(0x1AD70) SUBALIGN(4) { build/us/early_pointer_state.o(.text) }
     .endgame_1adf0_1aec4 0x8001A1F0 : AT(0x1ADF0) { build/us/fallback.o(.rom_endgame_1adf0_1aec4) }
     .session_input_initialize 0x8001A2C4 : AT(0x1AEC4) SUBALIGN(4) { build/us/session_input_initialize.o(.text) }
@@ -1201,7 +1203,9 @@ SECTIONS
     .actor_collision_kind_dispatch_rodata 0x8008FF08 : AT(0x90B08) SUBALIGN(4) { build/us/actor_collision_kind_dispatch.o(.rodata) }
     .endgame_90b1c_90c98 0x8008FF1C : AT(0x90B1C) { build/us/fallback.o(.rom_endgame_90b1c_90c98) }
     .actor_collision_death_result_rodata 0x80090098 : AT(0x90C98) SUBALIGN(4) { build/us/actor_collision_death_result.o(.rodata) }
-    .endgame_90cac_90ea4 0x800900AC : AT(0x90CAC) { build/us/fallback.o(.rom_endgame_90cac_90ea4) }
+    .endgame_data_90cac_90d3c 0x800900AC : AT(0x90CAC) { build/us/fallback.o(.rom_endgame_data_90cac_90d3c) }
+    .collision_dispatch_initialize_strings 0x8009013C : AT(0x90D3C) SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.rodata) }
+    .endgame_data_90d9c_90ea4 0x8009019C : AT(0x90D9C) { build/us/fallback.o(.rom_endgame_data_90d9c_90ea4) }
     .actor_behavior_counter_expire_rodata 0x800902A4 : AT(0x90EA4) SUBALIGN(4) { build/us/actor_behavior_counter_expire.o(.rodata) }
     .endgame_data_90ed4_90f70 0x800902D4 : AT(0x90ED4) { build/us/fallback.o(.rom_endgame_data_90ed4_90f70) }
     .name_table_lookup_data 0x80090370 : AT(0x90F70) SUBALIGN(4) { build/us/name_table_lookup.o(.data) }
@@ -1315,6 +1319,7 @@ SECTIONS
     .audio_backend_patch_trigger_bss 0x80192B5C (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_patch_trigger.o(.bss) }
     .controller_thread_state_bss 0x80141210 (NOLOAD) : SUBALIGN(4) { build/us/controller_thread_state.o(.bss) }
     .audio_engine_parameter_callback_state 0x80192764 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_parameters.o(.bss) }
+    .collision_dispatch_initialize_bss 0x800974A0 (NOLOAD) : SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -2584,7 +2589,6 @@ ASSERT(SIZEOF(.actor_collision_death_result_rodata) == 0x14, "actor_collision_de
 ASSERT(SIZEOF(.endgame_17f7c_1862c) == 0x6b0, "endgame_17f7c_1862c size changed")
 ASSERT(SIZEOF(.endgame_409c4_40c0c) == 0x248, "endgame_409c4_40c0c size changed")
 ASSERT(SIZEOF(.endgame_90b1c_90c98) == 0x17c, "endgame_90b1c_90c98 size changed")
-ASSERT(SIZEOF(.endgame_90cac_90ea4) == 0x1f8, "endgame_90cac_90ea4 size changed")
 D_80073850 = 0x80073850;
 D_80073864 = 0x80073864;
 D_8009B190 = 0x8009B190;
@@ -2617,7 +2621,6 @@ ASSERT(SIZEOF(.actor_position_follow) == 0x90, "actor_position_follow size chang
 ASSERT(SIZEOF(.actor_value_follow) == 0x144, "actor_value_follow size changed")
 D_8008D578 = 0x8008D578;
 ASSERT(SIZEOF(.endgame_18b9c_198c8) == 0xd2c, "endgame_18b9c_198c8 size changed")
-ASSERT(SIZEOF(.endgame_19a1c_1ad70) == 0x1354, "endgame_19a1c_1ad70 size changed")
 ASSERT(SIZEOF(.endgame_28ad4_28d8c) == 0x2b8, "endgame_28ad4_28d8c size changed")
 ASSERT(SIZEOF(.endgame_28fd4_29c20) == 0xc4c, "endgame_28fd4_29c20 size changed")
 ASSERT(SIZEOF(.endgame_29cb0_29d54) == 0xa4, "endgame_29cb0_29d54 size changed")
@@ -2712,3 +2715,18 @@ ASSERT(SIZEOF(.audio_memory_size_strings) == 0x8, "audio_memory_size_strings siz
 ASSERT(SIZEOF(.endgame_53c3c_5422c) == 0x5f0, "endgame_53c3c_5422c size changed")
 ASSERT(SIZEOF(.endgame_data_968a8_968b0) == 0x8, "endgame_data_968a8_968b0 size changed")
 ASSERT(SIZEOF(.endgame_data_968b8_968c4) == 0xc, "endgame_data_968b8_968c4 size changed")
+ASSERT(SIZEOF(.collision_dispatch_initialize) == 0x328, "collision_dispatch_initialize size changed")
+ASSERT(SIZEOF(.collision_dispatch_initialize_strings) == 0x60, "collision_dispatch_initialize_strings size changed")
+ASSERT(SIZEOF(.endgame_19a1c_1aa40) == 0x1024, "endgame_19a1c_1aa40 size changed")
+ASSERT(SIZEOF(.endgame_1ad68_1ad70) == 0x8, "endgame_1ad68_1ad70 size changed")
+ASSERT(SIZEOF(.endgame_data_90cac_90d3c) == 0x90, "endgame_data_90cac_90d3c size changed")
+ASSERT(SIZEOF(.endgame_data_90d9c_90ea4) == 0x108, "endgame_data_90d9c_90ea4 size changed")
+ASSERT(SIZEOF(.collision_dispatch_initialize_bss) == 0x190, "collision callback table size changed")
+func_8001567C = 0x8001567C;
+func_80015BF8 = 0x80015BF8;
+func_80015F00 = 0x80015F00;
+func_8001631C = 0x8001631C;
+func_8001669C = 0x8001669C;
+func_80016950 = 0x80016950;
+func_80016C1C = 0x80016C1C;
+func_8001737C = 0x8001737C;
