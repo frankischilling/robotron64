@@ -5,7 +5,10 @@ uses the local libreultra `2.0I/PR/gbi.h` for vertex-load and two-triangle
 packet formats. Private decomp-permuter experiments helped identify IDO's
 different scheduling for direct arena indexing and cached vertex pointers.
 Robotron's complete instruction ranges and storage references determine
-the accepted source. No reference game or SDK implementation was copied.
+the accepted source. The [tube and star rendering reconstruction](docs/early-render-effects.md)
+uses the same local GBI header for geometry-mode bits and packed triangle
+indices. Its shared palette and complete procedure behavior come from the
+Robotron target. No reference game or SDK implementation was copied.
 
 The [decimal parser and controller-state recovery](docs/float-parser-controller-state.md)
 uses the pinned IDO and SM64 build references for compiler behavior and the

@@ -2034,5 +2034,20 @@
       "D_80138274": 12
     },
     "evidence": "docs/early-render-command-streams.md"
+  },
+  {
+    "source": "src/game/early_render_tube_data.c",
+    "object": "build/us/early_render_tube_data.o",
+    "input_section": ".data",
+    "section": ".early_render_tube_data",
+    "vram": 2147954904,
+    "rom": 474328,
+    "size": 104,
+    "symbols": {
+      "D_800730D8": 0,
+      "D_800730DC": 4,
+      "D_800730E0": 8
+    },
+    "evidence": "docs/early-render-effects.md"
   }
 ]
