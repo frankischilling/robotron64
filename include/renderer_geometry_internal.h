@@ -69,6 +69,8 @@ void func_8004417C(int light);
 void func_800441D0(RendererPolygon *polygon);
 void func_80044270(int *first, int *second, int *third);
 void func_800443A0(int *first, int *second, int *third, int *fourth);
+void func_80044B18(int *first, int *second, int *third, int *fourth);
+void func_80044D84(int *first, int *second, int *third);
 void func_800462DC(unsigned int address);
 void func_800463E8(unsigned int address);
 void func_80049AD8(unsigned short *palette);

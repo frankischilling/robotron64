@@ -14556,5 +14556,27 @@
     "section": ".controller_service_setup",
     "section_vram": 2147808472,
     "evidence": "docs/controller-service-setup.md"
+  },
+  {
+    "name": "func_80044B18",
+    "rom": 284440,
+    "vram": 2147765016,
+    "size": 620,
+    "source": "src/game/renderer_textured_submit.c",
+    "object": "build/us/renderer_textured_submit.o",
+    "section": ".renderer_textured_submit",
+    "section_vram": 2147765016,
+    "evidence": "docs/renderer-textured-submission.md"
+  },
+  {
+    "name": "func_80044D84",
+    "rom": 285060,
+    "vram": 2147765636,
+    "size": 476,
+    "source": "src/game/renderer_textured_submit.c",
+    "object": "build/us/renderer_textured_submit.o",
+    "section": ".renderer_textured_submit",
+    "section_vram": 2147765016,
+    "evidence": "docs/renderer-textured-submission.md"
   }
 ]

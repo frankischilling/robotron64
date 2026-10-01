@@ -788,6 +788,7 @@ MATCHING_BLOCKS = (
     ("renderer_status_text", "src/game/renderer_status_text.c", 0x8004B340, 0x8004B45C),
     ("early_boundary_actor_spawn", "src/game/early_boundary_actor_spawn.c", 0x8000A074, 0x8000A200),
     ("controller_service_setup", "src/game/controller_service_setup.c", 0x8004F4D8, 0x8004F850),
+    ("renderer_textured_submit", "src/game/renderer_textured_submit.c", 0x80044B18, 0x80044F60),
 )
 
 CANDIDATE_BLOCKS = (

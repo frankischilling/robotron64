@@ -61,6 +61,13 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [textured polygon submission recovery](docs/renderer-textured-submission.md)
+uses the local Super Mario 64 `include/PR/gbi.h` and libreultra
+`include/2.0I/PR/gbi.h`, together with their online sources, for hardware
+vertex layouts and vertex, triangle, and quad command packing. Robotron's
+own complete code and data comparisons establish the corner selectors,
+position conversion, alpha writes, diagnostics, and cursor behavior.
+
 The early session animation recovery uses the recorded IDO compiler materials
 and Super Mario 64 build conventions for compiler and linker handling. Its
 actor callbacks, 204-byte records and 36-entry counter array are reconstructed

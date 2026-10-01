@@ -1559,5 +1559,36 @@
     },
     "static_symbols": {},
     "evidence": "docs/controller-service-setup.md"
+  },
+  {
+    "source": "src/game/renderer_textured_submit.c",
+    "object": "build/us/renderer_textured_submit.o",
+    "input_section": ".rodata",
+    "section": ".renderer_textured_submit_strings",
+    "vram": 2148094128,
+    "rom": 613552,
+    "size": 80,
+    "symbols": {},
+    "static_symbols": {
+      "D_800950B0": 0,
+      "D_800950D0": 32,
+      "D_800950D8": 40,
+      "D_800950F8": 72
+    },
+    "evidence": "docs/renderer-textured-submission.md"
+  },
+  {
+    "source": "src/game/renderer_textured_submit.c",
+    "object": "build/us/renderer_textured_submit.o",
+    "input_section": ".data",
+    "section": ".renderer_texture_corner_state",
+    "vram": 2147995056,
+    "rom": 514480,
+    "size": 16,
+    "symbols": {
+      "D_8007CDB0": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-textured-submission.md"
   }
 ]
