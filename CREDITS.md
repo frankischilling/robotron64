@@ -1,5 +1,11 @@
 # Credits and references
 
+The [decimal parser and controller-state recovery](docs/float-parser-controller-state.md)
+uses the pinned IDO and SM64 build references for compiler behavior and the
+local libreultra controller header for pad layout. Robotron's instructions
+establish the decimal arithmetic, access widths, and storage offsets.
+No reference implementation was copied into these routines or definitions.
+
 The [camera and input recovery](docs/camera-angles.md) uses the pinned local
 Super Mario 64 camera source for angle conventions and libreultra controller
 headers for pad fields and button bits. Robotron's complete instruction spans

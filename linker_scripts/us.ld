@@ -545,7 +545,7 @@ SECTIONS
     .game_number_format 0x8003B928 : AT(0x3C528) SUBALIGN(4) { build/us/game_number_format.o(.text) }
     .game_character 0x8003BBAC : AT(0x3C7AC) SUBALIGN(4) { build/us/game_character.o(.text) }
     .game_integer_parse 0x8003BD4C : AT(0x3C94C) SUBALIGN(4) { build/us/game_integer_parse.o(.text) }
-    .cpu_after_game_integer_parse 0x8003BDE8 : AT(0x3C9E8) { build/us/fallback.o(.rom_cpu_after_game_integer_parse) }
+    .game_float_parse 0x8003BDE8 : AT(0x3C9E8) SUBALIGN(4) { build/us/game_float_parse.o(.text) }
     .platform_empty 0x8003BF5C : AT(0x3CB5C) SUBALIGN(4) { build/us/platform_empty.o(.text) }
     .palette 0x8003BFEC : AT(0x3CBEC) SUBALIGN(4) { build/us/palette.o(.text) }
     .controller_button 0x8003C180 : AT(0x3CD80) SUBALIGN(4) { build/us/controller_button.o(.text) }
@@ -1343,6 +1343,7 @@ SECTIONS
     }
     .camera_state_data_bss 0x800C8B88 (NOLOAD) : SUBALIGN(4) { build/us/camera_state_data.o(.bss) }
     .camera_matrix_data_bss 0x800CD250 (NOLOAD) : SUBALIGN(4) { build/us/camera_matrix_data.o(.bss) }
+    .controller_pad_state_bss 0x8013DBA0 (NOLOAD) : SUBALIGN(4) { build/us/controller_pad_state.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -1731,7 +1732,6 @@ ASSERT(SIZEOF(.game_string_compare_n) == 0x48, "game_string_compare_n size chang
 ASSERT(SIZEOF(.game_number_format) == 0x284, "game_number_format size changed")
 ASSERT(SIZEOF(.game_character) == 0x1a0, "game_character size changed")
 ASSERT(SIZEOF(.game_integer_parse) == 0x9c, "game_integer_parse size changed")
-ASSERT(SIZEOF(.cpu_after_game_integer_parse) == 0x174, "cpu_after_game_integer_parse size changed")
 ASSERT(SIZEOF(.platform_empty) == 0x90, "platform_empty size changed")
 ASSERT(SIZEOF(.palette) == 0x194, "palette size changed")
 ASSERT(SIZEOF(.controller_button) == 0x28, "controller_button size changed")
@@ -2405,7 +2405,6 @@ ASSERT(SIZEOF(.endgame_16f1c_17218) == 0x2fc, "endgame_16f1c_17218 size changed"
 ASSERT(SIZEOF(.endgame_1c0f8_1c3d0) == 0x2d8, "endgame_1c0f8_1c3d0 size changed")
 ASSERT(SIZEOF(.endgame_data_90f96_92558) == 0x15c2, "endgame_data_90f96_92558 size changed")
 D_8007CCC0 = 0x8007CCC0;
-D_8013DBF8 = 0x8013DBF8;
 ASSERT(SIZEOF(.menu_transition_start) == 0x94, "menu_transition_start size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache) == 0x90, "renderer_texture_file_cache size changed")
 ASSERT(SIZEOF(.menu_transition_start_bss) == 0x64, "menu_transition_start_bss size changed")
@@ -2777,3 +2776,5 @@ ASSERT(SIZEOF(.object_camera_angles_alt_constant) == 0x4, "object_camera_angles_
 ASSERT(SIZEOF(.camera_state_data_bss) == 0x78, "camera_state_data BSS size changed")
 ASSERT(SIZEOF(.camera_matrix_data_bss) == 0x24, "camera_matrix_data BSS size changed")
 ASSERT(SIZEOF(.controller_input) == 0x320, "controller_input size changed")
+ASSERT(SIZEOF(.game_float_parse) == 0x174, "game_float_parse size changed")
+ASSERT(SIZEOF(.controller_pad_state_bss) == 0x6a, "controller_pad_state BSS size changed")

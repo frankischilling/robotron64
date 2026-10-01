@@ -24,6 +24,7 @@ extern unsigned char D_8013D9D0;
 extern unsigned char D_8013D9D1;
 extern SdkPfs D_8013D9D8[4];
 extern SdkControllerPad D_8013DBA0[4];
+extern unsigned short D_8013DC08;
 extern OSMesgQueue D_80141210;
 extern OSMesgQueue D_80141228;
 extern OSMesg D_80141240;

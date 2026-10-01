@@ -63,8 +63,10 @@ The unsigned character local starts at zero. IDO eliminates that initialization,
 but it affects register allocation: the cursor occupies `v1` and the character
 occupies `v0`, as in the target. The source contains no inline assembly or
 instruction patches. Independent comparison and the full linked ROM verify
-the complete procedure. The older combined string candidate remains excluded;
-its duplicate append body is not counted a second time.
+the complete procedure. The older combined string candidate has been retired
+because all its procedures now have complete matching sources. The
+[candidate inventory notes](float-parser-controller-state.md#candidate-inventory-correction)
+link its historical source.
 The [append provenance](game-string-append-provenance.json) records the source,
 compiler, build inputs, and both instruction hashes.
 
@@ -115,4 +117,6 @@ The parser at `0x8003BD4C..0x8003BDE8` matches all 156 bytes in
 `src/game/game_integer_parse.c`. It accepts an initial minus sign, consumes
 decimal digits, and stops at the first other character. It does not skip
 whitespace or accept a leading plus sign. The floating parser beginning at
-`0x8003BDE8` remains an excluded candidate.
+`0x8003BDE8` now matches all 372 bytes in `src/game/game_float_parse.c`.
+[Its recovery notes](float-parser-controller-state.md) record the fractional
+arithmetic, sequenced sign/cursor expression, and multiply-workaround profile.
