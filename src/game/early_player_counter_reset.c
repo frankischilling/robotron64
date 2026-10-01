@@ -1,9 +1,4 @@
-typedef struct EarlyPlayerCounters {
-    short values[14];
-    short timers[14];
-} EarlyPlayerCounters;
-
-extern EarlyPlayerCounters D_8009E9E0;
+#include "../../include/early_input_internal.h"
 
 void func_8001BF48(int *state)
 {

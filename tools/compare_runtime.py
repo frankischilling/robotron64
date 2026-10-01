@@ -284,6 +284,7 @@ MATCHING_BLOCKS = (
     ("object_runtime_service", "src/game/object_runtime_service.c", 0x8003B254, 0x8003B2B0),
     ("object_runtime_active", "src/game/object_runtime_active.c", 0x8003B428, 0x8003B4C0),
     ("game_memory", "src/game/game_memory.c", 0x8003B4C0, 0x8003B734),
+    ("game_string_append", "src/game/game_string_append.c", 0x8003B734, 0x8003B768),
     ("game_string_case_compare", "src/game/game_string_case_compare.c", 0x8003B768, 0x8003B7FC),
     ("game_string_compare", "src/game/game_string_compare.c", 0x8003B7FC, 0x8003B838),
     ("game_string_case_compare_n", "src/game/game_string_case_compare_n.c", 0x8003B838, 0x8003B8E0),
@@ -667,6 +668,7 @@ MATCHING_BLOCKS = (
     ("frame_slot_allocate", "src/game/frame_slot_allocate.c", 0x8004E7D4, 0x8004E820),
     ("audio_handle_tests", "src/game/audio_handle_tests.c", 0x80059500, 0x80059580),
     ("early_player_counter_reset", "src/game/early_player_counter_reset.c", 0x8001BF48, 0x8001BFB0),
+    ("early_player_sequence", "src/game/early_player_sequence.c", 0x8001BFB0, 0x8001C0C8),
     ("compression_stored", "src/game/compression_stored.c", 0x8005E9D0, 0x8005ECA8),
     ("video_vertical_scale", "src/sdk/video_vertical_scale.c", 0x80064CE0, 0x80064D38),
     ("thread_yield", "src/sdk/thread_yield.c", 0x8006E6F0, 0x8006E73C),
@@ -818,6 +820,7 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("early_player_input_sample", "src/game/early_player_input_sample.c", 0x8001A1F0, 0x8001A2C4),
     ("actor_contact_gate", "src/game/actor_contact_gate.c", 0x8001669C, 0x80016914),
     ("object_camera_angles", "src/game/object_camera_angles.c", 0x80039FCC, 0x8003A070),
     ("object_camera_angles_alt", "src/game/object_camera_angles_alt.c", 0x8003A128, 0x8003A1C8),

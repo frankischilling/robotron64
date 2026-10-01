@@ -408,6 +408,12 @@ procedure count. Full startup and runtime comparisons validate the completed
 
 ## Remaining work
 
+The [input-sequence recognizer](early-input-sequences.md) and
+[string append helper](game-memory.md#string-append) now have complete matching
+source comparisons. Their sampling caller still has three register differences.
+`make remaining` generates the current unresolved CPU span inventory from the
+layout declarations; [measurement notes](remaining-ranges.md) explain its limits.
+
 Three central compression procedures still have compiler differences. The
 full audio sequence reader, several sequencer
 commands, and the main audio dispatcher also remain fallback code. Larger

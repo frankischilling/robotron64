@@ -4,7 +4,7 @@ CROSS := mips-linux-gnu-
 IDO := .local/toolchain/5.3/cc
 BASEROM ?= baseroms/us/baserom.z64
 
-.PHONY: all setup toolchain verify progress clean test analysis-setup analyze resources compare-data
+.PHONY: all setup toolchain verify progress remaining clean test analysis-setup analyze resources compare-data
 
 compare-data: toolchain
 	$(PYTHON) tools/compare_data.py
@@ -4781,7 +4781,7 @@ build/us/audio_handle_tests.o: src/game/audio_handle_tests.c include/audio_contr
 	$(PYTHON) tools/trim_padding.py build/us/audio_handle_tests.raw.o $@ .text 0x80
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_player_counter_reset.o: src/game/early_player_counter_reset.c $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_player_counter_reset.o: src/game/early_player_counter_reset.c include/early_input_internal.h include/save_game.h include/pak_file.h include/scene_definition.h include/controller_input.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_player_counter_reset.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_player_counter_reset.raw.o $@ .text 0x68
@@ -6140,6 +6140,22 @@ build/us/actor_pool_allocate.o: src/game/actor_pool_allocate.c tools/owned_secti
 RUNTIME_OBJECTS += \
     build/us/actor_pool_allocate.o
 
+build/us/game_string_append.o: src/game/game_string_append.c include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_string_append.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/game_string_append.raw.o $@ .text 0x34
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/game_string_append.o
+
+build/us/early_player_sequence.o: src/game/early_player_sequence.c include/early_input_internal.h include/save_game.h include/pak_file.h include/scene_definition.h include/controller_input.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_player_sequence.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_player_sequence.raw.o $@ .text 0x118
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_player_sequence.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -6152,9 +6168,13 @@ verify: all
 progress: verify
 	$(PYTHON) tools/progress.py
 
+remaining:
+	$(PYTHON) tools/remaining.py
+
 test:
 	$(PYTHON) -m unittest discover -s tests -v
 	$(PYTHON) tools/manifest.py
+	$(PYTHON) tools/remaining.py --limit 0
 
 analysis-setup:
 	$(PYTHON) -m venv .venv

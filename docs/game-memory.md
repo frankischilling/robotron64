@@ -49,9 +49,24 @@ The case-sensitive comparisons at `0x8003B7FC..0x8003B838` and
 first mismatch or terminator. The second applies the same comparison while the
 signed count remains positive. The 168-byte bounded case-normalizing comparison
 at `0x8003B838..0x8003B8E0` lowercases both bytes before comparing them and
-returns the normalized unsigned-byte difference on a mismatch. The routine at
-`0x8003B734` remains an excluded candidate in
-`src/game/game_string_comparisons.c`.
+returns the normalized unsigned-byte difference on a mismatch.
+
+## String append
+
+`src/game/game_string_append.c` recovers all 52 bytes at
+`0x8003B734..0x8003B768`, corresponding to ROM `0x3C334..0x3C368`.
+It scans past the destination's zero terminator, moves back one byte, then
+copies the source including its terminator. It returns the original destination
+pointer and retains the original lack of a destination capacity check.
+
+The unsigned character local starts at zero. IDO eliminates that initialization,
+but it affects register allocation: the cursor occupies `v1` and the character
+occupies `v0`, as in the target. The source contains no inline assembly or
+instruction patches. Independent comparison and the full linked ROM verify
+the complete procedure. The older combined string candidate remains excluded;
+its duplicate append body is not counted a second time.
+The [append provenance](game-string-append-provenance.json) records the source,
+compiler, build inputs, and both instruction hashes.
 
 ## Number formatting
 

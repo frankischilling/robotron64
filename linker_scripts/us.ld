@@ -216,7 +216,8 @@ SECTIONS
     .early_name_mask_parse 0x8001BD24 : AT(0x1C924) SUBALIGN(4) { build/us/early_name_mask_parse.o(.text) }
     .endgame_1ca2c_1cb48 0x8001BE2C : AT(0x1CA2C) { build/us/fallback.o(.rom_endgame_1ca2c_1cb48) }
     .early_player_counter_reset 0x8001BF48 : AT(0x1CB48) SUBALIGN(4) { build/us/early_player_counter_reset.o(.text) }
-    .endgame_1cbb0_1d340 0x8001BFB0 : AT(0x1CBB0) { build/us/fallback.o(.rom_endgame_1cbb0_1d340) }
+    .early_player_sequence 0x8001BFB0 : AT(0x1CBB0) SUBALIGN(4) { build/us/early_player_sequence.o(.text) }
+    .cpu_after_early_player_sequence 0x8001C0C8 : AT(0x1CCC8) { build/us/fallback.o(.rom_cpu_after_early_player_sequence) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
     .script_service_files 0x8001C790 : AT(0x1D390) SUBALIGN(4) { build/us/script_service_files.o(.text) }
     .script_service_cache_access 0x8001C8C4 : AT(0x1D4C4) SUBALIGN(4) { build/us/script_service_cache_access.o(.text) }
@@ -534,7 +535,7 @@ SECTIONS
     .cpu_after_object_runtime_service 0x8003B2B0 : AT(0x3BEB0) { build/us/fallback.o(.rom_cpu_after_object_runtime_service) }
     .object_runtime_active 0x8003B428 : AT(0x3C028) SUBALIGN(4) { build/us/object_runtime_active.o(.text) }
     .game_memory 0x8003B4C0 : AT(0x3C0C0) SUBALIGN(4) { build/us/game_memory.o(.text) }
-    .cpu_after_game_memory 0x8003B734 : AT(0x3C334) { build/us/fallback.o(.rom_cpu_after_game_memory) }
+    .game_string_append 0x8003B734 : AT(0x3C334) SUBALIGN(4) { build/us/game_string_append.o(.text) }
     .game_string_case_compare 0x8003B768 : AT(0x3C368) SUBALIGN(4) { build/us/game_string_case_compare.o(.text) }
     .game_string_compare 0x8003B7FC : AT(0x3C3FC) SUBALIGN(4) { build/us/game_string_compare.o(.text) }
     .game_string_case_compare_n 0x8003B838 : AT(0x3C438) SUBALIGN(4) { build/us/game_string_case_compare_n.o(.text) }
@@ -1713,7 +1714,7 @@ ASSERT(SIZEOF(.object_runtime_service) == 0x5c, "object_runtime_service size cha
 ASSERT(SIZEOF(.cpu_after_object_runtime_service) == 0x178, "cpu_after_object_runtime_service size changed")
 ASSERT(SIZEOF(.object_runtime_active) == 0x98, "object_runtime_active size changed")
 ASSERT(SIZEOF(.game_memory) == 0x274, "game_memory size changed")
-ASSERT(SIZEOF(.cpu_after_game_memory) == 0x34, "cpu_after_game_memory size changed")
+ASSERT(SIZEOF(.game_string_append) == 0x34, "game_string_append size changed")
 ASSERT(SIZEOF(.game_string_case_compare) == 0x94, "game_string_case_compare size changed")
 ASSERT(SIZEOF(.game_string_compare) == 0x3c, "game_string_compare size changed")
 ASSERT(SIZEOF(.game_string_case_compare_n) == 0xa8, "game_string_case_compare_n size changed")
@@ -2269,7 +2270,8 @@ ASSERT(SIZEOF(.os_map_debug_tlb) == 0x60, "os_map_debug_tlb size changed")
 ASSERT(SIZEOF(.square_root) == 0x10, "square_root size changed")
 ASSERT(SIZEOF(.endgame_1b148_1b9a0) == 0x858, "endgame_1b148_1b9a0 size changed")
 ASSERT(SIZEOF(.endgame_1ca2c_1cb48) == 0x11c, "endgame_1ca2c_1cb48 size changed")
-ASSERT(SIZEOF(.endgame_1cbb0_1d340) == 0x790, "endgame_1cbb0_1d340 size changed")
+ASSERT(SIZEOF(.early_player_sequence) == 0x118, "early_player_sequence size changed")
+ASSERT(SIZEOF(.cpu_after_early_player_sequence) == 0x678, "cpu_after_early_player_sequence size changed")
 ASSERT(SIZEOF(.endgame_4edc0_4f3d4) == 0x614, "endgame_4edc0_4f3d4 size changed")
 ASSERT(SIZEOF(.endgame_50584_50590) == 0xc, "endgame_50584_50590 size changed")
 ASSERT(SIZEOF(.endgame_5edec_5f5d0) == 0x7e4, "endgame_5edec_5f5d0 size changed")

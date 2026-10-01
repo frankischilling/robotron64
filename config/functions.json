@@ -5050,6 +5050,17 @@
     "evidence": "docs/game-memory.md"
   },
   {
+    "name": "func_8003B734",
+    "rom": 246580,
+    "vram": 2147727156,
+    "size": 52,
+    "source": "src/game/game_string_append.c",
+    "object": "build/us/game_string_append.o",
+    "section": ".game_string_append",
+    "section_vram": 2147727156,
+    "evidence": "docs/game-memory.md"
+  },
+  {
     "name": "func_8003B768",
     "rom": 246632,
     "vram": 2147727208,
@@ -14897,5 +14908,16 @@
     "section": ".actor_pool_allocate",
     "section_vram": 2147648468,
     "evidence": "docs/actor-pool-allocation.md"
+  },
+  {
+    "name": "func_8001BFB0",
+    "rom": 117680,
+    "vram": 2147598256,
+    "size": 280,
+    "source": "src/game/early_player_sequence.c",
+    "object": "build/us/early_player_sequence.o",
+    "section": ".early_player_sequence",
+    "section_vram": 2147598256,
+    "evidence": "docs/early-input-sequences.md"
   }
 ]
