@@ -1788,5 +1788,19 @@
     },
     "static_symbols": {},
     "evidence": "docs/actor-pool-allocation.md"
+  },
+  {
+    "source": "src/game/sound_request_dispatch.c",
+    "object": "build/us/sound_request_dispatch.o",
+    "input_section": ".rodata",
+    "section": ".sound_request_dispatch_strings",
+    "vram": 2148090560,
+    "rom": 609984,
+    "size": 32,
+    "symbols": {},
+    "static_symbols": {
+      "D_800942C0": 0
+    },
+    "evidence": "docs/input-contact-sound.md"
   }
 ]

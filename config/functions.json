@@ -14919,5 +14919,49 @@
     "section": ".early_player_sequence",
     "section_vram": 2147598256,
     "evidence": "docs/early-input-sequences.md"
+  },
+  {
+    "name": "func_8000CD50",
+    "rom": 55632,
+    "vram": 2147536208,
+    "size": 228,
+    "source": "src/game/early_relative_position.c",
+    "object": "build/us/early_relative_position.o",
+    "section": ".early_relative_position",
+    "section_vram": 2147536208,
+    "evidence": "docs/input-contact-sound.md"
+  },
+  {
+    "name": "func_8001669C",
+    "rom": 94876,
+    "vram": 2147575452,
+    "size": 632,
+    "source": "src/game/actor_contact_gate.c",
+    "object": "build/us/actor_contact_gate.o",
+    "section": ".actor_contact_gate",
+    "section_vram": 2147575452,
+    "evidence": "docs/actor-contact-gate.md"
+  },
+  {
+    "name": "func_8001A1F0",
+    "rom": 110064,
+    "vram": 2147590640,
+    "size": 212,
+    "source": "src/game/early_player_input_sample.c",
+    "object": "build/us/early_player_input_sample.o",
+    "section": ".early_player_input_sample",
+    "section_vram": 2147590640,
+    "evidence": "docs/early-input-sequences.md"
+  },
+  {
+    "name": "func_8003614C",
+    "rom": 224588,
+    "vram": 2147705164,
+    "size": 176,
+    "source": "src/game/sound_request_dispatch.c",
+    "object": "build/us/sound_request_dispatch.o",
+    "section": ".sound_request_dispatch",
+    "section_vram": 2147705164,
+    "evidence": "docs/input-contact-sound.md"
   }
 ]

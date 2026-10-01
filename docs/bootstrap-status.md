@@ -33,7 +33,10 @@ build and linked progress at that checkpoint verified 934 C functions and the en
 The [input-sequence recovery](early-input-sequences.md) adds the complete
 280-byte recognizer and shares its counter layout with the matching reset
 helper. The [string append helper](game-memory.md#string-append) adds another
-52 exact instruction bytes. The sampling caller remains an excluded candidate.
+52 exact instruction bytes. Its 212-byte sampling caller now also matches.
+The [contact and sound recovery](input-contact-sound.md) adds the complete
+632-byte actor contact gate, 228-byte relative-field helper, and 176-byte
+immediate sound dispatcher plus its 32-byte warning.
 The [remaining-range inventory](remaining-ranges.md) records unresolved CPU
 fallback spans without treating every span as code or claiming a completion
 percentage.

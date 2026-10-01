@@ -29,7 +29,7 @@
   },
   "proof": {
     "report": "build/runtime-comparison/report.json",
-    "report_sha256": "0b6101416a166404b629650660c9c05b67e99fd5cfecec686df5344a1c1f5c01",
+    "report_sha256": "4d3a56b2cfc0fd77ac007ae5e94bf79463b78419e752338817a26a74f0cb7f3f",
     "expected_bytes": 104,
     "actual_bytes": 104,
     "different_words": 0,

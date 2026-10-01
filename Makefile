@@ -6156,6 +6156,39 @@ build/us/early_player_sequence.o: src/game/early_player_sequence.c include/early
 
 RUNTIME_OBJECTS += build/us/early_player_sequence.o
 
+build/us/early_player_input_sample.o: src/game/early_player_input_sample.c include/early_input_internal.h include/save_game.h include/pak_file.h include/scene_definition.h include/controller_input.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_player_input_sample.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_player_input_sample.raw.o $@ .text 0xD4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_player_input_sample.o
+
+build/us/early_relative_position.o: src/game/early_relative_position.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/fixed_math.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_relative_position.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_relative_position.raw.o $@ .text 0xe4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_relative_position.o
+
+build/us/actor_contact_gate.o: src/game/actor_contact_gate.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_contact_gate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_contact_gate.raw.o $@ .text 0x278
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_contact_gate.o
+
+build/us/sound_request_dispatch.o: src/game/sound_request_dispatch.c tools/owned_sections.py config/owned_sections.json include/actor.h include/game_memory.h include/object.h include/sound_bridge_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/sound_request_dispatch.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/sound_request_dispatch.raw.o build/us/sound_request_dispatch.text.o .text 0xb0
+	$(PYTHON) tools/owned_sections.py $< build/us/sound_request_dispatch.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/sound_request_dispatch.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

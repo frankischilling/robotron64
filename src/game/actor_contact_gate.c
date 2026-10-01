@@ -1,6 +1,5 @@
 #include "../../include/actor_behavior_internal.h"
 
-/* Excluded from the retail build until the complete procedure matches. */
 typedef struct ActorContactPoint {
     int value[3];
 } ActorContactPoint;
@@ -31,8 +30,8 @@ int func_8001669C(ActorBehaviorActorInternal *first,
     ActorContactPoint temporary;
     ActorContactPoint firstPosition;
     ActorContactPoint secondPosition;
-    short firstKind;
-    short secondKind;
+    short firstKind = 0;
+    short secondKind = 33;
 
     firstPosition = *firstInput;
     secondPosition = *secondInput;
@@ -40,13 +39,11 @@ int func_8001669C(ActorBehaviorActorInternal *first,
         return 0;
     }
     firstKind = ((ActorContactResource *)first->resource24)->kind02;
-    if (firstKind == 33 || firstKind == 34) {
-        switch (firstKind) {
-        case 33:
-        case 34:
-            break;
-        default:
-            return 0;
+    if (secondKind == firstKind || firstKind == 34) {
+        if (secondKind != firstKind) {
+            if (firstKind != 34) {
+                return 0;
+            }
         }
     }
     if ((firstKind >= 17 && firstKind < 21) ||
@@ -63,13 +60,17 @@ int func_8001669C(ActorBehaviorActorInternal *first,
         second = saved;
         firstKind = ((ActorContactResource *)first->resource24)->kind02;
     }
-    if (firstKind == 5 && first->animation1F != 3) {
-        first->flags14 |= 2;
-    }
-    if (((ActorContactResource *)second->resource24)->kind02 == 5 &&
-        second->animation1F != 3) {
-        second->flags14 |= 2;
-    }
+    secondKind = 5;
+    /* The single-pass group preserves IDO's branch operand order. */
+    do {
+        if (secondKind == firstKind && first->animation1F != 3) {
+            first->flags14 |= 2;
+        }
+        if (((ActorContactResource *)second->resource24)->kind02 == 5 &&
+            second->animation1F != 3) {
+            second->flags14 |= 2;
+        }
+    } while (0);
     if (CONTACT_ABSOLUTE(first->position[2] - second->position[2]) >
         CONTACT_ABSOLUTE(D_800B8F60 / 2)) {
         return 0;

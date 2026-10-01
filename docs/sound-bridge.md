@@ -11,7 +11,7 @@ snapshot, function bounds, and every declared source-owned section.
 | --- | --- | ---: | --- |
 | `sound_bridge_core.c` | `0x80036064..0x800360E8` | 132 | exact |
 | `sound_bridge_definitions.c` | `0x800360F0..0x8003614C` | 92 | exact |
-| `sound_bridge_play.c` | `0x8003614C..0x800361FC` | 176 | exact size, 28 code words differ; 32-byte string exact |
+| `sound_request_dispatch.c` | `0x8003614C..0x800361FC` | 176 | exact, including 32-byte string |
 | `sound_bridge_future_reset.c` | `0x800361FC..0x80036288` | 140 | exact |
 | `sound_bridge_future_queue.c` | `0x80036288..0x80036318` | 144 | exact, including 32-byte string |
 | `sound_bridge_future_update.c` | `0x80036318..0x800363D0` | 184 | exact |
@@ -85,18 +85,11 @@ plus the callee's signed range check and full-width register use, support the
 internal signature `int func_8003614C(int sound, int mode, int value,
 int extra)`.
 
-The ordinary-C candidate is the exact 176-byte length but has 28 differing
-instruction words. The target keeps `mode` and `value` live in `a1/a2` and
-spills them only around the optional `func_8003BF9C` call. IDO compiles the
-current equivalent source by homing those parameters earlier. Focused tests
-of ANSI and K&R register parameters, a missing prior prototype, an old-style
-warning declaration, and equivalent inverted/goto range checks did not
-improve the residual. Those alternatives remain private probes; the public
-candidate uses the simplest four-`int` source.
-
-The warning string is nevertheless source-owned and independently proved.
-`sound_bridge_play.c` emits exactly the 32 bytes at
-`0x800942C0..0x800942E0`, including its terminating NUL and alignment.
+The complete routine is now matching in `sound_request_dispatch.c`. Passing
+the observed mode and value arguments to `func_8003BF94` preserves their
+register lifetimes and the optional-call spills. Every instruction word and
+the complete 32-byte warning span match. The older 28-word candidate report
+is superseded by the [current batch evidence](input-contact-sound.md).
 
 ## Deferred sound queue
 
@@ -165,6 +158,6 @@ independent report and input snapshot under
 declarations are recorded in `.local/recovery48-sound/owned.json`.
 
 Exact units are eligible for prime integration only after a fresh independent
-verification from the frozen source snapshot. The two candidates above remain
-outside the matching manifest until their complete code and, for the
-formatter, generated table bytes match.
+verification from the frozen source snapshot. The destination formatter remains outside the matching manifest until its
+complete code and generated table bytes match. Immediate sound dispatch is
+now part of the matching runtime report.
