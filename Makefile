@@ -6062,6 +6062,15 @@ build/us/save_menu_continue_character.o: src/game/save_menu_continue_character.c
 RUNTIME_OBJECTS += \
     build/us/save_menu_continue_character.o
 
+build/us/object_history_render.o: src/game/object_history_render.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_history_internal.h include/object_recovery.h include/renderer_draw_state_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_history_render.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/object_history_render.raw.o $@ .text 0x1f8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/object_history_render.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

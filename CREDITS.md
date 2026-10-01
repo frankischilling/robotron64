@@ -79,6 +79,12 @@ instructions and existing matching actor helpers establish placement,
 callback arguments, and the retained unwritten position coordinate.
 No reference implementation is copied.
 
+The [object history renderer](docs/object-history-rendering.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions, matching object callers, and history writer establish the
+record layouts and rendering behavior. No reference implementation is
+copied.
+
 The [continue-code character helper](docs/continue-character.md) uses the
 same pinned IDO and N64 matching-workflow references. Robotron's complete
 instructions and matching character encoder establish its adjustments

@@ -14809,5 +14809,16 @@
     "section": ".save_menu_continue_character",
     "section_vram": 2147684404,
     "evidence": "docs/continue-character.md"
+  },
+  {
+    "name": "func_8004E968",
+    "rom": 324968,
+    "vram": 2147805544,
+    "size": 504,
+    "source": "src/game/object_history_render.c",
+    "object": "build/us/object_history_render.o",
+    "section": ".object_history_render",
+    "section_vram": 2147805544,
+    "evidence": "docs/object-history-rendering.md"
   }
 ]

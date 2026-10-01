@@ -19,6 +19,8 @@ struct ObjectDrawResource {
     ObjectResourceType *type;
     unsigned char unknown28[0x20];
     int timestamp48;
+    int historyCount4C;
+    int historySlot50;
 };
 
 typedef struct ObjectModelFrame {

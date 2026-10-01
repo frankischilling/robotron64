@@ -137,7 +137,6 @@ REGIONS = (
     ("cpu_after_heap", 0x4ea8c, 0x4ead8),
     ("cpu_after_heap_empty", 0x4eae0, 0x4ed68),
     ("endgame_4edc0_4f3d4", 0x4edc0, 0x4f3d4),
-    ("endgame_4f568_4f760", 0x4f568, 0x4f760),
     ("cpu_after_actor_history_byte_clear", 0x4f774, 0x4f780),
     ("cpu_after_rom_files", 0x4fba8, 0x4fbb0),
     ("endgame_4ff30_500d8", 0x4ff30, 0x500d8),

@@ -686,7 +686,7 @@ SECTIONS
     .endgame_4edc0_4f3d4 0x8004E1C0 : AT(0x4EDC0) { build/us/fallback.o(.rom_endgame_4edc0_4f3d4) }
     .frame_slot_allocate 0x8004E7D4 : AT(0x4F3D4) SUBALIGN(4) { build/us/frame_slot_allocate.o(.text) }
     .object_history_write 0x8004E820 : AT(0x4F420) SUBALIGN(4) { build/us/object_history_write.o(.text) }
-    .endgame_4f568_4f760 0x8004E968 : AT(0x4F568) { build/us/fallback.o(.rom_endgame_4f568_4f760) }
+    .object_history_render 0x8004E968 : AT(0x4F568) SUBALIGN(4) { build/us/object_history_render.o(.text) }
     .actor_history_byte_clear 0x8004EB60 : AT(0x4F760) SUBALIGN(4) { build/us/actor_history_byte_clear.o(.text) }
     .cpu_after_actor_history_byte_clear 0x8004EB74 : AT(0x4F774) { build/us/fallback.o(.rom_cpu_after_actor_history_byte_clear) }
     .rom_directory 0x8004EB80 : AT(0x4F780) SUBALIGN(4) { build/us/rom_directory.o(.text) }
@@ -2485,7 +2485,6 @@ ASSERT(SIZEOF(.endgame_273bc_27610) == 0x254, "endgame_273bc_27610 size changed"
 ASSERT(SIZEOF(.endgame_2770c_284ac) == 0xda0, "endgame_2770c_284ac size changed")
 ASSERT(SIZEOF(.endgame_48168_48c20) == 0xab8, "endgame_48168_48c20 size changed")
 ASSERT(SIZEOF(.endgame_48d64_48d70) == 0xc, "endgame_48d64_48d70 size changed")
-ASSERT(SIZEOF(.endgame_4f568_4f760) == 0x1f8, "endgame_4f568_4f760 size changed")
 D_8007C970 = 0x8007C970;
 D_8013823C = 0x8013823C;
 D_80138254 = 0x80138254;
@@ -2694,3 +2693,4 @@ ASSERT(SIZEOF(.actor_pickup_dispatch) == 0x40, "actor_pickup_dispatch size chang
 ASSERT(SIZEOF(.endgame_data_90588_90a04) == 0x47c, "endgame_data_90588_90a04 size changed")
 ASSERT(SIZEOF(.endgame_data_90a44_90b08) == 0xc4, "endgame_data_90a44_90b08 size changed")
 ASSERT(SIZEOF(.save_menu_continue_character) == 0x4C, "continue character text size changed")
+ASSERT(SIZEOF(.object_history_render) == 0x1F8, "object history renderer text size changed")
