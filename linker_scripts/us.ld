@@ -1,3 +1,8 @@
+D_800B4B00 = 0x800B4B00;
+D_80097350 = 0x80097350;
+D_80073574 = 0x80073574;
+D_80073588 = 0x80073588;
+D_800AD1B8 = 0x800AD1B8;
 func_80031ECC = 0x80031ECC;
 D_FLT_800C8DF8 = 0x800C8DF8;
 D_FLT_800C8DF4 = 0x800C8DF4;
@@ -149,7 +154,8 @@ SECTIONS
     .endgame_fc30_ff18 0x8000F030 : AT(0xFC30) { build/us/fallback.o(.rom_endgame_fc30_ff18) }
     .early_bonus_pattern 0x8000F318 : AT(0xFF18) SUBALIGN(4) { build/us/early_bonus_pattern.o(.text) }
     .early_animation_restart 0x8000F4E0 : AT(0x100E0) SUBALIGN(4) { build/us/early_animation_restart.o(.text) }
-    .endgame_10164_11060 0x8000F564 : AT(0x10164) { build/us/fallback.o(.rom_endgame_10164_11060) }
+    .early_actor_pair_spawn 0x8000F564 : AT(0x10164) SUBALIGN(4) { build/us/early_actor_pair_spawn.o(.text) }
+    .endgame_103d8_11060 0x8000F7D8 : AT(0x103D8) { build/us/fallback.o(.rom_endgame_103d8_11060) }
     .early_reset_parameter 0x80010460 : AT(0x11060) SUBALIGN(4) { build/us/early_reset_parameter.o(.text) }
     .endgame_1109c_13290 0x8001049C : AT(0x1109C) { build/us/fallback.o(.rom_endgame_1109c_13290) }
     .early_float_step 0x80012690 : AT(0x13290) SUBALIGN(4) { build/us/early_float_step.o(.text) }
@@ -2351,7 +2357,6 @@ D_80097328 = 0x80097328;
 D_800972F8 = 0x800972F8;
 ASSERT(SIZEOF(.early_animation_restart) == 0x84, "early_animation_restart size changed")
 ASSERT(SIZEOF(.early_transition_arrays_clear) == 0x8c, "early_transition_arrays_clear size changed")
-ASSERT(SIZEOF(.endgame_10164_11060) == 0xefc, "endgame_10164_11060 size changed")
 D_8009AFC0 = 0x8009AFC0;
 D_8009F928 = 0x8009F928;
 D_800B00A0 = 0x800B00A0;
@@ -2681,3 +2686,5 @@ ASSERT(SIZEOF(.scene_frame_tick) == 0x230, "scene_frame_tick size changed")
 ASSERT(SIZEOF(.scene_frame_tick_constants) == 0x8, "scene_frame_tick_constants size changed")
 ASSERT(SIZEOF(.endgame_data_94f00_957e0) == 0x8e0, "endgame_data_94f00_957e0 size changed")
 ASSERT(SIZEOF(.endgame_data_957e8_95b20) == 0x338, "endgame_data_957e8_95b20 size changed")
+ASSERT(SIZEOF(.endgame_103d8_11060) == 0xc88, "endgame_103d8_11060 size changed")
+ASSERT(SIZEOF(.early_actor_pair_spawn) == 0x274, "early actor pair text size changed")

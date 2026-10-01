@@ -14776,5 +14776,16 @@
     "section": ".scene_frame_tick",
     "section_vram": 2147714456,
     "evidence": "docs/scene-frame-tick.md"
+  },
+  {
+    "name": "func_8000F564",
+    "rom": 65892,
+    "vram": 2147546468,
+    "size": 628,
+    "source": "src/game/early_actor_pair_spawn.c",
+    "object": "build/us/early_actor_pair_spawn.o",
+    "section": ".early_actor_pair_spawn",
+    "section_vram": 2147546468,
+    "evidence": "docs/early-actor-pair-spawn.md"
   }
 ]

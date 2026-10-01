@@ -67,6 +67,12 @@ callers, instructions, and double constant establish its arithmetic and
 platform return interface. No reference implementation is copied. The
 requested repositories remain credited for local and online use.
 
+The [early actor pair helper](docs/early-actor-pair-spawn.md) uses the
+same pinned IDO and N64 matching-workflow references. Robotron's
+instructions and existing matching actor helpers establish placement,
+callback arguments, and the retained unwritten position coordinate.
+No reference implementation is copied.
+
 The [continue-code decoder](docs/continue-code.md) uses the same pinned
 IDO and N64 matching-workflow references. Robotron's instructions and its
 matching encoder establish the bitfield layout, checksum, field limits,

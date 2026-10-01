@@ -22,7 +22,7 @@ REGIONS = (
     ("endgame_f320_f6e4", 0xf320, 0xf6e4),
     ("endgame_f828_f830", 0xf828, 0xf830),
     ("endgame_fc30_ff18", 0xfc30, 0xff18),
-    ("endgame_10164_11060", 0x10164, 0x11060),
+    ("endgame_103d8_11060", 0x103d8, 0x11060),
     ("endgame_1109c_13290", 0x1109c, 0x13290),
     ("endgame_13550_15c20", 0x13550, 0x15c20),
     ("cpu_after_early_actor_create", 0x15ee8, 0x16154),

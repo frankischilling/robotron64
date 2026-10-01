@@ -69,6 +69,7 @@ typedef char EarlyGameActorResourceMustBe88Bytes[
 typedef char EarlyGameActorMustBe124Bytes[
     sizeof(EarlyGameActor) == 0x7C ? 1 : -1];
 
+EarlyGameActor *func_8000F564(int value);
 float func_80012690(float target, float current, float maximumStep);
 void func_8001276C(int advance, int unused);
 void func_8001288C(int unused);
