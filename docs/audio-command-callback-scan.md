@@ -48,6 +48,13 @@ locals are absent.
 Complete procedure hashes, build inputs, and BSS ownership are recorded in
 [the provenance ledger](audio-command-callback-scan-provenance.json).
 
+A clean archive of `97540ad` passes all 137 tooling tests, fresh extraction
+and build, 783 complete runtime units, both startup units, eighteen assembly
+units, and eight data-only units. Linked verification reports 1,299 complete
+matching C functions and 216,836 instruction bytes. Source ownership totals
+9,531 initialized bytes and 30,353 BSS bytes. The rebuilt USA ROM matches
+byte for byte, and the publication audit checks all 1,257 public files.
+
 Robotron's instructions establish the command fields, signed value,
 callback arguments, scan stops, and retained state. The IDO compiler
 materials and established N64 decompilation workflows remain the compiler

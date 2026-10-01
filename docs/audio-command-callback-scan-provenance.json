@@ -299,10 +299,10 @@
         "include/text.h": "5016c60c17368dcb0856f938d4c4ceabee08fd138ff6ce9c9f1bcab553f8ee45",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
         "src/game/audio_engine_parameters.c": "8be24f893729b5dee505aefa2f018c4890547cc378e333bc0a61722dc34a6daa",
-        "tools/compiler.py": "f2fb8744185d2390518ac75116cae3e3714132430b4850def5ae1dff3f3e7909",
+        "tools/compiler.py": "884c53cbceae7c871cef6c69cb70753644dd500803791619c2af68a19730d760",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
       },
-      "complete_comparison_sha256": "dc1b58c23930c67fc2dc38c6827d0b97229de3be45e42e04326538f896b56ee2"
+      "complete_comparison_sha256": "34e8b7d411d722f78e8d9f428c68beeabcf0aaa355a1f550bd2c0092d3886092"
     }
   ],
   "complete_procedures": 14,
@@ -313,6 +313,6 @@
   "source_owned_bss_bytes": 12,
   "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "rebuilt_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "runtime_report_sha256": "980c203f6a2baa57b13b0af3e6cacb21c73d4f14df72eb0d86baed3ddc8646c5",
+  "runtime_report_sha256": "bb0d6011f6bfff847c88c1036ad54873b5d2c2f1c1af39ff5e68e894db3df769",
   "note": "Historical complete instruction and BSS ownership proof. Thirteen handlers were previously recovered; the callback scanner and all twelve BSS bytes are new. Current progress requires current input comparisons."
 }
