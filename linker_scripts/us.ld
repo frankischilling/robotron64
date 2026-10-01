@@ -1,3 +1,7 @@
+D_800925E8 = 0x800925E8;
+D_8009EFB0 = 0x8009EFB0;
+D_800761AC = 0x800761AC;
+D_800AD19C = 0x800AD19C;
 func_800077F4 = 0x800077F4;
 D_800B2480 = 0x800B2480;
 OUTPUT_ARCH(mips)
@@ -227,7 +231,8 @@ SECTIONS
     .save_menu_flag_setter 0x80022050 : AT(0x22C50) SUBALIGN(4) { build/us/save_menu_flag_setter.o(.text) }
     .cpu_after_save_menu_flag_setter 0x8002205C : AT(0x22C5C) { build/us/fallback.o(.rom_cpu_after_save_menu_flag_setter) }
     .save_menu_text_flags 0x800226E8 : AT(0x232E8) SUBALIGN(4) { build/us/save_menu_text_flags.o(.text) }
-    .endgame_23458_23778 0x80022858 : AT(0x23458) { build/us/fallback.o(.rom_endgame_23458_23778) }
+    .endgame_23458_23608 0x80022858 : AT(0x23458) { build/us/fallback.o(.rom_endgame_23458_23608) }
+    .scene_menu_string_refresh 0x80022A08 : AT(0x23608) SUBALIGN(4) { build/us/scene_menu_string_refresh.o(.text) }
     .session_mode_advance 0x80022B78 : AT(0x23778) SUBALIGN(4) { build/us/session_mode_advance.o(.text) }
     .session_background_select 0x80022BFC : AT(0x237FC) SUBALIGN(4) { build/us/session_background_select.o(.text) }
     .save_menu_state_reset 0x80022CF8 : AT(0x238F8) SUBALIGN(4) { build/us/save_menu_state_reset.o(.text) }
@@ -405,7 +410,8 @@ SECTIONS
     .endgame_33600_33900 0x80032A00 : AT(0x33600) { build/us/fallback.o(.rom_endgame_33600_33900) }
     .player_fields_clear 0x80032D00 : AT(0x33900) SUBALIGN(4) { build/us/player_fields_clear.o(.text) }
     .scene_player_setup 0x80032D28 : AT(0x33928) SUBALIGN(4) { build/us/scene_player_setup.o(.text) }
-    .cpu_after_scene_player_setup 0x80032F70 : AT(0x33B70) { build/us/fallback.o(.rom_cpu_after_scene_player_setup) }
+    .scene_actor_reset_begin 0x80032F70 : AT(0x33B70) SUBALIGN(4) { build/us/scene_actor_reset_begin.o(.text) }
+    .endgame_33cf8_344cc 0x800330F8 : AT(0x33CF8) { build/us/fallback.o(.rom_endgame_33cf8_344cc) }
     .scene_signed_shift 0x800338CC : AT(0x344CC) SUBALIGN(4) { build/us/scene_signed_shift.o(.text) }
     .resource_selection_clear 0x800338F0 : AT(0x344F0) SUBALIGN(4) { build/us/resource_selection_clear.o(.text) }
     .endgame_34574_35d90 0x80033974 : AT(0x34574) { build/us/fallback.o(.rom_endgame_34574_35d90) }
@@ -1517,7 +1523,6 @@ ASSERT(SIZEOF(.scene_transition_open) == 0x50, "scene_transition_open size chang
 ASSERT(SIZEOF(.scene_transition_close) == 0x60, "scene_transition_close size changed")
 ASSERT(SIZEOF(.scene_transition_draw) == 0x120, "scene_transition_draw size changed")
 ASSERT(SIZEOF(.scene_player_setup) == 0x248, "scene_player_setup size changed")
-ASSERT(SIZEOF(.cpu_after_scene_player_setup) == 0x95c, "cpu_after_scene_player_setup size changed")
 ASSERT(SIZEOF(.scene_signed_shift) == 0x24, "scene_signed_shift size changed")
 ASSERT(SIZEOF(.scene_actor_parameter_reset) == 0x24, "scene_actor_parameter_reset size changed")
 ASSERT(SIZEOF(.sound_bridge_core) == 0x84, "sound_bridge_core size changed")
@@ -2339,7 +2344,6 @@ ASSERT(SIZEOF(.endgame_cac0_da34) == 0xf74, "endgame_cac0_da34 size changed")
 ASSERT(SIZEOF(.endgame_16f1c_17218) == 0x2fc, "endgame_16f1c_17218 size changed")
 ASSERT(SIZEOF(.endgame_1729c_17514) == 0x278, "endgame_1729c_17514 size changed")
 ASSERT(SIZEOF(.endgame_1c0f8_1c3d0) == 0x2d8, "endgame_1c0f8_1c3d0 size changed")
-ASSERT(SIZEOF(.endgame_23458_23778) == 0x320, "endgame_23458_23778 size changed")
 ASSERT(SIZEOF(.endgame_data_90588_90b08) == 0x580, "endgame_data_90588_90b08 size changed")
 ASSERT(SIZEOF(.endgame_data_90f96_92558) == 0x15c2, "endgame_data_90f96_92558 size changed")
 D_8007CCC0 = 0x8007CCC0;
@@ -2629,3 +2633,7 @@ ASSERT(SIZEOF(.endgame_43dc0_44530) == 0x770, "endgame_43dc0_44530 size changed"
 ASSERT(SIZEOF(.renderer_camera_square) == 0x150, "renderer camera square text size changed")
 func_80045214 = 0x80045214;
 ASSERT(SIZEOF(.early_pool_scene_reset) == 0x11c, "early pool scene reset text size changed")
+ASSERT(SIZEOF(.endgame_33cf8_344cc) == 0x7d4, "endgame_33cf8_344cc size changed")
+ASSERT(SIZEOF(.scene_actor_reset_begin) == 0x188, "scene actor reset begin text size changed")
+ASSERT(SIZEOF(.endgame_23458_23608) == 0x1b0, "endgame_23458_23608 size changed")
+ASSERT(SIZEOF(.scene_menu_string_refresh) == 0x170, "scene menu string refresh text size changed")

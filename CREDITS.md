@@ -61,6 +61,19 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [scene menu string refresh](docs/scene-menu-string-refresh.md) retains
+the pinned IDO and established N64 matching-build references for local and
+online use. Complete Robotron instructions establish the choice stride,
+five-slot traversal, found flag, string calls, and fallback path. No
+reference implementation is copied into this procedure.
+
+The [scene actor reset and fade setup](docs/scene-actor-reset-begin.md)
+retains the pinned IDO and established N64 matching-build references for
+local and online use. Complete Robotron instructions establish the player
+byte clamp, actor filters, animation and frame writes, palette duration,
+camera arguments, and state update. No reference implementation is copied
+into this procedure.
+
 The [early pool and camera reset](docs/early-pool-scene-reset.md) follows
 the recorded IDO compiler materials and N64 matching workflows. Robotron's
 complete instructions and the previously recovered services establish the

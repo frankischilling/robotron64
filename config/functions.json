@@ -14666,5 +14666,27 @@
     "section": ".early_pool_scene_reset",
     "section_vram": 2147538168,
     "evidence": "docs/early-pool-scene-reset.md"
+  },
+  {
+    "name": "func_80032F70",
+    "rom": 211824,
+    "vram": 2147692400,
+    "size": 392,
+    "source": "src/game/scene_actor_reset_begin.c",
+    "object": "build/us/scene_actor_reset_begin.o",
+    "section": ".scene_actor_reset_begin",
+    "section_vram": 2147692400,
+    "evidence": "docs/scene-actor-reset-begin.md"
+  },
+  {
+    "name": "func_80022A08",
+    "rom": 144904,
+    "vram": 2147625480,
+    "size": 368,
+    "source": "src/game/scene_menu_string_refresh.c",
+    "object": "build/us/scene_menu_string_refresh.o",
+    "section": ".scene_menu_string_refresh",
+    "section_vram": 2147625480,
+    "evidence": "docs/scene-menu-string-refresh.md"
   }
 ]

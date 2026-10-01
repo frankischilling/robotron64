@@ -1,3 +1,7 @@
+D_800925E8 = 0x800925E8;
+D_8009EFB0 = 0x8009EFB0;
+D_800761AC = 0x800761AC;
+D_800AD19C = 0x800AD19C;
 func_800077F4 = 0x800077F4;
 D_800B2480 = 0x800B2480;
 /* Addresses recovered from the frame, graphics task, and fixed-point routines. */

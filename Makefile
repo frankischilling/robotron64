@@ -5953,6 +5953,24 @@ build/us/early_pool_scene_reset.o: src/game/early_pool_scene_reset.c include/act
 RUNTIME_OBJECTS += \
     build/us/early_pool_scene_reset.o
 
+build/us/scene_actor_reset_begin.o: src/game/scene_actor_reset_begin.c include/actor.h include/actor_motion_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/palette.h include/palette_effects.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_actor_reset_begin.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/scene_actor_reset_begin.raw.o $@ .text 0x188
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/scene_actor_reset_begin.o
+
+build/us/scene_menu_string_refresh.o: src/game/scene_menu_string_refresh.c include/game_memory.h include/movie.h include/object.h include/palette.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_menu_string_refresh.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/scene_menu_string_refresh.raw.o $@ .text 0x170
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/scene_menu_string_refresh.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

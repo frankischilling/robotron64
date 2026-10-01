@@ -1,11 +1,11 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,301 matching C functions covering 217,456 bytes.
+The source checkpoint contains 1,303 matching C functions covering 218,216 bytes.
 It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,531 bytes
 of source-owned initialized data, and 30,353 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-374 complete C functions, 96,408 C bytes, twenty-eight assembly procedures with
+376 complete C functions, 97,168 C bytes, twenty-eight assembly procedures with
 4,316 live bytes, 7,883 reconstructed initialized bytes, and 26,263 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
@@ -15,6 +15,17 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Scene menu string refresh](scene-menu-string-refresh.md) adds one complete
+368-byte C procedure. Its two-choice traversal, five string slots, retained
+found flag, value update, and fallback text call match the target. The
+choice structure records the verified 12-byte stride without claiming
+additional data ownership.
+
+[Scene actor reset and fade setup](scene-actor-reset-begin.md) adds one
+complete 392-byte C procedure. The selected-player sound condition, actor
+resource and animation filters, frame and flag writes, palette duration,
+and final camera state calls preserve the target instructions.
 
 [Early pool and camera reset](early-pool-scene-reset.md) adds one complete
 284-byte C procedure. It preserves both reset loops, the sentinel and frame
@@ -261,7 +272,7 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 785 complete source units. Startup/scheduler
+The runtime registry contains 787 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-nine procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,

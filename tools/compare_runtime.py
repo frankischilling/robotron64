@@ -795,6 +795,8 @@ MATCHING_BLOCKS = (
     ("renderer_expanded_triangle", "src/game/renderer_expanded_triangle.c", 0x800444F8, 0x800447D0),
     ("renderer_camera_square", "src/game/renderer_camera_square.c", 0x80043070, 0x800431C0),
     ("early_pool_scene_reset", "src/game/early_pool_scene_reset.c", 0x8000D4F8, 0x8000D614),
+    ("scene_actor_reset_begin", "src/game/scene_actor_reset_begin.c", 0x80032F70, 0x800330F8),
+    ("scene_menu_string_refresh", "src/game/scene_menu_string_refresh.c", 0x80022A08, 0x80022B78),
 )
 
 CANDIDATE_BLOCKS = (
