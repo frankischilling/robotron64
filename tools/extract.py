@@ -21,7 +21,7 @@ REGIONS = (
     ("endgame_ed08_ef28", 0xed08, 0xef28),
     ("endgame_f320_f6e4", 0xf320, 0xf6e4),
     ("endgame_f828_f830", 0xf828, 0xf830),
-    ("endgame_fa48_ff18", 0xfa48, 0xff18),
+    ("endgame_fc30_ff18", 0xfc30, 0xff18),
     ("endgame_10164_11060", 0x10164, 0x11060),
     ("endgame_1109c_13290", 0x1109c, 0x13290),
     ("endgame_13550_15c20", 0x13550, 0x15c20),

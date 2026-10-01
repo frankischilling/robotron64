@@ -801,6 +801,7 @@ MATCHING_BLOCKS = (
     ("model_normal_polygon_dispatch", "src/game/model_normal_polygon_dispatch.c", 0x8003EE20, 0x8003F168),
     ("scene_menu_string_schedule", "src/game/scene_menu_string_schedule.c", 0x80022858, 0x80022A08),
     ("session_scene_start", "src/game/session_scene_start.c", 0x80022528, 0x800226E8),
+    ("early_scene_animation_advance", "src/game/early_scene_animation_advance.c", 0x8000EE48, 0x8000F030),
 )
 
 CANDIDATE_BLOCKS = (

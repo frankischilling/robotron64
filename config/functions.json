@@ -14743,5 +14743,16 @@
     "section": ".session_scene_start",
     "section_vram": 2147624232,
     "evidence": "docs/session-scene-start.md"
+  },
+  {
+    "name": "func_8000EE48",
+    "rom": 64072,
+    "vram": 2147544648,
+    "size": 488,
+    "source": "src/game/early_scene_animation_advance.c",
+    "object": "build/us/early_scene_animation_advance.o",
+    "section": ".early_scene_animation_advance",
+    "section_vram": 2147544648,
+    "evidence": "docs/early-scene-animation-advance.md"
   }
 ]

@@ -61,6 +61,13 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [early scene animation advance](docs/early-scene-animation-advance.md)
+retains the pinned local IDO and N64 matching-workflow references. Robotron's
+instructions establish the child resource stride, actor fields, scale
+arithmetic, animation selection, callback ordering, and reset-slot layout.
+No reference implementation is copied into the procedure. Local and online
+credits for all requested repositories remain in the reference collection.
+
 The [session scene start](docs/session-scene-start.md) retains the pinned
 local IDO and N64 matching-workflow references. Robotron's instructions and
 the recovered menu callers establish the mode values, two-player storage,

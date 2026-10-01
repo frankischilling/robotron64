@@ -1,3 +1,5 @@
+D_8008FB70 = 0x8008FB70;
+D_80073164 = 0x80073164;
 D_800922FC = 0x800922FC;
 D_800922DC = 0x800922DC;
 D_800922C8 = 0x800922C8;
@@ -130,7 +132,8 @@ SECTIONS
     .early_global_reset 0x8000ECD0 : AT(0xF8D0) SUBALIGN(4) { build/us/early_global_reset.o(.text) }
     .early_animation_callback 0x8000ECE4 : AT(0xF8E4) SUBALIGN(4) { build/us/early_animation_callback.o(.text) }
     .early_session_animation 0x8000EDE0 : AT(0xF9E0) SUBALIGN(4) { build/us/early_session_animation.o(.text) }
-    .endgame_fa48_ff18 0x8000EE48 : AT(0xFA48) { build/us/fallback.o(.rom_endgame_fa48_ff18) }
+    .early_scene_animation_advance 0x8000EE48 : AT(0xFA48) SUBALIGN(4) { build/us/early_scene_animation_advance.o(.text) }
+    .endgame_fc30_ff18 0x8000F030 : AT(0xFC30) { build/us/fallback.o(.rom_endgame_fc30_ff18) }
     .early_bonus_pattern 0x8000F318 : AT(0xFF18) SUBALIGN(4) { build/us/early_bonus_pattern.o(.text) }
     .early_animation_restart 0x8000F4E0 : AT(0x100E0) SUBALIGN(4) { build/us/early_animation_restart.o(.text) }
     .endgame_10164_11060 0x8000F564 : AT(0x10164) { build/us/fallback.o(.rom_endgame_10164_11060) }
@@ -2590,7 +2593,6 @@ ASSERT(SIZEOF(.endgame_9686c_96890) == 0x24, "endgame_9686c_96890 size changed")
 ASSERT(SIZEOF(.actor_position_follow) == 0x90, "actor_position_follow size changed")
 ASSERT(SIZEOF(.actor_value_follow) == 0x144, "actor_value_follow size changed")
 D_8008D578 = 0x8008D578;
-ASSERT(SIZEOF(.endgame_fa48_ff18) == 0x4d0, "endgame_fa48_ff18 size changed")
 ASSERT(SIZEOF(.endgame_18b9c_198c8) == 0xd2c, "endgame_18b9c_198c8 size changed")
 ASSERT(SIZEOF(.endgame_19a1c_1ad70) == 0x1354, "endgame_19a1c_1ad70 size changed")
 ASSERT(SIZEOF(.endgame_28ad4_28d8c) == 0x2b8, "endgame_28ad4_28d8c size changed")
@@ -2658,3 +2660,5 @@ ASSERT(SIZEOF(.model_normal_polygon_dispatch) == 0x348, "model normal polygon di
 ASSERT(SIZEOF(.scene_menu_string_schedule) == 0x1b0, "scene menu string schedule text size changed")
 ASSERT(SIZEOF(.endgame_22c5c_23128) == 0x4cc, "endgame_22c5c_23128 size changed")
 ASSERT(SIZEOF(.session_scene_start) == 0x1C0, "session scene start text size changed")
+ASSERT(SIZEOF(.endgame_fc30_ff18) == 0x2e8, "endgame_fc30_ff18 size changed")
+ASSERT(SIZEOF(.early_scene_animation_advance) == 0x1E8, "early scene animation advance text size changed")
