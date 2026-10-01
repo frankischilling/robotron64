@@ -1802,5 +1802,42 @@
       "D_800942C0": 0
     },
     "evidence": "docs/input-contact-sound.md"
+  },
+  {
+    "source": "src/game/actor_history_data.c",
+    "object": "build/us/actor_history_data.o",
+    "input_section": ".data",
+    "section": ".actor_history_flags",
+    "vram": 2148062356,
+    "rom": 581780,
+    "size": 24,
+    "symbols": {
+      "D_8008D494": 0
+    },
+    "evidence": "docs/actor-history-model.md"
+  },
+  {
+    "source": "src/game/actor_history_data.c",
+    "object": "build/us/actor_history_data.o",
+    "input_section": ".bss",
+    "section": ".actor_history_points_bss",
+    "vram": 2148789248,
+    "rom": null,
+    "size": 4608,
+    "symbols": {
+      "D_8013EC00": 0
+    },
+    "evidence": "docs/actor-history-model.md"
+  },
+  {
+    "source": "src/game/actor_history_tick.c",
+    "object": "build/us/actor_history_tick.o",
+    "input_section": ".rodata",
+    "section": ".actor_history_tick_constant",
+    "vram": 2148096816,
+    "rom": 616240,
+    "size": 4,
+    "symbols": {},
+    "evidence": "docs/actor-history-model.md"
   }
 ]

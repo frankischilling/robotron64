@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,328 matching C functions covering 230,368 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,011 bytes
-of source-owned initialized data, and 55,553 bytes of source-owned BSS. The
+The source checkpoint contains 1,332 matching C functions covering 231,860 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,039 bytes
+of source-owned initialized data, and 60,161 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-401 complete C functions, 109,320 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 8,363 reconstructed initialized bytes, and 51,463 BSS bytes.
+405 complete C functions, 110,812 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 8,391 reconstructed initialized bytes, and 56,071 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,13 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Actor history and model transforms](actor-history-model.md) add four complete
+procedures covering 1,492 instruction bytes. Projectile allocation and its
+lifetime/steering callback share the 24-slot history pool with the existing
+release helper. The pool owns 24 initialized bytes and 4,608 BSS bytes; the
+update owns its four-byte scale constant. Chain reset and recursive model
+transforms also replace their complete fallback spans.
 
 [Actor pool allocation](actor-pool-allocation.md) adds the complete
 788-byte allocator, 96 diagnostic bytes, and the verified 200-entry
@@ -374,7 +381,7 @@ twenty-nine procedures and their source-owned alignment. Linked progress indepen
 function, its procedure extent, section address, source/header/object hashes,
 and generated data or private storage.
 
-The tooling suite contains 137 tests. It can run without a commercial ROM or
+The tooling suite contains 147 tests. It can run without a commercial ROM or
 the IDO compiler installation. `tools/audit_publication.py --files <inventory>`
 checks an explicit JSON array of public file paths against the current build,
 comparison reports, owned sections, and progress. It rejects stale source or

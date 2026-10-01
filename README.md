@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,328 matching C functions covering 230,368 bytes, twenty-nine assembly functions covering 4,372 bytes, 10,011 bytes of source-owned initialized data, and 55,553 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,332 matching C functions covering 231,860 bytes, twenty-nine assembly functions covering 4,372 bytes, 10,039 bytes of source-owned initialized data, and 60,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -174,6 +174,10 @@ The [startup evidence](docs/startup.md) records the reconstructed assembly entry
 [Text conversion](docs/text-conversion.md) records the matched integer/float helper and an initial inventory of the next large routine.
 
 [Object transform evidence](docs/object-transforms.md) covers 32 matched transform and property helpers, including the target's seven empty routines.
+
+[Actor history and model transforms](docs/actor-history-model.md) recover
+projectile allocation, steering and position history, chain reset, and recursive
+model transforms. The shared history pool owns 24 flags and 4,608 BSS bytes.
 
 [Graphics task production](docs/graphics-tasks.md) covers the shared task record, both microcode choices, completion waits, and RDP setup commands. [Frame helpers](docs/frame-runtime.md) cover palette state, elapsed-time sampling, and fixed-point transforms.
 

@@ -31,7 +31,8 @@ typedef struct ActorSetupRequestViewInternal {
 } ActorSetupRequestViewInternal;
 
 typedef struct ActorSetupChainEntryInternal {
-    unsigned char unknown00[8];
+    int value00;
+    unsigned char unknown04[4];
     int actorResourceIndex;
     unsigned char unknown0C[8];
     int extraResourceIndex;
