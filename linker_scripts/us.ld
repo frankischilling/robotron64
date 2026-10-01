@@ -114,7 +114,9 @@ SECTIONS
     .early_render_color 0x8000A200 : AT(0xAE00) SUBALIGN(4) { build/us/early_render_color.o(.text) }
     .random_between 0x8000A21C : AT(0xAE1C) SUBALIGN(4) { build/us/random_between.o(.text) }
     .actor_relative_geometry 0x8000A2E0 : AT(0xAEE0) SUBALIGN(4) { build/us/actor_relative_geometry.o(.text) }
-    .endgame_af88_c564 0x8000A388 : AT(0xAF88) { build/us/fallback.o(.rom_endgame_af88_c564) }
+    .render_stream_fallback_af88_bc6c 0x8000A388 : AT(0xAF88) { build/us/fallback.o(.rom_render_stream_fallback_af88_bc6c) }
+    .early_render_quad 0x8000B06C : AT(0xBC6C) SUBALIGN(4) { build/us/early_render_quad.o(.text) }
+    .render_stream_fallback_bde4_c564 0x8000B1E4 : AT(0xBDE4) { build/us/fallback.o(.rom_render_stream_fallback_bde4_c564) }
     .early_render_presets 0x8000B964 : AT(0xC564) SUBALIGN(4) { build/us/early_render_presets.o(.text) }
     .cpu_after_early_render_presets 0x8000B9D4 : AT(0xC5D4) { build/us/fallback.o(.rom_cpu_after_early_render_presets) }
     .early_render_dispatch 0x8000BE80 : AT(0xCA80) SUBALIGN(4) { build/us/early_render_dispatch.o(.text) }
@@ -1353,6 +1355,8 @@ SECTIONS
     .early_input_button_data_bss 0x8009E590 (NOLOAD) : SUBALIGN(4) { build/us/early_input_button_data.o(.bss) }
     .early_input_counter_data_bss 0x8009E9E0 (NOLOAD) : SUBALIGN(4) { build/us/early_input_counter_data.o(.bss) }
     .early_input_sequence_data_bss 0x8009EE08 (NOLOAD) : SUBALIGN(4) { build/us/early_input_sequence_data.o(.bss) }
+    .renderer_vertex_arena_data_bss 0x800CDBD0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_vertex_arena_data.o(.bss) }
+    .early_render_color_data_bss 0x80138268 (NOLOAD) : SUBALIGN(4) { build/us/early_render_color_data.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2459,7 +2463,6 @@ ASSERT(SIZEOF(.renderer_texture_index_draw) == 0xdc, "renderer_texture_index_dra
 ASSERT(SIZEOF(.actor_behavior_counter_expire) == 0xb8, "actor_behavior_counter_expire size changed")
 ASSERT(SIZEOF(.actor_behavior_counter_expire_rodata) == 0x30, "actor_behavior_counter_expire_rodata size changed")
 ASSERT(SIZEOF(.endgame_6160_6414) == 0x2b4, "endgame_6160_6414 size changed")
-ASSERT(SIZEOF(.endgame_af88_c564) == 0x15dc, "endgame_af88_c564 size changed")
 ASSERT(SIZEOF(.endgame_dab8_dac0) == 0x8, "endgame_dab8_dac0 size changed")
 ASSERT(SIZEOF(.endgame_1bb44_1bf24) == 0x3e0, "endgame_1bb44_1bf24 size changed")
 ASSERT(SIZEOF(.endgame_45e14_46114) == 0x300, "endgame_45e14_46114 size changed")
@@ -2738,7 +2741,6 @@ ASSERT(SIZEOF(.renderer_projection_highlight) == 0x2b8, "renderer_projection_hig
 ASSERT(SIZEOF(.renderer_projection_highlight_constants) == 0x30, "renderer_projection_highlight_constants size changed")
 ASSERT(SIZEOF(.endgame_499dc_49d3c) == 0x360, "endgame_499dc_49d3c size changed")
 ASSERT(SIZEOF(.endgame_data_96020_96068) == 0x48, "endgame_data_96020_96068 size changed")
-D_80138268 = 0x80138268;
 D_FLT_8007D904 = 0x8007D904;
 D_FLT_8007D908 = 0x8007D908;
 D_8013D958 = 0x8013D958;
@@ -2795,3 +2797,8 @@ ASSERT(SIZEOF(.input_stream_fallback_74688_78d50) == 0x46c8, "input_stream_fallb
 ASSERT(SIZEOF(.input_stream_fallback_8e104_8e468) == 0x364, "input_stream_fallback_8e104_8e468 size changed")
 ASSERT(SIZEOF(.audio_timing_data_data) == 0x10, "audio_timing_data_data size changed")
 ASSERT(SIZEOF(.input_stream_fallback_8e478_8e640) == 0x1c8, "input_stream_fallback_8e478_8e640 size changed")
+ASSERT(SIZEOF(.render_stream_fallback_af88_bc6c) == 0xce4, "render_stream_fallback_af88_bc6c size changed")
+ASSERT(SIZEOF(.early_render_quad) == 0x178, "early_render_quad size changed")
+ASSERT(SIZEOF(.render_stream_fallback_bde4_c564) == 0x780, "render_stream_fallback_bde4_c564 size changed")
+ASSERT(SIZEOF(.renderer_vertex_arena_data_bss) == 0x55f00, "renderer_vertex_arena_data BSS size changed")
+ASSERT(SIZEOF(.early_render_color_data_bss) == 0x10, "early_render_color_data BSS size changed")

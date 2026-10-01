@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,339 matching C functions covering 233,884 bytes.
+The source checkpoint contains 1,340 matching C functions covering 234,260 bytes.
 It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,131 bytes
-of source-owned initialized data, and 61,675 bytes of source-owned BSS. The
+of source-owned initialized data, and 413,691 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-412 complete C functions, 112,836 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 8,483 reconstructed initialized bytes, and 57,585 BSS bytes.
+413 complete C functions, 113,212 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 8,483 reconstructed initialized bytes, and 409,601 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,12 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Early quad rendering and command-file execution](early-render-command-streams.md)
+add the complete 376-byte quad submission routine, the 352,000-byte vertex
+arena, and sixteen BSS bytes for projection-angle and color state. Vertex
+coordinates, colors, both face orientations, and command/cursor updates match.
+The 352-byte command-file executor remains an excluded four-word mismatch.
 
 [Audio stream sizing and input sequence storage](input-stream-storage.md)
 add the complete 128-byte size helper, 80 initialized bytes for fixed input

@@ -1,5 +1,12 @@
 # Credits and references
 
+The [early rendering and command-file recovery](docs/early-render-command-streams.md)
+uses the local libreultra `2.0I/PR/gbi.h` for vertex-load and two-triangle
+packet formats. Private decomp-permuter experiments helped identify IDO's
+different scheduling for direct arena indexing and cached vertex pointers.
+Robotron's complete instruction ranges and storage references determine
+the accepted source. No reference game or SDK implementation was copied.
+
 The [decimal parser and controller-state recovery](docs/float-parser-controller-state.md)
 uses the pinned IDO and SM64 build references for compiler behavior and the
 local libreultra controller header for pad layout. Robotron's instructions
