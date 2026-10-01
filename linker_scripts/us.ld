@@ -538,7 +538,9 @@ SECTIONS
     .model_framebuffer_texture 0x80040874 : AT(0x41474) SUBALIGN(4) { build/us/model_framebuffer_texture.o(.text) }
     .endgame_41568_43430 0x80040968 : AT(0x41568) { build/us/fallback.o(.rom_endgame_41568_43430) }
     .renderer_texture_file_cache 0x80042830 : AT(0x43430) SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.text) }
-    .endgame_434c0_44530 0x800428C0 : AT(0x434C0) { build/us/fallback.o(.rom_endgame_434c0_44530) }
+    .endgame_434c0_43c70 0x800428C0 : AT(0x434C0) { build/us/fallback.o(.rom_endgame_434c0_43c70) }
+    .renderer_camera_square 0x80043070 : AT(0x43C70) SUBALIGN(4) { build/us/renderer_camera_square.o(.text) }
+    .endgame_43dc0_44530 0x800431C0 : AT(0x43DC0) { build/us/fallback.o(.rom_endgame_43dc0_44530) }
     .renderer_vertex_attributes 0x80043930 : AT(0x44530) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.text) }
     .renderer_material_texture 0x80043D68 : AT(0x44968) SUBALIGN(4) { build/us/renderer_material_texture.o(.text) }
     .renderer_material_light 0x80043E80 : AT(0x44A80) SUBALIGN(4) { build/us/renderer_material_light.o(.text) }
@@ -2348,7 +2350,6 @@ ASSERT(SIZEOF(.menu_transition_start_bss) == 0x64, "menu_transition_start_bss si
 ASSERT(SIZEOF(.renderer_texture_file_cache_data) == 0x8, "renderer_texture_file_cache_data size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache_bss) == 0x804, "renderer_texture_file_cache_bss size changed")
 ASSERT(SIZEOF(.endgame_41568_43430) == 0x1ec8, "endgame_41568_43430 size changed")
-ASSERT(SIZEOF(.endgame_434c0_44530) == 0x1070, "endgame_434c0_44530 size changed")
 ASSERT(SIZEOF(.endgame_data_78db8_7d98c) == 0x4bd4, "endgame_data_78db8_7d98c size changed")
 D_800AEF00 = 0x800AEF00;
 D_8009B1C4 = 0x8009B1C4;
@@ -2624,3 +2625,7 @@ ASSERT(SIZEOF(.endgame_453d0_45718) == 0x348, "endgame_453d0_45718 size changed"
 ASSERT(SIZEOF(.endgame_data_95c88_95cb0) == 0x28, "endgame_data_95c88_95cb0 size changed")
 D_800BF90C = 0x800BF90C;
 ASSERT(SIZEOF(.audio_engine_parameter_callback_state) == 0xc, "audio_engine_parameter_callback_state size changed")
+ASSERT(SIZEOF(.endgame_434c0_43c70) == 0x7b0, "endgame_434c0_43c70 size changed")
+ASSERT(SIZEOF(.endgame_43dc0_44530) == 0x770, "endgame_43dc0_44530 size changed")
+ASSERT(SIZEOF(.renderer_camera_square) == 0x150, "renderer camera square text size changed")
+func_80045214 = 0x80045214;

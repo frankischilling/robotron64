@@ -14644,5 +14644,16 @@
     "section": ".audio_engine_parameters",
     "section_vram": 2147850392,
     "evidence": "docs/audio-command-callback-scan.md"
+  },
+  {
+    "name": "func_80043070",
+    "rom": 277616,
+    "vram": 2147758192,
+    "size": 336,
+    "source": "src/game/renderer_camera_square.c",
+    "object": "build/us/renderer_camera_square.o",
+    "section": ".renderer_camera_square",
+    "section_vram": 2147758192,
+    "evidence": "docs/renderer-camera-square.md"
   }
 ]

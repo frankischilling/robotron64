@@ -793,6 +793,7 @@ MATCHING_BLOCKS = (
     ("renderer_image_quad_ci", "src/game/renderer_image_quad_ci.c", 0x8004AD64, 0x8004AFA4),
     ("renderer_image_quad_rgba", "src/game/renderer_image_quad_rgba.c", 0x8004B098, 0x8004B2D8),
     ("renderer_expanded_triangle", "src/game/renderer_expanded_triangle.c", 0x800444F8, 0x800447D0),
+    ("renderer_camera_square", "src/game/renderer_camera_square.c", 0x80043070, 0x800431C0),
 )
 
 CANDIDATE_BLOCKS = (

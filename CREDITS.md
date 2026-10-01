@@ -61,6 +61,13 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [camera-relative square recovery](docs/renderer-camera-square.md) uses
+the local and online Super Mario 64 and libreultra GBI definitions for the
+existing vertex layout. Robotron's complete instructions establish the
+corner expressions, signed shifts, matrix-call order, texture coordinates,
+and alpha-160 quad call. Independent IDO compilation and whole-ROM checks
+determine acceptance.
+
 The [audio command callback scan](docs/audio-command-callback-scan.md) uses
 the local and online decomp-permuter project to search equivalent C forms
 for a remaining comparison operand difference. The accepted explicit member
