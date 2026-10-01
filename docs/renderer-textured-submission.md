@@ -54,6 +54,13 @@ only when it contains zero bytes; it is not counted as recovered code.
 The input identities and complete byte hashes are recorded in
 [the provenance ledger](renderer-textured-submission-provenance.json).
 
+A fresh Git archive passed extraction, the complete build, all 137 tooling
+tests, and full ROM equality. Independent comparisons passed for all 779
+runtime units, both startup units, 18 assembly units, and eight data-only
+units. Linked progress reports 1,293 matching C functions with 213,376
+instruction bytes, 9,487 initialized bytes, and 30,341 BSS bytes. The explicit
+publication inventory contains 1,247 files and passes the publication audit.
+
 The nearby opaque and alpha-160 quad routines remain outside this matching
 unit. Their remaining compiler-layout differences are not included in its
 function or instruction totals. Broader polygon and mesh recovery remains
