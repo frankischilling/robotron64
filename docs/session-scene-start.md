@@ -46,6 +46,15 @@ complete C procedure and no initialized data or BSS ownership. Complete
 hashes and inputs are recorded in
 [the provenance ledger](session-scene-start-provenance.json).
 
+A clean archive of `e789df9` passes fresh extraction and build, all 137
+tooling tests, 791 complete runtime comparisons, both startup units,
+eighteen assembly units, and eight data-only units. Linked progress records
+1,308 matching C procedures and 220,304 instruction bytes, with 9,547
+initialized and 30,353 BSS bytes owned by source. The complete ROM matches
+the supplied USA target, SHA-256
+`91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
+The publication audit checks all 1,281 public files.
+
 Robotron's instructions and recovered callers establish the behavior.
 Pinned IDO and the N64 matching-workflow references are credited for local
 and online use in [CREDITS.md](../CREDITS.md). Further scene and menu
