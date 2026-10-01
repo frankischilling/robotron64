@@ -14963,5 +14963,49 @@
     "section": ".sound_request_dispatch",
     "section_vram": 2147705164,
     "evidence": "docs/input-contact-sound.md"
+  },
+  {
+    "name": "func_8000F7D8",
+    "rom": 66520,
+    "vram": 2147547096,
+    "size": 60,
+    "source": "src/game/actor_chain_reset.c",
+    "object": "build/us/actor_chain_reset.o",
+    "section": ".actor_chain_reset",
+    "section_vram": 2147547096,
+    "evidence": "docs/actor-history-model.md"
+  },
+  {
+    "name": "func_8003F314",
+    "rom": 261908,
+    "vram": 2147742484,
+    "size": 364,
+    "source": "src/game/model_hierarchy_transform.c",
+    "object": "build/us/model_hierarchy_transform.o",
+    "section": ".model_hierarchy_transform",
+    "section_vram": 2147742484,
+    "evidence": "docs/actor-history-model.md"
+  },
+  {
+    "name": "func_8004E1C0",
+    "rom": 323008,
+    "vram": 2147803584,
+    "size": 420,
+    "source": "src/game/actor_history_projectile.c",
+    "object": "build/us/actor_history_projectile.o",
+    "section": ".actor_history_projectile",
+    "section_vram": 2147803584,
+    "evidence": "docs/actor-history-model.md"
+  },
+  {
+    "name": "func_8004DEE0",
+    "rom": 322272,
+    "vram": 2147802848,
+    "size": 648,
+    "source": "src/game/actor_history_tick.c",
+    "object": "build/us/actor_history_tick.o",
+    "section": ".actor_history_tick",
+    "section_vram": 2147802848,
+    "evidence": "docs/actor-history-model.md"
   }
 ]

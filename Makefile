@@ -371,7 +371,7 @@ build/us/heap.o: src/game/heap.c include/heap.h $(IDO) Makefile tools/trim_paddi
 	$(PYTHON) tools/trim_padding.py build/us/heap.raw.o $@ .text 0x21c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/object_history.o: src/game/object_history.c include/actor.h include/game_memory.h include/object.h include/object_history.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/object_history.o: src/game/object_history.c include/actor_history_internal.h include/actor_projectile_internal.h include/object_recovery.h include/actor.h include/game_memory.h include/object.h include/object_history.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_history.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/object_history.raw.o $@ .text 0x58
@@ -6188,6 +6188,47 @@ build/us/sound_request_dispatch.o: src/game/sound_request_dispatch.c tools/owned
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/sound_request_dispatch.o
+
+build/us/actor_chain_reset.o: src/game/actor_chain_reset.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_chain_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_chain_reset.raw.o $@ .text 0x3c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_chain_reset.o
+
+build/us/model_hierarchy_transform.o: src/game/model_hierarchy_transform.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_hierarchy_transform.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/model_hierarchy_transform.raw.o $@ .text 0x16c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/model_hierarchy_transform.o
+
+build/us/actor_history_projectile.o: src/game/actor_history_projectile.c include/actor.h include/actor_history_internal.h include/actor_projectile_internal.h include/game_memory.h include/object.h include/object_recovery.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_history_projectile.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_history_projectile.raw.o $@ .text 0x1a4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_history_projectile.o
+
+build/us/actor_history_data.o: src/game/actor_history_data.c include/actor.h include/actor_history_internal.h include/actor_projectile_internal.h include/game_memory.h include/object.h include/object_recovery.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_history_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_history_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_history_data.o
+
+build/us/actor_history_tick.o: src/game/actor_history_tick.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_history_internal.h include/actor_projectile_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_history_tick.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_history_tick.raw.o build/us/actor_history_tick.text.o .text 0x288
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_history_tick.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_history_tick.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

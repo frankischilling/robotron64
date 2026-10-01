@@ -158,7 +158,8 @@ SECTIONS
     .early_bonus_pattern 0x8000F318 : AT(0xFF18) SUBALIGN(4) { build/us/early_bonus_pattern.o(.text) }
     .early_animation_restart 0x8000F4E0 : AT(0x100E0) SUBALIGN(4) { build/us/early_animation_restart.o(.text) }
     .early_actor_pair_spawn 0x8000F564 : AT(0x10164) SUBALIGN(4) { build/us/early_actor_pair_spawn.o(.text) }
-    .endgame_103d8_11060 0x8000F7D8 : AT(0x103D8) { build/us/fallback.o(.rom_endgame_103d8_11060) }
+    .actor_chain_reset 0x8000F7D8 : AT(0x103D8) SUBALIGN(4) { build/us/actor_chain_reset.o(.text) }
+    .endgame_10414_11060 0x8000F814 : AT(0x10414) { build/us/fallback.o(.rom_endgame_10414_11060) }
     .early_reset_parameter 0x80010460 : AT(0x11060) SUBALIGN(4) { build/us/early_reset_parameter.o(.text) }
     .endgame_1109c_13290 0x8001049C : AT(0x1109C) { build/us/fallback.o(.rom_endgame_1109c_13290) }
     .early_float_step 0x80012690 : AT(0x13290) SUBALIGN(4) { build/us/early_float_step.o(.text) }
@@ -573,7 +574,8 @@ SECTIONS
     .model_polygons_color 0x8003EC98 : AT(0x3F898) SUBALIGN(4) { build/us/model_polygons_color.o(.text) }
     .model_normal_polygon_dispatch 0x8003EE20 : AT(0x3FA20) SUBALIGN(4) { build/us/model_normal_polygon_dispatch.o(.text) }
     .model_hierarchy_vertices 0x8003F168 : AT(0x3FD68) SUBALIGN(4) { build/us/model_hierarchy_vertices.o(.text) }
-    .cpu_after_model_hierarchy_vertices 0x8003F314 : AT(0x3FF14) { build/us/fallback.o(.rom_cpu_after_model_hierarchy_vertices) }
+    .model_hierarchy_transform 0x8003F314 : AT(0x3FF14) SUBALIGN(4) { build/us/model_hierarchy_transform.o(.text) }
+    .endgame_40080_4022c 0x8003F480 : AT(0x40080) { build/us/fallback.o(.rom_endgame_40080_4022c) }
     .model_camera_identity 0x8003F62C : AT(0x4022C) SUBALIGN(4) { build/us/model_camera_identity.o(.text) }
     .model_camera_rotation 0x8003F650 : AT(0x40250) SUBALIGN(4) { build/us/model_camera_rotation.o(.text) }
     .model_mesh_iteration 0x8003F7F4 : AT(0x403F4) SUBALIGN(4) { build/us/model_mesh_iteration.o(.text) }
@@ -688,9 +690,10 @@ SECTIONS
     .heap 0x8004DC70 : AT(0x4E870) SUBALIGN(4) { build/us/heap.o(.text) }
     .cpu_after_heap 0x8004DE8C : AT(0x4EA8C) { build/us/fallback.o(.rom_cpu_after_heap) }
     .heap_empty 0x8004DED8 : AT(0x4EAD8) SUBALIGN(4) { build/us/heap_empty.o(.text) }
-    .cpu_after_heap_empty 0x8004DEE0 : AT(0x4EAE0) { build/us/fallback.o(.rom_cpu_after_heap_empty) }
+    .actor_history_tick 0x8004DEE0 : AT(0x4EAE0) SUBALIGN(4) { build/us/actor_history_tick.o(.text) }
     .object_history 0x8004E168 : AT(0x4ED68) SUBALIGN(4) { build/us/object_history.o(.text) }
-    .endgame_4edc0_4f3d4 0x8004E1C0 : AT(0x4EDC0) { build/us/fallback.o(.rom_endgame_4edc0_4f3d4) }
+    .actor_history_projectile 0x8004E1C0 : AT(0x4EDC0) SUBALIGN(4) { build/us/actor_history_projectile.o(.text) }
+    .endgame_4ef64_4f3d4 0x8004E364 : AT(0x4EF64) { build/us/fallback.o(.rom_endgame_4ef64_4f3d4) }
     .frame_slot_allocate 0x8004E7D4 : AT(0x4F3D4) SUBALIGN(4) { build/us/frame_slot_allocate.o(.text) }
     .object_history_write 0x8004E820 : AT(0x4F420) SUBALIGN(4) { build/us/object_history_write.o(.text) }
     .object_history_render 0x8004E968 : AT(0x4F568) SUBALIGN(4) { build/us/object_history_render.o(.text) }
@@ -1162,7 +1165,9 @@ SECTIONS
     .renderer_texture_corner_state 0x8007CDB0 : AT(0x7D9B0) SUBALIGN(4) { build/us/renderer_textured_submit.o(.data) }
     .endgame_data_7d9c0_8d720 0x8007CDC0 : AT(0x7D9C0) { build/us/fallback.o(.rom_endgame_data_7d9c0_8d720) }
     .renderer_texture_square_extent 0x8008CB20 : AT(0x8D720) SUBALIGN(4) { build/us/renderer_texture_squares.o(.data) }
-    .endgame_data_8d724_8e0e4 0x8008CB24 : AT(0x8D724) { build/us/fallback.o(.rom_endgame_data_8d724_8e0e4) }
+    .endgame_8d724_8e094 0x8008CB24 : AT(0x8D724) { build/us/fallback.o(.rom_endgame_8d724_8e094) }
+    .actor_history_flags 0x8008D494 : AT(0x8E094) SUBALIGN(4) { build/us/actor_history_data.o(.data) }
+    .endgame_8e0ac_8e0e4 0x8008D4AC : AT(0x8E0AC) { build/us/fallback.o(.rom_endgame_8e0ac_8e0e4) }
     .controller_motor_state_data 0x8008D4E4 : AT(0x8E0E4) SUBALIGN(4) { build/us/controller_motor_state.o(.data) }
     .endgame_data_8e104_8e640 0x8008D504 : AT(0x8E104) { build/us/fallback.o(.rom_endgame_data_8e104_8e640) }
     .compression_workspace_data 0x8008DA40 : AT(0x8E640) SUBALIGN(4) { build/us/compression_workspace.o(.data) }
@@ -1251,7 +1256,8 @@ SECTIONS
     .frame_projection_rodata 0x80095498 : AT(0x96098) SUBALIGN(4) { build/us/frame_projection.o(.rodata) }
     .endgame_data_960a4_960b0 0x800954A4 : AT(0x960A4) { build/us/fallback.o(.rom_endgame_data_960a4_960b0) }
     .renderer_status_message 0x800954B0 : AT(0x960B0) SUBALIGN(4) { build/us/renderer_status_text.o(.rodata) }
-    .endgame_data_960c4_96734 0x800954C4 : AT(0x960C4) { build/us/fallback.o(.rom_endgame_data_960c4_96734) }
+    .endgame_960c4_96730 0x800954C4 : AT(0x960C4) { build/us/fallback.o(.rom_endgame_960c4_96730) }
+    .actor_history_tick_constant 0x80095B30 : AT(0x96730) SUBALIGN(4) { build/us/actor_history_tick.o(.rodata) }
     .object_history_write_rodata 0x80095B34 : AT(0x96734) SUBALIGN(4) { build/us/object_history_write.o(.rodata) }
     .endgame_96738_967f0 0x80095B38 : AT(0x96738) { build/us/fallback.o(.rom_endgame_96738_967f0) }
     .graphics_setup_table 0x80095BF0 : AT(0x967F0) SUBALIGN(4) { build/us/graphics_setup.o(.rodata) }
@@ -1329,6 +1335,7 @@ SECTIONS
     .audio_engine_parameter_callback_state 0x80192764 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_parameters.o(.bss) }
     .collision_dispatch_initialize_bss 0x800974A0 (NOLOAD) : SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.bss) }
     .actor_pool_allocate_bss 0x800A4628 (NOLOAD) : SUBALIGN(4) { build/us/actor_pool_allocate.o(.bss) }
+    .actor_history_points_bss 0x8013EC00 (NOLOAD) : SUBALIGN(4) { build/us/actor_history_data.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -1749,7 +1756,6 @@ ASSERT(SIZEOF(.cpu_after_model_rotation) == 0x1740, "cpu_after_model_rotation si
 ASSERT(SIZEOF(.model_polygons_plain) == 0x11c, "model_polygons_plain size changed")
 ASSERT(SIZEOF(.model_polygons_color) == 0x188, "model_polygons_color size changed")
 ASSERT(SIZEOF(.model_hierarchy_vertices) == 0x1ac, "model_hierarchy_vertices size changed")
-ASSERT(SIZEOF(.cpu_after_model_hierarchy_vertices) == 0x318, "cpu_after_model_hierarchy_vertices size changed")
 ASSERT(SIZEOF(.model_camera_identity) == 0x24, "model_camera_identity size changed")
 ASSERT(SIZEOF(.model_camera_rotation) == 0x1a4, "model_camera_rotation size changed")
 ASSERT(SIZEOF(.model_mesh_iteration) == 0x24, "model_mesh_iteration size changed")
@@ -1819,7 +1825,6 @@ ASSERT(SIZEOF(.cpu_after_fixed_math) == 0x8, "cpu_after_fixed_math size changed"
 ASSERT(SIZEOF(.heap) == 0x21c, "heap size changed")
 ASSERT(SIZEOF(.cpu_after_heap) == 0x4c, "cpu_after_heap size changed")
 ASSERT(SIZEOF(.heap_empty) == 0x8, "heap_empty size changed")
-ASSERT(SIZEOF(.cpu_after_heap_empty) == 0x288, "cpu_after_heap_empty size changed")
 ASSERT(SIZEOF(.object_history) == 0x58, "object_history size changed")
 ASSERT(SIZEOF(.actor_history_byte_clear) == 0x14, "actor_history_byte_clear size changed")
 ASSERT(SIZEOF(.cpu_after_actor_history_byte_clear) == 0xc, "cpu_after_actor_history_byte_clear size changed")
@@ -2272,7 +2277,6 @@ ASSERT(SIZEOF(.endgame_1b148_1b9a0) == 0x858, "endgame_1b148_1b9a0 size changed"
 ASSERT(SIZEOF(.endgame_1ca2c_1cb48) == 0x11c, "endgame_1ca2c_1cb48 size changed")
 ASSERT(SIZEOF(.early_player_sequence) == 0x118, "early_player_sequence size changed")
 ASSERT(SIZEOF(.cpu_after_early_player_sequence) == 0x678, "cpu_after_early_player_sequence size changed")
-ASSERT(SIZEOF(.endgame_4edc0_4f3d4) == 0x614, "endgame_4edc0_4f3d4 size changed")
 ASSERT(SIZEOF(.endgame_50584_50590) == 0xc, "endgame_50584_50590 size changed")
 ASSERT(SIZEOF(.endgame_5edec_5f5d0) == 0x7e4, "endgame_5edec_5f5d0 size changed")
 ASSERT(SIZEOF(.endgame_6131c_61320) == 0x4, "endgame_6131c_61320 size changed")
@@ -2638,7 +2642,6 @@ ASSERT(SIZEOF(.early_actor_follow_owner) == 0x11c, "early_actor_follow_owner siz
 ASSERT(SIZEOF(.renderer_status_text) == 0x11c, "renderer_status_text size changed")
 ASSERT(SIZEOF(.renderer_status_message) == 0x14, "renderer_status_message size changed")
 ASSERT(SIZEOF(.endgame_data_960a4_960b0) == 0xc, "endgame_data_960a4_960b0 size changed")
-ASSERT(SIZEOF(.endgame_data_960c4_96734) == 0x670, "endgame_data_960c4_96734 size changed")
 ASSERT(SIZEOF(.early_boundary_actor_spawn) == 0x18c, "early_boundary_actor_spawn size changed")
 ASSERT(SIZEOF(.controller_service_setup) == 0x378, "controller_service_setup size changed")
 ASSERT(SIZEOF(.endgame_4ff30_500d8) == 0x1a8, "endgame_4ff30_500d8 size changed")
@@ -2664,7 +2667,6 @@ ASSERT(SIZEOF(.endgame_4b8a4_4b964) == 0xc0, "endgame_4b8a4_4b964 size changed")
 ASSERT(SIZEOF(.endgame_4bba4_4bc98) == 0xf4, "endgame_4bba4_4bc98 size changed")
 ASSERT(SIZEOF(.endgame_4bed8_4bee0) == 0x8, "endgame_4bed8_4bee0 size changed")
 ASSERT(SIZEOF(.endgame_data_7d9c0_8d720) == 0xfd60, "endgame_data_7d9c0_8d720 size changed")
-ASSERT(SIZEOF(.endgame_data_8d724_8e0e4) == 0x9c0, "endgame_data_8d724_8e0e4 size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle) == 0x2d8, "renderer_expanded_triangle size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle_strings) == 0x28, "renderer_expanded_triangle_strings size changed")
 ASSERT(SIZEOF(.endgame_453d0_45718) == 0x348, "endgame_453d0_45718 size changed")
@@ -2694,7 +2696,6 @@ ASSERT(SIZEOF(.save_menu_continue_decode) == 0x230, "continue decoder text size 
 ASSERT(SIZEOF(.scene_frame_tick) == 0x230, "scene_frame_tick size changed")
 ASSERT(SIZEOF(.scene_frame_tick_constants) == 0x8, "scene_frame_tick_constants size changed")
 ASSERT(SIZEOF(.endgame_data_94f00_957e0) == 0x8e0, "endgame_data_94f00_957e0 size changed")
-ASSERT(SIZEOF(.endgame_103d8_11060) == 0xc88, "endgame_103d8_11060 size changed")
 ASSERT(SIZEOF(.early_actor_pair_spawn) == 0x274, "early actor pair text size changed")
 ASSERT(SIZEOF(.actor_pickup) == 0x26c, "actor_pickup size changed")
 ASSERT(SIZEOF(.actor_pickup_dispatch) == 0x40, "actor_pickup_dispatch size changed")
@@ -2756,3 +2757,16 @@ ASSERT(SIZEOF(.actor_contact_gate) == 0x278, "actor_contact_gate size changed")
 ASSERT(SIZEOF(.sound_request_dispatch) == 0xb0, "sound_request_dispatch size changed")
 ASSERT(SIZEOF(.endgame_94d8c_94ec0) == 0x134, "endgame_94d8c_94ec0 size changed")
 ASSERT(SIZEOF(.sound_request_dispatch_strings) == 0x20, "sound_request_dispatch_strings size changed")
+ASSERT(SIZEOF(.actor_chain_reset) == 0x3c, "actor_chain_reset size changed")
+ASSERT(SIZEOF(.endgame_10414_11060) == 0xc4c, "endgame_10414_11060 size changed")
+ASSERT(SIZEOF(.model_hierarchy_transform) == 0x16c, "model_hierarchy_transform size changed")
+ASSERT(SIZEOF(.endgame_40080_4022c) == 0x1ac, "endgame_40080_4022c size changed")
+ASSERT(SIZEOF(.actor_history_projectile) == 0x1a4, "actor_history_projectile size changed")
+ASSERT(SIZEOF(.endgame_4ef64_4f3d4) == 0x470, "endgame_4ef64_4f3d4 size changed")
+ASSERT(SIZEOF(.endgame_8d724_8e094) == 0x970, "endgame_8d724_8e094 size changed")
+ASSERT(SIZEOF(.actor_history_flags) == 0x18, "actor_history_flags size changed")
+ASSERT(SIZEOF(.endgame_8e0ac_8e0e4) == 0x38, "endgame_8e0ac_8e0e4 size changed")
+ASSERT(SIZEOF(.actor_history_points_bss) == 0x1200, "actor_history_points_bss size changed")
+ASSERT(SIZEOF(.actor_history_tick) == 0x288, "actor_history_tick size changed")
+ASSERT(SIZEOF(.endgame_960c4_96730) == 0x66c, "endgame_960c4_96730 size changed")
+ASSERT(SIZEOF(.actor_history_tick_constant) == 0x4, "actor_history_tick_constant size changed")

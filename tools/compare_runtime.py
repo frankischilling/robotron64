@@ -821,6 +821,10 @@ MATCHING_BLOCKS = (
     ("early_relative_position", "src/game/early_relative_position.c", 0x8000CD50, 0x8000CE34),
     ("actor_contact_gate", "src/game/actor_contact_gate.c", 0x8001669C, 0x80016914),
     ("sound_request_dispatch", "src/game/sound_request_dispatch.c", 0x8003614C, 0x800361FC),
+    ("actor_chain_reset", "src/game/actor_chain_reset.c", 0x8000F7D8, 0x8000F814),
+    ("model_hierarchy_transform", "src/game/model_hierarchy_transform.c", 0x8003F314, 0x8003F480),
+    ("actor_history_projectile", "src/game/actor_history_projectile.c", 0x8004E1C0, 0x8004E364),
+    ("actor_history_tick", "src/game/actor_history_tick.c", 0x8004DEE0, 0x8004E168),
 )
 
 CANDIDATE_BLOCKS = (
