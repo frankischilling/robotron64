@@ -14622,5 +14622,16 @@
     "section": ".renderer_image_quad_rgba",
     "section_vram": 2147791000,
     "evidence": "docs/renderer-image-quads.md"
+  },
+  {
+    "name": "func_800444F8",
+    "rom": 282872,
+    "vram": 2147763448,
+    "size": 728,
+    "source": "src/game/renderer_expanded_triangle.c",
+    "object": "build/us/renderer_expanded_triangle.o",
+    "section": ".renderer_expanded_triangle",
+    "section_vram": 2147763448,
+    "evidence": "docs/renderer-expanded-triangle.md"
   }
 ]

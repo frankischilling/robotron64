@@ -61,6 +61,13 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [expanded textured triangle recovery](docs/renderer-expanded-triangle.md)
+uses the same local and online GBI references for vertex and triangle
+command layouts. Robotron's instructions and complete byte comparisons
+establish the XZ centroid expression order, signed division, shared
+translation, corner consumption, diagnostics, and compiler-supported local
+vector representation.
+
 The [image quad recovery](docs/renderer-image-quads.md) uses local Super Mario
 64 `include/PR/gbi.h` and libreultra `include/2.0I/PR/gbi.h`, together with
 their online sources, to decode indexed eight-bit and RGBA sixteen-bit

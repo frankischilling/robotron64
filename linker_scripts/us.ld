@@ -546,7 +546,8 @@ SECTIONS
     .renderer_light_select 0x8004417C : AT(0x44D7C) SUBALIGN(4) { build/us/renderer_light_select.o(.text) }
     .renderer_material_untextured 0x800441D0 : AT(0x44DD0) SUBALIGN(4) { build/us/renderer_material_untextured.o(.text) }
     .renderer_vertex_positions 0x80044270 : AT(0x44E70) SUBALIGN(4) { build/us/renderer_vertex_positions.o(.text) }
-    .endgame_450f8_45718 0x800444F8 : AT(0x450F8) { build/us/fallback.o(.rom_endgame_450f8_45718) }
+    .renderer_expanded_triangle 0x800444F8 : AT(0x450F8) SUBALIGN(4) { build/us/renderer_expanded_triangle.o(.text) }
+    .endgame_453d0_45718 0x800447D0 : AT(0x453D0) { build/us/fallback.o(.rom_endgame_453d0_45718) }
     .renderer_textured_submit 0x80044B18 : AT(0x45718) SUBALIGN(4) { build/us/renderer_textured_submit.o(.text) }
     .endgame_45b60_45d24 0x80044F60 : AT(0x45B60) { build/us/fallback.o(.rom_endgame_45b60_45d24) }
     .renderer_quad_submit 0x80045124 : AT(0x45D24) SUBALIGN(4) { build/us/renderer_quad_submit.o(.text) }
@@ -1165,7 +1166,8 @@ SECTIONS
     .data_after_sound_bridge_future_queue_strings 0x91004B60 : AT(0x94F00) { build/us/fallback.o(.rom_data_after_sound_bridge_future_queue_strings) }
     .renderer_vertex_attributes_strings 0x80094F20 : AT(0x95B20) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.rodata) }
     .renderer_vertex_positions_strings 0x80095010 : AT(0x95C10) SUBALIGN(4) { build/us/renderer_vertex_positions.o(.rodata) }
-    .endgame_data_95c60_95cb0 0x80095060 : AT(0x95C60) { build/us/fallback.o(.rom_endgame_data_95c60_95cb0) }
+    .renderer_expanded_triangle_strings 0x80095060 : AT(0x95C60) SUBALIGN(4) { build/us/renderer_expanded_triangle.o(.rodata) }
+    .endgame_data_95c88_95cb0 0x80095088 : AT(0x95C88) { build/us/fallback.o(.rom_endgame_data_95c88_95cb0) }
     .renderer_textured_submit_strings 0x800950B0 : AT(0x95CB0) SUBALIGN(4) { build/us/renderer_textured_submit.o(.rodata) }
     .endgame_data_95d00_95da0 0x80095100 : AT(0x95D00) { build/us/fallback.o(.rom_endgame_data_95d00_95da0) }
     .renderer_mesh_positions_strings 0x800951A0 : AT(0x95DA0) SUBALIGN(4) { build/us/renderer_mesh_positions.o(.rodata) }
@@ -2603,9 +2605,7 @@ ASSERT(SIZEOF(.controller_thread_state_bss) == 0x2208, "controller_thread_state_
 ASSERT(SIZEOF(.endgame_data_8e104_8e640) == 0x53c, "endgame_data_8e104_8e640 size changed")
 ASSERT(SIZEOF(.renderer_textured_submit) == 0x448, "renderer_textured_submit size changed")
 ASSERT(SIZEOF(.renderer_textured_submit_strings) == 0x50, "renderer_textured_submit_strings size changed")
-ASSERT(SIZEOF(.endgame_450f8_45718) == 0x620, "endgame_450f8_45718 size changed")
 ASSERT(SIZEOF(.endgame_45b60_45d24) == 0x1c4, "endgame_45b60_45d24 size changed")
-ASSERT(SIZEOF(.endgame_data_95c60_95cb0) == 0x50, "endgame_data_95c60_95cb0 size changed")
 ASSERT(SIZEOF(.endgame_data_95d00_95da0) == 0xa0, "endgame_data_95d00_95da0 size changed")
 ASSERT(SIZEOF(.renderer_texture_corner_state) == 0x10, "renderer_texture_corner_state size changed")
 ASSERT(SIZEOF(.endgame_data_7d994_7d9b0) == 0x1c, "endgame_data_7d994_7d9b0 size changed")
@@ -2619,3 +2619,8 @@ ASSERT(SIZEOF(.endgame_4bba4_4bc98) == 0xf4, "endgame_4bba4_4bc98 size changed")
 ASSERT(SIZEOF(.endgame_4bed8_4bee0) == 0x8, "endgame_4bed8_4bee0 size changed")
 ASSERT(SIZEOF(.endgame_data_7d9c0_8d720) == 0xfd60, "endgame_data_7d9c0_8d720 size changed")
 ASSERT(SIZEOF(.endgame_data_8d724_8e0e4) == 0x9c0, "endgame_data_8d724_8e0e4 size changed")
+ASSERT(SIZEOF(.renderer_expanded_triangle) == 0x2d8, "renderer_expanded_triangle size changed")
+ASSERT(SIZEOF(.renderer_expanded_triangle_strings) == 0x28, "renderer_expanded_triangle_strings size changed")
+ASSERT(SIZEOF(.endgame_453d0_45718) == 0x348, "endgame_453d0_45718 size changed")
+ASSERT(SIZEOF(.endgame_data_95c88_95cb0) == 0x28, "endgame_data_95c88_95cb0 size changed")
+D_800BF90C = 0x800BF90C;

@@ -1604,5 +1604,20 @@
     },
     "static_symbols": {},
     "evidence": "docs/renderer-image-quads.md"
+  },
+  {
+    "source": "src/game/renderer_expanded_triangle.c",
+    "object": "build/us/renderer_expanded_triangle.o",
+    "input_section": ".rodata",
+    "section": ".renderer_expanded_triangle_strings",
+    "vram": 2148094048,
+    "rom": 613472,
+    "size": 40,
+    "symbols": {},
+    "static_symbols": {
+      "D_80095060": 0,
+      "D_80095080": 32
+    },
+    "evidence": "docs/renderer-expanded-triangle.md"
   }
 ]
