@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,288 matching C functions covering 210,996 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,359 bytes
-of source-owned initialized data, and 21,629 bytes of source-owned BSS. The
+The source checkpoint contains 1,308 matching C functions covering 220,304 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 9,547 bytes
+of source-owned initialized data, and 30,353 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-361 complete C functions, 89,948 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 7,711 reconstructed initialized bytes, and 17,539 BSS bytes.
+381 complete C functions, 99,256 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 7,899 reconstructed initialized bytes, and 26,263 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,80 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Session scene start](session-scene-start.md) adds one complete 448-byte C
+procedure. Its automatic level selection, player initialization, selection
+reset, scene transition, and second-player scene words match the target.
+The shared save-state layout retains its verified sizes and exposes the
+two player-choice words and the aligned word at player offset `0xD70`.
+No new initialized data or BSS is claimed.
+
+[Model polygon normal dispatch](model-normal-polygon-dispatch.md) adds two
+complete 420-byte C procedures. Vertex caching, both material paths, all
+four normal submissions, and triangle/quad selection match the target.
+
+[Scene menu string setup and scheduling](scene-menu-string-schedule.md)
+adds one complete 432-byte C procedure. The global flag, choice traversal,
+string and value writes, fallback text, signed scheduled-frame expression,
+and text flag callback registration preserve the target.
+
+[Movie string position submission](movie-string-position-submit.md) adds
+one complete 368-byte C procedure and sixteen initialized constant bytes.
+Track output, coordinate conversion and truncation, rotation offset,
+double scale, and all fifteen outgoing arguments match the target.
+
+[Scene menu string refresh](scene-menu-string-refresh.md) adds one complete
+368-byte C procedure. Its two-choice traversal, five string slots, retained
+found flag, value update, and fallback text call match the target. The
+choice structure records the verified 12-byte stride without claiming
+additional data ownership.
+
+[Scene actor reset and fade setup](scene-actor-reset-begin.md) adds one
+complete 392-byte C procedure. The selected-player sound condition, actor
+resource and animation filters, frame and flag writes, palette duration,
+and final camera state calls preserve the target instructions.
+
+[Early pool and camera reset](early-pool-scene-reset.md) adds one complete
+284-byte C procedure. It preserves both reset loops, the sentinel and frame
+writes, camera calls, actor visibility traversal, and debug-context reset.
+The shared state prefix now records the observed layout through offset
+`0x1F0` without claiming the complete allocation or additional BSS ownership.
+
+[Camera-relative square rendering](renderer-camera-square.md) adds one
+complete 336-byte C procedure. It preserves signed coordinate shifts,
+four independent matrix transforms, corner texture coordinates, and the
+alpha-160 quad call.
+
+[Audio command callback scanning](audio-command-callback-scan.md) adds one
+complete 292-byte procedure and twelve BSS bytes to the existing parameter
+unit. Active-record scanning, little-endian signed values, callback
+arguments, byte-index wraparound, and retained state match the target.
+
+[Expanded textured triangle submission](renderer-expanded-triangle.md)
+adds one complete 728-byte C procedure and 40 diagnostic string bytes.
+It preserves centroid expression order, signed rounding, the shared XZ
+translation, packed texture corners, bounds diagnostics, and command order.
+
+[Image quad submission](renderer-image-quads.md) adds four complete C
+procedures with 2,440 instruction bytes and four initialized extent bytes.
+Indexed and RGBA texture commands, aligned and preserved image addresses,
+vertex allocation failure, store order, and forward and reverse windings
+retain the target behavior.
+
+[Textured polygon submission](renderer-textured-submission.md) adds two
+complete C procedures with 1,096 instruction bytes, a 16-byte mutable texture
+corner table, and 80 diagnostic string bytes. Packed corner consumption,
+signed position conversion, alpha writes, primitive counts, and both display
+list command sequences preserve the target behavior.
+
+[Controller initialization and refresh](controller-service-setup.md) add two
+complete C procedures with 888 instruction bytes, 32 initialized motor flag
+bytes, and 8,712 BSS bytes. Queue and thread setup, four-port Pak checks,
+motor detection, and the port-zero result states retain the target behavior.
+
+The [boundary actor spawner](early-boundary-actor-spawn.md) adds one complete
+C procedure with 396 instruction bytes. It preserves allocation failure,
+signed boundary tests, the product-sign orientation path, and both callbacks.
 
 The [Controller Pak notice](renderer-controller-pak-notice.md) adds one complete
 C procedure with 284 instruction bytes and its 20-byte string block. Its
@@ -219,7 +293,7 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 776 complete source units. Startup/scheduler
+The runtime registry contains 791 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-nine procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
@@ -266,6 +340,12 @@ early-game and actor routines, movie update, renderer polygon and mesh paths,
 frame setup, text replacement, and further platform functions are unfinished.
 Their complete candidate comparisons and source investigations remain available
 locally, but their bytes are excluded from this checkpoint's source counts.
+
+The [actor contact gate](actor-contact-gate.md) has a complete 632-byte C
+candidate with three remaining branch operand-order differences. Its stack,
+copied positions, kind ordering, flag updates, hover-height gate, and callback
+arguments match the remaining target words. It is included in the excluded
+candidate report and contributes no matching functions or bytes.
 
 The combined graphics setup/pacing source now reproduces all 628 code
 bytes and its 124-byte dispatch table and is included in this checkpoint.

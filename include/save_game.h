@@ -21,7 +21,8 @@ typedef struct GamePlayerState {
     SavedPlayerState saved;
     unsigned char unknownA0[0xCCC];
     int level;
-    unsigned char unknownD70[0x44];
+    int valueD70;
+    unsigned char unknownD74[0x40];
 } GamePlayerState;
 
 typedef struct SavedSessionState {
@@ -32,7 +33,10 @@ typedef struct SavedSessionState {
     int level;
     int mode;
     int currentPlayer;
-    unsigned char unknown34[0x18];
+    int selection34;
+    int playerChoices38[2];
+    unsigned char unknown40[8];
+    int extra48;
 } SavedSessionState;
 
 struct EarlyAnimationRecord;

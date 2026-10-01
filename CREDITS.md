@@ -26,7 +26,7 @@ every file in every project has been studied.
 | [Mario Party](https://github.com/mariopartyrd/marioparty) | `26dca4f3cf2dab1839bc1de3579b7227b65b9ee6` | Additional game and SDK integration reference |
 | [Pokémon Stadium](https://github.com/pret/pokestadium) | `0b614c210004d9b586897f11a7f820850e97f3d6` | Additional game and data-layout reference |
 | [GoldenEye 007](https://github.com/n64decomp/007) | `c4356466796c697dfd298010b9bed261f9ed8c6a` | Older SDK motor command and response behavior |
-| [Perfect Dark](https://github.com/n64decomp/perfect_dark) | `169ed48bdcbfb3b568b028bd5bebb27680073514` | Extraction structure and per-object compiler profiles |
+| [Perfect Dark](https://github.com/n64decomp/perfect_dark) | `169ed48bdcbfb3b568b028bd5bebb27680073514` | Extraction structure, per-object compiler profiles, and controller initialization and query flow |
 | [Banjo-Kazooie](https://github.com/n64decomp/banjo-kazooie) | `9db90a003fff15d13d29505d571aff2543b50383` | Additional game, SDK and matching workflow reference |
 
 The GoldenEye GitHub repository identifies itself as a mirror of the
@@ -60,6 +60,91 @@ MIPS assembler, linker and object inspection tools. Python and GNU Make run
 the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
+
+The [session scene start](docs/session-scene-start.md) retains the pinned
+local IDO and N64 matching-workflow references. Robotron's instructions and
+the recovered menu callers establish the mode values, two-player storage,
+automatic level selection, reset ordering, and scene words. No reference
+implementation is copied into the procedure. All requested reference
+repositories retain their local and online credits below.
+
+The [model polygon normal dispatch](docs/model-normal-polygon-dispatch.md)
+retains the pinned IDO and N64 matching-build references. A local
+decomp-permuter search suggested source line grouping for the cursor
+initialization and do loop; the complete two-procedure unit was then
+checked independently. Robotron's instructions establish the index cache,
+material variants, all four normal submissions, and primitive dispatch.
+No reference implementation is copied into these procedures.
+
+The [scene menu string setup](docs/scene-menu-string-schedule.md) retains
+the pinned IDO and N64 matching-build references for local and online use.
+Robotron's instructions establish the choice stride, selection index,
+global flag, string calls, signed scheduled-frame expression, and callback
+registration. No reference implementation is copied into this procedure.
+
+The [movie string position submission](docs/movie-string-position-submit.md)
+retains the pinned IDO and established N64 matching-build references for
+local and online use. Complete Robotron instructions and the movie update
+caller establish the argument slots, coordinate conversion, rotation
+offset, double scale, and constant block. No reference implementation is
+copied into this procedure.
+
+The [scene menu string refresh](docs/scene-menu-string-refresh.md) retains
+the pinned IDO and established N64 matching-build references for local and
+online use. Complete Robotron instructions establish the choice stride,
+five-slot traversal, found flag, string calls, and fallback path. No
+reference implementation is copied into this procedure.
+
+The [scene actor reset and fade setup](docs/scene-actor-reset-begin.md)
+retains the pinned IDO and established N64 matching-build references for
+local and online use. Complete Robotron instructions establish the player
+byte clamp, actor filters, animation and frame writes, palette duration,
+camera arguments, and state update. No reference implementation is copied
+into this procedure.
+
+The [early pool and camera reset](docs/early-pool-scene-reset.md) follows
+the recorded IDO compiler materials and N64 matching workflows. Robotron's
+complete instructions and the previously recovered services establish the
+camera arguments, reset loops, shared state offsets, object enable writes,
+and debug-context call. The documented prefix does not claim the complete
+allocation or add unverified BSS ownership.
+
+The [camera-relative square recovery](docs/renderer-camera-square.md) uses
+the local and online Super Mario 64 and libreultra GBI definitions for the
+existing vertex layout. Robotron's complete instructions establish the
+corner expressions, signed shifts, matrix-call order, texture coordinates,
+and alpha-160 quad call. Independent IDO compilation and whole-ROM checks
+determine acceptance.
+
+The [audio command callback scan](docs/audio-command-callback-scan.md) uses
+the local and online decomp-permuter project to search equivalent C forms
+for a remaining comparison operand difference. The accepted explicit member
+access was independently rebuilt with the IDO compiler and checked across
+the complete parameter and callback unit. Robotron's instructions establish
+its eight-byte callback records, command value, stopping conditions, retained
+state, and twelve-byte static BSS layout.
+
+The [expanded textured triangle recovery](docs/renderer-expanded-triangle.md)
+uses the same local and online GBI references for vertex and triangle
+command layouts. Robotron's instructions and complete byte comparisons
+establish the XZ centroid expression order, signed division, shared
+translation, corner consumption, diagnostics, and compiler-supported local
+vector representation.
+
+The [image quad recovery](docs/renderer-image-quads.md) uses local Super Mario
+64 `include/PR/gbi.h` and libreultra `include/2.0I/PR/gbi.h`, together with
+their online sources, to decode indexed eight-bit and RGBA sixteen-bit
+texture image, tile and load-block words. Robotron's complete instructions
+establish its vertex store order, quad winding, address alignment, cache
+writes, and allocation failure behavior. Its shared extent scalar is
+reconstructed and checked against the target's complete four-byte value.
+
+The [textured polygon submission recovery](docs/renderer-textured-submission.md)
+uses the local Super Mario 64 `include/PR/gbi.h` and libreultra
+`include/2.0I/PR/gbi.h`, together with their online sources, for hardware
+vertex layouts and vertex, triangle, and quad command packing. Robotron's
+own complete code and data comparisons establish the corner selectors,
+position conversion, alpha writes, diagnostics, and cursor behavior.
 
 The early session animation recovery uses the recorded IDO compiler materials
 and Super Mario 64 build conventions for compiler and linker handling. Its
@@ -369,6 +454,14 @@ retains the pinned local IDO, Super Mario 64 and libreultra workflow references.
 Complete Robotron instructions establish the wrapped elapsed-time subtraction,
 session timestamp, callback arguments, signed remainder and child spacing.
 No reference implementation is copied into these procedures.
+
+The [controller setup and storage recovery](docs/controller-service-setup.md)
+consulted local libreultra `include/2.0I/PR/os.h` for controller, Pak, motor,
+and thread interfaces, and local Perfect Dark `src/lib/joy.c` for controller
+initialization and query conventions. Robotron's instructions determine its
+queue setup, repeated initialization call, error handling, and storage
+boundaries. The reconstructed game procedures contain no copied reference
+implementation.
 
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
