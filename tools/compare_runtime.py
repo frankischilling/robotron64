@@ -810,6 +810,7 @@ MATCHING_BLOCKS = (
     ("object_history_render", "src/game/object_history_render.c", 0x8004E968, 0x8004EB60),
     ("renderer_matrix_submit", "src/game/renderer_matrix_submit.c", 0x80047D88, 0x80048020),
     ("model_file_relocate", "src/game/model_file_relocate.c", 0x8003C6B8, 0x8003C94C),
+    ("audio_voice_defaults", "src/game/audio_voice_defaults.c", 0x8005362C, 0x800538F8),
 )
 
 CANDIDATE_BLOCKS = (

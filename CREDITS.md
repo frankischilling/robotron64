@@ -79,6 +79,11 @@ instructions and existing matching actor helpers establish placement,
 callback arguments, and the retained unwritten position coordinate.
 No reference implementation is copied.
 
+The [audio voice defaults](docs/audio-voice-defaults.md) use the same
+pinned IDO and N64 matching-workflow references. Robotron's complete
+instructions, track loader, caller, and matching property consumers
+establish the sequence-header layout and initialization behavior.
+
 The [model file relocation](docs/model-file-relocation.md) uses the
 same pinned IDO and N64 matching-workflow references. Robotron's complete
 instructions and existing recovered object callers establish the header,

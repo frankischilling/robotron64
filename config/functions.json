@@ -14842,5 +14842,16 @@
     "section": ".model_file_relocate",
     "section_vram": 2147731128,
     "evidence": "docs/model-file-relocation.md"
+  },
+  {
+    "name": "func_8005362C",
+    "rom": 344620,
+    "vram": 2147825196,
+    "size": 716,
+    "source": "src/game/audio_voice_defaults.c",
+    "object": "build/us/audio_voice_defaults.o",
+    "section": ".audio_voice_defaults",
+    "section_vram": 2147825196,
+    "evidence": "docs/audio-voice-defaults.md"
   }
 ]

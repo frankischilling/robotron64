@@ -730,7 +730,8 @@ SECTIONS
     .cpu_after_audio_callback_return 0x80052774 : AT(0x53374) { build/us/fallback.o(.rom_cpu_after_audio_callback_return) }
     .audio_config 0x80052780 : AT(0x53380) SUBALIGN(4) { build/us/audio_config.o(.text) }
     .audio_control 0x80052A00 : AT(0x53600) SUBALIGN(4) { build/us/audio_control.o(.text) }
-    .endgame_53970_544f8 0x80052D70 : AT(0x53970) { build/us/fallback.o(.rom_endgame_53970_544f8) }
+    .endgame_53970_5422c 0x80052D70 : AT(0x53970) { build/us/fallback.o(.rom_endgame_53970_5422c) }
+    .audio_voice_defaults 0x8005362C : AT(0x5422C) SUBALIGN(4) { build/us/audio_voice_defaults.o(.text) }
     .audio_voice_sequence_bind 0x800538F8 : AT(0x544F8) SUBALIGN(4) { build/us/audio_voice_sequence_bind.o(.text) }
     .endgame_5456c_54850 0x8005396C : AT(0x5456C) { build/us/fallback.o(.rom_endgame_5456c_54850) }
     .audio_play 0x80053C50 : AT(0x54850) SUBALIGN(4) { build/us/audio_play.o(.text) }
@@ -2286,7 +2287,6 @@ ASSERT(SIZEOF(.os_invalidate_instruction_cache) == 0x80, "os_invalidate_instruct
 ASSERT(SIZEOF(.os_invalidate_data_cache) == 0xb0, "os_invalidate_data_cache size changed")
 ASSERT(SIZEOF(.os_block_clear) == 0xa0, "os_block_clear size changed")
 ASSERT(SIZEOF(.os_interrupt_mask) == 0xa0, "os_interrupt_mask size changed")
-ASSERT(SIZEOF(.endgame_53970_544f8) == 0xb88, "endgame_53970_544f8 size changed")
 ASSERT(SIZEOF(.endgame_5456c_54850) == 0x2e4, "endgame_5456c_54850 size changed")
 ASSERT(SIZEOF(.endgame_65dec_65df0) == 0x4, "endgame_65dec_65df0 size changed")
 ASSERT(SIZEOF(.endgame_66384_66390) == 0xc, "endgame_66384_66390 size changed")
@@ -2704,3 +2704,5 @@ ASSERT(SIZEOF(.model_file_relocate) == 0x294, "model_file_relocate size changed"
 ASSERT(SIZEOF(.model_file_relocate_strings) == 0x30, "model_file_relocate_strings size changed")
 ASSERT(SIZEOF(.endgame_data_957e8_95850) == 0x68, "endgame_data_957e8_95850 size changed")
 ASSERT(SIZEOF(.endgame_data_95880_95b20) == 0x2a0, "endgame_data_95880_95b20 size changed")
+ASSERT(SIZEOF(.endgame_53970_5422c) == 0x8bc, "endgame_53970_5422c size changed")
+ASSERT(SIZEOF(.audio_voice_defaults) == 0x2CC, "audio voice defaults text size changed")

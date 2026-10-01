@@ -7,7 +7,16 @@
 
 /* Serialized sequence entries use the unsigned interpretation of the count. */
 typedef struct AudioSequenceHeader {
-    unsigned char unknown00[14];
+    unsigned char category;
+    unsigned char parameter01;
+    short property02;
+    short property04;
+    unsigned char parameter06;
+    unsigned char parameter07;
+    unsigned char unknown08;
+    unsigned char controlMask;
+    short property0A;
+    short property0C;
     short labelCount;
     unsigned int commandBytes;
 } AudioSequenceHeader;
@@ -47,6 +56,9 @@ extern AudioSequenceFileHeader D_80192B80;
 extern AudioContext *D_80192BA0;
 extern unsigned int D_80192BBC;
 extern int D_80192BC0;
+
+void func_8005362C(AudioVoice *voice, AudioSequenceTrack *track,
+                   AudioProperties *properties);
 
 int func_8005CE0C(int index, unsigned char *destination);
 int func_8005D220(AudioContext *context, unsigned int address);

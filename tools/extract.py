@@ -145,7 +145,7 @@ REGIONS = (
     ("cpu_after_audio_io", 0x5260c, 0x52d1c),
     ("cpu_after_audio_shutdown", 0x532fc, 0x53300),
     ("cpu_after_audio_callback_return", 0x53374, 0x53380),
-    ("endgame_53970_544f8", 0x53970, 0x544f8),
+    ("endgame_53970_5422c", 0x53970, 0x5422c),
     ("endgame_5456c_54850", 0x5456c, 0x54850),
     ("cpu_after_audio_mode", 0x55844, 0x55850),
     ("cpu_after_audio_resume_all_apply", 0x56358, 0x56360),
