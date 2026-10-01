@@ -26,7 +26,7 @@ every file in every project has been studied.
 | [Mario Party](https://github.com/mariopartyrd/marioparty) | `26dca4f3cf2dab1839bc1de3579b7227b65b9ee6` | Additional game and SDK integration reference |
 | [Pokémon Stadium](https://github.com/pret/pokestadium) | `0b614c210004d9b586897f11a7f820850e97f3d6` | Additional game and data-layout reference |
 | [GoldenEye 007](https://github.com/n64decomp/007) | `c4356466796c697dfd298010b9bed261f9ed8c6a` | Older SDK motor command and response behavior |
-| [Perfect Dark](https://github.com/n64decomp/perfect_dark) | `169ed48bdcbfb3b568b028bd5bebb27680073514` | Extraction structure and per-object compiler profiles |
+| [Perfect Dark](https://github.com/n64decomp/perfect_dark) | `169ed48bdcbfb3b568b028bd5bebb27680073514` | Extraction structure, per-object compiler profiles, and controller initialization and query flow |
 | [Banjo-Kazooie](https://github.com/n64decomp/banjo-kazooie) | `9db90a003fff15d13d29505d571aff2543b50383` | Additional game, SDK and matching workflow reference |
 
 The GoldenEye GitHub repository identifies itself as a mirror of the
@@ -369,6 +369,14 @@ retains the pinned local IDO, Super Mario 64 and libreultra workflow references.
 Complete Robotron instructions establish the wrapped elapsed-time subtraction,
 session timestamp, callback arguments, signed remainder and child spacing.
 No reference implementation is copied into these procedures.
+
+The [controller setup and storage recovery](docs/controller-service-setup.md)
+consulted local libreultra `include/2.0I/PR/os.h` for controller, Pak, motor,
+and thread interfaces, and local Perfect Dark `src/lib/joy.c` for controller
+initialization and query conventions. Robotron's instructions determine its
+queue setup, repeated initialization call, error handling, and storage
+boundaries. The reconstructed game procedures contain no copied reference
+implementation.
 
 Credit does not replace a component's license or original notices. Reference
 repositories can contain different terms for different components. This
