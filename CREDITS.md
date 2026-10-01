@@ -61,6 +61,13 @@ the extraction, validation and build workflow.
 
 ## Attribution in recovery notes
 
+The [movie string position submission](docs/movie-string-position-submit.md)
+retains the pinned IDO and established N64 matching-build references for
+local and online use. Complete Robotron instructions and the movie update
+caller establish the argument slots, coordinate conversion, rotation
+offset, double scale, and constant block. No reference implementation is
+copied into this procedure.
+
 The [scene menu string refresh](docs/scene-menu-string-refresh.md) retains
 the pinned IDO and established N64 matching-build references for local and
 online use. Complete Robotron instructions establish the choice stride,

@@ -14688,5 +14688,16 @@
     "section": ".scene_menu_string_refresh",
     "section_vram": 2147625480,
     "evidence": "docs/scene-menu-string-refresh.md"
+  },
+  {
+    "name": "func_80002D70",
+    "rom": 14704,
+    "vram": 2147495280,
+    "size": 368,
+    "source": "src/game/movie_string_position_submit.c",
+    "object": "build/us/movie_string_position_submit.o",
+    "section": ".movie_string_position_submit",
+    "section_vram": 2147495280,
+    "evidence": "docs/movie-string-position-submit.md"
   }
 ]

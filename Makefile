@@ -5971,6 +5971,16 @@ build/us/scene_menu_string_refresh.o: src/game/scene_menu_string_refresh.c inclu
 RUNTIME_OBJECTS += \
     build/us/scene_menu_string_refresh.o
 
+build/us/movie_string_position_submit.o: src/game/movie_string_position_submit.c tools/owned_sections.py config/owned_sections.json include/movie.h include/palette.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_string_position_submit.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/movie_string_position_submit.raw.o build/us/movie_string_position_submit.text.o .text 0x170
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_string_position_submit.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += \
+    build/us/movie_string_position_submit.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

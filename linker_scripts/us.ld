@@ -1,3 +1,5 @@
+D_800B6FEC = 0x800B6FEC;
+func_8000177C = 0x8000177C;
 D_800925E8 = 0x800925E8;
 D_8009EFB0 = 0x8009EFB0;
 D_800761AC = 0x800761AC;
@@ -51,7 +53,8 @@ SECTIONS
     .text_edit 0x80001270 : AT(0x1E70) { build/us/text_edit.o(.text) }
     .text_properties 0x800013D0 : AT(0x1FD0) { build/us/text_properties.o(.text) }
     .text_conversion 0x800016D8 : AT(0x22D8) SUBALIGN(4) { build/us/text_conversion.o(.text) }
-    .cpu_fallback 0x8000177C : AT(0x237C) { build/us/fallback.o(.rom_cpu_fallback) }
+    .endgame_237c_3970 0x8000177C : AT(0x237C) { build/us/fallback.o(.rom_endgame_237c_3970) }
+    .movie_string_position_submit 0x80002D70 : AT(0x3970) SUBALIGN(4) { build/us/movie_string_position_submit.o(.text) }
     .movie_reset 0x80002EE0 : AT(0x3AE0) SUBALIGN(4) { build/us/movie_reset.o(.text) }
     .movie_parameters 0x80002F28 : AT(0x3B28) SUBALIGN(4) { build/us/movie_parameters.o(.text) }
     .movie_commands 0x80003040 : AT(0x3C40) SUBALIGN(4) { build/us/movie_commands.o(.text) }
@@ -1144,7 +1147,9 @@ SECTIONS
     .video_default_modes_data 0x8008F530 : AT(0x90130) SUBALIGN(4) { build/us/video_default_modes.o(.data) }
     .after_video_default_modes_data 0x8008F620 : AT(0x90220) { build/us/fallback.o(.rom_after_video_default_modes_data) }
     .text_table 0x8008F678 : AT(0x90278) SUBALIGN(4) { build/us/text.o(.rodata) }
-    .endgame_903a0_90530 0x8008F7A0 : AT(0x903A0) { build/us/fallback.o(.rom_endgame_903a0_90530) }
+    .endgame_data_903a0_90428 0x8008F7A0 : AT(0x903A0) { build/us/fallback.o(.rom_endgame_data_903a0_90428) }
+    .movie_string_position_submit_constants 0x8008F828 : AT(0x90428) SUBALIGN(4) { build/us/movie_string_position_submit.o(.rodata) }
+    .endgame_data_90438_90530 0x8008F838 : AT(0x90438) { build/us/fallback.o(.rom_endgame_data_90438_90530) }
     .early_signature_gate_rodata 0x8008F930 : AT(0x90530) SUBALIGN(4) { build/us/early_signature_gate.o(.rodata) }
     .endgame_90540_90558 0x8008F940 : AT(0x90540) { build/us/fallback.o(.rom_endgame_90540_90558) }
     .early_effect_spawn_rodata 0x8008F958 : AT(0x90558) SUBALIGN(4) { build/us/early_effect_spawn.o(.rodata) }
@@ -1270,7 +1275,6 @@ ASSERT(SIZEOF(.header) == 0x40, "header size changed")
 ASSERT(SIZEOF(.ipl3) == 0xfc0, "IPL3 size changed")
 ASSERT(SIZEOF(.entry) == 0x50, "entry size changed")
 ASSERT(SIZEOF(.text_start) == 0xaf8, "initial text functions size changed")
-ASSERT(SIZEOF(.cpu_fallback) == 0x1764, "cpu_fallback size changed")
 ASSERT(SIZEOF(.movie_reset) == 0x48, "movie_reset size changed")
 ASSERT(SIZEOF(.movie_parameters) == 0x118, "movie_parameters size changed")
 ASSERT(SIZEOF(.movie_commands) == 0x7b8, "movie_commands size changed")
@@ -2518,7 +2522,6 @@ ASSERT(SIZEOF(.early_signature_gate_rodata) == 0x10, "early_signature_gate_rodat
 ASSERT(SIZEOF(.endgame_64f0_69ec) == 0x4fc, "endgame_64f0_69ec size changed")
 ASSERT(SIZEOF(.endgame_6a80_ab58) == 0x40d8, "endgame_6a80_ab58 size changed")
 ASSERT(SIZEOF(.endgame_f828_f830) == 0x8, "endgame_f828_f830 size changed")
-ASSERT(SIZEOF(.endgame_903a0_90530) == 0x190, "endgame_903a0_90530 size changed")
 ASSERT(SIZEOF(.endgame_90540_90558) == 0x18, "endgame_90540_90558 size changed")
 D_8008D790 = 0x8008D790;
 D_8008D794 = 0x8008D794;
@@ -2637,3 +2640,8 @@ ASSERT(SIZEOF(.endgame_33cf8_344cc) == 0x7d4, "endgame_33cf8_344cc size changed"
 ASSERT(SIZEOF(.scene_actor_reset_begin) == 0x188, "scene actor reset begin text size changed")
 ASSERT(SIZEOF(.endgame_23458_23608) == 0x1b0, "endgame_23458_23608 size changed")
 ASSERT(SIZEOF(.scene_menu_string_refresh) == 0x170, "scene menu string refresh text size changed")
+ASSERT(SIZEOF(.movie_string_position_submit) == 0x170, "movie_string_position_submit size changed")
+ASSERT(SIZEOF(.movie_string_position_submit_constants) == 0x10, "movie_string_position_submit_constants size changed")
+ASSERT(SIZEOF(.endgame_237c_3970) == 0x15f4, "endgame_237c_3970 size changed")
+ASSERT(SIZEOF(.endgame_data_903a0_90428) == 0x88, "endgame_data_903a0_90428 size changed")
+ASSERT(SIZEOF(.endgame_data_90438_90530) == 0xf8, "endgame_data_90438_90530 size changed")

@@ -1639,5 +1639,17 @@
       "D_8019276C": 8
     },
     "evidence": "docs/audio-command-callback-scan.md"
+  },
+  {
+    "source": "src/game/movie_string_position_submit.c",
+    "object": "build/us/movie_string_position_submit.o",
+    "input_section": ".rodata",
+    "section": ".movie_string_position_submit_constants",
+    "vram": 2148071464,
+    "rom": 590888,
+    "size": 16,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/movie-string-position-submit.md"
   }
 ]
