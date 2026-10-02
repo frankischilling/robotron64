@@ -141,7 +141,7 @@ SECTIONS
     .early_angle_step 0x8000DF30 : AT(0xEB30) SUBALIGN(4) { build/us/early_angle_step.o(.text) }
     .early_coordinate_rescale 0x8000DFB0 : AT(0xEBB0) SUBALIGN(4) { build/us/early_coordinate_rescale.o(.text) }
     .early_actor_follow_owner 0x8000DFEC : AT(0xEBEC) SUBALIGN(4) { build/us/early_actor_follow_owner.o(.text) }
-    .endgame_ed08_ef28 0x8000E108 : AT(0xED08) { build/us/fallback.o(.rom_endgame_ed08_ef28) }
+    .actor_group_setup 0x8000E108 : AT(0xED08) SUBALIGN(4) { build/us/actor_group_setup.o(.text) }
     .early_transition_arrays_clear 0x8000E328 : AT(0xEF28) SUBALIGN(4) { build/us/early_transition_arrays_clear.o(.text) }
     .early_parameter_schedule 0x8000E3B4 : AT(0xEFB4) SUBALIGN(4) { build/us/early_parameter_schedule.o(.text) }
     .early_parameter_slot_tick 0x8000E4F0 : AT(0xF0F0) SUBALIGN(4) { build/us/early_parameter_slot_tick.o(.text) }
@@ -2727,8 +2727,7 @@ ASSERT(SIZEOF(.endgame_18b9c_198c8) == 0xd2c, "endgame_18b9c_198c8 size changed"
 ASSERT(SIZEOF(.endgame_28ad4_28d8c) == 0x2b8, "endgame_28ad4_28d8c size changed")
 ASSERT(SIZEOF(.endgame_35e44_35f60) == 0x11c, "endgame_35e44_35f60 size changed")
 ASSERT(SIZEOF(.early_parameter_slot_tick) == 0xd8, "early_parameter_slot_tick size changed")
-ASSERT(SIZEOF(.endgame_ed08_ef28) == 0x220, "endgame_ed08_ef28 size changed")
-func_8000E108 = 0x8000E108;
+ASSERT(SIZEOF(.actor_group_setup) == 0x220, "actor_group_setup size changed")
 func_8000E720 = 0x8000E720;
 ASSERT(SIZEOF(.early_actor_follow_owner) == 0x11c, "early_actor_follow_owner size changed")
 ASSERT(SIZEOF(.renderer_status_text) == 0x11c, "renderer_status_text size changed")

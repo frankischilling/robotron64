@@ -1,0 +1,2877 @@
+{
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "new_matching_instruction_bytes": 544,
+  "new_initialized_bytes": 0,
+  "new_bss_bytes": 0,
+  "input_hash_scope": "Each block inputs_sha256 supplements shared_inputs_sha256; exact source bytes and all current include headers are hashed.",
+  "shared_inputs_sha256": {
+    "config/functions.json": "fa52edbc87fe732d9c2535a3ef5d424e78577d615c1b76b1c90175889acb37d8",
+    "config/owned_sections.json": "d068f26d089f6d2c06a3fb9e14ccc886510c80511d919f5c3cefb1f815a91e0b",
+    "config/runtime_symbols.ld": "42ecfe734bb4ae7381b6d08a2aa45bb6a88b77fb542efd4ecb3eef3c1ea951a7",
+    "config/startup_symbols.ld": "a0b8d4b1918ae3031a13ae0b5e5c62d19fa6e8aa6d75392465e565a5373f9288",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
+    "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
+    "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
+    "include/actor_behavior_internal.h": "a34cc98195a029e4003cc251f4e172d595214582a339404eb78449926fa99373",
+    "include/actor_behavior_more_internal.h": "f2e8d0c8db3ad33093105ea64d661f78457c6fbc55025c326732e6e391801f64",
+    "include/actor_behavior_next_internal.h": "bb0980b227ed20ff6e426199c5ba90c2cc5a5fbd8e3c8b20f951d12e7ff39a54",
+    "include/actor_brain_internal.h": "5a3bb4ac3303bf032876bff2c707a11b3a85115b369a252c586850df93de5e65",
+    "include/actor_collision_services.h": "6403076413456a024afcc2ea7528dfb31c0450eae6de4cef1fc14b8053893f4a",
+    "include/actor_duration_internal.h": "51b83fc836a67c71f352c2f234c06593d2f24a72bc45cb578c938874c5f14831",
+    "include/actor_dynamic_pool_internal.h": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
+    "include/actor_enforcer_internal.h": "26629c4bc9a0e6a4136e575bd3b864daf91876501c8f47b7807a9e2a403bd616",
+    "include/actor_history_internal.h": "d53cd9bfd7c00bbf88deee633adc97535d8d5c421c78686041d0adc355e3c79a",
+    "include/actor_hulk_internal.h": "224fbf4d7e357ebdcd2e22b0ddd65a0e0b6897ff6b2581507996e62de7d37862",
+    "include/actor_human_internal.h": "0f0d3c3a508b911ef825e73889494a2d051bea0c93772182ed5ba15cb3ee3849",
+    "include/actor_lifecycle_internal.h": "6d47f2191d380d2b1ace7773f9d07475f33d419d48c4786bfb266c0e380f7e26",
+    "include/actor_motion_internal.h": "c311a16b465c8dea95438a609a479007bd93e3493c6f547ae65e5f69cea50f57",
+    "include/actor_position_pairs.h": "5ee0f4c87fc1a42c72cb90b9b2b781a44dfbfb6c736af64e3bbcc2c90e4b45a9",
+    "include/actor_projectile_internal.h": "8baf67e69fe26649c1fe07531f0eec0ca97ba04075d6a871f4e65a93ae343228",
+    "include/actor_pursuit_internal.h": "ad11f70d7810ea6cffc7454ae1e3527a9cb4e8c96324fdb5949c30b6f095a443",
+    "include/actor_resource_internal.h": "cff60e1efe0fca370f8dbbda1b453163c6bcf9405c650a44581e861a913aa8fa",
+    "include/actor_setup_internal.h": "7eaa4643dca3dbf8156cd2b86c6e51914316607933fc9ff56180935a00c4e88e",
+    "include/actor_spawn_callback_internal.h": "8cf97711f0117dd13efe82c78f3856d6d6968d9ddacc005fe65830bccc53ac36",
+    "include/actor_spawn_internal.h": "f7479dbdb87ac6279fc0df86c496596a9170129e46f828783c67768c95c1ea38",
+    "include/actor_stride_internal.h": "ddb173f1de44bf907795c5199952f85d7520bfd11d48401b450864f9d52ebfae",
+    "include/audio_backend_internal.h": "2acf19d8166c5cd4091b88c5af4adb27d4463d417c60e34e646f77ba5e7cc97b",
+    "include/audio_bank_layout_internal.h": "2d44c9c36412dd253e9e6c90844c5bef7c5c9583597c76eba92123b0bc2f7706",
+    "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+    "include/audio_commands.h": "d34eacf0081a7745ae958c4484ea6d0a070859879dc7203d609e499976854d53",
+    "include/audio_config.h": "d4f8f3f9023b9e70d0cd25c449ae48486a2ddbb2574d0a95cec4487eb406b6a6",
+    "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+    "include/audio_file_services_internal.h": "57053064c501d51bf2f77dc2a526e39c501f10090777bdea0fdf291713e18d85",
+    "include/audio_game.h": "f63a58f0375dd51938376df76002d52c21b2e8ef60c8e462b1fc327367922935",
+    "include/audio_host_internal.h": "6c98f4911f1f758707b7206765587460f4a4b0a42e2eab1c5654488c2810d23a",
+    "include/audio_io.h": "3c8b1897d96db51a8c7ad05cdcec2a00d79b17b3fa4dfbbb7ec7632171767c79",
+    "include/audio_patch_table_internal.h": "1037a705b754ea3e3b8db43789cb00de8897ae64d83df9b5194cd8e3ebe9bba6",
+    "include/audio_properties_internal.h": "4a62d8097cf453986ebb34316ddaa4f1c482b00643807f16ecc179ac3d13f620",
+    "include/audio_property_pipeline_internal.h": "9bb38df465f8fe3a2ea60365f3ce7dde30e205a207d5f5e777e096abee6930f3",
+    "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+    "include/audio_sequence_internal.h": "efcecd311119771bb871df157d101657b863e3ae02aeea7e8f95e578c1e75324",
+    "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683",
+    "include/command_script.h": "cfa4ed9738ae5994ff59ab90864204f017dde3c007c860536f6c53be9b2575e6",
+    "include/compression_internal.h": "04e668084c5cb9a1b194bdf28664495b3995cf79723aa1cee29940f7b3f84e5c",
+    "include/controller_input.h": "48fd3ecefa518b37c2eb1368933f7ccbaae21911d732b94503b1bda2732f8598",
+    "include/controller_legacy.h": "11b4270a1b1c80515230b96621cc7684819e94e68556ecaa6ee0e83eb103ad78",
+    "include/controller_services.h": "997ab6ac0d1d36ac0b23515e60b6ed965b562cad0b3b82c8732ad7b04ae037d8",
+    "include/debug_output.h": "ba12435a24f3162d1015f7960f38420e2f34ea16e02c6adb679706cc263a329d",
+    "include/debug_text_internal.h": "0c1a2fc419e668e7421311cc98fd3d1200ca037e4c9c64074e0b020fbf2048cf",
+    "include/destination_format.h": "d4384f14dfd1a3122d4347e371f4d8d6f8c9bcb7a625947759ed7c0b3361f65f",
+    "include/early_bonus_internal.h": "ec1331c91e23d9e734c220a8bde2a508e8ce62735a7a095480ec8681f7f6052c",
+    "include/early_collision_internal.h": "592b75d410d11f83b9e92970d027d3ba3999e11a48ff723c44b13ecf16df59bc",
+    "include/early_game_helpers.h": "23066df1efae4aada40178d589fa2823c8e37a2b2e1e87d694b5711a20aaeaa5",
+    "include/early_game_medium.h": "9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f",
+    "include/early_game_medium_next.h": "0c7cf3adcd946c8c507adaad037451830ca89721a357ce9a2dbc306621e069ac",
+    "include/early_game_more.h": "2bacab31a51464c37f7a7fbf493b2df514fe8d7f81a2943cddd4937c4827ad44",
+    "include/early_game_state.h": "f05333c37db6b5fdaf6fa0e058202eccbb221dbd167c8f2f8fd97630698fe26e",
+    "include/early_input_internal.h": "c9f7f26eda442a1dc5d6000b4d2e7e74a4f663ee36d62ddfd2290bdb1d1a315b",
+    "include/early_name_table.h": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
+    "include/early_parameter_internal.h": "cbed7221814093e09c4ef3f67a3e628d1c593d573c01aa6f7f084a6e8dd7ed4c",
+    "include/early_pool_tick.h": "d2384996dfbc2e050001b58e75642ec1cb953bee53b0e8a55dd3df32df37e35a",
+    "include/early_render_effects_internal.h": "b8fa58169da2a04ce64c3917883be80ac98718207fe5cf54f54dc05ab1f173f0",
+    "include/early_render_internal.h": "d5d9b4598a5c2987f5fe075b2fd9afb29a2ca42b369b0ea4fe20764898d2e740",
+    "include/early_resource_state.h": "d5f560a8dba312fdd195194d3653b62c5e66d631dc669dc643017a0fb87b71f8",
+    "include/early_session_state.h": "e85bc3a5a10e8072b2c44383b80406baf09ed31d5b9044e3a1840b106d03fba1",
+    "include/effect_draw_config_internal.h": "a5c3634a270bdeaf4b1a4698b5b583f0e49b08d7e2528efb3ac57101f2eb82f3",
+    "include/fixed_geometry.h": "530e2dc24043761f8b2b4db04e47a0e7fe30070d82cd036ba4e21e1af74f5055",
+    "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
+    "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
+    "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
+    "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
+    "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
+    "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
+    "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
+    "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
+    "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
+    "include/menu_label_internal.h": "676ec22d4572a7d2a3f2f5ae90e21c483de50fec0ce1074615bc40736288f9c0",
+    "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
+    "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+    "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
+    "include/object_draw.h": "b7df01c47c10cb88f298aaa4cca24488b8ba64df4cde3f02d436ecee5ccf862c",
+    "include/object_helpers.h": "1ddd7a85251a44eeb84db02002b7a08d980e9293b68b7145bdf471eba85c3116",
+    "include/object_history.h": "d20ac506136b1802a1ea7945dce3556ebac35035aac89ecc5773ebd76f852ae2",
+    "include/object_history_internal.h": "061ce164bcd66256d4626d6d63bd377f97b3683f7d839c16c086752c6ee423f2",
+    "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
+    "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
+    "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
+    "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
+    "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
+    "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
+    "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
+    "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
+    "include/renderer_diagnostic_internal.h": "86f0d8c8ec7fc912c4df140d08a5b955a4b3076f917a27307552c1183f6343e3",
+    "include/renderer_draw_state_internal.h": "f3b8b2160e59663a7b648042fe654b30a9f400e4c2aae15d7279c7ffaf96d5d1",
+    "include/renderer_geometry_internal.h": "c03a93b5dfba054db766d5ee2f8c5ba1417993a3385ec40ad1440a5fc2fced3c",
+    "include/renderer_image_setup_internal.h": "5c953b01bedc5b443dd9da0366db2e5d0e98943aed6af343ec89791045e0947d",
+    "include/renderer_peak_metrics.h": "bc55ddea66e92f5e40909ea6713c3cedec1cff1b4a0f2d656f07bb786d990567",
+    "include/renderer_polygon_messages.h": "59761780941783b420d2a8a75c1252dacf77efa14b22ebe683cee5208462259a",
+    "include/renderer_primitives_internal.h": "8ac70e9b97c8abfa87a1b0e54b0bb33add0ad2c941c7da140415b000b82f12dc",
+    "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
+    "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
+    "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
+    "include/renderer_setup_internal.h": "c3d0fe94d35e4f0231423db7f44c0e9f2796727d89d9a16b4f0b47fae3f51142",
+    "include/renderer_surfaces_internal.h": "bd86ed1e67d674163faff2aaf050bc6d31dc37ef6cfc16f645d348e76f086fe7",
+    "include/renderer_texture_cache.h": "c575de43f39051b977175a24ba6514e512da3ca24bf3c12c324179a1dd324ad8",
+    "include/renderer_texture_index.h": "fb156fa0de759919adfbfd5b972b160be40db4514598a665ce23356d6ccd129c",
+    "include/resource_arena.h": "3e00fe584eabac2d0a2ab54fd3ebda3033293f22ca430fdd44fa99b45f5d9972",
+    "include/resource_bridge_internal.h": "54c95d12346fa764488a64ccc0646631dbe9abe9a0f3e7b087e273c120eb7e08",
+    "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
+    "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
+    "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
+    "include/save_game.h": "9e3f9fa3b55de3b21baf9e431d6540ec7efe44c177c5a04e379989e0cbff8048",
+    "include/save_menu_internal.h": "f7babfd7cfed7a4dbe845c8b934654abd5e2f4126600941af9aabaf18f697f1f",
+    "include/save_menu_legacy_internal.h": "bd050d7e63704fce5dab1f291d91197ce6c37f9eb813a9233d2b9381ef0d1726",
+    "include/save_menu_nav_internal.h": "2a327c8fca39e1a18feba03ebd0b32bda48412dacdf5227ad20b24884090d420",
+    "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
+    "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
+    "include/scene_background_internal.h": "c2199191e33f34eeda432ebbcf504c3bd944fc7634be42510f87550e4a9e9c10",
+    "include/scene_commands_internal.h": "a21b97d1d652b686d51f894b0611b494421f9fa57563aaa2a8ff101cb6032efb",
+    "include/scene_counter_internal.h": "003940936d136fc9d45b0e42d59de4cec15b1a81b8919a802a69961ef7d8d819",
+    "include/scene_definition.h": "069a4d5c9f25a2bb5aeab76fe93f500495f1a5d21f9ea2056fece2640d04fb52",
+    "include/scene_player_runtime_internal.h": "a039e5cf7c309c1e36f960e78cdfc478e94e85825d431cc4d08f2fe74fec1fd5",
+    "include/scheduler.h": "17b5151851081813145e8ddbc1edc14f5508c5aabef31e16597451ad872eab7c",
+    "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+    "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+    "include/script_service_internal.h": "dbd1c1e75788351372596698cb05a80eb9698897a63a0e545555ad1783e25398",
+    "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+    "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+    "include/sdk_audio_decoder.h": "9b4b04b8f650377e63e6e0ccee0eb2c7bcdff77286dcd6949985a8aa290b72e4",
+    "include/sdk_audio_effect.h": "255cd3751e4df76c5adca95e4d49f29bcd49fb4666057fe07b6233749dd8f5a3",
+    "include/sdk_audio_envelope.h": "bb3d93f3848cf32f203f33d3c1f0dd3f4db31ca61a725c5577110be4bb227b77",
+    "include/sdk_audio_mix_commands.h": "81a9225e07bf4a1fa53b2aa64d1dafe134976588b6a174bebc7964a9b84b43aa",
+    "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a",
+    "include/sdk_audio_reverb.h": "5be4f6f37c9346bf2085f707ab2afc2862b9848f6f5893cd0769c055f43ac009",
+    "include/sdk_camera.h": "d227c229ceae6bf2c7e2682705cab751e60faa760cb70230fd6431dfdd7f6d15",
+    "include/sdk_controller.h": "248fc10e1aeb31d2e6b000bf6e478cc8094a412fbf5af7f6868e03d251c6b90c",
+    "include/sdk_device_manager.h": "faac5bafa8ae1587a0a177eb37323c3c0ff16c6822c7bc75a0bcfe2a41cb6900",
+    "include/sdk_events.h": "b5fc02d01795bf2fa1af4ce5a66c8dcdd81db38fe0c6696067ba47966fdefdbb",
+    "include/sdk_float_math.h": "16ab5392286945c018316e741102e1a35d03927f4f1ff5472a7eeb0b19d4510e",
+    "include/sdk_float_values.h": "274d1bb5a4df4fe66d13c8d15157321e096545ed5c25c93eb057a93bae0f2a16",
+    "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+    "include/sdk_math.h": "177c464c4fa2a4b6305415fc5e58bc205b5a47883d30c45ecaceb44e4256fa71",
+    "include/sdk_matrix.h": "d0a1e821bf9243ab3793d791c87924e507c9483d23f98f8914969eddf563c864",
+    "include/sdk_pfs.h": "0ba4f4c909d078eec17f80547866bdcb03327b904e0f641f684860054b4f89c9",
+    "include/sdk_pfs_internal.h": "3bf7486adb6db16cab11ffa7dd37d2f9a5ccd6a8920c281b9c12d45028f74390",
+    "include/sdk_pi_device.h": "e2ffc49fd3de308f2d0daf75a038f098dac0024c413e1fb77b7ca51e01018b44",
+    "include/sdk_pi_disk.h": "203c9449cf329958baec21c9b2669e1036d6514c191d3853ba6c2356ae3bc01e",
+    "include/sdk_pi_dma.h": "40d7b5755f20a5eab62933f09fe065061653d4e11ef001b7dd7acd9dd0a0632d",
+    "include/sdk_pi_transfer.h": "fe0c22783ee9a451956ee0dfc8457193dcdf9869b0d5ef5f7d0b88d2a61c8420",
+    "include/sdk_pi_word.h": "bd173c27d20848bb1b478b504e81b4c904c104f37bc1c9dec1e9bd118d2e63b9",
+    "include/sdk_rsp.h": "08a2b63a4d4490026a351cc62f776283466a4de2a7c5338551c34ecd53a69264",
+    "include/sdk_short_math.h": "19b800ee2bc1a36ace67534a97c988c202a9ebc113b251a219e3b16c60d432fd",
+    "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+    "include/sdk_sp_task.h": "c3fa6c6fcfdfaeabf65c587d3dd93529b815e3d1daf480c542b3fdd0e1f988a3",
+    "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488",
+    "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+    "include/sdk_timers.h": "1002e9c9f6126c5fe5a1ec619af273ea81e4db3d2d53de4b6de48e4ad27a676e",
+    "include/sdk_video_internal.h": "a266c0283417fb2f11355242ecd14b62112c484841b01ed16bc5f6f906c6148f",
+    "include/sdk_video_manager.h": "bf982a62f168ce834f7d12e76c9d8486e55e01cc75b0c7fa90c68c7baef6ecca",
+    "include/session_menu_internal.h": "0593514df146ea9df633c5ddf39c4400664771d76996341ceaecb3b32b667991",
+    "include/session_setup_internal.h": "8d1a1ee1780f7d27285bffc33f9890733c6e3574da5ef7134cd73cec53d95ef4",
+    "include/sound_bridge_internal.h": "f5de1a7e5b00eecbd808a99391a8fbf3e777e837dcde94ee08ed5df353f7db48",
+    "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
+    "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
+    "tools/compiler.py": "a1841eb3a11f3dedc0a2f5724beceef605efc868793e73813dc45f9fb2c0c024",
+    "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
+  },
+  "complete_matching_units": {
+    "actor_group_setup": {
+      "source": "src/game/actor_groups/setup.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "inputs_sha256": {
+        "src/game/actor_groups/setup.c": "27c60e9dfdc3e1ce89389dda8fa810f2c5b7dd5bc2f50e30ba11f0b238689cb5"
+      },
+      "expected_size": 544,
+      "actual_size": 544,
+      "matches": true,
+      "different_words": [],
+      "object_evidence": {
+        "raw_text_bytes": 544,
+        "complete_symbol_bytes": 544,
+        "final_text_bytes": 544,
+        "alignment_tail_removed": 0,
+        "initialized_or_bss_payload_bytes": 0,
+        "final_vram": "0x8000E108",
+        "final_end_vram_exclusive": "0x8000E328",
+        "instructions": 136,
+        "text_sha256": "b762e063f74e17a650664694ef5bf7c47ce7692de3dc8bf49b2b1877dcf83fd4",
+        "stack_frame_bytes": 136,
+        "spawn_coordinate_stack_offsets": [
+          124,
+          128,
+          132
+        ],
+        "first_endpoint_xy_stack_offsets": [
+          100,
+          104
+        ],
+        "second_endpoint_xy_stack_offsets": [
+          88,
+          92
+        ]
+      }
+    },
+    "early_parameter_slot_tick": {
+      "source": "src/game/early_parameter_slot_tick.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "inputs_sha256": {
+        "src/game/early_parameter_slot_tick.c": "45473fd72f10ca9d67927450935ab35ae0fb3073a7c095ee2cd4e3e8798cf5f8"
+      },
+      "expected_size": 216,
+      "actual_size": 216,
+      "matches": true,
+      "different_words": []
+    },
+    "early_actor_follow_owner": {
+      "source": "src/game/early_actor_follow_owner.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "inputs_sha256": {
+        "src/game/early_actor_follow_owner.c": "46560b9be1b75638a0ff74a48ee8027111a97723c415689ae1bba51db59fcdff"
+      },
+      "expected_size": 284,
+      "actual_size": 284,
+      "matches": true,
+      "different_words": []
+    },
+    "actor_create": {
+      "source": "src/game/actor_lifecycle/create.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "inputs_sha256": {
+        "src/game/actor_lifecycle/create.c": "6132bb947b838e5ad2871256e82381cfac392224dd97b1de3794d773c7ea2a32"
+      },
+      "expected_size": 992,
+      "actual_size": 992,
+      "matches": true,
+      "different_words": []
+    },
+    "actor_dynamic_first_append": {
+      "source": "src/game/actor_dynamic_first_append.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "inputs_sha256": {
+        "src/game/actor_dynamic_first_append.c": "90f609164271a2388e0e60c73db160b72d9902be63cd40cf7c9b8ab4b5b1daa2"
+      },
+      "expected_size": 152,
+      "actual_size": 152,
+      "matches": true,
+      "different_words": []
+    },
+    "actor_dynamic_point_append": {
+      "source": "src/game/actor_dynamic_point_append.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "inputs_sha256": {
+        "src/game/actor_dynamic_point_append.c": "f36927a3a0337e81952dae60ae81a0007530dea9793601480073631f12d0db32"
+      },
+      "expected_size": 364,
+      "actual_size": 364,
+      "matches": true,
+      "different_words": []
+    },
+    "actor_dynamic_parameter_append": {
+      "source": "src/game/actor_dynamic_parameter_append.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "inputs_sha256": {
+        "src/game/actor_dynamic_parameter_append.c": "f418a73f49d47e453ff16a675ede210a27035592cce7cb9585183015be0624ce"
+      },
+      "expected_size": 184,
+      "actual_size": 184,
+      "matches": true,
+      "different_words": []
+    }
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "language": "MIPS:BE:32:default",
+    "complete_retail_procedures": [
+      {
+        "vram": "0x8000e108",
+        "end_vram_exclusive": "0x8000e328",
+        "bytes": 544,
+        "sha256": "b762e063f74e17a650664694ef5bf7c47ce7692de3dc8bf49b2b1877dcf83fd4",
+        "retail_matches": true,
+        "function": {
+          "name": "func_8000E108",
+          "address": "8000e108",
+          "signature": "void func_8000E108(int index, ActorDynamicFirstGroup * group, ActorDynamicParameter * parameter, int unused, int offsetX, int offsetY)",
+          "entry_point": "8000e108",
+          "body_start": "8000e108",
+          "body_end": "8000e327"
+        },
+        "complete_listing": true
+      },
+      {
+        "vram": "0x8000e4f0",
+        "end_vram_exclusive": "0x8000e5c8",
+        "bytes": 216,
+        "sha256": "24d5f9445ee333a46a9afbdbc464bcb36de06859d19f901789d658f1c98bc5bb",
+        "retail_matches": true,
+        "function": {
+          "name": "func_8000E4F0",
+          "address": "8000e4f0",
+          "signature": "int func_8000E4F0(int index)",
+          "entry_point": "8000e4f0",
+          "body_start": "8000e4f0",
+          "body_end": "8000e5c7"
+        },
+        "complete_listing": true
+      },
+      {
+        "vram": "0x8000e7e0",
+        "end_vram_exclusive": "0x8000e894",
+        "bytes": 180,
+        "sha256": "e25b5dab51a100c1c2dff1be3ce0f6feca8e6c77c41bfece8d603b0f7e76278a",
+        "retail_matches": true,
+        "function": {
+          "name": "func_8000E7E0",
+          "address": "8000e7e0",
+          "signature": "void func_8000E7E0(int * destination, int * source, int angle)",
+          "entry_point": "8000e7e0",
+          "body_start": "8000e7e0",
+          "body_end": "8000e893"
+        },
+        "complete_listing": true
+      },
+      {
+        "vram": "0x8003cc58",
+        "end_vram_exclusive": "0x8003cc88",
+        "bytes": 48,
+        "sha256": "bae7fa56452bdb6afc231d721ecd2d15dd71c059d7eb2131f520f20a54ddb998",
+        "retail_matches": true,
+        "function": {
+          "name": "func_8003CC58",
+          "address": "8003cc58",
+          "signature": "int func_8003CC58(int angle)",
+          "entry_point": "8003cc58",
+          "body_start": "8003cc58",
+          "body_end": "8003cc87"
+        },
+        "complete_listing": true
+      },
+      {
+        "vram": "0x8003cc88",
+        "end_vram_exclusive": "0x8003ccb8",
+        "bytes": 48,
+        "sha256": "7ba9f6e7d01e6f829543d806024865608465bff1fe778d442889ca1d90e86521",
+        "retail_matches": true,
+        "function": {
+          "name": "func_8003CC88",
+          "address": "8003cc88",
+          "signature": "int func_8003CC88(int angle)",
+          "entry_point": "8003cc88",
+          "body_start": "8003cc88",
+          "body_end": "8003ccb7"
+        },
+        "complete_listing": true
+      }
+    ],
+    "canonical_header_sha256": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
+    "canonical_layouts": {
+      "ActorDynamicFirstEntry": {
+        "name": "ActorDynamicFirstEntry",
+        "size": 12,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 4,
+            "type": "int",
+            "name": "resourceIndex"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "type": "int",
+            "name": "x"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "type": "int",
+            "name": "y"
+          }
+        ]
+      },
+      "ActorDynamicFirstGroup": {
+        "name": "ActorDynamicFirstGroup",
+        "size": 124,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 4,
+            "type": "int",
+            "name": "count"
+          },
+          {
+            "offset": 4,
+            "size": 120,
+            "type": "ActorDynamicFirstEntry[10]",
+            "name": "entries"
+          }
+        ]
+      },
+      "ActorDynamicPairGroup": {
+        "name": "ActorDynamicPairGroup",
+        "size": 604,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 4,
+            "type": "int",
+            "name": "count"
+          },
+          {
+            "offset": 4,
+            "size": 400,
+            "type": "ActorDynamicPair[50]",
+            "name": "pairs"
+          },
+          {
+            "offset": 404,
+            "size": 200,
+            "type": "int[50]",
+            "name": "distances"
+          }
+        ]
+      },
+      "ActorDynamicParameter": {
+        "name": "ActorDynamicParameter",
+        "size": 36,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 4,
+            "type": "int",
+            "name": "value00"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "type": "int",
+            "name": "value04"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "type": "int",
+            "name": "value08"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "type": "int",
+            "name": "value0C"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "type": "int",
+            "name": "value10"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "type": "int",
+            "name": "value14"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "type": "int",
+            "name": "value18"
+          },
+          {
+            "offset": 28,
+            "size": 4,
+            "type": "int",
+            "name": "value1C"
+          },
+          {
+            "offset": 32,
+            "size": 4,
+            "type": "int",
+            "name": "value20"
+          }
+        ]
+      },
+      "ActorDynamicPool": {
+        "name": "ActorDynamicPool",
+        "size": 9096,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 4,
+            "type": "int",
+            "name": "value00"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "type": "int",
+            "name": "groupCount"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "type": "int",
+            "name": "pairGroupCount"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "type": "int",
+            "name": "parameterCount"
+          },
+          {
+            "offset": 16,
+            "size": 1240,
+            "type": "ActorDynamicFirstGroup[10]",
+            "name": "firstGroups"
+          },
+          {
+            "offset": 1256,
+            "size": 6040,
+            "type": "ActorDynamicPairGroup[10]",
+            "name": "pairGroups"
+          },
+          {
+            "offset": 7296,
+            "size": 1800,
+            "type": "ActorDynamicParameter[50]",
+            "name": "parameters"
+          }
+        ]
+      }
+    },
+    "canonical_import_succeeded": true,
+    "heap_type_has_no_invented_static_block": true,
+    "cpu": {
+      "vram": "0x80000400",
+      "end_vram_exclusive": "0x8006f440",
+      "bytes": 454720,
+      "sha256": "87ebb98d0ffcec5db63e74337d78fa3a5c0131256d48d8f11f987da604c7c79b",
+      "retail_matches": true
+    },
+    "cpu_sha256_before_type_import": "87ebb98d0ffcec5db63e74337d78fa3a5c0131256d48d8f11f987da604c7c79b",
+    "cpu_sha256_after_type_import": "87ebb98d0ffcec5db63e74337d78fa3a5c0131256d48d8f11f987da604c7c79b",
+    "known_callers": {
+      "callers": [
+        {
+          "name": "func_8000E4F0",
+          "address": "8000e4f0"
+        }
+      ],
+      "count": 1,
+      "offset": 0,
+      "limit": 100,
+      "total": 1
+    },
+    "caller_argument_evidence": {
+      "index": "caller argument 0",
+      "group": "firstGroups[parameter.value04]",
+      "parameter": "D_800972F8[index]",
+      "unused_fourth": "parameter.value10",
+      "offset_x": "parameter.value14",
+      "offset_y": "parameter.value18"
+    },
+    "rotation_reads_and_writes_only_xy": true
+  },
+  "representation_assumptions": [
+    "The existing ActorBehaviorActorInternal and EarlyGameActor views agree on accessed offsets. Their pointer reinterpretation and callback/parameter pointer-to-int words rely on the pinned 32-bit ABI and compiler, not portable ISO C aliasing or conversion.",
+    "Three-coordinate buffers preserve the existing position format. The complete rotation helper reads/writes only X/Y; the third endpoint coordinates remain uninitialized and unconsumed.",
+    "All locals have used semantic roles. The declaration order and spawn-coordinate pointer preserve IDO allocation; no dummy storage, padding record, inline assembly or register directives are used.",
+    "The first actor becomes parent before rotation and placement calls. A later successful allocation still dereferences a null parent if entry zero failed; no behavior guard was added.",
+    "Counts, indices, signed position addition/subtraction and narrowing angle stores preserve the original unchecked target arithmetic and accesses.",
+    "The six-argument setup routine ignores the fourth argument and reads rotation from the parameter record. Existing caller, allocator, follower and appenders retain complete exact comparisons.",
+    "Whole-ROM equality includes remaining fallback. Unrecovered rotation and other candidates receive no source-ownership or matching credit."
+  ],
+  "verification": {
+    "clean_extraction_and_build": true,
+    "whole_rom_bytes": 8388608,
+    "whole_rom_matches": true,
+    "tooling_tests_passed": 151,
+    "progress": {
+      "matched_c_functions": 1366,
+      "matched_c_bytes": 259356,
+      "matched_assembly_functions": 29,
+      "matched_assembly_bytes": 4372,
+      "source_owned_initialized_bytes": 29003,
+      "source_owned_bss_bytes": 465119,
+      "whole_rom_matches": true
+    },
+    "independent_comparisons": {
+      "runtime-comparison": {
+        "units": 849,
+        "text_bytes": 258456,
+        "alignment_bytes": 28,
+        "report_sha256": "027926debe4fbe3dd97c933a8f9a06eb0a02d559e4d7a001195c0ae934584d83"
+      },
+      "startup-comparison": {
+        "units": 2,
+        "text_bytes": 3856,
+        "alignment_bytes": 8,
+        "report_sha256": "35629c188a7732851e4a10051f052776e3118ef1457a9e75add42bab268fe85a"
+      },
+      "assembly-comparison": {
+        "units": 18,
+        "text_bytes": 4496,
+        "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data-comparison": {
+        "units": 86,
+        "initialized_bytes": 22320,
+        "bss_bytes": 422806,
+        "report_sha256": "c509160870208bb43e8ed34419a5c5ce157063d4b95f0e9d98fb8ded6ef79805"
+      }
+    }
+  },
+  "remaining_range_inventory": {
+    "candidate_cpu": {
+      "rom_start": 4096,
+      "rom_end": 458816,
+      "vram_start": 2147484672,
+      "status": "candidate contiguous CPU executable range; internal boundaries need review"
+    },
+    "declared_bytes": {
+      "C": 259356,
+      "assembly": 4372,
+      "initialized_data": 0,
+      "fallback": 190840,
+      "unclassified": 152,
+      "candidate_range": 454720
+    },
+    "fallback_range_count": 218,
+    "fallback_ranges": [
+      {
+        "name": "endgame_6a80_ab58",
+        "kind": "fallback",
+        "rom_start": 27264,
+        "rom_end": 43864,
+        "vram_start": 2147507840,
+        "vram_end": 2147524440,
+        "bytes": 16600
+      },
+      {
+        "name": "cpu_after_save_menu_state_reset",
+        "kind": "fallback",
+        "rom_start": 145700,
+        "rom_end": 156296,
+        "vram_start": 2147626276,
+        "vram_end": 2147636872,
+        "bytes": 10596
+      },
+      {
+        "name": "endgame_13550_15c20",
+        "kind": "fallback",
+        "rom_start": 79184,
+        "rom_end": 89120,
+        "vram_start": 2147559760,
+        "vram_end": 2147569696,
+        "bytes": 9936
+      },
+      {
+        "name": "endgame_1109c_13290",
+        "kind": "fallback",
+        "rom_start": 69788,
+        "rom_end": 78480,
+        "vram_start": 2147550364,
+        "vram_end": 2147559056,
+        "bytes": 8692
+      },
+      {
+        "name": "endgame_41568_43430",
+        "kind": "fallback",
+        "rom_start": 267624,
+        "rom_end": 275504,
+        "vram_start": 2147748200,
+        "vram_end": 2147756080,
+        "bytes": 7880
+      },
+      {
+        "name": "endgame_34574_35d90",
+        "kind": "fallback",
+        "rom_start": 214388,
+        "rom_end": 220560,
+        "vram_start": 2147694964,
+        "vram_end": 2147701136,
+        "bytes": 6172
+      },
+      {
+        "name": "cpu_after_model_rotation",
+        "kind": "fallback",
+        "rom_start": 254012,
+        "rom_end": 259964,
+        "vram_start": 2147734588,
+        "vram_end": 2147740540,
+        "bytes": 5952
+      },
+      {
+        "name": "endgame_237c_3970",
+        "kind": "fallback",
+        "rom_start": 9084,
+        "rom_end": 14704,
+        "vram_start": 2147489660,
+        "vram_end": 2147495280,
+        "bytes": 5620
+      },
+      {
+        "name": "endgame_208e4_21b24",
+        "kind": "fallback",
+        "rom_start": 133348,
+        "rom_end": 138020,
+        "vram_start": 2147613924,
+        "vram_end": 2147618596,
+        "bytes": 4672
+      },
+      {
+        "name": "endgame_19a1c_1aa40",
+        "kind": "fallback",
+        "rom_start": 104988,
+        "rom_end": 109120,
+        "vram_start": 2147585564,
+        "vram_end": 2147589696,
+        "bytes": 4132
+      },
+      {
+        "name": "endgame_cac0_d950",
+        "kind": "fallback",
+        "rom_start": 51904,
+        "rom_end": 55632,
+        "vram_start": 2147532480,
+        "vram_end": 2147536208,
+        "bytes": 3728
+      },
+      {
+        "name": "endgame_2770c_284ac",
+        "kind": "fallback",
+        "rom_start": 161548,
+        "rom_end": 165036,
+        "vram_start": 2147642124,
+        "vram_end": 2147645612,
+        "bytes": 3488
+      },
+      {
+        "name": "endgame_18b9c_198c8",
+        "kind": "fallback",
+        "rom_start": 101276,
+        "rom_end": 104648,
+        "vram_start": 2147581852,
+        "vram_end": 2147585224,
+        "bytes": 3372
+      },
+      {
+        "name": "render_stream_fallback_af88_bc6c",
+        "kind": "fallback",
+        "rom_start": 44936,
+        "rom_end": 48236,
+        "vram_start": 2147525512,
+        "vram_end": 2147528812,
+        "bytes": 3300
+      },
+      {
+        "name": "endgame_10414_11060",
+        "kind": "fallback",
+        "rom_start": 66580,
+        "rom_end": 69728,
+        "vram_start": 2147547156,
+        "vram_end": 2147550304,
+        "bytes": 3148
+      },
+      {
+        "name": "endgame_21b8c_22720",
+        "kind": "fallback",
+        "rom_start": 138124,
+        "rom_end": 141088,
+        "vram_start": 2147618700,
+        "vram_end": 2147621664,
+        "bytes": 2964
+      },
+      {
+        "name": "cpu_after_actor_setup_animation_reset",
+        "kind": "fallback",
+        "rom_start": 125844,
+        "rom_end": 128744,
+        "vram_start": 2147606420,
+        "vram_end": 2147609320,
+        "bytes": 2900
+      },
+      {
+        "name": "cpu_after_actor_resource_reset",
+        "kind": "fallback",
+        "rom_start": 122864,
+        "rom_end": 125524,
+        "vram_start": 2147603440,
+        "vram_end": 2147606100,
+        "bytes": 2660
+      },
+      {
+        "name": "cpu_after_early_six_arg_forward",
+        "kind": "fallback",
+        "rom_start": 95568,
+        "rom_end": 98148,
+        "vram_start": 2147576144,
+        "vram_end": 2147578724,
+        "bytes": 2580
+      },
+      {
+        "name": "cpu_after_object_helpers_draw_mode",
+        "kind": "fallback",
+        "rom_start": 242864,
+        "rom_end": 245332,
+        "vram_start": 2147723440,
+        "vram_end": 2147725908,
+        "bytes": 2468
+      },
+      {
+        "name": "cpu_after_scene_timer_service",
+        "kind": "fallback",
+        "rom_start": 234544,
+        "rom_end": 236956,
+        "vram_start": 2147715120,
+        "vram_end": 2147717532,
+        "bytes": 2412
+      },
+      {
+        "name": "endgame_292e8_29c20",
+        "kind": "fallback",
+        "rom_start": 168680,
+        "rom_end": 171040,
+        "vram_start": 2147649256,
+        "vram_end": 2147651616,
+        "bytes": 2360
+      },
+      {
+        "name": "cpu_after_early_byte_clear",
+        "kind": "fallback",
+        "rom_start": 57888,
+        "rom_end": 60180,
+        "vram_start": 2147538464,
+        "vram_end": 2147540756,
+        "bytes": 2292
+      },
+      {
+        "name": "cpu_after_actor_behavior_countdown_trigger",
+        "kind": "fallback",
+        "rom_start": 190908,
+        "rom_end": 193116,
+        "vram_start": 2147671484,
+        "vram_end": 2147673692,
+        "bytes": 2208
+      },
+      {
+        "name": "endgame_4aa3c_4b2b4",
+        "kind": "fallback",
+        "rom_start": 305724,
+        "rom_end": 307892,
+        "vram_start": 2147786300,
+        "vram_end": 2147788468,
+        "bytes": 2168
+      },
+      {
+        "name": "endgame_1b148_1b9a0",
+        "kind": "fallback",
+        "rom_start": 110920,
+        "rom_end": 113056,
+        "vram_start": 2147591496,
+        "vram_end": 2147593632,
+        "bytes": 2136
+      },
+      {
+        "name": "after_compression_fixed_release",
+        "kind": "fallback",
+        "rom_start": 391904,
+        "rom_end": 394012,
+        "vram_start": 2147872480,
+        "vram_end": 2147874588,
+        "bytes": 2108
+      },
+      {
+        "name": "endgame_5edec_5f5d0",
+        "kind": "fallback",
+        "rom_start": 388588,
+        "rom_end": 390608,
+        "vram_start": 2147869164,
+        "vram_end": 2147871184,
+        "bytes": 2020
+      },
+      {
+        "name": "endgame_33cf8_344cc",
+        "kind": "fallback",
+        "rom_start": 212216,
+        "rom_end": 214220,
+        "vram_start": 2147692792,
+        "vram_end": 2147694796,
+        "bytes": 2004
+      },
+      {
+        "name": "cpu_after_audio_interrupt_service",
+        "kind": "fallback",
+        "rom_start": 386592,
+        "rom_end": 388580,
+        "vram_start": 2147867168,
+        "vram_end": 2147869156,
+        "bytes": 1988
+      },
+      {
+        "name": "endgame_434c0_43c70",
+        "kind": "fallback",
+        "rom_start": 275648,
+        "rom_end": 277616,
+        "vram_start": 2147756224,
+        "vram_end": 2147758192,
+        "bytes": 1968
+      },
+      {
+        "name": "render_stream_fallback_bde4_c564",
+        "kind": "fallback",
+        "rom_start": 48612,
+        "rom_end": 50532,
+        "vram_start": 2147529188,
+        "vram_end": 2147531108,
+        "bytes": 1920
+      },
+      {
+        "name": "endgame_43dc0_44530",
+        "kind": "fallback",
+        "rom_start": 277952,
+        "rom_end": 279856,
+        "vram_start": 2147758528,
+        "vram_end": 2147760432,
+        "bytes": 1904
+      },
+      {
+        "name": "cpu_after_movie_start",
+        "kind": "fallback",
+        "rom_start": 22588,
+        "rom_end": 24404,
+        "vram_start": 2147503164,
+        "vram_end": 2147504980,
+        "bytes": 1816
+      },
+      {
+        "name": "cpu_after_audio_io",
+        "kind": "fallback",
+        "rom_start": 337420,
+        "rom_end": 339228,
+        "vram_start": 2147817996,
+        "vram_end": 2147819804,
+        "bytes": 1808
+      },
+      {
+        "name": "cpu_after_early_actor_mode3",
+        "kind": "fallback",
+        "rom_start": 92152,
+        "rom_end": 93868,
+        "vram_start": 2147572728,
+        "vram_end": 2147574444,
+        "bytes": 1716
+      },
+      {
+        "name": "endgame_17f7c_1862c",
+        "kind": "fallback",
+        "rom_start": 98172,
+        "rom_end": 99884,
+        "vram_start": 2147578748,
+        "vram_end": 2147580460,
+        "bytes": 1712
+      },
+      {
+        "name": "cpu_after_actor_setup_text_begin",
+        "kind": "fallback",
+        "rom_start": 128812,
+        "rom_end": 130520,
+        "vram_start": 2147609388,
+        "vram_end": 2147611096,
+        "bytes": 1708
+      },
+      {
+        "name": "cpu_after_early_player_sequence",
+        "kind": "fallback",
+        "rom_start": 117960,
+        "rom_end": 119616,
+        "vram_start": 2147598536,
+        "vram_end": 2147600192,
+        "bytes": 1656
+      },
+      {
+        "name": "cpu_after_session_setup_noop",
+        "kind": "fallback",
+        "rom_start": 193124,
+        "rom_end": 194756,
+        "vram_start": 2147673700,
+        "vram_end": 2147675332,
+        "bytes": 1632
+      },
+      {
+        "name": "endgame_4c190_4c7d0",
+        "kind": "fallback",
+        "rom_start": 311696,
+        "rom_end": 313296,
+        "vram_start": 2147792272,
+        "vram_end": 2147793872,
+        "bytes": 1600
+      },
+      {
+        "name": "endgame_53c3c_5422c",
+        "kind": "fallback",
+        "rom_start": 343100,
+        "rom_end": 344620,
+        "vram_start": 2147823676,
+        "vram_end": 2147825196,
+        "bytes": 1520
+      },
+      {
+        "name": "cpu_after_renderer_mesh_positions",
+        "kind": "fallback",
+        "rom_start": 288264,
+        "rom_end": 289600,
+        "vram_start": 2147768840,
+        "vram_end": 2147770176,
+        "bytes": 1336
+      },
+      {
+        "name": "endgame_64f0_69ec",
+        "kind": "fallback",
+        "rom_start": 25840,
+        "rom_end": 27116,
+        "vram_start": 2147506416,
+        "vram_end": 2147507692,
+        "bytes": 1276
+      },
+      {
+        "name": "cpu_after_startup",
+        "kind": "fallback",
+        "rom_start": 299280,
+        "rom_end": 300532,
+        "vram_start": 2147779856,
+        "vram_end": 2147781108,
+        "bytes": 1252
+      },
+      {
+        "name": "endgame_1627c_1675c",
+        "kind": "fallback",
+        "rom_start": 90748,
+        "rom_end": 91996,
+        "vram_start": 2147571324,
+        "vram_end": 2147572572,
+        "bytes": 1248
+      },
+      {
+        "name": "cpu_after_audio_stream_storage",
+        "kind": "fallback",
+        "rom_start": 364468,
+        "rom_end": 365712,
+        "vram_start": 2147845044,
+        "vram_end": 2147846288,
+        "bytes": 1244
+      },
+      {
+        "name": "endgame_22c5c_23128",
+        "kind": "fallback",
+        "rom_start": 142428,
+        "rom_end": 143656,
+        "vram_start": 2147623004,
+        "vram_end": 2147624232,
+        "bytes": 1228
+      },
+      {
+        "name": "cpu_after_palette_transition_range",
+        "kind": "fallback",
+        "rom_start": 207564,
+        "rom_end": 208764,
+        "vram_start": 2147688140,
+        "vram_end": 2147689340,
+        "bytes": 1200
+      },
+      {
+        "name": "cpu_after_early_render_presets",
+        "kind": "fallback",
+        "rom_start": 50644,
+        "rom_end": 51840,
+        "vram_start": 2147531220,
+        "vram_end": 2147532416,
+        "bytes": 1196
+      },
+      {
+        "name": "endgame_4ef64_4f3d4",
+        "kind": "fallback",
+        "rom_start": 323428,
+        "rom_end": 324564,
+        "vram_start": 2147804004,
+        "vram_end": 2147805140,
+        "bytes": 1136
+      },
+      {
+        "name": "cpu_after_audio_handle_rewind",
+        "kind": "fallback",
+        "rom_start": 359152,
+        "rom_end": 360280,
+        "vram_start": 2147839728,
+        "vram_end": 2147840856,
+        "bytes": 1128
+      },
+      {
+        "name": "cpu_after_save_menu_nav_cleanup",
+        "kind": "fallback",
+        "rom_start": 159096,
+        "rom_end": 160184,
+        "vram_start": 2147639672,
+        "vram_end": 2147640760,
+        "bytes": 1088
+      },
+      {
+        "name": "cpu_after_model_vertices_scatter",
+        "kind": "fallback",
+        "rom_start": 265412,
+        "rom_end": 266484,
+        "vram_start": 2147745988,
+        "vram_end": 2147747060,
+        "bytes": 1072
+      },
+      {
+        "name": "cpu_after_save_menu_conditional_copy",
+        "kind": "fallback",
+        "rom_start": 141372,
+        "rom_end": 142416,
+        "vram_start": 2147621948,
+        "vram_end": 2147622992,
+        "bytes": 1044
+      },
+      {
+        "name": "after_audio_file_services",
+        "kind": "fallback",
+        "rom_start": 383500,
+        "rom_end": 384544,
+        "vram_start": 2147864076,
+        "vram_end": 2147865120,
+        "bytes": 1044
+      },
+      {
+        "name": "endgame_f320_f6e4",
+        "kind": "fallback",
+        "rom_start": 62240,
+        "rom_end": 63204,
+        "vram_start": 2147542816,
+        "vram_end": 2147543780,
+        "bytes": 964
+      },
+      {
+        "name": "cpu_after_audio_engine_voice_end",
+        "kind": "fallback",
+        "rom_start": 374188,
+        "rom_end": 375120,
+        "vram_start": 2147854764,
+        "vram_end": 2147855696,
+        "bytes": 932
+      },
+      {
+        "name": "endgame_4c900_4cc90",
+        "kind": "fallback",
+        "rom_start": 313600,
+        "rom_end": 314512,
+        "vram_start": 2147794176,
+        "vram_end": 2147795088,
+        "bytes": 912
+      },
+      {
+        "name": "matrix_transform_fallback_48608_48988",
+        "kind": "fallback",
+        "rom_start": 296456,
+        "rom_end": 297352,
+        "vram_start": 2147777032,
+        "vram_end": 2147777928,
+        "bytes": 896
+      },
+      {
+        "name": "endgame_499dc_49d3c",
+        "kind": "fallback",
+        "rom_start": 301532,
+        "rom_end": 302396,
+        "vram_start": 2147782108,
+        "vram_end": 2147782972,
+        "bytes": 864
+      },
+      {
+        "name": "endgame_453d0_45718",
+        "kind": "fallback",
+        "rom_start": 283600,
+        "rom_end": 284440,
+        "vram_start": 2147764176,
+        "vram_end": 2147765016,
+        "bytes": 840
+      },
+      {
+        "name": "after_audio_pitch_scale",
+        "kind": "fallback",
+        "rom_start": 375908,
+        "rom_end": 376744,
+        "vram_start": 2147856484,
+        "vram_end": 2147857320,
+        "bytes": 836
+      },
+      {
+        "name": "endgame_33600_33900",
+        "kind": "fallback",
+        "rom_start": 210432,
+        "rom_end": 211200,
+        "vram_start": 2147691008,
+        "vram_end": 2147691776,
+        "bytes": 768
+      },
+      {
+        "name": "endgame_16f1c_17218",
+        "kind": "fallback",
+        "rom_start": 93980,
+        "rom_end": 94744,
+        "vram_start": 2147574556,
+        "vram_end": 2147575320,
+        "bytes": 764
+      },
+      {
+        "name": "endgame_fc30_ff18",
+        "kind": "fallback",
+        "rom_start": 64560,
+        "rom_end": 65304,
+        "vram_start": 2147545136,
+        "vram_end": 2147545880,
+        "bytes": 744
+      },
+      {
+        "name": "endgame_5456c_54850",
+        "kind": "fallback",
+        "rom_start": 345452,
+        "rom_end": 346192,
+        "vram_start": 2147826028,
+        "vram_end": 2147826768,
+        "bytes": 740
+      },
+      {
+        "name": "endgame_1c0f8_1c3d0",
+        "kind": "fallback",
+        "rom_start": 114936,
+        "rom_end": 115664,
+        "vram_start": 2147595512,
+        "vram_end": 2147596240,
+        "bytes": 728
+      },
+      {
+        "name": "cpu_after_early_file_state_reset",
+        "kind": "fallback",
+        "rom_start": 115928,
+        "rom_end": 116652,
+        "vram_start": 2147596504,
+        "vram_end": 2147597228,
+        "bytes": 724
+      },
+      {
+        "name": "endgame_28ad4_28d8c",
+        "kind": "fallback",
+        "rom_start": 166612,
+        "rom_end": 167308,
+        "vram_start": 2147647188,
+        "vram_end": 2147647884,
+        "bytes": 696
+      },
+      {
+        "name": "endgame_6160_6414",
+        "kind": "fallback",
+        "rom_start": 24928,
+        "rom_end": 25620,
+        "vram_start": 2147505504,
+        "vram_end": 2147506196,
+        "bytes": 692
+      },
+      {
+        "name": "after_audio_backend_patch",
+        "kind": "fallback",
+        "rom_start": 378404,
+        "rom_end": 379080,
+        "vram_start": 2147858980,
+        "vram_end": 2147859656,
+        "bytes": 676
+      },
+      {
+        "name": "text_replacement",
+        "kind": "fallback",
+        "rom_start": 6984,
+        "rom_end": 7596,
+        "vram_start": 2147487560,
+        "vram_end": 2147488172,
+        "bytes": 612
+      },
+      {
+        "name": "endgame_273bc_27610",
+        "kind": "fallback",
+        "rom_start": 160700,
+        "rom_end": 161296,
+        "vram_start": 2147641276,
+        "vram_end": 2147641872,
+        "bytes": 596
+      },
+      {
+        "name": "endgame_409c4_40c0c",
+        "kind": "fallback",
+        "rom_start": 264644,
+        "rom_end": 265228,
+        "vram_start": 2147745220,
+        "vram_end": 2147745804,
+        "bytes": 584
+      },
+      {
+        "name": "cpu_after_scene_bucket_counter",
+        "kind": "fallback",
+        "rom_start": 228860,
+        "rom_end": 229384,
+        "vram_start": 2147709436,
+        "vram_end": 2147709960,
+        "bytes": 524
+      },
+      {
+        "name": "cpu_after_frame_timing",
+        "kind": "fallback",
+        "rom_start": 303840,
+        "rom_end": 304352,
+        "vram_start": 2147784416,
+        "vram_end": 2147784928,
+        "bytes": 512
+      },
+      {
+        "name": "endgame_40080_4022c",
+        "kind": "fallback",
+        "rom_start": 262272,
+        "rom_end": 262700,
+        "vram_start": 2147742848,
+        "vram_end": 2147743276,
+        "bytes": 428
+      },
+      {
+        "name": "endgame_4ff30_500d8",
+        "kind": "fallback",
+        "rom_start": 327472,
+        "rom_end": 327896,
+        "vram_start": 2147808048,
+        "vram_end": 2147808472,
+        "bytes": 424
+      },
+      {
+        "name": "after_audio_backend_voice_stop",
+        "kind": "fallback",
+        "rom_start": 377940,
+        "rom_end": 378360,
+        "vram_start": 2147858516,
+        "vram_end": 2147858936,
+        "bytes": 420
+      },
+      {
+        "name": "cpu_after_controller_legacy_present",
+        "kind": "fallback",
+        "rom_start": 314848,
+        "rom_end": 315256,
+        "vram_start": 2147795424,
+        "vram_end": 2147795832,
+        "bytes": 408
+      },
+      {
+        "name": "cpu_after_object_runtime_service",
+        "kind": "fallback",
+        "rom_start": 245424,
+        "rom_end": 245800,
+        "vram_start": 2147726000,
+        "vram_end": 2147726376,
+        "bytes": 376
+      },
+      {
+        "name": "cpu_after_model_framebuffer_draw",
+        "kind": "fallback",
+        "rom_start": 267044,
+        "rom_end": 267380,
+        "vram_start": 2147747620,
+        "vram_end": 2147747956,
+        "bytes": 336
+      },
+      {
+        "name": "polygon_fallback_45fd8_46114",
+        "kind": "fallback",
+        "rom_start": 286680,
+        "rom_end": 286996,
+        "vram_start": 2147767256,
+        "vram_end": 2147767572,
+        "bytes": 316
+      },
+      {
+        "name": "endgame_1ca2c_1cb48",
+        "kind": "fallback",
+        "rom_start": 117292,
+        "rom_end": 117576,
+        "vram_start": 2147597868,
+        "vram_end": 2147598152,
+        "bytes": 284
+      },
+      {
+        "name": "endgame_35e44_35f60",
+        "kind": "fallback",
+        "rom_start": 220740,
+        "rom_end": 221024,
+        "vram_start": 2147701316,
+        "vram_end": 2147701600,
+        "bytes": 284
+      },
+      {
+        "name": "endgame_4bba4_4bc98",
+        "kind": "fallback",
+        "rom_start": 310180,
+        "rom_end": 310424,
+        "vram_start": 2147790756,
+        "vram_end": 2147791000,
+        "bytes": 244
+      },
+      {
+        "name": "palette_fallback_32728_32810",
+        "kind": "fallback",
+        "rom_start": 206632,
+        "rom_end": 206864,
+        "vram_start": 2147687208,
+        "vram_end": 2147687440,
+        "bytes": 232
+      },
+      {
+        "name": "endgame_4b8a4_4b964",
+        "kind": "fallback",
+        "rom_start": 309412,
+        "rom_end": 309604,
+        "vram_start": 2147789988,
+        "vram_end": 2147790180,
+        "bytes": 192
+      },
+      {
+        "name": "cpu_after_audio_timing_rate",
+        "kind": "fallback",
+        "rom_start": 366168,
+        "rom_end": 366300,
+        "vram_start": 2147846744,
+        "vram_end": 2147846876,
+        "bytes": 132
+      },
+      {
+        "name": "cpu_after_message_queue_create",
+        "kind": "fallback",
+        "rom_start": 397436,
+        "rom_end": 397536,
+        "vram_start": 2147878012,
+        "vram_end": 2147878112,
+        "bytes": 100
+      },
+      {
+        "name": "cpu_after_heap",
+        "kind": "fallback",
+        "rom_start": 322188,
+        "rom_end": 322264,
+        "vram_start": 2147802764,
+        "vram_end": 2147802840,
+        "bytes": 76
+      },
+      {
+        "name": "endgame_1af44_1af50",
+        "kind": "fallback",
+        "rom_start": 110404,
+        "rom_end": 110416,
+        "vram_start": 2147590980,
+        "vram_end": 2147590992,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_script_service_commands",
+        "kind": "fallback",
+        "rom_start": 121236,
+        "rom_end": 121248,
+        "vram_start": 2147601812,
+        "vram_end": 2147601824,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_session_setup_value58_word",
+        "kind": "fallback",
+        "rom_start": 196804,
+        "rom_end": 196816,
+        "vram_start": 2147677380,
+        "vram_end": 2147677392,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_palette_commands",
+        "kind": "fallback",
+        "rom_start": 209204,
+        "rom_end": 209216,
+        "vram_start": 2147689780,
+        "vram_end": 2147689792,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_game_debug_format",
+        "kind": "fallback",
+        "rom_start": 253284,
+        "rom_end": 253296,
+        "vram_start": 2147733860,
+        "vram_end": 2147733872,
+        "bytes": 12
+      },
+      {
+        "name": "endgame_48d64_48d70",
+        "kind": "fallback",
+        "rom_start": 298340,
+        "rom_end": 298352,
+        "vram_start": 2147778916,
+        "vram_end": 2147778928,
+        "bytes": 12
+      },
+      {
+        "name": "endgame_4d9b4_4d9c0",
+        "kind": "fallback",
+        "rom_start": 317876,
+        "rom_end": 317888,
+        "vram_start": 2147798452,
+        "vram_end": 2147798464,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_actor_history_byte_clear",
+        "kind": "fallback",
+        "rom_start": 325492,
+        "rom_end": 325504,
+        "vram_start": 2147806068,
+        "vram_end": 2147806080,
+        "bytes": 12
+      },
+      {
+        "name": "endgame_50584_50590",
+        "kind": "fallback",
+        "rom_start": 329092,
+        "rom_end": 329104,
+        "vram_start": 2147809668,
+        "vram_end": 2147809680,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_controller_pak_directory",
+        "kind": "fallback",
+        "rom_start": 330244,
+        "rom_end": 330256,
+        "vram_start": 2147810820,
+        "vram_end": 2147810832,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_callback_return",
+        "kind": "fallback",
+        "rom_start": 340852,
+        "rom_end": 340864,
+        "vram_start": 2147821428,
+        "vram_end": 2147821440,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_mode",
+        "kind": "fallback",
+        "rom_start": 350276,
+        "rom_end": 350288,
+        "vram_start": 2147830852,
+        "vram_end": 2147830864,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_owner_stop_apply",
+        "kind": "fallback",
+        "rom_start": 355620,
+        "rom_end": 355632,
+        "vram_start": 2147836196,
+        "vram_end": 2147836208,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_voice_properties_capture",
+        "kind": "fallback",
+        "rom_start": 362596,
+        "rom_end": 362608,
+        "vram_start": 2147843172,
+        "vram_end": 2147843184,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_handle_parameter_apply",
+        "kind": "fallback",
+        "rom_start": 364308,
+        "rom_end": 364320,
+        "vram_start": 2147844884,
+        "vram_end": 2147844896,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_pi_raw_read",
+        "kind": "fallback",
+        "rom_start": 396084,
+        "rom_end": 396096,
+        "vram_start": 2147876660,
+        "vram_end": 2147876672,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_thread_create",
+        "kind": "fallback",
+        "rom_start": 396420,
+        "rom_end": 396432,
+        "vram_start": 2147876996,
+        "vram_end": 2147877008,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_gu_lookathilite",
+        "kind": "fallback",
+        "rom_start": 400900,
+        "rom_end": 400912,
+        "vram_start": 2147881476,
+        "vram_end": 2147881488,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_gu_rotate_rpy",
+        "kind": "fallback",
+        "rom_start": 401476,
+        "rom_end": 401488,
+        "vram_start": 2147882052,
+        "vram_end": 2147882064,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_time_get",
+        "kind": "fallback",
+        "rom_start": 401620,
+        "rom_end": 401632,
+        "vram_start": 2147882196,
+        "vram_end": 2147882208,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_pfs_init_pak",
+        "kind": "fallback",
+        "rom_start": 404436,
+        "rom_end": 404448,
+        "vram_start": 2147885012,
+        "vram_end": 2147885024,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_pfs_search_file",
+        "kind": "fallback",
+        "rom_start": 405812,
+        "rom_end": 405824,
+        "vram_start": 2147886388,
+        "vram_end": 2147886400,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_pfs_motor",
+        "kind": "fallback",
+        "rom_start": 411908,
+        "rom_end": 411920,
+        "vram_start": 2147892484,
+        "vram_end": 2147892496,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_pfs_num_files",
+        "kind": "fallback",
+        "rom_start": 413652,
+        "rom_end": 413664,
+        "vram_start": 2147894228,
+        "vram_end": 2147894240,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_vi_manager",
+        "kind": "fallback",
+        "rom_start": 416916,
+        "rom_end": 416928,
+        "vram_start": 2147897492,
+        "vram_end": 2147897504,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_heap_init",
+        "kind": "fallback",
+        "rom_start": 418596,
+        "rom_end": 418608,
+        "vram_start": 2147899172,
+        "vram_end": 2147899184,
+        "bytes": 12
+      },
+      {
+        "name": "endgame_66384_66390",
+        "kind": "fallback",
+        "rom_start": 418692,
+        "rom_end": 418704,
+        "vram_start": 2147899268,
+        "vram_end": 2147899280,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_synth_start",
+        "kind": "fallback",
+        "rom_start": 422516,
+        "rom_end": 422528,
+        "vram_start": 2147903092,
+        "vram_end": 2147903104,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_synth_pitch",
+        "kind": "fallback",
+        "rom_start": 422660,
+        "rom_end": 422672,
+        "vram_start": 2147903236,
+        "vram_end": 2147903248,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_synth_pan",
+        "kind": "fallback",
+        "rom_start": 422964,
+        "rom_end": 422976,
+        "vram_start": 2147903540,
+        "vram_end": 2147903552,
+        "bytes": 12
+      },
+      {
+        "name": "endgame_687b4_687c0",
+        "kind": "fallback",
+        "rom_start": 427956,
+        "rom_end": 427968,
+        "vram_start": 2147908532,
+        "vram_end": 2147908544,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_pfs_cont_ram_read",
+        "kind": "fallback",
+        "rom_start": 435636,
+        "rom_end": 435648,
+        "vram_start": 2147916212,
+        "vram_end": 2147916224,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_timer_set",
+        "kind": "fallback",
+        "rom_start": 440436,
+        "rom_end": 440448,
+        "vram_start": 2147921012,
+        "vram_end": 2147921024,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_sp_set_pc",
+        "kind": "fallback",
+        "rom_start": 442196,
+        "rom_end": 442208,
+        "vram_start": 2147922772,
+        "vram_end": 2147922784,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_resample",
+        "kind": "fallback",
+        "rom_start": 448948,
+        "rom_end": 448960,
+        "vram_start": 2147929524,
+        "vram_end": 2147929536,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_envelope",
+        "kind": "fallback",
+        "rom_start": 452116,
+        "rom_end": 452128,
+        "vram_start": 2147932692,
+        "vram_end": 2147932704,
+        "bytes": 12
+      },
+      {
+        "name": "cpu_after_audio_copy",
+        "kind": "fallback",
+        "rom_start": 458804,
+        "rom_end": 458816,
+        "vram_start": 2147939380,
+        "vram_end": 2147939392,
+        "bytes": 12
+      },
+      {
+        "name": "endgame_dab8_dac0",
+        "kind": "fallback",
+        "rom_start": 55992,
+        "rom_end": 56000,
+        "vram_start": 2147536568,
+        "vram_end": 2147536576,
+        "bytes": 8
+      },
+      {
+        "name": "endgame_f828_f830",
+        "kind": "fallback",
+        "rom_start": 63528,
+        "rom_end": 63536,
+        "vram_start": 2147544104,
+        "vram_end": 2147544112,
+        "bytes": 8
+      },
+      {
+        "name": "endgame_1ad68_1ad70",
+        "kind": "fallback",
+        "rom_start": 109928,
+        "rom_end": 109936,
+        "vram_start": 2147590504,
+        "vram_end": 2147590512,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_script_service_cache_access",
+        "kind": "fallback",
+        "rom_start": 120648,
+        "rom_end": 120656,
+        "vram_start": 2147601224,
+        "vram_end": 2147601232,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_actor_setup_text_reset",
+        "kind": "fallback",
+        "rom_start": 130616,
+        "rom_end": 130624,
+        "vram_start": 2147611192,
+        "vram_end": 2147611200,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_save_menu_legacy_reset",
+        "kind": "fallback",
+        "rom_start": 156344,
+        "rom_end": 156352,
+        "vram_start": 2147636920,
+        "vram_end": 2147636928,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_save_menu_legacy_heap",
+        "kind": "fallback",
+        "rom_start": 156424,
+        "rom_end": 156432,
+        "vram_start": 2147637000,
+        "vram_end": 2147637008,
+        "bytes": 8
+      },
+      {
+        "name": "endgame_28608_28610",
+        "kind": "fallback",
+        "rom_start": 165384,
+        "rom_end": 165392,
+        "vram_start": 2147645960,
+        "vram_end": 2147645968,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_sound_bridge_core",
+        "kind": "fallback",
+        "rom_start": 224488,
+        "rom_end": 224496,
+        "vram_start": 2147705064,
+        "vram_end": 2147705072,
+        "bytes": 8
+      },
+      {
+        "name": "resource_cache_fallback_37268_37270",
+        "kind": "fallback",
+        "rom_start": 225896,
+        "rom_end": 225904,
+        "vram_start": 2147706472,
+        "vram_end": 2147706480,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_debug_context_set",
+        "kind": "fallback",
+        "rom_start": 229400,
+        "rom_end": 229408,
+        "vram_start": 2147709976,
+        "vram_end": 2147709984,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_debug_text_draw",
+        "kind": "fallback",
+        "rom_start": 229576,
+        "rom_end": 229584,
+        "vram_start": 2147710152,
+        "vram_end": 2147710160,
+        "bytes": 8
+      },
+      {
+        "name": "matrix_transform_fallback_48168_48170",
+        "kind": "fallback",
+        "rom_start": 295272,
+        "rom_end": 295280,
+        "vram_start": 2147775848,
+        "vram_end": 2147775856,
+        "bytes": 8
+      },
+      {
+        "name": "endgame_4bed8_4bee0",
+        "kind": "fallback",
+        "rom_start": 311000,
+        "rom_end": 311008,
+        "vram_start": 2147791576,
+        "vram_end": 2147791584,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_fixed_math",
+        "kind": "fallback",
+        "rom_start": 321640,
+        "rom_end": 321648,
+        "vram_start": 2147802216,
+        "vram_end": 2147802224,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_rom_files",
+        "kind": "fallback",
+        "rom_start": 326568,
+        "rom_end": 326576,
+        "vram_start": 2147807144,
+        "vram_end": 2147807152,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_audio_resume_all_apply",
+        "kind": "fallback",
+        "rom_start": 353112,
+        "rom_end": 353120,
+        "vram_start": 2147833688,
+        "vram_end": 2147833696,
+        "bytes": 8
+      },
+      {
+        "name": "after_audio_owner_enumerate",
+        "kind": "fallback",
+        "rom_start": 356472,
+        "rom_end": 356480,
+        "vram_start": 2147837048,
+        "vram_end": 2147837056,
+        "bytes": 8
+      },
+      {
+        "name": "after_audio_sequence_list_release",
+        "kind": "fallback",
+        "rom_start": 386088,
+        "rom_end": 386096,
+        "vram_start": 2147866664,
+        "vram_end": 2147866672,
+        "bytes": 8
+      },
+      {
+        "name": "after_audio_sequence_range_release",
+        "kind": "fallback",
+        "rom_start": 386520,
+        "rom_end": 386528,
+        "vram_start": 2147867096,
+        "vram_end": 2147867104,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_pi_manager_create",
+        "kind": "fallback",
+        "rom_start": 397160,
+        "rom_end": 397168,
+        "vram_start": 2147877736,
+        "vram_end": 2147877744,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_vi_features",
+        "kind": "fallback",
+        "rom_start": 397976,
+        "rom_end": 397984,
+        "vram_start": 2147878552,
+        "vram_end": 2147878560,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_gu_perspective",
+        "kind": "fallback",
+        "rom_start": 398808,
+        "rom_end": 398816,
+        "vram_start": 2147879384,
+        "vram_end": 2147879392,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_controller_read",
+        "kind": "fallback",
+        "rom_start": 405048,
+        "rom_end": 405056,
+        "vram_start": 2147885624,
+        "vram_end": 2147885632,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_message_receive",
+        "kind": "fallback",
+        "rom_start": 405368,
+        "rom_end": 405376,
+        "vram_start": 2147885944,
+        "vram_end": 2147885952,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_pfs_allocate_file",
+        "kind": "fallback",
+        "rom_start": 407784,
+        "rom_end": 407792,
+        "vram_start": 2147888360,
+        "vram_end": 2147888368,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_gu_cosine_float",
+        "kind": "fallback",
+        "rom_start": 409944,
+        "rom_end": 409952,
+        "vram_start": 2147890520,
+        "vram_end": 2147890528,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_event_message",
+        "kind": "fallback",
+        "rom_start": 412984,
+        "rom_end": 412992,
+        "vram_start": 2147893560,
+        "vram_end": 2147893568,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_pfs_delete_file",
+        "kind": "fallback",
+        "rom_start": 415208,
+        "rom_end": 415216,
+        "vram_start": 2147895784,
+        "vram_end": 2147895792,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_vi_vertical_scale",
+        "kind": "fallback",
+        "rom_start": 416056,
+        "rom_end": 416064,
+        "vram_start": 2147896632,
+        "vram_end": 2147896640,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_vi_mode",
+        "kind": "fallback",
+        "rom_start": 417032,
+        "rom_end": 417040,
+        "vram_start": 2147897608,
+        "vram_end": 2147897616,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_ai_buffer",
+        "kind": "fallback",
+        "rom_start": 419864,
+        "rom_end": 419872,
+        "vram_start": 2147900440,
+        "vram_end": 2147900448,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_audio_synth_allocate",
+        "kind": "fallback",
+        "rom_start": 422280,
+        "rom_end": 422288,
+        "vram_start": 2147902856,
+        "vram_end": 2147902864,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_audio_synth_stop",
+        "kind": "fallback",
+        "rom_start": 423096,
+        "rom_end": 423104,
+        "vram_start": 2147903672,
+        "vram_end": 2147903680,
+        "bytes": 8
+      },
+      {
+        "name": "endgame_683c8_683d0",
+        "kind": "fallback",
+        "rom_start": 426952,
+        "rom_end": 426960,
+        "vram_start": 2147907528,
+        "vram_end": 2147907536,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_thread_get_priority",
+        "kind": "fallback",
+        "rom_start": 427176,
+        "rom_end": 427184,
+        "vram_start": 2147907752,
+        "vram_end": 2147907760,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_pfs_contpfs",
+        "kind": "fallback",
+        "rom_start": 434728,
+        "rom_end": 434736,
+        "vram_start": 2147915304,
+        "vram_end": 2147915312,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_pi_get_queue",
+        "kind": "fallback",
+        "rom_start": 442776,
+        "rom_end": 442784,
+        "vram_start": 2147923352,
+        "vram_end": 2147923360,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_audio_synth_delete",
+        "kind": "fallback",
+        "rom_start": 442792,
+        "rom_end": 442800,
+        "vram_start": 2147923368,
+        "vram_end": 2147923376,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_audio_effect_allocate",
+        "kind": "fallback",
+        "rom_start": 444952,
+        "rom_end": 444960,
+        "vram_start": 2147925528,
+        "vram_end": 2147925536,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_audio_aux_bus",
+        "kind": "fallback",
+        "rom_start": 452392,
+        "rom_end": 452400,
+        "vram_start": 2147932968,
+        "vram_end": 2147932976,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_pi_event",
+        "kind": "fallback",
+        "rom_start": 454808,
+        "rom_end": 454816,
+        "vram_start": 2147935384,
+        "vram_end": 2147935392,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_thread_destroy",
+        "kind": "fallback",
+        "rom_start": 455064,
+        "rom_end": 455072,
+        "vram_start": 2147935640,
+        "vram_end": 2147935648,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_interrupt_global_clear",
+        "kind": "fallback",
+        "rom_start": 455160,
+        "rom_end": 455168,
+        "vram_start": 2147935736,
+        "vram_end": 2147935744,
+        "bytes": 8
+      },
+      {
+        "name": "cpu_after_actor_setup_noop",
+        "kind": "fallback",
+        "rom_start": 125532,
+        "rom_end": 125536,
+        "vram_start": 2147606108,
+        "vram_end": 2147606112,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_scene_file_idle",
+        "kind": "fallback",
+        "rom_start": 130748,
+        "rom_end": 130752,
+        "vram_start": 2147611324,
+        "vram_end": 2147611328,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_command_machine",
+        "kind": "fallback",
+        "rom_start": 209964,
+        "rom_end": 209968,
+        "vram_start": 2147690540,
+        "vram_end": 2147690544,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_resource_string_load",
+        "kind": "fallback",
+        "rom_start": 233836,
+        "rom_end": 233840,
+        "vram_start": 2147714412,
+        "vram_end": 2147714416,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_object_service",
+        "kind": "fallback",
+        "rom_start": 236988,
+        "rom_end": 236992,
+        "vram_start": 2147717564,
+        "vram_end": 2147717568,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_graphics_resource",
+        "kind": "fallback",
+        "rom_start": 291244,
+        "rom_end": 291248,
+        "vram_start": 2147771820,
+        "vram_end": 2147771824,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_before_renderer_platform",
+        "kind": "fallback",
+        "rom_start": 304364,
+        "rom_end": 304368,
+        "vram_start": 2147784940,
+        "vram_end": 2147784944,
+        "bytes": 4
+      },
+      {
+        "name": "projection_diagnostic_fallback_4d2dc_4d2e0",
+        "kind": "fallback",
+        "rom_start": 316124,
+        "rom_end": 316128,
+        "vram_start": 2147796700,
+        "vram_end": 2147796704,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_audio_shutdown",
+        "kind": "fallback",
+        "rom_start": 340732,
+        "rom_end": 340736,
+        "vram_start": 2147821308,
+        "vram_end": 2147821312,
+        "bytes": 4
+      },
+      {
+        "name": "after_audio_backend_note_release",
+        "kind": "fallback",
+        "rom_start": 383164,
+        "rom_end": 383168,
+        "vram_start": 2147863740,
+        "vram_end": 2147863744,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_60adc_60ae0",
+        "kind": "fallback",
+        "rom_start": 395996,
+        "rom_end": 396000,
+        "vram_start": 2147876572,
+        "vram_end": 2147876576,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_6131c_61320",
+        "kind": "fallback",
+        "rom_start": 398108,
+        "rom_end": 398112,
+        "vram_start": 2147878684,
+        "vram_end": 2147878688,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_gu_translate",
+        "kind": "fallback",
+        "rom_start": 401068,
+        "rom_end": 401072,
+        "vram_start": 2147881644,
+        "vram_end": 2147881648,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_625fc_62600",
+        "kind": "fallback",
+        "rom_start": 402940,
+        "rom_end": 402944,
+        "vram_start": 2147883516,
+        "vram_end": 2147883520,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_pfs_is_plug",
+        "kind": "fallback",
+        "rom_start": 403820,
+        "rom_end": 403824,
+        "vram_start": 2147884396,
+        "vram_end": 2147884400,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_pfs_read_write_file",
+        "kind": "fallback",
+        "rom_start": 409068,
+        "rom_end": 409072,
+        "vram_start": 2147889644,
+        "vram_end": 2147889648,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_63e1c_63e20",
+        "kind": "fallback",
+        "rom_start": 409116,
+        "rom_end": 409120,
+        "vram_start": 2147889692,
+        "vram_end": 2147889696,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_message_send",
+        "kind": "fallback",
+        "rom_start": 410348,
+        "rom_end": 410352,
+        "vram_start": 2147890924,
+        "vram_end": 2147890928,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_controller_init",
+        "kind": "fallback",
+        "rom_start": 412876,
+        "rom_end": 412880,
+        "vram_start": 2147893452,
+        "vram_end": 2147893456,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_pfs_free_blocks",
+        "kind": "fallback",
+        "rom_start": 413324,
+        "rom_end": 413328,
+        "vram_start": 2147893900,
+        "vram_end": 2147893904,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_65dec_65df0",
+        "kind": "fallback",
+        "rom_start": 417260,
+        "rom_end": 417264,
+        "vram_start": 2147897836,
+        "vram_end": 2147897840,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_audio_sp",
+        "kind": "fallback",
+        "rom_start": 418332,
+        "rom_end": 418336,
+        "vram_start": 2147898908,
+        "vram_end": 2147898912,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_pi_start_dma",
+        "kind": "fallback",
+        "rom_start": 419148,
+        "rom_end": 419152,
+        "vram_start": 2147899724,
+        "vram_end": 2147899728,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_ai_length",
+        "kind": "fallback",
+        "rom_start": 419884,
+        "rom_end": 419888,
+        "vram_start": 2147900460,
+        "vram_end": 2147900464,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_audio_synth_volume",
+        "kind": "fallback",
+        "rom_start": 422828,
+        "rom_end": 422832,
+        "vram_start": 2147903404,
+        "vram_end": 2147903408,
+        "bytes": 4
+      },
+      {
+        "name": "before_exception_context",
+        "kind": "fallback",
+        "rom_start": 423500,
+        "rom_end": 423504,
+        "vram_start": 2147904076,
+        "vram_end": 2147904080,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_682cc_682d0",
+        "kind": "fallback",
+        "rom_start": 426700,
+        "rom_end": 426704,
+        "vram_start": 2147907276,
+        "vram_end": 2147907280,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_68d8c_68d90",
+        "kind": "fallback",
+        "rom_start": 429452,
+        "rom_end": 429456,
+        "vram_start": 2147910028,
+        "vram_end": 2147910032,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_gu_mtxutil",
+        "kind": "fallback",
+        "rom_start": 430268,
+        "rom_end": 430272,
+        "vram_start": 2147910844,
+        "vram_end": 2147910848,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_si_dma",
+        "kind": "fallback",
+        "rom_start": 436012,
+        "rom_end": 436016,
+        "vram_start": 2147916588,
+        "vram_end": 2147916592,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_pfs_get_status",
+        "kind": "fallback",
+        "rom_start": 436284,
+        "rom_end": 436288,
+        "vram_start": 2147916860,
+        "vram_end": 2147916864,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_6b88c_6b890",
+        "kind": "fallback",
+        "rom_start": 440460,
+        "rom_end": 440464,
+        "vram_start": 2147921036,
+        "vram_end": 2147921040,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_6bbec_6bbf0",
+        "kind": "fallback",
+        "rom_start": 441324,
+        "rom_end": 441328,
+        "vram_start": 2147921900,
+        "vram_end": 2147921904,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_sp_set_status",
+        "kind": "fallback",
+        "rom_start": 441340,
+        "rom_end": 441344,
+        "vram_start": 2147921916,
+        "vram_end": 2147921920,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_6bc0c_6bc10",
+        "kind": "fallback",
+        "rom_start": 441356,
+        "rom_end": 441360,
+        "vram_start": 2147921932,
+        "vram_end": 2147921936,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_sp_dma",
+        "kind": "fallback",
+        "rom_start": 442348,
+        "rom_end": 442352,
+        "vram_start": 2147922924,
+        "vram_end": 2147922928,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_sp_busy",
+        "kind": "fallback",
+        "rom_start": 442396,
+        "rom_end": 442400,
+        "vram_start": 2147922972,
+        "vram_end": 2147922976,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_audio_effect_init",
+        "kind": "fallback",
+        "rom_start": 444796,
+        "rom_end": 444800,
+        "vram_start": 2147925372,
+        "vram_end": 2147925376,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_audio_decoder",
+        "kind": "fallback",
+        "rom_start": 448188,
+        "rom_end": 448192,
+        "vram_start": 2147928764,
+        "vram_end": 2147928768,
+        "bytes": 4
+      },
+      {
+        "name": "endgame_6e81c_6e820",
+        "kind": "fallback",
+        "rom_start": 452636,
+        "rom_end": 452640,
+        "vram_start": 2147933212,
+        "vram_end": 2147933216,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_epi_raw_write",
+        "kind": "fallback",
+        "rom_start": 455244,
+        "rom_end": 455248,
+        "vram_start": 2147935820,
+        "vram_end": 2147935824,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_interrupt_global_set",
+        "kind": "fallback",
+        "rom_start": 455404,
+        "rom_end": 455408,
+        "vram_start": 2147935980,
+        "vram_end": 2147935984,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_thread_yield",
+        "kind": "fallback",
+        "rom_start": 455484,
+        "rom_end": 455488,
+        "vram_start": 2147936060,
+        "vram_end": 2147936064,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_audio_filter_init",
+        "kind": "fallback",
+        "rom_start": 455532,
+        "rom_end": 455536,
+        "vram_start": 2147936108,
+        "vram_end": 2147936112,
+        "bytes": 4
+      },
+      {
+        "name": "cpu_after_audio_effect_pull",
+        "kind": "fallback",
+        "rom_start": 458684,
+        "rom_end": 458688,
+        "vram_start": 2147939260,
+        "vram_end": 2147939264,
+        "bytes": 4
+      }
+    ],
+    "unclassified_ranges": [
+      {
+        "rom_start": 4152,
+        "rom_end": 4176,
+        "vram_start": 2147484728,
+        "vram_end": 2147484752,
+        "bytes": 24
+      },
+      {
+        "rom_start": 331836,
+        "rom_end": 331840,
+        "vram_start": 2147812412,
+        "vram_end": 2147812416,
+        "bytes": 4
+      },
+      {
+        "rom_start": 334760,
+        "rom_end": 334768,
+        "vram_start": 2147815336,
+        "vram_end": 2147815344,
+        "bytes": 8
+      },
+      {
+        "rom_start": 337116,
+        "rom_end": 337120,
+        "vram_start": 2147817692,
+        "vram_end": 2147817696,
+        "bytes": 4
+      },
+      {
+        "rom_start": 341496,
+        "rom_end": 341504,
+        "vram_start": 2147822072,
+        "vram_end": 2147822080,
+        "bytes": 8
+      },
+      {
+        "rom_start": 368892,
+        "rom_end": 368896,
+        "vram_start": 2147849468,
+        "vram_end": 2147849472,
+        "bytes": 4
+      },
+      {
+        "rom_start": 398152,
+        "rom_end": 398160,
+        "vram_start": 2147878728,
+        "vram_end": 2147878736,
+        "bytes": 8
+      },
+      {
+        "rom_start": 409128,
+        "rom_end": 409136,
+        "vram_start": 2147889704,
+        "vram_end": 2147889712,
+        "bytes": 8
+      },
+      {
+        "rom_start": 418876,
+        "rom_end": 418880,
+        "vram_start": 2147899452,
+        "vram_end": 2147899456,
+        "bytes": 4
+      },
+      {
+        "rom_start": 423324,
+        "rom_end": 423328,
+        "vram_start": 2147903900,
+        "vram_end": 2147903904,
+        "bytes": 4
+      },
+      {
+        "rom_start": 425816,
+        "rom_end": 425824,
+        "vram_start": 2147906392,
+        "vram_end": 2147906400,
+        "bytes": 8
+      },
+      {
+        "rom_start": 425940,
+        "rom_end": 425952,
+        "vram_start": 2147906516,
+        "vram_end": 2147906528,
+        "bytes": 12
+      },
+      {
+        "rom_start": 426068,
+        "rom_end": 426080,
+        "vram_start": 2147906644,
+        "vram_end": 2147906656,
+        "bytes": 12
+      },
+      {
+        "rom_start": 426168,
+        "rom_end": 426176,
+        "vram_start": 2147906744,
+        "vram_end": 2147906752,
+        "bytes": 8
+      },
+      {
+        "rom_start": 426332,
+        "rom_end": 426336,
+        "vram_start": 2147906908,
+        "vram_end": 2147906912,
+        "bytes": 4
+      },
+      {
+        "rom_start": 426396,
+        "rom_end": 426400,
+        "vram_start": 2147906972,
+        "vram_end": 2147906976,
+        "bytes": 4
+      },
+      {
+        "rom_start": 429640,
+        "rom_end": 429648,
+        "vram_start": 2147910216,
+        "vram_end": 2147910224,
+        "bytes": 8
+      },
+      {
+        "rom_start": 430284,
+        "rom_end": 430288,
+        "vram_start": 2147910860,
+        "vram_end": 2147910864,
+        "bytes": 4
+      },
+      {
+        "rom_start": 442132,
+        "rom_end": 442144,
+        "vram_start": 2147922708,
+        "vram_end": 2147922720,
+        "bytes": 12
+      },
+      {
+        "rom_start": 455500,
+        "rom_end": 455504,
+        "vram_start": 2147936076,
+        "vram_end": 2147936080,
+        "bytes": 4
+      }
+    ],
+    "total_code_bytes": null,
+    "total_functions": null,
+    "matching_code_percent": null,
+    "note": "This is a layout inventory, not binary matching evidence or a source completion percentage. The candidate CPU range and fallback spans may contain data or padding. Function and executable-byte denominators remain unknown. BSS consumes no ROM bytes and is excluded."
+  }
+}

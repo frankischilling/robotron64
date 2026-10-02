@@ -15370,5 +15370,16 @@
     "section": ".palette_fade_update",
     "section_vram": 2147686060,
     "evidence": "docs/palette-fade-and-callback-returns.md"
+  },
+  {
+    "name": "func_8000E108",
+    "rom": 60680,
+    "vram": 2147541256,
+    "size": 544,
+    "source": "src/game/actor_groups/setup.c",
+    "object": "build/us/actor_group_setup.o",
+    "section": ".actor_group_setup",
+    "section_vram": 2147541256,
+    "evidence": "docs/actor-group-setup.md"
   }
 ]
