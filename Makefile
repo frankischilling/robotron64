@@ -6555,6 +6555,110 @@ build/us/renderer_diagnostic_frame_metrics.o: src/game/renderer_diagnostics/fram
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_frame_metrics.o
 
+build/us/controller_motor_duty.o: src/game/controller/motor_duty.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_motor_duty.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/controller_motor_duty.raw.o $@ .text 0x110
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_motor_duty.o
+
+build/us/controller_connection_masks.o: src/game/controller/connection_masks.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_connection_masks.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_connection_masks.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_connection_masks.o
+
+build/us/controller_paks.o: src/game/controller/paks.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_paks.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_paks.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_paks.o
+
+build/us/controller_file_index.o: src/game/controller/file_index.c include/controller_input.h include/controller_services.h include/pak_file.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_file_index.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_file_index.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_file_index.o
+
+build/us/controller_motor_command.o: src/game/controller/motor_command.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_motor_command.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_motor_command.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_motor_command.o
+
+build/us/controller_access_queue.o: src/game/controller/access_queue.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_access_queue.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_access_queue.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_access_queue.o
+
+build/us/controller_polled_buttons.o: src/game/controller/polled_buttons.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_polled_buttons.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_polled_buttons.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_polled_buttons.o
+
+build/us/controller_pak_directory_state.o: src/game/controller/pak_directory.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_pak_directory_state.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_pak_directory_state.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_pak_directory_state.o
+
+build/us/controller_access_guard.o: src/game/controller/access_guard.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_access_guard.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_access_guard.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_access_guard.o
+
+build/us/controller_motor_strength.o: src/game/controller/motor_strength.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_motor_strength.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_motor_strength.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_motor_strength.o
+
+build/us/controller_motor_initialize_message.o: src/game/controller/motor_initialize_message.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_motor_initialize_message.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_motor_initialize_message.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_motor_initialize_message.o
+
+build/us/controller_motor_refresh_message.o: src/game/controller/motor_refresh_message.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_motor_refresh_message.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_motor_refresh_message.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_motor_refresh_message.o
+
+build/us/controller_access_message.o: src/game/controller/access_message.c include/controller_input.h include/controller_services.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/controller_access_message.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/controller_access_message.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/controller_access_message.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

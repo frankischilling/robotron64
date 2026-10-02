@@ -15106,5 +15106,16 @@
     "section": ".renderer_matrix_transform",
     "section_vram": 2147775856,
     "evidence": "docs/renderer-transform-and-buffers.md"
+  },
+  {
+    "name": "func_8004F850",
+    "rom": 328784,
+    "vram": 2147809360,
+    "size": 272,
+    "source": "src/game/controller/motor_duty.c",
+    "object": "build/us/controller_motor_duty.o",
+    "section": ".controller_motor_duty",
+    "section_vram": 2147809360,
+    "evidence": "docs/controller-polling-and-storage.md"
   }
 ]

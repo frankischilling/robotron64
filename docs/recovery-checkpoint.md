@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,341 matching C functions covering 235,436 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 11,703 bytes
-of source-owned initialized data, and 449,863 bytes of source-owned BSS. The
+The source checkpoint contains 1,342 matching C functions covering 235,708 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 11,751 bytes
+of source-owned initialized data, and 451,171 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-414 complete C functions, 114,388 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 10,055 reconstructed initialized bytes, and 445,773 BSS bytes.
+415 complete C functions, 114,660 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 10,103 reconstructed initialized bytes, and 447,081 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,12 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Controller polling and storage](controller-polling-and-storage.md)
+adds the complete 272-byte motor duty update, 48 initialized bytes, and
+1,308 BSS bytes. Both full polling paths have excluded C candidates;
+their connection mask, preserved disconnected-port state and button
+edge updates are documented, with remaining work tracked in issue #39.
 
 [Renderer diagnostics and font drawing](renderer-diagnostics-and-text.md)
 owns twelve data units with 1,368 initialized bytes and 64 BSS bytes. The report

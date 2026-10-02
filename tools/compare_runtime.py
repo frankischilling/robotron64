@@ -835,9 +835,13 @@ MATCHING_BLOCKS = (
     ("audio_variable_length_size", "src/game/audio_variable_length_size.c", 0x80059644, 0x800596C4),
     ("early_render_quad", "src/game/early_render_quad.c", 0x8000B06C, 0x8000B1E4),
     ("renderer_matrix_transform", "src/game/renderer_matrix_transform.c", 0x80047570, 0x80047A08),
+    ("controller_motor_duty", "src/game/controller/motor_duty.c", 0x8004F850, 0x8004F960),
 )
 
 CANDIDATE_BLOCKS = (
+    ("controller_legacy_poll", "src/game/controller/legacy_poll.c", 0x8004C1E0, 0x8004C378),
+    ("controller_poll", "src/game/controller/poll.c", 0x8004F330, 0x8004F4D8),
+
     ("renderer_diagnostic_report", "src/game/renderer_diagnostics/report.c", 0x8004C6E0, 0x8004CCA4),
     ("renderer_fatal_format", "src/game/renderer_diagnostics/fatal_format.c", 0x800496E0, 0x800498E0),
     ("renderer_text_glyph", "src/game/renderer_text/text_glyph.c", 0x80049E3C, 0x8004A2B4),

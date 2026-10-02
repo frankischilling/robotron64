@@ -712,7 +712,7 @@ SECTIONS
     .controller_scan 0x8004F1EC : AT(0x4FDEC) SUBALIGN(4) { build/us/controller_scan.o(.text) }
     .endgame_4ff30_500d8 0x8004F330 : AT(0x4FF30) { build/us/fallback.o(.rom_endgame_4ff30_500d8) }
     .controller_service_setup 0x8004F4D8 : AT(0x500D8) SUBALIGN(4) { build/us/controller_service_setup.o(.text) }
-    .endgame_50450_50560 0x8004F850 : AT(0x50450) { build/us/fallback.o(.rom_endgame_50450_50560) }
+    .controller_motor_duty 0x8004F850 : AT(0x50450) SUBALIGN(4) { build/us/controller_motor_duty.o(.text) }
     .frame_interval_set 0x8004F960 : AT(0x50560) SUBALIGN(4) { build/us/frame_interval_set.o(.text) }
     .endgame_50584_50590 0x8004F984 : AT(0x50584) { build/us/fallback.o(.rom_endgame_50584_50590) }
     .controller_pak_info 0x8004F990 : AT(0x50590) SUBALIGN(4) { build/us/controller_pak_info.o(.text) }
@@ -1200,7 +1200,10 @@ SECTIONS
     .actor_history_flags 0x8008D494 : AT(0x8E094) SUBALIGN(4) { build/us/actor_history_data.o(.data) }
     .endgame_8e0ac_8e0e4 0x8008D4AC : AT(0x8E0AC) { build/us/fallback.o(.rom_endgame_8e0ac_8e0e4) }
     .controller_motor_state_data 0x8008D4E4 : AT(0x8E0E4) SUBALIGN(4) { build/us/controller_motor_state.o(.data) }
-    .input_stream_fallback_8e104_8e468 0x8008D504 : AT(0x8E104) { build/us/fallback.o(.rom_input_stream_fallback_8e104_8e468) }
+    .controller_access_guard_data 0x8008D504 : AT(0x8E104) SUBALIGN(4) { build/us/controller_access_guard.o(.data) }
+    .controller_fallback_8e108_8e110 0x8008D508 : AT(0x8E108) { build/us/fallback.o(.rom_controller_fallback_8e108_8e110) }
+    .controller_motor_strength_data 0x8008D510 : AT(0x8E110) SUBALIGN(4) { build/us/controller_motor_strength.o(.data) }
+    .controller_fallback_8e114_8e468 0x8008D514 : AT(0x8E114) { build/us/fallback.o(.rom_controller_fallback_8e114_8e468) }
     .audio_timing_data_data 0x8008D868 : AT(0x8E468) SUBALIGN(4) { build/us/audio_timing_data.o(.data) }
     .input_stream_fallback_8e478_8e640 0x8008D878 : AT(0x8E478) { build/us/fallback.o(.rom_input_stream_fallback_8e478_8e640) }
     .compression_workspace_data 0x8008DA40 : AT(0x8E640) SUBALIGN(4) { build/us/compression_workspace.o(.data) }
@@ -1297,7 +1300,11 @@ SECTIONS
     .renderer_diagnostic_messages 0x80095640 : AT(0x96240) SUBALIGN(4) { build/us/renderer_diagnostic_messages.o(.rodata) }
     .actor_history_tick_constant 0x80095B30 : AT(0x96730) SUBALIGN(4) { build/us/actor_history_tick.o(.rodata) }
     .object_history_write_rodata 0x80095B34 : AT(0x96734) SUBALIGN(4) { build/us/object_history_write.o(.rodata) }
-    .endgame_96738_967f0 0x80095B38 : AT(0x96738) { build/us/fallback.o(.rom_endgame_96738_967f0) }
+    .controller_fallback_96738_967b0 0x80095B38 : AT(0x96738) { build/us/fallback.o(.rom_controller_fallback_96738_967b0) }
+    .controller_motor_initialize_message_data 0x80095BB0 : AT(0x967B0) SUBALIGN(4) { build/us/controller_motor_initialize_message.o(.data) }
+    .controller_fallback_967c4_967c8 0x80095BC4 : AT(0x967C4) { build/us/fallback.o(.rom_controller_fallback_967c4_967c8) }
+    .controller_motor_refresh_message_data 0x80095BC8 : AT(0x967C8) SUBALIGN(4) { build/us/controller_motor_refresh_message.o(.data) }
+    .controller_fallback_967dc_967f0 0x80095BDC : AT(0x967DC) { build/us/fallback.o(.rom_controller_fallback_967dc_967f0) }
     .graphics_setup_table 0x80095BF0 : AT(0x967F0) SUBALIGN(4) { build/us/graphics_setup.o(.rodata) }
     .endgame_9686c_96890 0x80095C6C : AT(0x9686C) { build/us/fallback.o(.rom_endgame_9686c_96890) }
     .audio_dma_read_rodata 0x80095C90 : AT(0x96890) SUBALIGN(4) { build/us/audio_dma_read.o(.rodata) }
@@ -1391,6 +1398,14 @@ SECTIONS
     .graphics_rsp_stack_data_bss 0x8012E890 (NOLOAD) : SUBALIGN(8) { build/us/graphics_rsp_stack_data.o(.bss) }
     .graphics_rsp_yield_data_bss 0x80136CD0 (NOLOAD) : SUBALIGN(8) { build/us/graphics_rsp_yield_data.o(.bss) }
     .renderer_diagnostic_frame_metrics_bss 0x80126B30 (NOLOAD) : SUBALIGN(4) { build/us/renderer_diagnostic_frame_metrics.o(.bss) }
+    .controller_connection_masks_bss 0x8013D9D0 (NOLOAD) : SUBALIGN(4) { build/us/controller_connection_masks.o(.bss) }
+    .controller_paks_bss 0x8013D9D8 (NOLOAD) : SUBALIGN(4) { build/us/controller_paks.o(.bss) }
+    .controller_file_index_bss 0x8013DB78 (NOLOAD) : SUBALIGN(4) { build/us/controller_file_index.o(.bss) }
+    .controller_motor_command_bss 0x80143418 (NOLOAD) : SUBALIGN(4) { build/us/controller_motor_command.o(.bss) }
+    .controller_access_queue_bss 0x80143428 (NOLOAD) : SUBALIGN(4) { build/us/controller_access_queue.o(.bss) }
+    .controller_polled_buttons_bss 0x80143440 (NOLOAD) : SUBALIGN(4) { build/us/controller_polled_buttons.o(.bss) }
+    .controller_pak_directory_state_bss 0x80143450 (NOLOAD) : SUBALIGN(4) { build/us/controller_pak_directory_state.o(.bss) }
+    .controller_access_message_bss 0x80143424 (NOLOAD) : SUBALIGN(4) { build/us/controller_access_message.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2660,7 +2675,6 @@ D_8009734C = 0x8009734C;
 func_8000F030 = 0x8000F030;
 ASSERT(SIZEOF(.actor_list_animation_tick) == 0x26c, "actor_list_animation_tick size changed")
 ASSERT(SIZEOF(.early_bonus_pattern) == 0x1c8, "early_bonus_pattern size changed")
-ASSERT(SIZEOF(.endgame_96738_967f0) == 0xb8, "endgame_96738_967f0 size changed")
 ASSERT(SIZEOF(.graphics_setup_table) == 0x7c, "graphics_setup_table size changed")
 ASSERT(SIZEOF(.endgame_9686c_96890) == 0x24, "endgame_9686c_96890 size changed")
 ASSERT(SIZEOF(.actor_position_follow) == 0x90, "actor_position_follow size changed")
@@ -2683,9 +2697,6 @@ ASSERT(SIZEOF(.endgame_data_960a4_960b0) == 0xc, "endgame_data_960a4_960b0 size 
 ASSERT(SIZEOF(.early_boundary_actor_spawn) == 0x18c, "early_boundary_actor_spawn size changed")
 ASSERT(SIZEOF(.controller_service_setup) == 0x378, "controller_service_setup size changed")
 ASSERT(SIZEOF(.endgame_4ff30_500d8) == 0x1a8, "endgame_4ff30_500d8 size changed")
-ASSERT(SIZEOF(.endgame_50450_50560) == 0x110, "endgame_50450_50560 size changed")
-D_80095BB0 = 0x80095BB0;
-D_80095BC8 = 0x80095BC8;
 func_800640D0 = 0x800640D0;
 ASSERT(SIZEOF(.controller_motor_state_data) == 0x20, "controller_motor_state_data size changed")
 ASSERT(SIZEOF(.controller_thread_state_bss) == 0x2208, "controller_thread_state_bss size changed")
@@ -2818,7 +2829,6 @@ ASSERT(SIZEOF(.early_input_counter_data_bss) == 0x38, "early_input_counter_data 
 ASSERT(SIZEOF(.early_input_sequence_data_bss) == 0x188, "early_input_sequence_data BSS size changed")
 ASSERT(SIZEOF(.input_stream_fallback_742b8_74648) == 0x390, "input_stream_fallback_742b8_74648 size changed")
 ASSERT(SIZEOF(.early_input_fixed_data_data) == 0x40, "early_input_fixed_data_data size changed")
-ASSERT(SIZEOF(.input_stream_fallback_8e104_8e468) == 0x364, "input_stream_fallback_8e104_8e468 size changed")
 ASSERT(SIZEOF(.audio_timing_data_data) == 0x10, "audio_timing_data_data size changed")
 ASSERT(SIZEOF(.input_stream_fallback_8e478_8e640) == 0x1c8, "input_stream_fallback_8e478_8e640 size changed")
 ASSERT(SIZEOF(.render_stream_fallback_af88_bc6c) == 0xce4, "render_stream_fallback_af88_bc6c size changed")
@@ -2870,3 +2880,21 @@ ASSERT(SIZEOF(.diagnostic_fallback_78dec_7d148) == 0x435c, "diagnostic_fallback_
 ASSERT(SIZEOF(.renderer_diagnostic_hierarchy_pool) == 0x8, "renderer_diagnostic_hierarchy_pool size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_7d150_7d98c) == 0x83c, "diagnostic_fallback_7d150_7d98c size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_frame_metrics_bss) == 0x40, "renderer_diagnostic_frame_metrics BSS size changed")
+ASSERT(SIZEOF(.controller_motor_duty) == 0x110, "controller_motor_duty size changed")
+ASSERT(SIZEOF(.controller_connection_masks_bss) == 0x2, "controller_connection_masks BSS size changed")
+ASSERT(SIZEOF(.controller_paks_bss) == 0x1a0, "controller_paks BSS size changed")
+ASSERT(SIZEOF(.controller_file_index_bss) == 0x4, "controller_file_index BSS size changed")
+ASSERT(SIZEOF(.controller_motor_command_bss) == 0x8, "controller_motor_command BSS size changed")
+ASSERT(SIZEOF(.controller_access_queue_bss) == 0x18, "controller_access_queue BSS size changed")
+ASSERT(SIZEOF(.controller_polled_buttons_bss) == 0x2, "controller_polled_buttons BSS size changed")
+ASSERT(SIZEOF(.controller_pak_directory_state_bss) == 0x350, "controller_pak_directory_state BSS size changed")
+ASSERT(SIZEOF(.controller_access_guard_data) == 0x4, "controller_access_guard_data size changed")
+ASSERT(SIZEOF(.controller_fallback_8e108_8e110) == 0x8, "controller_fallback_8e108_8e110 size changed")
+ASSERT(SIZEOF(.controller_motor_strength_data) == 0x4, "controller_motor_strength_data size changed")
+ASSERT(SIZEOF(.controller_fallback_8e114_8e468) == 0x354, "controller_fallback_8e114_8e468 size changed")
+ASSERT(SIZEOF(.controller_fallback_96738_967b0) == 0x78, "controller_fallback_96738_967b0 size changed")
+ASSERT(SIZEOF(.controller_motor_initialize_message_data) == 0x14, "controller_motor_initialize_message_data size changed")
+ASSERT(SIZEOF(.controller_fallback_967c4_967c8) == 0x4, "controller_fallback_967c4_967c8 size changed")
+ASSERT(SIZEOF(.controller_motor_refresh_message_data) == 0x14, "controller_motor_refresh_message_data size changed")
+ASSERT(SIZEOF(.controller_fallback_967dc_967f0) == 0x14, "controller_fallback_967dc_967f0 size changed")
+ASSERT(SIZEOF(.controller_access_message_bss) == 0x4, "controller_access_message BSS size changed")
