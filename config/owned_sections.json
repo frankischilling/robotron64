@@ -3092,5 +3092,70 @@
       "D_80094118": 8
     },
     "evidence": "docs/actor-effects-and-command-scripts.md"
+  },
+  {
+    "source": "src/game/palette_effects/base_storage.c",
+    "object": "build/us/palette_base_storage.o",
+    "input_section": ".bss",
+    "section": ".palette_base_storage",
+    "vram": 2148125976,
+    "rom": null,
+    "size": 1024,
+    "symbols": {
+      "D_8009CD18": 0
+    },
+    "evidence": "docs/palette-storage.md"
+  },
+  {
+    "source": "src/game/palette_effects/transition_storage.c",
+    "object": "build/us/palette_transition_storage.o",
+    "input_section": ".bss",
+    "section": ".palette_transition_storage",
+    "vram": 2148127008,
+    "rom": null,
+    "size": 5200,
+    "symbols": {
+      "D_8009D120": 0
+    },
+    "evidence": "docs/palette-storage.md"
+  },
+  {
+    "source": "src/game/palette_effects/fade_color.c",
+    "object": "build/us/palette_fade_color.o",
+    "input_section": ".bss",
+    "section": ".palette_fade_color",
+    "vram": 2148132208,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_8009E570": 0
+    },
+    "evidence": "docs/palette-storage.md"
+  },
+  {
+    "source": "src/game/palette_effects/fade_progress.c",
+    "object": "build/us/palette_fade_progress.o",
+    "input_section": ".bss",
+    "section": ".palette_fade_progress",
+    "vram": 2148132216,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_8009E578": 0
+    },
+    "evidence": "docs/palette-storage.md"
+  },
+  {
+    "source": "src/game/palette_effects/fade_step.c",
+    "object": "build/us/palette_fade_step.o",
+    "input_section": ".bss",
+    "section": ".palette_fade_step",
+    "vram": 2148132224,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_8009E580": 0
+    },
+    "evidence": "docs/palette-storage.md"
   }
 ]

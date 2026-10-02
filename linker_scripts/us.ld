@@ -1463,6 +1463,11 @@ SECTIONS
     .tweak_difficulties 0x8009FAE0 (NOLOAD) : SUBALIGN(4) { build/us/tweak_difficulties.o(.bss) }
     .tweak_counters 0x8009F024 (NOLOAD) : SUBALIGN(4) { build/us/tweak_counters.o(.bss) }
     .tweak_display_state 0x8009F558 (NOLOAD) : SUBALIGN(4) { build/us/tweak_display_state.o(.bss) }
+    .palette_base_storage 0x8009CD18 (NOLOAD) : SUBALIGN(4) { build/us/palette_base_storage.o(.bss) }
+    .palette_transition_storage 0x8009D120 (NOLOAD) : SUBALIGN(4) { build/us/palette_transition_storage.o(.bss) }
+    .palette_fade_color 0x8009E570 (NOLOAD) : SUBALIGN(4) { build/us/palette_fade_color.o(.bss) }
+    .palette_fade_progress 0x8009E578 (NOLOAD) : SUBALIGN(4) { build/us/palette_fade_progress.o(.bss) }
+    .palette_fade_step 0x8009E580 (NOLOAD) : SUBALIGN(4) { build/us/palette_fade_step.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -3006,3 +3011,8 @@ ASSERT(SIZEOF(.command_script_diagnostics) == 0x24, "command_script_diagnostics 
 ASSERT(SIZEOF(.script_diagnostic_fallback_94d34_94d6c) == 0x38, "script_diagnostic_fallback_94d34_94d6c size changed")
 ASSERT(SIZEOF(.palette_fade_update) == 0x47c, "palette_fade_update size changed")
 ASSERT(SIZEOF(.palette_fallback_32728_32810) == 0xe8, "palette_fallback_32728_32810 size changed")
+ASSERT(SIZEOF(.palette_base_storage) == 0x400, "palette_base_storage BSS size changed")
+ASSERT(SIZEOF(.palette_transition_storage) == 0x1450, "palette_transition_storage BSS size changed")
+ASSERT(SIZEOF(.palette_fade_color) == 0x4, "palette_fade_color BSS size changed")
+ASSERT(SIZEOF(.palette_fade_progress) == 0x4, "palette_fade_progress BSS size changed")
+ASSERT(SIZEOF(.palette_fade_step) == 0x4, "palette_fade_step BSS size changed")
