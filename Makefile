@@ -6797,6 +6797,46 @@ build/us/renderer_projection_state.o: src/game/renderer_projection/state.c inclu
 
 RUNTIME_OBJECTS += build/us/renderer_projection_state.o
 
+build/us/renderer_grid_commands.o: src/game/renderer_setup/grid_commands.c include/frame.h include/renderer_setup_internal.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_grid_commands.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_grid_commands.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_grid_commands.o
+
+build/us/renderer_setup_viewport.o: src/game/renderer_setup/viewport.c include/frame.h include/renderer_setup_internal.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_setup_viewport.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_setup_viewport.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_setup_viewport.o
+
+build/us/renderer_setup_lighting.o: src/game/renderer_setup/lighting.c include/frame.h include/renderer_setup_internal.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_setup_lighting.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_setup_lighting.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_setup_lighting.o
+
+build/us/renderer_frame_geometry_commands.o: src/game/renderer_setup/frame_geometry_commands.c include/frame.h include/renderer_setup_internal.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_frame_geometry_commands.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_frame_geometry_commands.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_frame_geometry_commands.o
+
+build/us/renderer_frame_rdp_commands.o: src/game/renderer_setup/frame_rdp_commands.c include/frame.h include/renderer_setup_internal.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_frame_rdp_commands.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_frame_rdp_commands.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_frame_rdp_commands.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

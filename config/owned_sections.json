@@ -2782,5 +2782,76 @@
     },
     "static_symbols": {},
     "evidence": "docs/startup-projection-and-diagnostics.md"
+  },
+  {
+    "source": "src/game/renderer_setup/grid_commands.c",
+    "object": "build/us/renderer_grid_commands.o",
+    "input_section": ".rodata",
+    "section": ".renderer_grid_commands",
+    "vram": 2147994224,
+    "rom": 513648,
+    "size": 88,
+    "symbols": {
+      "D_8007CA70": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-grid-and-setup.md"
+  },
+  {
+    "source": "src/game/renderer_setup/viewport.c",
+    "object": "build/us/renderer_setup_viewport.o",
+    "input_section": ".rodata",
+    "section": ".renderer_setup_viewport",
+    "vram": 2147994312,
+    "rom": 513736,
+    "size": 16,
+    "symbols": {
+      "D_8007CAC8": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-grid-and-setup.md"
+  },
+  {
+    "source": "src/game/renderer_setup/lighting.c",
+    "object": "build/us/renderer_setup_lighting.o",
+    "input_section": ".rodata",
+    "section": ".renderer_setup_lighting",
+    "vram": 2147994368,
+    "rom": 513792,
+    "size": 24,
+    "symbols": {
+      "D_8007CB00": 0,
+      "D_8007CB08": 8
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-grid-and-setup.md"
+  },
+  {
+    "source": "src/game/renderer_setup/frame_geometry_commands.c",
+    "object": "build/us/renderer_frame_geometry_commands.o",
+    "input_section": ".data",
+    "section": ".renderer_frame_geometry_commands",
+    "vram": 2147994392,
+    "rom": 513816,
+    "size": 64,
+    "symbols": {
+      "D_8007CB18": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-grid-and-setup.md"
+  },
+  {
+    "source": "src/game/renderer_setup/frame_rdp_commands.c",
+    "object": "build/us/renderer_frame_rdp_commands.o",
+    "input_section": ".rodata",
+    "section": ".renderer_frame_rdp_commands",
+    "vram": 2147994456,
+    "rom": 513880,
+    "size": 128,
+    "symbols": {
+      "D_8007CB58": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-grid-and-setup.md"
   }
 ]

@@ -1,4 +1,5 @@
 #include "../../include/frame.h"
+#include "../../include/renderer_setup_internal.h"
 
 extern unsigned char D_80137F58[];
 extern void *D_8013823C;
@@ -11,7 +12,6 @@ extern volatile int D_80138270;
 extern volatile int D_80138274;
 extern volatile int D_8013826C;
 extern unsigned int D_80138244;
-extern unsigned char D_8007CB58[], D_8007CB18[];
 extern unsigned short D_8007D6D0[];
 extern unsigned char D_00200000[];
 

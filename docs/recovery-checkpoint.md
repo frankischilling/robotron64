@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
 The source checkpoint contains 1,347 matching C functions covering 239,776 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 26,759 bytes
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 27,079 bytes
 of source-owned initialized data, and 457,189 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
 420 complete C functions, 118,728 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 25,111 reconstructed initialized bytes, and 453,099 BSS bytes.
+4,316 live bytes, 25,431 reconstructed initialized bytes, and 453,099 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,13 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Procedural grid and renderer setup](renderer-grid-and-setup.md) owns 320
+initialized bytes across three terminated command arrays, a viewport, and
+ambient/directional light records. The complete 1,904-byte renderer candidate
+remains excluded with 409 differing words and passes 480 MIPS execution cases.
+The cases compare CPU behavior with five matching support units and three
+deterministic rendering-state stubs; they do not check GPU execution.
 
 [Startup projection and diagnostic report](startup-projection-and-diagnostics.md)
 adds 1,476 matching report bytes, 56 initialized bytes for projection constants
