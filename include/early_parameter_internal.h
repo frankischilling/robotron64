@@ -18,6 +18,9 @@ extern short D_80097328[8];
 extern int D_800972D8[8];
 extern ActorDynamicParameter *D_800972F8[8];
 
+void func_8000E108(int index, ActorDynamicFirstGroup *group,
+                  ActorDynamicParameter *parameter, int unused,
+                  int offsetX, int offsetY);
 void func_8000E328(void);
 void func_8000E3B4(void);
 int func_8000E4F0(int index);

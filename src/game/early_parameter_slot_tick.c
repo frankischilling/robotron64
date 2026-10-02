@@ -1,9 +1,5 @@
 #include "../../include/early_parameter_internal.h"
 
-void func_8000E108(int index, ActorDynamicFirstGroup *group,
-                  ActorDynamicParameter *parameter, int value10, int value14,
-                  int value18);
-
 int func_8000E4F0(int index)
 {
     ActorDynamicFirstGroup *group;

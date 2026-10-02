@@ -859,6 +859,7 @@ MATCHING_BLOCKS = (
     ("renderer_mesh_submit", "src/game/renderer_primitives/mesh_submit.c", 0x80045534, 0x80045934),
     ("destination_format", "src/game/formatting/destination.c", 0x800363D0, 0x80036668),
     ("renderer_diagnostic_report", "src/game/renderer_diagnostics/report.c", 0x8004C6E0, 0x8004CCA4),
+    ("actor_group_setup", "src/game/actor_groups/setup.c", 0x8000E108, 0x8000E328),
 )
 
 CANDIDATE_BLOCKS = (
