@@ -1,6 +1,6 @@
 #include "../../include/frame.h"
+#include "../../include/renderer_projection_internal.h"
 
-extern unsigned short D_8013D950;
 extern int D_8007D914;
 extern void *D_8013823C;
 

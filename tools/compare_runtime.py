@@ -840,9 +840,11 @@ MATCHING_BLOCKS = (
     ("renderer_alpha_quad", "src/game/renderer_primitives/alpha_quad.c", 0x80045214, 0x800453D8),
     ("renderer_mesh_submit", "src/game/renderer_primitives/mesh_submit.c", 0x80045534, 0x80045934),
     ("destination_format", "src/game/formatting/destination.c", 0x800363D0, 0x80036668),
+    ("renderer_diagnostic_report", "src/game/renderer_diagnostics/report.c", 0x8004C6E0, 0x8004CCA4),
 )
 
 CANDIDATE_BLOCKS = (
+    ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
     ("actor_history_trail", "src/game/actor_history/trail.c", 0x8004E364, 0x8004E7D4),
     ("heap_initialize", "src/game/heap/initialize.c", 0x8004DE8C, 0x8004DED8),
     ("renderer_resource_loader", "src/game/renderer_resources/load.c", 0x8004BD00, 0x8004C088),
@@ -852,7 +854,6 @@ CANDIDATE_BLOCKS = (
     ("controller_legacy_poll", "src/game/controller/legacy_poll.c", 0x8004C1E0, 0x8004C378),
     ("controller_poll", "src/game/controller/poll.c", 0x8004F330, 0x8004F4D8),
 
-    ("renderer_diagnostic_report", "src/game/renderer_diagnostics/report.c", 0x8004C6E0, 0x8004CCA4),
     ("renderer_fatal_format", "src/game/renderer_diagnostics/fatal_format.c", 0x800496E0, 0x800498E0),
     ("renderer_text_glyph", "src/game/renderer_text/text_glyph.c", 0x80049E3C, 0x8004A2B4),
     ("renderer_object_glyph", "src/game/renderer_text/object_glyph.c", 0x8004A2B4, 0x8004A6B4),

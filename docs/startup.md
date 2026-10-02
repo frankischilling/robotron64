@@ -51,6 +51,13 @@ Two later initialization calls establish additional connections. `func_8005109C`
 
 The divide and the compiler's zero-divisor/overflow checks are preserved. The quotient's unit and the counter's wider uses are not yet established.
 
+The complete `func_80048DDC` candidate now preserves the perspective,
+look-at/highlight, animated-light, and matrix-command sequence. It differs
+in two saved-pointer stack-offset words and remains excluded from the ROM
+link. Its constants, light coordinates, and normalization word have verified
+source ownership. [Startup projection evidence](startup-projection-and-diagnostics.md)
+records the accessed buffer offsets and the unresolved stack slot.
+
 ## SDK name evidence
 
 | Address | Name | Supporting instruction behavior |

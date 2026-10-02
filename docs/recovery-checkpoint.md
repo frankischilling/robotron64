@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,346 matching C functions covering 238,300 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 26,703 bytes
-of source-owned initialized data, and 457,187 bytes of source-owned BSS. The
+The source checkpoint contains 1,347 matching C functions covering 239,776 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 26,759 bytes
+of source-owned initialized data, and 457,189 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-419 complete C functions, 117,252 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 25,055 reconstructed initialized bytes, and 453,097 BSS bytes.
+420 complete C functions, 118,728 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 25,111 reconstructed initialized bytes, and 453,099 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,13 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Startup projection and diagnostic report](startup-projection-and-diagnostics.md)
+adds 1,476 matching report bytes, 56 initialized bytes for projection constants
+and light coordinates, and two BSS bytes for perspective normalization.
+The complete startup projection candidate is excluded with two differing
+stack-offset words. The report preserves both coalescing heap queries and
+reads the first-block pointer afterward.
 
 [Projectile trail and resource arena](projectile-trail-and-arena.md) adds a
 complete excluded candidate for the 1,136-byte callback, 64 matching diagnostic
@@ -54,8 +61,8 @@ edge updates are documented, with remaining work tracked in issue #39.
 [Renderer diagnostics and font drawing](renderer-diagnostics-and-text.md)
 owns twelve data units with 1,368 initialized bytes and 64 BSS bytes. The report
 messages establish seven resource-pool prefixes and eight current/peak frame
-counters. Five complete C candidates cover 5,744 retail instruction bytes but
-remain excluded. Their heap queries, matrix-restoration failure path, special
+counters. Four complete C candidates cover 4,268 retail instruction bytes and
+remain excluded; the report now matches as described above. Their heap queries, matrix-restoration failure path, special
 glyph colors and two-player HUD behavior are preserved and tracked in issue #61.
 
 [Fan, prism, and image setup recovery](render-submission-effects.md) owns 24

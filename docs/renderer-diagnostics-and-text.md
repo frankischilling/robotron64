@@ -1,9 +1,10 @@
 # Renderer diagnostics and font drawing
 
 This recovery owns twelve data units used by the renderer's diagnostic report
-and adds five complete C candidates. The candidates are excluded from the
+and retains four complete C candidates. The candidates are excluded from the
 matching ROM build. Their presence does not increase the matching-function or
-matching-code totals.
+matching-code totals. The complete report now matches; its current evidence
+is in [startup projection and diagnostics](startup-projection-and-diagnostics.md).
 
 ## Report behavior
 
@@ -63,11 +64,10 @@ matching function manifest or selected by a ROM-build rule.
 | `func_80049E3C` | Font glyph at the current text position | 1,144 | 1,184 | 137 |
 | `func_8004A2B4` | Font glyph attached to an object draw state | 1,024 | 1,024 | 16 |
 | `func_8004B590` | One- or two-player HUD | 1,588 | 1,584 | 323 |
-| `func_8004C6E0` | Resource and renderer diagnostic report | 1,476 | 1,476 | 18 |
 
 The sixteen object-glyph differences are stack and local offsets. Its current
-frame is 160 bytes; the retail frame is 176. The report's remaining differences
-are concentrated in caching the BSS-end address and scheduling its heap queries.
+frame is 160 bytes; the retail frame is 176. The report's BSS-end address representation and heap-query scheduling are now
+resolved by the complete match recorded in the current report notes.
 These unresolved candidates are tracked in [issue #61](https://github.com/frankischilling/robotron64/issues/61).
 
 The glyph functions select 1,024-byte images from the font buffer, align the
@@ -94,17 +94,19 @@ Useful local-value, declaration-order, color-store, pointer and argument-type
 probes were compiled against complete function ranges. A bounded diagnostic
 permuter run did not produce a verified match. No dummy local, enlarged type,
 inline assembly, instruction patch or partial-function substitution was added.
-The exact current differences are recorded in
+The original five-candidate checkpoint is preserved in
 [`renderer-diagnostics-and-text-provenance.json`](renderer-diagnostics-and-text-provenance.json).
+The matching report's current comparison is recorded in the startup projection
+and diagnostics ledger.
 
 ## Verification
 
 The data-only comparisons check the full initialized ranges, symbol offsets,
 section placement and BSS lengths using the pinned IDO 5.3 compiler. Full ROM
-verification remains dependent on extracted fallback bytes for the five
+verification remains dependent on extracted fallback bytes for the four
 candidates and the other unrecovered code. A matching ROM build with those
 fallbacks is not completion of the source decompilation.
 
-The provenance ledger records the twelve data comparisons, five candidate
-comparisons and existing renderer/heap regressions. Existing renderer-effect and
-matrix ledgers are refreshed when shared headers or ownership metadata change.
+The earlier provenance ledger preserves the twelve data comparisons, five
+candidate comparisons and renderer/heap regressions from that checkpoint.
+Current independent comparisons are regenerated for each publication audit.

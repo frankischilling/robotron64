@@ -1,10 +1,10 @@
 #include "../../../include/renderer_diagnostic_internal.h"
 
-/* Nonmatching candidate; see docs/renderer-diagnostics-and-text.md. */
+/* Matching report; see docs/startup-projection-and-diagnostics.md. */
 void func_8004C6E0(void)
 {
-    int heapStart;
     int availableBytes;
+    unsigned int regionEnd;
     int heapBytes;
 
     if (D_8007D8F0 >= 10) {
@@ -15,9 +15,10 @@ void func_8004C6E0(void)
         func_80048DC0((char *)D_800956BC, D_800C8DFC);
         func_80048DC0((char *)D_800956C8, D_80000450, D_800518E0, D_800518E0 - D_80000450);
         func_80048DC0((char *)D_800956F0, D_80072B30, D_8008D780, D_8008D780 - D_80072B30);
-        func_80048DC0((char *)D_80095718, D_80097290, D_80190170, D_80190170 - D_80097290);
+        regionEnd = (unsigned int)D_80190170;
+        func_80048DC0((char *)D_80095718, D_80097290, D_80190170, (unsigned int)D_80190170 - (unsigned int)D_80097290);
         func_80048DC0((char *)D_80095740);
-        func_80048DC0((char *)D_80095744, (unsigned int)D_801B5000 - (unsigned int)D_80190170);
+        func_80048DC0((char *)D_80095744, (unsigned int)D_801B5000 - (unsigned int)regionEnd);
         func_80048DC0((char *)D_80095758);
         func_80048DC0((char *)D_8009575C, D_80200000, D_80225800, 0x25800);
         func_80048DC0((char *)D_80095784, D_801B5000, D_801DA800, 0x25800);
@@ -67,12 +68,11 @@ void func_8004C6E0(void)
             D_80126B50[3] = D_80126B30[3];
         }
         func_80048DC0((char *)D_8009591C);
-        heapStart = (int)D_8013EBF0;
         heapBytes = func_8004DCE0();
         availableBytes = func_8004DCE0();
-        func_80048DC0((char *)D_80095920, heapStart, 0x803CE000,
-                     0x803CE000 - heapStart,
-                     0x803CE000 - heapBytes - heapStart, availableBytes);
+        func_80048DC0((char *)D_80095920, (int)D_8013EBF0, 0x803CE000,
+                     0x803CE000 - (int)D_8013EBF0,
+                     0x803CE000 - heapBytes - (int)D_8013EBF0, availableBytes);
         func_80048DC0((char *)D_8009595C, D_8013D9C4, D_8013D9C8,
                      D_8013D9C8 - D_8013D9C4,
                      D_8013D9C0 - D_8013D9C4, D_8013D9C8 - D_8013D9C0);

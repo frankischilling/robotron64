@@ -1,12 +1,11 @@
 #include "../../include/graphics_state_internal.h"
-#include "../../include/sdk_camera.h"
+#include "../../include/renderer_projection_internal.h"
 #include "../../include/fixed_math.h"
 #include "../../include/scalar_math.h"
 #include "../../include/runtime_angle.h"
 #include "../../include/early_render_internal.h"
 
 extern float func_8004CEB0(float angle);
-extern float D_FLT_8007D904, D_FLT_8007D908;
 extern FixedMatrix D_800CD250;
 extern SdkMatrix D_8013D958;
 

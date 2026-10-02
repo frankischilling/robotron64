@@ -15161,5 +15161,16 @@
     "section": ".destination_format",
     "section_vram": 2147705808,
     "evidence": "docs/resource-cache-and-formatting.md"
+  },
+  {
+    "name": "func_8004C6E0",
+    "rom": 316128,
+    "vram": 2147796704,
+    "size": 1476,
+    "source": "src/game/renderer_diagnostics/report.c",
+    "object": "build/us/renderer_diagnostic_report.o",
+    "section": ".renderer_diagnostic_report",
+    "section_vram": 2147796704,
+    "evidence": "docs/startup-projection-and-diagnostics.md"
   }
 ]

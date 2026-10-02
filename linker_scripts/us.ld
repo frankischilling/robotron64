@@ -679,7 +679,8 @@ SECTIONS
     .pak_file_write 0x8004C5DC : AT(0x4D1DC) SUBALIGN(4) { build/us/pak_file_write.o(.text) }
     .pak_file_close 0x8004C648 : AT(0x4D248) SUBALIGN(4) { build/us/pak_file_close.o(.text) }
     .pak_file_encode_name 0x8004C65C : AT(0x4D25C) SUBALIGN(4) { build/us/pak_file_encode_name.o(.text) }
-    .endgame_4d2dc_4d8a4 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_endgame_4d2dc_4d8a4) }
+    .projection_diagnostic_fallback_4d2dc_4d2e0 0x8004C6DC : AT(0x4D2DC) { build/us/fallback.o(.rom_projection_diagnostic_fallback_4d2dc_4d2e0) }
+    .renderer_diagnostic_report 0x8004C6E0 : AT(0x4D2E0) SUBALIGN(4) { build/us/renderer_diagnostic_report.o(.text) }
     .runtime_buffer_clear 0x8004CCA4 : AT(0x4D8A4) SUBALIGN(4) { build/us/runtime_buffer_clear.o(.text) }
     .renderer_metrics_update 0x8004CCD0 : AT(0x4D8D0) SUBALIGN(4) { build/us/renderer_metrics_update.o(.text) }
     .endgame_4d9b4_4d9c0 0x8004CDB4 : AT(0x4D9B4) { build/us/fallback.o(.rom_endgame_4d9b4_4d9c0) }
@@ -1198,7 +1199,9 @@ SECTIONS
     .renderer_diagnostic_version 0x8007D6B0 : AT(0x7E2B0) SUBALIGN(4) { build/us/renderer_diagnostic_version.o(.rodata) }
     .diagnostic_fallback_7e2d0_7e4f0 0x8007D6D0 : AT(0x7E2D0) { build/us/fallback.o(.rom_diagnostic_fallback_7e2d0_7e4f0) }
     .renderer_diagnostic_frame_count 0x8007D8F0 : AT(0x7E4F0) SUBALIGN(4) { build/us/renderer_diagnostic_frame_count.o(.data) }
-    .diagnostic_fallback_7e4f4_7e510 0x8007D8F4 : AT(0x7E4F4) { build/us/fallback.o(.rom_diagnostic_fallback_7e4f4_7e510) }
+    .projection_diagnostic_fallback_7e4f4_7e504 0x8007D8F4 : AT(0x7E4F4) { build/us/fallback.o(.rom_projection_diagnostic_fallback_7e4f4_7e504) }
+    .renderer_projection_light_state 0x8007D904 : AT(0x7E504) SUBALIGN(4) { build/us/renderer_projection_state.o(.data) }
+    .projection_diagnostic_fallback_7e50c_7e510 0x8007D90C : AT(0x7E50C) { build/us/fallback.o(.rom_projection_diagnostic_fallback_7e50c_7e510) }
     .graphics_buffer_select_data 0x8007D910 : AT(0x7E510) SUBALIGN(4) { build/us/graphics_buffer_select_data.o(.data) }
     .matrix_transform_fallback_7e518_8d720 0x8007D918 : AT(0x7E518) { build/us/fallback.o(.rom_matrix_transform_fallback_7e518_8d720) }
     .renderer_texture_square_extent 0x8008CB20 : AT(0x8D720) SUBALIGN(4) { build/us/renderer_texture_squares.o(.data) }
@@ -1303,7 +1306,8 @@ SECTIONS
     .renderer_matrix_transform_strings 0x80095360 : AT(0x95F60) SUBALIGN(4) { build/us/renderer_matrix_transform.o(.rodata) }
     .matrix_transform_fallback_95fa0_95fe0 0x800953A0 : AT(0x95FA0) { build/us/fallback.o(.rom_matrix_transform_fallback_95fa0_95fe0) }
     .renderer_matrix_submit_strings 0x800953E0 : AT(0x95FE0) SUBALIGN(4) { build/us/renderer_matrix_submit.o(.rodata) }
-    .endgame_data_96020_96068 0x80095420 : AT(0x96020) { build/us/fallback.o(.rom_endgame_data_96020_96068) }
+    .projection_diagnostic_fallback_96020_96038 0x80095420 : AT(0x96020) { build/us/fallback.o(.rom_projection_diagnostic_fallback_96020_96038) }
+    .renderer_projection_constants 0x80095438 : AT(0x96038) SUBALIGN(4) { build/us/renderer_projection_constants.o(.data) }
     .renderer_projection_highlight_constants 0x80095468 : AT(0x96068) SUBALIGN(4) { build/us/renderer_projection_highlight.o(.rodata) }
     .frame_projection_rodata 0x80095498 : AT(0x96098) SUBALIGN(4) { build/us/frame_projection.o(.rodata) }
     .endgame_data_960a4_960b0 0x800954A4 : AT(0x960A4) { build/us/fallback.o(.rom_endgame_data_960a4_960b0) }
@@ -1424,6 +1428,7 @@ SECTIONS
     .renderer_resource_identifier_maps_bss 0x800C8E00 (NOLOAD) : SUBALIGN(4) { build/us/renderer_resource_identifier_maps.o(.bss) }
     .renderer_resource_arena_state 0x8013D9C0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_resource_arena_state.o(.bss) }
     .heap_first_block 0x8013EBF0 (NOLOAD) : SUBALIGN(4) { build/us/heap_state.o(.bss) }
+    .renderer_projection_normalization 0x8013D950 (NOLOAD) : SUBALIGN(4) { build/us/renderer_projection_state.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2371,7 +2376,6 @@ ASSERT(SIZEOF(.pi_start_dma) == 0x10c, "pi_start_dma size changed")
 ASSERT(SIZEOF(.endgame_208e4_21b24) == 0x1240, "endgame_208e4_21b24 size changed")
 ASSERT(SIZEOF(.endgame_21b8c_22720) == 0xb94, "endgame_21b8c_22720 size changed")
 ASSERT(SIZEOF(.endgame_33600_33900) == 0x300, "endgame_33600_33900 size changed")
-ASSERT(SIZEOF(.endgame_4d2dc_4d8a4) == 0x5c8, "endgame_4d2dc_4d8a4 size changed")
 ASSERT(SIZEOF(.pi_event_notify) == 0xec, "pi_event_notify size changed")
 ASSERT(SIZEOF(.pi_extended_dma) == 0x224, "pi_extended_dma size changed")
 ASSERT(SIZEOF(.sine_float) == 0x1c0, "sine_float size changed")
@@ -2785,9 +2789,6 @@ func_8001737C = 0x8001737C;
 ASSERT(SIZEOF(.renderer_projection_highlight) == 0x2b8, "renderer_projection_highlight size changed")
 ASSERT(SIZEOF(.renderer_projection_highlight_constants) == 0x30, "renderer_projection_highlight_constants size changed")
 ASSERT(SIZEOF(.endgame_499dc_49d3c) == 0x360, "endgame_499dc_49d3c size changed")
-ASSERT(SIZEOF(.endgame_data_96020_96068) == 0x48, "endgame_data_96020_96068 size changed")
-D_FLT_8007D904 = 0x8007D904;
-D_FLT_8007D908 = 0x8007D908;
 D_8013D958 = 0x8013D958;
 ASSERT(SIZEOF(.actor_pool_allocate) == 0x314, "actor_pool_allocate size changed")
 ASSERT(SIZEOF(.actor_pool_allocate_strings) == 0x60, "actor_pool_allocate_strings size changed")
@@ -2864,7 +2865,6 @@ ASSERT(SIZEOF(.diagnostic_fallback_7e2ac_7e2b0) == 0x4, "diagnostic_fallback_7e2
 ASSERT(SIZEOF(.renderer_diagnostic_version) == 0x20, "renderer_diagnostic_version size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_7e2d0_7e4f0) == 0x220, "diagnostic_fallback_7e2d0_7e4f0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_frame_count) == 0x4, "renderer_diagnostic_frame_count size changed")
-ASSERT(SIZEOF(.diagnostic_fallback_7e4f4_7e510) == 0x1c, "diagnostic_fallback_7e4f4_7e510 size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_8d738_8df60) == 0x828, "diagnostic_fallback_8d738_8df60 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_asset_lengths) == 0xc, "renderer_diagnostic_asset_lengths size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_78db8_78de4) == 0x2c, "diagnostic_fallback_78db8_78de4 size changed")
@@ -2930,3 +2930,11 @@ ASSERT(SIZEOF(.heap_initializer_flag) == 0x4, "heap_initializer_flag size change
 ASSERT(SIZEOF(.trail_arena_fallback_8e084_8e094) == 0x10, "trail_arena_fallback_8e084_8e094 size changed")
 ASSERT(SIZEOF(.trail_arena_fallback_960c4_960f0) == 0x2c, "trail_arena_fallback_960c4_960f0 size changed")
 ASSERT(SIZEOF(.resource_arena_diagnostics) == 0x40, "resource_arena_diagnostics size changed")
+ASSERT(SIZEOF(.projection_diagnostic_fallback_4d2dc_4d2e0) == 0x4, "projection_diagnostic_fallback_4d2dc_4d2e0 size changed")
+ASSERT(SIZEOF(.renderer_diagnostic_report) == 0x5c4, "renderer_diagnostic_report size changed")
+ASSERT(SIZEOF(.projection_diagnostic_fallback_96020_96038) == 0x18, "projection_diagnostic_fallback_96020_96038 size changed")
+ASSERT(SIZEOF(.renderer_projection_constants) == 0x30, "renderer_projection_constants size changed")
+ASSERT(SIZEOF(.projection_diagnostic_fallback_7e4f4_7e504) == 0x10, "projection_diagnostic_fallback_7e4f4_7e504 size changed")
+ASSERT(SIZEOF(.renderer_projection_light_state) == 0x8, "renderer_projection_light_state size changed")
+ASSERT(SIZEOF(.projection_diagnostic_fallback_7e50c_7e510) == 0x4, "projection_diagnostic_fallback_7e50c_7e510 size changed")
+ASSERT(SIZEOF(.renderer_projection_normalization) == 0x2, "renderer_projection_normalization size changed")
