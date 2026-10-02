@@ -118,6 +118,12 @@ candidates whose entire code and declared data pass.
 
 ## Model-side geometry
 
+[Fixed-alpha quad and polygon command recovery](renderer-polygon-emission.md)
+adds both constant-alpha quad procedures and five complete diagnostic
+pairs. It also records the expanded quad, diagnostic line, mesh submission,
+and command-stream candidates, including the actual opcode dispatch and
+independent copy/load cursors. Those four candidates remain excluded.
+
 The separate model-side walkers and transforms at `0x8003D2C0..0x80040968`
 now include 11 complete C functions and 3,024 bytes. They reuse the existing
 polygon, position, normal, and matrix layouts. Their exact ranges, hierarchy

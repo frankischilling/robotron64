@@ -15117,5 +15117,27 @@
     "section": ".controller_motor_duty",
     "section_vram": 2147809360,
     "evidence": "docs/controller-polling-and-storage.md"
+  },
+  {
+    "name": "func_80044F60",
+    "rom": 285536,
+    "vram": 2147766112,
+    "size": 452,
+    "source": "src/game/renderer_primitives/opaque_quad.c",
+    "object": "build/us/renderer_opaque_quad.o",
+    "section": ".renderer_opaque_quad",
+    "section_vram": 2147766112,
+    "evidence": "docs/renderer-polygon-emission.md"
+  },
+  {
+    "name": "func_80045214",
+    "rom": 286228,
+    "vram": 2147766804,
+    "size": 452,
+    "source": "src/game/renderer_primitives/alpha_quad.c",
+    "object": "build/us/renderer_alpha_quad.o",
+    "section": ".renderer_alpha_quad",
+    "section_vram": 2147766804,
+    "evidence": "docs/renderer-polygon-emission.md"
   }
 ]

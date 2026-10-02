@@ -6659,6 +6659,38 @@ build/us/controller_access_message.o: src/game/controller/access_message.c inclu
 
 RUNTIME_OBJECTS += build/us/controller_access_message.o
 
+build/us/renderer_opaque_quad.o: src/game/renderer_primitives/opaque_quad.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_polygon_messages.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_opaque_quad.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_opaque_quad.raw.o $@ .text 0x1c4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_opaque_quad.o
+
+build/us/renderer_alpha_quad.o: src/game/renderer_primitives/alpha_quad.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_polygon_messages.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_alpha_quad.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_alpha_quad.raw.o $@ .text 0x1c4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_alpha_quad.o
+
+build/us/renderer_expanded_quad_messages.o: src/game/renderer_primitives/expanded_quad_messages.c include/renderer_polygon_messages.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_expanded_quad_messages.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_expanded_quad_messages.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_expanded_quad_messages.o
+
+build/us/renderer_polygon_messages.o: src/game/renderer_primitives/polygon_messages.c include/renderer_polygon_messages.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_polygon_messages.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_polygon_messages.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_polygon_messages.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

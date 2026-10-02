@@ -606,9 +606,10 @@ SECTIONS
     .renderer_expanded_triangle 0x800444F8 : AT(0x450F8) SUBALIGN(4) { build/us/renderer_expanded_triangle.o(.text) }
     .endgame_453d0_45718 0x800447D0 : AT(0x453D0) { build/us/fallback.o(.rom_endgame_453d0_45718) }
     .renderer_textured_submit 0x80044B18 : AT(0x45718) SUBALIGN(4) { build/us/renderer_textured_submit.o(.text) }
-    .endgame_45b60_45d24 0x80044F60 : AT(0x45B60) { build/us/fallback.o(.rom_endgame_45b60_45d24) }
+    .renderer_opaque_quad 0x80044F60 : AT(0x45B60) SUBALIGN(4) { build/us/renderer_opaque_quad.o(.text) }
     .renderer_quad_submit 0x80045124 : AT(0x45D24) SUBALIGN(4) { build/us/renderer_quad_submit.o(.text) }
-    .endgame_45e14_46114 0x80045214 : AT(0x45E14) { build/us/fallback.o(.rom_endgame_45e14_46114) }
+    .renderer_alpha_quad 0x80045214 : AT(0x45E14) SUBALIGN(4) { build/us/renderer_alpha_quad.o(.text) }
+    .polygon_fallback_45fd8_46114 0x800453D8 : AT(0x45FD8) { build/us/fallback.o(.rom_polygon_fallback_45fd8_46114) }
     .renderer_material_reset 0x80045514 : AT(0x46114) SUBALIGN(4) { build/us/renderer_material_reset.o(.text) }
     .cpu_after_renderer_material_reset 0x80045534 : AT(0x46134) { build/us/fallback.o(.rom_cpu_after_renderer_material_reset) }
     .renderer_mesh_positions 0x80045934 : AT(0x46534) SUBALIGN(4) { build/us/renderer_mesh_positions.o(.text) }
@@ -1280,9 +1281,9 @@ SECTIONS
     .renderer_vertex_attributes_strings 0x80094F20 : AT(0x95B20) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.rodata) }
     .renderer_vertex_positions_strings 0x80095010 : AT(0x95C10) SUBALIGN(4) { build/us/renderer_vertex_positions.o(.rodata) }
     .renderer_expanded_triangle_strings 0x80095060 : AT(0x95C60) SUBALIGN(4) { build/us/renderer_expanded_triangle.o(.rodata) }
-    .endgame_data_95c88_95cb0 0x80095088 : AT(0x95C88) { build/us/fallback.o(.rom_endgame_data_95c88_95cb0) }
+    .renderer_expanded_quad_messages 0x80095088 : AT(0x95C88) SUBALIGN(4) { build/us/renderer_expanded_quad_messages.o(.rodata) }
     .renderer_textured_submit_strings 0x800950B0 : AT(0x95CB0) SUBALIGN(4) { build/us/renderer_textured_submit.o(.rodata) }
-    .endgame_data_95d00_95da0 0x80095100 : AT(0x95D00) { build/us/fallback.o(.rom_endgame_data_95d00_95da0) }
+    .renderer_polygon_messages 0x80095100 : AT(0x95D00) SUBALIGN(4) { build/us/renderer_polygon_messages.o(.rodata) }
     .renderer_mesh_positions_strings 0x800951A0 : AT(0x95DA0) SUBALIGN(4) { build/us/renderer_mesh_positions.o(.rodata) }
     .graphics_resource_strings 0x800951C8 : AT(0x95DC8) SUBALIGN(4) { build/us/graphics_resource.o(.rodata) }
     .data_after_graphics_resource_strings 0x91005A3C : AT(0x95DDC) { build/us/fallback.o(.rom_data_after_graphics_resource_strings) }
@@ -2512,7 +2513,6 @@ ASSERT(SIZEOF(.actor_behavior_counter_expire_rodata) == 0x30, "actor_behavior_co
 ASSERT(SIZEOF(.endgame_6160_6414) == 0x2b4, "endgame_6160_6414 size changed")
 ASSERT(SIZEOF(.endgame_dab8_dac0) == 0x8, "endgame_dab8_dac0 size changed")
 ASSERT(SIZEOF(.endgame_1bb44_1bf24) == 0x3e0, "endgame_1bb44_1bf24 size changed")
-ASSERT(SIZEOF(.endgame_45e14_46114) == 0x300, "endgame_45e14_46114 size changed")
 ASSERT(SIZEOF(.endgame_4d9b4_4d9c0) == 0xc, "endgame_4d9b4_4d9c0 size changed")
 ASSERT(SIZEOF(.endgame_data_90ed4_90f70) == 0x9c, "endgame_data_90ed4_90f70 size changed")
 D_80074C08 = 0x80074C08;
@@ -2702,8 +2702,6 @@ ASSERT(SIZEOF(.controller_motor_state_data) == 0x20, "controller_motor_state_dat
 ASSERT(SIZEOF(.controller_thread_state_bss) == 0x2208, "controller_thread_state_bss size changed")
 ASSERT(SIZEOF(.renderer_textured_submit) == 0x448, "renderer_textured_submit size changed")
 ASSERT(SIZEOF(.renderer_textured_submit_strings) == 0x50, "renderer_textured_submit_strings size changed")
-ASSERT(SIZEOF(.endgame_45b60_45d24) == 0x1c4, "endgame_45b60_45d24 size changed")
-ASSERT(SIZEOF(.endgame_data_95d00_95da0) == 0xa0, "endgame_data_95d00_95da0 size changed")
 ASSERT(SIZEOF(.renderer_texture_corner_state) == 0x10, "renderer_texture_corner_state size changed")
 ASSERT(SIZEOF(.renderer_texture_squares) == 0x508, "renderer_texture_squares size changed")
 ASSERT(SIZEOF(.renderer_image_quad_ci) == 0x240, "renderer_image_quad_ci size changed")
@@ -2716,13 +2714,11 @@ ASSERT(SIZEOF(.endgame_4bed8_4bee0) == 0x8, "endgame_4bed8_4bee0 size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle) == 0x2d8, "renderer_expanded_triangle size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle_strings) == 0x28, "renderer_expanded_triangle_strings size changed")
 ASSERT(SIZEOF(.endgame_453d0_45718) == 0x348, "endgame_453d0_45718 size changed")
-ASSERT(SIZEOF(.endgame_data_95c88_95cb0) == 0x28, "endgame_data_95c88_95cb0 size changed")
 D_800BF90C = 0x800BF90C;
 ASSERT(SIZEOF(.audio_engine_parameter_callback_state) == 0xc, "audio_engine_parameter_callback_state size changed")
 ASSERT(SIZEOF(.endgame_434c0_43c70) == 0x7b0, "endgame_434c0_43c70 size changed")
 ASSERT(SIZEOF(.endgame_43dc0_44530) == 0x770, "endgame_43dc0_44530 size changed")
 ASSERT(SIZEOF(.renderer_camera_square) == 0x150, "renderer camera square text size changed")
-func_80045214 = 0x80045214;
 ASSERT(SIZEOF(.early_pool_scene_reset) == 0x11c, "early pool scene reset text size changed")
 ASSERT(SIZEOF(.endgame_33cf8_344cc) == 0x7d4, "endgame_33cf8_344cc size changed")
 ASSERT(SIZEOF(.scene_actor_reset_begin) == 0x188, "scene actor reset begin text size changed")
@@ -2898,3 +2894,8 @@ ASSERT(SIZEOF(.controller_fallback_967c4_967c8) == 0x4, "controller_fallback_967
 ASSERT(SIZEOF(.controller_motor_refresh_message_data) == 0x14, "controller_motor_refresh_message_data size changed")
 ASSERT(SIZEOF(.controller_fallback_967dc_967f0) == 0x14, "controller_fallback_967dc_967f0 size changed")
 ASSERT(SIZEOF(.controller_access_message_bss) == 0x4, "controller_access_message BSS size changed")
+ASSERT(SIZEOF(.renderer_opaque_quad) == 0x1c4, "renderer_opaque_quad size changed")
+ASSERT(SIZEOF(.renderer_alpha_quad) == 0x1c4, "renderer_alpha_quad size changed")
+ASSERT(SIZEOF(.polygon_fallback_45fd8_46114) == 0x13c, "polygon_fallback_45fd8_46114 size changed")
+ASSERT(SIZEOF(.renderer_expanded_quad_messages) == 0x28, "renderer_expanded_quad_messages size changed")
+ASSERT(SIZEOF(.renderer_polygon_messages) == 0xa0, "renderer_polygon_messages size changed")

@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,342 matching C functions covering 235,708 bytes, twenty-nine assembly functions covering 4,372 bytes, 11,751 bytes of source-owned initialized data, and 451,171 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,344 matching C functions covering 236,612 bytes, twenty-nine assembly functions covering 4,372 bytes, 11,951 bytes of source-owned initialized data, and 451,171 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,11 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Fixed-alpha quad and polygon command recovery](docs/renderer-polygon-emission.md)
+adds two complete quad procedures with 904 instruction bytes and 200
+initialized diagnostic bytes. Four complete polygon and mesh candidates
+remain excluded from matching progress.
 
 [Controller polling and storage](docs/controller-polling-and-storage.md)
 recovers the complete 272-byte motor duty update, 48 initialized bytes,
