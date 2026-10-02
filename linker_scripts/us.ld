@@ -446,7 +446,8 @@ SECTIONS
     .save_menu_palette_index 0x80031420 : AT(0x32020) SUBALIGN(4) { build/us/save_menu_palette_index.o(.text) }
     .scene_palette_load 0x800314FC : AT(0x320FC) SUBALIGN(4) { build/us/scene_palette_load.o(.text) }
     .palette_fade_controls 0x80031564 : AT(0x32164) SUBALIGN(4) { build/us/palette_fade_controls.o(.text) }
-    .cpu_after_palette_fade_controls 0x800316AC : AT(0x322AC) { build/us/fallback.o(.rom_cpu_after_palette_fade_controls) }
+    .palette_fade_update 0x800316AC : AT(0x322AC) SUBALIGN(4) { build/us/palette_fade_update.o(.text) }
+    .palette_fallback_32728_32810 0x80031B28 : AT(0x32728) { build/us/fallback.o(.rom_palette_fallback_32728_32810) }
     .palette_transition_reset 0x80031C10 : AT(0x32810) SUBALIGN(4) { build/us/palette_transition_reset.o(.text) }
     .palette_transition_range 0x80031C44 : AT(0x32844) SUBALIGN(4) { build/us/palette_transition_range.o(.text) }
     .cpu_after_palette_transition_range 0x80031ECC : AT(0x32ACC) { build/us/fallback.o(.rom_cpu_after_palette_transition_range) }
@@ -1700,7 +1701,6 @@ ASSERT(SIZEOF(.save_menu_continue_encode) == 0x170, "save_menu_continue_encode s
 ASSERT(SIZEOF(.save_menu_palette_index) == 0xdc, "save_menu_palette_index size changed")
 ASSERT(SIZEOF(.scene_palette_load) == 0x68, "scene_palette_load size changed")
 ASSERT(SIZEOF(.palette_fade_controls) == 0x148, "palette_fade_controls size changed")
-ASSERT(SIZEOF(.cpu_after_palette_fade_controls) == 0x564, "cpu_after_palette_fade_controls size changed")
 ASSERT(SIZEOF(.palette_transition_reset) == 0x34, "palette_transition_reset size changed")
 ASSERT(SIZEOF(.palette_transition_range) == 0x288, "palette_transition_range size changed")
 ASSERT(SIZEOF(.cpu_after_palette_transition_range) == 0x4b0, "cpu_after_palette_transition_range size changed")
@@ -3004,3 +3004,5 @@ ASSERT(SIZEOF(.effect_draw_config) == 0x4d8, "effect_draw_config size changed")
 ASSERT(SIZEOF(.script_diagnostic_fallback_94cb4_94d10) == 0x5c, "script_diagnostic_fallback_94cb4_94d10 size changed")
 ASSERT(SIZEOF(.command_script_diagnostics) == 0x24, "command_script_diagnostics size changed")
 ASSERT(SIZEOF(.script_diagnostic_fallback_94d34_94d6c) == 0x38, "script_diagnostic_fallback_94d34_94d6c size changed")
+ASSERT(SIZEOF(.palette_fade_update) == 0x47c, "palette_fade_update size changed")
+ASSERT(SIZEOF(.palette_fallback_32728_32810) == 0xe8, "palette_fallback_32728_32810 size changed")

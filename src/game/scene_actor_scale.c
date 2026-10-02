@@ -1,8 +1,8 @@
-#include "../../include/object.h"
+#include "../../include/early_game_state.h"
 #include "../../include/text.h"
 
 typedef struct SceneScaleActor {
-    void (*callback00)(void);
+    EarlyGameActorCallback callback00;
     unsigned char unknown04[8];
     short objectIndex0C;
     unsigned char unknown0E[0xA];
@@ -17,7 +17,6 @@ typedef struct SceneScaleActor {
 } SceneScaleActor;
 
 extern int D_8009EFA0;
-extern void func_80005560(void);
 
 void func_800369C8(SceneScaleActor *actor, int initialize)
 {
