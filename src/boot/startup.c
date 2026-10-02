@@ -2,6 +2,7 @@
 #include "../../include/scheduler.h"
 #include "../../include/audio_runtime.h"
 #include "../../include/frame.h"
+#include "../../include/renderer_projection_internal.h"
 #include "../../include/graphics_tasks.h"
 
 extern OSThread D_80139280, D_8013A430;
@@ -27,7 +28,6 @@ extern int D_80138250, D_8007D8F0;
 void func_8004C090(void);
 void func_800470F4(void);
 void func_8002205C(void *);
-void func_80048DDC(void *);
 int func_80005DEC(void);
 void func_80022D24(void);
 void func_800400D0(void);

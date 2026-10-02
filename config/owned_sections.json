@@ -2734,5 +2734,53 @@
       "D_800954F0": 0,
       "D_80095524": 52
     }
+  },
+  {
+    "source": "src/game/renderer_projection/constants.c",
+    "object": "build/us/renderer_projection_constants.o",
+    "input_section": ".data",
+    "section": ".renderer_projection_constants",
+    "vram": 2148095032,
+    "rom": 614456,
+    "size": 48,
+    "symbols": {
+      "D_DBL_80095438": 0,
+      "D_FLT_80095440": 8,
+      "D_DBL_80095448": 16,
+      "D_FLT_80095450": 24,
+      "D_DBL_80095458": 32,
+      "D_FLT_80095460": 40
+    },
+    "static_symbols": {},
+    "evidence": "docs/startup-projection-and-diagnostics.md"
+  },
+  {
+    "source": "src/game/renderer_projection/state.c",
+    "object": "build/us/renderer_projection_state.o",
+    "input_section": ".data",
+    "section": ".renderer_projection_light_state",
+    "vram": 2147997956,
+    "rom": 517380,
+    "size": 8,
+    "symbols": {
+      "D_FLT_8007D904": 0,
+      "D_FLT_8007D908": 4
+    },
+    "static_symbols": {},
+    "evidence": "docs/startup-projection-and-diagnostics.md"
+  },
+  {
+    "source": "src/game/renderer_projection/state.c",
+    "object": "build/us/renderer_projection_state.o",
+    "input_section": ".bss",
+    "section": ".renderer_projection_normalization",
+    "vram": 2148784464,
+    "rom": null,
+    "size": 2,
+    "symbols": {
+      "D_8013D950": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/startup-projection-and-diagnostics.md"
   }
 ]

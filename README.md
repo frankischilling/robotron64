@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,346 matching C functions covering 238,300 bytes, twenty-nine assembly functions covering 4,372 bytes, 26,703 bytes of source-owned initialized data, and 457,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,347 matching C functions covering 239,776 bytes, twenty-nine assembly functions covering 4,372 bytes, 26,759 bytes of source-owned initialized data, and 457,189 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -65,6 +65,12 @@ alongside verified matching progress.
 
 ## Source and references
 
+[Startup projection and diagnostic report](docs/startup-projection-and-diagnostics.md)
+adds the complete matching 1,476-byte report, 48 initialized constant bytes,
+eight initialized light-coordinate bytes, and a two-byte normalization word.
+The complete 864-byte startup projection candidate remains excluded with
+two differing words in a saved pointer's stack slot.
+
 [Projectile trail and resource arena](docs/projectile-trail-and-arena.md)
 reconstructs the complete trail callback as an excluded C candidate and owns
 68 initialized bytes and sixteen BSS bytes for arena/heap state and diagnostics.
@@ -98,8 +104,8 @@ directory buffers. Both complete polling candidates remain excluded.
 
 [Renderer diagnostics and font drawing](docs/renderer-diagnostics-and-text.md)
 owns 1,368 initialized bytes and 64 BSS bytes for report messages, version text,
-pool prefixes and frame counters. Five complete C candidates cover 5,744 retail
-instruction bytes and remain excluded from matching-code totals.
+pool prefixes and frame counters. Four complete C candidates cover 4,268 retail
+instruction bytes and remain excluded; the report now matches as described above.
 
 [Renderer transforms and graphics buffers](docs/renderer-transform-and-buffers.md)
 adds the complete matching 1,176-byte Euler matrix submitter, 76 initialized
