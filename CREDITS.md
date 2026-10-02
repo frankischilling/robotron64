@@ -59,7 +59,7 @@ every file in every project has been studied.
 | [Majora's Mask](https://github.com/zeldaret/mm) | `56fa21dd0031a17cfc9e355f609542617598a265` | Segment layout, SDK variants and source-progress conventions |
 | [Paper Mario](https://github.com/pmret/papermario) | `1104f1f71b824042a5fa1f958f2d861b603320fd` | Additional game and matching-build reference |
 | [Mario Party](https://github.com/mariopartyrd/marioparty) | `26dca4f3cf2dab1839bc1de3579b7227b65b9ee6` | Additional game and SDK integration reference |
-| [PokÃ©mon Stadium](https://github.com/pret/pokestadium) | `0b614c210004d9b586897f11a7f820850e97f3d6` | Additional game and data-layout reference |
+| [Pokémon Stadium](https://github.com/pret/pokestadium) | `0b614c210004d9b586897f11a7f820850e97f3d6` | Additional game and data-layout reference |
 | [GoldenEye 007](https://github.com/n64decomp/007) | `c4356466796c697dfd298010b9bed261f9ed8c6a` | Older SDK motor command and response behavior |
 | [Perfect Dark](https://github.com/n64decomp/perfect_dark) | `169ed48bdcbfb3b568b028bd5bebb27680073514` | Extraction structure, per-object compiler profiles, and controller initialization and query flow |
 | [Banjo-Kazooie](https://github.com/n64decomp/banjo-kazooie) | `9db90a003fff15d13d29505d571aff2543b50383` | Additional game, SDK and matching workflow reference |
@@ -618,3 +618,10 @@ as an optional MIPS execution engine. The checker runs the supplied target and
 freshly compiled candidates, using supporting-call stubs for the ribbon. Robotron's
 instructions and matching callers establish the ribbon behavior and arena
 state; this work copies no reference game implementation.
+
+Annular and tiled surface recovery uses Robotron's target instructions and
+matching fixed/short trigonometry, geometry, state, and cache code. The local
+libreultra `include/2.0I/PR/gbi.h` and SM64 GBI definitions supply packet
+formats and SDK macro references. The optional Unicorn checker executes
+the matching support code and its reconstructed initialized data; no reference
+game implementation is copied into these surface candidates.

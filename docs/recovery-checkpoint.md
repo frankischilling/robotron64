@@ -16,6 +16,14 @@ denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
 
+[Annular and tiled surface rendering](renderer-surfaces.md) adds complete
+excluded candidates for the annular renderer, camera-relative quad helper,
+and 5-by-5 tiled renderer. Their 1,968-byte retail span has 102, 131, and 71
+remaining differing words. The new checker passes 1,336 CPU cases using
+thirteen complete matching support units and their initialized data, without
+callee stubs. It covers documented cache-hit and rendering paths, with
+remaining instruction work tracked in #75.
+
 [Procedural grid and renderer setup](renderer-grid-and-setup.md) owns 320
 initialized bytes across three terminated command arrays, a viewport, and
 ambient/directional light records. The complete 1,904-byte renderer candidate

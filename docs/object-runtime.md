@@ -23,6 +23,14 @@ does not assert that the callee definitions take `void`, and it preserves
 the original caller's lack of argument setup. No synthetic argument is
 introduced to make these calls appear more strongly typed.
 
+Both selected surface routines now have complete excluded C candidates,
+together with their shared camera-relative quad helper. Their annular and
+tiled geometry, 128/100-vertex accounting, allocation-failure paths, and
+remaining instruction differences are recorded in
+[the surface notes](renderer-surfaces.md). The current CPU checker executes
+this matching dispatcher and both candidate paths, including both selectors
+and the zero-gate return, with no callee stubs.
+
 ## Active-index rebuild
 
 `src/game/object_runtime_active.c` reconstructs `func_8003B428` at VRAM

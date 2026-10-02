@@ -16,8 +16,11 @@ using `func_8004D4B4`. It then writes four pairs of signed texture coordinates
 at the current vertex-arena cursor: `(0, 0)`, `(3968, 0)`, `(3968, 3968)`,
 and `(0, 3968)`. The last corner stores its second texture component first.
 Finally it passes the four transformed positions to `func_80045214`, the
-alpha-160 quad submission routine. That callee remains executable fallback
-and contributes no new matching source to this recovery.
+alpha-160 quad submission routine. That callee now has matching source in
+`src/game/renderer_primitives/alpha_quad.c`. The recovered tiled surface
+candidate calls this square routine 25 times; [the surface notes](renderer-surfaces.md)
+record its centers, counters, and current CPU execution checks. The archive
+and ledger below retain this square routine's original matching checkpoint.
 
 ## Complete comparison
 

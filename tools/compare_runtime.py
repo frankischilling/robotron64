@@ -844,6 +844,9 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("renderer_surface_ring", "src/game/renderer_surfaces/ring.c", 0x800428C0, 0x80042BDC),
+    ("renderer_surface_quad", "src/game/renderer_surfaces/quad.c", 0x80042BDC, 0x80042E2C),
+    ("renderer_surface_tiles", "src/game/renderer_surfaces/tiles.c", 0x80042E2C, 0x80043070),
     ("renderer_grid", "src/game/renderer_setup/grid.c", 0x800431C0, 0x80043930),
     ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
     ("actor_history_trail", "src/game/actor_history/trail.c", 0x8004E364, 0x8004E7D4),
