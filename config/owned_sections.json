@@ -2971,5 +2971,51 @@
       "D_80093988": 0
     },
     "evidence": "docs/actor-behavior-recovery.md"
+  },
+  {
+    "source": "src/game/actor_lifecycle/create.c",
+    "object": "build/us/actor_create.o",
+    "input_section": ".rodata",
+    "section": ".actor_create_switch",
+    "vram": 2148074012,
+    "rom": 593436,
+    "size": 136,
+    "symbols": {},
+    "evidence": "docs/actor-lifecycle-recovery.md"
+  },
+  {
+    "source": "src/game/actor_behaviors/pursuit.c",
+    "object": "build/us/actor_behavior_pursuit.o",
+    "input_section": ".rodata",
+    "section": ".actor_behavior_pursuit_switch",
+    "vram": 2148088424,
+    "rom": 607848,
+    "size": 36,
+    "symbols": {},
+    "evidence": "docs/actor-lifecycle-recovery.md"
+  },
+  {
+    "source": "src/game/actor_behaviors/enforcer.c",
+    "object": "build/us/actor_behavior_enforcer.o",
+    "input_section": ".rodata",
+    "section": ".actor_behavior_enforcer_switch",
+    "vram": 2148088388,
+    "rom": 607812,
+    "size": 36,
+    "symbols": {},
+    "evidence": "docs/actor-lifecycle-recovery.md"
+  },
+  {
+    "source": "src/game/actor_behaviors/brain_diagnostic.c",
+    "object": "build/us/actor_brain_diagnostic.o",
+    "input_section": ".data",
+    "section": ".actor_brain_diagnostic",
+    "vram": 2148088228,
+    "rom": 607652,
+    "size": 24,
+    "symbols": {
+      "D_800939A4": 0
+    },
+    "evidence": "docs/actor-lifecycle-recovery.md"
   }
 ]

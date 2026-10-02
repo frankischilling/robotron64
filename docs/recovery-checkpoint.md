@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,354 matching C functions covering 245,524 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 27,379 bytes
+The source checkpoint contains 1,357 matching C functions covering 249,408 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 27,611 bytes
 of source-owned initialized data, and 458,883 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-427 complete C functions, 124,476 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 25,731 reconstructed initialized bytes, and 454,793 BSS bytes.
+430 complete C functions, 128,360 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 25,963 reconstructed initialized bytes, and 454,793 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,14 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Actor creation, enforcer behavior, and pursuit](actor-lifecycle-recovery.md)
+add three complete matching procedures covering 3,884 instruction bytes,
+208 bytes in generated switch tables, and a 24-byte brain diagnostic.
+The heading setter now has a void interface supported by complete setter
+and caller comparisons. The early pool prefix identifies its per-kind
+counter array without changing the layout. Ghidra retains all three full
+procedures, verified switch tables, and typed helper interfaces.
 
 [Actor behaviors and spawn callback](actor-behavior-recovery.md) add five
 complete matching procedures covering 5,328 instruction bytes and the hulk's

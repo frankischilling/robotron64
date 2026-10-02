@@ -41,7 +41,7 @@ extern float D_FLT_80094C24;
 extern float D_FLT_80094C28;
 
 ObjectTransform *func_800394C0(int object, float value);
-ObjectTransform *func_80039514(int object, int value);
+void func_80039514(int object, int value);
 ObjectTransform *func_8003956C(int object, float value);
 ObjectTransform *func_800395C0(int object, float value);
 ObjectTransform *func_80039614(int object, float *value);
@@ -72,7 +72,7 @@ int func_80039B00(int object);
 int func_80039B74(int object);
 void func_80039BE4(int object, int unused);
 void func_80039BF0(int object, int unused);
-void func_80039BFC(int object, unsigned char value);
+int func_80039BFC(int object, unsigned char value);
 ObjectRecord *func_80039C1C(int object, int x, int y, int z);
 void func_80039C44(int object, int unused);
 void func_80039C50(int object, int unused);

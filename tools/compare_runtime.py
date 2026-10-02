@@ -11,6 +11,9 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("actor_behavior_enforcer", "src/game/actor_behaviors/enforcer.c", 0x8002C4AC, 0x8002CB48),
+    ("actor_behavior_pursuit", "src/game/actor_behaviors/pursuit.c", 0x8002CF24, 0x8002D3D4),
+    ("actor_create", "src/game/actor_lifecycle/create.c", 0x8001AF44, 0x8001B324),
     ("actor_behavior_spawn_callback", "src/game/actor_behaviors/spawn_callback.c", 0x80029760, 0x80029B20),
     ("actor_behavior_spawn_state", "src/game/actor_behaviors/spawn.c", 0x8002D3D4, 0x8002D918),
     ("actor_behavior_hulk", "src/game/actor_behaviors/hulk.c", 0x8002C0AC, 0x8002C4AC),

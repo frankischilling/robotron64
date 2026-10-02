@@ -11,15 +11,12 @@ ObjectTransform *func_800394C0(int object, float value)
     return transform;
 }
 
-ObjectTransform *func_80039514(int object, int value)
+void func_80039514(int object, int value)
 {
     ObjectTransform *transform;
-    ObjectRecord *record;
-    record = &D_800BF918[object];
-    transform = record->transform;
+    transform = D_800BF918[object].transform;
     transform->angle[1] = (value - 1024) * D_FLT_80094C20 / 2048;
-    record->angle[1] = (1024 - value) & 0xffd;
-    return transform;
+    D_800BF918[object].angle[1] = (1024 - value) & 0xffd;
 }
 
 ObjectTransform *func_8003956C(int object, float value)
@@ -209,7 +206,8 @@ void func_80039BE4(int object, int unused)
 void func_80039BF0(int object, int unused)
 {
 }
-void func_80039BFC(int object, unsigned char value)
+/* No return value is defined; the observed caller discards the result. */
+int func_80039BFC(int object, unsigned char value)
 {
     ObjectRecord *record = &D_800BF918[object];
     record->property12 = value;

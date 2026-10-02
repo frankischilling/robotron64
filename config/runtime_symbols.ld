@@ -788,7 +788,6 @@ D_80192754 = 0x80192754;
 
 /* References from recovered save-menu and actor-behavior services. */
 D_800BB128 = 0x800BB128;
-func_8001AF44 = 0x8001AF44;
 func_800267BC = 0x800267BC;
 
 /* References from recovered audio host and stream services. */
@@ -1025,3 +1024,5 @@ D_80200000 = 0x80200000;
 D_80225800 = 0x80225800;
 D_80138238 = 0x80138238;
 func_8000C2F4 = 0x8000C2F4;
+D_800ACB08 = 0x800ACB08;
+D_800B27F0 = 0x800B27F0;

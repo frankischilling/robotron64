@@ -15249,5 +15249,38 @@
     "section": ".actor_behavior_spawn_callback",
     "section_vram": 2147653472,
     "evidence": "docs/actor-behavior-recovery.md"
+  },
+  {
+    "name": "func_8001AF44",
+    "rom": 113476,
+    "vram": 2147594052,
+    "size": 992,
+    "source": "src/game/actor_lifecycle/create.c",
+    "object": "build/us/actor_create.o",
+    "section": ".actor_create",
+    "section_vram": 2147594052,
+    "evidence": "docs/actor-lifecycle-recovery.md"
+  },
+  {
+    "name": "func_8002CF24",
+    "rom": 187172,
+    "vram": 2147667748,
+    "size": 1200,
+    "source": "src/game/actor_behaviors/pursuit.c",
+    "object": "build/us/actor_behavior_pursuit.o",
+    "section": ".actor_behavior_pursuit",
+    "section_vram": 2147667748,
+    "evidence": "docs/actor-lifecycle-recovery.md"
+  },
+  {
+    "name": "func_8002C4AC",
+    "rom": 184492,
+    "vram": 2147665068,
+    "size": 1692,
+    "source": "src/game/actor_behaviors/enforcer.c",
+    "object": "build/us/actor_behavior_enforcer.o",
+    "section": ".actor_behavior_enforcer",
+    "section_vram": 2147665068,
+    "evidence": "docs/actor-lifecycle-recovery.md"
   }
 ]

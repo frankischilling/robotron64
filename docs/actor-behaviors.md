@@ -8,10 +8,11 @@ IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`.
 ## Exact checkpoint
 
 The original fifteen complete functions total 4,140 matching code bytes.
-Four more procedures in this family add 4,368 bytes, bringing the family to
-nineteen complete functions and 8,508 bytes. The resource-mode dispatcher owns
-a matching 52-byte switch table; the newly recovered hulk owns another 40 bytes.
-The associated 960-byte spawn callback lies earlier at `80029760`.
+Six more procedures in this family add 7,260 bytes, bringing the family to
+twenty-one complete functions and 11,400 bytes. The resource-mode dispatcher
+owns a matching 52-byte switch table; hulk owns 40 bytes, and enforcer and
+pursuit own 36 bytes each. The associated 960-byte spawn callback and 992-byte
+creator lie earlier at `80029760` and `8001AF44`.
 
 | Function | Range | Size | Source | Result |
 | --- | --- | ---: | --- | --- |
@@ -113,13 +114,14 @@ The current shared names history_index at +0x4C and history at +0x54 are too spe
 | func_8002AF2C | 0x8002AF2C..0x8002B31C | 1008 | exact, `actor_behaviors/duration.c` |
 | func_8002B7BC | 0x8002B7BC..0x8002BF88 | 1996 | pending |
 | func_8002C0AC | 0x8002C0AC..0x8002C4AC | 1024 | exact, `actor_behaviors/hulk.c` |
-| func_8002C4AC | 0x8002C4AC..0x8002CB48 | 1692 | pending |
+| func_8002C4AC | 0x8002C4AC..0x8002CB48 | 1692 | exact, `actor_behaviors/enforcer.c` |
 | func_8002CB48 | 0x8002CB48..0x8002CF24 | 988 | exact, `actor_behaviors/brain.c` |
-| func_8002CF24 | 0x8002CF24..0x8002D3D4 | 1200 | pending |
+| func_8002CF24 | 0x8002CF24..0x8002D3D4 | 1200 | exact, `actor_behaviors/pursuit.c` |
 | func_8002D3D4 | 0x8002D3D4..0x8002D918 | 1348 | exact, `actor_behaviors/spawn.c` |
 | func_8002DDBC | 0x8002DDBC..0x8002E65C | 2208 | pending |
 
-The five pending entries remain outside matching counts and cover 8,924 target
-bytes. [Actor behavior recovery](actor-behavior-recovery.md) records the four
+The three pending entries remain outside matching counts and cover 6,032 target
+bytes. [Actor lifecycle recovery](actor-lifecycle-recovery.md) records the
+additional enforcer and pursuit procedures and their shared creator. [Actor behavior recovery](actor-behavior-recovery.md) records the four
 new family procedures, their associated spawn callback, compiler evidence,
 and independent comparisons. Issue #40 remains open for the pending work.
