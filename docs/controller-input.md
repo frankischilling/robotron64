@@ -19,18 +19,17 @@ the second from horizontal input, then returns the second. Both retain the
 target's signed division behavior. The global controller arrays and the
 query interfaces are declared in `include/controller_input.h`.
 
-## Direction and button mapping candidate
+## Direction and button mapping
 
-`src/game/controller_input.c` reconstructs the 800-byte function at
-`0x8003C1A8`. It polls controller state, suppresses a minor stick axis when
-the other axis exceeds its magnitude by a factor of eight, applies the
-20-unit directional thresholds, and combines the original button masks.
-It also retains the two shoulder-edge actions and the simultaneous-edge
-toggle. Its two mode branches preserve the game's different directional
-bit assignments.
+`src/game/controller_input.c` reconstructs the complete matching 800-byte
+function at `0x8003C1A8`. It polls controller state, suppresses a minor stick
+axis when the other axis exceeds its magnitude by a factor of eight,
+applies the 20-unit directional thresholds, and combines the original
+button masks. It retains both shoulder-edge actions and the simultaneous
+edge toggle. The mode branches preserve their different directional bits.
 
-The candidate is excluded from the ROM build and matching counts. The
-current IDO output has the correct size but differs in 19 instruction words,
-principally argument-register allocation and prologue scheduling. The
-polling callee reads its incoming integer argument; the candidate retains
-that argument rather than weakening the declaration to obtain a match.
+The complete match and the unspecified-argument polling call are described
+in [controller-input-mapping.md](controller-input-mapping.md). Both game
+polling callees now have complete excluded C candidates; their behavior,
+shared storage, and remaining differences are recorded in
+[controller-polling-and-storage.md](controller-polling-and-storage.md).

@@ -589,3 +589,11 @@ The target supplies the pool capacities, diagnostic messages, font commands,
 color cases, HUD branches and failure behavior. The pinned IDO and Super Mario
 64 matching-build references continue to apply. No reference implementation or
 font image is copied into this recovery.
+
+Controller polling and storage recovery consulted the local libreultra
+`include/2.0I/PR/os.h` and `src/io/contreaddata.c` for pad widths and the
+read/wait/unpack interface. Robotron's complete instructions establish the
+game's access ordering, button edges, motor thresholds and phase arithmetic;
+existing matching directory and clear routines establish the storage bounds.
+The pinned IDO and Super Mario 64 matching-build references continue to apply.
+No reference implementation is copied into these game routines or data units.
