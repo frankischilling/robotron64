@@ -10,7 +10,8 @@ typedef struct EarlyPoolResetPair {
 typedef struct EarlyPoolTickState {
     int state00;
     int value04;
-    unsigned char unknown08[0x90];
+    short activeBehaviorActors[36];
+    unsigned char unknown50[0x48];
     int timer98;
     int start9C;
     int frameA0;

@@ -206,7 +206,7 @@ SECTIONS
     .early_selection_activate 0x8001A528 : AT(0x1B128) SUBALIGN(4) { build/us/early_selection_activate.o(.text) }
     .endgame_1b148_1b9a0 0x8001A548 : AT(0x1B148) { build/us/fallback.o(.rom_endgame_1b148_1b9a0) }
     .early_resource_state 0x8001ADA0 : AT(0x1B9A0) SUBALIGN(4) { build/us/early_resource_state.o(.text) }
-    .endgame_1bb44_1bf24 0x8001AF44 : AT(0x1BB44) { build/us/fallback.o(.rom_endgame_1bb44_1bf24) }
+    .actor_create 0x8001AF44 : AT(0x1BB44) SUBALIGN(4) { build/us/actor_create.o(.text) }
     .actor_behavior_counter_expire 0x8001B324 : AT(0x1BF24) SUBALIGN(4) { build/us/actor_behavior_counter_expire.o(.text) }
     .early_actor_spawn_helper 0x8001B3DC : AT(0x1BFDC) SUBALIGN(4) { build/us/early_actor_spawn_helper.o(.text) }
     .early_simple_forward 0x8001B448 : AT(0x1C048) SUBALIGN(4) { build/us/early_simple_forward.o(.text) }
@@ -362,9 +362,9 @@ SECTIONS
     .cpu_after_actor_behavior_noop_b7b0 0x8002B7BC : AT(0x2C3BC) { build/us/fallback.o(.rom_cpu_after_actor_behavior_noop_b7b0) }
     .actor_behavior_repeat 0x8002BF88 : AT(0x2CB88) SUBALIGN(4) { build/us/actor_behavior_repeat.o(.text) }
     .actor_behavior_hulk 0x8002C0AC : AT(0x2CCAC) SUBALIGN(4) { build/us/actor_behavior_hulk.o(.text) }
-    .actor_fallback_2d0ac_2d748 0x8002C4AC : AT(0x2D0AC) { build/us/fallback.o(.rom_actor_fallback_2d0ac_2d748) }
+    .actor_behavior_enforcer 0x8002C4AC : AT(0x2D0AC) SUBALIGN(4) { build/us/actor_behavior_enforcer.o(.text) }
     .actor_behavior_brain 0x8002CB48 : AT(0x2D748) SUBALIGN(4) { build/us/actor_behavior_brain.o(.text) }
-    .actor_fallback_2db24_2dfd4 0x8002CF24 : AT(0x2DB24) { build/us/fallback.o(.rom_actor_fallback_2db24_2dfd4) }
+    .actor_behavior_pursuit 0x8002CF24 : AT(0x2DB24) SUBALIGN(4) { build/us/actor_behavior_pursuit.o(.text) }
     .actor_behavior_spawn_state 0x8002D3D4 : AT(0x2DFD4) SUBALIGN(4) { build/us/actor_behavior_spawn_state.o(.text) }
     .actor_behavior_extra_d918 0x8002D918 : AT(0x2E518) SUBALIGN(4) { build/us/actor_behavior_extra_d918.o(.text) }
     .actor_behavior_countdown 0x8002DC20 : AT(0x2E820) SUBALIGN(4) { build/us/actor_behavior_countdown.o(.text) }
@@ -1276,7 +1276,8 @@ SECTIONS
     .actor_collision_death_result_rodata 0x80090098 : AT(0x90C98) SUBALIGN(4) { build/us/actor_collision_death_result.o(.rodata) }
     .endgame_data_90cac_90d3c 0x800900AC : AT(0x90CAC) { build/us/fallback.o(.rom_endgame_data_90cac_90d3c) }
     .collision_dispatch_initialize_strings 0x8009013C : AT(0x90D3C) SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.rodata) }
-    .endgame_data_90d9c_90ea4 0x8009019C : AT(0x90D9C) { build/us/fallback.o(.rom_endgame_data_90d9c_90ea4) }
+    .lifecycle_fallback_90d9c_90e1c 0x8009019C : AT(0x90D9C) { build/us/fallback.o(.rom_lifecycle_fallback_90d9c_90e1c) }
+    .actor_create_switch 0x8009021C : AT(0x90E1C) SUBALIGN(4) { build/us/actor_create.o(.rodata) }
     .actor_behavior_counter_expire_rodata 0x800902A4 : AT(0x90EA4) SUBALIGN(4) { build/us/actor_behavior_counter_expire.o(.rodata) }
     .endgame_data_90ed4_90f70 0x800902D4 : AT(0x90ED4) { build/us/fallback.o(.rom_endgame_data_90ed4_90f70) }
     .name_table_lookup_data 0x80090370 : AT(0x90F70) SUBALIGN(4) { build/us/name_table_lookup.o(.data) }
@@ -1288,12 +1289,15 @@ SECTIONS
     .actor_pool_allocate_strings 0x8009390C : AT(0x9450C) SUBALIGN(4) { build/us/actor_pool_allocate.o(.rodata) }
     .actor_fallback_9456c_94588 0x8009396C : AT(0x9456C) { build/us/fallback.o(.rom_actor_fallback_9456c_94588) }
     .actor_behavior_diagnostic 0x80093988 : AT(0x94588) SUBALIGN(4) { build/us/actor_behavior_diagnostic.o(.data) }
-    .actor_fallback_945a4_945c0 0x800939A4 : AT(0x945A4) { build/us/fallback.o(.rom_actor_fallback_945a4_945c0) }
+    .actor_brain_diagnostic 0x800939A4 : AT(0x945A4) SUBALIGN(4) { build/us/actor_brain_diagnostic.o(.data) }
+    .lifecycle_fallback_945bc_945c0 0x800939BC : AT(0x945BC) { build/us/fallback.o(.rom_lifecycle_fallback_945bc_945c0) }
     .actor_position_submit_constant 0x800939C0 : AT(0x945C0) SUBALIGN(4) { build/us/actor_position_submit.o(.rodata) }
     .actor_behavior_next_a244_rodata 0x800939C4 : AT(0x945C4) SUBALIGN(4) { build/us/actor_behavior_next_a244.o(.rodata) }
     .actor_fallback_945f8_9461c 0x800939F8 : AT(0x945F8) { build/us/fallback.o(.rom_actor_fallback_945f8_9461c) }
     .actor_behavior_hulk_switch 0x80093A1C : AT(0x9461C) SUBALIGN(4) { build/us/actor_behavior_hulk.o(.rodata) }
-    .actor_fallback_94644_94c84 0x80093A44 : AT(0x94644) { build/us/fallback.o(.rom_actor_fallback_94644_94c84) }
+    .actor_behavior_enforcer_switch 0x80093A44 : AT(0x94644) SUBALIGN(4) { build/us/actor_behavior_enforcer.o(.rodata) }
+    .actor_behavior_pursuit_switch 0x80093A68 : AT(0x94668) SUBALIGN(4) { build/us/actor_behavior_pursuit.o(.rodata) }
+    .lifecycle_fallback_9468c_94c84 0x80093A8C : AT(0x9468C) { build/us/fallback.o(.rom_lifecycle_fallback_9468c_94c84) }
     .save_menu_status_tables 0x80094084 : AT(0x94C84) SUBALIGN(4) { build/us/save_menu_status.o(.rodata) }
     .data_after_save_menu_status_tables 0x91004914 : AT(0x94CB4) { build/us/fallback.o(.rom_data_after_save_menu_status_tables) }
     .command_machine_table 0x8009416C : AT(0x94D6C) SUBALIGN(4) { build/us/command_machine.o(.rodata) }
@@ -2546,7 +2550,6 @@ ASSERT(SIZEOF(.actor_behavior_counter_expire) == 0xb8, "actor_behavior_counter_e
 ASSERT(SIZEOF(.actor_behavior_counter_expire_rodata) == 0x30, "actor_behavior_counter_expire_rodata size changed")
 ASSERT(SIZEOF(.endgame_6160_6414) == 0x2b4, "endgame_6160_6414 size changed")
 ASSERT(SIZEOF(.endgame_dab8_dac0) == 0x8, "endgame_dab8_dac0 size changed")
-ASSERT(SIZEOF(.endgame_1bb44_1bf24) == 0x3e0, "endgame_1bb44_1bf24 size changed")
 ASSERT(SIZEOF(.endgame_4d9b4_4d9c0) == 0xc, "endgame_4d9b4_4d9c0 size changed")
 ASSERT(SIZEOF(.endgame_data_90ed4_90f70) == 0x9c, "endgame_data_90ed4_90f70 size changed")
 D_80074C08 = 0x80074C08;
@@ -2792,7 +2795,6 @@ ASSERT(SIZEOF(.collision_dispatch_initialize_strings) == 0x60, "collision_dispat
 ASSERT(SIZEOF(.endgame_19a1c_1aa40) == 0x1024, "endgame_19a1c_1aa40 size changed")
 ASSERT(SIZEOF(.endgame_1ad68_1ad70) == 0x8, "endgame_1ad68_1ad70 size changed")
 ASSERT(SIZEOF(.endgame_data_90cac_90d3c) == 0x90, "endgame_data_90cac_90d3c size changed")
-ASSERT(SIZEOF(.endgame_data_90d9c_90ea4) == 0x108, "endgame_data_90d9c_90ea4 size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize_bss) == 0x190, "collision callback table size changed")
 func_8001567C = 0x8001567C;
 func_80015BF8 = 0x80015BF8;
@@ -2972,13 +2974,19 @@ ASSERT(SIZEOF(.actor_fallback_2b408_2bb2c) == 0x724, "actor_fallback_2b408_2bb2c
 ASSERT(SIZEOF(.actor_behavior_duration) == 0x3f0, "actor_behavior_duration size changed")
 ASSERT(SIZEOF(.actor_behavior_brain) == 0x3dc, "actor_behavior_brain size changed")
 ASSERT(SIZEOF(.actor_behavior_hulk) == 0x400, "actor_behavior_hulk size changed")
-ASSERT(SIZEOF(.actor_fallback_2d0ac_2d748) == 0x69c, "actor_fallback_2d0ac_2d748 size changed")
 ASSERT(SIZEOF(.actor_fallback_945f8_9461c) == 0x24, "actor_fallback_945f8_9461c size changed")
 ASSERT(SIZEOF(.actor_behavior_hulk_switch) == 0x28, "actor_behavior_hulk_switch size changed")
-ASSERT(SIZEOF(.actor_fallback_94644_94c84) == 0x640, "actor_fallback_94644_94c84 size changed")
 ASSERT(SIZEOF(.actor_fallback_9456c_94588) == 0x1c, "actor_fallback_9456c_94588 size changed")
 ASSERT(SIZEOF(.actor_behavior_diagnostic) == 0x1c, "actor_behavior_diagnostic size changed")
-ASSERT(SIZEOF(.actor_fallback_945a4_945c0) == 0x1c, "actor_fallback_945a4_945c0 size changed")
-ASSERT(SIZEOF(.actor_fallback_2db24_2dfd4) == 0x4b0, "actor_fallback_2db24_2dfd4 size changed")
 ASSERT(SIZEOF(.actor_behavior_spawn_state) == 0x544, "actor_behavior_spawn_state size changed")
 ASSERT(SIZEOF(.actor_behavior_spawn_callback) == 0x3c0, "actor_behavior_spawn_callback size changed")
+ASSERT(SIZEOF(.actor_create) == 0x3e0, "actor_create size changed")
+ASSERT(SIZEOF(.lifecycle_fallback_90d9c_90e1c) == 0x80, "lifecycle_fallback_90d9c_90e1c size changed")
+ASSERT(SIZEOF(.actor_create_switch) == 0x88, "actor_create_switch size changed")
+ASSERT(SIZEOF(.actor_behavior_pursuit) == 0x4b0, "actor_behavior_pursuit size changed")
+ASSERT(SIZEOF(.actor_behavior_pursuit_switch) == 0x24, "actor_behavior_pursuit_switch size changed")
+ASSERT(SIZEOF(.lifecycle_fallback_9468c_94c84) == 0x5f8, "lifecycle_fallback_9468c_94c84 size changed")
+ASSERT(SIZEOF(.actor_behavior_enforcer) == 0x69c, "actor_behavior_enforcer size changed")
+ASSERT(SIZEOF(.actor_behavior_enforcer_switch) == 0x24, "actor_behavior_enforcer_switch size changed")
+ASSERT(SIZEOF(.actor_brain_diagnostic) == 0x18, "actor_brain_diagnostic size changed")
+ASSERT(SIZEOF(.lifecycle_fallback_945bc_945c0) == 0x4, "lifecycle_fallback_945bc_945c0 size changed")
