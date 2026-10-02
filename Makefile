@@ -7011,6 +7011,32 @@ build/us/actor_behavior_stride.o: src/game/actor_behaviors/stride.c include/acto
 
 RUNTIME_OBJECTS += build/us/actor_behavior_stride.o
 
+build/us/actor_retirement.o: src/game/actor_retirement.c include/actor.h include/actor_behavior_internal.h include/actor_motion_internal.h include/destination_format.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_retirement.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_retirement.raw.o build/us/actor_retirement.text.o .text 0x800
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_retirement.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_retirement.o
+
+build/us/actor_manual_motion.o: src/game/actor_manual_motion.c include/actor.h include/actor_behavior_internal.h include/controller_input.h include/debug_output.h include/destination_format.h include/early_input_internal.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/sound_bridge_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_manual_motion.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_manual_motion.raw.o build/us/actor_manual_motion.text.o .text 0x228
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_manual_motion.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_manual_motion.o
+
+build/us/actor_manual_motion_diagnostic.o: src/game/actor_manual_motion_diagnostic.c $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_manual_motion_diagnostic.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_manual_motion_diagnostic.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_manual_motion_diagnostic.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

@@ -3041,5 +3041,29 @@
     "size": 36,
     "symbols": {},
     "evidence": "docs/actor-family-completion.md"
+  },
+  {
+    "source": "src/game/actor_retirement.c",
+    "object": "build/us/actor_retirement.o",
+    "input_section": ".rodata",
+    "section": ".actor_retirement_switch",
+    "vram": 2148090516,
+    "rom": 609940,
+    "size": 36,
+    "symbols": {},
+    "evidence": "docs/actor-retirement-and-manual-motion.md"
+  },
+  {
+    "source": "src/game/actor_manual_motion_diagnostic.c",
+    "object": "build/us/actor_manual_motion_diagnostic.o",
+    "input_section": ".data",
+    "section": ".actor_manual_motion_diagnostic",
+    "vram": 2148090436,
+    "rom": 609860,
+    "size": 16,
+    "symbols": {
+      "D_80094244": 0
+    },
+    "evidence": "docs/actor-retirement-and-manual-motion.md"
   }
 ]
