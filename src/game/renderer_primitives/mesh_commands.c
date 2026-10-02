@@ -1,11 +1,8 @@
 #include "../../../include/renderer_primitives_internal.h"
 
-/* Excluded candidate; see docs/renderer-polygon-emission.md. */
+/* Excluded candidate; see docs/renderer-mesh-resources.md. */
 int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination)
 {
-    int copyDestination;
-    int loadDestination;
-    short opcode;
     short first;
     short count;
     short second;
@@ -16,14 +13,13 @@ int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination)
     int commandDestination;
     RendererVertex *vertices;
     unsigned char *color;
+    int copyDestination;
+    int loadDestination;
 
     copyDestination = destination;
     loadDestination = destination;
     for (;;) {
-        opcode = *commands++;
-        switch (opcode) {
-        case 0x7000:
-            return loadDestination;
+        switch (*commands++) {
         case 0x7001:
             first = commands[0];
             count = commands[1];
@@ -47,9 +43,9 @@ int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination)
                 commandDestination = 0;
                 while (remaining > 0) {
                     if (remaining > 32) {
-                        FRAME_COMMAND(0x040081FF | ((commandDestination & 0xFF) << 16), vertices);
+                        FRAME_COMMAND((GRAPHICS_FIELD(commandDestination, 16, 8) | 0x04000000) | ((32 << 10) | (sizeof(RendererVertex) * 32 - 1)), vertices);
                     } else {
-                        FRAME_COMMAND(0x04000000 | ((commandDestination & 0xFF) << 16) |
+                        FRAME_COMMAND((GRAPHICS_FIELD(commandDestination, 16, 8) | 0x04000000) |
                                       (((remaining << 10) | (sizeof(RendererVertex) * remaining - 1)) & 0xFFFF), vertices);
                     }
                     remaining -= 32;
@@ -104,6 +100,8 @@ int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination)
                 D_80123AF8 = color[2];
             }
             break;
+        case 0x7000:
+            return loadDestination;
         }
     }
 }

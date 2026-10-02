@@ -2575,5 +2575,26 @@
       "D_80095198": 152
     },
     "evidence": "docs/renderer-polygon-emission.md"
+  },
+  {
+    "source": "src/game/renderer_resources/messages.c",
+    "object": "build/us/renderer_resource_messages.o",
+    "input_section": ".rodata",
+    "section": ".renderer_resource_messages",
+    "vram": 2148095280,
+    "rom": 614704,
+    "size": 180,
+    "symbols": {
+      "D_80095530": 0,
+      "D_80095540": 16,
+      "D_80095564": 52,
+      "D_80095570": 64,
+      "D_8009557C": 76,
+      "D_8009559C": 108,
+      "D_800955A8": 120,
+      "D_800955B8": 136,
+      "D_800955D8": 168
+    },
+    "evidence": "docs/renderer-mesh-resources.md"
   }
 ]

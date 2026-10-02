@@ -611,7 +611,7 @@ SECTIONS
     .renderer_alpha_quad 0x80045214 : AT(0x45E14) SUBALIGN(4) { build/us/renderer_alpha_quad.o(.text) }
     .polygon_fallback_45fd8_46114 0x800453D8 : AT(0x45FD8) { build/us/fallback.o(.rom_polygon_fallback_45fd8_46114) }
     .renderer_material_reset 0x80045514 : AT(0x46114) SUBALIGN(4) { build/us/renderer_material_reset.o(.text) }
-    .cpu_after_renderer_material_reset 0x80045534 : AT(0x46134) { build/us/fallback.o(.rom_cpu_after_renderer_material_reset) }
+    .renderer_mesh_submit 0x80045534 : AT(0x46134) SUBALIGN(4) { build/us/renderer_mesh_submit.o(.text) }
     .renderer_mesh_positions 0x80045934 : AT(0x46534) SUBALIGN(4) { build/us/renderer_mesh_positions.o(.text) }
     .cpu_after_renderer_mesh_positions 0x80045A08 : AT(0x46608) { build/us/fallback.o(.rom_cpu_after_renderer_mesh_positions) }
     .renderer_vertex_copy 0x80045F40 : AT(0x46B40) SUBALIGN(4) { build/us/renderer_vertex_copy.o(.text) }
@@ -1297,7 +1297,9 @@ SECTIONS
     .frame_projection_rodata 0x80095498 : AT(0x96098) SUBALIGN(4) { build/us/frame_projection.o(.rodata) }
     .endgame_data_960a4_960b0 0x800954A4 : AT(0x960A4) { build/us/fallback.o(.rom_endgame_data_960a4_960b0) }
     .renderer_status_message 0x800954B0 : AT(0x960B0) SUBALIGN(4) { build/us/renderer_status_text.o(.rodata) }
-    .diagnostic_fallback_960c4_96240 0x800954C4 : AT(0x960C4) { build/us/fallback.o(.rom_diagnostic_fallback_960c4_96240) }
+    .mesh_resource_fallback_960c4_96130 0x800954C4 : AT(0x960C4) { build/us/fallback.o(.rom_mesh_resource_fallback_960c4_96130) }
+    .renderer_resource_messages 0x80095530 : AT(0x96130) SUBALIGN(4) { build/us/renderer_resource_messages.o(.rodata) }
+    .mesh_resource_fallback_961e4_96240 0x800955E4 : AT(0x961E4) { build/us/fallback.o(.rom_mesh_resource_fallback_961e4_96240) }
     .renderer_diagnostic_messages 0x80095640 : AT(0x96240) SUBALIGN(4) { build/us/renderer_diagnostic_messages.o(.rodata) }
     .actor_history_tick_constant 0x80095B30 : AT(0x96730) SUBALIGN(4) { build/us/actor_history_tick.o(.rodata) }
     .object_history_write_rodata 0x80095B34 : AT(0x96734) SUBALIGN(4) { build/us/object_history_write.o(.rodata) }
@@ -1837,7 +1839,6 @@ ASSERT(SIZEOF(.renderer_light_select) == 0x54, "renderer_light_select size chang
 ASSERT(SIZEOF(.renderer_material_untextured) == 0xa0, "renderer_material_untextured size changed")
 ASSERT(SIZEOF(.renderer_vertex_positions) == 0x288, "renderer_vertex_positions size changed")
 ASSERT(SIZEOF(.renderer_material_reset) == 0x20, "renderer_material_reset size changed")
-ASSERT(SIZEOF(.cpu_after_renderer_material_reset) == 0x400, "cpu_after_renderer_material_reset size changed")
 ASSERT(SIZEOF(.renderer_mesh_positions) == 0xd4, "renderer_mesh_positions size changed")
 ASSERT(SIZEOF(.cpu_after_renderer_mesh_positions) == 0x538, "cpu_after_renderer_mesh_positions size changed")
 ASSERT(SIZEOF(.renderer_vertex_copy) == 0x39c, "renderer_vertex_copy size changed")
@@ -2848,7 +2849,6 @@ ASSERT(SIZEOF(.graphics_rsp_yield_data_bss) == 0xc00, "graphics_rsp_yield_data B
 ASSERT(SIZEOF(.renderer_matrix_cursor_data) == 0x4, "renderer_matrix_cursor_data size changed")
 ASSERT(SIZEOF(.graphics_buffer_select_data) == 0x8, "graphics_buffer_select_data size changed")
 ASSERT(SIZEOF(.matrix_transform_fallback_7e518_8d720) == 0xf208, "matrix_transform_fallback_7e518_8d720 size changed")
-ASSERT(SIZEOF(.diagnostic_fallback_960c4_96240) == 0x17c, "diagnostic_fallback_960c4_96240 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_messages) == 0x4f0, "renderer_diagnostic_messages size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_7e2ac_7e2b0) == 0x4, "diagnostic_fallback_7e2ac_7e2b0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_version) == 0x20, "renderer_diagnostic_version size changed")
@@ -2899,3 +2899,7 @@ ASSERT(SIZEOF(.renderer_alpha_quad) == 0x1c4, "renderer_alpha_quad size changed"
 ASSERT(SIZEOF(.polygon_fallback_45fd8_46114) == 0x13c, "polygon_fallback_45fd8_46114 size changed")
 ASSERT(SIZEOF(.renderer_expanded_quad_messages) == 0x28, "renderer_expanded_quad_messages size changed")
 ASSERT(SIZEOF(.renderer_polygon_messages) == 0xa0, "renderer_polygon_messages size changed")
+ASSERT(SIZEOF(.renderer_mesh_submit) == 0x400, "renderer_mesh_submit size changed")
+ASSERT(SIZEOF(.mesh_resource_fallback_960c4_96130) == 0x6c, "mesh_resource_fallback_960c4_96130 size changed")
+ASSERT(SIZEOF(.renderer_resource_messages) == 0xb4, "renderer_resource_messages size changed")
+ASSERT(SIZEOF(.mesh_resource_fallback_961e4_96240) == 0x5c, "mesh_resource_fallback_961e4_96240 size changed")

@@ -15139,5 +15139,16 @@
     "section": ".renderer_alpha_quad",
     "section_vram": 2147766804,
     "evidence": "docs/renderer-polygon-emission.md"
+  },
+  {
+    "name": "func_80045534",
+    "rom": 287028,
+    "vram": 2147767604,
+    "size": 1024,
+    "source": "src/game/renderer_primitives/mesh_submit.c",
+    "object": "build/us/renderer_mesh_submit.o",
+    "section": ".renderer_mesh_submit",
+    "section_vram": 2147767604,
+    "evidence": "docs/renderer-mesh-resources.md"
   }
 ]
