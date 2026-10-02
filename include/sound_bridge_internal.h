@@ -1,6 +1,8 @@
 #ifndef ROBOTRON_SOUND_BRIDGE_INTERNAL_H
 #define ROBOTRON_SOUND_BRIDGE_INTERNAL_H
 
+#include "destination_format.h"
+
 #include "actor.h"
 
 typedef struct SoundDefinition {
@@ -66,6 +68,5 @@ int func_800361FC(void);
 int func_80036288(int sound, int mode, int value, int extra, unsigned int delay);
 int func_80036318(void);
 
-unsigned char *func_800363D0(unsigned char *destination, unsigned char *format, ...);
 
 #endif

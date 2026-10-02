@@ -1,8 +1,8 @@
+#include "../../include/destination_format.h"
 #include "../../include/controller_services.h"
 #include "../../include/game_memory.h"
 #include "../../include/text.h"
 
-void func_800363D0(unsigned char *destination, unsigned char *format, ...);
 
 int func_8004FB48(int slot, unsigned int *pages, unsigned char *name)
 {

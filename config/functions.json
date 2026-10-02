@@ -15150,5 +15150,16 @@
     "section": ".renderer_mesh_submit",
     "section_vram": 2147767604,
     "evidence": "docs/renderer-mesh-resources.md"
+  },
+  {
+    "name": "func_800363D0",
+    "rom": 225232,
+    "vram": 2147705808,
+    "size": 664,
+    "source": "src/game/formatting/destination.c",
+    "object": "build/us/destination_format.o",
+    "section": ".destination_format",
+    "section_vram": 2147705808,
+    "evidence": "docs/resource-cache-and-formatting.md"
   }
 ]

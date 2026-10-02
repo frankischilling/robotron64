@@ -16,8 +16,8 @@ typedef struct RendererModelCacheView {
 typedef struct RendererAnimationCacheView {
     unsigned char unknown00[0x1F50];
     ObjectRecoveryDatPoint *data;
-    int frameCount;
     int pointCount;
+    int frameCount;
     unsigned char loaded;
     unsigned char unknown1F5D;
     short identifier;
@@ -32,8 +32,8 @@ typedef struct RendererBitmapCacheView {
 } RendererBitmapCacheView;
 
 typedef struct RendererAnimationFilePrefix {
-    short frameCount;
     short pointCount;
+    short frameCount;
     unsigned char unknown04[4];
 } RendererAnimationFilePrefix;
 

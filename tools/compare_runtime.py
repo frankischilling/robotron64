@@ -839,6 +839,7 @@ MATCHING_BLOCKS = (
     ("renderer_opaque_quad", "src/game/renderer_primitives/opaque_quad.c", 0x80044F60, 0x80045124),
     ("renderer_alpha_quad", "src/game/renderer_primitives/alpha_quad.c", 0x80045214, 0x800453D8),
     ("renderer_mesh_submit", "src/game/renderer_primitives/mesh_submit.c", 0x80045534, 0x80045934),
+    ("destination_format", "src/game/formatting/destination.c", 0x800363D0, 0x80036668),
 )
 
 CANDIDATE_BLOCKS = (
