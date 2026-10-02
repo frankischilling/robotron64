@@ -1,7 +1,7 @@
-#include "../../include/command_script.h"
-#include "../../include/platform_services.h"
-#include "../../include/game_memory.h"
-#include "../../include/text.h"
+#include "../../../include/command_script.h"
+#include "../../../include/platform_services.h"
+#include "../../../include/game_memory.h"
+#include "../../../include/text.h"
 
 extern unsigned char D_80094110[];
 extern char D_80094118[];
@@ -12,7 +12,7 @@ int func_8003264C(unsigned char *filename, CommandScriptEntry *commands, int mod
     /* The retail loop increments this signed halfword without reading it. */
     short count;
     int *data;
-    CommandScriptEntry *entry;
+    int opcode;
     int size;
 
     D_8009EFB8 = 1;
@@ -25,14 +25,15 @@ int func_8003264C(unsigned char *filename, CommandScriptEntry *commands, int mod
     }
     count = 0;
     while (D_8009EFB4 == 0) {
-        if (*cursor == -1) {
+        opcode = *cursor;
+        if (opcode == -1) {
             D_8009EFB4 = 1;
         } else {
-            entry = &commands[*cursor & 0x7fff];
-            if (entry->handler != 0 && (D_8009EFB8 != 0 || (*cursor & 0x7fff) == 0)) {
-                entry->handler(cursor);
+            opcode &= 0x7fff;
+            if (commands[opcode].handler != 0 && (D_8009EFB8 != 0 || opcode == 0)) {
+                commands[opcode].handler(cursor);
             }
-            cursor += entry->argumentCount + 1;
+            cursor += commands[opcode].argumentCount + 1;
         }
         count++;
     }

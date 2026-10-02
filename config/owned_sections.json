@@ -3065,5 +3065,32 @@
       "D_80094244": 0
     },
     "evidence": "docs/actor-retirement-and-manual-motion.md"
+  },
+  {
+    "source": "src/game/actor_effects/draw_config.c",
+    "object": "build/us/effect_draw_config.o",
+    "input_section": ".data",
+    "section": ".effect_draw_config",
+    "vram": 2147953664,
+    "rom": 473088,
+    "size": 1240,
+    "symbols": {
+      "D_80072C00": 0
+    },
+    "evidence": "docs/actor-effects-and-command-scripts.md"
+  },
+  {
+    "source": "src/game/command_scripts/diagnostics.c",
+    "object": "build/us/command_script_diagnostics.o",
+    "input_section": ".data",
+    "section": ".command_script_diagnostics",
+    "vram": 2148090128,
+    "rom": 609552,
+    "size": 36,
+    "symbols": {
+      "D_80094110": 0,
+      "D_80094118": 8
+    },
+    "evidence": "docs/actor-effects-and-command-scripts.md"
   }
 ]

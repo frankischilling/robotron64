@@ -15326,5 +15326,38 @@
     "section": ".actor_manual_motion",
     "section_vram": 2147704380,
     "evidence": "docs/actor-retirement-and-manual-motion.md"
+  },
+  {
+    "name": "func_80036B00",
+    "rom": 227072,
+    "vram": 2147707648,
+    "size": 712,
+    "source": "src/game/actor_effects/fragment_spawn.c",
+    "object": "build/us/actor_fragment_spawn.o",
+    "section": ".actor_fragment_spawn",
+    "section_vram": 2147707648,
+    "evidence": "docs/actor-effects-and-command-scripts.md"
+  },
+  {
+    "name": "func_800366C8",
+    "rom": 225992,
+    "vram": 2147706568,
+    "size": 768,
+    "source": "src/game/actor_effects/scatter_spawn.c",
+    "object": "build/us/actor_scatter_spawn.o",
+    "section": ".actor_scatter_spawn",
+    "section_vram": 2147706568,
+    "evidence": "docs/actor-effects-and-command-scripts.md"
+  },
+  {
+    "name": "func_8003264C",
+    "rom": 209484,
+    "vram": 2147690060,
+    "size": 352,
+    "source": "src/game/command_scripts/execute.c",
+    "object": "build/us/command_script_execute.o",
+    "section": ".command_script_execute",
+    "section_vram": 2147690060,
+    "evidence": "docs/actor-effects-and-command-scripts.md"
   }
 ]
