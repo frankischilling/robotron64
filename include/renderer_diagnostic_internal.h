@@ -3,6 +3,7 @@
 
 #include "graphics_state_internal.h"
 #include "renderer_peak_metrics.h"
+#include "heap.h"
 
 /* Only the count and element-size prefix is recovered for these pools. */
 typedef struct DiagnosticResourcePrefix {
@@ -41,8 +42,6 @@ extern DiagnosticResourcePrefix D_8007CDA0;
 extern DiagnosticResourcePrefix D_8007D6A0;
 extern DiagnosticResourcePrefix D_8007C548;
 extern GraphicsFrameCounters D_80126B50;
-extern int *D_8013EBF0;
-extern unsigned char *D_8013D9C8;
 extern DiagnosticDisplayListPrefix *D_80138238;
 
 extern const char D_80095640[];

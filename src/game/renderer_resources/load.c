@@ -6,7 +6,7 @@
 #include "../../../include/heap.h"
 #include "../../../include/debug_output.h"
 
-extern void *func_8004BBD0(unsigned int size);
+#include "../../../include/resource_arena.h"
 extern void func_8003F7F4(RendererMeshPrefix *mesh);
 
 /* Excluded candidate; see docs/resource-cache-and-formatting.md. */

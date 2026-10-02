@@ -843,6 +843,8 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("actor_history_trail", "src/game/actor_history/trail.c", 0x8004E364, 0x8004E7D4),
+    ("heap_initialize", "src/game/heap/initialize.c", 0x8004DE8C, 0x8004DED8),
     ("renderer_resource_loader", "src/game/renderer_resources/load.c", 0x8004BD00, 0x8004C088),
     ("renderer_mesh_commands", "src/game/renderer_primitives/mesh_commands.c", 0x80045A08, 0x80045F40),
     ("renderer_diagnostic_line", "src/game/renderer_primitives/diagnostic_line.c", 0x800453D8, 0x80045514),

@@ -1,9 +1,8 @@
 #include "../../include/debug_output.h"
+#include "../../include/resource_arena.h"
 
-extern unsigned char *D_8013D9C0;
-extern unsigned char *D_8013D9C8;
-extern unsigned char D_800954F0[];
-extern unsigned char D_80095524[];
+static const unsigned char D_800954F0[] = "CHUNK MEMORY EXCEEDED ptr=%x end=%x len=%d %s %d\n";
+static const unsigned char D_80095524[] = "resource.c";
 
 void *func_8004BBD0(unsigned int size)
 {
