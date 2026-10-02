@@ -10,7 +10,8 @@ typedef struct ActorBehaviorMoreResourceInternal {
     int movement08;
     unsigned char unknown0C[4];
     short range10;
-    unsigned char unknown12[8];
+    unsigned char unknown12[6];
+    short distance18;
     short period1A;
 } ActorBehaviorMoreResourceInternal;
 

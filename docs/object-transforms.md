@@ -62,7 +62,8 @@ Seven functions have only the target's empty-function sequence: `func_800399C0`,
 
 ## ABI limits
 
-The setter family uses provisional `ObjectTransform *` return declarations except for `func_80039514` and `func_800399E4`, which now use `void`. In the target, those functions already need the transform pointer in `$v0` to perform their stores, and the direct callers found for `func_80039514`, `func_80039614`, `func_800396F4`, `func_80039740`, and `func_800399E4` do not rely on a returned pointer. The remaining setter helpers have no direct `jal` callers in the scanned CPU range. The matching callee bytes alone therefore do not establish that the original functions had pointer return types.
+The setter family uses provisional `ObjectTransform *` return declarations except for `func_80039514`, `func_800396F4`, `func_80039740`, and
+`func_800399E4`, which now use `void`. In the target, those functions already need the transform pointer in `$v0` to perform their stores, and the direct callers found for `func_80039514`, `func_80039614`, `func_800396F4`, `func_80039740`, and `func_800399E4` do not rely on a returned pointer. The remaining setter helpers have no direct `jal` callers in the scanned CPU range. The matching callee bytes alone therefore do not establish that the original functions had pointer return types.
 
 The complete brain behavior caller supplies further evidence for `func_800399E4`: its pointer-return declaration changes four selector-register instructions, while `void` matches all 988 bytes. The revised setter also matches the complete 1,976-byte transform source unit, and its eight previously accepted caller units remain exact. [Actor behavior recovery](actor-behavior-recovery.md) records the change and fresh combined comparisons.
 
@@ -122,3 +123,10 @@ The static direct-call scan covers ROM `[0x1000, 0x70040)`, mapped to VRAM `[0x8
 | `func_80039C5C` | 28 |
 
 These sizes sum to `0x7B8` bytes. The next target byte is ROM `0x3A878`, RAM `0x80039C78`.
+
+The two integer rotation setters now use void interfaces supported by complete
+callee and existing-caller comparisons. The property-byte setter retains a
+byte formal in its implementation and promoted-scalar caller declarations.
+Those provisional module views reproduce the observed N64 calls but are not
+compatible ISO C function types. [Human movement recovery](actor-family-completion.md)
+records the caller/callee evidence and this limitation.

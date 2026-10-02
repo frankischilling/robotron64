@@ -1,3 +1,4 @@
+#define ROBOTRON_OBJECT_PROPERTY_IMPLEMENTATION
 #include "../../include/object.h"
 
 ObjectTransform *func_800394C0(int object, float value)
@@ -56,26 +57,18 @@ ObjectTransform *func_80039614(int object, float *value)
     return transform;
 }
 
-ObjectTransform *func_800396F4(int object, int value)
+void func_800396F4(int object, int value)
 {
-    ObjectTransform *transform;
-    ObjectRecord *record;
-    record = &D_800BF918[object];
-    transform = record->transform;
+    ObjectTransform *transform = D_800BF918[object].transform;
     transform->angle[0] = value * D_FLT_80094C24 / 2048;
-    record->angle[0] = value & 0xffd;
-    return transform;
+    D_800BF918[object].angle[0] = value & 0xffd;
 }
 
-ObjectTransform *func_80039740(int object, int value)
+void func_80039740(int object, int value)
 {
-    ObjectTransform *transform;
-    ObjectRecord *record;
-    record = &D_800BF918[object];
-    transform = record->transform;
+    ObjectTransform *transform = D_800BF918[object].transform;
     transform->angle[2] = value * D_FLT_80094C28 / 2048;
-    record->angle[2] = value & 0xffd;
-    return transform;
+    D_800BF918[object].angle[2] = value & 0xffd;
 }
 
 ObjectTransform *func_8003978C(int object, float value)
@@ -206,7 +199,7 @@ void func_80039BE4(int object, int unused)
 void func_80039BF0(int object, int unused)
 {
 }
-/* No return value is defined; the observed caller discards the result. */
+/* No return value is defined; all observed callers discard the result. */
 int func_80039BFC(int object, unsigned char value)
 {
     ObjectRecord *record = &D_800BF918[object];

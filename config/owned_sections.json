@@ -3017,5 +3017,29 @@
       "D_800939A4": 0
     },
     "evidence": "docs/actor-lifecycle-recovery.md"
+  },
+  {
+    "source": "src/game/actor_behaviors/human_diagnostic.c",
+    "object": "build/us/actor_human_diagnostic.o",
+    "input_section": ".data",
+    "section": ".actor_human_diagnostic",
+    "vram": 2148088172,
+    "rom": 607596,
+    "size": 28,
+    "symbols": {
+      "D_8009396C": 0
+    },
+    "evidence": "docs/actor-family-completion.md"
+  },
+  {
+    "source": "src/game/actor_behaviors/stride.c",
+    "object": "build/us/actor_behavior_stride.o",
+    "input_section": ".rodata",
+    "section": ".actor_behavior_stride_switch",
+    "vram": 2148088312,
+    "rom": 607736,
+    "size": 36,
+    "symbols": {},
+    "evidence": "docs/actor-family-completion.md"
   }
 ]
