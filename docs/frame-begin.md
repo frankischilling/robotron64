@@ -31,6 +31,12 @@ The fill value is RGB5551-like packing:
 
 The 16-bit value is duplicated into both halves of `D_80138244`, then used by the fill-color command. The routine emits the fill rectangle, a pipe sync, and the following other-mode command before setting red, green, and blue to 255.
 
+The RDP and geometry command arrays now have source ownership in
+`src/game/renderer_setup/`, together with their referenced viewport and light
+records. [Renderer setup evidence](renderer-grid-and-setup.md) records their
+complete terminated extents and typed references. This data ownership does
+not promote the frame-begin candidate to matching C.
+
 ## Current matching status
 
 The current `src/boot/frame_begin.c` candidate compiles with IDO 5.3 using `-O2 -G 0 -non_shared -mips1 -32` to a `0x4E4`-byte `func_80048510`. It matches every target word through `0x8004883C`. There are 52 differing words after that point, grouped at:

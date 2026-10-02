@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,347 matching C functions covering 239,776 bytes, twenty-nine assembly functions covering 4,372 bytes, 26,759 bytes of source-owned initialized data, and 457,189 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,347 matching C functions covering 239,776 bytes, twenty-nine assembly functions covering 4,372 bytes, 27,079 bytes of source-owned initialized data, and 457,189 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,12 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Procedural grid and renderer setup](docs/renderer-grid-and-setup.md) recovers
+three terminated setup command arrays and their viewport/light records for
+320 initialized bytes. The complete 1,904-byte grid renderer has an excluded
+C candidate with 480 MIPS execution cases covering CPU commands, vertices,
+matrices, counters, and call order.
 
 [Startup projection and diagnostic report](docs/startup-projection-and-diagnostics.md)
 adds the complete matching 1,476-byte report, 48 initialized constant bytes,

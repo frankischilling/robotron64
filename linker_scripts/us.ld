@@ -1186,7 +1186,14 @@ SECTIONS
     .renderer_resource_counters 0x8007BB0C : AT(0x7C70C) SUBALIGN(4) { build/us/renderer_resource_counters.o(.data) }
     .resource_cache_fallback_7c718_7d148 0x8007BB18 : AT(0x7C718) { build/us/fallback.o(.rom_resource_cache_fallback_7c718_7d148) }
     .renderer_diagnostic_hierarchy_pool 0x8007C548 : AT(0x7D148) SUBALIGN(4) { build/us/renderer_diagnostic_hierarchy_pool.o(.data) }
-    .diagnostic_fallback_7d150_7d98c 0x8007C550 : AT(0x7D150) { build/us/fallback.o(.rom_diagnostic_fallback_7d150_7d98c) }
+    .renderer_setup_fallback_7d150_7d670 0x8007C550 : AT(0x7D150) { build/us/fallback.o(.rom_renderer_setup_fallback_7d150_7d670) }
+    .renderer_grid_commands 0x8007CA70 : AT(0x7D670) SUBALIGN(4) { build/us/renderer_grid_commands.o(.rodata) }
+    .renderer_setup_viewport 0x8007CAC8 : AT(0x7D6C8) SUBALIGN(4) { build/us/renderer_setup_viewport.o(.rodata) }
+    .renderer_setup_fallback_7d6d8_7d700 0x8007CAD8 : AT(0x7D6D8) { build/us/fallback.o(.rom_renderer_setup_fallback_7d6d8_7d700) }
+    .renderer_setup_lighting 0x8007CB00 : AT(0x7D700) SUBALIGN(4) { build/us/renderer_setup_lighting.o(.rodata) }
+    .renderer_frame_geometry_commands 0x8007CB18 : AT(0x7D718) SUBALIGN(4) { build/us/renderer_frame_geometry_commands.o(.data) }
+    .renderer_frame_rdp_commands 0x8007CB58 : AT(0x7D758) SUBALIGN(4) { build/us/renderer_frame_rdp_commands.o(.rodata) }
+    .renderer_setup_fallback_7d7d8_7d98c 0x8007CBD8 : AT(0x7D7D8) { build/us/fallback.o(.rom_renderer_setup_fallback_7d7d8_7d98c) }
     .renderer_texture_file_cache_data 0x8007CD8C : AT(0x7D98C) SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.data) }
     .diagnostic_fallback_7d994_7d9a0 0x8007CD94 : AT(0x7D994) { build/us/fallback.o(.rom_diagnostic_fallback_7d994_7d9a0) }
     .renderer_diagnostic_vertex_pool 0x8007CDA0 : AT(0x7D9A0) SUBALIGN(4) { build/us/renderer_diagnostic_vertex_pool.o(.data) }
@@ -2882,7 +2889,6 @@ ASSERT(SIZEOF(.diagnostic_fallback_7d9a8_7d9b0) == 0x8, "diagnostic_fallback_7d9
 ASSERT(SIZEOF(.diagnostic_fallback_7d9c0_7e2a0) == 0x8e0, "diagnostic_fallback_7d9c0_7e2a0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_matrix_pool) == 0x8, "renderer_diagnostic_matrix_pool size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_hierarchy_pool) == 0x8, "renderer_diagnostic_hierarchy_pool size changed")
-ASSERT(SIZEOF(.diagnostic_fallback_7d150_7d98c) == 0x83c, "diagnostic_fallback_7d150_7d98c size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_frame_metrics_bss) == 0x40, "renderer_diagnostic_frame_metrics BSS size changed")
 ASSERT(SIZEOF(.controller_motor_duty) == 0x110, "controller_motor_duty size changed")
 ASSERT(SIZEOF(.controller_connection_masks_bss) == 0x2, "controller_connection_masks BSS size changed")
@@ -2938,3 +2944,11 @@ ASSERT(SIZEOF(.projection_diagnostic_fallback_7e4f4_7e504) == 0x10, "projection_
 ASSERT(SIZEOF(.renderer_projection_light_state) == 0x8, "renderer_projection_light_state size changed")
 ASSERT(SIZEOF(.projection_diagnostic_fallback_7e50c_7e510) == 0x4, "projection_diagnostic_fallback_7e50c_7e510 size changed")
 ASSERT(SIZEOF(.renderer_projection_normalization) == 0x2, "renderer_projection_normalization size changed")
+ASSERT(SIZEOF(.renderer_setup_fallback_7d150_7d670) == 0x520, "renderer_setup_fallback_7d150_7d670 size changed")
+ASSERT(SIZEOF(.renderer_grid_commands) == 0x58, "renderer_grid_commands size changed")
+ASSERT(SIZEOF(.renderer_setup_viewport) == 0x10, "renderer_setup_viewport size changed")
+ASSERT(SIZEOF(.renderer_setup_fallback_7d6d8_7d700) == 0x28, "renderer_setup_fallback_7d6d8_7d700 size changed")
+ASSERT(SIZEOF(.renderer_setup_lighting) == 0x18, "renderer_setup_lighting size changed")
+ASSERT(SIZEOF(.renderer_frame_geometry_commands) == 0x40, "renderer_frame_geometry_commands size changed")
+ASSERT(SIZEOF(.renderer_frame_rdp_commands) == 0x80, "renderer_frame_rdp_commands size changed")
+ASSERT(SIZEOF(.renderer_setup_fallback_7d7d8_7d98c) == 0x1b4, "renderer_setup_fallback_7d7d8_7d98c size changed")
