@@ -65,6 +65,12 @@ alongside verified matching progress.
 
 ## Source and references
 
+[Annular and tiled surface rendering](docs/renderer-surfaces.md) adds three
+complete excluded C candidates covering 1,968 retail bytes. A new MIPS checker
+passes 1,336 cases with thirteen matching support units and no callee stubs;
+it checks CPU geometry, commands, counters, and service dispatch on documented
+paths. Matching instruction totals remain unchanged.
+
 [Procedural grid and renderer setup](docs/renderer-grid-and-setup.md) recovers
 three terminated setup command arrays and their viewport/light records for
 320 initialized bytes. The complete 1,904-byte grid renderer has an excluded
