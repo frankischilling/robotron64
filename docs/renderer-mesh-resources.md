@@ -1,5 +1,11 @@
 # Mesh submission and renderer resource loading
 
+The provenance ledger and candidate table in this document record PR 66 at
+`0f50d61`. The loader now has eleven differing words. Its first file
+halfword is the point count and its second is the frame count; their names
+were reversed in the original publication. See [cache and formatter recovery](resource-cache-and-formatting.md)
+for the corrected layouts and current comparisons.
+
 This recovery follows the fixed-alpha quad checkpoint in
 [PR 64](https://github.com/frankischilling/robotron64/pull/64).
 Robotron 64's retail instructions and data determine the behavior below.
@@ -61,7 +67,7 @@ ownership.
 
 Models use the model allocator, file loading, relocation, and mesh setup
 calls before the cache is marked loaded. Animations use the same allocator.
-Their first two signed halfwords give frame and point counts; point records
+Their first two signed halfwords give point and frame counts; point records
 begin eight bytes into the file. The loader copies those counts into the
 cache, then shifts each point's signed x, y, and z fields left by three.
 The fourth halfword is retained. The loop re-reads the signed file counts

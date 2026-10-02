@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,345 matching C functions covering 237,636 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 12,131 bytes
-of source-owned initialized data, and 451,171 bytes of source-owned BSS. The
+The source checkpoint contains 1,346 matching C functions covering 238,300 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 26,635 bytes
+of source-owned initialized data, and 457,171 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-418 complete C functions, 116,588 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 10,483 reconstructed initialized bytes, and 447,081 BSS bytes.
+419 complete C functions, 117,252 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 24,987 reconstructed initialized bytes, and 453,081 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -16,10 +16,19 @@ denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
 
+[Resource cache storage and destination formatting](resource-cache-and-formatting.md)
+adds the complete 664-byte formatter and 80-byte generated table, two typed
+400-entry cache banks with 14,400 initialized bytes, 24 control bytes, and
+6,000 BSS bytes for three identifier maps.
+The formatter returns its destination; all shared declarations now agree.
+Animation count names follow the projection and frame-count consumers.
+The excluded resource loader is now eleven differing words, tracked in #65.
+
 [Mesh submission and renderer resource loading](renderer-mesh-resources.md)
 adds the complete 1,024-byte mesh submitter and 180 initialized bytes.
 The complete 904-byte resource loader preserves all three cache paths and
-animation scaling, with sixteen differing words tracked in issue #65.
+animation scaling. Its original sixteen-word comparison is preserved as
+the PR 66 checkpoint; current evidence is in the cache/formatting notes.
 The command-stream candidate is now 1,360 bytes with 300 differing words;
 its seventeen-entry generated switch table has five differing entries
 and remains unowned.

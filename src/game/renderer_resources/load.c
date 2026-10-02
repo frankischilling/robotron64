@@ -1,3 +1,4 @@
+#include "../../../include/destination_format.h"
 #include "../../../include/renderer_resource_loader.h"
 #include "../../../include/renderer_primitives_internal.h"
 #include "../../../include/resource_strings.h"
@@ -5,11 +6,10 @@
 #include "../../../include/heap.h"
 #include "../../../include/debug_output.h"
 
-extern void func_800363D0(unsigned char *destination, unsigned char *format, ...);
 extern void *func_8004BBD0(unsigned int size);
 extern void func_8003F7F4(RendererMeshPrefix *mesh);
 
-/* Excluded candidate; see docs/renderer-mesh-resources.md. */
+/* Excluded candidate; see docs/resource-cache-and-formatting.md. */
 void func_8004BD00(int model, int animation, int bitmap)
 {
     void *data;
@@ -17,13 +17,15 @@ void func_8004BD00(int model, int animation, int bitmap)
     unsigned char filename[256];
     unsigned char *name;
     unsigned char *entry;
+    int offset;
     unsigned int size;
     int index;
     ObjectRecoveryDatPoint *point;
 
     D_8007BB14 = 1;
     if (model != -1) {
-        entry = D_80078274 + model * 20;
+        offset = model * 20;
+        entry = D_80078274 + offset;
         if (((RendererModelCacheView *)entry)->loaded == 0) {
             name = func_800383C4(((RendererModelCacheView *)entry)->identifier);
             extension = func_8003B4C0(name, '.');
@@ -46,7 +48,8 @@ void func_8004BD00(int model, int animation, int bitmap)
         }
     }
     if (animation >= 0 && animation < 255) {
-        entry = D_80078274 + animation * 16;
+        offset = animation * 16;
+        entry = D_80078274 + offset;
         if (((RendererAnimationCacheView *)entry)->loaded == 0) {
             name = func_800383C4(((RendererAnimationCacheView *)entry)->identifier);
             extension = func_8003B4C0(name, '.');
@@ -62,13 +65,13 @@ void func_8004BD00(int model, int animation, int bitmap)
             D_8008D368 += size;
             data = func_8004BBD0(size);
             func_8004EE9C(filename, data);
-            ((RendererAnimationCacheView *)entry)->frameCount = ((RendererAnimationFilePrefix *)data)->frameCount;
             ((RendererAnimationCacheView *)entry)->pointCount = ((RendererAnimationFilePrefix *)data)->pointCount;
+            ((RendererAnimationCacheView *)entry)->frameCount = ((RendererAnimationFilePrefix *)data)->frameCount;
             point = (ObjectRecoveryDatPoint *)((unsigned char *)data + 8);
             ((RendererAnimationCacheView *)entry)->data = point;
             ((RendererAnimationCacheView *)entry)->loaded = 1;
-            for (index = 0; index < ((RendererAnimationFilePrefix *)data)->frameCount *
-                                      ((RendererAnimationFilePrefix *)data)->pointCount; index++) {
+            for (index = 0; index < ((RendererAnimationFilePrefix *)data)->pointCount *
+                                      ((RendererAnimationFilePrefix *)data)->frameCount; index++) {
                 point->x <<= 3;
                 point->y <<= 3;
                 point->z <<= 3;
@@ -77,7 +80,8 @@ void func_8004BD00(int model, int animation, int bitmap)
         }
     }
     if (bitmap >= 0) {
-        entry = D_80078274 + bitmap * 8;
+        offset = bitmap * 8;
+        entry = D_80078274 + offset;
         if (((RendererBitmapCacheView *)entry)->loaded == 0) {
             name = func_800383C4(((RendererBitmapCacheView *)entry)->identifier);
             extension = func_8003B4C0(name, '.');

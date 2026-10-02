@@ -126,6 +126,11 @@ exact.
 
 ## Destination formatter candidate
 
+The complete formatter and generated table now match in
+`src/game/formatting/destination.c`. The candidate measurements below record
+the earlier private checkpoint. See [cache and formatter recovery](resource-cache-and-formatting.md)
+for current source ownership and verification.
+
 `func_800363D0` takes a destination pointer, a format pointer, and variable
 arguments, and returns the original destination. Its supported conversions
 match the earlier game diagnostic formatter family: `%C`/`%c`, `%s`,

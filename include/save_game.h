@@ -1,6 +1,8 @@
 #ifndef ROBOTRON_SAVE_GAME_H
 #define ROBOTRON_SAVE_GAME_H
 
+#include "destination_format.h"
+
 #include "pak_file.h"
 #include "scene_definition.h"
 
@@ -158,6 +160,5 @@ void func_800214D4(int mode);
 unsigned char *func_80021B20(int level);
 void func_800278AC(int first, int second, void (*callback)(void));
 void func_80027940(unsigned char **labels, int count);
-void func_800363D0(unsigned char *destination, unsigned char *format, ...);
 void func_8003BF64();
 #endif

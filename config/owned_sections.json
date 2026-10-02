@@ -2596,5 +2596,87 @@
       "D_800955D8": 168
     },
     "evidence": "docs/renderer-mesh-resources.md"
+  },
+  {
+    "source": "src/game/formatting/destination.c",
+    "object": "build/us/destination_format.o",
+    "input_section": ".rodata",
+    "section": ".destination_format_table",
+    "vram": 2148090624,
+    "rom": 610048,
+    "size": 80,
+    "symbols": {},
+    "evidence": "docs/resource-cache-and-formatting.md"
+  },
+  {
+    "source": "src/game/renderer_resources/model_storage.c",
+    "object": "build/us/renderer_model_cache_storage.o",
+    "input_section": ".data",
+    "section": ".renderer_model_cache_storage",
+    "vram": 2147975812,
+    "rom": 495236,
+    "size": 8000,
+    "symbols": {
+      "D_80078284": 0
+    },
+    "evidence": "docs/resource-cache-and-formatting.md"
+  },
+  {
+    "source": "src/game/renderer_resources/animation_storage.c",
+    "object": "build/us/renderer_animation_cache_storage.o",
+    "input_section": ".data",
+    "section": ".renderer_animation_cache_storage",
+    "vram": 2147983812,
+    "rom": 503236,
+    "size": 6400,
+    "symbols": {
+      "D_8007A1C4": 0
+    },
+    "evidence": "docs/resource-cache-and-formatting.md"
+  },
+  {
+    "source": "src/game/renderer_resources/map_reset_flags.c",
+    "object": "build/us/renderer_resource_map_reset.o",
+    "input_section": ".data",
+    "section": ".renderer_resource_map_reset",
+    "vram": 2147975780,
+    "rom": 495204,
+    "size": 12,
+    "symbols": {
+      "D_80078264": 0,
+      "D_80078268": 4,
+      "D_8007826C": 8
+    },
+    "evidence": "docs/resource-cache-and-formatting.md"
+  },
+  {
+    "source": "src/game/renderer_resources/counters.c",
+    "object": "build/us/renderer_resource_counters.o",
+    "input_section": ".data",
+    "section": ".renderer_resource_counters",
+    "vram": 2147990284,
+    "rom": 509708,
+    "size": 12,
+    "symbols": {
+      "D_8007BB0C": 0,
+      "D_8007BB10": 4,
+      "D_8007BB14": 8
+    },
+    "evidence": "docs/resource-cache-and-formatting.md"
+  },
+  {
+    "source": "src/game/renderer_resources/identifier_maps.c",
+    "object": "build/us/renderer_resource_identifier_maps.o",
+    "input_section": ".bss",
+    "section": ".renderer_resource_identifier_maps_bss",
+    "vram": 2148306432,
+    "rom": null,
+    "size": 6000,
+    "symbols": {
+      "D_800C8E00": 0,
+      "D_800C95D0": 2000,
+      "D_800C9DA0": 4000
+    },
+    "evidence": "docs/resource-cache-and-formatting.md"
   }
 ]
