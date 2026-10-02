@@ -2175,5 +2175,211 @@
       "D_8007D914": 4
     },
     "evidence": "docs/renderer-transform-and-buffers.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/messages.c",
+    "object": "build/us/renderer_diagnostic_messages.o",
+    "input_section": ".rodata",
+    "section": ".renderer_diagnostic_messages",
+    "vram": 2148095552,
+    "rom": 614976,
+    "size": 1264,
+    "symbols": {
+      "D_80095640": 0,
+      "D_8009568C": 76,
+      "D_80095694": 84,
+      "D_800956A0": 96,
+      "D_800956AC": 108,
+      "D_800956BC": 124,
+      "D_800956C8": 136,
+      "D_800956F0": 176,
+      "D_80095718": 216,
+      "D_80095740": 256,
+      "D_80095744": 260,
+      "D_80095758": 280,
+      "D_8009575C": 284,
+      "D_80095784": 324,
+      "D_800957AC": 364,
+      "D_800957D4": 404,
+      "D_800957D8": 408,
+      "D_800957EC": 428,
+      "D_80095804": 452,
+      "D_80095818": 472,
+      "D_8009581C": 476,
+      "D_80095840": 512,
+      "D_80095864": 548,
+      "D_80095888": 584,
+      "D_800958AC": 620,
+      "D_800958B0": 624,
+      "D_800958D4": 660,
+      "D_800958F8": 696,
+      "D_8009591C": 732,
+      "D_80095920": 736,
+      "D_8009595C": 796,
+      "D_80095994": 852,
+      "D_800959C4": 900,
+      "D_800959EC": 940,
+      "D_800959F0": 944,
+      "D_80095A08": 968,
+      "D_80095A20": 992,
+      "D_80095A38": 1016,
+      "D_80095A50": 1040,
+      "D_80095A68": 1064,
+      "D_80095A8C": 1100,
+      "D_80095A90": 1104,
+      "D_80095AA8": 1128,
+      "D_80095AC0": 1152,
+      "D_80095AD8": 1176,
+      "D_80095AF0": 1200,
+      "D_80095B08": 1224,
+      "D_80095B2C": 1260
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/version.c",
+    "object": "build/us/renderer_diagnostic_version.o",
+    "input_section": ".rodata",
+    "section": ".renderer_diagnostic_version",
+    "vram": 2147997360,
+    "rom": 516784,
+    "size": 32,
+    "symbols": {
+      "D_8007D6B0": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/frame_count.c",
+    "object": "build/us/renderer_diagnostic_frame_count.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_frame_count",
+    "vram": 2147997936,
+    "rom": 517360,
+    "size": 4,
+    "symbols": {
+      "D_8007D8F0": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/asset_lengths.c",
+    "object": "build/us/renderer_diagnostic_asset_lengths.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_asset_lengths",
+    "vram": 2148062048,
+    "rom": 581472,
+    "size": 12,
+    "symbols": {
+      "D_8008D360": 0,
+      "D_8008D364": 4,
+      "D_8008D368": 8
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/instance_pool.c",
+    "object": "build/us/renderer_diagnostic_instance_pool.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_instance_pool",
+    "vram": 2147975652,
+    "rom": 495076,
+    "size": 8,
+    "symbols": {
+      "D_800781E4": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/object_pool.c",
+    "object": "build/us/renderer_diagnostic_object_pool.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_object_pool",
+    "vram": 2147973792,
+    "rom": 493216,
+    "size": 8,
+    "symbols": {
+      "D_80077AA0": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/movie_pool.c",
+    "object": "build/us/renderer_diagnostic_movie_pool.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_movie_pool",
+    "vram": 2147953640,
+    "rom": 473064,
+    "size": 8,
+    "symbols": {
+      "D_80072BE8": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/path_pool.c",
+    "object": "build/us/renderer_diagnostic_path_pool.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_path_pool",
+    "vram": 2147953632,
+    "rom": 473056,
+    "size": 8,
+    "symbols": {
+      "D_80072BE0": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/vertex_pool.c",
+    "object": "build/us/renderer_diagnostic_vertex_pool.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_vertex_pool",
+    "vram": 2147995040,
+    "rom": 514464,
+    "size": 8,
+    "symbols": {
+      "D_8007CDA0": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/matrix_pool.c",
+    "object": "build/us/renderer_diagnostic_matrix_pool.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_matrix_pool",
+    "vram": 2147997344,
+    "rom": 516768,
+    "size": 8,
+    "symbols": {
+      "D_8007D6A0": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/hierarchy_pool.c",
+    "object": "build/us/renderer_diagnostic_hierarchy_pool.o",
+    "input_section": ".data",
+    "section": ".renderer_diagnostic_hierarchy_pool",
+    "vram": 2147992904,
+    "rom": 512328,
+    "size": 8,
+    "symbols": {
+      "D_8007C548": 0
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/frame_metrics.c",
+    "object": "build/us/renderer_diagnostic_frame_metrics.o",
+    "input_section": ".bss",
+    "section": ".renderer_diagnostic_frame_metrics_bss",
+    "vram": 2148690736,
+    "rom": null,
+    "size": 64,
+    "symbols": {
+      "D_80126B30": 0,
+      "D_80126B50": 32
+    },
+    "evidence": "docs/renderer-diagnostics-and-text.md"
   }
 ]

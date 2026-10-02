@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
 The source checkpoint contains 1,341 matching C functions covering 235,436 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,335 bytes
-of source-owned initialized data, and 449,799 bytes of source-owned BSS. The
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 11,703 bytes
+of source-owned initialized data, and 449,863 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-413 complete C functions, 113,212 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 8,587 reconstructed initialized bytes, and 409,601 BSS bytes.
+414 complete C functions, 114,388 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 10,055 reconstructed initialized bytes, and 445,773 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,13 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Renderer diagnostics and font drawing](renderer-diagnostics-and-text.md)
+owns twelve data units with 1,368 initialized bytes and 64 BSS bytes. The report
+messages establish seven resource-pool prefixes and eight current/peak frame
+counters. Five complete C candidates cover 5,744 retail instruction bytes but
+remain excluded. Their heap queries, matrix-restoration failure path, special
+glyph colors and two-player HUD behavior are preserved and tracked in issue #61.
 
 [Fan, prism, and image setup recovery](render-submission-effects.md) owns 24
 initialized bytes and twelve BSS bytes for coordinate conversion and image
