@@ -45,8 +45,8 @@ void func_80039514(int object, int value);
 ObjectTransform *func_8003956C(int object, float value);
 ObjectTransform *func_800395C0(int object, float value);
 ObjectTransform *func_80039614(int object, float *value);
-ObjectTransform *func_800396F4(int object, int value);
-ObjectTransform *func_80039740(int object, int value);
+void func_800396F4(int object, int value);
+void func_80039740(int object, int value);
 ObjectTransform *func_8003978C(int object, float value);
 ObjectTransform *func_800397E0(int object, float value);
 ObjectTransform *func_80039834(int object, float value);
@@ -72,7 +72,14 @@ int func_80039B00(int object);
 int func_80039B74(int object);
 void func_80039BE4(int object, int unused);
 void func_80039BF0(int object, int unused);
+/* The recovered callers pass a promoted scalar; the callee has a byte formal.
+ * These provisional module views reproduce the N64 ABI but are not compatible
+ * ISO C function types. See docs/actor-family-completion.md. */
+#ifdef ROBOTRON_OBJECT_PROPERTY_IMPLEMENTATION
 int func_80039BFC(int object, unsigned char value);
+#else
+int func_80039BFC(int object, int value);
+#endif
 ObjectRecord *func_80039C1C(int object, int x, int y, int z);
 void func_80039C44(int object, int unused);
 void func_80039C50(int object, int unused);

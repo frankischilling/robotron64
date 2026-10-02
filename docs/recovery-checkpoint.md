@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,357 matching C functions covering 249,408 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 27,611 bytes
+The source checkpoint contains 1,359 matching C functions covering 253,232 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 27,675 bytes
 of source-owned initialized data, and 458,883 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-430 complete C functions, 128,360 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 25,963 reconstructed initialized bytes, and 454,793 BSS bytes.
+432 complete C functions, 132,184 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 26,027 reconstructed initialized bytes, and 454,793 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,12 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Human movement and animation behavior](actor-family-completion.md)
+adds two complete matching handlers covering 3,824 instruction bytes and
+64 initialized bytes. Complete caller/callee comparisons also refine the two
+integer rotation setters and record the provisional property-byte ABI views.
+One 2,208-byte procedure remains in the actor behavior family.
 
 [Actor creation, enforcer behavior, and pursuit](actor-lifecycle-recovery.md)
 add three complete matching procedures covering 3,884 instruction bytes,

@@ -15282,5 +15282,27 @@
     "section": ".actor_behavior_enforcer",
     "section_vram": 2147665068,
     "evidence": "docs/actor-lifecycle-recovery.md"
+  },
+  {
+    "name": "func_8002A808",
+    "rom": 177160,
+    "vram": 2147657736,
+    "size": 1828,
+    "source": "src/game/actor_behaviors/human.c",
+    "object": "build/us/actor_behavior_human.o",
+    "section": ".actor_behavior_human",
+    "section_vram": 2147657736,
+    "evidence": "docs/actor-family-completion.md"
+  },
+  {
+    "name": "func_8002B7BC",
+    "rom": 181180,
+    "vram": 2147661756,
+    "size": 1996,
+    "source": "src/game/actor_behaviors/stride.c",
+    "object": "build/us/actor_behavior_stride.o",
+    "section": ".actor_behavior_stride",
+    "section_vram": 2147661756,
+    "evidence": "docs/actor-family-completion.md"
   }
 ]

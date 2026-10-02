@@ -8,9 +8,9 @@ IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`.
 ## Exact checkpoint
 
 The original fifteen complete functions total 4,140 matching code bytes.
-Six more procedures in this family add 7,260 bytes, bringing the family to
-twenty-one complete functions and 11,400 bytes. The resource-mode dispatcher
-owns a matching 52-byte switch table; hulk owns 40 bytes, and enforcer and
+Eight more procedures in this family add 11,084 bytes, bringing the family to
+twenty-three complete functions and 15,224 bytes. The resource-mode dispatcher
+owns a matching 52-byte switch table; hulk owns 40 bytes, stride owns 36 bytes, and enforcer and
 pursuit own 36 bytes each. The associated 960-byte spawn callback and 992-byte
 creator lie earlier at `80029760` and `8001AF44`.
 
@@ -110,9 +110,9 @@ The current shared names history_index at +0x4C and history at +0x54 are too spe
 
 | Function | Range | Bytes | Checkpoint status |
 | --- | --- | ---: | --- |
-| func_8002A808 | 0x8002A808..0x8002AF2C | 1828 | pending |
+| func_8002A808 | 0x8002A808..0x8002AF2C | 1828 | exact, `actor_behaviors/human.c` |
 | func_8002AF2C | 0x8002AF2C..0x8002B31C | 1008 | exact, `actor_behaviors/duration.c` |
-| func_8002B7BC | 0x8002B7BC..0x8002BF88 | 1996 | pending |
+| func_8002B7BC | 0x8002B7BC..0x8002BF88 | 1996 | exact, `actor_behaviors/stride.c` |
 | func_8002C0AC | 0x8002C0AC..0x8002C4AC | 1024 | exact, `actor_behaviors/hulk.c` |
 | func_8002C4AC | 0x8002C4AC..0x8002CB48 | 1692 | exact, `actor_behaviors/enforcer.c` |
 | func_8002CB48 | 0x8002CB48..0x8002CF24 | 988 | exact, `actor_behaviors/brain.c` |
@@ -120,8 +120,9 @@ The current shared names history_index at +0x4C and history at +0x54 are too spe
 | func_8002D3D4 | 0x8002D3D4..0x8002D918 | 1348 | exact, `actor_behaviors/spawn.c` |
 | func_8002DDBC | 0x8002DDBC..0x8002E65C | 2208 | pending |
 
-The three pending entries remain outside matching counts and cover 6,032 target
-bytes. [Actor lifecycle recovery](actor-lifecycle-recovery.md) records the
+The one pending entry remains outside matching counts and covers 2,208 target
+bytes. [Human movement recovery](actor-family-completion.md) records the two
+new handlers and the property-setter interface limitation. [Actor lifecycle recovery](actor-lifecycle-recovery.md) records the
 additional enforcer and pursuit procedures and their shared creator. [Actor behavior recovery](actor-behavior-recovery.md) records the four
 new family procedures, their associated spawn callback, compiler evidence,
 and independent comparisons. Issue #40 remains open for the pending work.

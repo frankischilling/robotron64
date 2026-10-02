@@ -351,7 +351,7 @@ SECTIONS
     .actor_behavior_state 0x8002A3E8 : AT(0x2AFE8) SUBALIGN(4) { build/us/actor_behavior_state.o(.text) }
     .actor_behavior_blend_velocity 0x8002A414 : AT(0x2B014) SUBALIGN(4) { build/us/actor_behavior_blend_velocity.o(.text) }
     .actor_behavior_blend_motion 0x8002A5DC : AT(0x2B1DC) SUBALIGN(4) { build/us/actor_behavior_blend_motion.o(.text) }
-    .actor_fallback_2b408_2bb2c 0x8002A808 : AT(0x2B408) { build/us/fallback.o(.rom_actor_fallback_2b408_2bb2c) }
+    .actor_behavior_human 0x8002A808 : AT(0x2B408) SUBALIGN(4) { build/us/actor_behavior_human.o(.text) }
     .actor_behavior_duration 0x8002AF2C : AT(0x2BB2C) SUBALIGN(4) { build/us/actor_behavior_duration.o(.text) }
     .actor_behavior_height 0x8002B31C : AT(0x2BF1C) SUBALIGN(4) { build/us/actor_behavior_height.o(.text) }
     .actor_behavior_extra_b32c 0x8002B32C : AT(0x2BF2C) SUBALIGN(4) { build/us/actor_behavior_extra_b32c.o(.text) }
@@ -359,7 +359,7 @@ SECTIONS
     .actor_behavior_extra_b57c 0x8002B57C : AT(0x2C17C) SUBALIGN(4) { build/us/actor_behavior_extra_b57c.o(.text) }
     .actor_behavior_noop_b7a4 0x8002B7A4 : AT(0x2C3A4) SUBALIGN(4) { build/us/actor_behavior_noop_b7a4.o(.text) }
     .actor_behavior_noop_b7b0 0x8002B7B0 : AT(0x2C3B0) SUBALIGN(4) { build/us/actor_behavior_noop_b7b0.o(.text) }
-    .cpu_after_actor_behavior_noop_b7b0 0x8002B7BC : AT(0x2C3BC) { build/us/fallback.o(.rom_cpu_after_actor_behavior_noop_b7b0) }
+    .actor_behavior_stride 0x8002B7BC : AT(0x2C3BC) SUBALIGN(4) { build/us/actor_behavior_stride.o(.text) }
     .actor_behavior_repeat 0x8002BF88 : AT(0x2CB88) SUBALIGN(4) { build/us/actor_behavior_repeat.o(.text) }
     .actor_behavior_hulk 0x8002C0AC : AT(0x2CCAC) SUBALIGN(4) { build/us/actor_behavior_hulk.o(.text) }
     .actor_behavior_enforcer 0x8002C4AC : AT(0x2D0AC) SUBALIGN(4) { build/us/actor_behavior_enforcer.o(.text) }
@@ -1287,13 +1287,13 @@ SECTIONS
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
     .endgame_data_936c4_9450c 0x80092AC4 : AT(0x936C4) { build/us/fallback.o(.rom_endgame_data_936c4_9450c) }
     .actor_pool_allocate_strings 0x8009390C : AT(0x9450C) SUBALIGN(4) { build/us/actor_pool_allocate.o(.rodata) }
-    .actor_fallback_9456c_94588 0x8009396C : AT(0x9456C) { build/us/fallback.o(.rom_actor_fallback_9456c_94588) }
+    .actor_human_diagnostic 0x8009396C : AT(0x9456C) SUBALIGN(4) { build/us/actor_human_diagnostic.o(.data) }
     .actor_behavior_diagnostic 0x80093988 : AT(0x94588) SUBALIGN(4) { build/us/actor_behavior_diagnostic.o(.data) }
     .actor_brain_diagnostic 0x800939A4 : AT(0x945A4) SUBALIGN(4) { build/us/actor_brain_diagnostic.o(.data) }
     .lifecycle_fallback_945bc_945c0 0x800939BC : AT(0x945BC) { build/us/fallback.o(.rom_lifecycle_fallback_945bc_945c0) }
     .actor_position_submit_constant 0x800939C0 : AT(0x945C0) SUBALIGN(4) { build/us/actor_position_submit.o(.rodata) }
     .actor_behavior_next_a244_rodata 0x800939C4 : AT(0x945C4) SUBALIGN(4) { build/us/actor_behavior_next_a244.o(.rodata) }
-    .actor_fallback_945f8_9461c 0x800939F8 : AT(0x945F8) { build/us/fallback.o(.rom_actor_fallback_945f8_9461c) }
+    .actor_behavior_stride_switch 0x800939F8 : AT(0x945F8) SUBALIGN(4) { build/us/actor_behavior_stride.o(.rodata) }
     .actor_behavior_hulk_switch 0x80093A1C : AT(0x9461C) SUBALIGN(4) { build/us/actor_behavior_hulk.o(.rodata) }
     .actor_behavior_enforcer_switch 0x80093A44 : AT(0x94644) SUBALIGN(4) { build/us/actor_behavior_enforcer.o(.rodata) }
     .actor_behavior_pursuit_switch 0x80093A68 : AT(0x94668) SUBALIGN(4) { build/us/actor_behavior_pursuit.o(.rodata) }
@@ -1616,7 +1616,6 @@ ASSERT(SIZEOF(.actor_behavior_noop_b570) == 0xc, "actor_behavior_noop_b570 size 
 ASSERT(SIZEOF(.actor_behavior_extra_b57c) == 0x228, "actor_behavior_extra_b57c size changed")
 ASSERT(SIZEOF(.actor_behavior_noop_b7a4) == 0xc, "actor_behavior_noop_b7a4 size changed")
 ASSERT(SIZEOF(.actor_behavior_noop_b7b0) == 0xc, "actor_behavior_noop_b7b0 size changed")
-ASSERT(SIZEOF(.cpu_after_actor_behavior_noop_b7b0) == 0x7cc, "cpu_after_actor_behavior_noop_b7b0 size changed")
 ASSERT(SIZEOF(.actor_behavior_repeat) == 0x124, "actor_behavior_repeat size changed")
 ASSERT(SIZEOF(.actor_behavior_extra_d918) == 0x308, "actor_behavior_extra_d918 size changed")
 ASSERT(SIZEOF(.actor_behavior_countdown) == 0x98, "actor_behavior_countdown size changed")
@@ -2970,13 +2969,10 @@ ASSERT(SIZEOF(.tweak_messages) == 0xe8, "tweak_messages size changed")
 ASSERT(SIZEOF(.tweak_fallback_95038_957e0) == 0x7a8, "tweak_fallback_95038_957e0 size changed")
 ASSERT(SIZEOF(.tweak_difficulty_define) == 0xd4, "tweak_difficulty_define size changed")
 ASSERT(SIZEOF(.tweak_scene_define) == 0xd0, "tweak_scene_define size changed")
-ASSERT(SIZEOF(.actor_fallback_2b408_2bb2c) == 0x724, "actor_fallback_2b408_2bb2c size changed")
 ASSERT(SIZEOF(.actor_behavior_duration) == 0x3f0, "actor_behavior_duration size changed")
 ASSERT(SIZEOF(.actor_behavior_brain) == 0x3dc, "actor_behavior_brain size changed")
 ASSERT(SIZEOF(.actor_behavior_hulk) == 0x400, "actor_behavior_hulk size changed")
-ASSERT(SIZEOF(.actor_fallback_945f8_9461c) == 0x24, "actor_fallback_945f8_9461c size changed")
 ASSERT(SIZEOF(.actor_behavior_hulk_switch) == 0x28, "actor_behavior_hulk_switch size changed")
-ASSERT(SIZEOF(.actor_fallback_9456c_94588) == 0x1c, "actor_fallback_9456c_94588 size changed")
 ASSERT(SIZEOF(.actor_behavior_diagnostic) == 0x1c, "actor_behavior_diagnostic size changed")
 ASSERT(SIZEOF(.actor_behavior_spawn_state) == 0x544, "actor_behavior_spawn_state size changed")
 ASSERT(SIZEOF(.actor_behavior_spawn_callback) == 0x3c0, "actor_behavior_spawn_callback size changed")
@@ -2990,3 +2986,7 @@ ASSERT(SIZEOF(.actor_behavior_enforcer) == 0x69c, "actor_behavior_enforcer size 
 ASSERT(SIZEOF(.actor_behavior_enforcer_switch) == 0x24, "actor_behavior_enforcer_switch size changed")
 ASSERT(SIZEOF(.actor_brain_diagnostic) == 0x18, "actor_brain_diagnostic size changed")
 ASSERT(SIZEOF(.lifecycle_fallback_945bc_945c0) == 0x4, "lifecycle_fallback_945bc_945c0 size changed")
+ASSERT(SIZEOF(.actor_behavior_human) == 0x724, "actor_behavior_human size changed")
+ASSERT(SIZEOF(.actor_human_diagnostic) == 0x1c, "actor_human_diagnostic size changed")
+ASSERT(SIZEOF(.actor_behavior_stride) == 0x7cc, "actor_behavior_stride size changed")
+ASSERT(SIZEOF(.actor_behavior_stride_switch) == 0x24, "actor_behavior_stride_switch size changed")
