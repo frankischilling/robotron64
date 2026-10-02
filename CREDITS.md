@@ -576,3 +576,9 @@ repository does not redistribute the reference checkouts, compiler executables,
 commercial ROM, or extracted commercial assets. Matching source is evaluated
 against the user's local input, with the provenance of consulted material
 recorded alongside the reconstruction.
+
+Renderer transform and graphics buffer recovery consulted local libreultra
+include/2.0I/PR/ucode.h and sptask.h for RSP stack sizing, yield buffer sizing
+and 64-bit alignment. The target supplies every routine, diagnostic string,
+array bound and initial selector value. The pinned IDO and Super Mario 64
+matching-build references continue to apply; no reference implementation was copied.

@@ -6071,7 +6071,7 @@ build/us/object_history_render.o: src/game/object_history_render.c include/actor
 RUNTIME_OBJECTS += \
     build/us/object_history_render.o
 
-build/us/renderer_matrix_submit.o: src/game/renderer_matrix_submit.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_matrix_submit.o: src/game/renderer_matrix_submit.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_submit.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_matrix_submit.raw.o build/us/renderer_matrix_submit.text.o .text 0x298
@@ -6409,6 +6409,55 @@ build/us/renderer_image_placement_data.o: src/game/renderer_image_placement_data
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/renderer_image_placement_data.o
+
+build/us/graphics_buffer_select_data.o: src/boot/graphics_buffer_select_data.c include/fixed_math.h include/frame.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_buffer_select_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/graphics_buffer_select_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/graphics_buffer_select_data.o
+
+build/us/graphics_rsp_stack_data.o: src/boot/graphics_rsp_stack_data.c include/graphics_tasks.h include/scheduler.h include/scheduler_task.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_rsp_stack_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/graphics_rsp_stack_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/graphics_rsp_stack_data.o
+
+build/us/graphics_rsp_yield_data.o: src/boot/graphics_rsp_yield_data.c include/graphics_tasks.h include/scheduler.h include/scheduler_task.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_rsp_yield_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/graphics_rsp_yield_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/graphics_rsp_yield_data.o
+
+build/us/renderer_matrix_arena_data.o: src/game/renderer_matrix_arena_data.c include/fixed_math.h include/frame.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_arena_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_matrix_arena_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_matrix_arena_data.o
+
+build/us/renderer_matrix_cursor_data.o: src/game/renderer_matrix_cursor_data.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_cursor_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_matrix_cursor_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_matrix_cursor_data.o
+
+build/us/renderer_matrix_transform.o: src/game/renderer_matrix_transform.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_transform.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_matrix_transform.raw.o build/us/renderer_matrix_transform.text.o .text 0x498
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_matrix_transform.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_matrix_transform.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

@@ -1,8 +1,8 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,340 matching C functions covering 234,260 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,259 bytes
-of source-owned initialized data, and 413,703 bytes of source-owned BSS. The
+The source checkpoint contains 1,341 matching C functions covering 235,436 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,335 bytes
+of source-owned initialized data, and 449,799 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
 413 complete C functions, 113,212 C bytes, twenty-eight assembly procedures with
@@ -418,7 +418,7 @@ make compare-data
 
 The ROM comparison covers all 8,388,608 bytes. The target SHA-256 is
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-The runtime registry contains 805 complete source units. Startup/scheduler
+The runtime registry contains 824 complete source units. Startup/scheduler
 comparison covers its two registered units; assembly comparison covers the
 twenty-nine procedures and their source-owned alignment. Linked progress independently checks every counted
 function, its procedure extent, section address, source/header/object hashes,
@@ -490,3 +490,9 @@ target-derived SDK runtime described above is part of this checkpoint; the
 remaining SDK routines still require recovery. No commercial ROM, extracted
 asset, object file, compiler executable, or generated disassembly is part of
 the public source checkpoint.
+
+The [renderer transform and graphics buffer recovery](renderer-transform-and-buffers.md)
+adds the complete 1,176-byte Euler matrix submitter, 76 initialized bytes, and
+36,096 BSS bytes. The supplied-matrix scale routine remains an excluded
+candidate tracked in issue #59. All three matrix submission paths retain
+the established 36-byte fixed matrix and 64-byte SDK matrix layouts.

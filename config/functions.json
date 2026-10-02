@@ -15095,5 +15095,16 @@
     "section": ".early_render_quad",
     "section_vram": 2147528812,
     "evidence": "docs/early-render-command-streams.md"
+  },
+  {
+    "name": "func_80047570",
+    "rom": 295280,
+    "vram": 2147775856,
+    "size": 1176,
+    "source": "src/game/renderer_matrix_transform.c",
+    "object": "build/us/renderer_matrix_transform.o",
+    "section": ".renderer_matrix_transform",
+    "section_vram": 2147775856,
+    "evidence": "docs/renderer-transform-and-buffers.md"
   }
 ]
