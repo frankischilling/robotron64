@@ -10,6 +10,12 @@ uses the same local GBI header for geometry-mode bits and packed triangle
 indices. Its shared palette and complete procedure behavior come from the
 Robotron target. No reference game or SDK implementation was copied.
 
+The [fan, prism, and image setup recovery](docs/render-submission-effects.md)
+uses those established GBI definitions for vertex loads, quad connectivity,
+texture fields, and command packing. Local IDO compiler comparisons distinguish
+exact storage ownership from the remaining procedure mismatches. All geometry,
+colors, coordinate conversion, and initial values come from Robotron's target.
+
 The [decimal parser and controller-state recovery](docs/float-parser-controller-state.md)
 uses the pinned IDO and SM64 build references for compiler behavior and the
 local libreultra controller header for pad layout. Robotron's instructions

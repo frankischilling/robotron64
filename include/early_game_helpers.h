@@ -7,14 +7,14 @@ typedef struct EarlyGamePoolState {
     int index;
 } EarlyGamePoolState;
 
-typedef void (*EarlyRenderHandler)(void *state);
+typedef int (*EarlyRenderHandler)(void *state);
 
 void func_8000A200(int red, int green, int blue);
-void func_8000B964(void *state);
-void func_8000B99C(void *state);
-void func_8000BE80(void *state);
-void func_8000BEA0(void *state);
-void func_8000BEC0(void *state);
+int func_8000B964(void *state);
+int func_8000B99C(void *state);
+int func_8000BE80(void *state);
+int func_8000BEA0(void *state);
+int func_8000BEC0(void *state);
 EarlyRenderHandler func_8000CE34(int selection);
 void func_8000CF70(int unused);
 void func_8000D034(int unused);

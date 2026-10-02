@@ -1171,7 +1171,8 @@ SECTIONS
     .renderer_texture_corner_state 0x8007CDB0 : AT(0x7D9B0) SUBALIGN(4) { build/us/renderer_textured_submit.o(.data) }
     .endgame_data_7d9c0_8d720 0x8007CDC0 : AT(0x7D9C0) { build/us/fallback.o(.rom_endgame_data_7d9c0_8d720) }
     .renderer_texture_square_extent 0x8008CB20 : AT(0x8D720) SUBALIGN(4) { build/us/renderer_texture_squares.o(.data) }
-    .endgame_8d724_8e094 0x8008CB24 : AT(0x8D724) { build/us/fallback.o(.rom_endgame_8d724_8e094) }
+    .renderer_image_placement_data 0x8008CB24 : AT(0x8D724) SUBALIGN(4) { build/us/renderer_image_placement_data.o(.data) }
+    .render_submission_fallback_8d738_8e094 0x8008CB38 : AT(0x8D738) { build/us/fallback.o(.rom_render_submission_fallback_8d738_8e094) }
     .actor_history_flags 0x8008D494 : AT(0x8E094) SUBALIGN(4) { build/us/actor_history_data.o(.data) }
     .endgame_8e0ac_8e0e4 0x8008D4AC : AT(0x8E0AC) { build/us/fallback.o(.rom_endgame_8e0ac_8e0e4) }
     .controller_motor_state_data 0x8008D4E4 : AT(0x8E0E4) SUBALIGN(4) { build/us/controller_motor_state.o(.data) }
@@ -1212,7 +1213,7 @@ SECTIONS
     .early_signature_gate_rodata 0x8008F930 : AT(0x90530) SUBALIGN(4) { build/us/early_signature_gate.o(.rodata) }
     .endgame_90540_90558 0x8008F940 : AT(0x90540) { build/us/fallback.o(.rom_endgame_90540_90558) }
     .early_effect_spawn_rodata 0x8008F958 : AT(0x90558) SUBALIGN(4) { build/us/early_effect_spawn.o(.rodata) }
-    .endgame_data_90570_90574 0x8008F970 : AT(0x90570) { build/us/fallback.o(.rom_endgame_data_90570_90574) }
+    .early_render_coordinate_data 0x8008F970 : AT(0x90570) SUBALIGN(4) { build/us/early_render_coordinate_data.o(.data) }
     .early_render_handler_select_rodata 0x8008F974 : AT(0x90574) SUBALIGN(4) { build/us/early_render_handler_select.o(.rodata) }
     .endgame_data_90588_90a04 0x8008F988 : AT(0x90588) { build/us/fallback.o(.rom_endgame_data_90588_90a04) }
     .actor_pickup_dispatch 0x8008FE04 : AT(0x90A04) SUBALIGN(4) { build/us/actor_pickup.o(.rodata) }
@@ -1359,6 +1360,7 @@ SECTIONS
     .early_input_sequence_data_bss 0x8009EE08 (NOLOAD) : SUBALIGN(4) { build/us/early_input_sequence_data.o(.bss) }
     .renderer_vertex_arena_data_bss 0x800CDBD0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_vertex_arena_data.o(.bss) }
     .early_render_color_data_bss 0x80138268 (NOLOAD) : SUBALIGN(4) { build/us/early_render_color_data.o(.bss) }
+    .renderer_image_placement_data_bss 0x8013D9A0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_image_placement_data.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2498,7 +2500,6 @@ ASSERT(SIZEOF(.actor_collision_turn) == 0x118, "actor_collision_turn size change
 ASSERT(SIZEOF(.session_background_select_rodata) == 0x2c, "session_background_select_rodata size changed")
 ASSERT(SIZEOF(.early_effect_spawn_rodata) == 0x18, "early_effect_spawn_rodata size changed")
 ASSERT(SIZEOF(.endgame_13550_15c20) == 0x26d0, "endgame_13550_15c20 size changed")
-ASSERT(SIZEOF(.endgame_data_90570_90574) == 0x4, "endgame_data_90570_90574 size changed")
 ASSERT(SIZEOF(.endgame_data_92560_93698) == 0x1138, "endgame_data_92560_93698 size changed")
 D_800AD160 = 0x800AD160;
 D_800B23D0 = 0x800B23D0;
@@ -2766,7 +2767,6 @@ ASSERT(SIZEOF(.model_hierarchy_transform) == 0x16c, "model_hierarchy_transform s
 ASSERT(SIZEOF(.endgame_40080_4022c) == 0x1ac, "endgame_40080_4022c size changed")
 ASSERT(SIZEOF(.actor_history_projectile) == 0x1a4, "actor_history_projectile size changed")
 ASSERT(SIZEOF(.endgame_4ef64_4f3d4) == 0x470, "endgame_4ef64_4f3d4 size changed")
-ASSERT(SIZEOF(.endgame_8d724_8e094) == 0x970, "endgame_8d724_8e094 size changed")
 ASSERT(SIZEOF(.actor_history_flags) == 0x18, "actor_history_flags size changed")
 ASSERT(SIZEOF(.endgame_8e0ac_8e0e4) == 0x38, "endgame_8e0ac_8e0e4 size changed")
 ASSERT(SIZEOF(.actor_history_points_bss) == 0x1200, "actor_history_points_bss size changed")
@@ -2806,3 +2806,7 @@ ASSERT(SIZEOF(.early_render_color_data_bss) == 0x10, "early_render_color_data BS
 ASSERT(SIZEOF(.early_effects_fallback_70110_73cd8) == 0x3bc8, "early_effects_fallback_70110_73cd8 size changed")
 ASSERT(SIZEOF(.early_render_tube_data) == 0x68, "early_render_tube_data size changed")
 ASSERT(SIZEOF(.early_effects_fallback_73d40_742ac) == 0x56c, "early_effects_fallback_73d40_742ac size changed")
+ASSERT(SIZEOF(.renderer_image_placement_data) == 0x14, "renderer_image_placement_data size changed")
+ASSERT(SIZEOF(.render_submission_fallback_8d738_8e094) == 0x95c, "render_submission_fallback_8d738_8e094 size changed")
+ASSERT(SIZEOF(.renderer_image_placement_data_bss) == 0xc, "renderer_image_placement_data BSS size changed")
+ASSERT(SIZEOF(.early_render_coordinate_data) == 0x4, "early_render_coordinate_data size changed")
