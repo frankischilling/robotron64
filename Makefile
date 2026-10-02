@@ -6901,6 +6901,55 @@ build/us/tweak_scene_define.o: src/game/tweak_scene_define.c include/actor.h inc
 
 RUNTIME_OBJECTS += build/us/tweak_scene_define.o
 
+build/us/actor_behavior_duration.o: src/game/actor_behaviors/duration.c include/actor.h include/actor_behavior_extra_internal.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_duration_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_duration.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_duration.raw.o $@ .text 0x3f0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_behavior_duration.o
+
+build/us/actor_behavior_brain.o: src/game/actor_behaviors/brain.c include/actor.h include/actor_behavior_extra_internal.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_brain_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_brain.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_brain.raw.o $@ .text 0x3dc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_behavior_brain.o
+
+build/us/actor_behavior_hulk.o: src/game/actor_behaviors/hulk.c include/actor.h include/actor_behavior_extra_internal.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_hulk_internal.h include/actor_motion_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_hulk.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_hulk.raw.o build/us/actor_behavior_hulk.text.o .text 0x400
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_behavior_hulk.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_behavior_hulk.o
+
+build/us/actor_behavior_diagnostic.o: src/game/actor_behaviors/diagnostics.c include/actor.h include/actor_behavior_extra_internal.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_hulk_internal.h include/actor_motion_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_diagnostic.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_behavior_diagnostic.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_behavior_diagnostic.o
+
+build/us/actor_behavior_spawn_state.o: src/game/actor_behaviors/spawn.c include/actor.h include/actor_behavior_extra_internal.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_spawn_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_spawn_state.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_spawn_state.raw.o $@ .text 0x544
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_behavior_spawn_state.o
+
+build/us/actor_behavior_spawn_callback.o: src/game/actor_behaviors/spawn_callback.c include/actor.h include/actor_behavior_extra_internal.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_spawn_callback_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_behavior_spawn_callback.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_behavior_spawn_callback.raw.o $@ .text 0x3c0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_behavior_spawn_callback.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

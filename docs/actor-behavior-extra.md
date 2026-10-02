@@ -29,6 +29,6 @@ The frozen source and complete proof directories are under `.local/recovery55-ac
 
 ## Current work
 
-`func_8002AF2C` at `0x8002AF2C..0x8002B31C` is semantically reconstructed and has the exact 1,008-byte target size. The current comparison has 27 differing instruction words. The known behavior is a resource-duration state machine: resource kind 1 configures the object mode, kind 3 maps elapsed time into phases 0 through 4, kind 2 fades movement over the resource duration, and the default path ramps movement over the first 100 ticks before holding the resource value. The remaining differences are register and load scheduling around the initial resource/duration values and two repeated duration-minus-elapsed expressions. No source-owned data has appeared.
+`func_8002AF2C` at `0x8002AF2C..0x8002B31C` now matches all 1,008 instruction bytes. Its accepted source and dedicated resource view are documented with the newly matched brain and hulk procedures in [actor behavior recovery](actor-behavior-recovery.md).
 
-The accepted private header `actor_behavior_extra_internal.h` is frozen with the eight exact functions. Additional recovery-only declarations live in `actor_behavior_extra_more_internal.h` so later work cannot change the transitive inputs of the accepted checkpoint.
+The eight functions retain their shared actor view. The new behaviors use separate private headers. Refining the transitive object scale setter declaration to `void` leaves every previously accepted caller matching; the combined checkpoint recompiles all accepted units and records fresh input evidence.

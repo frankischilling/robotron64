@@ -2947,5 +2947,29 @@
     },
     "static_symbols": {},
     "evidence": "docs/tweak-storage-and-ghidra.md"
+  },
+  {
+    "source": "src/game/actor_behaviors/hulk.c",
+    "object": "build/us/actor_behavior_hulk.o",
+    "input_section": ".rodata",
+    "section": ".actor_behavior_hulk_switch",
+    "vram": 2148088348,
+    "rom": 607772,
+    "size": 40,
+    "symbols": {},
+    "evidence": "docs/actor-behavior-recovery.md"
+  },
+  {
+    "source": "src/game/actor_behaviors/diagnostics.c",
+    "object": "build/us/actor_behavior_diagnostic.o",
+    "input_section": ".data",
+    "section": ".actor_behavior_diagnostic",
+    "vram": 2148088200,
+    "rom": 607624,
+    "size": 28,
+    "symbols": {
+      "D_80093988": 0
+    },
+    "evidence": "docs/actor-behavior-recovery.md"
   }
 ]

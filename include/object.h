@@ -59,7 +59,7 @@ float func_8003998C(int object, float *value);
 void func_800399C0(int object, int unused);
 void func_800399CC(int object, int unused);
 void func_800399D8(int object, int unused);
-ObjectTransform *func_800399E4(int object, float value);
+void func_800399E4(int object, float value);
 
 extern double D_DBL_80094C30;
 extern double D_DBL_80094C38;

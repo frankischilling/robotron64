@@ -62,7 +62,9 @@ Seven functions have only the target's empty-function sequence: `func_800399C0`,
 
 ## ABI limits
 
-The current source declares the setter family as returning `ObjectTransform *`. In the target, those functions already need the transform pointer in `$v0` to perform their stores, and the direct callers found for `func_80039514`, `func_80039614`, `func_800396F4`, `func_80039740`, and `func_800399E4` do not rely on a returned pointer. The remaining setter helpers have no direct `jal` callers in the scanned CPU range. The matching bytes therefore do not establish that the original functions had pointer return types; the current declarations are compiler-compatible reconstructions.
+The setter family uses provisional `ObjectTransform *` return declarations except for `func_800399E4`, which now uses `void`. In the target, those functions already need the transform pointer in `$v0` to perform their stores, and the direct callers found for `func_80039514`, `func_80039614`, `func_800396F4`, `func_80039740`, and `func_800399E4` do not rely on a returned pointer. The remaining setter helpers have no direct `jal` callers in the scanned CPU range. The matching callee bytes alone therefore do not establish that the original functions had pointer return types.
+
+The complete brain behavior caller supplies further evidence for `func_800399E4`: its pointer-return declaration changes four selector-register instructions, while `void` matches all 988 bytes. The revised setter also matches the complete 1,976-byte transform source unit, and its eight previously accepted caller units remain exact. [Actor behavior recovery](actor-behavior-recovery.md) records the change and fresh combined comparisons.
 
 The same limitation applies to the `ObjectRecord *` declaration of `func_80039C1C`. Its body needs the record address in `$v0` for the halfword stores, and both direct callers ignore the value after the call. A pointer return is possible, but it is not proved by the available caller evidence.
 
