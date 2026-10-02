@@ -58,7 +58,7 @@ extern OSMesgQueue D_801437A0;
 extern OSMesgQueue *D_80143990;
 extern unsigned char D_8006F440[], D_8006F510[];
 extern GraphicsUcode D_8008D560[];
-extern unsigned char D_8012E890[], D_8012EC90[], D_80136C90[], D_80136CD0[];
+extern unsigned char D_8012EC90[], D_80136C90[];
 extern int D_8007D914;
 extern void *D_80138260[];
 extern GraphicsCommand *D_80145998;

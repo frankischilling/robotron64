@@ -2094,5 +2094,86 @@
       "D_8008F970": 0
     },
     "evidence": "docs/render-submission-effects.md"
+  },
+  {
+    "source": "src/game/renderer_matrix_transform.c",
+    "object": "build/us/renderer_matrix_transform.o",
+    "input_section": ".rodata",
+    "section": ".renderer_matrix_transform_strings",
+    "vram": 2148094816,
+    "rom": 614240,
+    "size": 64,
+    "symbols": {},
+    "evidence": "docs/renderer-transform-and-buffers.md",
+    "static_symbols": {
+      "D_80095360": 0,
+      "D_80095394": 52
+    }
+  },
+  {
+    "source": "src/game/renderer_matrix_arena_data.c",
+    "object": "build/us/renderer_matrix_arena_data.o",
+    "input_section": ".bss",
+    "section": ".renderer_matrix_arena_data_bss",
+    "vram": 2148690832,
+    "rom": null,
+    "size": 32000,
+    "symbols": {
+      "D_80126B90": 0
+    },
+    "evidence": "docs/renderer-transform-and-buffers.md"
+  },
+  {
+    "source": "src/boot/graphics_rsp_stack_data.c",
+    "object": "build/us/graphics_rsp_stack_data.o",
+    "input_section": ".bss",
+    "section": ".graphics_rsp_stack_data_bss",
+    "vram": 2148722832,
+    "rom": null,
+    "size": 1024,
+    "symbols": {
+      "D_8012E890": 0
+    },
+    "evidence": "docs/renderer-transform-and-buffers.md"
+  },
+  {
+    "source": "src/boot/graphics_rsp_yield_data.c",
+    "object": "build/us/graphics_rsp_yield_data.o",
+    "input_section": ".bss",
+    "section": ".graphics_rsp_yield_data_bss",
+    "vram": 2148756688,
+    "rom": null,
+    "size": 3072,
+    "symbols": {
+      "D_80136CD0": 0
+    },
+    "evidence": "docs/renderer-transform-and-buffers.md"
+  },
+  {
+    "source": "src/game/renderer_matrix_cursor_data.c",
+    "object": "build/us/renderer_matrix_cursor_data.o",
+    "input_section": ".data",
+    "section": ".renderer_matrix_cursor_data",
+    "vram": 2147997352,
+    "rom": 516776,
+    "size": 4,
+    "symbols": {
+      "D_8007D6A8": 0
+    },
+    "evidence": "docs/renderer-transform-and-buffers.md"
+  },
+  {
+    "source": "src/boot/graphics_buffer_select_data.c",
+    "object": "build/us/graphics_buffer_select_data.o",
+    "input_section": ".data",
+    "section": ".graphics_buffer_select_data",
+    "vram": 2147997968,
+    "rom": 517392,
+    "size": 8,
+    "symbols": {
+      "D_8007D910": 0,
+      "D_8007D914": 4
+    },
+    "evidence": "docs/renderer-transform-and-buffers.md"
   }
 ]
