@@ -1,8 +1,6 @@
 #include "../../include/heap.h"
 
-extern unsigned char *D_8013D9C0;
-extern unsigned char *D_8013D9C4;
-extern unsigned char *D_8013D9C8;
+#include "../../include/resource_arena.h"
 
 void func_8004BC44(void)
 {

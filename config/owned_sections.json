@@ -2678,5 +2678,61 @@
       "D_800C9DA0": 4000
     },
     "evidence": "docs/resource-cache-and-formatting.md"
+  },
+  {
+    "source": "src/game/renderer_resources/arena_state.c",
+    "object": "build/us/renderer_resource_arena_state.o",
+    "input_section": ".bss",
+    "section": ".renderer_resource_arena_state",
+    "vram": 2148784576,
+    "rom": null,
+    "size": 12,
+    "symbols": {
+      "D_8013D9C0": 0,
+      "D_8013D9C4": 4,
+      "D_8013D9C8": 8
+    },
+    "evidence": "docs/projectile-trail-and-arena.md"
+  },
+  {
+    "source": "src/game/heap/state.c",
+    "object": "build/us/heap_state.o",
+    "input_section": ".bss",
+    "section": ".heap_first_block",
+    "vram": 2148789232,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_8013EBF0": 0
+    },
+    "evidence": "docs/projectile-trail-and-arena.md"
+  },
+  {
+    "source": "src/game/heap/state.c",
+    "object": "build/us/heap_state.o",
+    "input_section": ".data",
+    "section": ".heap_initializer_flag",
+    "vram": 2148062336,
+    "rom": 581760,
+    "size": 4,
+    "symbols": {
+      "D_8008D480": 0
+    },
+    "evidence": "docs/projectile-trail-and-arena.md"
+  },
+  {
+    "source": "src/game/render_buffer_reserve.c",
+    "object": "build/us/render_buffer_reserve.o",
+    "input_section": ".rodata",
+    "section": ".resource_arena_diagnostics",
+    "vram": 2148095216,
+    "rom": 614640,
+    "size": 64,
+    "symbols": {},
+    "evidence": "docs/projectile-trail-and-arena.md",
+    "static_symbols": {
+      "D_800954F0": 0,
+      "D_80095524": 52
+    }
   }
 ]

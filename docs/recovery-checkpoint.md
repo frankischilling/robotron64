@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
 The source checkpoint contains 1,346 matching C functions covering 238,300 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 26,635 bytes
-of source-owned initialized data, and 457,171 bytes of source-owned BSS. The
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 26,703 bytes
+of source-owned initialized data, and 457,187 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
 419 complete C functions, 117,252 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 24,987 reconstructed initialized bytes, and 453,081 BSS bytes.
+4,316 live bytes, 25,055 reconstructed initialized bytes, and 453,097 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,12 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Projectile trail and resource arena](projectile-trail-and-arena.md) adds a
+complete excluded candidate for the 1,136-byte callback, 64 matching diagnostic
+bytes, a four-byte heap guard, and sixteen BSS bytes for the arena and heap
+pointers. Its MIPS execution checker compares the callback with the target
+through deterministic callee stubs. It does not add matching C credit.
 
 [Resource cache storage and destination formatting](resource-cache-and-formatting.md)
 adds the complete 664-byte formatter and 80-byte generated table, two typed

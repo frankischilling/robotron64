@@ -1205,7 +1205,9 @@ SECTIONS
     .renderer_image_placement_data 0x8008CB24 : AT(0x8D724) SUBALIGN(4) { build/us/renderer_image_placement_data.o(.data) }
     .diagnostic_fallback_8d738_8df60 0x8008CB38 : AT(0x8D738) { build/us/fallback.o(.rom_diagnostic_fallback_8d738_8df60) }
     .renderer_diagnostic_asset_lengths 0x8008D360 : AT(0x8DF60) SUBALIGN(4) { build/us/renderer_diagnostic_asset_lengths.o(.data) }
-    .diagnostic_fallback_8df6c_8e094 0x8008D36C : AT(0x8DF6C) { build/us/fallback.o(.rom_diagnostic_fallback_8df6c_8e094) }
+    .trail_arena_fallback_8df6c_8e080 0x8008D36C : AT(0x8DF6C) { build/us/fallback.o(.rom_trail_arena_fallback_8df6c_8e080) }
+    .heap_initializer_flag 0x8008D480 : AT(0x8E080) SUBALIGN(4) { build/us/heap_state.o(.data) }
+    .trail_arena_fallback_8e084_8e094 0x8008D484 : AT(0x8E084) { build/us/fallback.o(.rom_trail_arena_fallback_8e084_8e094) }
     .actor_history_flags 0x8008D494 : AT(0x8E094) SUBALIGN(4) { build/us/actor_history_data.o(.data) }
     .endgame_8e0ac_8e0e4 0x8008D4AC : AT(0x8E0AC) { build/us/fallback.o(.rom_endgame_8e0ac_8e0e4) }
     .controller_motor_state_data 0x8008D4E4 : AT(0x8E0E4) SUBALIGN(4) { build/us/controller_motor_state.o(.data) }
@@ -1306,7 +1308,8 @@ SECTIONS
     .frame_projection_rodata 0x80095498 : AT(0x96098) SUBALIGN(4) { build/us/frame_projection.o(.rodata) }
     .endgame_data_960a4_960b0 0x800954A4 : AT(0x960A4) { build/us/fallback.o(.rom_endgame_data_960a4_960b0) }
     .renderer_status_message 0x800954B0 : AT(0x960B0) SUBALIGN(4) { build/us/renderer_status_text.o(.rodata) }
-    .mesh_resource_fallback_960c4_96130 0x800954C4 : AT(0x960C4) { build/us/fallback.o(.rom_mesh_resource_fallback_960c4_96130) }
+    .trail_arena_fallback_960c4_960f0 0x800954C4 : AT(0x960C4) { build/us/fallback.o(.rom_trail_arena_fallback_960c4_960f0) }
+    .resource_arena_diagnostics 0x800954F0 : AT(0x960F0) SUBALIGN(4) { build/us/render_buffer_reserve.o(.rodata) }
     .renderer_resource_messages 0x80095530 : AT(0x96130) SUBALIGN(4) { build/us/renderer_resource_messages.o(.rodata) }
     .mesh_resource_fallback_961e4_96240 0x800955E4 : AT(0x961E4) { build/us/fallback.o(.rom_mesh_resource_fallback_961e4_96240) }
     .renderer_diagnostic_messages 0x80095640 : AT(0x96240) SUBALIGN(4) { build/us/renderer_diagnostic_messages.o(.rodata) }
@@ -1419,6 +1422,8 @@ SECTIONS
     .controller_pak_directory_state_bss 0x80143450 (NOLOAD) : SUBALIGN(4) { build/us/controller_pak_directory_state.o(.bss) }
     .controller_access_message_bss 0x80143424 (NOLOAD) : SUBALIGN(4) { build/us/controller_access_message.o(.bss) }
     .renderer_resource_identifier_maps_bss 0x800C8E00 (NOLOAD) : SUBALIGN(4) { build/us/renderer_resource_identifier_maps.o(.bss) }
+    .renderer_resource_arena_state 0x8013D9C0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_resource_arena_state.o(.bss) }
+    .heap_first_block 0x8013EBF0 (NOLOAD) : SUBALIGN(4) { build/us/heap_state.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2508,8 +2513,6 @@ D_800C8DFC = 0x800C8DFC;
 D_8007BAC4 = 0x8007BAC4;
 D_80138250 = 0x80138250;
 D_8013DC30 = 0x8013DC30;
-D_8013D9C0 = 0x8013D9C0;
-D_8013D9C4 = 0x8013D9C4;
 ASSERT(SIZEOF(.actor_relative_geometry) == 0xa8, "actor_relative_geometry size changed")
 ASSERT(SIZEOF(.renderer_quad_submit) == 0xf0, "renderer_quad_submit size changed")
 ASSERT(SIZEOF(.renderer_texture_defaults) == 0xdc, "renderer_texture_defaults size changed")
@@ -2864,7 +2867,6 @@ ASSERT(SIZEOF(.renderer_diagnostic_frame_count) == 0x4, "renderer_diagnostic_fra
 ASSERT(SIZEOF(.diagnostic_fallback_7e4f4_7e510) == 0x1c, "diagnostic_fallback_7e4f4_7e510 size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_8d738_8df60) == 0x828, "diagnostic_fallback_8d738_8df60 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_asset_lengths) == 0xc, "renderer_diagnostic_asset_lengths size changed")
-ASSERT(SIZEOF(.diagnostic_fallback_8df6c_8e094) == 0x128, "diagnostic_fallback_8df6c_8e094 size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_78db8_78de4) == 0x2c, "diagnostic_fallback_78db8_78de4 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_instance_pool) == 0x8, "renderer_diagnostic_instance_pool size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_74688_786a0) == 0x4018, "diagnostic_fallback_74688_786a0 size changed")
@@ -2906,7 +2908,6 @@ ASSERT(SIZEOF(.polygon_fallback_45fd8_46114) == 0x13c, "polygon_fallback_45fd8_4
 ASSERT(SIZEOF(.renderer_expanded_quad_messages) == 0x28, "renderer_expanded_quad_messages size changed")
 ASSERT(SIZEOF(.renderer_polygon_messages) == 0xa0, "renderer_polygon_messages size changed")
 ASSERT(SIZEOF(.renderer_mesh_submit) == 0x400, "renderer_mesh_submit size changed")
-ASSERT(SIZEOF(.mesh_resource_fallback_960c4_96130) == 0x6c, "mesh_resource_fallback_960c4_96130 size changed")
 ASSERT(SIZEOF(.renderer_resource_messages) == 0xb4, "renderer_resource_messages size changed")
 ASSERT(SIZEOF(.mesh_resource_fallback_961e4_96240) == 0x5c, "mesh_resource_fallback_961e4_96240 size changed")
 ASSERT(SIZEOF(.destination_format) == 0x298, "destination_format size changed")
@@ -2922,3 +2923,10 @@ ASSERT(SIZEOF(.resource_cache_fallback_7c6c4_7c70c) == 0x48, "resource_cache_fal
 ASSERT(SIZEOF(.renderer_resource_counters) == 0xc, "renderer_resource_counters size changed")
 ASSERT(SIZEOF(.resource_cache_fallback_7c718_7d148) == 0xa30, "resource_cache_fallback_7c718_7d148 size changed")
 ASSERT(SIZEOF(.renderer_resource_identifier_maps_bss) == 0x1770, "renderer identifier maps BSS size changed")
+ASSERT(SIZEOF(.renderer_resource_arena_state) == 0xc, "renderer_resource_arena_state size changed")
+ASSERT(SIZEOF(.heap_first_block) == 0x4, "heap_first_block size changed")
+ASSERT(SIZEOF(.trail_arena_fallback_8df6c_8e080) == 0x114, "trail_arena_fallback_8df6c_8e080 size changed")
+ASSERT(SIZEOF(.heap_initializer_flag) == 0x4, "heap_initializer_flag size changed")
+ASSERT(SIZEOF(.trail_arena_fallback_8e084_8e094) == 0x10, "trail_arena_fallback_8e084_8e094 size changed")
+ASSERT(SIZEOF(.trail_arena_fallback_960c4_960f0) == 0x2c, "trail_arena_fallback_960c4_960f0 size changed")
+ASSERT(SIZEOF(.resource_arena_diagnostics) == 0x40, "resource_arena_diagnostics size changed")

@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,346 matching C functions covering 238,300 bytes, twenty-nine assembly functions covering 4,372 bytes, 26,635 bytes of source-owned initialized data, and 457,171 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,346 matching C functions covering 238,300 bytes, twenty-nine assembly functions covering 4,372 bytes, 26,703 bytes of source-owned initialized data, and 457,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,14 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Projectile trail and resource arena](docs/projectile-trail-and-arena.md)
+reconstructs the complete trail callback as an excluded C candidate and owns
+68 initialized bytes and sixteen BSS bytes for arena/heap state and diagnostics.
+An optional MIPS execution checker compares its returns, ribbon geometry,
+colors, and vertex accounting with the target using deterministic callee stubs.
+It also compares the heap initializer's complete memory-write sequence.
+Instruction matching remains required before the callback receives credit.
 
 [Resource cache storage and destination formatting](docs/resource-cache-and-formatting.md)
 adds the complete 664-byte destination formatter, its 80-byte generated

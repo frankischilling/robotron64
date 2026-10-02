@@ -1,10 +1,5 @@
 #include "../../include/heap.h"
 
-extern int D_8008D480;
-extern int *D_8013EBF0;
-
-void func_8004DE8C(void *start, void *end);
-
 void func_8004DC70(void *ptr)
 {
     if (ptr != 0) {

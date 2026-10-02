@@ -1,3 +1,4 @@
 # Optional analysis tools; the matching build does not require these packages.
 spimdisasm==1.42.4
 rabbitizer==1.16.2
+unicorn==2.1.1

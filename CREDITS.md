@@ -605,3 +605,9 @@ complete target supplies the alpha values, diagnostics, command order,
 opcode table, cursor movement, and color updates. The pinned IDO profile
 and matching-build references continue to apply. No reference implementation
 or commercial asset is copied into this recovery.
+
+Projectile trail verification uses [Unicorn](https://www.unicorn-engine.org/)
+as an optional MIPS execution engine. The checker runs the supplied target and
+freshly compiled candidates, using supporting-call stubs for the ribbon. Robotron's
+instructions and matching callers establish the ribbon behavior and arena
+state; this work copies no reference game implementation.
