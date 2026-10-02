@@ -582,3 +582,10 @@ include/2.0I/PR/ucode.h and sptask.h for RSP stack sizing, yield buffer sizing
 and 64-bit alignment. The target supplies every routine, diagnostic string,
 array bound and initial selector value. The pinned IDO and Super Mario 64
 matching-build references continue to apply; no reference implementation was copied.
+
+Renderer diagnostics and font recovery consulted local libreultra
+`include/2.0I/PR/gbi.h` for the 16-byte vertex and 64-byte SDK matrix formats.
+The target supplies the pool capacities, diagnostic messages, font commands,
+color cases, HUD branches and failure behavior. The pinned IDO and Super Mario
+64 matching-build references continue to apply. No reference implementation or
+font image is copied into this recovery.

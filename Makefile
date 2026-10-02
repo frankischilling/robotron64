@@ -6459,6 +6459,102 @@ build/us/renderer_matrix_transform.o: src/game/renderer_matrix_transform.c inclu
 
 RUNTIME_OBJECTS += build/us/renderer_matrix_transform.o
 
+build/us/renderer_diagnostic_messages.o: src/game/renderer_diagnostics/messages.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_messages.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_messages.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_messages.o
+
+build/us/renderer_diagnostic_version.o: src/game/renderer_diagnostics/version.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_version.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_version.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_version.o
+
+build/us/renderer_diagnostic_frame_count.o: src/game/renderer_diagnostics/frame_count.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_frame_count.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_frame_count.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_frame_count.o
+
+build/us/renderer_diagnostic_asset_lengths.o: src/game/renderer_diagnostics/asset_lengths.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_asset_lengths.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_asset_lengths.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_asset_lengths.o
+
+build/us/renderer_diagnostic_instance_pool.o: src/game/renderer_diagnostics/instance_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_instance_pool.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_instance_pool.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_instance_pool.o
+
+build/us/renderer_diagnostic_object_pool.o: src/game/renderer_diagnostics/object_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_object_pool.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_object_pool.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_object_pool.o
+
+build/us/renderer_diagnostic_movie_pool.o: src/game/renderer_diagnostics/movie_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_movie_pool.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_movie_pool.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_movie_pool.o
+
+build/us/renderer_diagnostic_path_pool.o: src/game/renderer_diagnostics/path_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_path_pool.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_path_pool.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_path_pool.o
+
+build/us/renderer_diagnostic_vertex_pool.o: src/game/renderer_diagnostics/vertex_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_vertex_pool.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_vertex_pool.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_vertex_pool.o
+
+build/us/renderer_diagnostic_matrix_pool.o: src/game/renderer_diagnostics/matrix_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_matrix_pool.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_matrix_pool.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_matrix_pool.o
+
+build/us/renderer_diagnostic_hierarchy_pool.o: src/game/renderer_diagnostics/hierarchy_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_hierarchy_pool.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_hierarchy_pool.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_hierarchy_pool.o
+
+build/us/renderer_diagnostic_frame_metrics.o: src/game/renderer_diagnostics/frame_metrics.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_frame_metrics.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_frame_metrics.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_diagnostic_frame_metrics.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
