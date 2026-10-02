@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,349 matching C functions covering 240,196 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 27,311 bytes
+The source checkpoint contains 1,354 matching C functions covering 245,524 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 27,379 bytes
 of source-owned initialized data, and 458,883 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-422 complete C functions, 119,148 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 25,663 reconstructed initialized bytes, and 454,793 BSS bytes.
+427 complete C functions, 124,476 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 25,731 reconstructed initialized bytes, and 454,793 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,14 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Actor behaviors and spawn callback](actor-behavior-recovery.md) add five
+complete matching procedures covering 5,328 instruction bytes and the hulk's
+40-byte generated switch table and 28-byte diagnostic. The object scale setter
+uses a `void` interface supported by complete caller and setter comparisons,
+and the spawn callback establishes the creator's returned actor pointer.
+Ghidra MCP retains the complete hulk switch, verified table, and typed actor
+procedures.
 
 [Tweak insertion and storage](tweak-storage-and-ghidra.md) adds two complete
 matching procedures for 420 instruction bytes, 232 initialized diagnostic

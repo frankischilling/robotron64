@@ -11,6 +11,11 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("actor_behavior_spawn_callback", "src/game/actor_behaviors/spawn_callback.c", 0x80029760, 0x80029B20),
+    ("actor_behavior_spawn_state", "src/game/actor_behaviors/spawn.c", 0x8002D3D4, 0x8002D918),
+    ("actor_behavior_hulk", "src/game/actor_behaviors/hulk.c", 0x8002C0AC, 0x8002C4AC),
+    ("actor_behavior_brain", "src/game/actor_behaviors/brain.c", 0x8002CB48, 0x8002CF24),
+    ("actor_behavior_duration", "src/game/actor_behaviors/duration.c", 0x8002AF2C, 0x8002B31C),
     ("tweak_scene_define", "src/game/tweak_scene_define.c", 0x800378CC, 0x8003799C),
     ("tweak_difficulty_define", "src/game/tweak_difficulty_define.c", 0x8003762C, 0x80037700),
     ("actor_animation", "src/game/actor_animation.c", 0x80027AB8, 0x80027B9C),

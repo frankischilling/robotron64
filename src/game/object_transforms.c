@@ -171,21 +171,17 @@ void func_800399D8(int object, int unused)
 
 }
 
-ObjectTransform *func_800399E4(int object, float value)
+void func_800399E4(int object, float value)
 {
-    ObjectRecord *record;
     ObjectTransform *transform;
     int scale;
-    record = &D_800BF918[object];
+    transform = D_800BF918[object].transform;
     scale = value * 4.0f;
-    transform = record->transform;
     transform->scale = value;
-    record->scale[0] = scale;
-    record->scale[1] = scale;
-    record->scale[2] = scale;
-    return transform;
+    D_800BF918[object].scale[0] = scale;
+    D_800BF918[object].scale[1] = scale;
+    D_800BF918[object].scale[2] = scale;
 }
-
 
 float func_80039A40(int object)
 {

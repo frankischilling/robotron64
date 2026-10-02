@@ -15194,5 +15194,60 @@
     "section": ".tweak_scene_define",
     "section_vram": 2147711180,
     "evidence": "docs/tweak-storage-and-ghidra.md"
+  },
+  {
+    "name": "func_8002AF2C",
+    "rom": 178988,
+    "vram": 2147659564,
+    "size": 1008,
+    "source": "src/game/actor_behaviors/duration.c",
+    "object": "build/us/actor_behavior_duration.o",
+    "section": ".actor_behavior_duration",
+    "section_vram": 2147659564,
+    "evidence": "docs/actor-behavior-recovery.md"
+  },
+  {
+    "name": "func_8002CB48",
+    "rom": 186184,
+    "vram": 2147666760,
+    "size": 988,
+    "source": "src/game/actor_behaviors/brain.c",
+    "object": "build/us/actor_behavior_brain.o",
+    "section": ".actor_behavior_brain",
+    "section_vram": 2147666760,
+    "evidence": "docs/actor-behavior-recovery.md"
+  },
+  {
+    "name": "func_8002C0AC",
+    "rom": 183468,
+    "vram": 2147664044,
+    "size": 1024,
+    "source": "src/game/actor_behaviors/hulk.c",
+    "object": "build/us/actor_behavior_hulk.o",
+    "section": ".actor_behavior_hulk",
+    "section_vram": 2147664044,
+    "evidence": "docs/actor-behavior-recovery.md"
+  },
+  {
+    "name": "func_8002D3D4",
+    "rom": 188372,
+    "vram": 2147668948,
+    "size": 1348,
+    "source": "src/game/actor_behaviors/spawn.c",
+    "object": "build/us/actor_behavior_spawn_state.o",
+    "section": ".actor_behavior_spawn_state",
+    "section_vram": 2147668948,
+    "evidence": "docs/actor-behavior-recovery.md"
+  },
+  {
+    "name": "func_80029760",
+    "rom": 172896,
+    "vram": 2147653472,
+    "size": 960,
+    "source": "src/game/actor_behaviors/spawn_callback.c",
+    "object": "build/us/actor_behavior_spawn_callback.o",
+    "section": ".actor_behavior_spawn_callback",
+    "section_vram": 2147653472,
+    "evidence": "docs/actor-behavior-recovery.md"
   }
 ]
