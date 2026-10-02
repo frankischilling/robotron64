@@ -11,6 +11,9 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("command_script_execute", "src/game/command_scripts/execute.c", 0x8003264C, 0x800327AC),
+    ("actor_scatter_spawn", "src/game/actor_effects/scatter_spawn.c", 0x800366C8, 0x800369C8),
+    ("actor_fragment_spawn", "src/game/actor_effects/fragment_spawn.c", 0x80036B00, 0x80036DC8),
     ("actor_manual_motion", "src/game/actor_manual_motion.c", 0x80035E3C, 0x80036064),
     ("actor_retirement", "src/game/actor_retirement.c", 0x800354C8, 0x80035CC8),
     ("actor_behavior_stride", "src/game/actor_behaviors/stride.c", 0x8002B7BC, 0x8002BF88),
@@ -886,7 +889,6 @@ CANDIDATE_BLOCKS = (
     ("early_render_fan", "src/game/early_render_fan.c", 0x8000B9D4, 0x8000BE80),
     ("early_render_tube_wide", "src/game/early_render_tube_wide.c", 0x8000B5AC, 0x8000B964),
     ("early_render_tube", "src/game/early_render_tube.c", 0x8000B1E4, 0x8000B5AC),
-    ("command_script_execute", "src/game/command_script_execute.c", 0x8003264C, 0x800327AC),
     ("early_input_sequence_define", "src/game/early_input_sequence_define.c", 0x8001BE2C, 0x8001BF48),
     ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),

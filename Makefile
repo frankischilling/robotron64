@@ -7037,6 +7037,49 @@ build/us/actor_manual_motion_diagnostic.o: src/game/actor_manual_motion_diagnost
 
 RUNTIME_OBJECTS += build/us/actor_manual_motion_diagnostic.o
 
+build/us/actor_fragment_spawn.o: src/game/actor_effects/fragment_spawn.c include/actor.h include/actor_behavior_internal.h include/actor_motion_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_fragment_spawn.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_fragment_spawn.raw.o build/us/actor_fragment_spawn.text.o .text 0x2c8
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_fragment_spawn.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_fragment_spawn.o
+
+build/us/actor_scatter_spawn.o: src/game/actor_effects/scatter_spawn.c include/actor.h include/actor_behavior_internal.h include/actor_motion_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_scatter_spawn.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_scatter_spawn.raw.o build/us/actor_scatter_spawn.text.o .text 0x300
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_scatter_spawn.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_scatter_spawn.o
+
+build/us/command_script_execute.o: src/game/command_scripts/execute.c include/command_script.h include/game_memory.h include/object.h include/platform_services.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/command_script_execute.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/command_script_execute.raw.o build/us/command_script_execute.text.o .text 0x160
+	$(PYTHON) tools/owned_sections.py $< build/us/command_script_execute.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/command_script_execute.o
+
+build/us/effect_draw_config.o: src/game/actor_effects/draw_config.c include/actor.h include/actor_behavior_internal.h include/actor_resource_internal.h include/early_game_state.h include/effect_draw_config_internal.h include/game_memory.h include/object.h include/object_recovery.h include/palette.h include/scalar_math.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/effect_draw_config.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/effect_draw_config.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/effect_draw_config.o
+
+build/us/command_script_diagnostics.o: src/game/command_scripts/diagnostics.c $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/command_script_diagnostics.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/command_script_diagnostics.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/command_script_diagnostics.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

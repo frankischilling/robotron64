@@ -54,9 +54,9 @@ routine `func_8004913C` increments the preceding angle word by eight and
 uses it for its highlight setup. Both callers now use the common declarations
 in `early_render_internal.h`, and their complete matches are rechecked.
 
-## Command-file executor candidate
+## Command-file executor
 
-`command_script_execute.c` reconstructs `func_8003264C` at
+`src/game/command_scripts/execute.c` reconstructs `func_8003264C` at
 `0x8003264C..0x800327AC`, ROM `0x3324C..0x333AC`. It changes the caller's
 filename extension to `.TOK`, loads the file, and visits 32-bit command words.
 The low fifteen opcode bits select an eight-byte `CommandScriptEntry`.
@@ -71,18 +71,12 @@ reports the existing diagnostic and returns zero. The unused mode argument
 and the unused signed 16-bit loop counter remain in the reconstruction
 because the target retains them.
 
-This candidate compiles to all 352 target bytes with four differing words.
-The differences are the terminator branch's operand order and the allocation
-of the masked opcode versus its multiplied table offset. Its stack frame,
-local spills, handler calls, word advance, counter truncation, and cleanup
-already agree. IDO 7.1 and MIPS II probes do not establish a complete match.
-Issue #54 tracks completion, alongside the script services in #45.
-
-The candidate is registered only for `compare_runtime.py --candidates`.
-Its fallback remains in the ROM build, and none of its bytes contribute to
-matching C progress. Private permutation experiments disable padding,
-dummy expressions, self-assignment, type changes to external interfaces,
-and other transformations that could obscure the recovered behavior.
+The complete 352-byte procedure now matches and replaces its ROM fallback.
+Reusing the named raw opcode for the masked index recovers the target's
+temporary lifetimes. The two terminated strings also own 36 initialized
+bytes. See [the current comparison and layout evidence](actor-effects-and-command-scripts.md)
+and its provenance ledger. The earlier four-word comparison below records
+the excluded candidate before this promotion.
 
 ## Verification
 
