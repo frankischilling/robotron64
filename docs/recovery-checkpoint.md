@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,342 matching C functions covering 235,708 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 11,751 bytes
+The source checkpoint contains 1,344 matching C functions covering 236,612 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 11,951 bytes
 of source-owned initialized data, and 451,171 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-415 complete C functions, 114,660 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 10,103 reconstructed initialized bytes, and 447,081 BSS bytes.
+417 complete C functions, 115,564 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 10,303 reconstructed initialized bytes, and 447,081 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -15,6 +15,12 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Fixed-alpha quad and polygon command recovery](renderer-polygon-emission.md)
+adds two complete quad procedures with 904 instruction bytes and 200
+initialized diagnostic bytes. The expanded quad, diagnostic line, mesh
+submission, and seventeen-entry command stream have complete excluded C
+candidates. Their remaining compiler differences stay tracked in issue #41.
 
 [Controller polling and storage](controller-polling-and-storage.md)
 adds the complete 272-byte motor duty update, 48 initialized bytes, and

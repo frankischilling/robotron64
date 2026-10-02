@@ -836,9 +836,15 @@ MATCHING_BLOCKS = (
     ("early_render_quad", "src/game/early_render_quad.c", 0x8000B06C, 0x8000B1E4),
     ("renderer_matrix_transform", "src/game/renderer_matrix_transform.c", 0x80047570, 0x80047A08),
     ("controller_motor_duty", "src/game/controller/motor_duty.c", 0x8004F850, 0x8004F960),
+    ("renderer_opaque_quad", "src/game/renderer_primitives/opaque_quad.c", 0x80044F60, 0x80045124),
+    ("renderer_alpha_quad", "src/game/renderer_primitives/alpha_quad.c", 0x80045214, 0x800453D8),
 )
 
 CANDIDATE_BLOCKS = (
+    ("renderer_mesh_commands", "src/game/renderer_primitives/mesh_commands.c", 0x80045A08, 0x80045F40),
+    ("renderer_mesh_submit", "src/game/renderer_primitives/mesh_submit.c", 0x80045534, 0x80045934),
+    ("renderer_diagnostic_line", "src/game/renderer_primitives/diagnostic_line.c", 0x800453D8, 0x80045514),
+    ("renderer_expanded_quad", "src/game/renderer_primitives/expanded_quad.c", 0x800447D0, 0x80044B18),
     ("controller_legacy_poll", "src/game/controller/legacy_poll.c", 0x8004C1E0, 0x8004C378),
     ("controller_poll", "src/game/controller/poll.c", 0x8004F330, 0x8004F4D8),
 

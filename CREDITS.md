@@ -597,3 +597,11 @@ game's access ordering, button edges, motor thresholds and phase arithmetic;
 existing matching directory and clear routines establish the storage bounds.
 The pinned IDO and Super Mario 64 matching-build references continue to apply.
 No reference implementation is copied into these game routines or data units.
+
+Fixed-alpha quad and mesh-command recovery consulted the local libreultra
+`include/2.0I/PR/gbi.h` and Super Mario 64 `include/PR/gbi.h` for vertex-load
+packing, rotated triangles, paired triangles, and line commands. Robotron's
+complete target supplies the alpha values, diagnostics, command order,
+opcode table, cursor movement, and color updates. The pinned IDO profile
+and matching-build references continue to apply. No reference implementation
+or commercial asset is copied into this recovery.

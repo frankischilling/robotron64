@@ -2541,5 +2541,39 @@
       "D_80143424": 0
     },
     "evidence": "docs/controller-polling-and-storage.md"
+  },
+  {
+    "source": "src/game/renderer_primitives/expanded_quad_messages.c",
+    "object": "build/us/renderer_expanded_quad_messages.o",
+    "input_section": ".rodata",
+    "section": ".renderer_expanded_quad_messages",
+    "vram": 2148094088,
+    "rom": 613512,
+    "size": 40,
+    "symbols": {
+      "D_80095088": 0,
+      "D_800950A8": 32
+    },
+    "evidence": "docs/renderer-polygon-emission.md"
+  },
+  {
+    "source": "src/game/renderer_primitives/polygon_messages.c",
+    "object": "build/us/renderer_polygon_messages.o",
+    "input_section": ".rodata",
+    "section": ".renderer_polygon_messages",
+    "vram": 2148094208,
+    "rom": 613632,
+    "size": 160,
+    "symbols": {
+      "D_80095100": 0,
+      "D_80095120": 32,
+      "D_80095128": 40,
+      "D_80095148": 72,
+      "D_80095150": 80,
+      "D_80095170": 112,
+      "D_80095178": 120,
+      "D_80095198": 152
+    },
+    "evidence": "docs/renderer-polygon-emission.md"
   }
 ]

@@ -52,6 +52,9 @@ extern unsigned int D_8007BB34[];
     FRAME_COMMAND(RENDERER_TRIANGLE_WORD(second, third, fourth) | 0xB1000000, \
                   RENDERER_TRIANGLE_WORD(second, fourth, first))
 
+void func_80044F60(int *first, int *second, int *third, int *fourth);
+void func_80045214(int *first, int *second, int *third, int *fourth);
+
 void func_80045F40(int first, int count, int destination);
 void func_800460D8(int first, int count, int destination, RendererNormal *normals);
 
