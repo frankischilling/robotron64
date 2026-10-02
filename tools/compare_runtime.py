@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("palette_fade_update", "src/game/palette_effects/fade_update.c", 0x800316AC, 0x80031B28),
     ("command_script_execute", "src/game/command_scripts/execute.c", 0x8003264C, 0x800327AC),
     ("actor_scatter_spawn", "src/game/actor_effects/scatter_spawn.c", 0x800366C8, 0x800369C8),
     ("actor_fragment_spawn", "src/game/actor_effects/fragment_spawn.c", 0x80036B00, 0x80036DC8),

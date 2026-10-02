@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,364 matching C functions covering 257,664 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,003 bytes of source-owned initialized data, and 458,883 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,365 matching C functions covering 258,812 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,003 bytes of source-owned initialized data, and 458,883 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,12 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Palette fade and effect callback returns](docs/palette-fade-and-callback-returns.md)
+adds the complete 1,148-byte fade updater and corrects the callback result
+type used by the object loop. All 66 affected accepted units preserve their
+matching bytes. The original unused color buffer and the remaining historical
+callback parameter mismatch are documented.
 
 [Actor effects and command-script execution](docs/actor-effects-and-command-scripts.md)
 recover three complete procedures covering 1,832 instruction bytes, the

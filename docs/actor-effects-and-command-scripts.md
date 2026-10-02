@@ -40,10 +40,12 @@ division truncated toward zero, and signed short field stores. These follow
 the pinned N64 compiler and existing partial actor representations. The loop
 count locals represent the actual three- and five-attempt bounds.
 
-The installed callback retains the existing `void(EarlyGameActor *)` interface.
-Its unrecovered renderer body remains in fallback. A private int-return
-reconstruction still differs in two frame-size instructions; its return type
-and indirect-call compatibility require further review before promotion.
+The subsequent [callback return audit](palette-fade-and-callback-returns.md)
+corrects the installed interface to `int(EarlyGameActor *)`: the object loop
+consumes its result. The unrecovered renderer body remains in fallback, and
+its private reconstruction still differs in two frame-size instructions.
+The early and dispatcher parameter views remain incompatible ISO C types;
+the audit records the retained historical ABI assumption.
 
 ## Effect configuration
 

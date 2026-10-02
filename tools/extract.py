@@ -64,7 +64,7 @@ REGIONS = (
     ("cpu_after_actor_behavior_countdown_trigger", 0x2e9bc, 0x2f25c),
     ("cpu_after_session_setup_noop", 0x2f264, 0x2f8c4),
     ("cpu_after_session_setup_value58_word", 0x300c4, 0x300d0),
-    ("cpu_after_palette_fade_controls", 0x322ac, 0x32810),
+    ("palette_fallback_32728_32810", 0x32728, 0x32810),
     ("cpu_after_palette_transition_range", 0x32acc, 0x32f7c),
     ("cpu_after_palette_commands", 0x33134, 0x33140),
     ("cpu_after_command_machine", 0x3342c, 0x33430),

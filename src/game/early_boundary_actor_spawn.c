@@ -2,7 +2,7 @@
 #include "../../include/early_game_more.h"
 
 extern TextGlyphResource D_800B2480;
-void func_800077F4(EarlyGameActor *actor);
+int func_800077F4(EarlyGameActor *actor);
 
 EarlyGameActor *func_8000A074(ActorBehaviorActorInternal *source)
 {

@@ -15359,5 +15359,16 @@
     "section": ".command_script_execute",
     "section_vram": 2147690060,
     "evidence": "docs/actor-effects-and-command-scripts.md"
+  },
+  {
+    "name": "func_800316AC",
+    "rom": 205484,
+    "vram": 2147686060,
+    "size": 1148,
+    "source": "src/game/palette_effects/fade_update.c",
+    "object": "build/us/palette_fade_update.o",
+    "section": ".palette_fade_update",
+    "section_vram": 2147686060,
+    "evidence": "docs/palette-fade-and-callback-returns.md"
   }
 ]

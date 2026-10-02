@@ -2692,7 +2692,7 @@ build/us/scene_glyph_release.o: src/game/scene_glyph_release.c include/actor.h i
 	$(PYTHON) tools/trim_padding.py build/us/scene_glyph_release.raw.o $@ .text 0x58
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/scene_actor_scale.o: src/game/scene_actor_scale.c include/game_memory.h include/object.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/scene_actor_scale.o: src/game/scene_actor_scale.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_actor_scale.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/scene_actor_scale.raw.o $@ .text 0x138
@@ -7079,6 +7079,15 @@ build/us/command_script_diagnostics.o: src/game/command_scripts/diagnostics.c $(
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/command_script_diagnostics.o
+
+build/us/palette_fade_update.o: src/game/palette_effects/fade_update.c include/palette.h include/palette_effects.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/palette_fade_update.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/palette_fade_update.raw.o build/us/palette_fade_update.text.o .text 0x47c
+	$(PYTHON) tools/owned_sections.py $< build/us/palette_fade_update.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/palette_fade_update.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
