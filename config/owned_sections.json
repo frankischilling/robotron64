@@ -2049,5 +2049,50 @@
       "D_800730E0": 8
     },
     "evidence": "docs/early-render-effects.md"
+  },
+  {
+    "source": "src/game/renderer_image_placement_data.c",
+    "object": "build/us/renderer_image_placement_data.o",
+    "input_section": ".data",
+    "section": ".renderer_image_placement_data",
+    "vram": 2148059940,
+    "rom": 579364,
+    "size": 20,
+    "symbols": {
+      "D_8008CB24": 0,
+      "D_8008CB28": 4,
+      "D_8008CB2C": 8,
+      "D_8008CB30": 12,
+      "D_8008CB34": 16
+    },
+    "evidence": "docs/render-submission-effects.md"
+  },
+  {
+    "source": "src/game/renderer_image_placement_data.c",
+    "object": "build/us/renderer_image_placement_data.o",
+    "input_section": ".bss",
+    "section": ".renderer_image_placement_data_bss",
+    "vram": 2148784544,
+    "rom": null,
+    "size": 12,
+    "symbols": {
+      "D_8013D9A0": 0,
+      "D_8013D9A4": 4,
+      "D_8013D9A8": 8
+    },
+    "evidence": "docs/render-submission-effects.md"
+  },
+  {
+    "source": "src/game/early_render_coordinate_data.c",
+    "object": "build/us/early_render_coordinate_data.o",
+    "input_section": ".data",
+    "section": ".early_render_coordinate_data",
+    "vram": 2148071792,
+    "rom": 591216,
+    "size": 4,
+    "symbols": {
+      "D_8008F970": 0
+    },
+    "evidence": "docs/render-submission-effects.md"
   }
 ]

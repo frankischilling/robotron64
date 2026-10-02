@@ -2443,7 +2443,7 @@ build/us/save_menu_legacy_pages_tail.o: src/game/save_menu_legacy_pages_tail.c i
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_pages_tail.raw.o $@ .text 0x84
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_state_helpers.o: src/game/graphics_state_helpers.c include/frame.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_state_helpers.o: src/game/graphics_state_helpers.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_state_helpers.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_state_helpers.raw.o $@ .text 0x8c
@@ -6393,6 +6393,22 @@ build/us/early_render_tube_data.o: src/game/early_render_tube_data.c include/act
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/early_render_tube_data.o
+
+build/us/early_render_coordinate_data.o: src/game/early_render_coordinate_data.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/early_render_effects_internal.h include/early_render_internal.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_coordinate_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/early_render_coordinate_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_render_coordinate_data.o
+
+build/us/renderer_image_placement_data.o: src/game/renderer_image_placement_data.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_image_placement_data.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_image_placement_data.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_image_placement_data.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

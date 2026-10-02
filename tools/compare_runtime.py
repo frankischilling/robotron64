@@ -837,6 +837,11 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("renderer_image_setup_rgba", "src/game/renderer_image_setup_rgba.c", 0x8004AFA4, 0x8004B098),
+    ("renderer_image_setup_ci", "src/game/renderer_image_setup_ci.c", 0x8004ACA4, 0x8004AD64),
+    ("early_render_prism", "src/game/early_render_prism.c", 0x8000C75C, 0x8000CD50),
+    ("early_render_blue_circle", "src/game/early_render_blue_circle.c", 0x8000C2F4, 0x8000C75C),
+    ("early_render_circle", "src/game/early_render_circle.c", 0x8000BEC0, 0x8000C2F4),
     ("early_render_fan", "src/game/early_render_fan.c", 0x8000B9D4, 0x8000BE80),
     ("early_render_tube_wide", "src/game/early_render_tube_wide.c", 0x8000B5AC, 0x8000B964),
     ("early_render_tube", "src/game/early_render_tube.c", 0x8000B1E4, 0x8000B5AC),

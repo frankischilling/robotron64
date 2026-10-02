@@ -1,8 +1,8 @@
 # Recovery checkpoint
 
 The source checkpoint contains 1,340 matching C functions covering 234,260 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,235 bytes
-of source-owned initialized data, and 413,691 bytes of source-owned BSS. The
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 10,259 bytes
+of source-owned initialized data, and 413,703 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
 413 complete C functions, 113,212 C bytes, twenty-eight assembly procedures with
@@ -15,6 +15,14 @@ decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Fan, prism, and image setup recovery](render-submission-effects.md) owns 24
+initialized bytes and twelve BSS bytes for coordinate conversion and image
+placement. Five complete C candidates cover 4,164 retail instruction bytes.
+The image wrappers differ only in four stack/argument instructions each;
+their full local storage layout remains unresolved. The fan handlers now
+carry integer results consistently, with complete regression matches for
+the presets, dispatch wrappers, selector, and placement setters.
 
 [Early tube and star rendering](early-render-effects.md) owns 104 initialized
 bytes for the shared angle, depth, and eight RGB triples. Three complete C

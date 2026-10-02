@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,340 matching C functions covering 234,260 bytes, twenty-nine assembly functions covering 4,372 bytes, 10,235 bytes of source-owned initialized data, and 413,691 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,340 matching C functions covering 234,260 bytes, twenty-nine assembly functions covering 4,372 bytes, 10,259 bytes of source-owned initialized data, and 413,703 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,11 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Fan, prism, and image setup recovery](docs/render-submission-effects.md)
+adds 24 initialized bytes and twelve BSS bytes. Five full C candidates cover
+4,164 retail instruction bytes; all remain excluded from matching progress.
+Both image wrappers differ only in four stack/argument instructions each.
 
 [Early tube and star rendering](docs/early-render-effects.md) reconstructs three
 nonmatching C candidates covering 3,116 retail instruction bytes and owns
