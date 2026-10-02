@@ -15304,5 +15304,27 @@
     "section": ".actor_behavior_stride",
     "section_vram": 2147661756,
     "evidence": "docs/actor-family-completion.md"
+  },
+  {
+    "name": "func_800354C8",
+    "rom": 221384,
+    "vram": 2147701960,
+    "size": 2048,
+    "source": "src/game/actor_retirement.c",
+    "object": "build/us/actor_retirement.o",
+    "section": ".actor_retirement",
+    "section_vram": 2147701960,
+    "evidence": "docs/actor-retirement-and-manual-motion.md"
+  },
+  {
+    "name": "func_80035E3C",
+    "rom": 223804,
+    "vram": 2147704380,
+    "size": 552,
+    "source": "src/game/actor_manual_motion.c",
+    "object": "build/us/actor_manual_motion.o",
+    "section": ".actor_manual_motion",
+    "section_vram": 2147704380,
+    "evidence": "docs/actor-retirement-and-manual-motion.md"
   }
 ]

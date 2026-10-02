@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,359 matching C functions covering 253,232 bytes, twenty-nine assembly functions covering 4,372 bytes, 27,675 bytes of source-owned initialized data, and 458,883 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,361 matching C functions covering 255,832 bytes, twenty-nine assembly functions covering 4,372 bytes, 27,727 bytes of source-owned initialized data, and 458,883 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,12 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Actor retirement and manual movement](docs/actor-retirement-and-manual-motion.md)
+adds two complete matching procedures covering 2,600 instruction bytes,
+the 36-byte retirement switch table, and a 16-byte movement diagnostic.
+The recovery records the pinned compiler's byte-counter narrowing behavior
+and the shared actor, player, and input representation assumptions.
 
 [Human movement and animation behavior](docs/actor-family-completion.md)
 adds two complete matching handlers covering 3,824 instruction bytes and

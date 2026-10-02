@@ -11,6 +11,8 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("actor_manual_motion", "src/game/actor_manual_motion.c", 0x80035E3C, 0x80036064),
+    ("actor_retirement", "src/game/actor_retirement.c", 0x800354C8, 0x80035CC8),
     ("actor_behavior_stride", "src/game/actor_behaviors/stride.c", 0x8002B7BC, 0x8002BF88),
     ("actor_behavior_human", "src/game/actor_behaviors/human.c", 0x8002A808, 0x8002AF2C),
     ("actor_behavior_enforcer", "src/game/actor_behaviors/enforcer.c", 0x8002C4AC, 0x8002CB48),

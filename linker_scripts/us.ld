@@ -472,9 +472,9 @@ SECTIONS
     .endgame_35e44_35f60 0x80035244 : AT(0x35E44) { build/us/fallback.o(.rom_endgame_35e44_35f60) }
     .actor_value_follow 0x80035360 : AT(0x35F60) SUBALIGN(4) { build/us/actor_value_follow.o(.text) }
     .scene_actor_parameter_reset 0x800354A4 : AT(0x360A4) SUBALIGN(4) { build/us/scene_actor_parameter_reset.o(.text) }
-    .endgame_360c8_368c8 0x800354C8 : AT(0x360C8) { build/us/fallback.o(.rom_endgame_360c8_368c8) }
+    .actor_retirement 0x800354C8 : AT(0x360C8) SUBALIGN(4) { build/us/actor_retirement.o(.text) }
     .scene_actor_mode_list 0x80035CC8 : AT(0x368C8) SUBALIGN(4) { build/us/scene_actor_mode_list.o(.text) }
-    .endgame_36a3c_36c64 0x80035E3C : AT(0x36A3C) { build/us/fallback.o(.rom_endgame_36a3c_36c64) }
+    .actor_manual_motion 0x80035E3C : AT(0x36A3C) SUBALIGN(4) { build/us/actor_manual_motion.o(.text) }
     .sound_bridge_core 0x80036064 : AT(0x36C64) SUBALIGN(4) { build/us/sound_bridge_core.o(.text) }
     .cpu_after_sound_bridge_core 0x800360E8 : AT(0x36CE8) { build/us/fallback.o(.rom_cpu_after_sound_bridge_core) }
     .sound_bridge_definitions 0x800360F0 : AT(0x36CF0) SUBALIGN(4) { build/us/sound_bridge_definitions.o(.text) }
@@ -1301,7 +1301,11 @@ SECTIONS
     .save_menu_status_tables 0x80094084 : AT(0x94C84) SUBALIGN(4) { build/us/save_menu_status.o(.rodata) }
     .data_after_save_menu_status_tables 0x91004914 : AT(0x94CB4) { build/us/fallback.o(.rom_data_after_save_menu_status_tables) }
     .command_machine_table 0x8009416C : AT(0x94D6C) SUBALIGN(4) { build/us/command_machine.o(.rodata) }
-    .endgame_94d8c_94ec0 0x8009418C : AT(0x94D8C) { build/us/fallback.o(.rom_endgame_94d8c_94ec0) }
+    .retirement_fallback_94d8c_94e44 0x8009418C : AT(0x94D8C) { build/us/fallback.o(.rom_retirement_fallback_94d8c_94e44) }
+    .actor_manual_motion_diagnostic 0x80094244 : AT(0x94E44) SUBALIGN(4) { build/us/actor_manual_motion_diagnostic.o(.data) }
+    .retirement_fallback_94e54_94e94 0x80094254 : AT(0x94E54) { build/us/fallback.o(.rom_retirement_fallback_94e54_94e94) }
+    .actor_retirement_switch 0x80094294 : AT(0x94E94) SUBALIGN(4) { build/us/actor_retirement.o(.rodata) }
+    .retirement_fallback_94eb8_94ec0 0x800942B8 : AT(0x94EB8) { build/us/fallback.o(.rom_retirement_fallback_94eb8_94ec0) }
     .sound_request_dispatch_strings 0x800942C0 : AT(0x94EC0) SUBALIGN(4) { build/us/sound_request_dispatch.o(.rodata) }
     .sound_bridge_future_queue_strings 0x800942E0 : AT(0x94EE0) SUBALIGN(4) { build/us/sound_bridge_future_queue.o(.rodata) }
     .destination_format_table 0x80094300 : AT(0x94F00) SUBALIGN(4) { build/us/destination_format.o(.rodata) }
@@ -2718,8 +2722,6 @@ D_8008D578 = 0x8008D578;
 ASSERT(SIZEOF(.endgame_18b9c_198c8) == 0xd2c, "endgame_18b9c_198c8 size changed")
 ASSERT(SIZEOF(.endgame_28ad4_28d8c) == 0x2b8, "endgame_28ad4_28d8c size changed")
 ASSERT(SIZEOF(.endgame_35e44_35f60) == 0x11c, "endgame_35e44_35f60 size changed")
-ASSERT(SIZEOF(.endgame_360c8_368c8) == 0x800, "endgame_360c8_368c8 size changed")
-ASSERT(SIZEOF(.endgame_36a3c_36c64) == 0x228, "endgame_36a3c_36c64 size changed")
 ASSERT(SIZEOF(.early_parameter_slot_tick) == 0xd8, "early_parameter_slot_tick size changed")
 ASSERT(SIZEOF(.endgame_ed08_ef28) == 0x220, "endgame_ed08_ef28 size changed")
 func_8000E108 = 0x8000E108;
@@ -2820,7 +2822,6 @@ ASSERT(SIZEOF(.endgame_cac0_d950) == 0xe90, "endgame_cac0_d950 size changed")
 ASSERT(SIZEOF(.early_relative_position) == 0xe4, "early_relative_position size changed")
 ASSERT(SIZEOF(.actor_contact_gate) == 0x278, "actor_contact_gate size changed")
 ASSERT(SIZEOF(.sound_request_dispatch) == 0xb0, "sound_request_dispatch size changed")
-ASSERT(SIZEOF(.endgame_94d8c_94ec0) == 0x134, "endgame_94d8c_94ec0 size changed")
 ASSERT(SIZEOF(.sound_request_dispatch_strings) == 0x20, "sound_request_dispatch_strings size changed")
 ASSERT(SIZEOF(.actor_chain_reset) == 0x3c, "actor_chain_reset size changed")
 ASSERT(SIZEOF(.endgame_10414_11060) == 0xc4c, "endgame_10414_11060 size changed")
@@ -2990,3 +2991,10 @@ ASSERT(SIZEOF(.actor_behavior_human) == 0x724, "actor_behavior_human size change
 ASSERT(SIZEOF(.actor_human_diagnostic) == 0x1c, "actor_human_diagnostic size changed")
 ASSERT(SIZEOF(.actor_behavior_stride) == 0x7cc, "actor_behavior_stride size changed")
 ASSERT(SIZEOF(.actor_behavior_stride_switch) == 0x24, "actor_behavior_stride_switch size changed")
+ASSERT(SIZEOF(.actor_retirement) == 0x800, "actor_retirement size changed")
+ASSERT(SIZEOF(.actor_retirement_switch) == 0x24, "actor_retirement_switch size changed")
+ASSERT(SIZEOF(.retirement_fallback_94eb8_94ec0) == 0x8, "retirement_fallback_94eb8_94ec0 size changed")
+ASSERT(SIZEOF(.actor_manual_motion) == 0x228, "actor_manual_motion size changed")
+ASSERT(SIZEOF(.retirement_fallback_94d8c_94e44) == 0xb8, "retirement_fallback_94d8c_94e44 size changed")
+ASSERT(SIZEOF(.actor_manual_motion_diagnostic) == 0x10, "actor_manual_motion_diagnostic size changed")
+ASSERT(SIZEOF(.retirement_fallback_94e54_94e94) == 0x40, "retirement_fallback_94e54_94e94 size changed")
