@@ -1,5 +1,10 @@
 # Fixed-alpha quads and polygon command recovery
 
+This document and its provenance ledger record the PR 64 checkpoint at
+`ac2b0f3`. The mesh submitter now matches, and the command-stream candidate
+has changed. See [mesh and resource recovery](renderer-mesh-resources.md)
+for the current comparisons; the candidate table below is historical.
+
 Two complete quad procedures now have matching C in
 `src/game/renderer_primitives/`:
 
@@ -108,7 +113,7 @@ its instructions and table still need a complete match.
 ## Verification and references
 
 The pinned IDO 5.3 game profile is `-O2 -G 0 -non_shared -mips1 -32`.
-The current complete comparisons and source/header/compiler identities are
+The PR 64 complete comparisons and source/header/compiler identities are
 recorded in [the provenance ledger](renderer-polygon-emission-provenance.json).
 Whole-ROM equality still uses extracted fallback and does not establish
 source completion. Further polygon and mesh work remains tracked in

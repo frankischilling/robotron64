@@ -55,6 +55,8 @@ extern unsigned int D_8007BB34[];
 void func_80044F60(int *first, int *second, int *third, int *fourth);
 void func_80045214(int *first, int *second, int *third, int *fourth);
 
+void func_80045534(RendererMeshPrefix *mesh, RendererPosition *positions);
+
 void func_80045F40(int first, int count, int destination);
 void func_800460D8(int first, int count, int destination, RendererNormal *normals);
 

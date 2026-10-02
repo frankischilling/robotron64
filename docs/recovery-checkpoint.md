@@ -1,12 +1,12 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,344 matching C functions covering 236,612 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 11,951 bytes
+The source checkpoint contains 1,345 matching C functions covering 237,636 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 12,131 bytes
 of source-owned initialized data, and 451,171 bytes of source-owned BSS. The
 previously published checkpoint `9efb6ef` contained 927 C functions covering
 121,048 bytes and one 56-byte assembly procedure. The current source adds
-417 complete C functions, 115,564 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 10,303 reconstructed initialized bytes, and 447,081 BSS bytes.
+418 complete C functions, 116,588 C bytes, twenty-eight assembly procedures with
+4,316 live bytes, 10,483 reconstructed initialized bytes, and 447,081 BSS bytes.
 Another 296 initialized bytes belong to the existing text implementation's
 generated table, whose ownership is now explicitly checked and counted.
 
@@ -16,10 +16,18 @@ denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
 
+[Mesh submission and renderer resource loading](renderer-mesh-resources.md)
+adds the complete 1,024-byte mesh submitter and 180 initialized bytes.
+The complete 904-byte resource loader preserves all three cache paths and
+animation scaling, with sixteen differing words tracked in issue #65.
+The command-stream candidate is now 1,360 bytes with 300 differing words;
+its seventeen-entry generated switch table has five differing entries
+and remains unowned.
+
 [Fixed-alpha quad and polygon command recovery](renderer-polygon-emission.md)
 adds two complete quad procedures with 904 instruction bytes and 200
-initialized diagnostic bytes. The expanded quad, diagnostic line, mesh
-submission, and seventeen-entry command stream have complete excluded C
+initialized diagnostic bytes. The expanded quad, diagnostic line,
+and seventeen-entry command stream have complete excluded C
 candidates. Their remaining compiler differences stay tracked in issue #41.
 
 [Controller polling and storage](controller-polling-and-storage.md)
