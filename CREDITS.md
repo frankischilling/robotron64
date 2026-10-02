@@ -1,5 +1,13 @@
 # Credits and references
 
+The [tweak insertion and storage recovery](docs/tweak-storage-and-ghidra.md)
+uses the local Super Mario 64 build and pinned IDO references for compilation
+and matching. [Ghidra](https://github.com/NationalSecurityAgency/ghidra) and the
+local [Ghidra MCP extension](https://github.com/bethington/ghidra-mcp) provide
+typed decompilation, disassembly, memory checks, and cross-reference analysis.
+Robotron's target and verified consumers
+determine the recovered command behavior, table layouts, and diagnostic text.
+
 The [procedural grid and renderer setup recovery](docs/renderer-grid-and-setup.md)
 uses the pinned local libreultra `2.0I/PR/gbi.h` for viewport and light layouts,
 display-list termination, vertex loads, and other-mode bit fields. SM64 and

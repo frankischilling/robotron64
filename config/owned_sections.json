@@ -2853,5 +2853,99 @@
     },
     "static_symbols": {},
     "evidence": "docs/renderer-grid-and-setup.md"
+  },
+  {
+    "source": "src/game/tweaks/variables.c",
+    "object": "build/us/tweak_variables.o",
+    "input_section": ".bss",
+    "section": ".tweak_variables",
+    "vram": 2148134960,
+    "rom": null,
+    "size": 1200,
+    "symbols": {
+      "D_8009F030": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/tweak-storage-and-ghidra.md"
+  },
+  {
+    "source": "src/game/tweaks/pages.c",
+    "object": "build/us/tweak_pages.o",
+    "input_section": ".bss",
+    "section": ".tweak_pages",
+    "vram": 2148136160,
+    "rom": null,
+    "size": 120,
+    "symbols": {
+      "D_8009F4E0": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/tweak-storage-and-ghidra.md"
+  },
+  {
+    "source": "src/game/tweaks/difficulties.c",
+    "object": "build/us/tweak_difficulties.o",
+    "input_section": ".bss",
+    "section": ".tweak_difficulties",
+    "vram": 2148137696,
+    "rom": null,
+    "size": 360,
+    "symbols": {
+      "D_8009FAE0": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/tweak-storage-and-ghidra.md"
+  },
+  {
+    "source": "src/game/tweaks/counters.c",
+    "object": "build/us/tweak_counters.o",
+    "input_section": ".bss",
+    "section": ".tweak_counters",
+    "vram": 2148134948,
+    "rom": null,
+    "size": 10,
+    "symbols": {
+      "D_8009F024": 0,
+      "D_8009F026": 2,
+      "D_8009F028": 4,
+      "D_8009F02A": 6,
+      "D_8009F02C": 8
+    },
+    "static_symbols": {},
+    "evidence": "docs/tweak-storage-and-ghidra.md"
+  },
+  {
+    "source": "src/game/tweaks/display_state.c",
+    "object": "build/us/tweak_display_state.o",
+    "input_section": ".bss",
+    "section": ".tweak_display_state",
+    "vram": 2148136280,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_8009F558": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/tweak-storage-and-ghidra.md"
+  },
+  {
+    "source": "src/game/tweaks/messages.c",
+    "object": "build/us/tweak_messages.o",
+    "input_section": ".data",
+    "section": ".tweak_messages",
+    "vram": 2148090704,
+    "rom": 610128,
+    "size": 232,
+    "symbols": {
+      "D_80094350": 0,
+      "D_80094378": 40,
+      "D_8009439C": 76,
+      "D_800943B4": 100,
+      "D_800943D8": 136,
+      "D_800943F0": 160,
+      "D_80094420": 208
+    },
+    "static_symbols": {},
+    "evidence": "docs/tweak-storage-and-ghidra.md"
   }
 ]

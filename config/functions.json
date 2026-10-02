@@ -15172,5 +15172,27 @@
     "section": ".renderer_diagnostic_report",
     "section_vram": 2147796704,
     "evidence": "docs/startup-projection-and-diagnostics.md"
+  },
+  {
+    "name": "func_8003762C",
+    "rom": 229932,
+    "vram": 2147710508,
+    "size": 212,
+    "source": "src/game/tweak_difficulty_define.c",
+    "object": "build/us/tweak_difficulty_define.o",
+    "section": ".tweak_difficulty_define",
+    "section_vram": 2147710508,
+    "evidence": "docs/tweak-storage-and-ghidra.md"
+  },
+  {
+    "name": "func_800378CC",
+    "rom": 230604,
+    "vram": 2147711180,
+    "size": 208,
+    "source": "src/game/tweak_scene_define.c",
+    "object": "build/us/tweak_scene_define.o",
+    "section": ".tweak_scene_define",
+    "section_vram": 2147711180,
+    "evidence": "docs/tweak-storage-and-ghidra.md"
   }
 ]

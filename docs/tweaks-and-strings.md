@@ -68,8 +68,8 @@ The accepted source units use IDO 5.3 with
 `-O2 -G 0 -non_shared -mips1 -32`. Full comparisons, transitive input snapshots,
 compiler identities, and archived earlier candidates are under
 `.local/recovery45-resources`. These units emit no initialized data or BSS;
-their tables and diagnostic strings remain named references to the original
-data regions.
+their tables and diagnostic strings now have separately verified C storage
+definitions in [the tweak insertion and storage recovery](tweak-storage-and-ghidra.md).
 
 | Source | Complete runtime extent | Bytes |
 | --- | --- | ---: |
@@ -92,10 +92,10 @@ repeated indexed target reads reproduce the original allocation and memory
 access order while preserving the five pickup-field exemptions. The canonical
 comparison and procedure-boundary proof are under `.local/recovery67-integration`.
 
-Difficulty-record insertion (`0x8003762C`) and level-override insertion
-(`0x800378CC`) remain candidates with register-allocation and scheduling
-differences. They contribute no matching source bytes until complete
-comparisons pass.
+Difficulty-record insertion (`0x8003762C`, 212 bytes) and level-override
+insertion (`0x800378CC`, 208 bytes) now match their complete instruction
+spans. The [insertion and storage notes](tweak-storage-and-ghidra.md)
+record the IDO source forms, Ghidra analysis, and data ownership.
 
 The target establishes these game-specific tables and behaviors. The
 [reference credits](../CREDITS.md) record the N64 compiler and SDK sources used

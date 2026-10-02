@@ -496,10 +496,10 @@ SECTIONS
     .tweak_reset 0x800374D0 : AT(0x380D0) SUBALIGN(4) { build/us/tweak_reset.o(.text) }
     .tweak_page 0x80037508 : AT(0x38108) SUBALIGN(4) { build/us/tweak_page.o(.text) }
     .tweak_define 0x80037588 : AT(0x38188) SUBALIGN(4) { build/us/tweak_define.o(.text) }
-    .cpu_after_tweak_define 0x8003762C : AT(0x3822C) { build/us/fallback.o(.rom_cpu_after_tweak_define) }
+    .tweak_difficulty_define 0x8003762C : AT(0x3822C) SUBALIGN(4) { build/us/tweak_difficulty_define.o(.text) }
     .tweak_difficulty_apply 0x80037700 : AT(0x38300) SUBALIGN(4) { build/us/tweak_difficulty_apply.o(.text) }
     .tweak_scene_apply 0x800377E4 : AT(0x383E4) SUBALIGN(4) { build/us/tweak_scene_apply.o(.text) }
-    .cpu_after_tweak_scene_apply 0x800378CC : AT(0x384CC) { build/us/fallback.o(.rom_cpu_after_tweak_scene_apply) }
+    .tweak_scene_define 0x800378CC : AT(0x384CC) SUBALIGN(4) { build/us/tweak_scene_define.o(.text) }
     .tweak_bind 0x8003799C : AT(0x3859C) SUBALIGN(4) { build/us/tweak_bind.o(.text) }
     .tweak_bind_all 0x80037A20 : AT(0x38620) SUBALIGN(4) { build/us/tweak_bind_all.o(.text) }
     .tweak_scale_enemy_speeds 0x80038228 : AT(0x38E28) SUBALIGN(4) { build/us/tweak_scale_enemy_speeds.o(.text) }
@@ -1292,7 +1292,8 @@ SECTIONS
     .sound_request_dispatch_strings 0x800942C0 : AT(0x94EC0) SUBALIGN(4) { build/us/sound_request_dispatch.o(.rodata) }
     .sound_bridge_future_queue_strings 0x800942E0 : AT(0x94EE0) SUBALIGN(4) { build/us/sound_bridge_future_queue.o(.rodata) }
     .destination_format_table 0x80094300 : AT(0x94F00) SUBALIGN(4) { build/us/destination_format.o(.rodata) }
-    .resource_cache_fallback_94f50_957e0 0x80094350 : AT(0x94F50) { build/us/fallback.o(.rom_resource_cache_fallback_94f50_957e0) }
+    .tweak_messages 0x80094350 : AT(0x94F50) SUBALIGN(4) { build/us/tweak_messages.o(.data) }
+    .tweak_fallback_95038_957e0 0x80094438 : AT(0x95038) { build/us/fallback.o(.rom_tweak_fallback_95038_957e0) }
     .scene_frame_tick_constants 0x80094BE0 : AT(0x957E0) SUBALIGN(4) { build/us/scene_frame_tick.o(.rodata) }
     .camera_fallback_957e8_95848 0x80094BE8 : AT(0x957E8) { build/us/fallback.o(.rom_camera_fallback_957e8_95848) }
     .object_camera_angles_constant 0x80094C48 : AT(0x95848) SUBALIGN(4) { build/us/object_camera_angles.o(.rodata) }
@@ -1436,6 +1437,11 @@ SECTIONS
     .renderer_resource_arena_state 0x8013D9C0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_resource_arena_state.o(.bss) }
     .heap_first_block 0x8013EBF0 (NOLOAD) : SUBALIGN(4) { build/us/heap_state.o(.bss) }
     .renderer_projection_normalization 0x8013D950 (NOLOAD) : SUBALIGN(4) { build/us/renderer_projection_state.o(.bss) }
+    .tweak_variables 0x8009F030 (NOLOAD) : SUBALIGN(4) { build/us/tweak_variables.o(.bss) }
+    .tweak_pages 0x8009F4E0 (NOLOAD) : SUBALIGN(4) { build/us/tweak_pages.o(.bss) }
+    .tweak_difficulties 0x8009FAE0 (NOLOAD) : SUBALIGN(4) { build/us/tweak_difficulties.o(.bss) }
+    .tweak_counters 0x8009F024 (NOLOAD) : SUBALIGN(4) { build/us/tweak_counters.o(.bss) }
+    .tweak_display_state 0x8009F558 (NOLOAD) : SUBALIGN(4) { build/us/tweak_display_state.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -1716,10 +1722,8 @@ ASSERT(SIZEOF(.cpu_after_debug_text_draw) == 0x8, "cpu_after_debug_text_draw siz
 ASSERT(SIZEOF(.tweak_reset) == 0x38, "tweak_reset size changed")
 ASSERT(SIZEOF(.tweak_page) == 0x80, "tweak_page size changed")
 ASSERT(SIZEOF(.tweak_define) == 0xa4, "tweak_define size changed")
-ASSERT(SIZEOF(.cpu_after_tweak_define) == 0xd4, "cpu_after_tweak_define size changed")
 ASSERT(SIZEOF(.tweak_difficulty_apply) == 0xe4, "tweak_difficulty_apply size changed")
 ASSERT(SIZEOF(.tweak_scene_apply) == 0xe8, "tweak_scene_apply size changed")
-ASSERT(SIZEOF(.cpu_after_tweak_scene_apply) == 0xd0, "cpu_after_tweak_scene_apply size changed")
 ASSERT(SIZEOF(.tweak_bind) == 0x84, "tweak_bind size changed")
 ASSERT(SIZEOF(.tweak_bind_all) == 0x808, "tweak_bind_all size changed")
 ASSERT(SIZEOF(.tweak_scale_enemy_speeds) == 0x168, "tweak_scale_enemy_speeds size changed")
@@ -2919,7 +2923,6 @@ ASSERT(SIZEOF(.mesh_resource_fallback_961e4_96240) == 0x5c, "mesh_resource_fallb
 ASSERT(SIZEOF(.destination_format) == 0x298, "destination_format size changed")
 ASSERT(SIZEOF(.resource_cache_fallback_37268_37270) == 0x8, "resource_cache_fallback_37268_37270 size changed")
 ASSERT(SIZEOF(.destination_format_table) == 0x50, "destination_format_table size changed")
-ASSERT(SIZEOF(.resource_cache_fallback_94f50_957e0) == 0x890, "resource_cache_fallback_94f50_957e0 size changed")
 ASSERT(SIZEOF(.renderer_model_cache_storage) == 0x1f40, "renderer_model_cache_storage size changed")
 ASSERT(SIZEOF(.renderer_animation_cache_storage) == 0x1900, "renderer_animation_cache_storage size changed")
 ASSERT(SIZEOF(.resource_cache_fallback_78dec_78e64) == 0x78, "resource_cache_fallback_78dec_78e64 size changed")
@@ -2952,3 +2955,12 @@ ASSERT(SIZEOF(.renderer_setup_lighting) == 0x18, "renderer_setup_lighting size c
 ASSERT(SIZEOF(.renderer_frame_geometry_commands) == 0x40, "renderer_frame_geometry_commands size changed")
 ASSERT(SIZEOF(.renderer_frame_rdp_commands) == 0x80, "renderer_frame_rdp_commands size changed")
 ASSERT(SIZEOF(.renderer_setup_fallback_7d7d8_7d98c) == 0x1b4, "renderer_setup_fallback_7d7d8_7d98c size changed")
+ASSERT(SIZEOF(.tweak_variables) == 0x4b0, "tweak_variables size changed")
+ASSERT(SIZEOF(.tweak_pages) == 0x78, "tweak_pages size changed")
+ASSERT(SIZEOF(.tweak_difficulties) == 0x168, "tweak_difficulties size changed")
+ASSERT(SIZEOF(.tweak_counters) == 0xa, "tweak_counters size changed")
+ASSERT(SIZEOF(.tweak_display_state) == 0x4, "tweak_display_state size changed")
+ASSERT(SIZEOF(.tweak_messages) == 0xe8, "tweak_messages size changed")
+ASSERT(SIZEOF(.tweak_fallback_95038_957e0) == 0x7a8, "tweak_fallback_95038_957e0 size changed")
+ASSERT(SIZEOF(.tweak_difficulty_define) == 0xd4, "tweak_difficulty_define size changed")
+ASSERT(SIZEOF(.tweak_scene_define) == 0xd0, "tweak_scene_define size changed")

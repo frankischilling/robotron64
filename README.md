@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,347 matching C functions covering 239,776 bytes, twenty-nine assembly functions covering 4,372 bytes, 27,079 bytes of source-owned initialized data, and 457,189 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,349 matching C functions covering 240,196 bytes, twenty-nine assembly functions covering 4,372 bytes, 27,311 bytes of source-owned initialized data, and 458,883 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,12 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Tweak insertion and storage](docs/tweak-storage-and-ghidra.md) adds both
+complete insertion routines, 420 instruction bytes, 232 initialized bytes,
+and 1,694 BSS bytes. Ghidra MCP analysis uses the verified ELF symbols and
+shared actor/tweak types, with every loaded CPU-range byte checked against
+the retail ROM.
 
 [Annular and tiled surface rendering](docs/renderer-surfaces.md) adds three
 complete excluded C candidates covering 1,968 retail bytes. A new MIPS checker

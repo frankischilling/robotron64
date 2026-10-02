@@ -85,5 +85,5 @@ object-header compatibility step, not a code-generation or instruction fix.
 - Splat and spimdisasm: references for executable splitting and symbol discovery. The local spimdisasm inventory remains provisional and separate from matching counts.
 - asm-differ: useful when functions become too large for direct objdump comparison. Whole-ROM and selected-range comparison already run locally.
 - decomp-permuter and decomp.me: useful after types and behavior are understood; not required for the first function.
-- Ghidra and the supplied ares installation: available for later cross-reference and runtime work. Neither has been used as evidence yet.
+- Ghidra and Ghidra MCP now support the [tweak and actor investigation](tweak-storage-and-ghidra.md), with the loaded CPU range checked against the retail ROM. The supplied ares installation remains available for runtime work.
 - Asset extraction libraries: selection is pending identification of actual asset formats.
