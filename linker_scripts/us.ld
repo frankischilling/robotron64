@@ -660,9 +660,9 @@ SECTIONS
     .renderer_texture_squares 0x8004A6B4 : AT(0x4B2B4) SUBALIGN(4) { build/us/renderer_texture_squares.o(.text) }
     .renderer_flag_set 0x8004ABBC : AT(0x4B7BC) SUBALIGN(4) { build/us/renderer_flag_set.o(.text) }
     .renderer_texture_defaults 0x8004ABC8 : AT(0x4B7C8) SUBALIGN(4) { build/us/renderer_texture_defaults.o(.text) }
-    .endgame_4b8a4_4b964 0x8004ACA4 : AT(0x4B8A4) { build/us/fallback.o(.rom_endgame_4b8a4_4b964) }
+    .renderer_image_setup_ci 0x8004ACA4 : AT(0x4B8A4) SUBALIGN(4) { build/us/renderer_image_setup_ci.o(.text) }
     .renderer_image_quad_ci 0x8004AD64 : AT(0x4B964) SUBALIGN(4) { build/us/renderer_image_quad_ci.o(.text) }
-    .endgame_4bba4_4bc98 0x8004AFA4 : AT(0x4BBA4) { build/us/fallback.o(.rom_endgame_4bba4_4bc98) }
+    .renderer_image_setup_rgba 0x8004AFA4 : AT(0x4BBA4) SUBALIGN(4) { build/us/renderer_image_setup_rgba.o(.text) }
     .renderer_image_quad_rgba 0x8004B098 : AT(0x4BC98) SUBALIGN(4) { build/us/renderer_image_quad_rgba.o(.text) }
     .endgame_4bed8_4bee0 0x8004B2D8 : AT(0x4BED8) { build/us/fallback.o(.rom_endgame_4bed8_4bee0) }
     .renderer_digit_extract 0x8004B2E0 : AT(0x4BEE0) SUBALIGN(4) { build/us/renderer_digit_extract.o(.text) }
@@ -2750,8 +2750,6 @@ ASSERT(SIZEOF(.renderer_image_quad_ci) == 0x240, "renderer_image_quad_ci size ch
 ASSERT(SIZEOF(.renderer_image_quad_rgba) == 0x240, "renderer_image_quad_rgba size changed")
 ASSERT(SIZEOF(.renderer_texture_square_extent) == 0x4, "renderer_texture_square_extent size changed")
 ASSERT(SIZEOF(.endgame_4aa3c_4b2b4) == 0x878, "endgame_4aa3c_4b2b4 size changed")
-ASSERT(SIZEOF(.endgame_4b8a4_4b964) == 0xc0, "endgame_4b8a4_4b964 size changed")
-ASSERT(SIZEOF(.endgame_4bba4_4bc98) == 0xf4, "endgame_4bba4_4bc98 size changed")
 ASSERT(SIZEOF(.endgame_4bed8_4bee0) == 0x8, "endgame_4bed8_4bee0 size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle) == 0x2d8, "renderer_expanded_triangle size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle_strings) == 0x28, "renderer_expanded_triangle_strings size changed")
@@ -3025,3 +3023,5 @@ ASSERT(SIZEOF(.object_record_storage) == 0x8ca0, "object_record_storage size cha
 ASSERT(SIZEOF(.object_slot_storage) == 0x4b0, "object_slot_storage size changed")
 ASSERT(SIZEOF(.renderer_matrix_scale) == 0x380, "renderer_matrix_scale size changed")
 ASSERT(SIZEOF(.renderer_supplied_matrix_diagnostics) == 0x40, "renderer_supplied_matrix_diagnostics size changed")
+ASSERT(SIZEOF(.renderer_image_setup_ci) == 0xc0, "renderer_image_setup_ci size changed")
+ASSERT(SIZEOF(.renderer_image_setup_rgba) == 0xf4, "renderer_image_setup_rgba size changed")

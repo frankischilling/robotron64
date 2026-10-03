@@ -653,3 +653,10 @@ workflow and the existing libreultra SDK matrix representation. Robotron's
 retail code establishes row scaling, integer/fractional packing, clamping and
 the post-write diagnostic. Its MIPS checker uses Unicorn and an independent
 arithmetic oracle. No reference implementation was copied.
+
+Indexed and RGBA image setup follows the local SM64 pinned IDO workflow.
+The libreultra GBI definitions corroborate texture-perspective and texture-filter
+fields. Robotron's retail instructions establish the wrapper ordering and
+parameters. The optional Unicorn checker executes matching matrix, palette,
+quad and allocation code against independent CPU-buffer expectations; it
+does not execute graphics microcode. No reference implementation was copied.

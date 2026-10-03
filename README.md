@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,368 matching C functions covering 260,944 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,327 bytes of source-owned initialized data, and 503,375 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,370 matching C functions covering 261,380 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,327 bytes of source-owned initialized data, and 503,375 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,11 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Indexed and RGBA image setup](docs/renderer-image-setup.md) completes both
+wrappers and their stack frames with the existing draw-state layout. Its
+optional MIPS checker executes matching matrix, palette, quad and allocation
+code and verifies command bytes and placement-state ordering.
 
 [Supplied-matrix scale submission](docs/renderer-supplied-matrix.md) completes
 the 896-byte renderer and its 64 diagnostic bytes. An optional MIPS checker
