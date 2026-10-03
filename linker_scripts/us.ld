@@ -1,3 +1,7 @@
+D_80076FF4 = 0x80076FF4;
+D_80076FB4 = 0x80076FB4;
+D_80097644 = 0x80097644;
+D_80073A40 = 0x80073A40;
 D_8008FDC8 = 0x8008FDC8;
 D_8009D118 = 0x8009D118;
 D_8009B0E0 = 0x8009B0E0;
@@ -213,7 +217,7 @@ SECTIONS
     .endgame_1c0f8_1c3d0 0x8001B4F8 : AT(0x1C0F8) { build/us/fallback.o(.rom_endgame_1c0f8_1c3d0) }
     .name_table_lookup 0x8001B7D0 : AT(0x1C3D0) SUBALIGN(4) { build/us/name_table_lookup.o(.text) }
     .early_file_state_reset 0x8001B870 : AT(0x1C470) SUBALIGN(4) { build/us/early_file_state_reset.o(.text) }
-    .cpu_after_early_file_state_reset 0x8001B8D8 : AT(0x1C4D8) { build/us/fallback.o(.rom_cpu_after_early_file_state_reset) }
+    .scene_action_dispatch 0x8001B8D8 : AT(0x1C4D8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.text) }
     .early_name_mask_lookup 0x8001BBAC : AT(0x1C7AC) SUBALIGN(4) { build/us/early_name_mask_lookup.o(.text) }
     .early_value_lookup 0x8001BC38 : AT(0x1C838) SUBALIGN(4) { build/us/early_value_lookup.o(.text) }
     .early_name_mask_parse 0x8001BD24 : AT(0x1C924) SUBALIGN(4) { build/us/early_name_mask_parse.o(.text) }
@@ -1286,7 +1290,9 @@ SECTIONS
     .actor_behavior_counter_expire_rodata 0x800902A4 : AT(0x90EA4) SUBALIGN(4) { build/us/actor_behavior_counter_expire.o(.rodata) }
     .endgame_data_90ed4_90f70 0x800902D4 : AT(0x90ED4) { build/us/fallback.o(.rom_endgame_data_90ed4_90f70) }
     .name_table_lookup_data 0x80090370 : AT(0x90F70) SUBALIGN(4) { build/us/name_table_lookup.o(.data) }
-    .endgame_data_90f96_92558 0x80090396 : AT(0x90F96) { build/us/fallback.o(.rom_endgame_data_90f96_92558) }
+    .scene_action_fallback_90f96_90fe8 0x80090396 : AT(0x90F96) { build/us/fallback.o(.rom_scene_action_fallback_90f96_90fe8) }
+    .scene_action_table 0x800903E8 : AT(0x90FE8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.rodata) }
+    .scene_action_fallback_91020_92558 0x80090420 : AT(0x91020) { build/us/fallback.o(.rom_scene_action_fallback_91020_92558) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
     .endgame_data_92560_93698 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_93698) }
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
@@ -1477,6 +1483,7 @@ SECTIONS
     .object_slot_storage 0x800C86C0 (NOLOAD) : SUBALIGN(4) { build/us/object_slot_storage.o(.bss) }
     .menu_options_records 0x800AEF00 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_records.o(.bss) }
     .menu_options_page 0x800AF1A8 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_page.o(.bss) }
+    .scene_action_pickup_count 0x800BAE8C (NOLOAD) : SUBALIGN(4) { build/us/scene_action_pickup_count.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -1532,7 +1539,6 @@ ASSERT(SIZEOF(.early_actor_spawn_helper) == 0x6c, "early_actor_spawn_helper size
 ASSERT(SIZEOF(.early_simple_forward) == 0x20, "early_simple_forward size changed")
 ASSERT(SIZEOF(.early_actor_callback_install) == 0x90, "early_actor_callback_install size changed")
 ASSERT(SIZEOF(.early_file_state_reset) == 0x68, "early_file_state_reset size changed")
-ASSERT(SIZEOF(.cpu_after_early_file_state_reset) == 0x2d4, "cpu_after_early_file_state_reset size changed")
 ASSERT(SIZEOF(.early_name_mask_lookup) == 0x8c, "early_name_mask_lookup size changed")
 ASSERT(SIZEOF(.early_value_lookup) == 0xec, "early_value_lookup size changed")
 ASSERT(SIZEOF(.early_name_mask_parse) == 0x108, "early_name_mask_parse size changed")
@@ -2506,7 +2512,6 @@ ASSERT(SIZEOF(.actor_scene_counter_expire) == 0xc4, "actor_scene_counter_expire 
 ASSERT(SIZEOF(.actor_animation_auxiliary) == 0x7c, "actor_animation_auxiliary size changed")
 ASSERT(SIZEOF(.actor_child_animation) == 0xa0, "actor_child_animation size changed")
 func_8000BEC0 = 0x8000BEC0;
-func_8001B8D8 = 0x8001B8D8;
 ASSERT(SIZEOF(.early_render_handler_select) == 0x84, "early_render_handler_select size changed")
 ASSERT(SIZEOF(.actor_collision_kind_dispatch) == 0x84, "actor_collision_kind_dispatch size changed")
 ASSERT(SIZEOF(.name_table_lookup) == 0xa0, "name_table_lookup size changed")
@@ -2517,7 +2522,6 @@ ASSERT(SIZEOF(.actor_collision_kind_dispatch_rodata) == 0x14, "actor_collision_k
 ASSERT(SIZEOF(.name_table_lookup_data) == 0x26, "name_table_lookup_data size changed")
 ASSERT(SIZEOF(.endgame_16f1c_17218) == 0x2fc, "endgame_16f1c_17218 size changed")
 ASSERT(SIZEOF(.endgame_1c0f8_1c3d0) == 0x2d8, "endgame_1c0f8_1c3d0 size changed")
-ASSERT(SIZEOF(.endgame_data_90f96_92558) == 0x15c2, "endgame_data_90f96_92558 size changed")
 D_8007CCC0 = 0x8007CCC0;
 ASSERT(SIZEOF(.menu_transition_start) == 0x94, "menu_transition_start size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache) == 0x90, "renderer_texture_file_cache size changed")
@@ -3032,3 +3036,8 @@ ASSERT(SIZEOF(.menu_options_fallback_26d78_26fe0) == 0x268, "menu_options_fallba
 ASSERT(SIZEOF(.menu_options_define) == 0x1d8, "menu_options_define size changed")
 ASSERT(SIZEOF(.menu_options_records) == 0x2a8, "menu_options_records BSS size changed")
 ASSERT(SIZEOF(.menu_options_page) == 0x30, "menu_options_page BSS size changed")
+ASSERT(SIZEOF(.scene_action_dispatch) == 0x2d4, "scene_action_dispatch size changed")
+ASSERT(SIZEOF(.scene_action_fallback_90f96_90fe8) == 0x52, "scene_action_fallback_90f96_90fe8 size changed")
+ASSERT(SIZEOF(.scene_action_table) == 0x38, "scene_action_table size changed")
+ASSERT(SIZEOF(.scene_action_fallback_91020_92558) == 0x1538, "scene_action_fallback_91020_92558 size changed")
+ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")

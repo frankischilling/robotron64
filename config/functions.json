@@ -15447,5 +15447,16 @@
     "section": ".menu_options_define",
     "section_vram": 2147640288,
     "evidence": "docs/save-menu-options.md"
+  },
+  {
+    "name": "func_8001B8D8",
+    "rom": 115928,
+    "vram": 2147596504,
+    "size": 724,
+    "source": "src/game/scene_actions/dispatch.c",
+    "object": "build/us/scene_action_dispatch.o",
+    "section": ".scene_action_dispatch",
+    "section_vram": 2147596504,
+    "evidence": "docs/scene-actions.md"
   }
 ]
