@@ -3236,5 +3236,31 @@
       "D_800953D4": 52
     },
     "evidence": "docs/renderer-supplied-matrix.md"
+  },
+  {
+    "source": "src/game/save_menus/option_records.c",
+    "object": "build/us/menu_options_records.o",
+    "input_section": ".bss",
+    "section": ".menu_options_records",
+    "vram": 2148200192,
+    "rom": null,
+    "size": 680,
+    "symbols": {
+      "D_800AEF00": 0
+    },
+    "evidence": "docs/save-menu-options.md"
+  },
+  {
+    "source": "src/game/save_menus/option_page.c",
+    "object": "build/us/menu_options_page.o",
+    "input_section": ".bss",
+    "section": ".menu_options_page",
+    "vram": 2148200872,
+    "rom": null,
+    "size": 48,
+    "symbols": {
+      "D_800AF1A8": 0
+    },
+    "evidence": "docs/save-menu-options.md"
   }
 ]

@@ -53,7 +53,7 @@ REGIONS = (
     ("cpu_after_save_menu_state_reset", 0x23924, 0x26288),
     ("cpu_after_save_menu_legacy_reset", 0x262b8, 0x262c0),
     ("cpu_after_save_menu_legacy_heap", 0x26308, 0x26310),
-    ("cpu_after_save_menu_nav_cleanup", 0x26d78, 0x271b8),
+    ("menu_options_fallback_26d78_26fe0", 0x26d78, 0x26fe0),
     ("endgame_273bc_27610", 0x273bc, 0x27610),
     ("endgame_2770c_284ac", 0x2770c, 0x284ac),
     ("endgame_28608_28610", 0x28608, 0x28610),

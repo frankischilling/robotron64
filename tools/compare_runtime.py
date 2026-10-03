@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("menu_options_define", "src/game/save_menus/define_options.c", 0x800263E0, 0x800265B8),
     ("renderer_object_glyph", "src/game/renderer_text/object_glyph.c", 0x8004A2B4, 0x8004A6B4),
     ("renderer_image_setup_rgba", "src/game/renderer_images/setup_rgba.c", 0x8004AFA4, 0x8004B098),
     ("renderer_image_setup_ci", "src/game/renderer_images/setup_ci.c", 0x8004ACA4, 0x8004AD64),

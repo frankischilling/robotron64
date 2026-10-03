@@ -1,5 +1,6 @@
 #include "../../include/object_draw.h"
 #include "../../include/renderer_object_glyph_internal.h"
+#include "../../include/menu_label_internal.h"
 
 extern unsigned char D_8007BF34[][4];
 extern void *D_800AEE9C;
@@ -9,7 +10,6 @@ extern unsigned char D_800772F0[];
 extern unsigned char D_80077BCC[];
 extern unsigned char D_80077B70[];
 extern unsigned char D_80076BD8[];
-extern unsigned char D_800AF1A8[];
 extern unsigned char D_8007726C[];
 extern unsigned char D_80076B70[];
 extern unsigned char D_80076BA4[];
@@ -34,7 +34,7 @@ int func_8003A778(unsigned int force, ObjectRecord *object)
         D_800AEE9C == D_80077BCC ||
         D_800AEE9C == D_80077B70 ||
         D_800AEE9C == D_80076BD8 ||
-        D_800AEE9C == D_800AF1A8 ||
+        D_800AEE9C == &D_800AF1A8 ||
         D_800AEE9C == D_8007726C ||
         D_800AEE9C == D_80076B70 ||
         D_800AEE9C == D_80076BA4 ||

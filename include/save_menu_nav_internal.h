@@ -5,6 +5,7 @@
 #include "object.h"
 #include "object_helpers.h"
 #include "save_game.h"
+#include "menu_label_internal.h"
 #include "text.h"
 
 typedef struct SaveMenuActorInternal {
@@ -77,7 +78,6 @@ extern unsigned char D_80077A8C[];
 extern unsigned char D_800772F0[];
 extern unsigned char D_8007751C[];
 extern unsigned char D_80092BF4[];
-extern unsigned char D_800AF1A8[];
 extern TextGlyphResource D_800B2218;
 extern float D_FLT_800938D0;
 
