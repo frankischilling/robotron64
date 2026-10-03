@@ -3196,5 +3196,31 @@
       "D_800ACD90": 0
     },
     "evidence": "docs/actor-group-path.md"
+  },
+  {
+    "source": "src/game/object_storage/records.c",
+    "object": "build/us/object_record_storage.o",
+    "input_section": ".bss",
+    "section": ".object_record_storage",
+    "vram": 2148268312,
+    "rom": null,
+    "size": 36000,
+    "symbols": {
+      "D_800BF918": 0
+    },
+    "evidence": "docs/actor-effect-draw.md"
+  },
+  {
+    "source": "src/game/object_storage/slots.c",
+    "object": "build/us/object_slot_storage.o",
+    "input_section": ".bss",
+    "section": ".object_slot_storage",
+    "vram": 2148304576,
+    "rom": null,
+    "size": 1200,
+    "symbols": {
+      "D_800C86C0": 0
+    },
+    "evidence": "docs/actor-effect-draw.md"
   }
 ]

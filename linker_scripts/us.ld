@@ -55,6 +55,7 @@ __initial_stack_top = 0x8013A280;
 D_800B1BE8 = 0x800B1BE8;
 D_8008F620 = 0x8008F620;
 func_8001C0D0 = 0x8001C0D0;
+func_80047A08 = 0x80047A08;
 
 D_8008F64C = 0x8008F64C;
 
@@ -64,7 +65,6 @@ D_8009EFA4 = 0x8009EFA4;
 func_80000F48 = 0x80000F48;
 
 
-D_800BF918 = 0x800BF918;
 D_FLT_80094C20 = 0x80094C20;
 D_FLT_80094C24 = 0x80094C24;
 D_FLT_80094C28 = 0x80094C28;
@@ -103,7 +103,7 @@ SECTIONS
     .cpu_after_movie_start 0x80004C3C : AT(0x583C) { build/us/fallback.o(.rom_cpu_after_movie_start) }
     .movie_status 0x80005354 : AT(0x5F54) SUBALIGN(4) { build/us/movie_status.o(.text) }
     .movie_cleanup 0x8000544C : AT(0x604C) SUBALIGN(4) { build/us/movie_cleanup.o(.text) }
-    .endgame_6160_6414 0x80005560 : AT(0x6160) { build/us/fallback.o(.rom_endgame_6160_6414) }
+    .actor_effect_draw 0x80005560 : AT(0x6160) SUBALIGN(4) { build/us/actor_effect_draw.o(.text) }
     .renderer_texture_index_draw 0x80005814 : AT(0x6414) SUBALIGN(4) { build/us/renderer_texture_index_draw.o(.text) }
     .endgame_64f0_69ec 0x800058F0 : AT(0x64F0) { build/us/fallback.o(.rom_endgame_64f0_69ec) }
     .early_signature_gate 0x80005DEC : AT(0x69EC) SUBALIGN(4) { build/us/early_signature_gate.o(.text) }
@@ -1472,6 +1472,8 @@ SECTIONS
     .palette_fade_color 0x8009E570 (NOLOAD) : SUBALIGN(4) { build/us/palette_fade_color.o(.bss) }
     .palette_fade_progress 0x8009E578 (NOLOAD) : SUBALIGN(4) { build/us/palette_fade_progress.o(.bss) }
     .palette_fade_step 0x8009E580 (NOLOAD) : SUBALIGN(4) { build/us/palette_fade_step.o(.bss) }
+    .object_record_storage 0x800BF918 (NOLOAD) : SUBALIGN(4) { build/us/object_record_storage.o(.bss) }
+    .object_slot_storage 0x800C86C0 (NOLOAD) : SUBALIGN(4) { build/us/object_slot_storage.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2559,7 +2561,6 @@ ASSERT(SIZEOF(.actor_dynamic_parameter_append) == 0xb8, "actor_dynamic_parameter
 ASSERT(SIZEOF(.renderer_texture_index_draw) == 0xdc, "renderer_texture_index_draw size changed")
 ASSERT(SIZEOF(.actor_behavior_counter_expire) == 0xb8, "actor_behavior_counter_expire size changed")
 ASSERT(SIZEOF(.actor_behavior_counter_expire_rodata) == 0x30, "actor_behavior_counter_expire_rodata size changed")
-ASSERT(SIZEOF(.endgame_6160_6414) == 0x2b4, "endgame_6160_6414 size changed")
 ASSERT(SIZEOF(.endgame_dab8_dac0) == 0x8, "endgame_dab8_dac0 size changed")
 ASSERT(SIZEOF(.endgame_4d9b4_4d9c0) == 0xc, "endgame_4d9b4_4d9c0 size changed")
 ASSERT(SIZEOF(.endgame_data_90ed4_90f70) == 0x9c, "endgame_data_90ed4_90f70 size changed")
@@ -3022,3 +3023,6 @@ ASSERT(SIZEOF(.palette_transition_storage) == 0x1450, "palette_transition_storag
 ASSERT(SIZEOF(.palette_fade_color) == 0x4, "palette_fade_color BSS size changed")
 ASSERT(SIZEOF(.palette_fade_progress) == 0x4, "palette_fade_progress BSS size changed")
 ASSERT(SIZEOF(.palette_fade_step) == 0x4, "palette_fade_step BSS size changed")
+ASSERT(SIZEOF(.actor_effect_draw) == 0x2b4, "actor_effect_draw size changed")
+ASSERT(SIZEOF(.object_record_storage) == 0x8ca0, "object_record_storage size changed")
+ASSERT(SIZEOF(.object_slot_storage) == 0x4b0, "object_slot_storage size changed")
