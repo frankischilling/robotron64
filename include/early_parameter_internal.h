@@ -24,7 +24,7 @@ void func_8000E108(int index, ActorDynamicFirstGroup *group,
 void func_8000E328(void);
 void func_8000E3B4(void);
 int func_8000E4F0(int index);
-void func_8000E894(EarlyGameActor *actor);
+void func_8000E894(EarlyGameActor *actor, int unused);
 void func_8000EAF8(EarlyGameActor *actor, SceneBucketCounter *counter);
 
 #endif
