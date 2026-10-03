@@ -52,7 +52,8 @@ typedef struct GameSessionState {
     int value4C;
     unsigned char unknown50[4];
     int parameterIndex54;
-    unsigned char unknown58[0x10];
+    int value58;
+    unsigned char unknown5C[0xC];
     unsigned int timestamp68;
     int parameterStart6C;
     unsigned char unknown70[0x10];

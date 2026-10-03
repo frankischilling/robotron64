@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("actor_collision_impact", "src/game/collisions/impact.c", 0x80016C1C, 0x80017364),
     ("actor_group_rotate", "src/game/actor_groups/rotate.c", 0x8000E720, 0x8000E894),
     ("actor_collision_rebound", "src/game/collisions/rebound.c", 0x8001631C, 0x80016618),
     ("actor_collision_retire", "src/game/collisions/retire.c", 0x8001B4F8, 0x8001B7D0),
