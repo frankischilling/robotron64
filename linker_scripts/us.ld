@@ -204,7 +204,9 @@ SECTIONS
     .actor_collision_score_result 0x80017E50 : AT(0x18A50) SUBALIGN(4) { build/us/actor_collision_score_result.o(.text) }
     .endgame_18b9c_198c8 0x80017F9C : AT(0x18B9C) { build/us/fallback.o(.rom_endgame_18b9c_198c8) }
     .actor_collision_separate 0x80018CC8 : AT(0x198C8) SUBALIGN(4) { build/us/actor_collision_separate.o(.text) }
-    .endgame_19a1c_1aa40 0x80018E1C : AT(0x19A1C) { build/us/fallback.o(.rom_endgame_19a1c_1aa40) }
+    .boundary_fallback_19a1c_19cf8 0x80018E1C : AT(0x19A1C) { build/us/fallback.o(.rom_boundary_fallback_19a1c_19cf8) }
+    .boundary_dispatch 0x800190F8 : AT(0x19CF8) SUBALIGN(4) { build/us/boundary_dispatch.o(.text) }
+    .boundary_fallback_1a0dc_1aa40 0x800194DC : AT(0x1A0DC) { build/us/fallback.o(.rom_boundary_fallback_1a0dc_1aa40) }
     .collision_dispatch_initialize 0x80019E40 : AT(0x1AA40) SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.text) }
     .endgame_1ad68_1ad70 0x8001A168 : AT(0x1AD68) { build/us/fallback.o(.rom_endgame_1ad68_1ad70) }
     .early_pointer_state 0x8001A170 : AT(0x1AD70) SUBALIGN(4) { build/us/early_pointer_state.o(.text) }
@@ -607,7 +609,7 @@ SECTIONS
     .cpu_after_model_vertices_scatter 0x800400C4 : AT(0x40CC4) { build/us/fallback.o(.rom_cpu_after_model_vertices_scatter) }
     .model_framebuffer_copy 0x800404F4 : AT(0x410F4) SUBALIGN(4) { build/us/model_framebuffer_copy.o(.text) }
     .model_framebuffer_draw 0x80040560 : AT(0x41160) SUBALIGN(4) { build/us/model_framebuffer_draw.o(.text) }
-    .cpu_after_model_framebuffer_draw 0x80040724 : AT(0x41324) { build/us/fallback.o(.rom_cpu_after_model_framebuffer_draw) }
+    .model_framebuffer_strip 0x80040724 : AT(0x41324) SUBALIGN(4) { build/us/model_framebuffer_strip.o(.text) }
     .model_framebuffer_texture 0x80040874 : AT(0x41474) SUBALIGN(4) { build/us/model_framebuffer_texture.o(.text) }
     .endgame_41568_43430 0x80040968 : AT(0x41568) { build/us/fallback.o(.rom_endgame_41568_43430) }
     .renderer_texture_file_cache 0x80042830 : AT(0x43430) SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.text) }
@@ -768,7 +770,7 @@ SECTIONS
     .endgame_53c3c_5422c 0x8005303C : AT(0x53C3C) { build/us/fallback.o(.rom_endgame_53c3c_5422c) }
     .audio_voice_defaults 0x8005362C : AT(0x5422C) SUBALIGN(4) { build/us/audio_voice_defaults.o(.text) }
     .audio_voice_sequence_bind 0x800538F8 : AT(0x544F8) SUBALIGN(4) { build/us/audio_voice_sequence_bind.o(.text) }
-    .endgame_5456c_54850 0x8005396C : AT(0x5456C) { build/us/fallback.o(.rom_endgame_5456c_54850) }
+    .audio_instance_allocate 0x8005396C : AT(0x5456C) SUBALIGN(4) { build/us/audio_instance_allocate.o(.text) }
     .audio_play 0x80053C50 : AT(0x54850) SUBALIGN(4) { build/us/audio_play.o(.text) }
     .audio_instance_state_query 0x80053CC0 : AT(0x548C0) SUBALIGN(4) { build/us/audio_instance_state_query.o(.text) }
     .audio_instance_stop 0x80053DAC : AT(0x549AC) SUBALIGN(4) { build/us/audio_instance_stop.o(.text) }
@@ -920,7 +922,7 @@ SECTIONS
     .audio_backend_note_release 0x8005CBB4 : AT(0x5D7B4) SUBALIGN(4) { build/us/audio_backend_note_release.o(.text) }
     .after_audio_backend_note_release 0x8005CCBC : AT(0x5D8BC) { build/us/fallback.o(.rom_after_audio_backend_note_release) }
     .audio_file_services 0x8005CCC0 : AT(0x5D8C0) SUBALIGN(4) { build/us/audio_file_services.o(.text) }
-    .after_audio_file_services 0x8005CE0C : AT(0x5DA0C) { build/us/fallback.o(.rom_after_audio_file_services) }
+    .audio_sequence_data_load 0x8005CE0C : AT(0x5DA0C) SUBALIGN(4) { build/us/audio_sequence_data_load.o(.text) }
     .audio_sequence_table_size 0x8005D220 : AT(0x5DE20) SUBALIGN(4) { build/us/audio_sequence_table_size.o(.text) }
     .audio_sequence_table_load 0x8005D2E4 : AT(0x5DEE4) SUBALIGN(4) { build/us/audio_sequence_table_load.o(.text) }
     .audio_sequence_table_close 0x8005D4A4 : AT(0x5E0A4) SUBALIGN(4) { build/us/audio_sequence_table_close.o(.text) }
@@ -1254,7 +1256,11 @@ SECTIONS
     .controller_motor_strength_data 0x8008D510 : AT(0x8E110) SUBALIGN(4) { build/us/controller_motor_strength.o(.data) }
     .controller_fallback_8e114_8e468 0x8008D514 : AT(0x8E114) { build/us/fallback.o(.rom_controller_fallback_8e114_8e468) }
     .audio_timing_data_data 0x8008D868 : AT(0x8E468) SUBALIGN(4) { build/us/audio_timing_data.o(.data) }
-    .input_stream_fallback_8e478_8e640 0x8008D878 : AT(0x8E478) { build/us/fallback.o(.rom_input_stream_fallback_8e478_8e640) }
+    .audio_commands_fallback_8e478_8e4d0 0x8008D878 : AT(0x8E478) { build/us/fallback.o(.rom_audio_commands_fallback_8e478_8e4d0) }
+    .audio_command_lengths 0x8008D8D0 : AT(0x8E4D0) SUBALIGN(4) { build/us/audio_command_lengths.o(.data) }
+    .audio_commands_fallback_8e4f4_8e520 0x8008D8F4 : AT(0x8E4F4) { build/us/fallback.o(.rom_audio_commands_fallback_8e4f4_8e520) }
+    .audio_engine_command_table 0x8008D920 : AT(0x8E520) SUBALIGN(4) { build/us/audio_engine_command_table.o(.data) }
+    .audio_commands_fallback_8e5b0_8e640 0x8008D9B0 : AT(0x8E5B0) { build/us/fallback.o(.rom_audio_commands_fallback_8e5b0_8e640) }
     .compression_workspace_data 0x8008DA40 : AT(0x8E640) SUBALIGN(4) { build/us/compression_workspace.o(.data) }
     .short_sine_data 0x8008DBB0 : AT(0x8E7B0) SUBALIGN(4) { build/us/short_sine.o(.data) }
     .initialize_data 0x8008E3B0 : AT(0x8EFB0) SUBALIGN(4) { build/us/initialize.o(.data) }
@@ -1294,7 +1300,8 @@ SECTIONS
     .boss_fallback_90588_9078c 0x8008F988 : AT(0x90588) { build/us/fallback.o(.rom_boss_fallback_90588_9078c) }
     .early_boss_error 0x8008FB8C : AT(0x9078C) SUBALIGN(4) { build/us/early_boss_create.o(.rodata) }
     .early_actor_movement_switch 0x8008FBA4 : AT(0x907A4) SUBALIGN(4) { build/us/early_actor_movement.o(.rodata) }
-    .movement_fallback_907bc_90a04 0x8008FBBC : AT(0x907BC) { build/us/fallback.o(.rom_movement_fallback_907bc_90a04) }
+    .movement_fallback_907bc_909e0 0x8008FBBC : AT(0x907BC) { build/us/fallback.o(.rom_movement_fallback_907bc_909e0) }
+    .boundary_dispatch_message 0x8008FDE0 : AT(0x909E0) SUBALIGN(4) { build/us/boundary_dispatch.o(.data) }
     .actor_pickup_dispatch 0x8008FE04 : AT(0x90A04) SUBALIGN(4) { build/us/actor_pickup.o(.rodata) }
     .collision_fallback_90a44_90a64 0x8008FE44 : AT(0x90A44) { build/us/fallback.o(.rom_collision_fallback_90a44_90a64) }
     .actor_collision_response_gate_switch 0x8008FE64 : AT(0x90A64) SUBALIGN(4) { build/us/actor_collision_response_gate.o(.rodata) }
@@ -1304,7 +1311,8 @@ SECTIONS
     .actor_collision_impact_switch 0x8008FFAC : AT(0x90BAC) SUBALIGN(4) { build/us/actor_collision_impact.o(.rodata) }
     .collision_fallback_90c38_90c98 0x80090038 : AT(0x90C38) { build/us/fallback.o(.rom_collision_fallback_90c38_90c98) }
     .actor_collision_death_result_rodata 0x80090098 : AT(0x90C98) SUBALIGN(4) { build/us/actor_collision_death_result.o(.rodata) }
-    .endgame_data_90cac_90d3c 0x800900AC : AT(0x90CAC) { build/us/fallback.o(.rom_endgame_data_90cac_90d3c) }
+    .boundary_dispatch_rodata 0x800900AC : AT(0x90CAC) SUBALIGN(4) { build/us/boundary_dispatch.o(.rodata) }
+    .boundary_fallback_90d38_90d3c 0x80090138 : AT(0x90D38) { build/us/fallback.o(.rom_boundary_fallback_90d38_90d3c) }
     .collision_dispatch_initialize_strings 0x8009013C : AT(0x90D3C) SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.rodata) }
     .collision_fallback_90d9c_90e00 0x8009019C : AT(0x90D9C) { build/us/fallback.o(.rom_collision_fallback_90d9c_90e00) }
     .actor_collision_retirement_message 0x80090200 : AT(0x90E00) SUBALIGN(4) { build/us/actor_collision_retirement_message.o(.rodata) }
@@ -1912,7 +1920,7 @@ ASSERT(SIZEOF(.model_vertices_scatter) == 0xb8, "model_vertices_scatter size cha
 ASSERT(SIZEOF(.cpu_after_model_vertices_scatter) == 0x430, "cpu_after_model_vertices_scatter size changed")
 ASSERT(SIZEOF(.model_framebuffer_copy) == 0x6c, "model_framebuffer_copy size changed")
 ASSERT(SIZEOF(.model_framebuffer_draw) == 0x1c4, "model_framebuffer_draw size changed")
-ASSERT(SIZEOF(.cpu_after_model_framebuffer_draw) == 0x150, "cpu_after_model_framebuffer_draw size changed")
+ASSERT(SIZEOF(.model_framebuffer_strip) == 0x150, "model_framebuffer_strip size changed")
 ASSERT(SIZEOF(.model_framebuffer_texture) == 0xf4, "model_framebuffer_texture size changed")
 ASSERT(SIZEOF(.renderer_vertex_attributes) == 0x438, "renderer_vertex_attributes size changed")
 ASSERT(SIZEOF(.renderer_material_texture) == 0x118, "renderer_material_texture size changed")
@@ -2151,7 +2159,7 @@ ASSERT(SIZEOF(.audio_backend_allocate) == 0x23c, "audio_backend_allocate size ch
 ASSERT(SIZEOF(.audio_backend_note_release) == 0x108, "audio_backend_note_release size changed")
 ASSERT(SIZEOF(.after_audio_backend_note_release) == 0x4, "after_audio_backend_note_release size changed")
 ASSERT(SIZEOF(.audio_file_services) == 0x14c, "audio_file_services size changed")
-ASSERT(SIZEOF(.after_audio_file_services) == 0x414, "after_audio_file_services size changed")
+ASSERT(SIZEOF(.audio_sequence_data_load) == 0x414, "audio_sequence_data_load size changed")
 ASSERT(SIZEOF(.audio_sequence_table_size) == 0xc4, "audio_sequence_table_size size changed")
 ASSERT(SIZEOF(.audio_sequence_table_load) == 0x1c0, "audio_sequence_table_load size changed")
 ASSERT(SIZEOF(.audio_sequence_table_close) == 0x24, "audio_sequence_table_close size changed")
@@ -2451,7 +2459,7 @@ ASSERT(SIZEOF(.os_invalidate_instruction_cache) == 0x80, "os_invalidate_instruct
 ASSERT(SIZEOF(.os_invalidate_data_cache) == 0xb0, "os_invalidate_data_cache size changed")
 ASSERT(SIZEOF(.os_block_clear) == 0xa0, "os_block_clear size changed")
 ASSERT(SIZEOF(.os_interrupt_mask) == 0xa0, "os_interrupt_mask size changed")
-ASSERT(SIZEOF(.endgame_5456c_54850) == 0x2e4, "endgame_5456c_54850 size changed")
+ASSERT(SIZEOF(.audio_instance_allocate) == 0x2e4, "audio_instance_allocate size changed")
 ASSERT(SIZEOF(.endgame_65dec_65df0) == 0x4, "endgame_65dec_65df0 size changed")
 ASSERT(SIZEOF(.endgame_66384_66390) == 0xc, "endgame_66384_66390 size changed")
 ASSERT(SIZEOF(.sp_task_physical) == 0x11c, "sp_task_physical size changed")
@@ -2815,9 +2823,12 @@ ASSERT(SIZEOF(.endgame_data_968a8_968b0) == 0x8, "endgame_data_968a8_968b0 size 
 ASSERT(SIZEOF(.endgame_data_968b8_968c4) == 0xc, "endgame_data_968b8_968c4 size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize) == 0x328, "collision_dispatch_initialize size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize_strings) == 0x60, "collision_dispatch_initialize_strings size changed")
-ASSERT(SIZEOF(.endgame_19a1c_1aa40) == 0x1024, "endgame_19a1c_1aa40 size changed")
+ASSERT(SIZEOF(.boundary_fallback_19a1c_19cf8) == 0x2dc, "boundary_fallback_19a1c_19cf8 size changed")
+ASSERT(SIZEOF(.boundary_dispatch) == 0x3e4, "boundary_dispatch size changed")
+ASSERT(SIZEOF(.boundary_fallback_1a0dc_1aa40) == 0x964, "boundary_fallback_1a0dc_1aa40 size changed")
 ASSERT(SIZEOF(.endgame_1ad68_1ad70) == 0x8, "endgame_1ad68_1ad70 size changed")
-ASSERT(SIZEOF(.endgame_data_90cac_90d3c) == 0x90, "endgame_data_90cac_90d3c size changed")
+ASSERT(SIZEOF(.boundary_dispatch_rodata) == 0x8c, "boundary_dispatch_rodata size changed")
+ASSERT(SIZEOF(.boundary_fallback_90d38_90d3c) == 0x4, "boundary_fallback_90d38_90d3c size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize_bss) == 0x190, "collision callback table size changed")
 func_8001567C = 0x8001567C;
 func_8001669C = 0x8001669C;
@@ -2870,7 +2881,11 @@ ASSERT(SIZEOF(.early_input_counter_data_bss) == 0x38, "early_input_counter_data 
 ASSERT(SIZEOF(.early_input_sequence_data_bss) == 0x188, "early_input_sequence_data BSS size changed")
 ASSERT(SIZEOF(.early_input_fixed_data_data) == 0x40, "early_input_fixed_data_data size changed")
 ASSERT(SIZEOF(.audio_timing_data_data) == 0x10, "audio_timing_data_data size changed")
-ASSERT(SIZEOF(.input_stream_fallback_8e478_8e640) == 0x1c8, "input_stream_fallback_8e478_8e640 size changed")
+ASSERT(SIZEOF(.audio_commands_fallback_8e478_8e4d0) == 0x58, "audio_commands_fallback_8e478_8e4d0 size changed")
+ASSERT(SIZEOF(.audio_command_lengths) == 0x24, "audio_command_lengths size changed")
+ASSERT(SIZEOF(.audio_commands_fallback_8e4f4_8e520) == 0x2c, "audio_commands_fallback_8e4f4_8e520 size changed")
+ASSERT(SIZEOF(.audio_engine_command_table) == 0x90, "audio_engine_command_table size changed")
+ASSERT(SIZEOF(.audio_commands_fallback_8e5b0_8e640) == 0x90, "audio_commands_fallback_8e5b0_8e640 size changed")
 ASSERT(SIZEOF(.render_stream_fallback_af88_bc6c) == 0xce4, "render_stream_fallback_af88_bc6c size changed")
 ASSERT(SIZEOF(.early_render_quad) == 0x178, "early_render_quad size changed")
 ASSERT(SIZEOF(.render_stream_fallback_bde4_c564) == 0x780, "render_stream_fallback_bde4_c564 size changed")
@@ -3060,7 +3075,8 @@ ASSERT(SIZEOF(.movement_fallback_113a0_1163c) == 0x29c, "movement_fallback_113a0
 ASSERT(SIZEOF(.early_actor_movement) == 0x5ec, "early_actor_movement size changed")
 ASSERT(SIZEOF(.movement_fallback_11c28_13290) == 0x1668, "movement_fallback_11c28_13290 size changed")
 ASSERT(SIZEOF(.early_actor_movement_switch) == 0x18, "early_actor_movement_switch size changed")
-ASSERT(SIZEOF(.movement_fallback_907bc_90a04) == 0x248, "movement_fallback_907bc_90a04 size changed")
+ASSERT(SIZEOF(.movement_fallback_907bc_909e0) == 0x224, "movement_fallback_907bc_909e0 size changed")
+ASSERT(SIZEOF(.boundary_dispatch_message) == 0x24, "boundary_dispatch_message size changed")
 ASSERT(SIZEOF(.actor_collision_response_gate) == 0x308, "actor_collision_response_gate size changed")
 ASSERT(SIZEOF(.collision_fallback_90a44_90a64) == 0x20, "collision_fallback_90a44_90a64 size changed")
 ASSERT(SIZEOF(.actor_collision_response_gate_switch) == 0x84, "actor_collision_response_gate_switch size changed")

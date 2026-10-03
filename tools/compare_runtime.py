@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("boundary_dispatch", "src/game/actor_groups/boundary_dispatch.c", 0x800190F8, 0x800194DC),
     ("actor_collision_impact", "src/game/collisions/impact.c", 0x80016C1C, 0x80017364),
     ("actor_group_rotate", "src/game/actor_groups/rotate.c", 0x8000E720, 0x8000E894),
     ("actor_collision_rebound", "src/game/collisions/rebound.c", 0x8001631C, 0x80016618),
@@ -360,6 +361,7 @@ MATCHING_BLOCKS = (
     ("model_framebuffer_copy", "src/game/model_framebuffer_copy.c", 0x800404F4, 0x80040560),
     ("model_framebuffer_draw", "src/game/model_framebuffer_draw.c", 0x80040560, 0x80040724),
     ("model_framebuffer_texture", "src/game/model_framebuffer_texture.c", 0x80040874, 0x80040968),
+    ("model_framebuffer_strip", "src/game/model_framebuffer_strip.c", 0x80040724, 0x80040874),
     ("renderer_vertex_attributes", "src/game/renderer_vertex_attributes.c", 0x80043930, 0x80043D68),
     ("renderer_material_texture", "src/game/renderer_material_texture.c", 0x80043D68, 0x80043E80),
     ("renderer_material_light", "src/game/renderer_material_light.c", 0x80043E80, 0x80043EEC),
@@ -552,6 +554,7 @@ MATCHING_BLOCKS = (
     ("audio_backend_decay", "src/game/audio_backend_decay.c", 0x8005C684, 0x8005C7F8),
     ("audio_backend_allocate", "src/game/audio_backend_allocate.c", 0x8005C7F8, 0x8005CA34),
     ("audio_file_services", "src/game/audio_file_services.c", 0x8005CCC0, 0x8005CE0C),
+    ("audio_sequence_data_load", "src/game/audio_sequence_data_load.c", 0x8005CE0C, 0x8005D220),
     ("audio_sequence_table_size", "src/game/audio_sequence_table_size.c", 0x8005D220, 0x8005D2E4),
     ("audio_sequence_table_load", "src/game/audio_sequence_table_load.c", 0x8005D2E4, 0x8005D4A4),
     ("audio_sequence_table_close", "src/game/audio_sequence_table_close.c", 0x8005D4A4, 0x8005D4C8),
@@ -728,6 +731,7 @@ MATCHING_BLOCKS = (
     ("sine_float", "src/sdk/sine_float.c", 0x80063230, 0x800633F0),
     ("cosine_float", "src/sdk/cosine_float.c", 0x800633F0, 0x80063558),
     ("audio_voice_sequence_bind", "src/game/audio_voice_sequence_bind.c", 0x800538F8, 0x8005396C),
+    ("audio_instance_allocate", "src/game/audio_instance_allocate.c", 0x8005396C, 0x80053C50),
     ("render_buffer_reserve", "src/game/render_buffer_reserve.c", 0x8004BBD0, 0x8004BC44),
     ("sp_task_physical", "src/sdk/sp_task_physical.c", 0x80065330, 0x8006544C),
     ("sp_task_load", "src/sdk/sp_task_load.c", 0x8006544C, 0x800655DC),

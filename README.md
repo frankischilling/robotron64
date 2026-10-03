@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,384 matching C functions covering 274,480 bytes, twenty-nine assembly functions covering 4,372 bytes, 30,311 bytes of source-owned initialized data, and 504,115 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,388 matching C functions covering 277,596 bytes, twenty-nine assembly functions covering 4,372 bytes, 30,667 bytes of source-owned initialized data, and 504,115 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,21 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Audio allocation and command tables](docs/audio-allocation-and-commands.md)
+recover the complete 740-byte instance allocator, the 1,044-byte sequence data
+loader, 36 command lengths and 36 typed dispatch pointers. The allocator's
+MIPS checker verifies 354 allocation cases, including partial pools, paused
+flags and byte-counter wrap. The [loader checker](docs/audio-sequence-data-load.md)
+verifies another 526 cases covering I/O failures, alignment and signed label counts.
+
+[Actor boundary dispatch](docs/actor-boundary-dispatch.md) recovers the
+complete 996-byte procedure, 35 relocated switch entries and its diagnostic
+string. Its checker verifies 5,889 guarded actor and player cases.
+
+[Framebuffer strips](docs/model-framebuffer-strip.md) recover the complete
+336-byte renderer. Its checker verifies 416 cases using the compiled vertex,
+texture and quad callees.
 
 [Collision impact](docs/actor-collision-impact.md) recovers the complete
 1,864-byte handler, its generated switch table and 36 RGB triples. The optional

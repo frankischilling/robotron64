@@ -3434,5 +3434,55 @@
       "D_80073950": 0
     },
     "evidence": "docs/actor-collision-impact.md"
+  },
+  {
+    "source": "src/game/audio_command_lengths.c",
+    "object": "build/us/audio_command_lengths.o",
+    "input_section": ".data",
+    "section": ".audio_command_lengths",
+    "vram": 2148063440,
+    "rom": 582864,
+    "size": 36,
+    "symbols": {
+      "D_8008D8D0": 0
+    },
+    "evidence": "docs/audio-allocation-and-commands.md"
+  },
+  {
+    "source": "src/game/audio_engine_command_table.c",
+    "object": "build/us/audio_engine_command_table.o",
+    "input_section": ".data",
+    "section": ".audio_engine_command_table",
+    "vram": 2148063520,
+    "rom": 582944,
+    "size": 144,
+    "symbols": {
+      "D_8008D920": 0
+    },
+    "evidence": "docs/audio-allocation-and-commands.md"
+  },
+  {
+    "source": "src/game/actor_groups/boundary_dispatch.c",
+    "object": "build/us/boundary_dispatch.o",
+    "input_section": ".rodata",
+    "section": ".boundary_dispatch_rodata",
+    "vram": 2148073644,
+    "rom": 593068,
+    "size": 140,
+    "symbols": {},
+    "evidence": "docs/actor-boundary-dispatch.md"
+  },
+  {
+    "source": "src/game/actor_groups/boundary_dispatch.c",
+    "object": "build/us/boundary_dispatch.o",
+    "input_section": ".data",
+    "section": ".boundary_dispatch_message",
+    "vram": 2148072928,
+    "rom": 592352,
+    "size": 36,
+    "symbols": {
+      "D_8008FDE0": 0
+    },
+    "evidence": "docs/actor-boundary-dispatch.md"
   }
 ]
