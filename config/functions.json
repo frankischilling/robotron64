@@ -15403,5 +15403,27 @@
     "section": ".renderer_matrix_scale",
     "section_vram": 2147777032,
     "evidence": "docs/renderer-supplied-matrix.md"
+  },
+  {
+    "name": "func_8004ACA4",
+    "rom": 309412,
+    "vram": 2147789988,
+    "size": 192,
+    "source": "src/game/renderer_images/setup_ci.c",
+    "object": "build/us/renderer_image_setup_ci.o",
+    "section": ".renderer_image_setup_ci",
+    "section_vram": 2147789988,
+    "evidence": "docs/renderer-image-setup.md"
+  },
+  {
+    "name": "func_8004AFA4",
+    "rom": 310180,
+    "vram": 2147790756,
+    "size": 244,
+    "source": "src/game/renderer_images/setup_rgba.c",
+    "object": "build/us/renderer_image_setup_rgba.o",
+    "section": ".renderer_image_setup_rgba",
+    "section_vram": 2147790756,
+    "evidence": "docs/renderer-image-setup.md"
   }
 ]

@@ -1,21 +1,21 @@
 # Fan, prism, and image setup recovery
 
-Five complete C candidates reconstruct two seven-sided fans, a twelve-vertex
-prism, and the setup wrappers for indexed and RGBA image squares. They remain
-excluded from the matching build. Their 4,164 retail instruction bytes still
-come from extracted fallback.
+Three complete C candidates reconstruct two seven-sided fans and a twelve-vertex
+prism. They remain excluded from the matching build. Their 3,728 retail
+instruction bytes still come from extracted fallback. The indexed and RGBA
+image setup wrappers now match all 436 bytes; see
+[image setup recovery](renderer-image-setup.md).
 
 | Procedure | Retail range | Retail bytes | Compiled bytes | Differing words |
 | --- | --- | ---: | ---: | ---: |
 | `func_8000BEC0` | `0x8000BEC0..0x8000C2F4` | 1,076 | 1,008 | 241 |
 | `func_8000C2F4` | `0x8000C2F4..0x8000C75C` | 1,128 | 1,056 | 261 |
 | `func_8000C75C` | `0x8000C75C..0x8000CD50` | 1,524 | 1,472 | 326 |
-| `func_8004ACA4` | `0x8004ACA4..0x8004AD64` | 192 | 192 | 4 |
-| `func_8004AFA4` | `0x8004AFA4..0x8004B098` | 244 | 244 | 4 |
 
 The source owns 24 additional initialized bytes and twelve additional BSS
 bytes. These sections pass complete byte, symbol-offset, size, and placement
-checks. They contribute no new matching instructions.
+checks. Those data sections contributed no matching instructions at the
+original candidate checkpoint.
 
 ## Seven-sided fans
 
@@ -90,14 +90,13 @@ before selecting mode fifteen and restoring texture defaults. It emits the
 additional zero texture-filter field and `0xB900031D / 0x00553078` render-mode
 packet, sets alpha to 128, and calls the matching RGBA square with extent forty.
 
-Both wrappers reproduce every instruction except the stack allocation,
-incoming-argument store, later argument reload, and stack restoration. The
-indexed retail frame is 120 bytes versus 96 compiled bytes. The RGBA retail
-frame is 128 versus 104. All local field offsets, calls, commands, and their
-order match. This suggests that the full original local draw type or other
-local storage is larger than the currently established 60-byte draw prefix.
-It does not prove a larger structure layout. No unused local storage or type
-padding has been added to force these four words to match.
+The earlier wrappers differed only in stack allocation, incoming-argument
+storage, argument reload, and stack restoration. The indexed candidate used
+96 bytes instead of 120; RGBA used 104 instead of 128. Six used renderer/image
+constants now reproduce both frames with the existing 60-byte draw structure.
+The earlier differences did not prove a larger structure. The complete
+matching wrappers have moved to `src/game/renderer_images/`; their current
+comparison and execution evidence is in [image setup recovery](renderer-image-setup.md).
 
 The five initialized placement words at `0x8008CB24..0x8008CB38` are integers
 zero, zero, 255, float 0.25, and integer four. The three projected-position
