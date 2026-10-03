@@ -15381,5 +15381,16 @@
     "section": ".actor_group_setup",
     "section_vram": 2147541256,
     "evidence": "docs/actor-group-setup.md"
+  },
+  {
+    "name": "func_80005560",
+    "rom": 24928,
+    "vram": 2147505504,
+    "size": 692,
+    "source": "src/game/actor_effects/draw.c",
+    "object": "build/us/actor_effect_draw.o",
+    "section": ".actor_effect_draw",
+    "section_vram": 2147505504,
+    "evidence": "docs/actor-effect-draw.md"
   }
 ]

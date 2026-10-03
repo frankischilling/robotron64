@@ -42,8 +42,8 @@ count locals represent the actual three- and five-attempt bounds.
 
 The subsequent [callback return audit](palette-fade-and-callback-returns.md)
 corrects the installed interface to `int(EarlyGameActor *)`: the object loop
-consumes its result. The unrecovered renderer body remains in fallback, and
-its private reconstruction still differs in two frame-size instructions.
+consumes its result. The complete renderer body is recovered in the later
+[effect drawing and object storage checkpoint](actor-effect-draw.md).
 The early and dispatcher parameter views remain incompatible ISO C types;
 the audit records the retained historical ABI assumption.
 

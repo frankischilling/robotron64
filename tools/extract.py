@@ -10,7 +10,6 @@ REGIONS = (
     ("text_replacement", 0x1b48, 0x1dac),
     ("endgame_237c_3970", 0x237c, 0x3970),
     ("cpu_after_movie_start", 0x583c, 0x5f54),
-    ("endgame_6160_6414", 0x6160, 0x6414),
     ("endgame_64f0_69ec", 0x64f0, 0x69ec),
     ("endgame_6a80_ab58", 0x6a80, 0xab58),
     ("render_stream_fallback_af88_bc6c", 0xaf88, 0xbc6c),

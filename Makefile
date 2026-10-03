@@ -7159,6 +7159,30 @@ build/us/actor_child_counts.o: src/game/actor_groups/child_counts.c $(IDO) Makef
 
 RUNTIME_OBJECTS += build/us/actor_child_resources.o build/us/actor_child_counts.o
 
+build/us/actor_effect_draw.o: src/game/actor_effects/draw.c include/actor.h include/actor_behavior_internal.h include/actor_resource_internal.h include/debug_output.h include/early_game_state.h include/effect_draw_config_internal.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_texture_index.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_effect_draw.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_effect_draw.raw.o $@ .text 0x2b4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_effect_draw.o
+
+build/us/object_record_storage.o: src/game/object_storage/records.c include/object.h $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_record_storage.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/object_record_storage.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/object_record_storage.o
+
+build/us/object_slot_storage.o: src/game/object_storage/slots.c include/object_helpers.h $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_slot_storage.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/object_slot_storage.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/object_slot_storage.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

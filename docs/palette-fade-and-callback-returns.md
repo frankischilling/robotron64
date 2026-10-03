@@ -53,8 +53,8 @@ and first-argument type differ, so these are incompatible ISO C function
 types. A cast cannot make an incompatible indirect call portable. The current
 decompilation retains the historical N64 ABI and partial actor/resource views;
 recovering a compatible interface throughout this family remains open.
-The private `80005560..80005814` candidate still differs in two frame-size
-instructions and receives no matching credit.
+The later [effect drawing checkpoint](actor-effect-draw.md) recovers all
+692 bytes at `80005560..80005814`, including the frame and return sequence.
 
 ## Verification and remaining work
 

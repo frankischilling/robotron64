@@ -640,3 +640,10 @@ initialized/NOLOAD separation described in the Majora's Mask reference study.
 The optional Unicorn checkers execute freshly matched arithmetic support and
 numerical tables. Robotron's original instructions establish callback behavior
 and storage extents; no reference game implementation was copied.
+
+Actor effect drawing and object storage follow the local SM64 pinned IDO
+matching workflow and Majora's Mask NOLOAD specification. Robotron's retail
+allocator, reset routines and renderer establish the 300-record pool, 300
+slot integers, effect search and matrix paths. The optional Unicorn checker
+executes the matching callback and fixed-matrix helpers. No reference game
+implementation was copied into these sources.
