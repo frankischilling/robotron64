@@ -3340,5 +3340,16 @@
       "D_80073588": 0
     },
     "evidence": "docs/boss-trigger.md"
+  },
+  {
+    "source": "src/game/actor_groups/movement.c",
+    "object": "build/us/early_actor_movement.o",
+    "input_section": ".rodata",
+    "section": ".early_actor_movement_switch",
+    "vram": 2148072356,
+    "rom": 591780,
+    "size": 24,
+    "symbols": {},
+    "evidence": "docs/actor-movement.md"
   }
 ]

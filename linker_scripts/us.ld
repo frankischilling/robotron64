@@ -168,7 +168,9 @@ SECTIONS
     .early_actor_decision 0x8000FBC0 : AT(0x107C0) SUBALIGN(4) { build/us/early_actor_decision.o(.text) }
     .early_reset_parameter 0x80010460 : AT(0x11060) SUBALIGN(4) { build/us/early_reset_parameter.o(.text) }
     .early_boss_create 0x8001049C : AT(0x1109C) SUBALIGN(4) { build/us/early_boss_create.o(.text) }
-    .boss_fallback_113a0_13290 0x800107A0 : AT(0x113A0) { build/us/fallback.o(.rom_boss_fallback_113a0_13290) }
+    .movement_fallback_113a0_1163c 0x800107A0 : AT(0x113A0) { build/us/fallback.o(.rom_movement_fallback_113a0_1163c) }
+    .early_actor_movement 0x80010A3C : AT(0x1163C) SUBALIGN(4) { build/us/early_actor_movement.o(.text) }
+    .movement_fallback_11c28_13290 0x80011028 : AT(0x11C28) { build/us/fallback.o(.rom_movement_fallback_11c28_13290) }
     .early_float_step 0x80012690 : AT(0x13290) SUBALIGN(4) { build/us/early_float_step.o(.text) }
     .session_selection_lookup 0x800126E0 : AT(0x132E0) SUBALIGN(4) { build/us/session_selection_lookup.o(.text) }
     .early_selection_state 0x8001276C : AT(0x1336C) SUBALIGN(4) { build/us/early_selection_state.o(.text) }
@@ -1285,7 +1287,8 @@ SECTIONS
     .early_render_handler_select_rodata 0x8008F974 : AT(0x90574) SUBALIGN(4) { build/us/early_render_handler_select.o(.rodata) }
     .boss_fallback_90588_9078c 0x8008F988 : AT(0x90588) { build/us/fallback.o(.rom_boss_fallback_90588_9078c) }
     .early_boss_error 0x8008FB8C : AT(0x9078C) SUBALIGN(4) { build/us/early_boss_create.o(.rodata) }
-    .boss_fallback_907a4_90a04 0x8008FBA4 : AT(0x907A4) { build/us/fallback.o(.rom_boss_fallback_907a4_90a04) }
+    .early_actor_movement_switch 0x8008FBA4 : AT(0x907A4) SUBALIGN(4) { build/us/early_actor_movement.o(.rodata) }
+    .movement_fallback_907bc_90a04 0x8008FBBC : AT(0x907BC) { build/us/fallback.o(.rom_movement_fallback_907bc_90a04) }
     .actor_pickup_dispatch 0x8008FE04 : AT(0x90A04) SUBALIGN(4) { build/us/actor_pickup.o(.rodata) }
     .endgame_data_90a44_90b08 0x8008FE44 : AT(0x90A44) { build/us/fallback.o(.rom_endgame_data_90a44_90b08) }
     .actor_collision_kind_dispatch_rodata 0x8008FF08 : AT(0x90B08) SUBALIGN(4) { build/us/actor_collision_kind_dispatch.o(.rodata) }
@@ -3046,10 +3049,8 @@ ASSERT(SIZEOF(.scene_action_table) == 0x38, "scene_action_table size changed")
 ASSERT(SIZEOF(.scene_action_fallback_91020_92558) == 0x1538, "scene_action_fallback_91020_92558 size changed")
 ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")
 ASSERT(SIZEOF(.early_boss_create) == 0x304, "early_boss_create size changed")
-ASSERT(SIZEOF(.boss_fallback_113a0_13290) == 0x1ef0, "boss_fallback_113a0_13290 size changed")
 ASSERT(SIZEOF(.boss_fallback_90588_9078c) == 0x204, "boss_fallback_90588_9078c size changed")
 ASSERT(SIZEOF(.early_boss_error) == 0x18, "early_boss_error size changed")
-ASSERT(SIZEOF(.boss_fallback_907a4_90a04) == 0x260, "boss_fallback_907a4_90a04 size changed")
 ASSERT(SIZEOF(.early_boss_timestamps) == 0x8, "early_boss_timestamps BSS size changed")
 ASSERT(SIZEOF(.early_boss_trigger) == 0x3ac, "early_boss_trigger size changed")
 ASSERT(SIZEOF(.early_boss_trigger_records) == 0x118, "early_boss_trigger_records size changed")
@@ -3058,3 +3059,8 @@ ASSERT(SIZEOF(.trigger_fallback_73d40_74188) == 0x448, "trigger_fallback_73d40_7
 ASSERT(SIZEOF(.early_boss_trigger_state) == 0x4, "early_boss_trigger_state size changed")
 ASSERT(SIZEOF(.trigger_fallback_7418c_74190) == 0x4, "trigger_fallback_7418c_74190 size changed")
 ASSERT(SIZEOF(.early_actor_decision) == 0x8a0, "early_actor_decision size changed")
+ASSERT(SIZEOF(.movement_fallback_113a0_1163c) == 0x29c, "movement_fallback_113a0_1163c size changed")
+ASSERT(SIZEOF(.early_actor_movement) == 0x5ec, "early_actor_movement size changed")
+ASSERT(SIZEOF(.movement_fallback_11c28_13290) == 0x1668, "movement_fallback_11c28_13290 size changed")
+ASSERT(SIZEOF(.early_actor_movement_switch) == 0x18, "early_actor_movement_switch size changed")
+ASSERT(SIZEOF(.movement_fallback_907bc_90a04) == 0x248, "movement_fallback_907bc_90a04 size changed")

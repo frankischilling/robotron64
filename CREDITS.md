@@ -703,3 +703,10 @@ frame analysis. Robotron's complete instructions establish weighted choices,
 reset thresholds, movement selection and shared layouts. The optional Unicorn
 checker executes matching arithmetic and random-wrapper code against guarded
 byte and call expectations. No reference implementation was copied.
+
+Actor movement follows the local SM64 pinned IDO matching workflow. The
+IDO temporary allocator informed register allocation analysis. Robotron's
+complete instructions and generated switch table establish the handler and
+signed rate view. The optional Unicorn checker executes real matching
+trigonometry against mathematical, guarded byte and call oracles. No
+reference implementation was copied.

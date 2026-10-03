@@ -15491,5 +15491,16 @@
     "section": ".early_actor_decision",
     "section_vram": 2147548096,
     "evidence": "docs/actor-decision.md"
+  },
+  {
+    "name": "func_80010A3C",
+    "rom": 71228,
+    "vram": 2147551804,
+    "size": 1516,
+    "source": "src/game/actor_groups/movement.c",
+    "object": "build/us/early_actor_movement.o",
+    "section": ".early_actor_movement",
+    "section_vram": 2147551804,
+    "evidence": "docs/actor-movement.md"
   }
 ]
