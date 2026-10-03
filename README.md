@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,366 matching C functions covering 259,356 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,263 bytes of source-owned initialized data, and 465,119 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,366 matching C functions covering 259,356 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,263 bytes of source-owned initialized data, and 466,175 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -65,10 +65,11 @@ alongside verified matching progress.
 
 ## Source and references
 
-[Actor-group path callbacks](docs/actor-group-path.md) reconstructs three
-excluded callbacks and sources their 260-byte tangent table. The optional MIPS
-execution checker compares rotations, overlapping buffers and path traversal
-with retail instructions. The callbacks remain outside matching progress.
+[Actor-group callbacks and child storage](docs/actor-group-path.md) reconstruct
+four excluded callbacks and own a 260-byte tangent table plus 1,056 bytes of
+runtime child resources and counts. Optional MIPS execution checkers compare
+rotations, overlapping buffers, path traversal and bonus child setup with
+retail instructions. The callbacks remain outside matching progress.
 
 [Actor group setup](docs/actor-group-setup.md) recovers the complete 544-byte
 group constructor, its first-actor placement and later-actor parent links.

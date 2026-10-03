@@ -7145,6 +7145,20 @@ build/us/actor_direction_table.o: src/game/actor_groups/direction_table.c $(IDO)
 
 RUNTIME_OBJECTS += build/us/actor_direction_table.o
 
+build/us/actor_child_resources.o: src/game/actor_groups/child_resources.c include/actor_resource_internal.h include/actor.h include/game_memory.h include/object.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_child_resources.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_child_resources.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_child_counts.o: src/game/actor_groups/child_counts.c $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_child_counts.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_child_counts.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@
+
+RUNTIME_OBJECTS += build/us/actor_child_resources.o build/us/actor_child_counts.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

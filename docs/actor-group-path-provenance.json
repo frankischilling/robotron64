@@ -1,5 +1,5 @@
 {
-  "status": "Three instruction-mismatching candidates are excluded; the 260-byte tangent table matches.",
+  "status": "Four instruction-mismatching candidates remain excluded; the 260-byte tangent table and 1056 bytes of child BSS are source-owned and verified.",
   "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "toolchain_identity": {
     "version": "5.3",
@@ -9,9 +9,9 @@
   },
   "inputs_sha256": {
     "config/functions.json": "fa52edbc87fe732d9c2535a3ef5d424e78577d615c1b76b1c90175889acb37d8",
-    "config/owned_sections.json": "1bc48969029c0baea87ce4e686a85b5a5edc2fb81590301ccb1ecb8d0367245e",
-    "config/runtime_symbols.ld": "be74faeb54b0b379dd8dd4ead7f71a84033af2ffa91518d78389b3bc81c10139",
-    "config/startup_symbols.ld": "a0b8d4b1918ae3031a13ae0b5e5c62d19fa6e8aa6d75392465e565a5373f9288",
+    "config/owned_sections.json": "0bd3ad6a9a64b617c6433ce9112f18abc55274b9530ac1c0abb5f79a94bee852",
+    "config/runtime_symbols.ld": "bfac2d16ff4e2bdb29947adeb226275ad7b9d396369814872a140950898d44a8",
+    "config/startup_symbols.ld": "7a077a17997814d5e45db815b3e647fccfe750e255eb1330fa27be9303de53fe",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
     "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -186,8 +186,12 @@
     "src/game/object_recovery_direction_angle.c": "5a7a2784d7b36c3f86c7581311add70d8db28f7364a493580fe231d9a5343eda",
     "src/game/object_recovery_angle_table.c": "1248f0cd83da7f464debc7198da78443497157ad355c100fb00a33821588654e",
     "src/game/fixed_geometry_setup.c": "e2e921573c9af970d82a0dd5f2131fb4026ce8d5a24f28db2489e52799095263",
+    "src/game/actor_groups/bonus_child.c": "b1ce0656554d7c00af153b283b865b831110acaeed620d8025d2e5ef8b0c9f57",
+    "src/game/scene_service_noop.c": "19faf118f39cca53242e659d95917ef3c4a220862b19c8ee813728ce2e4bb518",
     "src/game/actor_groups/direction_table.c": "2e67896ef7db6e13f2d24a30f14257629024e77e8792d460f24f7edba2dcccfd",
-    "tools/compare_data.py": "db521623a8fc7f9c547a5958a5fe2189d8011d7ed9e511aaf677e13487ce796a"
+    "tools/compare_data.py": "db521623a8fc7f9c547a5958a5fe2189d8011d7ed9e511aaf677e13487ce796a",
+    "src/game/actor_groups/child_counts.c": "13754336e365bf115316d754a76246d52cb3607ba0016724143f79b255c6f983",
+    "src/game/actor_groups/child_resources.c": "c65294e00db310197eaad319d774495757c8b5a8ec6b1e9e02cc4ad8a9b27cc6"
   },
   "comparisons": {
     "actor_group_rotate": {
@@ -812,6 +816,75 @@
       "actual_size": 1508,
       "matches": true,
       "different_words": []
+    },
+    "actor_group_bonus_child": {
+      "source": "src/game/actor_groups/bonus_child.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "expected_size": 744,
+      "actual_size": 744,
+      "matches": false,
+      "different_words": [
+        {
+          "vram": "0x8000f038",
+          "expected": "27bdffc8",
+          "actual": "27bdffc0"
+        },
+        {
+          "vram": "0x8000f04c",
+          "expected": "afa5003c",
+          "actual": "afa50044"
+        },
+        {
+          "vram": "0x8000f0f0",
+          "expected": "46083283",
+          "actual": "46083003"
+        },
+        {
+          "vram": "0x8000f0f4",
+          "expected": "44055000",
+          "actual": "44050000"
+        },
+        {
+          "vram": "0x8000f1b8",
+          "expected": "8fa8003c",
+          "actual": "8fa80044"
+        },
+        {
+          "vram": "0x8000f314",
+          "expected": "27bd0038",
+          "actual": "27bd0040"
+        }
+      ]
+    },
+    "scene_service_noop": {
+      "source": "src/game/scene_service_noop.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "expected_size": 8,
+      "actual_size": 8,
+      "matches": true,
+      "different_words": []
     }
   },
   "table_comparison": {
@@ -848,6 +921,76 @@
       ]
     }
   },
+  "storage_comparisons": {
+    "src/game/actor_groups/child_counts.c": {
+      "source": "src/game/actor_groups/child_counts.c",
+      "matches": true,
+      "sections": [
+        {
+          "ownership": {
+            "source": "src/game/actor_groups/child_counts.c",
+            "object": "build/us/actor_child_counts.o",
+            "input_section": ".bss",
+            "section": ".actor_child_counts",
+            "vram": 2148191632,
+            "rom": null,
+            "size": 44,
+            "symbols": {
+              "D_800ACD90": 0
+            },
+            "evidence": "docs/actor-group-path.md"
+          },
+          "bytes_sha256": null
+        }
+      ],
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      }
+    },
+    "src/game/actor_groups/child_resources.c": {
+      "source": "src/game/actor_groups/child_resources.c",
+      "matches": true,
+      "sections": [
+        {
+          "ownership": {
+            "source": "src/game/actor_groups/child_resources.c",
+            "object": "build/us/actor_child_resources.o",
+            "input_section": ".bss",
+            "section": ".actor_child_resources",
+            "vram": 2148190616,
+            "rom": null,
+            "size": 1012,
+            "symbols": {
+              "D_800AC998": 0
+            },
+            "evidence": "docs/actor-group-path.md"
+          },
+          "bytes_sha256": null
+        }
+      ],
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      }
+    }
+  },
   "compiled_code_sha256": {
     "actor_group_rotate": "98b87a99f838d9d33dbe8fb26fb08ee7a82ebf398c26d0103d687972a5f823fc",
     "actor_group_path": "66551cd477cea018c2ab92930400204d877e8f4a5b5b5d65085479e85d0d1ac0",
@@ -857,7 +1000,9 @@
     "object_recovery_angle_scale": "cfcce0f0fcbc29cc263f488be37e00628e91b5523facf4209de82e83be62332d",
     "object_recovery_direction_angle": "e07b418b4cdd89b6f81b059065e0659dbd39244d46e00ec5e0c6b04734327a19",
     "object_recovery_angle_table": "c43cc9486d1b5ae955f630f4253462055de807b108490cd9f0648802fd4c608c",
-    "fixed_geometry_setup": "c463849b0c966dd42d80d59dba5e162da61952c6d0ccb6f617d21e92d5d6a662"
+    "fixed_geometry_setup": "c463849b0c966dd42d80d59dba5e162da61952c6d0ccb6f617d21e92d5d6a662",
+    "actor_group_bonus_child": "d53a7cdaa1793ef589e58a43d5c076848b3264648385d81b68231919316c5fd6",
+    "scene_service_noop": "aab9a3b4a314f107dee9217d6d10144c96feaf7d3f083e0f94c1ee0811c96054"
   },
   "target_code_sha256": {
     "actor_group_rotate": "43b6ac3b172ce1cb9cbfa406117c297f6844b67f96b4342139bacb7e5bbf071d",
@@ -868,9 +1013,11 @@
     "object_recovery_angle_scale": "cfcce0f0fcbc29cc263f488be37e00628e91b5523facf4209de82e83be62332d",
     "object_recovery_direction_angle": "e07b418b4cdd89b6f81b059065e0659dbd39244d46e00ec5e0c6b04734327a19",
     "object_recovery_angle_table": "c43cc9486d1b5ae955f630f4253462055de807b108490cd9f0648802fd4c608c",
-    "fixed_geometry_setup": "c463849b0c966dd42d80d59dba5e162da61952c6d0ccb6f617d21e92d5d6a662"
+    "fixed_geometry_setup": "c463849b0c966dd42d80d59dba5e162da61952c6d0ccb6f617d21e92d5d6a662",
+    "actor_group_bonus_child": "8cea6ab0f590b209468e7416856ed2bf0c9ffbaba96debd0458d8b0fc56858d6",
+    "scene_service_noop": "aab9a3b4a314f107dee9217d6d10144c96feaf7d3f083e0f94c1ee0811c96054"
   },
-  "execution": {
+  "path_execution": {
     "counts": {
       "rotation": 8512,
       "path": 1008,
@@ -892,14 +1039,56 @@
       "Execution agreement does not establish instruction matching for the three candidate functions."
     ]
   },
+  "bonus_execution": {
+    "counts": {
+      "cases": 1668,
+      "allocation_failed": 810,
+      "draw_callback": 270,
+      "fixed_callback": 270,
+      "scaled": 318
+    },
+    "trace_sha256": "33a66e59dc91896e847d94ddd683a883c224def0563974e3c0c45af8da20a763",
+    "checker_sha256": "c9ee7cff6afdccca3cc4551ac815c9fad9f7f0fb391a9e0e22870ff0cb86ae6d",
+    "machine_helper_sha256": "3369d4b2b5bb43c0df0c60d154a1f45a7d844c8cd3567bec49d4ef6a144755f6",
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "limits": [
+      "Eight complete matching support units and two matching initialized tables execute compiled code.",
+      "Allocation, draw selection, RNG, scale submission, angle submission and mode submission use recorded ABI stubs.",
+      "The allocator boundary returns a prepared child or null; allocator, drawing and full-game behavior are not verified.",
+      "Stubs clobber caller-saved integer and float registers; actor, target, resource, session and child guards are checked.",
+      "Signed overflow characterizes only the pinned compiler and target; invalid kinds and allocation aliasing are not exercised.",
+      "Execution agreement does not establish instruction matching for the excluded bonus child function."
+    ]
+  },
   "ghidra": {
     "program": "robotron64.elf",
     "path_callback_prototype": "void func_8000E894(EarlyGameActor *actor, int unused)",
+    "bonus_child_prototype": "GameActor *func_8000F030(ActorBehaviorActorInternal *actor, int index, int kind)",
     "tangent_table": {
       "address": "8007C338",
       "type": "int[65]",
       "length": 260,
       "bytes_match_original_rom": true
+    },
+    "child_resources": {
+      "address": "800AC998",
+      "type": "ActorResource5CInternal[11]",
+      "size": 1012,
+      "initialized": false,
+      "interior_labels_preserved": [
+        "D_800AC9A8",
+        "D_800ACC18"
+      ],
+      "record_nine_alias": "D_800ACCD4"
+    },
+    "child_counts": {
+      "address": "800ACD90",
+      "type": "int[11]",
+      "size": 44,
+      "initialized": false
     },
     "lookup_instructions": 37,
     "first_threshold_read": "8003CEFC",
@@ -907,13 +1096,36 @@
   },
   "full_rom": {
     "size": 8388608,
-    "matches": true
+    "matches": true,
+    "built_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd"
   },
   "progress": {
     "matched_c_functions": 1366,
     "matched_c_bytes": 259356,
     "source_owned_initialized_bytes": 29263,
-    "source_owned_bss_bytes": 465119
+    "source_owned_bss_bytes": 466175
+  },
+  "independent_comparisons": {
+    "runtime": {
+      "units": 849,
+      "matches": true,
+      "report_sha256": "663732f2079dce337ffd7b6350326d0ae7cde61766d0ed713777466e9fd890f8"
+    },
+    "startup": {
+      "units": 2,
+      "matches": true,
+      "report_sha256": "237cede90e2e704ec724958ce1f2493f05ca462dbeeba0ec7b704361371f3c0d"
+    },
+    "assembly": {
+      "units": 18,
+      "matches": true,
+      "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+    },
+    "data": {
+      "units": 89,
+      "matches": true,
+      "report_sha256": "d5ae39f91b69bfe2db840b6c4861e51208ed8f998831507a8975ba690a61178e"
+    }
   },
   "tooling_tests": 152
 }

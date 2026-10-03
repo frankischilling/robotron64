@@ -1,9 +1,31 @@
-# Actor-group path callbacks
+# Actor-group callbacks and child storage
 
 The rotation candidates at `8000E720..8000E894` and the path callback at
 `8000E894..8000EAE4` remain excluded from the matching build. Their complete
 retail instructions guide reconstruction; Ghidra's pseudocode is checked
 against the original ROM and compiled IDO output.
+
+The bonus child routine at `8000F030..8000F318` is also excluded. It allocates
+resource record `kind` from the eleven-record child array, returns null on
+failure, and places a successful child at Z = -1000. Record four uses the
+draw callback selected by `8000CE34(4)`; record nine uses `80005560`, the
+parent's heading and one quarter of the resource speed. Other records submit
+twice the normal resource scale. The remaining children aim toward the
+selected actor with signed random spread and index spacing, derive movement
+from Manhattan distance, and submit their heading and mode three. The child
+stores its parent pointer at byte `3C` and returns to the caller.
+
+Two declarations own runtime storage without claiming ROM bytes:
+`D_800AC998[11]` contains 1,012 bytes of 92-byte resource records, and
+`D_800ACD90[11]` contains 44 bytes of per-kind counts. The source-matched
+`8001D260` reset loop establishes the resource count and stride;
+`800283D4` corroborates the stride, and the matched tweak bindings identify
+the value at byte `58`. The `800281C4` cleanup clears exactly 44 counter
+bytes; allocation increments and removal decrements an indexed counter.
+The existing resource view retains unresolved fields. The four-byte gap
+between the arrays remains unowned, and `800ACB08` remains a verified alias
+for record four. Source definitions replace all absolute bindings for the
+two array bases.
 
 Both rotation helpers mask the angle to twelve bits, read X and Y before
 writing either result, and divide signed products by 4096 toward zero.
@@ -37,6 +59,10 @@ commuted multiply in each procedure still different. The path object contains
 all 592 instruction bytes and differs in 88 words. Neither object is linked
 into the ROM or counted as a recovered function.
 
+The bonus child object contains all 744 instruction bytes and differs in six
+words: stack size, the incoming index slot and the floating result register.
+It is not linked into the ROM or counted as matching C.
+
 The optional checker passes 8,512 rotation and 1,008 path cases: 336 complete
 the path and 672 interpolate a segment. It covers all 4,096 masked angles,
 wrapped angles, signed coordinates, overlapping buffers, paths of two through
@@ -54,19 +80,36 @@ Run it after installing the optional analysis requirements:
 ```sh
 make analysis-setup
 .venv/bin/python tools/check_actor_group_path.py
+.venv/bin/python tools/check_actor_bonus_child.py
 ```
+
+The bonus checker passes 1,668 cases: 810 allocation failures, 270 draw
+callbacks, 270 fixed callbacks and 318 scale submissions. Cases include both
+selected-actor slots, signed random remainders, negative/zero/positive speed,
+heading wrapping, coincident and axis-aligned positions, and wrapped scale
+products. Eight complete matching support units and two matching numerical
+tables execute compiled code. Allocation, callback selection, RNG and object
+submissions use ABI stubs that record arguments and child snapshots and
+clobber caller-saved integer and floating registers. The allocator returns a
+prepared child or null; it does not verify allocator or drawing behavior.
+The check compares the child and its guards, verifies the returned pointer,
+call order and scale bits, preserves the parent, selected actor, resources
+and session inputs, and checks the stack and saved integer registers.
+Invalid resource indices and allocator aliasing are outside its scope.
 
 The [provenance ledger](actor-group-path-provenance.json) records compiler and
 input hashes, complete instruction differences, code hashes, the table
 comparison and execution coverage. The live Ghidra project retains the verified
-callback prototype, existing heap layouts and a typed 65-word tangent array.
+callback prototypes, existing heap layouts, a typed 65-word tangent array,
+and the two uninitialized child arrays. Resource typing preserves the
+existing interior field labels instead of clearing them.
 
-A clean extraction and build reproduce all 8,388,608 bytes with SHA-256
+The isolated extraction and rebuild reproduce all 8,388,608 bytes with SHA-256
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
 Matching C remains 1,366 functions / 259,356 bytes; initialized ownership
-advances from 29,003 to 29,263 bytes and BSS remains 465,119 bytes. All 152
-tooling tests pass. Full-ROM equality includes fallback and does not establish
+advances from 29,003 to 29,263 bytes and BSS advances from 465,119 to 466,175
+bytes. All 152 tooling tests pass. Full-ROM equality includes fallback and does not establish
 full source completion.
 
 Independent comparisons also pass for all 849 runtime, two startup, eighteen
-assembly and 87 data-only source units.
+assembly and 89 data-only source units.

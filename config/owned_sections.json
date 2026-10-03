@@ -7,7 +7,9 @@
     "vram": 2147992376,
     "rom": 511800,
     "size": 260,
-    "symbols": { "D_8007C338": 0 },
+    "symbols": {
+      "D_8007C338": 0
+    },
     "evidence": "docs/actor-group-path.md"
   },
   {
@@ -3168,5 +3170,31 @@
       "D_8009E580": 0
     },
     "evidence": "docs/palette-storage.md"
+  },
+  {
+    "source": "src/game/actor_groups/child_resources.c",
+    "object": "build/us/actor_child_resources.o",
+    "input_section": ".bss",
+    "section": ".actor_child_resources",
+    "vram": 2148190616,
+    "rom": null,
+    "size": 1012,
+    "symbols": {
+      "D_800AC998": 0
+    },
+    "evidence": "docs/actor-group-path.md"
+  },
+  {
+    "source": "src/game/actor_groups/child_counts.c",
+    "object": "build/us/actor_child_counts.o",
+    "input_section": ".bss",
+    "section": ".actor_child_counts",
+    "vram": 2148191632,
+    "rom": null,
+    "size": 44,
+    "symbols": {
+      "D_800ACD90": 0
+    },
+    "evidence": "docs/actor-group-path.md"
   }
 ]

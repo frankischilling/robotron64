@@ -1385,6 +1385,8 @@ SECTIONS
     .audio_effect_parameters_rodata 0x80095FA0 : AT(0x96BA0) SUBALIGN(4) { build/us/audio_effect_parameters.o(.rodata) }
     .data_after_sdk_audio_effect_constants 0x91006828 : AT(0x96BC8) { build/us/fallback.o(.rom_data_after_sdk_audio_effect_constants) }
     .audio_engine_voice_stop_bss 0x80192758 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_voice_stop.o(.bss) }
+    .actor_child_resources 0x800AC998 (NOLOAD) : SUBALIGN(4) { build/us/actor_child_resources.o(.bss) }
+    .actor_child_counts 0x800ACD90 (NOLOAD) : SUBALIGN(4) { build/us/actor_child_counts.o(.bss) }
     .audio_engine_tempo_bss 0x8019279C (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_tempo.o(.bss) }
     .audio_engine_sequence_call_bss 0x801927AC (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_sequence_call.o(.bss) }
     .audio_engine_sequence_jump_bss 0x801927C4 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_sequence_jump.o(.bss) }
@@ -2707,7 +2709,6 @@ ASSERT(SIZEOF(.scene_actor_mode_list) == 0x174, "scene_actor_mode_list size chan
 ASSERT(SIZEOF(.actor_child_random_motion) == 0x17c, "actor_child_random_motion size changed")
 ASSERT(SIZEOF(.actor_collision_separate) == 0x154, "actor_collision_separate size changed")
 D_800AC97C = 0x800AC97C;
-D_800ACD90 = 0x800ACD90;
 ASSERT(SIZEOF(.actor_nearest_match) == 0x148, "actor_nearest_match size changed")
 ASSERT(SIZEOF(.actor_random_fan) == 0x194, "actor_random_fan size changed")
 D_800BB130 = 0x800BB130;
@@ -2822,7 +2823,6 @@ ASSERT(SIZEOF(.actor_pool_allocate_bss) == 0x60E0, "actor pool size changed")
 D_800A4620 = 0x800A4620;
 D_800759EC = 0x800759EC;
 D_800AF1F0 = 0x800AF1F0;
-D_800AC998 = 0x800AC998;
 ASSERT(SIZEOF(.endgame_cac0_d950) == 0xe90, "endgame_cac0_d950 size changed")
 ASSERT(SIZEOF(.early_relative_position) == 0xe4, "early_relative_position size changed")
 ASSERT(SIZEOF(.actor_contact_gate) == 0x278, "actor_contact_gate size changed")
@@ -2942,6 +2942,9 @@ ASSERT(SIZEOF(.resource_cache_fallback_7c6c4_7c70c) == 0x48, "resource_cache_fal
 ASSERT(SIZEOF(.renderer_resource_counters) == 0xc, "renderer_resource_counters size changed")
 ASSERT(SIZEOF(.resource_cache_fallback_7c718_7cf38) == 0x820, "resource_cache_fallback_7c718_7cf38 size changed")
 ASSERT(SIZEOF(.actor_direction_table) == 0x104, "actor_direction_table size changed")
+ASSERT(SIZEOF(.actor_child_resources) == 0x3F4, "actor child resources BSS size changed")
+ASSERT(SIZEOF(.actor_child_counts) == 0x2C, "actor child counts BSS size changed")
+ASSERT(D_800ACB08 == D_800AC998 + 4 * 0x5C, "actor child resource alias changed")
 ASSERT(SIZEOF(.actor_direction_fallback_7d03c_7d148) == 0x10c, "actor_direction_fallback_7d03c_7d148 size changed")
 ASSERT(SIZEOF(.renderer_resource_identifier_maps_bss) == 0x1770, "renderer identifier maps BSS size changed")
 ASSERT(SIZEOF(.renderer_resource_arena_state) == 0xc, "renderer_resource_arena_state size changed")
