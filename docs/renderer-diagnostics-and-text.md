@@ -1,10 +1,12 @@
 # Renderer diagnostics and font drawing
 
 This recovery owns twelve data units used by the renderer's diagnostic report
-and retains four complete C candidates. The candidates are excluded from the
+and retains three complete C candidates. The candidates are excluded from the
 matching ROM build. Their presence does not increase the matching-function or
 matching-code totals. The complete report now matches; its current evidence
 is in [startup projection and diagnostics](startup-projection-and-diagnostics.md).
+The object-attached glyph now matches its complete body and frame; its current
+evidence and unresolved return interface are in [object-attached font glyph](renderer-object-glyph.md).
 
 ## Report behavior
 
@@ -62,11 +64,11 @@ matching function manifest or selected by a ROM-build rule.
 | --- | --- | ---: | ---: | ---: |
 | `func_800496E0` | Fatal formatter, report call and infinite wait | 512 | 496 | 31 |
 | `func_80049E3C` | Font glyph at the current text position | 1,144 | 1,184 | 137 |
-| `func_8004A2B4` | Font glyph attached to an object draw state | 1,024 | 1,024 | 16 |
 | `func_8004B590` | One- or two-player HUD | 1,588 | 1,584 | 323 |
 
-The sixteen object-glyph differences are stack and local offsets. Its current
-frame is 160 bytes; the retail frame is 176. The report's BSS-end address representation and heap-query scheduling are now
+The earlier object-glyph candidate differed in sixteen stack/local offsets.
+Its 160-byte frame is now replaced by a complete match of the retail 176-byte
+frame. The report's BSS-end address representation and heap-query scheduling are now
 resolved by the complete match recorded in the current report notes.
 These unresolved candidates are tracked in [issue #61](https://github.com/frankischilling/robotron64/issues/61).
 
@@ -78,12 +80,14 @@ The screen glyph advances the text position only when vertex allocation succeeds
 
 The object glyph temporarily replaces the camera matrix in its alternate mode.
 It restores the saved matrix only inside the successful-allocation branch.
-The failure path therefore retains the replacement matrix. The retail function
-does not explicitly set its return register, while its recovered object caller
-propagates an integer result. The candidate preserves that unresolved return
-behavior instead of supplying an invented success value.
-Its candidate definition uses `void`; the caller's integer declaration remains
-an unresolved mismatch between translation units.
+The failure path therefore retains the replacement matrix. The retail epilogue
+leaves the last allocator result in `v0`: `-1` after rejection or the advanced
+vertex cursor after success. Its recovered object caller propagates that register,
+and the runtime dispatcher consumes it. The matching definition uses `void`;
+the callback's integer declaration remains an unresolved mismatch between
+translation units, recorded explicitly in the shared internal header and the
+current object-glyph notes. Exact instruction matching does not resolve that
+C return contract.
 
 The HUD retains both players' score, level and life displays, the five power
 icons, the optional frame-rate digits, and the temporary level message. Arguments
@@ -103,7 +107,7 @@ and diagnostics ledger.
 
 The data-only comparisons check the full initialized ranges, symbol offsets,
 section placement and BSS lengths using the pinned IDO 5.3 compiler. Full ROM
-verification remains dependent on extracted fallback bytes for the four
+verification remains dependent on extracted fallback bytes for the three
 candidates and the other unrecovered code. A matching ROM build with those
 fallbacks is not completion of the source decompilation.
 

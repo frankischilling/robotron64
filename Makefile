@@ -449,7 +449,7 @@ build/us/object_helpers_draw.o: src/game/object_helpers_draw.c include/object.h 
 	$(PYTHON) tools/trim_padding.py build/us/object_helpers_draw.raw.o $@ .text 0x284
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/object_helpers_draw_mode.o: src/game/object_helpers_draw_mode.c include/object.h include/object_draw.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/object_helpers_draw_mode.o: src/game/object_helpers_draw_mode.c include/object.h include/object_draw.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/fixed_math.h include/frame.h include/renderer_draw_state_internal.h include/renderer_object_glyph_internal.h include/sdk_matrix.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_helpers_draw_mode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/object_helpers_draw_mode.raw.o $@ .text 0x138
@@ -7214,6 +7214,14 @@ build/us/renderer_image_setup_rgba.o: src/game/renderer_images/setup_rgba.c incl
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/renderer_image_setup_rgba.o
+
+build/us/renderer_object_glyph.o: src/game/renderer_text/object_glyph.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/renderer_object_glyph_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_object_glyph.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_object_glyph.raw.o $@ .text 0x400
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_object_glyph.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
