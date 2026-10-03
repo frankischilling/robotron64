@@ -51,7 +51,7 @@ All three matrix submitters use the same arena strides and capacity.
 The output buffer and its size pointer remain separately unresolved;
 their surrounding address gap is not claimed here.
 
-## Supplied-matrix candidate
+## Earlier supplied-matrix candidate
 
 `src/game/renderer_matrix_scale.c` represents the complete adjacent
 routine at `0x80047A08..0x80047D88`, 896 retail instruction bytes.
@@ -60,11 +60,12 @@ shifts by four, and performs the same clamping, packing, command and
 cursor update. Its diagnostic uses line 247 and the target's separate
 string addresses.
 
-The candidate remains outside the function manifest and build. The
-retail frame is 104 bytes; this source's frame is 80 bytes. Register
-allocation and scheduling also differ. No extra local storage was
-introduced to force that frame size. Its exact current comparison is
+At this earlier checkpoint, the candidate remained outside the function
+manifest and build. The retail frame was 104 bytes and the candidate's frame
+was 80; register allocation and scheduling also differed. That comparison is
 recorded in the [provenance ledger](renderer-transform-and-buffers-provenance.json).
+The later [supplied-matrix checkpoint](renderer-supplied-matrix.md) recovers
+all 896 instruction bytes, the 104-byte frame and both diagnostic strings.
 
 The ledger also records the matching transform, five complete data-only
 units, and regressions for the existing matrix submitter, graphics task
@@ -79,7 +80,7 @@ from Robotron's target; no reference implementation was copied. All
 thirteen requested projects remain credited in [CREDITS.md](../CREDITS.md).
 Further renderer recovery is tracked by
 [issue #41](https://github.com/frankischilling/robotron64/issues/41), and the
-supplied-matrix instruction differences by
+supplied-matrix instruction recovery by
 [issue #59](https://github.com/frankischilling/robotron64/issues/59).
 
 The checkpoint contains 1,341 matching C procedures and 235,436 matching

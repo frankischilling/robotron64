@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("renderer_matrix_scale", "src/game/renderer_matrix_scale.c", 0x80047A08, 0x80047D88),
     ("actor_effect_draw", "src/game/actor_effects/draw.c", 0x80005560, 0x80005814),
     ("palette_fade_update", "src/game/palette_effects/fade_update.c", 0x800316AC, 0x80031B28),
     ("command_script_execute", "src/game/command_scripts/execute.c", 0x8003264C, 0x800327AC),
@@ -886,7 +887,6 @@ CANDIDATE_BLOCKS = (
     ("renderer_object_glyph", "src/game/renderer_text/object_glyph.c", 0x8004A2B4, 0x8004A6B4),
     ("renderer_game_hud", "src/game/renderer_text/game_hud.c", 0x8004B590, 0x8004BBC4),
 
-    ("renderer_matrix_scale", "src/game/renderer_matrix_scale.c", 0x80047A08, 0x80047D88),
     ("renderer_image_setup_rgba", "src/game/renderer_image_setup_rgba.c", 0x8004AFA4, 0x8004B098),
     ("renderer_image_setup_ci", "src/game/renderer_image_setup_ci.c", 0x8004ACA4, 0x8004AD64),
     ("early_render_prism", "src/game/early_render_prism.c", 0x8000C75C, 0x8000CD50),

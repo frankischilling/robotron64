@@ -3222,5 +3222,19 @@
       "D_800C86C0": 0
     },
     "evidence": "docs/actor-effect-draw.md"
+  },
+  {
+    "source": "src/game/renderer_diagnostics/supplied_matrix.c",
+    "object": "build/us/renderer_supplied_matrix_diagnostics.o",
+    "input_section": ".data",
+    "section": ".renderer_supplied_matrix_diagnostics",
+    "vram": 2148094880,
+    "rom": 614304,
+    "size": 64,
+    "symbols": {
+      "D_800953A0": 0,
+      "D_800953D4": 52
+    },
+    "evidence": "docs/renderer-supplied-matrix.md"
   }
 ]
