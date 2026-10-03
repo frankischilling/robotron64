@@ -35,7 +35,10 @@ def verify_data_sections(sections, symbols, records):
             raise ValueError(f"Data-only source has an unowned allocated section: {name}")
         if section["size"] and section["flags"] & 4:
             raise ValueError(f"Data-only source contains executable bytes: {name}")
-    if any(symbol["type"] == 2 for symbol in symbols.values()):
+    # A typed dispatch table can reference undefined STT_FUNC symbols without
+    # defining any code. Only SHN_UNDEF (index zero) is an external reference;
+    # absolute and section-defined procedure symbols remain forbidden here.
+    if any(symbol["type"] == 2 and symbol.get("index") != 0 for symbol in symbols.values()):
         raise ValueError("Data-only source contains a procedure")
 
 

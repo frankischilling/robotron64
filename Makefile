@@ -7398,6 +7398,50 @@ build/us/actor_collision_palette.o: src/game/collisions/palette.c include/actor.
 
 RUNTIME_OBJECTS += build/us/actor_collision_palette.o
 
+build/us/audio_instance_allocate.o: src/game/audio_instance_allocate.c include/audio_file_services_internal.h include/audio_host_internal.h include/audio_properties_internal.h include/audio_sequence_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_instance_allocate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_instance_allocate.raw.o $@ .text 0x2e4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_command_lengths.o: src/game/audio_command_lengths.c include/audio_engine_tables_internal.h include/audio_properties_internal.h $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_command_lengths.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_command_lengths.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_engine_command_table.o: src/game/audio_engine_command_table.c include/audio_engine_tables_internal.h include/audio_properties_internal.h $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_engine_command_table.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_engine_command_table.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_instance_allocate.o build/us/audio_command_lengths.o build/us/audio_engine_command_table.o
+
+build/us/audio_sequence_data_load.o: src/game/audio_sequence_data_load.c include/audio_file_services_internal.h include/audio_host_internal.h include/audio_properties_internal.h include/audio_sequence_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_sequence_data_load.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_sequence_data_load.raw.o $@ .text 0x414
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_sequence_data_load.o
+
+build/us/model_framebuffer_strip.o: src/game/model_framebuffer_strip.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/model_framebuffer_strip.o
+
+build/us/boundary_dispatch.o: src/game/actor_groups/boundary_dispatch.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/boundary_dispatch.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/boundary_dispatch.raw.o build/us/boundary_dispatch.text.o .text 0x3e4
+	$(PYTHON) tools/owned_sections.py $< build/us/boundary_dispatch.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/boundary_dispatch.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

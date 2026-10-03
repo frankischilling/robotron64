@@ -1,12 +1,16 @@
 from copy import deepcopy
 from pathlib import Path
+import shutil
+import subprocess
 import sys
+import tempfile
 import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 from compare_data import data_linker_script, data_only_sources, verify_data_sections
 from audit_publication import check_data_report
+from owned_sections import elf_sections_and_symbols
 
 
 class DataComparisonTests(unittest.TestCase):
@@ -67,6 +71,33 @@ class DataComparisonTests(unittest.TestCase):
     def test_zero_size_procedure_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "procedure"):
             verify_data_sections({}, {"example": {"type": 2}}, [self.record])
+
+    def test_typed_external_callback_does_not_define_a_procedure(self):
+        verify_data_sections({".data": {"size": 80, "flags": 3}},
+                             {"callback": {"type": 2, "index": 0, "size": 0}},
+                             [self.record])
+
+    def test_defined_callback_symbols_are_rejected_without_text_bytes(self):
+        for index in (1, 0xFFF1, 0xFFF2):
+            with self.subTest(index=index), self.assertRaisesRegex(ValueError, "procedure"):
+                verify_data_sections({}, {"callback": {"type": 2, "index": index, "size": 0}},
+                                     [self.record])
+
+    @unittest.skipUnless(shutil.which("mips-linux-gnu-as"), "MIPS assembler is unavailable")
+    def test_real_callback_relocation_is_data_only(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "table.s"
+            obj = Path(directory) / "table.o"
+            source.write_text(".data\n.globl dispatch\n.type dispatch, @object\n"
+                              ".type callback, @function\ndispatch: .word callback\n"
+                              ".size dispatch, .-dispatch\n")
+            subprocess.run(["mips-linux-gnu-as", "-EB", "-32", "-o", str(obj), str(source)],
+                           check=True, capture_output=True)
+            sections, symbols = elf_sections_and_symbols(obj)
+            self.assertEqual(symbols["callback"]["type"], 2)
+            self.assertEqual(symbols["callback"]["index"], 0)
+            self.assertGreater(sections[".rel.data"]["size"], 0)
+            verify_data_sections(sections, symbols, [self.record])
 
     def test_complete_current_report_is_accepted(self):
         self.check(self.report)

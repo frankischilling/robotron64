@@ -18,6 +18,42 @@
     "status": "matching C; see docs/startup.md"
   },
   {
+    "name": "func_800190F8",
+    "rom": "0x19cf8",
+    "vram": "0x800190F8",
+    "status": "matching C; see docs/actor-boundary-dispatch.md"
+  },
+  {
+    "name": "func_80040724",
+    "rom": "0x41324",
+    "vram": "0x80040724",
+    "status": "matching C; see docs/model-framebuffer-strip.md"
+  },
+  {
+    "name": "func_8005396C",
+    "rom": "0x5456c",
+    "vram": "0x8005396C",
+    "status": "matching C; see docs/audio-allocation-and-commands.md"
+  },
+  {
+    "name": "func_8005CE0C",
+    "rom": "0x5da0c",
+    "vram": "0x8005CE0C",
+    "status": "matching C; see docs/audio-sequence-data-load.md"
+  },
+  {
+    "name": "D_8008D8D0",
+    "rom": "0x8e4d0",
+    "vram": "0x8008D8D0",
+    "status": "matching initialized data; 36 command lengths; see docs/audio-allocation-and-commands.md"
+  },
+  {
+    "name": "D_8008D920",
+    "rom": "0x8e520",
+    "vram": "0x8008D920",
+    "status": "matching initialized data; 36 dispatch pointers; see docs/audio-allocation-and-commands.md"
+  },
+  {
     "name": "__osDisableInt",
     "rom": "0x68160",
     "vram": "0x80067560",

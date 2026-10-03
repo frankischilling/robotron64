@@ -5974,6 +5974,17 @@
     "evidence": "docs/model-geometry.md"
   },
   {
+    "name": "func_80040724",
+    "rom": 267044,
+    "vram": 2147747620,
+    "size": 336,
+    "source": "src/game/model_framebuffer_strip.c",
+    "object": "build/us/model_framebuffer_strip.o",
+    "section": ".model_framebuffer_strip",
+    "section_vram": 2147747620,
+    "evidence": "docs/model-framebuffer-strip.md"
+  },
+  {
     "name": "func_80040874",
     "rom": 267380,
     "vram": 2147747956,
@@ -8106,6 +8117,17 @@
     "section": ".audio_control",
     "section_vram": 2147822080,
     "evidence": "docs/audio-control.md"
+  },
+  {
+    "name": "func_8005396C",
+    "rom": 345452,
+    "vram": 2147826028,
+    "size": 740,
+    "source": "src/game/audio_instance_allocate.c",
+    "object": "build/us/audio_instance_allocate.o",
+    "section": ".audio_instance_allocate",
+    "section_vram": 2147826028,
+    "evidence": "docs/audio-allocation-and-commands.md"
   },
   {
     "name": "func_80053C50",
@@ -10460,6 +10482,17 @@
     "section": ".audio_file_services",
     "section_vram": 2147863744,
     "evidence": "docs/audio-hardware-driver.md"
+  },
+  {
+    "name": "func_8005CE0C",
+    "rom": 383500,
+    "vram": 2147864076,
+    "size": 1044,
+    "source": "src/game/audio_sequence_data_load.c",
+    "object": "build/us/audio_sequence_data_load.o",
+    "section": ".audio_sequence_data_load",
+    "section_vram": 2147864076,
+    "evidence": "docs/audio-sequence-data-load.md"
   },
   {
     "name": "func_8005D220",
@@ -15579,5 +15612,16 @@
     "section": ".actor_collision_impact",
     "section_vram": 2147576860,
     "evidence": "docs/actor-collision-impact.md"
+  },
+  {
+    "name": "func_800190F8",
+    "vram": 2147586296,
+    "rom": 105720,
+    "size": 996,
+    "source": "src/game/actor_groups/boundary_dispatch.c",
+    "object": "build/us/boundary_dispatch.o",
+    "section": ".boundary_dispatch",
+    "section_vram": 2147586296,
+    "evidence": "docs/actor-boundary-dispatch.md"
   }
 ]
