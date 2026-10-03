@@ -11,6 +11,9 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("actor_group_rotate", "src/game/actor_groups/rotate.c", 0x8000E720, 0x8000E894),
+    ("actor_collision_rebound", "src/game/collisions/rebound.c", 0x8001631C, 0x80016618),
+    ("actor_collision_retire", "src/game/collisions/retire.c", 0x8001B4F8, 0x8001B7D0),
     ("actor_collision_pickup_response", "src/game/collisions/pickup_response.c", 0x80015F00, 0x800162AC),
     ("actor_collision_response_gate", "src/game/collisions/response_gate.c", 0x80015BF8, 0x80015F00),
     ("early_actor_movement", "src/game/actor_groups/movement.c", 0x80010A3C, 0x80011028),
@@ -877,7 +880,6 @@ MATCHING_BLOCKS = (
 
 CANDIDATE_BLOCKS = (
     ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
-    ("actor_group_rotate", "src/game/actor_groups/rotate.c", 0x8000E720, 0x8000E894),
     ("actor_group_path", "src/game/actor_groups/path.c", 0x8000E894, 0x8000EAE4),
     ("actor_group_bonus_child", "src/game/actor_groups/bonus_child.c", 0x8000F030, 0x8000F318),
     ("renderer_surface_ring", "src/game/renderer_surfaces/ring.c", 0x800428C0, 0x80042BDC),

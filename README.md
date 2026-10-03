@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,379 matching C functions covering 270,752 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,859 bytes of source-owned initialized data, and 504,115 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,381 matching C functions covering 272,244 bytes, twenty-nine assembly functions covering 4,372 bytes, 30,063 bytes of source-owned initialized data, and 504,115 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,13 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Actor-group rotation](docs/actor-group-rotation.md) completes both planar
+helpers, matching all 372 bytes and preserving signed arithmetic and
+overlapping input/output buffers.
+
+[Collision rebound and retirement](docs/actor-collision-followup.md) adds two complete
+callbacks and 204 initialized bytes, with 2,570 guarded MIPS execution cases.
 
 [Collision response](docs/actor-collision-response.md) recovers the adjacent
 gate and pickup callbacks, their generated switch table and pickup order.
@@ -298,7 +305,7 @@ motion, Controller Pak menus, framebuffer drawing, and graphics helpers.
 The [checkpoint evidence](docs/recovery-checkpoint.md) records the combined scope
 and its reproduction commands.
 
-The [SDK runtime recovery](docs/sdk-runtime.md) adds complete target-derived thread and message services, direct transfers, task yielding, video contexts, heap allocation, integer arithmetic, and the random-number generator. Its 50 functions and initialized seed are included in the source counts. Reference-adapted SDK experiments remain separate local research; remaining SDK fallback code is excluded from source progress. The [credits](CREDITS.md) record all thirteen requested reference projects, their inspected revisions, and the tools used for recovery.
+The [SDK runtime recovery](docs/sdk-runtime.md) adds complete target-derived thread and message services, direct transfers, task yielding, video contexts, heap allocation, integer arithmetic, and the random-number generator. Its 50 functions and initialized seed are included in the source counts. Reference-adapted SDK experiments remain separate local research; remaining SDK fallback code is excluded from source progress. The [credits](CREDITS.md) list the reference projects and tools used for recovery; [research notes](docs/reference-study.md) record inspected revisions and findings.
 
 [Time and priority services](docs/sdk-time-and-priority.md),
 [scheduling and audio services](docs/sdk-scheduling-and-audio-services.md), and

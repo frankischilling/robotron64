@@ -7347,6 +7347,40 @@ build/us/actor_collision_pickup_order.o: src/game/collisions/pickup_order.c $(ID
 
 RUNTIME_OBJECTS += build/us/actor_collision_pickup_order.o
 
+build/us/actor_collision_retire.o: src/game/collisions/retire.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/early_pool_tick.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_collision_retire.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_collision_retire.raw.o build/us/actor_collision_retire.text.o .text 0x2d8
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_collision_retire.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_collision_retire.o
+
+build/us/actor_collision_rebound.o: src/game/collisions/rebound.c include/actor.h include/actor_behavior_internal.h include/actor_collision_services.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/scene_counter_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_collision_rebound.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_collision_rebound.raw.o build/us/actor_collision_rebound.text.o .text 0x2fc
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_collision_rebound.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_collision_rebound.o
+
+build/us/actor_collision_retirement_message.o: src/game/collisions/retirement_message.c $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_collision_retirement_message.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_collision_retirement_message.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@
+
+RUNTIME_OBJECTS += build/us/actor_collision_retirement_message.o
+
+build/us/actor_group_rotate.o: src/game/actor_groups/rotate.c include/object_recovery.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_group_rotate.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_group_rotate.raw.o $@ .text 0x174
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_group_rotate.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

@@ -11,7 +11,7 @@ typedef struct EarlyPoolTickState {
     int state00;
     int value04;
     short activeBehaviorActors[36];
-    unsigned char unknown50[0x48];
+    short retiredBehaviorCounts[36];
     int timer98;
     int start9C;
     int frameA0;
