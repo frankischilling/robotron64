@@ -67,3 +67,6 @@ Matching C remains 1,366 functions / 259,356 bytes; initialized ownership
 advances from 29,003 to 29,263 bytes and BSS remains 465,119 bytes. All 152
 tooling tests pass. Full-ROM equality includes fallback and does not establish
 full source completion.
+
+Independent comparisons also pass for all 849 runtime, two startup, eighteen
+assembly and 87 data-only source units.
