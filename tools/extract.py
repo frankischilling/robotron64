@@ -274,7 +274,7 @@ REGIONS = (
     ("collision_fallback_90d9c_90e00", 0x90d9c, 0x90e00),
     ("collision_fallback_90f64_90f70", 0x90f64, 0x90f70),
     ("scene_action_fallback_90f96_90fe8", 0x90f96, 0x90fe8),
-    ("scene_action_fallback_91020_92558", 0x91020, 0x92558),
+    ("error_fallback_91060_92558", 0x91060, 0x92558),
     ("endgame_data_92560_93698", 0x92560, 0x93698),
     ("endgame_data_936c4_9450c", 0x936c4, 0x9450c),
     ("lifecycle_fallback_945bc_945c0", 0x945bc, 0x945c0),

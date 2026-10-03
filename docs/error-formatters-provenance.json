@@ -1,0 +1,103 @@
+{
+  "new_c_functions": 0,
+  "new_instruction_bytes": 0,
+  "new_initialized_bytes": 64,
+  "new_bss_bytes": 0,
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "comparison": {
+    "source": "src/game/diagnostics/messages.c",
+    "matches": true,
+    "sections": [
+      {
+        "ownership": {
+          "source": "src/game/diagnostics/messages.c",
+          "object": "build/us/error_messages.o",
+          "input_section": ".rodata",
+          "section": ".error_messages",
+          "vram": 2148074528,
+          "rom": 593952,
+          "size": 64,
+          "symbols": {
+            "D_80090420": 0,
+            "D_80090430": 16,
+            "D_80090448": 40,
+            "D_80090454": 52
+          },
+          "evidence": "docs/error-formatters.md"
+        },
+        "bytes_sha256": "f0273fe62d33d14acaaf160400eef9f0b56071ebb4de9f897851a46c9a88ed55"
+      }
+    ],
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    }
+  },
+  "reference": {
+    "generator": "splat 0.50.0 / spimdisasm 1.42.4",
+    "assembler": "GNU MIPS binutils 2.42",
+    "size": 64,
+    "reference_sha256": "f0273fe62d33d14acaaf160400eef9f0b56071ebb4de9f897851a46c9a88ed55",
+    "reference_object_sha256": "5dbb0d489f8f4793a721ab0ebdfeb757c2dd2ae3464ce33b019d47b0f9352417",
+    "compiled_object_sha256": "0261808e5e534f91ac10295dcca63cc2e6fc1747f842aa65e450fde65def5d92",
+    "all_four_symbols_objdiff_percent": 100,
+    "complete_rodata_objdiff_percent": 100
+  },
+  "validation": {
+    "independent_comparisons": {
+      "runtime": {
+        "matches": true,
+        "source_units": 870,
+        "report_sha256": "c38e26bcc74ab3dc65d4d967aee02938cc49616e28180161334f035bb77e9f2b"
+      },
+      "startup": {
+        "matches": true,
+        "source_units": 2,
+        "report_sha256": "cc517c62e006c4ce333c3636f7714e14e5a7aa0c3a86a7fa7a1b6e5ae17b32d9"
+      },
+      "assembly": {
+        "matches": true,
+        "source_units": 18,
+        "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data": {
+        "matches": true,
+        "source_units": 104,
+        "report_sha256": "dfeb8d82a809b67a1cf955d079d4a40153b0387a076e26b4ce9b7819ea69e5f3"
+      }
+    },
+    "clean_setup": true,
+    "clean_verify": true,
+    "tool_tests": 155,
+    "whole_rom_bytes": 8388608
+  },
+  "remaining": {
+    "fatal_formatter_instruction_bytes": 500,
+    "warning_formatter_instruction_bytes": 472,
+    "matching_c": false
+  },
+  "inputs_sha256": {
+    "src/game/diagnostics/messages.c": "ded887da45c7ec3ebd15ebc4e1a93a8ff034a84ff5890266748cd2e635bdba50",
+    "config/owned_sections.json": "b6d138652d277634085b182a75bc240e4568e972205ab02e7a818c3707690840",
+    "config/functions.json": "2af8949cefd379d6b0e1b3a872a7d6ec14d1c57fedb79078c42fd7069a2344e3",
+    "config/runtime_symbols.ld": "7e2997d044dd30045c8d4d43d12ba71b813fb9735b64fb8178d1e9ae0ea18717",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "Makefile": "05e752b53c282d97b177979998ebfc2a647fa59f68cc8e1441185edd34789ba9",
+    "tools/extract.py": "f95cd1d57d7ebc3cef44f634bb8c4ddd50c022fca5cd4abc4cb62b31c80dd39a",
+    "linker_scripts/us.ld": "0c2f8fc039d68ee7cb8ad3fc5060aab6c1d48bffeb82eba0ec4f2c19fcad7f7e"
+  }
+}

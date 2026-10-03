@@ -3484,5 +3484,21 @@
       "D_8008FDE0": 0
     },
     "evidence": "docs/actor-boundary-dispatch.md"
+  },
+  {
+    "source": "src/game/diagnostics/messages.c",
+    "object": "build/us/error_messages.o",
+    "input_section": ".rodata",
+    "section": ".error_messages",
+    "vram": 2148074528,
+    "rom": 593952,
+    "size": 64,
+    "symbols": {
+      "D_80090420": 0,
+      "D_80090430": 16,
+      "D_80090448": 40,
+      "D_80090454": 52
+    },
+    "evidence": "docs/error-formatters.md"
   }
 ]

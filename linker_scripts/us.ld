@@ -1316,6 +1316,7 @@ SECTIONS
     .collision_dispatch_initialize_strings 0x8009013C : AT(0x90D3C) SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.rodata) }
     .collision_fallback_90d9c_90e00 0x8009019C : AT(0x90D9C) { build/us/fallback.o(.rom_collision_fallback_90d9c_90e00) }
     .actor_collision_retirement_message 0x80090200 : AT(0x90E00) SUBALIGN(4) { build/us/actor_collision_retirement_message.o(.rodata) }
+    .error_messages 0x80090420 : AT(0x91020) SUBALIGN(4) { build/us/error_messages.o(.rodata) }
     .actor_create_switch 0x8009021C : AT(0x90E1C) SUBALIGN(4) { build/us/actor_create.o(.rodata) }
     .actor_behavior_counter_expire_rodata 0x800902A4 : AT(0x90EA4) SUBALIGN(4) { build/us/actor_behavior_counter_expire.o(.rodata) }
     .actor_collision_retire_switch 0x800902D4 : AT(0x90ED4) SUBALIGN(4) { build/us/actor_collision_retire.o(.rodata) }
@@ -1323,7 +1324,7 @@ SECTIONS
     .name_table_lookup_data 0x80090370 : AT(0x90F70) SUBALIGN(4) { build/us/name_table_lookup.o(.data) }
     .scene_action_fallback_90f96_90fe8 0x80090396 : AT(0x90F96) { build/us/fallback.o(.rom_scene_action_fallback_90f96_90fe8) }
     .scene_action_table 0x800903E8 : AT(0x90FE8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.rodata) }
-    .scene_action_fallback_91020_92558 0x80090420 : AT(0x91020) { build/us/fallback.o(.rom_scene_action_fallback_91020_92558) }
+    .error_fallback_91060_92558 0x80090460 : AT(0x91060) { build/us/fallback.o(.rom_error_fallback_91060_92558) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
     .endgame_data_92560_93698 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_93698) }
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
@@ -3058,7 +3059,7 @@ ASSERT(SIZEOF(.menu_options_page) == 0x30, "menu_options_page BSS size changed")
 ASSERT(SIZEOF(.scene_action_dispatch) == 0x2d4, "scene_action_dispatch size changed")
 ASSERT(SIZEOF(.scene_action_fallback_90f96_90fe8) == 0x52, "scene_action_fallback_90f96_90fe8 size changed")
 ASSERT(SIZEOF(.scene_action_table) == 0x38, "scene_action_table size changed")
-ASSERT(SIZEOF(.scene_action_fallback_91020_92558) == 0x1538, "scene_action_fallback_91020_92558 size changed")
+ASSERT(SIZEOF(.error_fallback_91060_92558) == 0x14f8, "error_fallback_91060_92558 size changed")
 ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")
 ASSERT(SIZEOF(.early_boss_create) == 0x304, "early_boss_create size changed")
 ASSERT(SIZEOF(.boss_fallback_90588_9078c) == 0x204, "boss_fallback_90588_9078c size changed")
@@ -3100,3 +3101,5 @@ ASSERT(SIZEOF(.actor_collision_impact_switch) == 0x8c, "actor_collision_impact_s
 ASSERT(SIZEOF(.collision_fallback_90c38_90c98) == 0x60, "collision_fallback_90c38_90c98 size changed")
 ASSERT(SIZEOF(.collision_fallback_742b8_74550) == 0x298, "collision_fallback_742b8_74550 size changed")
 ASSERT(SIZEOF(.actor_collision_palette) == 0x6c, "actor_collision_palette size changed")
+
+ASSERT(SIZEOF(.error_messages) == 0x40, "error_messages size changed")
