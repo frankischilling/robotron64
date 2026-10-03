@@ -15425,5 +15425,16 @@
     "section": ".renderer_image_setup_rgba",
     "section_vram": 2147790756,
     "evidence": "docs/renderer-image-setup.md"
+  },
+  {
+    "name": "func_8004A2B4",
+    "rom": 306868,
+    "vram": 2147787444,
+    "size": 1024,
+    "source": "src/game/renderer_text/object_glyph.c",
+    "object": "build/us/renderer_object_glyph.o",
+    "section": ".renderer_object_glyph",
+    "section_vram": 2147787444,
+    "evidence": "docs/renderer-object-glyph.md"
   }
 ]

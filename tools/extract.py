@@ -99,7 +99,7 @@ REGIONS = (
     ("endgame_499dc_49d3c", 0x499dc, 0x49d3c),
     ("cpu_after_frame_timing", 0x4a2e0, 0x4a4e0),
     ("cpu_before_renderer_platform", 0x4a4ec, 0x4a4f0),
-    ("endgame_4aa3c_4b2b4", 0x4aa3c, 0x4b2b4),
+    ("endgame_4aa3c_4aeb4", 0x4aa3c, 0x4aeb4),
     ("endgame_4bed8_4bee0", 0x4bed8, 0x4bee0),
     ("endgame_4c190_4c7d0", 0x4c190, 0x4c7d0),
     ("endgame_4c900_4cc90", 0x4c900, 0x4cc90),

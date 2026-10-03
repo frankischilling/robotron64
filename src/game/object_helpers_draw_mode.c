@@ -1,4 +1,5 @@
 #include "../../include/object_draw.h"
+#include "../../include/renderer_object_glyph_internal.h"
 
 extern unsigned char D_8007BF34[][4];
 extern void *D_800AEE9C;
@@ -18,7 +19,6 @@ extern unsigned char D_800763F0[];
 extern unsigned char D_8007628C[];
 
 extern void func_80049DF4(int, int, int);
-extern int func_8004A2B4(void *, int, int);
 
 int func_8003A778(unsigned int force, ObjectRecord *object)
 {
@@ -43,9 +43,9 @@ int func_8003A778(unsigned int force, ObjectRecord *object)
         D_800AEE9C == D_800763F0 ||
         D_800AEE9C == D_8007628C ||
         force == 1) {
-        return func_8004A2B4(&object->draw38, value, 1);
+        return func_8004A2B4((RendererDrawState *)&object->draw38, value, 1);
     } else {
-        return func_8004A2B4(&object->draw38, value, 0);
+        return func_8004A2B4((RendererDrawState *)&object->draw38, value, 0);
     }
 }
 

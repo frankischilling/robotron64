@@ -656,7 +656,8 @@ SECTIONS
     .renderer_glyph_map 0x800498F0 : AT(0x4A4F0) SUBALIGN(4) { build/us/renderer_glyph_map.o(.text) }
     .renderer_platform 0x80049AD8 : AT(0x4A6D8) SUBALIGN(4) { build/us/renderer_platform.o(.text) }
     .graphics_state_helpers 0x80049DB0 : AT(0x4A9B0) SUBALIGN(4) { build/us/graphics_state_helpers.o(.text) }
-    .endgame_4aa3c_4b2b4 0x80049E3C : AT(0x4AA3C) { build/us/fallback.o(.rom_endgame_4aa3c_4b2b4) }
+    .endgame_4aa3c_4aeb4 0x80049E3C : AT(0x4AA3C) { build/us/fallback.o(.rom_endgame_4aa3c_4aeb4) }
+    .renderer_object_glyph 0x8004A2B4 : AT(0x4AEB4) SUBALIGN(4) { build/us/renderer_object_glyph.o(.text) }
     .renderer_texture_squares 0x8004A6B4 : AT(0x4B2B4) SUBALIGN(4) { build/us/renderer_texture_squares.o(.text) }
     .renderer_flag_set 0x8004ABBC : AT(0x4B7BC) SUBALIGN(4) { build/us/renderer_flag_set.o(.text) }
     .renderer_texture_defaults 0x8004ABC8 : AT(0x4B7C8) SUBALIGN(4) { build/us/renderer_texture_defaults.o(.text) }
@@ -2749,7 +2750,7 @@ ASSERT(SIZEOF(.renderer_texture_squares) == 0x508, "renderer_texture_squares siz
 ASSERT(SIZEOF(.renderer_image_quad_ci) == 0x240, "renderer_image_quad_ci size changed")
 ASSERT(SIZEOF(.renderer_image_quad_rgba) == 0x240, "renderer_image_quad_rgba size changed")
 ASSERT(SIZEOF(.renderer_texture_square_extent) == 0x4, "renderer_texture_square_extent size changed")
-ASSERT(SIZEOF(.endgame_4aa3c_4b2b4) == 0x878, "endgame_4aa3c_4b2b4 size changed")
+ASSERT(SIZEOF(.endgame_4aa3c_4aeb4) == 0x478, "endgame_4aa3c_4aeb4 size changed")
 ASSERT(SIZEOF(.endgame_4bed8_4bee0) == 0x8, "endgame_4bed8_4bee0 size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle) == 0x2d8, "renderer_expanded_triangle size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle_strings) == 0x28, "renderer_expanded_triangle_strings size changed")
@@ -3025,3 +3026,4 @@ ASSERT(SIZEOF(.renderer_matrix_scale) == 0x380, "renderer_matrix_scale size chan
 ASSERT(SIZEOF(.renderer_supplied_matrix_diagnostics) == 0x40, "renderer_supplied_matrix_diagnostics size changed")
 ASSERT(SIZEOF(.renderer_image_setup_ci) == 0xc0, "renderer_image_setup_ci size changed")
 ASSERT(SIZEOF(.renderer_image_setup_rgba) == 0xf4, "renderer_image_setup_rgba size changed")
+ASSERT(SIZEOF(.renderer_object_glyph) == 0x400, "renderer_object_glyph size changed")

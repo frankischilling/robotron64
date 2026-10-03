@@ -660,3 +660,11 @@ fields. Robotron's retail instructions establish the wrapper ordering and
 parameters. The optional Unicorn checker executes matching matrix, palette,
 quad and allocation code against independent CPU-buffer expectations; it
 does not execute graphics microcode. No reference implementation was copied.
+
+Object-attached glyph recovery follows the local SM64 pinned IDO workflow and
+libreultra vertex/GBI definitions. Robotron's complete instructions and matching
+callees establish the gradient, matrix restoration, allocation and surviving
+return register. The optional Unicorn checker exercises the glyph and its
+object callback with real support code and independent memory/command oracles.
+The unresolved C return contract remains documented; no reference implementation
+or commercial font image was copied.
