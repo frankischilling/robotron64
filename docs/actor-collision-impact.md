@@ -33,6 +33,9 @@ palette uses and the generated switch reference. The following recovered
 resource type has a small shared header so it can be reused without the
 unrelated resource loader declarations. The initializer uses the matching
 four-argument prototype; its complete 808-byte output remains unchanged.
+The canonical session type is imported in Ghidra. Applying it to the whole
+global would discard six existing subfield labels, so those labels and the
+existing byte-array global view are retained.
 
 The IDO 5.3 game profile reproduces all instructions, the 80-byte stack
 frame and all relocated switch words. The angle expression captures the

@@ -682,7 +682,20 @@
     },
     "unchanged_cpu_sha256": "87ebb98d0ffcec5db63e74337d78fa3a5c0131256d48d8f11f987da604c7c79b",
     "palette_sha256": "b3d13bb775e803ad443d548afecce2c7e24c2449e3d2b13473cbe61c6b8bf263",
-    "switch_sha256": "f893d8fbaae66d1e4973203c87f7cc97d4a9a34d3ed70fd1868405f99cc482ae"
+    "switch_sha256": "f893d8fbaae66d1e4973203c87f7cc97d4a9a34d3ed70fd1868405f99cc482ae",
+    "session_global_type_application": {
+      "applied": false,
+      "retained_global_type": "undefined1[328]",
+      "retained_subfield_labels": [
+        "D_800AD15C",
+        "D_800AD160",
+        "D_800AD168",
+        "D_800AD19C",
+        "D_800AD1B8",
+        "D_800AD1C8"
+      ],
+      "reason": "The type application guard refused to discard existing subfield labels. The canonical 328-byte type is imported and verified independently."
+    }
   },
   "private_reference_verification": {
     "text": {
