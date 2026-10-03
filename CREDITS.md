@@ -647,3 +647,9 @@ allocator, reset routines and renderer establish the 300-record pool, 300
 slot integers, effect search and matrix paths. The optional Unicorn checker
 executes the matching callback and fixed-matrix helpers. No reference game
 implementation was copied into these sources.
+
+The supplied-matrix scale submitter uses the local SM64 pinned IDO comparison
+workflow and the existing libreultra SDK matrix representation. Robotron's
+retail code establishes row scaling, integer/fractional packing, clamping and
+the post-write diagnostic. Its MIPS checker uses Unicorn and an independent
+arithmetic oracle. No reference implementation was copied.

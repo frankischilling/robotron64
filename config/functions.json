@@ -15392,5 +15392,16 @@
     "section": ".actor_effect_draw",
     "section_vram": 2147505504,
     "evidence": "docs/actor-effect-draw.md"
+  },
+  {
+    "name": "func_80047A08",
+    "rom": 296456,
+    "vram": 2147777032,
+    "size": 896,
+    "source": "src/game/renderer_matrix_scale.c",
+    "object": "build/us/renderer_matrix_scale.o",
+    "section": ".renderer_matrix_scale",
+    "section_vram": 2147777032,
+    "evidence": "docs/renderer-supplied-matrix.md"
   }
 ]

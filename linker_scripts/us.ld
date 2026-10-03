@@ -55,7 +55,6 @@ __initial_stack_top = 0x8013A280;
 D_800B1BE8 = 0x800B1BE8;
 D_8008F620 = 0x8008F620;
 func_8001C0D0 = 0x8001C0D0;
-func_80047A08 = 0x80047A08;
 
 D_8008F64C = 0x8008F64C;
 
@@ -637,7 +636,7 @@ SECTIONS
     .graphics_environment 0x800474B8 : AT(0x480B8) SUBALIGN(4) { build/us/graphics_environment.o(.text) }
     .matrix_transform_fallback_48168_48170 0x80047568 : AT(0x48168) { build/us/fallback.o(.rom_matrix_transform_fallback_48168_48170) }
     .renderer_matrix_transform 0x80047570 : AT(0x48170) SUBALIGN(4) { build/us/renderer_matrix_transform.o(.text) }
-    .matrix_transform_fallback_48608_48988 0x80047A08 : AT(0x48608) { build/us/fallback.o(.rom_matrix_transform_fallback_48608_48988) }
+    .renderer_matrix_scale 0x80047A08 : AT(0x48608) SUBALIGN(4) { build/us/renderer_matrix_scale.o(.text) }
     .renderer_matrix_submit 0x80047D88 : AT(0x48988) SUBALIGN(4) { build/us/renderer_matrix_submit.o(.text) }
     .fixed_matrix_rsp 0x80048020 : AT(0x48C20) SUBALIGN(4) { build/us/fixed_matrix_rsp.o(.text) }
     .endgame_48d64_48d70 0x80048164 : AT(0x48D64) { build/us/fallback.o(.rom_endgame_48d64_48d70) }
@@ -1335,7 +1334,7 @@ SECTIONS
     .graphics_pool_strings 0x80095220 : AT(0x95E20) SUBALIGN(4) { build/us/graphics_pool.o(.rodata) }
     .graphics_mode_dispatch_table 0x80095300 : AT(0x95F00) SUBALIGN(4) { build/us/graphics_mode_dispatch.o(.rodata) }
     .renderer_matrix_transform_strings 0x80095360 : AT(0x95F60) SUBALIGN(4) { build/us/renderer_matrix_transform.o(.rodata) }
-    .matrix_transform_fallback_95fa0_95fe0 0x800953A0 : AT(0x95FA0) { build/us/fallback.o(.rom_matrix_transform_fallback_95fa0_95fe0) }
+    .renderer_supplied_matrix_diagnostics 0x800953A0 : AT(0x95FA0) SUBALIGN(4) { build/us/renderer_supplied_matrix_diagnostics.o(.data) }
     .renderer_matrix_submit_strings 0x800953E0 : AT(0x95FE0) SUBALIGN(4) { build/us/renderer_matrix_submit.o(.rodata) }
     .projection_diagnostic_fallback_96020_96038 0x80095420 : AT(0x96020) { build/us/fallback.o(.rom_projection_diagnostic_fallback_96020_96038) }
     .renderer_projection_constants 0x80095438 : AT(0x96038) SUBALIGN(4) { build/us/renderer_projection_constants.o(.data) }
@@ -2874,9 +2873,7 @@ ASSERT(SIZEOF(.renderer_image_placement_data_bss) == 0xc, "renderer_image_placem
 ASSERT(SIZEOF(.early_render_coordinate_data) == 0x4, "early_render_coordinate_data size changed")
 ASSERT(SIZEOF(.matrix_transform_fallback_48168_48170) == 0x8, "matrix_transform_fallback_48168_48170 size changed")
 ASSERT(SIZEOF(.renderer_matrix_transform) == 0x498, "renderer_matrix_transform size changed")
-ASSERT(SIZEOF(.matrix_transform_fallback_48608_48988) == 0x380, "matrix_transform_fallback_48608_48988 size changed")
 ASSERT(SIZEOF(.renderer_matrix_transform_strings) == 0x40, "renderer_matrix_transform_strings size changed")
-ASSERT(SIZEOF(.matrix_transform_fallback_95fa0_95fe0) == 0x40, "matrix_transform_fallback_95fa0_95fe0 size changed")
 ASSERT(SIZEOF(.renderer_matrix_arena_data_bss) == 0x7d00, "renderer_matrix_arena_data BSS size changed")
 ASSERT(SIZEOF(.graphics_rsp_stack_data_bss) == 0x400, "graphics_rsp_stack_data BSS size changed")
 ASSERT(SIZEOF(.graphics_rsp_yield_data_bss) == 0xc00, "graphics_rsp_yield_data BSS size changed")
@@ -3026,3 +3023,5 @@ ASSERT(SIZEOF(.palette_fade_step) == 0x4, "palette_fade_step BSS size changed")
 ASSERT(SIZEOF(.actor_effect_draw) == 0x2b4, "actor_effect_draw size changed")
 ASSERT(SIZEOF(.object_record_storage) == 0x8ca0, "object_record_storage size changed")
 ASSERT(SIZEOF(.object_slot_storage) == 0x4b0, "object_slot_storage size changed")
+ASSERT(SIZEOF(.renderer_matrix_scale) == 0x380, "renderer_matrix_scale size changed")
+ASSERT(SIZEOF(.renderer_supplied_matrix_diagnostics) == 0x40, "renderer_supplied_matrix_diagnostics size changed")
