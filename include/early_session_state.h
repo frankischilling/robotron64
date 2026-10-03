@@ -4,6 +4,14 @@
 #include "early_game_state.h"
 #include "save_game.h"
 
+typedef struct EarlySceneResourceRecord {
+    int unknown00;
+    unsigned char resource04[0x5C];
+} EarlySceneResourceRecord;
+
+typedef char EarlySceneResourceRecordMustBe96Bytes[
+    sizeof(EarlySceneResourceRecord) == 0x60 ? 1 : -1];
+
 typedef struct EarlyAnimationResetSlot {
     int value00;
     unsigned char unknown04[4];

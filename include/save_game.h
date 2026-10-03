@@ -14,7 +14,9 @@ typedef struct SavedPlayerState {
     unsigned char unknown0C[0xC];
     int value18;
     int active;
-    unsigned char unknown20[0x14];
+    unsigned char unknown20[4];
+    int value24;
+    unsigned char unknown28[0xC];
     int field34;
     unsigned char unknown38[0x68];
 } SavedPlayerState;
@@ -58,9 +60,11 @@ typedef struct GameSessionState {
     struct EarlySceneResourceRecord *animationResources84;
     unsigned char unknown88[4];
     int value8C;
-    unsigned char unknown90[0xC];
+    int animationReady90;
+    unsigned char unknown94[8];
     int animationIndex9C;
-    unsigned char unknownA0[8];
+    int animationLimitA0;
+    unsigned char unknownA4[4];
     int animationStateA8;
     unsigned char unknownAC[8];
     struct EarlyAnimationRecord *animationRecordsB4;

@@ -1,14 +1,6 @@
 #include "../../include/early_session_state.h"
 #include "../../include/object.h"
 
-typedef struct EarlySceneResourceRecord {
-    int unknown00;
-    unsigned char resource04[0x5C];
-} EarlySceneResourceRecord;
-
-typedef char EarlySceneResourceRecordMustBe96Bytes[
-    sizeof(EarlySceneResourceRecord) == 0x60 ? 1 : -1];
-
 extern EarlyAnimationRecord D_80073164[];
 extern unsigned char D_8008FB70[];
 void func_80039EB8(int value, unsigned char flags);

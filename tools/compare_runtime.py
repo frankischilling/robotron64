@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("early_boss_create", "src/game/actor_groups/boss_create.c", 0x8001049C, 0x800107A0),
     ("scene_action_dispatch", "src/game/scene_actions/dispatch.c", 0x8001B8D8, 0x8001BBAC),
     ("menu_options_define", "src/game/save_menus/define_options.c", 0x800263E0, 0x800265B8),
     ("renderer_object_glyph", "src/game/renderer_text/object_glyph.c", 0x8004A2B4, 0x8004A6B4),
@@ -870,6 +871,7 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
     ("actor_group_rotate", "src/game/actor_groups/rotate.c", 0x8000E720, 0x8000E894),
     ("actor_group_path", "src/game/actor_groups/path.c", 0x8000E894, 0x8000EAE4),
     ("actor_group_bonus_child", "src/game/actor_groups/bonus_child.c", 0x8000F030, 0x8000F318),
