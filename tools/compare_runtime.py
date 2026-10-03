@@ -11,6 +11,8 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("actor_collision_pickup_response", "src/game/collisions/pickup_response.c", 0x80015F00, 0x800162AC),
+    ("actor_collision_response_gate", "src/game/collisions/response_gate.c", 0x80015BF8, 0x80015F00),
     ("early_actor_movement", "src/game/actor_groups/movement.c", 0x80010A3C, 0x80011028),
     ("early_actor_decision", "src/game/actor_groups/decision.c", 0x8000FBC0, 0x80010460),
     ("early_boss_trigger", "src/game/actor_groups/trigger.c", 0x8000F814, 0x8000FBC0),

@@ -710,3 +710,12 @@ complete instructions and generated switch table establish the handler and
 signed rate view. The optional Unicorn checker executes real matching
 trigonometry against mathematical, guarded byte and call oracles. No
 reference implementation was copied.
+
+Collision response recovery uses Ghidra MCP with the project's canonical
+actor and resource types, splat 0.50.0 and spimdisasm 1.42.4 for private
+retail disassembly, m2c for IDO-context seeds, asm-differ and objdiff 3.8.2
+for comparisons, and decomp-permuter for a stack-aware two-worker search.
+The final match came from source line grouping with the pinned IDO compiler.
+Reference assembly was independently reassembled and checked against retail
+bytes. These tools' upstream sources and licenses remain in the local
+tool installation; no tool or reference-game implementation was copied.
