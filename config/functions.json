@@ -15458,5 +15458,16 @@
     "section": ".scene_action_dispatch",
     "section_vram": 2147596504,
     "evidence": "docs/scene-actions.md"
+  },
+  {
+    "name": "func_8001049C",
+    "rom": 69788,
+    "vram": 2147550364,
+    "size": 772,
+    "source": "src/game/actor_groups/boss_create.c",
+    "object": "build/us/early_boss_create.o",
+    "section": ".early_boss_create",
+    "section_vram": 2147550364,
+    "evidence": "docs/actor-boundary-and-boss.md"
   }
 ]

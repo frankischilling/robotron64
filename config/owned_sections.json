@@ -3286,5 +3286,33 @@
       "D_800BAE8C": 0
     },
     "evidence": "docs/scene-actions.md"
+  },
+  {
+    "source": "src/game/actor_groups/boss_create.c",
+    "object": "build/us/early_boss_create.o",
+    "input_section": ".rodata",
+    "section": ".early_boss_error",
+    "vram": 2148072332,
+    "rom": 591756,
+    "size": 24,
+    "symbols": {},
+    "evidence": "docs/actor-boundary-and-boss.md",
+    "static_symbols": {
+      "D_8008FB8C": 0
+    }
+  },
+  {
+    "source": "src/game/actor_groups/boss_timestamps.c",
+    "object": "build/us/early_boss_timestamps.o",
+    "input_section": ".bss",
+    "section": ".early_boss_timestamps",
+    "vram": 2148102996,
+    "rom": null,
+    "size": 8,
+    "symbols": {
+      "D_80097354": 0,
+      "D_80097358": 4
+    },
+    "evidence": "docs/actor-boundary-and-boss.md"
   }
 ]

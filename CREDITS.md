@@ -682,3 +682,10 @@ allocation analysis. Robotron's complete instructions, switch table and
 callers establish the menu actions, pickup gates and four-byte counter.
 The optional Unicorn checker executes the matching handler and menu caller
 against guarded byte oracles. No reference game implementation was copied.
+
+Boss-part creation and actor-boundary recovery follow the local SM64 pinned
+IDO matching workflow. The IDO temporary-storage allocator was consulted
+during frame and spill analysis. Robotron's complete instructions establish
+the constructor, resource stride, timestamps and excluded boundary candidate.
+The optional Unicorn checker executes freshly matched arithmetic helpers
+against guarded byte and call expectations. No reference implementation was copied.
