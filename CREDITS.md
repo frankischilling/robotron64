@@ -668,3 +668,10 @@ return register. The optional Unicorn checker exercises the glyph and its
 object callback with real support code and independent memory/command oracles.
 The unresolved C return contract remains documented; no reference implementation
 or commercial font image was copied.
+
+Menu-option construction follows the local SM64 pinned IDO matching workflow.
+The IDO optimizer sources were consulted while investigating temporary storage
+and register allocation. Robotron's complete instructions, existing callers
+and label updater establish the records and runtime storage. The optional
+Unicorn checker uses the matching string-length code and guarded memory
+oracles. No reference implementation was copied.

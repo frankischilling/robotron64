@@ -18,10 +18,6 @@ extern unsigned char D_8007751C[];
 extern unsigned char D_80094034[];
 extern unsigned char D_80094040[];
 
-extern void func_800263E0(unsigned char *title, unsigned char **labels, int count,
-                          int mode, int first, int second,
-                          void (*select)(int *), void (*cancel)(int), int width);
-
 void func_800308AC(int unused);
 void func_800309D0(int *selection);
 

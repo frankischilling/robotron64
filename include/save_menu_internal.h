@@ -2,6 +2,7 @@
 #define ROBOTRON_SAVE_MENU_INTERNAL_H
 
 #include "save_game.h"
+#include "menu_label_internal.h"
 
 typedef struct SaveMenuContinueCode {
     unsigned int checksum : 3;

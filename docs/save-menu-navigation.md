@@ -27,3 +27,8 @@ The first exact comparisons live under `.local/recovery59-menu`, with preserved 
 The legacy prelude was reconstructed from the US target function catalog and the frozen local disassemblies in `recovery38-session` and `recovery58-menu`; no external source tree was used for these twenty functions. The six source units were then linked at their final addresses against the current project symbol layout, including the two retained fallback fragments, before integration.
 
 The comparison runner uses IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`, checks each complete procedure and any allocated data, and records current source, transitive-header, compiler, and symbol-layout identities. The larger menu-activation routine at `0x80026178` and the pak directory builder at `0x800267BC` remain separate candidates until their complete comparisons pass.
+
+[Menu option construction](save-menu-options.md) now completes the 472-byte
+initializer at `800263E0` and owns its seventeen 40-byte option records and
+48-byte page. The 616-byte activation routine immediately before it remains
+fallback; constructor execution tests use an ABI stub for that call.

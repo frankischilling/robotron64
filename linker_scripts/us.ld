@@ -302,7 +302,8 @@ SECTIONS
     .save_menu_nav_preview_create 0x80025EF0 : AT(0x26AF0) SUBALIGN(4) { build/us/save_menu_nav_preview_create.o(.text) }
     .save_menu_nav_preview_release 0x80026044 : AT(0x26C44) SUBALIGN(4) { build/us/save_menu_nav_preview_release.o(.text) }
     .save_menu_nav_cleanup 0x8002606C : AT(0x26C6C) SUBALIGN(4) { build/us/save_menu_nav_cleanup.o(.text) }
-    .cpu_after_save_menu_nav_cleanup 0x80026178 : AT(0x26D78) { build/us/fallback.o(.rom_cpu_after_save_menu_nav_cleanup) }
+    .menu_options_fallback_26d78_26fe0 0x80026178 : AT(0x26D78) { build/us/fallback.o(.rom_menu_options_fallback_26d78_26fe0) }
+    .menu_options_define 0x800263E0 : AT(0x26FE0) SUBALIGN(4) { build/us/menu_options_define.o(.text) }
     .save_menu_pak_retry 0x800265B8 : AT(0x271B8) SUBALIGN(4) { build/us/save_menu_pak_retry.o(.text) }
     .save_menu_pak_reset 0x80026620 : AT(0x27220) SUBALIGN(4) { build/us/save_menu_pak_reset.o(.text) }
     .save_menu_pak_refresh 0x80026674 : AT(0x27274) SUBALIGN(4) { build/us/save_menu_pak_refresh.o(.text) }
@@ -1474,6 +1475,8 @@ SECTIONS
     .palette_fade_step 0x8009E580 (NOLOAD) : SUBALIGN(4) { build/us/palette_fade_step.o(.bss) }
     .object_record_storage 0x800BF918 (NOLOAD) : SUBALIGN(4) { build/us/object_record_storage.o(.bss) }
     .object_slot_storage 0x800C86C0 (NOLOAD) : SUBALIGN(4) { build/us/object_slot_storage.o(.bss) }
+    .menu_options_records 0x800AEF00 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_records.o(.bss) }
+    .menu_options_page 0x800AF1A8 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_page.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -1604,7 +1607,6 @@ ASSERT(SIZEOF(.save_menu_nav_actor_back) == 0x88, "save_menu_nav_actor_back size
 ASSERT(SIZEOF(.save_menu_nav_preview_create) == 0x154, "save_menu_nav_preview_create size changed")
 ASSERT(SIZEOF(.save_menu_nav_preview_release) == 0x28, "save_menu_nav_preview_release size changed")
 ASSERT(SIZEOF(.save_menu_nav_cleanup) == 0x10c, "save_menu_nav_cleanup size changed")
-ASSERT(SIZEOF(.cpu_after_save_menu_nav_cleanup) == 0x440, "cpu_after_save_menu_nav_cleanup size changed")
 ASSERT(SIZEOF(.save_menu_pak_retry) == 0x68, "save_menu_pak_retry size changed")
 ASSERT(SIZEOF(.save_menu_pak_reset) == 0x54, "save_menu_pak_reset size changed")
 ASSERT(SIZEOF(.save_menu_pak_refresh) == 0x48, "save_menu_pak_refresh size changed")
@@ -2523,7 +2525,6 @@ ASSERT(SIZEOF(.menu_transition_start_bss) == 0x64, "menu_transition_start_bss si
 ASSERT(SIZEOF(.renderer_texture_file_cache_data) == 0x8, "renderer_texture_file_cache_data size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache_bss) == 0x804, "renderer_texture_file_cache_bss size changed")
 ASSERT(SIZEOF(.endgame_41568_43430) == 0x1ec8, "endgame_41568_43430 size changed")
-D_800AEF00 = 0x800AEF00;
 D_8009B1C4 = 0x8009B1C4;
 D_8009BF78 = 0x8009BF78;
 func_80049E3C = 0x80049E3C;
@@ -3027,3 +3028,7 @@ ASSERT(SIZEOF(.renderer_supplied_matrix_diagnostics) == 0x40, "renderer_supplied
 ASSERT(SIZEOF(.renderer_image_setup_ci) == 0xc0, "renderer_image_setup_ci size changed")
 ASSERT(SIZEOF(.renderer_image_setup_rgba) == 0xf4, "renderer_image_setup_rgba size changed")
 ASSERT(SIZEOF(.renderer_object_glyph) == 0x400, "renderer_object_glyph size changed")
+ASSERT(SIZEOF(.menu_options_fallback_26d78_26fe0) == 0x268, "menu_options_fallback_26d78_26fe0 size changed")
+ASSERT(SIZEOF(.menu_options_define) == 0x1d8, "menu_options_define size changed")
+ASSERT(SIZEOF(.menu_options_records) == 0x2a8, "menu_options_records BSS size changed")
+ASSERT(SIZEOF(.menu_options_page) == 0x30, "menu_options_page BSS size changed")

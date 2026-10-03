@@ -15436,5 +15436,16 @@
     "section": ".renderer_object_glyph",
     "section_vram": 2147787444,
     "evidence": "docs/renderer-object-glyph.md"
+  },
+  {
+    "name": "func_800263E0",
+    "rom": 159712,
+    "vram": 2147640288,
+    "size": 472,
+    "source": "src/game/save_menus/define_options.c",
+    "object": "build/us/menu_options_define.o",
+    "section": ".menu_options_define",
+    "section_vram": 2147640288,
+    "evidence": "docs/save-menu-options.md"
   }
 ]
