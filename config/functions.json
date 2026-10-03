@@ -15502,5 +15502,27 @@
     "section": ".early_actor_movement",
     "section_vram": 2147551804,
     "evidence": "docs/actor-movement.md"
+  },
+  {
+    "name": "func_80015BF8",
+    "rom": 92152,
+    "vram": 2147572728,
+    "size": 776,
+    "source": "src/game/collisions/response_gate.c",
+    "object": "build/us/actor_collision_response_gate.o",
+    "section": ".actor_collision_response_gate",
+    "section_vram": 2147572728,
+    "evidence": "docs/actor-collision-response.md"
+  },
+  {
+    "name": "func_80015F00",
+    "rom": 92928,
+    "vram": 2147573504,
+    "size": 940,
+    "source": "src/game/collisions/pickup_response.c",
+    "object": "build/us/actor_collision_pickup_response.o",
+    "section": ".actor_collision_pickup_response",
+    "section_vram": 2147573504,
+    "evidence": "docs/actor-collision-response.md"
   }
 ]

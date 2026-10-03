@@ -3351,5 +3351,29 @@
     "size": 24,
     "symbols": {},
     "evidence": "docs/actor-movement.md"
+  },
+  {
+    "source": "src/game/collisions/response_gate.c",
+    "object": "build/us/actor_collision_response_gate.o",
+    "input_section": ".rodata",
+    "section": ".actor_collision_response_gate_switch",
+    "vram": 2148073060,
+    "rom": 592484,
+    "size": 132,
+    "symbols": {},
+    "evidence": "docs/actor-collision-response.md"
+  },
+  {
+    "source": "src/game/collisions/pickup_order.c",
+    "object": "build/us/actor_collision_pickup_order.o",
+    "input_section": ".data",
+    "section": ".actor_collision_pickup_order",
+    "vram": 2147957180,
+    "rom": 476604,
+    "size": 12,
+    "symbols": {
+      "D_800739BC": 0
+    },
+    "evidence": "docs/actor-collision-response.md"
   }
 ]
