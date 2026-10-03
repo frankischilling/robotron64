@@ -3314,5 +3314,31 @@
       "D_80097358": 4
     },
     "evidence": "docs/actor-boundary-and-boss.md"
+  },
+  {
+    "source": "src/game/actor_groups/trigger_records.c",
+    "object": "build/us/early_boss_trigger_records.o",
+    "input_section": ".data",
+    "section": ".early_boss_trigger_records",
+    "vram": 2147956112,
+    "rom": 475536,
+    "size": 280,
+    "symbols": {
+      "D_80073590": 0
+    },
+    "evidence": "docs/boss-trigger.md"
+  },
+  {
+    "source": "src/game/actor_groups/trigger_state.c",
+    "object": "build/us/early_boss_trigger_state.o",
+    "input_section": ".data",
+    "section": ".early_boss_trigger_state",
+    "vram": 2147956104,
+    "rom": 475528,
+    "size": 4,
+    "symbols": {
+      "D_80073588": 0
+    },
+    "evidence": "docs/boss-trigger.md"
   }
 ]
