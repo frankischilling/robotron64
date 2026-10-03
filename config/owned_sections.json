@@ -3410,5 +3410,29 @@
       "D_80090200": 0
     },
     "evidence": "docs/actor-collision-followup.md"
+  },
+  {
+    "source": "src/game/collisions/impact.c",
+    "object": "build/us/actor_collision_impact.o",
+    "input_section": ".rodata",
+    "section": ".actor_collision_impact_switch",
+    "vram": 2148073388,
+    "rom": 592812,
+    "size": 140,
+    "symbols": {},
+    "evidence": "docs/actor-collision-impact.md"
+  },
+  {
+    "source": "src/game/collisions/palette.c",
+    "object": "build/us/actor_collision_palette.o",
+    "input_section": ".data",
+    "section": ".actor_collision_palette",
+    "vram": 2147957072,
+    "rom": 476496,
+    "size": 108,
+    "symbols": {
+      "D_80073950": 0
+    },
+    "evidence": "docs/actor-collision-impact.md"
   }
 ]

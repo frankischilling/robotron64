@@ -4,6 +4,12 @@
 #include "actor_behavior_internal.h"
 #include "early_game_state.h"
 
+extern unsigned char D_80073950[36][3];
+
+unsigned char func_80016C1C(ActorBehaviorActorInternal *first,
+                           ActorBehaviorActorInternal *second,
+                           int *firstPosition, int *secondPosition);
+
 int func_80017A2C(ActorBehaviorActorInternal *first,
                   ActorBehaviorActorInternal *second, int third, int fourth);
 int func_80017E50(EarlyGameActor *first, EarlyGameActor *second,

@@ -14,7 +14,6 @@ extern int func_8001669C(ActorBehaviorActorInternal *, ActorBehaviorActorInterna
 extern int func_80016950(EarlyGameActor *, EarlyGameActor *, int *, int *);
 extern int func_80015BF8(EarlyGameActor *, EarlyGameActor *, int *, int *);
 extern int func_8001737C(EarlyGameActor *, EarlyGameActor *, int *, int *);
-extern unsigned char func_80016C1C(EarlyGameActor *, EarlyGameActor *, int *, int *);
 extern int func_8001567C(EarlyGameActor *, EarlyGameActor *, int *, int *);
 extern unsigned char func_8001631C(EarlyGameActor *, EarlyGameActor *, int *, int *);
 extern int func_80015F00(EarlyGameActor *, EarlyGameActor *, int *, int *);

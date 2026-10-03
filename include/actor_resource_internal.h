@@ -2,6 +2,7 @@
 #define ROBOTRON_ACTOR_RESOURCE_INTERNAL_H
 
 #include "actor.h"
+#include "actor_resource_5c_internal.h"
 
 typedef union ActorResourceWord04Internal {
     struct {
@@ -50,14 +51,6 @@ typedef struct ActorResource68Internal {
     int arrivalDelay;
 } ActorResource68Internal;
 
-typedef struct ActorResource5CInternal {
-    unsigned char unknown00[6];
-    ActorResourceFlags flags06;
-    int speed;
-    unsigned char unknown0C[0x4C];
-    int value58;
-} ActorResource5CInternal;
-
 typedef struct ActorResource60Internal {
     unsigned char unknown00[0xA];
     ActorResourceFlags flags0A;
@@ -66,8 +59,6 @@ typedef struct ActorResource60Internal {
 
 typedef char ActorResource68InternalMustBe104Bytes[
     sizeof(ActorResource68Internal) == 0x68 ? 1 : -1];
-typedef char ActorResource5CInternalMustBe92Bytes[
-    sizeof(ActorResource5CInternal) == 0x5C ? 1 : -1];
 typedef char ActorResource60InternalMustBe96Bytes[
     sizeof(ActorResource60Internal) == 0x60 ? 1 : -1];
 typedef char ActorResource58InternalMustBe88Bytes[

@@ -15568,5 +15568,16 @@
     "section": ".actor_group_rotate",
     "section_vram": 2147542816,
     "evidence": "docs/actor-group-rotation.md"
+  },
+  {
+    "name": "func_80016C1C",
+    "rom": 96284,
+    "vram": 2147576860,
+    "size": 1864,
+    "source": "src/game/collisions/impact.c",
+    "object": "build/us/actor_collision_impact.o",
+    "section": ".actor_collision_impact",
+    "section_vram": 2147576860,
+    "evidence": "docs/actor-collision-impact.md"
   }
 ]
