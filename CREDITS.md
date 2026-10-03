@@ -689,3 +689,10 @@ during frame and spill analysis. Robotron's complete instructions establish
 the constructor, resource stride, timestamps and excluded boundary candidate.
 The optional Unicorn checker executes freshly matched arithmetic helpers
 against guarded byte and call expectations. No reference implementation was copied.
+
+Boss trigger dispatch follows the local SM64 and IDO pinned compiler workflow.
+Robotron's full instruction range and initialized records establish the gates,
+callback ordering, timer reads and unspecified position word. The optional
+Unicorn checker executes matching reset and arithmetic code, compares the sine
+table with its mathematical generator, and checks floating-point saved
+registers through real MIPS instructions. No reference implementation was copied.

@@ -32,11 +32,12 @@ typedef struct ActorSetupRequestViewInternal {
 
 typedef struct ActorSetupChainEntryInternal {
     int value00;
-    unsigned char unknown04[4];
+    int animationIndex04;
     int actorResourceIndex;
-    unsigned char unknown0C[8];
+    int animation0C;
+    int frame10;
     int extraResourceIndex;
-    unsigned char unknown18[4];
+    int extraCount18;
 } ActorSetupChainEntryInternal;
 
 typedef struct ActorSetupGroupedResourcesInternal {

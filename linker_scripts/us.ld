@@ -9,7 +9,6 @@ D_8009B0E0 = 0x8009B0E0;
 D_800B4B00 = 0x800B4B00;
 D_80097350 = 0x80097350;
 D_80073574 = 0x80073574;
-D_80073588 = 0x80073588;
 D_800AD1B8 = 0x800AD1B8;
 func_80031ECC = 0x80031ECC;
 D_FLT_800C8DF8 = 0x800C8DF8;
@@ -165,7 +164,8 @@ SECTIONS
     .early_animation_restart 0x8000F4E0 : AT(0x100E0) SUBALIGN(4) { build/us/early_animation_restart.o(.text) }
     .early_actor_pair_spawn 0x8000F564 : AT(0x10164) SUBALIGN(4) { build/us/early_actor_pair_spawn.o(.text) }
     .actor_chain_reset 0x8000F7D8 : AT(0x103D8) SUBALIGN(4) { build/us/actor_chain_reset.o(.text) }
-    .endgame_10414_11060 0x8000F814 : AT(0x10414) { build/us/fallback.o(.rom_endgame_10414_11060) }
+    .early_boss_trigger 0x8000F814 : AT(0x10414) SUBALIGN(4) { build/us/early_boss_trigger.o(.text) }
+    .trigger_fallback_107c0_11060 0x8000FBC0 : AT(0x107C0) { build/us/fallback.o(.rom_trigger_fallback_107c0_11060) }
     .early_reset_parameter 0x80010460 : AT(0x11060) SUBALIGN(4) { build/us/early_reset_parameter.o(.text) }
     .early_boss_create 0x8001049C : AT(0x1109C) SUBALIGN(4) { build/us/early_boss_create.o(.text) }
     .boss_fallback_113a0_13290 0x800107A0 : AT(0x113A0) { build/us/fallback.o(.rom_boss_fallback_113a0_13290) }
@@ -1181,7 +1181,11 @@ SECTIONS
     .effect_config_fallback_737f0_73800 0x80072BF0 : AT(0x737F0) { build/us/fallback.o(.rom_effect_config_fallback_737f0_73800) }
     .effect_draw_config 0x80072C00 : AT(0x73800) SUBALIGN(4) { build/us/effect_draw_config.o(.data) }
     .early_render_tube_data 0x800730D8 : AT(0x73CD8) SUBALIGN(4) { build/us/early_render_tube_data.o(.data) }
-    .early_effects_fallback_73d40_742ac 0x80073140 : AT(0x73D40) { build/us/fallback.o(.rom_early_effects_fallback_73d40_742ac) }
+    .trigger_fallback_73d40_74188 0x80073140 : AT(0x73D40) { build/us/fallback.o(.rom_trigger_fallback_73d40_74188) }
+    .early_boss_trigger_state 0x80073588 : AT(0x74188) SUBALIGN(4) { build/us/early_boss_trigger_state.o(.data) }
+    .trigger_fallback_7418c_74190 0x8007358C : AT(0x7418C) { build/us/fallback.o(.rom_trigger_fallback_7418c_74190) }
+    .early_boss_trigger_records 0x80073590 : AT(0x74190) SUBALIGN(4) { build/us/early_boss_trigger_records.o(.data) }
+    .trigger_fallback_742a8_742ac 0x800736A8 : AT(0x742A8) { build/us/fallback.o(.rom_trigger_fallback_742a8_742ac) }
     .early_reset_parameter_data 0x800736AC : AT(0x742AC) SUBALIGN(4) { build/us/early_reset_parameter.o(.data) }
     .input_stream_fallback_742b8_74648 0x800736B8 : AT(0x742B8) { build/us/fallback.o(.rom_input_stream_fallback_742b8_74648) }
     .early_input_fixed_data_data 0x80073A48 : AT(0x74648) SUBALIGN(4) { build/us/early_input_fixed_data.o(.data) }
@@ -2836,7 +2840,6 @@ ASSERT(SIZEOF(.actor_contact_gate) == 0x278, "actor_contact_gate size changed")
 ASSERT(SIZEOF(.sound_request_dispatch) == 0xb0, "sound_request_dispatch size changed")
 ASSERT(SIZEOF(.sound_request_dispatch_strings) == 0x20, "sound_request_dispatch_strings size changed")
 ASSERT(SIZEOF(.actor_chain_reset) == 0x3c, "actor_chain_reset size changed")
-ASSERT(SIZEOF(.endgame_10414_11060) == 0xc4c, "endgame_10414_11060 size changed")
 ASSERT(SIZEOF(.model_hierarchy_transform) == 0x16c, "model_hierarchy_transform size changed")
 ASSERT(SIZEOF(.endgame_40080_4022c) == 0x1ac, "endgame_40080_4022c size changed")
 ASSERT(SIZEOF(.actor_history_projectile) == 0x1a4, "actor_history_projectile size changed")
@@ -2874,7 +2877,6 @@ ASSERT(SIZEOF(.render_stream_fallback_bde4_c564) == 0x780, "render_stream_fallba
 ASSERT(SIZEOF(.renderer_vertex_arena_data_bss) == 0x55f00, "renderer_vertex_arena_data BSS size changed")
 ASSERT(SIZEOF(.early_render_color_data_bss) == 0x10, "early_render_color_data BSS size changed")
 ASSERT(SIZEOF(.early_render_tube_data) == 0x68, "early_render_tube_data size changed")
-ASSERT(SIZEOF(.early_effects_fallback_73d40_742ac) == 0x56c, "early_effects_fallback_73d40_742ac size changed")
 ASSERT(SIZEOF(.renderer_image_placement_data) == 0x14, "renderer_image_placement_data size changed")
 ASSERT(SIZEOF(.renderer_image_placement_data_bss) == 0xc, "renderer_image_placement_data BSS size changed")
 ASSERT(SIZEOF(.early_render_coordinate_data) == 0x4, "early_render_coordinate_data size changed")
@@ -3050,3 +3052,10 @@ ASSERT(SIZEOF(.boss_fallback_90588_9078c) == 0x204, "boss_fallback_90588_9078c s
 ASSERT(SIZEOF(.early_boss_error) == 0x18, "early_boss_error size changed")
 ASSERT(SIZEOF(.boss_fallback_907a4_90a04) == 0x260, "boss_fallback_907a4_90a04 size changed")
 ASSERT(SIZEOF(.early_boss_timestamps) == 0x8, "early_boss_timestamps BSS size changed")
+ASSERT(SIZEOF(.early_boss_trigger) == 0x3ac, "early_boss_trigger size changed")
+ASSERT(SIZEOF(.trigger_fallback_107c0_11060) == 0x8a0, "trigger_fallback_107c0_11060 size changed")
+ASSERT(SIZEOF(.early_boss_trigger_records) == 0x118, "early_boss_trigger_records size changed")
+ASSERT(SIZEOF(.trigger_fallback_742a8_742ac) == 0x4, "trigger_fallback_742a8_742ac size changed")
+ASSERT(SIZEOF(.trigger_fallback_73d40_74188) == 0x448, "trigger_fallback_73d40_74188 size changed")
+ASSERT(SIZEOF(.early_boss_trigger_state) == 0x4, "early_boss_trigger_state size changed")
+ASSERT(SIZEOF(.trigger_fallback_7418c_74190) == 0x4, "trigger_fallback_7418c_74190 size changed")

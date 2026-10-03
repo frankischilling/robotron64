@@ -15469,5 +15469,16 @@
     "section": ".early_boss_create",
     "section_vram": 2147550364,
     "evidence": "docs/actor-boundary-and-boss.md"
+  },
+  {
+    "name": "func_8000F814",
+    "rom": 66580,
+    "vram": 2147547156,
+    "size": 940,
+    "source": "src/game/actor_groups/trigger.c",
+    "object": "build/us/early_boss_trigger.o",
+    "section": ".early_boss_trigger",
+    "section_vram": 2147547156,
+    "evidence": "docs/boss-trigger.md"
   }
 ]
