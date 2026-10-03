@@ -633,3 +633,8 @@ libreultra `include/2.0I/PR/gbi.h` and SM64 GBI definitions supply packet
 formats and SDK macro references. The optional Unicorn checker executes
 the matching support code and its reconstructed initialized data; no reference
 game implementation is copied into these surface candidates.
+
+Actor-group path research follows the local SM64 and IDO compiler and matching
+workflows listed above. Its optional Unicorn checker executes freshly matched
+arithmetic support and numerical tables. Robotron's original instructions
+establish the callback behavior; no reference game implementation was copied.

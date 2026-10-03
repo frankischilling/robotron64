@@ -863,6 +863,8 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("actor_group_rotate", "src/game/actor_groups/rotate.c", 0x8000E720, 0x8000E894),
+    ("actor_group_path", "src/game/actor_groups/path.c", 0x8000E894, 0x8000EAE4),
     ("renderer_surface_ring", "src/game/renderer_surfaces/ring.c", 0x800428C0, 0x80042BDC),
     ("renderer_surface_quad", "src/game/renderer_surfaces/quad.c", 0x80042BDC, 0x80042E2C),
     ("renderer_surface_tiles", "src/game/renderer_surfaces/tiles.c", 0x80042E2C, 0x80043070),

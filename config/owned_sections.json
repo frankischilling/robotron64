@@ -1,5 +1,16 @@
 [
   {
+    "source": "src/game/actor_groups/direction_table.c",
+    "object": "build/us/actor_direction_table.o",
+    "input_section": ".data",
+    "section": ".actor_direction_table",
+    "vram": 2147992376,
+    "rom": 511800,
+    "size": 260,
+    "symbols": { "D_8007C338": 0 },
+    "evidence": "docs/actor-group-path.md"
+  },
+  {
     "source": "src/game/movie_prepare.c",
     "object": "build/us/movie_prepare.o",
     "input_section": ".data",
