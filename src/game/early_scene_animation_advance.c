@@ -8,7 +8,7 @@ void func_8001C0D0(unsigned char *format, ...);
 
 void func_8000EE48(EarlyGameActor *child)
 {
-    EarlyAnimationResetSlot *slot;
+    EarlyAnimationSlot *slot;
     int index;
 
     {
@@ -42,7 +42,7 @@ void func_8000EE48(EarlyGameActor *child)
         func_8000EDE0(child);
     }
     slot = D_800AD138.animationRecordsB4[D_800AD138.animationIndex9C].resetA8;
-    for (index = 0; index < 3 && slot->value00 != -1; index++, slot++) {
-        slot->enabled08 = 0;
+    for (index = 0; index < 3 && slot->reset.value00 != -1; index++, slot++) {
+        slot->reset.enabled08 = 0;
     }
 }

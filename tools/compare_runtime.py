@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("early_actor_decision", "src/game/actor_groups/decision.c", 0x8000FBC0, 0x80010460),
     ("early_boss_trigger", "src/game/actor_groups/trigger.c", 0x8000F814, 0x8000FBC0),
     ("early_boss_create", "src/game/actor_groups/boss_create.c", 0x8001049C, 0x800107A0),
     ("scene_action_dispatch", "src/game/scene_actions/dispatch.c", 0x8001B8D8, 0x8001BBAC),

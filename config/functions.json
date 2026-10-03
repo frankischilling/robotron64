@@ -15480,5 +15480,16 @@
     "section": ".early_boss_trigger",
     "section_vram": 2147547156,
     "evidence": "docs/boss-trigger.md"
+  },
+  {
+    "name": "func_8000FBC0",
+    "rom": 67520,
+    "vram": 2147548096,
+    "size": 2208,
+    "source": "src/game/actor_groups/decision.c",
+    "object": "build/us/early_actor_decision.o",
+    "section": ".early_actor_decision",
+    "section_vram": 2147548096,
+    "evidence": "docs/actor-decision.md"
   }
 ]

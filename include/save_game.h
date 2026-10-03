@@ -61,12 +61,14 @@ typedef struct GameSessionState {
     unsigned char unknown88[4];
     int value8C;
     int animationReady90;
-    unsigned char unknown94[8];
+    unsigned char unknown94[4];
+    int animationDistance98;
     int animationIndex9C;
     int animationLimitA0;
     unsigned char unknownA4[4];
     int animationStateA8;
-    unsigned char unknownAC[8];
+    int animationMovementAC;
+    int animationCallbackB0;
     struct EarlyAnimationRecord *animationRecordsB4;
     short activeBehaviorActors[36];
     short activeSceneActors[8];
