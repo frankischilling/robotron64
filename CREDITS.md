@@ -696,3 +696,10 @@ callback ordering, timer reads and unspecified position word. The optional
 Unicorn checker executes matching reset and arithmetic code, compares the sine
 table with its mathematical generator, and checks floating-point saved
 registers through real MIPS instructions. No reference implementation was copied.
+
+Early actor decisions follow the local SM64 pinned IDO matching workflow.
+The IDO temporary-storage allocator was consulted during local lifetime and
+frame analysis. Robotron's complete instructions establish weighted choices,
+reset thresholds, movement selection and shared layouts. The optional Unicorn
+checker executes matching arithmetic and random-wrapper code against guarded
+byte and call expectations. No reference implementation was copied.

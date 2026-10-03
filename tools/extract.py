@@ -21,7 +21,6 @@ REGIONS = (
     ("endgame_f320_f6e4", 0xf320, 0xf6e4),
     ("endgame_f828_f830", 0xf828, 0xf830),
     ("endgame_fc30_ff18", 0xfc30, 0xff18),
-    ("trigger_fallback_107c0_11060", 0x107c0, 0x11060),
     ("boss_fallback_113a0_13290", 0x113a0, 0x13290),
     ("endgame_13550_15c20", 0x13550, 0x15c20),
     ("endgame_1627c_1675c", 0x1627c, 0x1675c),

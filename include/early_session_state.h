@@ -14,10 +14,24 @@ typedef char EarlySceneResourceRecordMustBe96Bytes[
 
 typedef struct EarlyAnimationResetSlot {
     int value00;
-    unsigned char unknown04[4];
+    int threshold04;
     unsigned char enabled08;
-    unsigned char unknown09[3];
+    unsigned char value09;
+    unsigned char unknown0A[2];
 } EarlyAnimationResetSlot;
+
+typedef struct EarlyAnimationChoiceSlot {
+    int animation00;
+    unsigned int weight04;
+    unsigned char callback08;
+    unsigned char value09;
+    unsigned char unknown0A[2];
+} EarlyAnimationChoiceSlot;
+
+typedef union EarlyAnimationSlot {
+    EarlyAnimationChoiceSlot choice;
+    EarlyAnimationResetSlot reset;
+} EarlyAnimationSlot;
 
 typedef struct EarlyAnimationRecord {
     int sceneAnimation00;
@@ -25,12 +39,22 @@ typedef struct EarlyAnimationRecord {
     int animation0C;
     unsigned char unknown10[5];
     unsigned char value15;
-    unsigned char unknown16[0x92];
-    EarlyAnimationResetSlot resetA8[3];
+    unsigned char unknown16[2];
+    int initialAnimation18;
+    unsigned char unknown1C[8];
+    EarlyAnimationSlot movement24[6];
+    EarlyAnimationSlot weighted6C[5];
+    EarlyAnimationSlot resetA8[3];
 } EarlyAnimationRecord;
 
 typedef char EarlyAnimationResetSlotMustBe12Bytes[
     sizeof(EarlyAnimationResetSlot) == 0xC ? 1 : -1];
+
+typedef char EarlyAnimationChoiceSlotMustBe12Bytes[
+    sizeof(EarlyAnimationChoiceSlot) == 0xC ? 1 : -1];
+
+typedef char EarlyAnimationSlotMustBe12Bytes[
+    sizeof(EarlyAnimationSlot) == 0xC ? 1 : -1];
 
 typedef char EarlyAnimationRecordMustBe204Bytes[
     sizeof(EarlyAnimationRecord) == 0xCC ? 1 : -1];

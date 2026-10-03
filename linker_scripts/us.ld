@@ -165,7 +165,7 @@ SECTIONS
     .early_actor_pair_spawn 0x8000F564 : AT(0x10164) SUBALIGN(4) { build/us/early_actor_pair_spawn.o(.text) }
     .actor_chain_reset 0x8000F7D8 : AT(0x103D8) SUBALIGN(4) { build/us/actor_chain_reset.o(.text) }
     .early_boss_trigger 0x8000F814 : AT(0x10414) SUBALIGN(4) { build/us/early_boss_trigger.o(.text) }
-    .trigger_fallback_107c0_11060 0x8000FBC0 : AT(0x107C0) { build/us/fallback.o(.rom_trigger_fallback_107c0_11060) }
+    .early_actor_decision 0x8000FBC0 : AT(0x107C0) SUBALIGN(4) { build/us/early_actor_decision.o(.text) }
     .early_reset_parameter 0x80010460 : AT(0x11060) SUBALIGN(4) { build/us/early_reset_parameter.o(.text) }
     .early_boss_create 0x8001049C : AT(0x1109C) SUBALIGN(4) { build/us/early_boss_create.o(.text) }
     .boss_fallback_113a0_13290 0x800107A0 : AT(0x113A0) { build/us/fallback.o(.rom_boss_fallback_113a0_13290) }
@@ -2503,7 +2503,6 @@ ASSERT(SIZEOF(.early_reset_parameter) == 0x3c, "early_reset_parameter size chang
 ASSERT(SIZEOF(.early_reset_parameter_data) == 0xc, "early_reset_parameter_data size changed")
 ASSERT(SIZEOF(.endgame_f320_f6e4) == 0x3c4, "endgame_f320_f6e4 size changed")
 D_800AD1C8 = 0x800AD1C8;
-func_8000FBC0 = 0x8000FBC0;
 D_800972C0 = 0x800972C0;
 D_800972C8 = 0x800972C8;
 D_80097318 = 0x80097318;
@@ -3053,9 +3052,9 @@ ASSERT(SIZEOF(.early_boss_error) == 0x18, "early_boss_error size changed")
 ASSERT(SIZEOF(.boss_fallback_907a4_90a04) == 0x260, "boss_fallback_907a4_90a04 size changed")
 ASSERT(SIZEOF(.early_boss_timestamps) == 0x8, "early_boss_timestamps BSS size changed")
 ASSERT(SIZEOF(.early_boss_trigger) == 0x3ac, "early_boss_trigger size changed")
-ASSERT(SIZEOF(.trigger_fallback_107c0_11060) == 0x8a0, "trigger_fallback_107c0_11060 size changed")
 ASSERT(SIZEOF(.early_boss_trigger_records) == 0x118, "early_boss_trigger_records size changed")
 ASSERT(SIZEOF(.trigger_fallback_742a8_742ac) == 0x4, "trigger_fallback_742a8_742ac size changed")
 ASSERT(SIZEOF(.trigger_fallback_73d40_74188) == 0x448, "trigger_fallback_73d40_74188 size changed")
 ASSERT(SIZEOF(.early_boss_trigger_state) == 0x4, "early_boss_trigger_state size changed")
 ASSERT(SIZEOF(.trigger_fallback_7418c_74190) == 0x4, "trigger_fallback_7418c_74190 size changed")
+ASSERT(SIZEOF(.early_actor_decision) == 0x8a0, "early_actor_decision size changed")

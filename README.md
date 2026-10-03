@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,375 matching C functions covering 265,312 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,691 bytes of source-owned initialized data, and 504,115 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,376 matching C functions covering 267,520 bytes, twenty-nine assembly functions covering 4,372 bytes, 29,691 bytes of source-owned initialized data, and 504,115 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,11 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Early actor decisions](docs/actor-decision.md) completes the 2,208-byte
+callback and exposes its shared animation and session views. Its MIPS checker
+verifies 3,028 guarded cases, including callback mutations, strict distance
+bands, signed random remainders, consumed reset flags and division traps.
 
 [Boss trigger dispatch](docs/boss-trigger.md) completes the 940-byte dispatcher,
 its ten records and four-byte initial state. The MIPS checker verifies 2,592
