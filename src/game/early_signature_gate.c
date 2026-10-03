@@ -1,10 +1,10 @@
 #include "../../include/save_game.h"
 #include "../../include/game_memory.h"
+#include "../../include/scene_action_internal.h"
 
 const unsigned char D_8008F930[] = "laddie";
 const unsigned char D_8008F938[] = "arvid";
 extern int D_8007D8FC;
-void func_8001B8D8(int *command, int unused);
 
 int func_80005DEC(void)
 {

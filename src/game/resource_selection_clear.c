@@ -1,4 +1,6 @@
-void func_8001B8D8(int *resource);
+/* Retail supplies only the selection for actions 0, 12 and 13.
+ * These actions never inspect the player argument. */
+void func_8001B8D8();
 
 void func_800338F0(int *selection)
 {

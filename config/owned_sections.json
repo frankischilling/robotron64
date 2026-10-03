@@ -3262,5 +3262,29 @@
       "D_800AF1A8": 0
     },
     "evidence": "docs/save-menu-options.md"
+  },
+  {
+    "source": "src/game/scene_actions/dispatch.c",
+    "object": "build/us/scene_action_dispatch.o",
+    "input_section": ".rodata",
+    "section": ".scene_action_table",
+    "vram": 2148074472,
+    "rom": 593896,
+    "size": 56,
+    "symbols": {},
+    "evidence": "docs/scene-actions.md"
+  },
+  {
+    "source": "src/game/scene_actions/pickup_count.c",
+    "object": "build/us/scene_action_pickup_count.o",
+    "input_section": ".bss",
+    "section": ".scene_action_pickup_count",
+    "vram": 2148249228,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_800BAE8C": 0
+    },
+    "evidence": "docs/scene-actions.md"
   }
 ]

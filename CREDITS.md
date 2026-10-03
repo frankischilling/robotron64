@@ -675,3 +675,10 @@ and register allocation. Robotron's complete instructions, existing callers
 and label updater establish the records and runtime storage. The optional
 Unicorn checker uses the matching string-length code and guarded memory
 oracles. No reference implementation was copied.
+
+Scene action recovery follows the local SM64 pinned IDO matching workflow.
+The IDO temporary-storage allocator was consulted during frame and local
+allocation analysis. Robotron's complete instructions, switch table and
+callers establish the menu actions, pickup gates and four-byte counter.
+The optional Unicorn checker executes the matching handler and menu caller
+against guarded byte oracles. No reference game implementation was copied.
