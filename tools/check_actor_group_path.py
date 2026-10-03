@@ -1,4 +1,4 @@
-"""Execute excluded actor-group candidates against retail MIPS instructions.
+"""Execute matching rotation and excluded path code against retail MIPS instructions.
 
 Arithmetic callees and their initialized tables are freshly compiled and
 matched. Completion and object-angle submission use recorded ABI stubs.
@@ -7,6 +7,7 @@ matched. Completion and object-angle submission use recorded ABI stubs.
 import hashlib
 import itertools
 import json
+import math
 import struct
 from importlib.metadata import version
 from pathlib import Path
@@ -84,7 +85,26 @@ def run_rotation(code, support, case):
     uc.reg_write(regs.UC_MIPS_REG_A1, source)
     uc.reg_write(regs.UC_MIPS_REG_A2, angle & 0xFFFFFFFF)
     execute(entry)
-    return bytes(uc.mem_read((source - 16) & 0x1FFFFFFF, 64)).hex()
+    phase = (1024 - angle if entry == 0x8000E720 else angle) & 4095
+
+    def fixed_sine(value):
+        half = value & 2047
+        index = min(half, 2047 - half)
+        magnitude = math.floor(32767 * math.sin(index * math.pi / 2046)) // 8
+        return -magnitude if value & 2048 else magnitude
+
+    cosine, negative_sine = fixed_sine((phase + 1024) & 4095), -fixed_sine(phase)
+    expected = bytearray(b'\xA5' * 64)
+    expected[16:28] = word(x) + word(y) + word(0x5C507F11)
+    for axis, value in enumerate((x * cosine - y * negative_sine,
+                                  x * negative_sine + cosine * y)):
+        wrapped = ((value + 0x80000000) & 0xFFFFFFFF) - 0x80000000
+        result = abs(wrapped) // 4096 * (-1 if wrapped < 0 else 1)
+        start = 16 + offset + axis * 4
+        expected[start:start + 4] = word(result)
+    observed = bytes(uc.mem_read((source - 16) & 0x1FFFFFFF, 64))
+    assert observed == bytes(expected), ('Independent rotation arithmetic and memory oracle', case)
+    return observed.hex()
 
 
 def run_path(code, support, case):
@@ -145,7 +165,7 @@ def main():
     comparisons = {}
     compiled_hashes, target_hashes = {}, {}
     for name in CANDIDATES + SUPPORT:
-        records = CANDIDATE_BLOCKS if name in CANDIDATES else MATCHING_BLOCKS
+        records = MATCHING_BLOCKS + CANDIDATE_BLOCKS
         _, source, start, end = next(record for record in records if record[0] == name)
         report = compare_block(name, source, start, start - 0x80000000 + 0xC00,
                                end - 0x80000000 + 0xC00, target,
@@ -153,6 +173,8 @@ def main():
         directory = ROOT / 'build/actor-group-execution' / name
         data = (directory / (name + '.bin')).read_bytes()
         comparisons[name] = report
+        if name == 'actor_group_rotate' and not report['matches']:
+            raise ValueError('Complete rotation source does not match')
         compiled_hashes[name] = hashlib.sha256(data).hexdigest()
         target_hashes[name] = hashlib.sha256(target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00]).hexdigest()
         if name in CANDIDATES:
@@ -165,6 +187,10 @@ def main():
             sections, _ = elf_sections_and_symbols(directory / (name + '.elf'))
             for owned in source_sections(source):
                 if owned['rom'] is not None:
+                    if name == 'short_sine' and owned['vram'] == 0x8008DBB0:
+                        mathematical = struct.pack('>1024h', *(math.floor(32767 * math.sin(index * math.pi / 2046))
+                            for index in range(1024)))
+                        assert sections[owned['section']]['bytes'] == mathematical
                     support.append((owned['vram'], sections[owned['section']]['bytes']))
     table_source = 'src/game/actor_groups/direction_table.c'
     table = compare_unit(table_source, source_sections(table_source), target, layout)
@@ -203,11 +229,12 @@ def main():
                   target_rom_sha256=hashlib.sha256(target).hexdigest(),
                   emulator=dict(package='unicorn', version=version('unicorn')),
                   limits=['Seven complete matching arithmetic units and two matching initialized tables execute compiled code.',
+                          'All 1024 short-sine values agree with the mathematical generator; every rotation run checks an independent wrapped-arithmetic and guarded-buffer oracle.',
                           'Completion and object-angle submission use ABI-clobbering stubs and record arguments and actor state.',
                           'All 4096 masked angles and the listed wrap, overlap, coordinate, path, progress and speed cases are checked.',
                           'Signed overflow cases characterize the pinned compiler and target; they do not establish portable ISO C behavior.',
                           'Zero distances and invalid indices/counts are not exercised; complete game behavior remains unverified.',
-                          'Execution agreement does not establish instruction matching for the three candidate functions.'])
+                          'Both rotation procedures are independently instruction matched; the path candidate remains excluded.'])
     output = ROOT / 'build/actor-group-execution/report.json'
     output.write_text(json.dumps(result, indent=2) + '\n')
     print('Passed actor-group execution:', counts, output, flush=True)

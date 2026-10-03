@@ -3375,5 +3375,40 @@
       "D_800739BC": 0
     },
     "evidence": "docs/actor-collision-response.md"
+  },
+  {
+    "source": "src/game/collisions/retire.c",
+    "object": "build/us/actor_collision_retire.o",
+    "input_section": ".rodata",
+    "section": ".actor_collision_retire_switch",
+    "vram": 2148074196,
+    "rom": 593620,
+    "size": 144,
+    "symbols": {},
+    "evidence": "docs/actor-collision-followup.md"
+  },
+  {
+    "source": "src/game/collisions/rebound.c",
+    "object": "build/us/actor_collision_rebound.o",
+    "input_section": ".rodata",
+    "section": ".actor_collision_rebound_switch",
+    "vram": 2148073192,
+    "rom": 592616,
+    "size": 32,
+    "symbols": {},
+    "evidence": "docs/actor-collision-followup.md"
+  },
+  {
+    "source": "src/game/collisions/retirement_message.c",
+    "object": "build/us/actor_collision_retirement_message.o",
+    "input_section": ".rodata",
+    "section": ".actor_collision_retirement_message",
+    "vram": 2148073984,
+    "rom": 593408,
+    "size": 28,
+    "symbols": {
+      "D_80090200": 0
+    },
+    "evidence": "docs/actor-collision-followup.md"
   }
 ]

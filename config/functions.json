@@ -15524,5 +15524,49 @@
     "section": ".actor_collision_pickup_response",
     "section_vram": 2147573504,
     "evidence": "docs/actor-collision-response.md"
+  },
+  {
+    "name": "func_8001B4F8",
+    "rom": 114936,
+    "vram": 2147595512,
+    "size": 728,
+    "source": "src/game/collisions/retire.c",
+    "object": "build/us/actor_collision_retire.o",
+    "section": ".actor_collision_retire",
+    "section_vram": 2147595512,
+    "evidence": "docs/actor-collision-followup.md"
+  },
+  {
+    "name": "func_8001631C",
+    "rom": 93980,
+    "vram": 2147574556,
+    "size": 764,
+    "source": "src/game/collisions/rebound.c",
+    "object": "build/us/actor_collision_rebound.o",
+    "section": ".actor_collision_rebound",
+    "section_vram": 2147574556,
+    "evidence": "docs/actor-collision-followup.md"
+  },
+  {
+    "name": "func_8000E720",
+    "rom": 62240,
+    "vram": 2147542816,
+    "size": 192,
+    "source": "src/game/actor_groups/rotate.c",
+    "object": "build/us/actor_group_rotate.o",
+    "section": ".actor_group_rotate",
+    "section_vram": 2147542816,
+    "evidence": "docs/actor-group-rotation.md"
+  },
+  {
+    "name": "func_8000E7E0",
+    "rom": 62432,
+    "vram": 2147543008,
+    "size": 180,
+    "source": "src/game/actor_groups/rotate.c",
+    "object": "build/us/actor_group_rotate.o",
+    "section": ".actor_group_rotate",
+    "section_vram": 2147542816,
+    "evidence": "docs/actor-group-rotation.md"
   }
 ]

@@ -150,7 +150,8 @@ SECTIONS
     .early_parameter_slot_tick 0x8000E4F0 : AT(0xF0F0) SUBALIGN(4) { build/us/early_parameter_slot_tick.o(.text) }
     .early_actor_scale_decay 0x8000E5C8 : AT(0xF1C8) SUBALIGN(4) { build/us/early_actor_scale_decay.o(.text) }
     .early_actor_counter_decrement 0x8000E6F0 : AT(0xF2F0) SUBALIGN(4) { build/us/early_actor_counter_decrement.o(.text) }
-    .endgame_f320_f6e4 0x8000E720 : AT(0xF320) { build/us/fallback.o(.rom_endgame_f320_f6e4) }
+    .actor_group_rotate 0x8000E720 : AT(0xF320) SUBALIGN(4) { build/us/actor_group_rotate.o(.text) }
+    .rotation_fallback_f494_f6e4 0x8000E894 : AT(0xF494) { build/us/fallback.o(.rom_rotation_fallback_f494_f6e4) }
     .early_actor_vector_clear 0x8000EAE4 : AT(0xF6E4) SUBALIGN(4) { build/us/early_actor_vector_clear.o(.text) }
     .early_parameter_complete 0x8000EAF8 : AT(0xF6F8) SUBALIGN(4) { build/us/early_parameter_complete.o(.text) }
     .endgame_f828_f830 0x8000EC28 : AT(0xF828) { build/us/fallback.o(.rom_endgame_f828_f830) }
@@ -188,7 +189,7 @@ SECTIONS
     .actor_collision_pickup_response 0x80015F00 : AT(0x16B00) SUBALIGN(4) { build/us/actor_collision_pickup_response.o(.text) }
     .early_actor_guarded_service 0x800162AC : AT(0x16EAC) SUBALIGN(4) { build/us/early_actor_guarded_service.o(.text) }
     .early_actor_mode0 0x800162F8 : AT(0x16EF8) SUBALIGN(4) { build/us/early_actor_mode0.o(.text) }
-    .endgame_16f1c_17218 0x8001631C : AT(0x16F1C) { build/us/fallback.o(.rom_endgame_16f1c_17218) }
+    .actor_collision_rebound 0x8001631C : AT(0x16F1C) SUBALIGN(4) { build/us/actor_collision_rebound.o(.text) }
     .actor_collision_kind_dispatch 0x80016618 : AT(0x17218) SUBALIGN(4) { build/us/actor_collision_kind_dispatch.o(.text) }
     .actor_contact_gate 0x8001669C : AT(0x1729C) SUBALIGN(4) { build/us/actor_contact_gate.o(.text) }
     .early_six_arg_forward 0x80016914 : AT(0x17514) SUBALIGN(4) { build/us/early_six_arg_forward.o(.text) }
@@ -219,7 +220,7 @@ SECTIONS
     .early_actor_spawn_helper 0x8001B3DC : AT(0x1BFDC) SUBALIGN(4) { build/us/early_actor_spawn_helper.o(.text) }
     .early_simple_forward 0x8001B448 : AT(0x1C048) SUBALIGN(4) { build/us/early_simple_forward.o(.text) }
     .early_actor_callback_install 0x8001B468 : AT(0x1C068) SUBALIGN(4) { build/us/early_actor_callback_install.o(.text) }
-    .endgame_1c0f8_1c3d0 0x8001B4F8 : AT(0x1C0F8) { build/us/fallback.o(.rom_endgame_1c0f8_1c3d0) }
+    .actor_collision_retire 0x8001B4F8 : AT(0x1C0F8) SUBALIGN(4) { build/us/actor_collision_retire.o(.text) }
     .name_table_lookup 0x8001B7D0 : AT(0x1C3D0) SUBALIGN(4) { build/us/name_table_lookup.o(.text) }
     .early_file_state_reset 0x8001B870 : AT(0x1C470) SUBALIGN(4) { build/us/early_file_state_reset.o(.text) }
     .scene_action_dispatch 0x8001B8D8 : AT(0x1C4D8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.text) }
@@ -1295,16 +1296,18 @@ SECTIONS
     .actor_pickup_dispatch 0x8008FE04 : AT(0x90A04) SUBALIGN(4) { build/us/actor_pickup.o(.rodata) }
     .collision_fallback_90a44_90a64 0x8008FE44 : AT(0x90A44) { build/us/fallback.o(.rom_collision_fallback_90a44_90a64) }
     .actor_collision_response_gate_switch 0x8008FE64 : AT(0x90A64) SUBALIGN(4) { build/us/actor_collision_response_gate.o(.rodata) }
-    .collision_fallback_90ae8_90b08 0x8008FEE8 : AT(0x90AE8) { build/us/fallback.o(.rom_collision_fallback_90ae8_90b08) }
+    .actor_collision_rebound_switch 0x8008FEE8 : AT(0x90AE8) SUBALIGN(4) { build/us/actor_collision_rebound.o(.rodata) }
     .actor_collision_kind_dispatch_rodata 0x8008FF08 : AT(0x90B08) SUBALIGN(4) { build/us/actor_collision_kind_dispatch.o(.rodata) }
     .endgame_90b1c_90c98 0x8008FF1C : AT(0x90B1C) { build/us/fallback.o(.rom_endgame_90b1c_90c98) }
     .actor_collision_death_result_rodata 0x80090098 : AT(0x90C98) SUBALIGN(4) { build/us/actor_collision_death_result.o(.rodata) }
     .endgame_data_90cac_90d3c 0x800900AC : AT(0x90CAC) { build/us/fallback.o(.rom_endgame_data_90cac_90d3c) }
     .collision_dispatch_initialize_strings 0x8009013C : AT(0x90D3C) SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.rodata) }
-    .lifecycle_fallback_90d9c_90e1c 0x8009019C : AT(0x90D9C) { build/us/fallback.o(.rom_lifecycle_fallback_90d9c_90e1c) }
+    .collision_fallback_90d9c_90e00 0x8009019C : AT(0x90D9C) { build/us/fallback.o(.rom_collision_fallback_90d9c_90e00) }
+    .actor_collision_retirement_message 0x80090200 : AT(0x90E00) SUBALIGN(4) { build/us/actor_collision_retirement_message.o(.rodata) }
     .actor_create_switch 0x8009021C : AT(0x90E1C) SUBALIGN(4) { build/us/actor_create.o(.rodata) }
     .actor_behavior_counter_expire_rodata 0x800902A4 : AT(0x90EA4) SUBALIGN(4) { build/us/actor_behavior_counter_expire.o(.rodata) }
-    .endgame_data_90ed4_90f70 0x800902D4 : AT(0x90ED4) { build/us/fallback.o(.rom_endgame_data_90ed4_90f70) }
+    .actor_collision_retire_switch 0x800902D4 : AT(0x90ED4) SUBALIGN(4) { build/us/actor_collision_retire.o(.rodata) }
+    .collision_fallback_90f64_90f70 0x80090364 : AT(0x90F64) { build/us/fallback.o(.rom_collision_fallback_90f64_90f70) }
     .name_table_lookup_data 0x80090370 : AT(0x90F70) SUBALIGN(4) { build/us/name_table_lookup.o(.data) }
     .scene_action_fallback_90f96_90fe8 0x80090396 : AT(0x90F96) { build/us/fallback.o(.rom_scene_action_fallback_90f96_90fe8) }
     .scene_action_table 0x800903E8 : AT(0x90FE8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.rodata) }
@@ -2508,7 +2511,6 @@ ASSERT(SIZEOF(.early_animation_callback) == 0xfc, "early_animation_callback size
 ASSERT(SIZEOF(.early_session_animation) == 0x68, "early_session_animation size changed")
 ASSERT(SIZEOF(.early_reset_parameter) == 0x3c, "early_reset_parameter size changed")
 ASSERT(SIZEOF(.early_reset_parameter_data) == 0xc, "early_reset_parameter_data size changed")
-ASSERT(SIZEOF(.endgame_f320_f6e4) == 0x3c4, "endgame_f320_f6e4 size changed")
 D_800AD1C8 = 0x800AD1C8;
 D_800972C0 = 0x800972C0;
 D_800972C8 = 0x800972C8;
@@ -2534,8 +2536,6 @@ ASSERT(SIZEOF(.resource_selection_clear) == 0x84, "resource_selection_clear size
 ASSERT(SIZEOF(.early_render_handler_select_rodata) == 0x14, "early_render_handler_select_rodata size changed")
 ASSERT(SIZEOF(.actor_collision_kind_dispatch_rodata) == 0x14, "actor_collision_kind_dispatch_rodata size changed")
 ASSERT(SIZEOF(.name_table_lookup_data) == 0x26, "name_table_lookup_data size changed")
-ASSERT(SIZEOF(.endgame_16f1c_17218) == 0x2fc, "endgame_16f1c_17218 size changed")
-ASSERT(SIZEOF(.endgame_1c0f8_1c3d0) == 0x2d8, "endgame_1c0f8_1c3d0 size changed")
 D_8007CCC0 = 0x8007CCC0;
 ASSERT(SIZEOF(.menu_transition_start) == 0x94, "menu_transition_start size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache) == 0x90, "renderer_texture_file_cache size changed")
@@ -2582,7 +2582,6 @@ ASSERT(SIZEOF(.actor_behavior_counter_expire) == 0xb8, "actor_behavior_counter_e
 ASSERT(SIZEOF(.actor_behavior_counter_expire_rodata) == 0x30, "actor_behavior_counter_expire_rodata size changed")
 ASSERT(SIZEOF(.endgame_dab8_dac0) == 0x8, "endgame_dab8_dac0 size changed")
 ASSERT(SIZEOF(.endgame_4d9b4_4d9c0) == 0xc, "endgame_4d9b4_4d9c0 size changed")
-ASSERT(SIZEOF(.endgame_data_90ed4_90f70) == 0x9c, "endgame_data_90ed4_90f70 size changed")
 D_80074C08 = 0x80074C08;
 D_80074BC4 = 0x80074BC4;
 D_8007BB18 = 0x8007BB18;
@@ -2751,7 +2750,6 @@ ASSERT(SIZEOF(.endgame_28ad4_28d8c) == 0x2b8, "endgame_28ad4_28d8c size changed"
 ASSERT(SIZEOF(.endgame_35e44_35f60) == 0x11c, "endgame_35e44_35f60 size changed")
 ASSERT(SIZEOF(.early_parameter_slot_tick) == 0xd8, "early_parameter_slot_tick size changed")
 ASSERT(SIZEOF(.actor_group_setup) == 0x220, "actor_group_setup size changed")
-func_8000E720 = 0x8000E720;
 ASSERT(SIZEOF(.early_actor_follow_owner) == 0x11c, "early_actor_follow_owner size changed")
 ASSERT(SIZEOF(.renderer_status_text) == 0x11c, "renderer_status_text size changed")
 ASSERT(SIZEOF(.renderer_status_message) == 0x14, "renderer_status_message size changed")
@@ -2820,7 +2818,6 @@ ASSERT(SIZEOF(.endgame_1ad68_1ad70) == 0x8, "endgame_1ad68_1ad70 size changed")
 ASSERT(SIZEOF(.endgame_data_90cac_90d3c) == 0x90, "endgame_data_90cac_90d3c size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize_bss) == 0x190, "collision callback table size changed")
 func_8001567C = 0x8001567C;
-func_8001631C = 0x8001631C;
 func_8001669C = 0x8001669C;
 func_80016950 = 0x80016950;
 func_80016C1C = 0x80016C1C;
@@ -2996,7 +2993,6 @@ ASSERT(SIZEOF(.actor_behavior_diagnostic) == 0x1c, "actor_behavior_diagnostic si
 ASSERT(SIZEOF(.actor_behavior_spawn_state) == 0x544, "actor_behavior_spawn_state size changed")
 ASSERT(SIZEOF(.actor_behavior_spawn_callback) == 0x3c0, "actor_behavior_spawn_callback size changed")
 ASSERT(SIZEOF(.actor_create) == 0x3e0, "actor_create size changed")
-ASSERT(SIZEOF(.lifecycle_fallback_90d9c_90e1c) == 0x80, "lifecycle_fallback_90d9c_90e1c size changed")
 ASSERT(SIZEOF(.actor_create_switch) == 0x88, "actor_create_switch size changed")
 ASSERT(SIZEOF(.actor_behavior_pursuit) == 0x4b0, "actor_behavior_pursuit size changed")
 ASSERT(SIZEOF(.actor_behavior_pursuit_switch) == 0x24, "actor_behavior_pursuit_switch size changed")
@@ -3067,9 +3063,17 @@ ASSERT(SIZEOF(.movement_fallback_907bc_90a04) == 0x248, "movement_fallback_907bc
 ASSERT(SIZEOF(.actor_collision_response_gate) == 0x308, "actor_collision_response_gate size changed")
 ASSERT(SIZEOF(.collision_fallback_90a44_90a64) == 0x20, "collision_fallback_90a44_90a64 size changed")
 ASSERT(SIZEOF(.actor_collision_response_gate_switch) == 0x84, "actor_collision_response_gate_switch size changed")
-ASSERT(SIZEOF(.collision_fallback_90ae8_90b08) == 0x20, "collision_fallback_90ae8_90b08 size changed")
-func_8001B4F8 = 0x8001B4F8;
 ASSERT(SIZEOF(.actor_collision_pickup_response) == 0x3ac, "actor_collision_pickup_response size changed")
 ASSERT(SIZEOF(.collision_fallback_742b8_745bc) == 0x304, "collision_fallback_742b8_745bc size changed")
 ASSERT(SIZEOF(.actor_collision_pickup_order) == 0xc, "actor_collision_pickup_order size changed")
 ASSERT(SIZEOF(.collision_fallback_745c8_74648) == 0x80, "collision_fallback_745c8_74648 size changed")
+ASSERT(SIZEOF(.actor_collision_retire) == 0x2d8, "actor_collision_retire size changed")
+ASSERT(SIZEOF(.actor_collision_retire_switch) == 0x90, "actor_collision_retire_switch size changed")
+ASSERT(SIZEOF(.collision_fallback_90f64_90f70) == 0xc, "collision_fallback_90f64_90f70 size changed")
+ASSERT(SIZEOF(.actor_collision_rebound) == 0x2fc, "actor_collision_rebound size changed")
+ASSERT(SIZEOF(.actor_collision_rebound_switch) == 0x20, "actor_collision_rebound_switch size changed")
+ASSERT(SIZEOF(.collision_fallback_90d9c_90e00) == 0x64, "collision_fallback_90d9c_90e00 size changed")
+ASSERT(SIZEOF(.actor_collision_retirement_message) == 0x1c, "actor_collision_retirement_message size changed")
+D_8009F878 = 0x8009F878;
+ASSERT(SIZEOF(.actor_group_rotate) == 0x174, "actor_group_rotate size changed")
+ASSERT(SIZEOF(.rotation_fallback_f494_f6e4) == 0x250, "rotation_fallback_f494_f6e4 size changed")

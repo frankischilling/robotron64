@@ -1,9 +1,10 @@
 # Actor-group callbacks and child storage
 
-The rotation candidates at `8000E720..8000E894` and the path callback at
-`8000E894..8000EAE4` remain excluded from the matching build. Their complete
-retail instructions guide reconstruction; Ghidra's pseudocode is checked
-against the original ROM and compiled IDO output.
+The [rotation helpers](actor-group-rotation.md) at `8000E720..8000E894`
+are now included in the matching build. The path callback at
+`8000E894..8000EAE4` remains excluded. Complete retail instructions guide
+reconstruction; Ghidra's pseudocode is checked against the original ROM
+and compiled IDO output.
 
 The bonus child routine at `8000F030..8000F318` is also excluded. It allocates
 resource record `kind` from the eleven-record child array, returns null on
@@ -54,10 +55,10 @@ outside matching progress, even when execution agrees for tested inputs.
 
 ## Validation and remaining differences
 
-The combined rotation object contains all 372 instruction bytes, with one
-commuted multiply in each procedure still different. The path object contains
-all 592 instruction bytes and differs in 88 words. Neither object is linked
-into the ROM or counted as a recovered function.
+The combined rotation object matches all 372 instruction bytes and is linked
+and counted as two recovered functions. The path object contains all 592
+instruction bytes and differs in 88 words. It remains excluded from the ROM
+and matching source progress.
 
 The bonus child object contains all 744 instruction bytes and differs in six
 words: stack size, the incoming index slot and the floating result register.
@@ -97,19 +98,22 @@ call order and scale bits, preserves the parent, selected actor, resources
 and session inputs, and checks the stack and saved integer registers.
 Invalid resource indices and allocator aliasing are outside its scope.
 
-The [provenance ledger](actor-group-path-provenance.json) records compiler and
-input hashes, complete instruction differences, code hashes, the table
-comparison and execution coverage. The live Ghidra project retains the verified
+The historical [provenance ledger](actor-group-path-provenance.json) records
+the PR #87 candidates, compiler and input hashes, complete instruction
+differences, code hashes, table comparison and execution coverage. Current
+rotation acceptance is recorded in its [own ledger](actor-group-rotation-provenance.json).
+The live Ghidra project retains the verified
 callback prototypes, existing heap layouts, a typed 65-word tangent array,
 and the two uninitialized child arrays. Resource typing preserves the
 existing interior field labels instead of clearing them.
 
-The isolated extraction and rebuild reproduce all 8,388,608 bytes with SHA-256
+At the PR #87 checkpoint, isolated extraction and rebuild reproduced all
+8,388,608 bytes with SHA-256
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
-Matching C remains 1,366 functions / 259,356 bytes; initialized ownership
-advances from 29,003 to 29,263 bytes and BSS advances from 465,119 to 466,175
-bytes. All 152 tooling tests pass. Full-ROM equality includes fallback and does not establish
+Matching C totaled 1,366 functions / 259,356 bytes; initialized ownership
+advanced from 29,003 to 29,263 bytes and BSS from 465,119 to 466,175
+bytes. All 152 tooling tests passed. Full-ROM equality includes fallback and does not establish
 full source completion.
 
-Independent comparisons also pass for all 849 runtime, two startup, eighteen
+Independent comparisons also passed for all 849 runtime, two startup, eighteen
 assembly and 89 data-only source units.

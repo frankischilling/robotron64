@@ -7,7 +7,7 @@ extern int D_800B8F60;
 extern int D_800BA74C;
 
 void func_80015BD4(void *state);
-void func_8001B4F8(ActorBehaviorActorInternal *actor, int value);
+void func_8001B4F8(ActorBehaviorActorInternal *actor, ActorBehaviorActorInternal *other);
 int func_80035244(ActorBehaviorActorInternal *actor, ActorBehaviorActorInternal *other);
 
 int func_80015BF8(ActorBehaviorActorInternal *first,

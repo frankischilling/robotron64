@@ -35,5 +35,5 @@ Public CI exercises interval clipping, runtime mapping, overlap detection,
 category accounting, BSS exclusion, unknown denominators, and ordering using
 synthetic layouts. It also checks the current repository layout through
 `make test`. The approach uses the explicit extraction and linker ownership
-already established here; the N64 workflow references and their revisions are
-recorded in [credits](../CREDITS.md) and [reference study](reference-study.md).
+already established here. [Credits](../CREDITS.md) lists the N64 workflow
+references; inspected revisions are recorded in the [reference study](reference-study.md).

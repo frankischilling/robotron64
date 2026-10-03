@@ -2,8 +2,9 @@
 
 The following checkouts were inspected locally. References guide infrastructure
 and SDK reconstruction; Robotron's binary establishes its own behavior and
-instruction matches. [Credits](../CREDITS.md) records the complete requested
-reference collection, exact checkout revisions, and additional tools used.
+instruction matches. [Credits](../CREDITS.md) lists the reference projects and
+tools used. Inspected revisions and findings are recorded here and in the
+individual recovery notes.
 
 | Project | Inspected commit | Relevant files and choices |
 | --- | --- | --- |

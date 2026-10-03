@@ -1,0 +1,952 @@
+{
+  "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "inputs_sha256": {
+    "config/functions.json": "f6dd6d310093f35b8dafef290c13bee793057eaaf8c03cd9cf40a48da4bcedd7",
+    "config/owned_sections.json": "39be3eccb5392fa1a4152cc50cee6ade93859743007d265a7496b2c7fcba7ab3",
+    "config/runtime_symbols.ld": "932176c1f909a50b7f68d9e22e31de80b7c69ab5758df79844dc0f8668ced347",
+    "config/startup_symbols.ld": "81aee1e8e8772253aa4b881b44ce668b863e8078905114c6d7f6e94c31db265f",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
+    "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
+    "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
+    "include/actor_behavior_internal.h": "a34cc98195a029e4003cc251f4e172d595214582a339404eb78449926fa99373",
+    "include/actor_behavior_more_internal.h": "f2e8d0c8db3ad33093105ea64d661f78457c6fbc55025c326732e6e391801f64",
+    "include/actor_behavior_next_internal.h": "bb0980b227ed20ff6e426199c5ba90c2cc5a5fbd8e3c8b20f951d12e7ff39a54",
+    "include/actor_brain_internal.h": "5a3bb4ac3303bf032876bff2c707a11b3a85115b369a252c586850df93de5e65",
+    "include/actor_collision_services.h": "6403076413456a024afcc2ea7528dfb31c0450eae6de4cef1fc14b8053893f4a",
+    "include/actor_duration_internal.h": "51b83fc836a67c71f352c2f234c06593d2f24a72bc45cb578c938874c5f14831",
+    "include/actor_dynamic_pool_internal.h": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
+    "include/actor_enforcer_internal.h": "26629c4bc9a0e6a4136e575bd3b864daf91876501c8f47b7807a9e2a403bd616",
+    "include/actor_history_internal.h": "d53cd9bfd7c00bbf88deee633adc97535d8d5c421c78686041d0adc355e3c79a",
+    "include/actor_hulk_internal.h": "224fbf4d7e357ebdcd2e22b0ddd65a0e0b6897ff6b2581507996e62de7d37862",
+    "include/actor_human_internal.h": "0f0d3c3a508b911ef825e73889494a2d051bea0c93772182ed5ba15cb3ee3849",
+    "include/actor_lifecycle_internal.h": "6d47f2191d380d2b1ace7773f9d07475f33d419d48c4786bfb266c0e380f7e26",
+    "include/actor_motion_internal.h": "c311a16b465c8dea95438a609a479007bd93e3493c6f547ae65e5f69cea50f57",
+    "include/actor_position_pairs.h": "5ee0f4c87fc1a42c72cb90b9b2b781a44dfbfb6c736af64e3bbcc2c90e4b45a9",
+    "include/actor_projectile_internal.h": "8baf67e69fe26649c1fe07531f0eec0ca97ba04075d6a871f4e65a93ae343228",
+    "include/actor_pursuit_internal.h": "ad11f70d7810ea6cffc7454ae1e3527a9cb4e8c96324fdb5949c30b6f095a443",
+    "include/actor_resource_internal.h": "cff60e1efe0fca370f8dbbda1b453163c6bcf9405c650a44581e861a913aa8fa",
+    "include/actor_setup_internal.h": "062e4d8cbec10220ed53e3883f8fa94ca0730dd4877f5004ec92077409a72541",
+    "include/actor_spawn_callback_internal.h": "8cf97711f0117dd13efe82c78f3856d6d6968d9ddacc005fe65830bccc53ac36",
+    "include/actor_spawn_internal.h": "f7479dbdb87ac6279fc0df86c496596a9170129e46f828783c67768c95c1ea38",
+    "include/actor_stride_internal.h": "ddb173f1de44bf907795c5199952f85d7520bfd11d48401b450864f9d52ebfae",
+    "include/audio_backend_internal.h": "2acf19d8166c5cd4091b88c5af4adb27d4463d417c60e34e646f77ba5e7cc97b",
+    "include/audio_bank_layout_internal.h": "2d44c9c36412dd253e9e6c90844c5bef7c5c9583597c76eba92123b0bc2f7706",
+    "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+    "include/audio_commands.h": "d34eacf0081a7745ae958c4484ea6d0a070859879dc7203d609e499976854d53",
+    "include/audio_config.h": "d4f8f3f9023b9e70d0cd25c449ae48486a2ddbb2574d0a95cec4487eb406b6a6",
+    "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+    "include/audio_file_services_internal.h": "57053064c501d51bf2f77dc2a526e39c501f10090777bdea0fdf291713e18d85",
+    "include/audio_game.h": "f63a58f0375dd51938376df76002d52c21b2e8ef60c8e462b1fc327367922935",
+    "include/audio_host_internal.h": "6c98f4911f1f758707b7206765587460f4a4b0a42e2eab1c5654488c2810d23a",
+    "include/audio_io.h": "3c8b1897d96db51a8c7ad05cdcec2a00d79b17b3fa4dfbbb7ec7632171767c79",
+    "include/audio_patch_table_internal.h": "1037a705b754ea3e3b8db43789cb00de8897ae64d83df9b5194cd8e3ebe9bba6",
+    "include/audio_properties_internal.h": "4a62d8097cf453986ebb34316ddaa4f1c482b00643807f16ecc179ac3d13f620",
+    "include/audio_property_pipeline_internal.h": "9bb38df465f8fe3a2ea60365f3ce7dde30e205a207d5f5e777e096abee6930f3",
+    "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+    "include/audio_sequence_internal.h": "efcecd311119771bb871df157d101657b863e3ae02aeea7e8f95e578c1e75324",
+    "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683",
+    "include/command_script.h": "cfa4ed9738ae5994ff59ab90864204f017dde3c007c860536f6c53be9b2575e6",
+    "include/compression_internal.h": "04e668084c5cb9a1b194bdf28664495b3995cf79723aa1cee29940f7b3f84e5c",
+    "include/controller_input.h": "48fd3ecefa518b37c2eb1368933f7ccbaae21911d732b94503b1bda2732f8598",
+    "include/controller_legacy.h": "11b4270a1b1c80515230b96621cc7684819e94e68556ecaa6ee0e83eb103ad78",
+    "include/controller_services.h": "997ab6ac0d1d36ac0b23515e60b6ed965b562cad0b3b82c8732ad7b04ae037d8",
+    "include/debug_output.h": "ba12435a24f3162d1015f7960f38420e2f34ea16e02c6adb679706cc263a329d",
+    "include/debug_text_internal.h": "0c1a2fc419e668e7421311cc98fd3d1200ca037e4c9c64074e0b020fbf2048cf",
+    "include/destination_format.h": "d4384f14dfd1a3122d4347e371f4d8d6f8c9bcb7a625947759ed7c0b3361f65f",
+    "include/early_bonus_internal.h": "ec1331c91e23d9e734c220a8bde2a508e8ce62735a7a095480ec8681f7f6052c",
+    "include/early_collision_internal.h": "592b75d410d11f83b9e92970d027d3ba3999e11a48ff723c44b13ecf16df59bc",
+    "include/early_game_helpers.h": "23066df1efae4aada40178d589fa2823c8e37a2b2e1e87d694b5711a20aaeaa5",
+    "include/early_game_medium.h": "9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f",
+    "include/early_game_medium_next.h": "0c7cf3adcd946c8c507adaad037451830ca89721a357ce9a2dbc306621e069ac",
+    "include/early_game_more.h": "2bacab31a51464c37f7a7fbf493b2df514fe8d7f81a2943cddd4937c4827ad44",
+    "include/early_game_state.h": "f05333c37db6b5fdaf6fa0e058202eccbb221dbd167c8f2f8fd97630698fe26e",
+    "include/early_input_internal.h": "c9f7f26eda442a1dc5d6000b4d2e7e74a4f663ee36d62ddfd2290bdb1d1a315b",
+    "include/early_name_table.h": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
+    "include/early_parameter_internal.h": "6d20b7dc53bb972abd920df102377c4dda62f6c68647a5eb09b61d9afabf1c20",
+    "include/early_pool_tick.h": "50122670755bbdd5704eff40f5fcdc32293e07a9f217898d1b1524d067dfa927",
+    "include/early_render_effects_internal.h": "b8fa58169da2a04ce64c3917883be80ac98718207fe5cf54f54dc05ab1f173f0",
+    "include/early_render_internal.h": "d5d9b4598a5c2987f5fe075b2fd9afb29a2ca42b369b0ea4fe20764898d2e740",
+    "include/early_resource_state.h": "d5f560a8dba312fdd195194d3653b62c5e66d631dc669dc643017a0fb87b71f8",
+    "include/early_session_state.h": "937c976c64bafd92b3ad05ef64c3811d93c0fbbc06d391d930edd48eecd89cb2",
+    "include/effect_draw_config_internal.h": "a5c3634a270bdeaf4b1a4698b5b583f0e49b08d7e2528efb3ac57101f2eb82f3",
+    "include/fixed_geometry.h": "530e2dc24043761f8b2b4db04e47a0e7fe30070d82cd036ba4e21e1af74f5055",
+    "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
+    "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
+    "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
+    "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
+    "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
+    "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
+    "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
+    "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
+    "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
+    "include/menu_label_internal.h": "dc60421b0ef2ebee8b68e0a151543a447982e3a0f24704537936fc530c468811",
+    "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
+    "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+    "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
+    "include/object_draw.h": "b7df01c47c10cb88f298aaa4cca24488b8ba64df4cde3f02d436ecee5ccf862c",
+    "include/object_helpers.h": "1ddd7a85251a44eeb84db02002b7a08d980e9293b68b7145bdf471eba85c3116",
+    "include/object_history.h": "d20ac506136b1802a1ea7945dce3556ebac35035aac89ecc5773ebd76f852ae2",
+    "include/object_history_internal.h": "061ce164bcd66256d4626d6d63bd377f97b3683f7d839c16c086752c6ee423f2",
+    "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
+    "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
+    "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
+    "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
+    "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
+    "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
+    "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
+    "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
+    "include/renderer_diagnostic_internal.h": "86f0d8c8ec7fc912c4df140d08a5b955a4b3076f917a27307552c1183f6343e3",
+    "include/renderer_draw_state_internal.h": "f3b8b2160e59663a7b648042fe654b30a9f400e4c2aae15d7279c7ffaf96d5d1",
+    "include/renderer_geometry_internal.h": "c03a93b5dfba054db766d5ee2f8c5ba1417993a3385ec40ad1440a5fc2fced3c",
+    "include/renderer_image_setup_internal.h": "5c953b01bedc5b443dd9da0366db2e5d0e98943aed6af343ec89791045e0947d",
+    "include/renderer_object_glyph_internal.h": "6bbf74e29517f4c519088cd29242c6226ed6927e7b1f996c2d318842e8c5d83c",
+    "include/renderer_peak_metrics.h": "bc55ddea66e92f5e40909ea6713c3cedec1cff1b4a0f2d656f07bb786d990567",
+    "include/renderer_polygon_messages.h": "59761780941783b420d2a8a75c1252dacf77efa14b22ebe683cee5208462259a",
+    "include/renderer_primitives_internal.h": "8ac70e9b97c8abfa87a1b0e54b0bb33add0ad2c941c7da140415b000b82f12dc",
+    "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
+    "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
+    "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
+    "include/renderer_setup_internal.h": "c3d0fe94d35e4f0231423db7f44c0e9f2796727d89d9a16b4f0b47fae3f51142",
+    "include/renderer_surfaces_internal.h": "bd86ed1e67d674163faff2aaf050bc6d31dc37ef6cfc16f645d348e76f086fe7",
+    "include/renderer_texture_cache.h": "c575de43f39051b977175a24ba6514e512da3ca24bf3c12c324179a1dd324ad8",
+    "include/renderer_texture_index.h": "fb156fa0de759919adfbfd5b972b160be40db4514598a665ce23356d6ccd129c",
+    "include/resource_arena.h": "3e00fe584eabac2d0a2ab54fd3ebda3033293f22ca430fdd44fa99b45f5d9972",
+    "include/resource_bridge_internal.h": "54c95d12346fa764488a64ccc0646631dbe9abe9a0f3e7b087e273c120eb7e08",
+    "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
+    "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
+    "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
+    "include/save_game.h": "1f8c5198d23ff194870613bfaf9f616114703411e86d2027a402ea9d93f2e237",
+    "include/save_menu_internal.h": "8c69cc8b3497726b45c9262956cd2c1a87a4afca68d5f09d312168e4ee6dacd2",
+    "include/save_menu_legacy_internal.h": "bd050d7e63704fce5dab1f291d91197ce6c37f9eb813a9233d2b9381ef0d1726",
+    "include/save_menu_nav_internal.h": "b655041106cdb85aea6c26868c3446aa2eae3d8089a8235087d057bb89c5c73a",
+    "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
+    "include/scene_action_internal.h": "540d754daa04b693d7cbe5f06e240bffe571188966171b9f3add64bdeb6fb089",
+    "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
+    "include/scene_background_internal.h": "c2199191e33f34eeda432ebbcf504c3bd944fc7634be42510f87550e4a9e9c10",
+    "include/scene_commands_internal.h": "a21b97d1d652b686d51f894b0611b494421f9fa57563aaa2a8ff101cb6032efb",
+    "include/scene_counter_internal.h": "003940936d136fc9d45b0e42d59de4cec15b1a81b8919a802a69961ef7d8d819",
+    "include/scene_definition.h": "069a4d5c9f25a2bb5aeab76fe93f500495f1a5d21f9ea2056fece2640d04fb52",
+    "include/scene_player_runtime_internal.h": "a039e5cf7c309c1e36f960e78cdfc478e94e85825d431cc4d08f2fe74fec1fd5",
+    "include/scheduler.h": "17b5151851081813145e8ddbc1edc14f5508c5aabef31e16597451ad872eab7c",
+    "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+    "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+    "include/script_service_internal.h": "dbd1c1e75788351372596698cb05a80eb9698897a63a0e545555ad1783e25398",
+    "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+    "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+    "include/sdk_audio_decoder.h": "9b4b04b8f650377e63e6e0ccee0eb2c7bcdff77286dcd6949985a8aa290b72e4",
+    "include/sdk_audio_effect.h": "255cd3751e4df76c5adca95e4d49f29bcd49fb4666057fe07b6233749dd8f5a3",
+    "include/sdk_audio_envelope.h": "bb3d93f3848cf32f203f33d3c1f0dd3f4db31ca61a725c5577110be4bb227b77",
+    "include/sdk_audio_mix_commands.h": "81a9225e07bf4a1fa53b2aa64d1dafe134976588b6a174bebc7964a9b84b43aa",
+    "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a",
+    "include/sdk_audio_reverb.h": "5be4f6f37c9346bf2085f707ab2afc2862b9848f6f5893cd0769c055f43ac009",
+    "include/sdk_camera.h": "d227c229ceae6bf2c7e2682705cab751e60faa760cb70230fd6431dfdd7f6d15",
+    "include/sdk_controller.h": "248fc10e1aeb31d2e6b000bf6e478cc8094a412fbf5af7f6868e03d251c6b90c",
+    "include/sdk_device_manager.h": "faac5bafa8ae1587a0a177eb37323c3c0ff16c6822c7bc75a0bcfe2a41cb6900",
+    "include/sdk_events.h": "b5fc02d01795bf2fa1af4ce5a66c8dcdd81db38fe0c6696067ba47966fdefdbb",
+    "include/sdk_float_math.h": "16ab5392286945c018316e741102e1a35d03927f4f1ff5472a7eeb0b19d4510e",
+    "include/sdk_float_values.h": "274d1bb5a4df4fe66d13c8d15157321e096545ed5c25c93eb057a93bae0f2a16",
+    "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+    "include/sdk_math.h": "177c464c4fa2a4b6305415fc5e58bc205b5a47883d30c45ecaceb44e4256fa71",
+    "include/sdk_matrix.h": "d0a1e821bf9243ab3793d791c87924e507c9483d23f98f8914969eddf563c864",
+    "include/sdk_pfs.h": "0ba4f4c909d078eec17f80547866bdcb03327b904e0f641f684860054b4f89c9",
+    "include/sdk_pfs_internal.h": "3bf7486adb6db16cab11ffa7dd37d2f9a5ccd6a8920c281b9c12d45028f74390",
+    "include/sdk_pi_device.h": "e2ffc49fd3de308f2d0daf75a038f098dac0024c413e1fb77b7ca51e01018b44",
+    "include/sdk_pi_disk.h": "203c9449cf329958baec21c9b2669e1036d6514c191d3853ba6c2356ae3bc01e",
+    "include/sdk_pi_dma.h": "40d7b5755f20a5eab62933f09fe065061653d4e11ef001b7dd7acd9dd0a0632d",
+    "include/sdk_pi_transfer.h": "fe0c22783ee9a451956ee0dfc8457193dcdf9869b0d5ef5f7d0b88d2a61c8420",
+    "include/sdk_pi_word.h": "bd173c27d20848bb1b478b504e81b4c904c104f37bc1c9dec1e9bd118d2e63b9",
+    "include/sdk_rsp.h": "08a2b63a4d4490026a351cc62f776283466a4de2a7c5338551c34ecd53a69264",
+    "include/sdk_short_math.h": "19b800ee2bc1a36ace67534a97c988c202a9ebc113b251a219e3b16c60d432fd",
+    "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+    "include/sdk_sp_task.h": "c3fa6c6fcfdfaeabf65c587d3dd93529b815e3d1daf480c542b3fdd0e1f988a3",
+    "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488",
+    "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+    "include/sdk_timers.h": "1002e9c9f6126c5fe5a1ec619af273ea81e4db3d2d53de4b6de48e4ad27a676e",
+    "include/sdk_video_internal.h": "a266c0283417fb2f11355242ecd14b62112c484841b01ed16bc5f6f906c6148f",
+    "include/sdk_video_manager.h": "bf982a62f168ce834f7d12e76c9d8486e55e01cc75b0c7fa90c68c7baef6ecca",
+    "include/session_menu_internal.h": "0593514df146ea9df633c5ddf39c4400664771d76996341ceaecb3b32b667991",
+    "include/session_setup_internal.h": "8d1a1ee1780f7d27285bffc33f9890733c6e3574da5ef7134cd73cec53d95ef4",
+    "include/sound_bridge_internal.h": "f5de1a7e5b00eecbd808a99391a8fbf3e777e837dcde94ee08ed5df353f7db48",
+    "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
+    "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
+    "src/game/collisions/rebound.c": "ed01f17f4cd4695add0f8dbb87f9436dba9780c39b57a169a91c9dd2d71482ba",
+    "tools/compiler.py": "a1841eb3a11f3dedc0a2f5724beceef605efc868793e73813dc45f9fb2c0c024",
+    "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
+    "src/game/collisions/retire.c": "dd953e93ecf6fb274452a0a710c96094aab8e526f6f21ec5add547d8a33d1db5",
+    "src/game/collisions/retirement_message.c": "1aa7a2f9c72679d66008e800121e04e7648b2c30f86650af8abe8fb58c11d086",
+    "tools/compare_data.py": "db521623a8fc7f9c547a5958a5fe2189d8011d7ed9e511aaf677e13487ce796a",
+    "src/game/actor_groups/rotate.c": "b7c185d4f147b464bfaffa2099088d5d0b513474a7eecbd97811682b6b0836c1",
+    "src/game/object_recovery_fixed_trig.c": "ceb0a2d852b6afa64c44ec80badcbc8cbfa6fbcfc8ab57c837e31e80a2dde64c",
+    "src/sdk/short_sine.c": "0ac16fdbc9fa7bbe5223941f3334f9fb89efb79d4c790a9bc77781787eb2ec12",
+    "src/sdk/short_cosine.c": "e91647d8a4a819581079da1fdb375f16157fd1716c8397141fc93d0ec01d60e1",
+    "src/game/object_recovery_angle_scale.c": "eba8d8a3cc11e0fb57db77679c552463b5ae11f1d3303b7bb69ea2b270e295d7",
+    "src/game/object_recovery_direction_angle.c": "5a7a2784d7b36c3f86c7581311add70d8db28f7364a493580fe231d9a5343eda",
+    "src/game/object_recovery_angle_table.c": "1248f0cd83da7f464debc7198da78443497157ad355c100fb00a33821588654e",
+    "src/game/fixed_geometry_setup.c": "e2e921573c9af970d82a0dd5f2131fb4026ce8d5a24f28db2489e52799095263",
+    "src/game/actor_groups/direction_table.c": "2e67896ef7db6e13f2d24a30f14257629024e77e8792d460f24f7edba2dcccfd",
+    "tools/check_actor_collision_followup.py": "ea7c8ca98c3095ce551e60d859739d9993404f1903deb0296f56c39edf9fbee6",
+    "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
+    "tools/check_actor_collision_response.py": "774e3a393871c345447973dce5781b44490979defef2e1060c5a8e863b817f78",
+    "tools/check_actor_boundary_boss.py": "8b6c75bf58815fafc26f202d2793b79fc8c5a98bf3425527dc5fe9b7176860a8",
+    "tools/check_boss_trigger.py": "873812e8ba6ab82b5d9098a117973479c47ff5b962bdd01ec9f6e7c2804f5992",
+    "Makefile": "a9f21ecba88c60696a0f2013c82655e50b51fde22c392772f2f8c1508940e876",
+    "linker_scripts/us.ld": "0d1dce60377d17e8d912bf5a892522cf4d04c9b4ce97a814dde0e3d11dc7697d",
+    "tools/extract.py": "513407427c70dcc28431d232e43b3c9b2759cc864f6b0b625913251e04964c7c",
+    "tools/compare_runtime.py": "1de0532e649955c34dea2c8dfd74e641635a4dc228c6e65d95f9674a36a97e26"
+  },
+  "toolchain_identity": {
+    "version": "5.3",
+    "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+    "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+    "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+  },
+  "independent_comparisons": {
+    "runtime": {
+      "units": 865,
+      "matches": true,
+      "report_sha256": "8ad19fcdeb435b1afc4d6ad2448253edba3d8b5cd8c7fca03b3574a80dc92e66"
+    },
+    "startup": {
+      "units": 2,
+      "matches": true,
+      "report_sha256": "695b3d6462347b6f7f6563bef03da6b1e051f4b55dd0ef953cbe8bedf00038b6"
+    },
+    "assembly": {
+      "units": 18,
+      "matches": true,
+      "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+    },
+    "data": {
+      "units": 100,
+      "matches": true,
+      "report_sha256": "3239df32d74787b4b0573b72171b45ba1f0eae650c9c8c5399ea4e8355db9bec"
+    }
+  },
+  "tooling_tests": 152,
+  "verified_unique_comparison_inputs": 1166,
+  "isolated_clean_validation": {
+    "matches": true,
+    "complete_rom_bytes": 8388608,
+    "built_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "extraction_from_clean_build": true,
+    "tooling_tests": 152,
+    "logs_sha256": {
+      "setup": "af5e7281bcb7e127ae40295f1992405080561951cdcdfd68d1de9debb5eb10ae",
+      "build": "85f4b0162adf4541ae0ab0ddc060a82653b585ed282840f2202f9ab63ed3f28e",
+      "verify": "7a29ff0d6150dd54241838aef3b62849bc0d0f8a7cc3733e05e281dbb7ea9b00",
+      "progress": "43e2a30b6805f0c0b619c4baa3b5e03a0682e3c1e4d02fc44ed67b749b91e9fb",
+      "tests": "bbe68484db63893c5303214eefa85d54673f87aa50d1232bc0164c84e79f9887"
+    }
+  },
+  "full_rom": {
+    "size": 8388608,
+    "matches": true,
+    "built_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd"
+  },
+  "progress": {
+    "matched_c_functions": 1383,
+    "matched_c_bytes": 272616,
+    "matched_assembly_functions": 29,
+    "matched_assembly_bytes": 4372,
+    "source_owned_initialized_bytes": 30063,
+    "source_owned_bss_bytes": 504115
+  },
+  "provisional_cpu": {
+    "fallback_bytes": 177580,
+    "fallback_ranges": 210,
+    "unclassified_bytes": 152,
+    "total_functions": null,
+    "total_code_bytes": null
+  },
+  "source_reference_credits": "CREDITS.md; reference-study.md and the historical recovery ledgers record consulted references. No reference implementation was copied for these functions.",
+  "status": "Complete rebound and retirement callbacks and 204 initialized bytes recovered; special collision, damage and complete gameplay remain separate work.",
+  "comparisons": {
+    "actor_collision_rebound": {
+      "source": "src/game/collisions/rebound.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "expected_size": 764,
+      "actual_size": 764,
+      "matches": true,
+      "different_words": []
+    },
+    "actor_collision_retire": {
+      "source": "src/game/collisions/retire.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "expected_size": 728,
+      "actual_size": 728,
+      "matches": true,
+      "different_words": []
+    }
+  },
+  "message_comparison": {
+    "source": "src/game/collisions/retirement_message.c",
+    "matches": true,
+    "sections": [
+      {
+        "ownership": {
+          "source": "src/game/collisions/retirement_message.c",
+          "object": "build/us/actor_collision_retirement_message.o",
+          "input_section": ".rodata",
+          "section": ".actor_collision_retirement_message",
+          "vram": 2148073984,
+          "rom": 593408,
+          "size": 28,
+          "symbols": {
+            "D_80090200": 0
+          },
+          "evidence": "docs/actor-collision-followup.md"
+        },
+        "bytes_sha256": "bc26367276d2af8cb8bd8d70a9232769ba4aeff127fd8a7e549cecb6c90377cd"
+      }
+    ],
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    }
+  },
+  "objects": {
+    "actor_collision_rebound": {
+      "raw_object_sha256": "84e8078a82579ab8bb864f1ef36d8dca34f0b43fc186a832c3562b1029c28d64",
+      "raw_text_size": 768,
+      "live_bytes": 764,
+      "text_alignment_bytes": 4,
+      "functions": {
+        "func_8001631C": {
+          "vram": "0x8001631c",
+          "size": 764,
+          "stack_frame": 56,
+          "bytes_sha256": "11b4634495cee56092159cf29a6ae0e26e87627568ab2fa8a725d150e9335107"
+        }
+      },
+      "forced_registers": false,
+      "padding_locals": false,
+      "patched_instructions": 0
+    },
+    "actor_collision_retire": {
+      "raw_object_sha256": "25eba61b8a170a9c223fa9b8a3c7f7e8c576d277d58d6e986d7b47f757af64e3",
+      "raw_text_size": 736,
+      "live_bytes": 728,
+      "text_alignment_bytes": 8,
+      "functions": {
+        "func_8001B4F8": {
+          "vram": "0x8001b4f8",
+          "size": 728,
+          "stack_frame": 32,
+          "bytes_sha256": "6f373319968cb4ed07509e5875e0fa949507d93463458f0593bf526d4816a9b0"
+        }
+      },
+      "forced_registers": false,
+      "padding_locals": false,
+      "patched_instructions": 0
+    }
+  },
+  "owned_sections": {
+    "actor_collision_rebound_switch": {
+      "vram": "0x8008fee8",
+      "rom": "0x90ae8",
+      "size": 32,
+      "bytes_sha256": "612b1889c934b6b8470637a165d6047a943b49e272c3ad811e9c45736a402d6c"
+    },
+    "actor_collision_retire_switch": {
+      "vram": "0x800902d4",
+      "rom": "0x90ed4",
+      "size": 144,
+      "bytes_sha256": "b490a07c6e6924ea72f15cc1209c6a3880741f67ae8d762e76ee9d81121eb0d3"
+    },
+    "actor_collision_retirement_message": {
+      "vram": "0x80090200",
+      "rom": "0x90e00",
+      "size": 28,
+      "bytes_sha256": "bc26367276d2af8cb8bd8d70a9232769ba4aeff127fd8a7e549cecb6c90377cd"
+    }
+  },
+  "execution": {
+    "cases": 2570,
+    "counts": {
+      "retire": 864,
+      "retire_mutation": 432,
+      "retire_diagnostic": 6,
+      "rebound": 972,
+      "rebound_arithmetic": 80,
+      "rebound_mutation": 216
+    },
+    "trace_sha256": "9eda76fcb242152a911b7aecbfef9eac208d7dbc8207502dc3a52546f8926fe4",
+    "checker_sha256": "ea7c8ca98c3095ce551e60d859739d9993404f1903deb0296f56c39edf9fbee6",
+    "helpers_sha256": {
+      "check_actor_boundary_boss.py": "8b6c75bf58815fafc26f202d2793b79fc8c5a98bf3425527dc5fe9b7176860a8",
+      "check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
+      "check_boss_trigger.py": "873812e8ba6ab82b5d9098a117973479c47ff5b962bdd01ec9f6e7c2804f5992"
+    },
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "limits": [
+      "Complete callbacks, generated tables and diagnostic data are freshly compiled and independently byte compared.",
+      "All called game services and callbacks use clobbering integer/FPU ABI stubs, including randomness and trigonometry.",
+      "Independent arithmetic, guarded state before calls and after return, event order, vector bytes, return byte and argument home slots are checked.",
+      "Synthetic mutations test fresh resource/global reads and callback replacement; they do not establish actual callee effects.",
+      "Invalid retirement kinds are tested only with counter updates disabled; valid retail kind/counter bounds and full gameplay remain unproved."
+    ]
+  },
+  "preceding_execution": {
+    "cases": 3636,
+    "matches": true,
+    "checker_sha256": "774e3a393871c345447973dce5781b44490979defef2e1060c5a8e863b817f78"
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "layouts": {
+      "ActorBehaviorActorInternal": {
+        "name": "ActorBehaviorActorInternal",
+        "size": 124,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 8,
+            "type": "short[4]",
+            "name": "unknown00"
+          },
+          {
+            "offset": 8,
+            "size": 2,
+            "type": "short",
+            "name": "angle08"
+          },
+          {
+            "offset": 10,
+            "size": 2,
+            "type": "short",
+            "name": "previousAngle0A"
+          },
+          {
+            "offset": 12,
+            "size": 2,
+            "type": "short",
+            "name": "objectIndex"
+          },
+          {
+            "offset": 14,
+            "size": 2,
+            "type": "short",
+            "name": "timer0E"
+          },
+          {
+            "offset": 16,
+            "size": 4,
+            "type": "short[2]",
+            "name": "unknown10"
+          },
+          {
+            "offset": 20,
+            "size": 4,
+            "type": "uint",
+            "name": "flags14"
+          },
+          {
+            "offset": 24,
+            "size": 4,
+            "type": "int",
+            "name": "frame18"
+          },
+          {
+            "offset": 28,
+            "size": 1,
+            "type": "uchar",
+            "name": "kind1C"
+          },
+          {
+            "offset": 29,
+            "size": 2,
+            "type": "uchar[2]",
+            "name": "unknown1D"
+          },
+          {
+            "offset": 31,
+            "size": 1,
+            "type": "uchar",
+            "name": "animation1F"
+          },
+          {
+            "offset": 32,
+            "size": 1,
+            "type": "uchar",
+            "name": "mode20"
+          },
+          {
+            "offset": 33,
+            "size": 1,
+            "type": "uchar",
+            "name": "state21"
+          },
+          {
+            "offset": 34,
+            "size": 1,
+            "type": "uchar",
+            "name": "value22"
+          },
+          {
+            "offset": 35,
+            "size": 1,
+            "type": "uchar",
+            "name": "unknown23"
+          },
+          {
+            "offset": 36,
+            "size": 4,
+            "type": "TextGlyphResource *",
+            "name": "resource24"
+          },
+          {
+            "offset": 40,
+            "size": 4,
+            "type": "int",
+            "name": "field28"
+          },
+          {
+            "offset": 44,
+            "size": 4,
+            "type": "int",
+            "name": "field2C"
+          },
+          {
+            "offset": 48,
+            "size": 4,
+            "type": "int",
+            "name": "field30"
+          },
+          {
+            "offset": 52,
+            "size": 4,
+            "type": "int",
+            "name": "field34"
+          },
+          {
+            "offset": 56,
+            "size": 4,
+            "type": "int",
+            "name": "parameter38"
+          },
+          {
+            "offset": 60,
+            "size": 4,
+            "type": "int",
+            "name": "field3C"
+          },
+          {
+            "offset": 64,
+            "size": 4,
+            "type": "int",
+            "name": "field40"
+          },
+          {
+            "offset": 68,
+            "size": 4,
+            "type": "ActorBehaviorCallbackInternal",
+            "name": "callback44"
+          },
+          {
+            "offset": 72,
+            "size": 4,
+            "type": "int",
+            "name": "field48"
+          },
+          {
+            "offset": 76,
+            "size": 4,
+            "type": "int",
+            "name": "field4C"
+          },
+          {
+            "offset": 80,
+            "size": 4,
+            "type": "int",
+            "name": "field50"
+          },
+          {
+            "offset": 84,
+            "size": 4,
+            "type": "int",
+            "name": "countdown54"
+          },
+          {
+            "offset": 88,
+            "size": 4,
+            "type": "int",
+            "name": "field58"
+          },
+          {
+            "offset": 92,
+            "size": 4,
+            "type": "int",
+            "name": "field5C"
+          },
+          {
+            "offset": 96,
+            "size": 12,
+            "type": "int[3]",
+            "name": "position"
+          },
+          {
+            "offset": 108,
+            "size": 4,
+            "type": "int",
+            "name": "field6C"
+          },
+          {
+            "offset": 112,
+            "size": 4,
+            "type": "int",
+            "name": "field70"
+          },
+          {
+            "offset": 116,
+            "size": 4,
+            "type": "int",
+            "name": "field74"
+          },
+          {
+            "offset": 120,
+            "size": 4,
+            "type": "ActorBehaviorActorInternal *",
+            "name": "next78"
+          }
+        ]
+      },
+      "TextGlyphResource": {
+        "name": "TextGlyphResource",
+        "size": 88,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 1,
+            "type": "uchar",
+            "name": "unk00"
+          },
+          {
+            "offset": 1,
+            "size": 1,
+            "type": "uchar",
+            "name": "kind"
+          },
+          {
+            "offset": 2,
+            "size": 1,
+            "type": "uchar",
+            "name": "actorKind"
+          },
+          {
+            "offset": 3,
+            "size": 3,
+            "type": "uchar[3]",
+            "name": "unknown03"
+          },
+          {
+            "offset": 6,
+            "size": 2,
+            "type": "ActorResourceFlags",
+            "name": "flags06"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "type": "int",
+            "name": "speed"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "type": "int",
+            "name": "scale"
+          },
+          {
+            "offset": 16,
+            "size": 2,
+            "type": "uchar[2]",
+            "name": "unknown10"
+          },
+          {
+            "offset": 18,
+            "size": 2,
+            "type": "short",
+            "name": "field12"
+          },
+          {
+            "offset": 20,
+            "size": 2,
+            "type": "short",
+            "name": "field14"
+          },
+          {
+            "offset": 22,
+            "size": 18,
+            "type": "uchar[18]",
+            "name": "unknown16"
+          },
+          {
+            "offset": 40,
+            "size": 40,
+            "type": "_union_5",
+            "name": "animation"
+          },
+          {
+            "offset": 80,
+            "size": 2,
+            "type": "short",
+            "name": "playbackSpeed"
+          },
+          {
+            "offset": 82,
+            "size": 2,
+            "type": "short",
+            "name": "unknown52"
+          },
+          {
+            "offset": 84,
+            "size": 4,
+            "type": "int",
+            "name": "field54"
+          }
+        ]
+      },
+      "EarlyPoolTickState": {
+        "name": "EarlyPoolTickState",
+        "size": 500,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 4,
+            "type": "int",
+            "name": "state00"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "type": "int",
+            "name": "value04"
+          },
+          {
+            "offset": 8,
+            "size": 72,
+            "type": "short[36]",
+            "name": "activeBehaviorActors"
+          },
+          {
+            "offset": 80,
+            "size": 72,
+            "type": "short[36]",
+            "name": "retiredBehaviorCounts"
+          },
+          {
+            "offset": 152,
+            "size": 4,
+            "type": "int",
+            "name": "timer98"
+          },
+          {
+            "offset": 156,
+            "size": 4,
+            "type": "int",
+            "name": "start9C"
+          },
+          {
+            "offset": 160,
+            "size": 4,
+            "type": "int",
+            "name": "frameA0"
+          },
+          {
+            "offset": 164,
+            "size": 288,
+            "type": "EarlyPoolResetPair[9][4]",
+            "name": "groupsA4"
+          },
+          {
+            "offset": 452,
+            "size": 40,
+            "type": "int[10]",
+            "name": "indices1C4"
+          },
+          {
+            "offset": 492,
+            "size": 4,
+            "type": "int",
+            "name": "enabled1EC"
+          },
+          {
+            "offset": 496,
+            "size": 4,
+            "type": "int",
+            "name": "sentinel1F0"
+          }
+        ]
+      }
+    },
+    "headers_sha256": {
+      "include/actor_behavior_internal.h": "a34cc98195a029e4003cc251f4e172d595214582a339404eb78449926fa99373",
+      "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
+      "include/early_pool_tick.h": "50122670755bbdd5704eff40f5fcdc32293e07a9f217898d1b1524d067dfa927",
+      "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90"
+    },
+    "data": {
+      "rebound_switch": {
+        "vram": "0x8008fee8",
+        "rom": "0x90ae8",
+        "size": 32,
+        "bytes_sha256": "612b1889c934b6b8470637a165d6047a943b49e272c3ad811e9c45736a402d6c",
+        "matches_retail": true
+      },
+      "retire_switch": {
+        "vram": "0x800902d4",
+        "rom": "0x90ed4",
+        "size": 144,
+        "bytes_sha256": "b490a07c6e6924ea72f15cc1209c6a3880741f67ae8d762e76ee9d81121eb0d3",
+        "matches_retail": true
+      },
+      "retirement_message": {
+        "vram": "0x80090200",
+        "rom": "0x90e00",
+        "size": 28,
+        "bytes_sha256": "bc26367276d2af8cb8bd8d70a9232769ba4aeff127fd8a7e549cecb6c90377cd",
+        "matches_retail": true
+      }
+    }
+  },
+  "ghidra_procedures": {
+    "rebound": {
+      "vram": "0x8001631c",
+      "rom": "0x16f1c",
+      "size": 764,
+      "instructions": 191,
+      "bytes_sha256": "1c7b5f6d21134a072004efd2b61e3ba63cde73a04ef708f90e6aec5774aec4d9",
+      "matches_retail": true,
+      "prototype": {
+        "name": "func_8001631C",
+        "address": "8001631c",
+        "signature": "uchar func_8001631C(ActorBehaviorActorInternal * first, ActorBehaviorActorInternal * second, int * firstPosition, int * secondPosition)",
+        "entry_point": "8001631c",
+        "body_start": "8001631c",
+        "body_end": "80016617"
+      },
+      "xrefs": {
+        "references": [
+          {
+            "from_address": "00000fac",
+            "type": "DATA"
+          },
+          {
+            "from_address": "Entry Point",
+            "type": "EXTERNAL"
+          },
+          {
+            "from_address": "8001a110",
+            "type": "DATA",
+            "from_function": "func_80019E40"
+          },
+          {
+            "from_address": "8001a120",
+            "type": "DATA",
+            "from_function": "func_80019E40"
+          }
+        ],
+        "count": 4,
+        "offset": 0,
+        "total": 4
+      }
+    },
+    "retire": {
+      "vram": "0x8001b4f8",
+      "rom": "0x1c0f8",
+      "size": 728,
+      "instructions": 182,
+      "bytes_sha256": "aae2e43d8b37bb31bba1f800e552fde4074020f1db919b0acfc9693db9ec0f21",
+      "matches_retail": true,
+      "prototype": {
+        "name": "func_8001B4F8",
+        "address": "8001b4f8",
+        "signature": "void func_8001B4F8(ActorBehaviorActorInternal * actor, ActorBehaviorActorInternal * other)",
+        "entry_point": "8001b4f8",
+        "body_start": "8001b4f8",
+        "body_end": "8001b7cf"
+      },
+      "xrefs": {
+        "references": [
+          {
+            "from_address": "00001484",
+            "type": "DATA"
+          },
+          {
+            "from_address": "80016b7c",
+            "type": "UNCONDITIONAL_CALL"
+          },
+          {
+            "from_address": "80015ee0",
+            "type": "UNCONDITIONAL_CALL",
+            "from_function": "func_80015BF8"
+          }
+        ],
+        "count": 3,
+        "offset": 0,
+        "total": 3
+      }
+    }
+  },
+  "private_reference_verification": {
+    "rebound": {
+      "matches_rom": true,
+      "instruction_bytes": 764,
+      "alignment_bytes": 4,
+      "bytes_sha256": "1c7b5f6d21134a072004efd2b61e3ba63cde73a04ef708f90e6aec5774aec4d9",
+      "reference_object_sha256": "8e713de553168de8e19ecb1184543c20468cf43e848bda55d86d8910d19abdfd",
+      "objdiff_function_percent": 100,
+      "objdiff_report_sha256": "0c697dac562b4fd4152165eaa4236a31c0bc9f08b479bc42a21f9fe7ac3194f0",
+      "switch_reassembled_bytes": 32,
+      "switch_sha256": "612b1889c934b6b8470637a165d6047a943b49e272c3ad811e9c45736a402d6c"
+    },
+    "retire": {
+      "matches_rom": true,
+      "instruction_bytes": 728,
+      "alignment_bytes": 8,
+      "bytes_sha256": "aae2e43d8b37bb31bba1f800e552fde4074020f1db919b0acfc9693db9ec0f21",
+      "reference_object_sha256": "b5627b3cc8fb92f8f8f9ed486d4b650c6394975da8e1504e9de8235f43c2c527",
+      "objdiff_function_percent": 100,
+      "objdiff_report_sha256": "a16a47581d39e52ea153b2ca442b71f5a351a95c4d8c767fa51bd46261631b1a",
+      "switch_reassembled_bytes": 144,
+      "switch_sha256": "b490a07c6e6924ea72f15cc1209c6a3880741f67ae8d762e76ee9d81121eb0d3"
+    }
+  }
+}
