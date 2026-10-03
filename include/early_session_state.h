@@ -28,9 +28,18 @@ typedef struct EarlyAnimationChoiceSlot {
     unsigned char unknown0A[2];
 } EarlyAnimationChoiceSlot;
 
+typedef struct EarlyAnimationMovementSlot {
+    int animation00;
+    int rate04;
+    unsigned char callback08;
+    unsigned char value09;
+    unsigned char unknown0A[2];
+} EarlyAnimationMovementSlot;
+
 typedef union EarlyAnimationSlot {
     EarlyAnimationChoiceSlot choice;
     EarlyAnimationResetSlot reset;
+    EarlyAnimationMovementSlot movement;
 } EarlyAnimationSlot;
 
 typedef struct EarlyAnimationRecord {
@@ -52,6 +61,9 @@ typedef char EarlyAnimationResetSlotMustBe12Bytes[
 
 typedef char EarlyAnimationChoiceSlotMustBe12Bytes[
     sizeof(EarlyAnimationChoiceSlot) == 0xC ? 1 : -1];
+
+typedef char EarlyAnimationMovementSlotMustBe12Bytes[
+    sizeof(EarlyAnimationMovementSlot) == 0xC ? 1 : -1];
 
 typedef char EarlyAnimationSlotMustBe12Bytes[
     sizeof(EarlyAnimationSlot) == 0xC ? 1 : -1];
