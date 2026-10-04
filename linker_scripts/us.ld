@@ -835,7 +835,8 @@ SECTIONS
     .audio_handle_rate 0x80056C58 : AT(0x57858) SUBALIGN(4) { build/us/audio_handle_rate.o(.text) }
     .audio_handle_validate_only 0x80056D88 : AT(0x57988) SUBALIGN(4) { build/us/audio_handle_validate_only.o(.text) }
     .audio_handle_rewind 0x80056DB0 : AT(0x579B0) SUBALIGN(4) { build/us/audio_handle_rewind.o(.text) }
-    .cpu_after_audio_handle_rewind 0x80056EF0 : AT(0x57AF0) { build/us/fallback.o(.rom_cpu_after_audio_handle_rewind) }
+    .audio_seek_forward 0x80056EF0 : AT(0x57AF0) SUBALIGN(4) { build/us/audio_seek_forward.o(.text) }
+    .audio_seek_restart 0x80057124 : AT(0x57D24) SUBALIGN(4) { build/us/audio_seek_restart.o(.text) }
     .audio_handle_seek_relative 0x80057358 : AT(0x57F58) SUBALIGN(4) { build/us/audio_handle_seek_relative.o(.text) }
     .audio_handle_seek_absolute 0x800574B8 : AT(0x580B8) SUBALIGN(4) { build/us/audio_handle_seek_absolute.o(.text) }
     .audio_handle_position 0x80057610 : AT(0x58210) SUBALIGN(4) { build/us/audio_handle_position.o(.text) }
@@ -2105,7 +2106,8 @@ ASSERT(SIZEOF(.audio_handle_stop) == 0x114, "audio_handle_stop size changed")
 ASSERT(SIZEOF(.audio_handle_rate) == 0x130, "audio_handle_rate size changed")
 ASSERT(SIZEOF(.audio_handle_validate_only) == 0x28, "audio_handle_validate_only size changed")
 ASSERT(SIZEOF(.audio_handle_rewind) == 0x140, "audio_handle_rewind size changed")
-ASSERT(SIZEOF(.cpu_after_audio_handle_rewind) == 0x468, "cpu_after_audio_handle_rewind size changed")
+ASSERT(SIZEOF(.audio_seek_forward) == 0x234, "audio_seek_forward size changed")
+ASSERT(SIZEOF(.audio_seek_restart) == 0x234, "audio_seek_restart size changed")
 ASSERT(SIZEOF(.audio_handle_seek_relative) == 0x160, "audio_handle_seek_relative size changed")
 ASSERT(SIZEOF(.audio_handle_seek_absolute) == 0x158, "audio_handle_seek_absolute size changed")
 ASSERT(SIZEOF(.audio_handle_position) == 0xd0, "audio_handle_position size changed")

@@ -335,5 +335,11 @@
     "vram": "0x8005BA24",
     "rom": "0x5C624",
     "status": "verified 676-byte hardware pitch command; C candidate remains nonmatching"
+  },
+  {
+    "name": "D_8008D96C",
+    "vram": "0x8008D96C",
+    "rom": "0x8E56C",
+    "status": "verified alias for the sequence-command member at D_8008D920 + 0x4C; see docs/audio-seeking.md"
   }
 ]

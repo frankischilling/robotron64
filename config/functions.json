@@ -15755,5 +15755,27 @@
     "section": ".controller_legacy_poll",
     "section_vram": 2147795424,
     "evidence": "docs/controller-polling-and-storage.md"
+  },
+  {
+    "name": "func_80056EF0",
+    "rom": 359152,
+    "vram": 2147839728,
+    "size": 564,
+    "source": "src/game/audio/seek_forward.c",
+    "object": "build/us/audio_seek_forward.o",
+    "section": ".audio_seek_forward",
+    "section_vram": 2147839728,
+    "evidence": "docs/audio-seeking.md"
+  },
+  {
+    "name": "func_80057124",
+    "rom": 359716,
+    "vram": 2147840292,
+    "size": 564,
+    "source": "src/game/audio/seek_restart.c",
+    "object": "build/us/audio_seek_restart.o",
+    "section": ".audio_seek_restart",
+    "section_vram": 2147840292,
+    "evidence": "docs/audio-seeking.md"
   }
 ]

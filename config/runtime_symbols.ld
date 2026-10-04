@@ -732,8 +732,6 @@ D_800BB128 = 0x800BB128;
 /* References from recovered audio host and stream services. */
 D_80190320 = 0x80190320;
 D_80190328 = 0x80190328;
-func_80056EF0 = 0x80056EF0;
-func_80057124 = 0x80057124;
 
 /* References from recovered audio command engine procedures. */
 D_8008D9B4 = 0x8008D9B4;
@@ -955,3 +953,4 @@ func_80018480 = 0x80018480;
 func_800186D8 = 0x800186D8;
 D_800736A8 = 0x800736A8;
 D_800BA748 = 0x800BA748;
+D_8008D96C = 0x8008D96C;

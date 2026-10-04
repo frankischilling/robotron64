@@ -7649,6 +7649,20 @@ build/us/controller_legacy_poll.o: src/game/controller/legacy_poll.c include/con
 RUNTIME_OBJECTS += build/us/controller_legacy_poll.o
 
 
+build/us/audio_seek_forward.o: src/game/audio/seek_forward.c include/audio_properties_internal.h include/audio_engine_tables_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_seek_forward.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_seek_forward.raw.o $@ .text 0x234
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_seek_restart.o: src/game/audio/seek_restart.c include/audio_properties_internal.h include/audio_engine_tables_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_seek_restart.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_seek_restart.raw.o $@ .text 0x234
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_seek_forward.o build/us/audio_seek_restart.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

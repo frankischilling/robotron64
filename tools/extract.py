@@ -112,7 +112,6 @@ REGIONS = (
     ("cpu_after_audio_resume_all_apply", 0x56358, 0x56360),
     ("cpu_after_audio_owner_stop_apply", 0x56d24, 0x56d30),
     ("after_audio_owner_enumerate", 0x57078, 0x57080),
-    ("cpu_after_audio_handle_rewind", 0x57af0, 0x57f58),
     ("cpu_after_audio_voice_properties_capture", 0x58864, 0x58870),
     ("cpu_after_audio_handle_parameter_apply", 0x58f14, 0x58f20),
     ("cpu_after_audio_stream_storage", 0x58fb4, 0x59490),

@@ -18,5 +18,7 @@ typedef char AudioEngineCommandTableMustBe144Bytes[
 
 extern unsigned char D_8008D8D0[36];
 extern AudioEngineCommandTable D_8008D920;
+/* Alias for the sequence-command member at D_8008D920 + 0x4C. */
+extern AudioVoiceCommand D_8008D96C[17];
 
 #endif
