@@ -761,8 +761,6 @@ D_80192BB0 = 0x80192BB0;
 D_80192BB4 = 0x80192BB4;
 D_80192BB8 = 0x80192BB8;
 D_FLT_8008DA30 = 0x8008DA30;
-func_8005B854 = 0x8005B854;
-func_8005BA24 = 0x8005BA24;
 
 /* References used by the recovered early game helper leaves. */
 D_80073864 = 0x80073864;

@@ -15799,5 +15799,27 @@
     "section": ".audio_sequence_tick",
     "section_vram": 2147854764,
     "evidence": "docs/audio-timing-and-sequence-tick.md"
+  },
+  {
+    "name": "func_8005B854",
+    "rom": 377940,
+    "vram": 2147858516,
+    "size": 420,
+    "source": "src/game/audio/backend/voice_release_all.c",
+    "object": "build/us/audio_backend_voice_release_all.o",
+    "section": ".audio_backend_voice_release_all",
+    "section_vram": 2147858516,
+    "evidence": "docs/audio-voice-release-and-pitch.md"
+  },
+  {
+    "name": "func_8005BA24",
+    "rom": 378404,
+    "vram": 2147858980,
+    "size": 676,
+    "source": "src/game/audio/backend/pitch_command.c",
+    "object": "build/us/audio_backend_pitch_command.o",
+    "section": ".audio_backend_pitch_command",
+    "section_vram": 2147858980,
+    "evidence": "docs/audio-voice-release-and-pitch.md"
   }
 ]

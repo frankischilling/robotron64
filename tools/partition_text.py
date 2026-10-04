@@ -1,7 +1,7 @@
 """Retain a complete function compiled beside an already owned context function.
 
-IDO uses the visible decoder body when deciding which static variables a call
-can change. Its context function is built separately at the retail address.
+IDO uses visible callee bodies when deciding which static variables a call
+can change. Each context function is built separately at its retail address.
 This operation rebases ELF metadata and relocations, never MIPS instructions.
 Only a context function at offset zero is supported, so its call addend stays
 zero when its definition becomes an unresolved reference.

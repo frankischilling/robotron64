@@ -1,4 +1,6 @@
 extern float D_FLT_8008DA30;
+extern const float D_FLT_80095CC4;
+extern const float D_FLT_80095CC8;
 
 float func_8005B000(int cents)
 {
@@ -7,9 +9,9 @@ float func_8005B000(int cents)
 
     result = 1.0f;
     if (cents >= 0) {
-        factor = 1.00057781f;
+        factor = D_FLT_80095CC4;
     } else {
-        factor = 0.99942255f;
+        factor = D_FLT_80095CC8;
         cents = -cents;
     }
     while (cents) {

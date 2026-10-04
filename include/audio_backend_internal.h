@@ -53,6 +53,7 @@ extern unsigned int *D_80192828;
 float func_8005B000(int cents);
 void func_8005B064(AudioStatusRecord *voice);
 void func_8005B854(AudioVoice *voice);
+void func_8005BA24(AudioVoice *voice);
 void func_8005971C(AudioVoice *voice);
 void func_8005BCC8(AudioVoice *voice);
 void func_8005BCD0(AudioVoice *voice);

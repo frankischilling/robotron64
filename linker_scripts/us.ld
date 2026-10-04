@@ -911,9 +911,9 @@ SECTIONS
     .audio_backend_initialize 0x8005B3A8 : AT(0x5BFA8) SUBALIGN(4) { build/us/audio_backend_initialize.o(.text) }
     .audio_backend_update 0x8005B66C : AT(0x5C26C) SUBALIGN(4) { build/us/audio_backend_update.o(.text) }
     .audio_backend_voice_stop 0x8005B7BC : AT(0x5C3BC) SUBALIGN(4) { build/us/audio_backend_voice_stop.o(.text) }
-    .after_audio_backend_voice_stop 0x8005B854 : AT(0x5C454) { build/us/fallback.o(.rom_after_audio_backend_voice_stop) }
+    .audio_backend_voice_release_all 0x8005B854 : AT(0x5C454) SUBALIGN(4) { build/us/audio_backend_voice_release_all.o(.text) }
     .audio_backend_patch 0x8005B9F8 : AT(0x5C5F8) SUBALIGN(4) { build/us/audio_backend_patch.o(.text) }
-    .after_audio_backend_patch 0x8005BA24 : AT(0x5C624) { build/us/fallback.o(.rom_after_audio_backend_patch) }
+    .audio_backend_pitch_command 0x8005BA24 : AT(0x5C624) SUBALIGN(4) { build/us/audio_backend_pitch_command.o(.text) }
     .audio_backend_volume 0x8005BCC8 : AT(0x5C8C8) SUBALIGN(4) { build/us/audio_backend_volume.o(.text) }
     .audio_backend_pan_pedal 0x8005BEFC : AT(0x5CAFC) SUBALIGN(4) { build/us/audio_backend_pan_pedal.o(.text) }
     .audio_backend_pan_command 0x8005C1D8 : AT(0x5CDD8) SUBALIGN(4) { build/us/audio_backend_pan_command.o(.text) }
@@ -1420,10 +1420,10 @@ SECTIONS
     .audio_memory_size_strings 0x80095CB0 : AT(0x968B0) SUBALIGN(4) { build/us/audio_memory_size.o(.rodata) }
     .audio_bank_load_signature 0x80095CB8 : AT(0x968B8) SUBALIGN(4) { build/us/audio_bank_load.o(.rodata) }
     .audio_synthesis_rate_constant 0x80095CC0 : AT(0x968C0) SUBALIGN(4) { build/us/audio_synthesis_rate_constant.o(.data) }
-    .audio_pitch_scale_rodata 0x80095CC4 : AT(0x968C4) SUBALIGN(4) { build/us/audio_pitch_scale.o(.rodata) }
+    .audio_pitch_scale_rodata 0x80095CC4 : AT(0x968C4) SUBALIGN(4) { build/us/audio_pitch_factors.o(.data) }
     .before_audio_backend_playback_rodata 0x80095CCC : AT(0x968CC) { build/us/fallback.o(.rom_before_audio_backend_playback_rodata) }
     .audio_backend_playback_rodata 0x80095CD0 : AT(0x968D0) SUBALIGN(4) { build/us/audio_backend_playback.o(.rodata) }
-    .after_audio_backend_playback_rodata 0x80095CE0 : AT(0x968E0) { build/us/fallback.o(.rom_after_audio_backend_playback_rodata) }
+    .audio_backend_pitch_command_rodata 0x80095CE0 : AT(0x968E0) SUBALIGN(4) { build/us/audio_backend_pitch_command.o(.rodata) }
     .camera_perspective_rodata 0x80095CF0 : AT(0x968F0) SUBALIGN(4) { build/us/camera_perspective.o(.rodata) }
     .camera_highlights_rodata 0x80095D00 : AT(0x96900) SUBALIGN(4) { build/us/camera_highlights.o(.rodata) }
     .matrix_rotation_rodata 0x80095D20 : AT(0x96920) SUBALIGN(4) { build/us/matrix_rotation.o(.rodata) }
@@ -1455,12 +1455,14 @@ SECTIONS
     .audio_engine_sequence_stop_bss 0x801927EC (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_sequence_stop.o(.bss) }
     .audio_backend_update_bss 0x80192AC0 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_update.o(.bss) }
     .audio_backend_voice_stop_bss 0x80192ACC (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_voice_stop.o(.bss) }
+    .audio_backend_voice_release_all_bss 0x80192AD0 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_voice_release_all.o(.bss) }
     .audio_backend_patch_bss 0x80192AE0 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_patch.o(.bss) }
     .audio_backend_decay_bss 0x80192B3C (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_decay.o(.bss) }
     .audio_backend_allocate_bss 0x80192B44 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_allocate.o(.bss) }
     .compression_workspace_bss 0x80192BD0 (NOLOAD) : SUBALIGN(4) { build/us/compression_workspace.o(.bss) }
     .audio_backend_playback_bss 0x80192A9C (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_playback.o(.bss) }
     .audio_backend_initialize_bss 0x80192ABC (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_initialize.o(.bss) }
+    .audio_backend_pitch_command_bss 0x80192AE4 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_pitch_command.o(.bss) }
     .audio_backend_volume_bss 0x80192AFC (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_volume.o(.bss) }
     .audio_backend_pan_pedal_bss 0x80192B10 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_pan_pedal.o(.bss) }
     .audio_engine_gate_reset_bss 0x80192788 (NOLOAD) : SUBALIGN(4) { build/us/audio_engine_gate_reset.o(.bss) }
@@ -1852,7 +1854,7 @@ ASSERT(SIZEOF(.frame_projection_rodata) == 0xc, "frame projection rodata size ch
 ASSERT(SIZEOF(.audio_pitch_scale_rodata) == 0x8, "audio_pitch_scale_rodata size changed")
 ASSERT(SIZEOF(.before_audio_backend_playback_rodata) == 0x4, "before_audio_backend_playback_rodata size changed")
 ASSERT(SIZEOF(.audio_backend_playback_rodata) == 0x10, "audio_backend_playback_rodata size changed")
-ASSERT(SIZEOF(.after_audio_backend_playback_rodata) == 0x10, "after_audio_backend_playback_rodata size changed")
+ASSERT(SIZEOF(.audio_backend_pitch_command_rodata) == 0x10, "audio_backend_pitch_command_rodata size changed")
 ASSERT(SIZEOF(.camera_perspective_rodata) == 0x10, "camera_perspective_rodata size changed")
 ASSERT(SIZEOF(.camera_highlights_rodata) == 0x20, "camera_highlights_rodata size changed")
 ASSERT(SIZEOF(.matrix_rotation_rodata) == 0x10, "matrix_rotation_rodata size changed")
@@ -2181,9 +2183,9 @@ ASSERT(SIZEOF(.audio_backend_playback) == 0x344, "audio_backend_playback size ch
 ASSERT(SIZEOF(.audio_backend_initialize) == 0x2c4, "audio_backend_initialize size changed")
 ASSERT(SIZEOF(.audio_backend_update) == 0x150, "audio_backend_update size changed")
 ASSERT(SIZEOF(.audio_backend_voice_stop) == 0x98, "audio_backend_voice_stop size changed")
-ASSERT(SIZEOF(.after_audio_backend_voice_stop) == 0x1a4, "after_audio_backend_voice_stop size changed")
+ASSERT(SIZEOF(.audio_backend_voice_release_all) == 0x1a4, "audio_backend_voice_release_all size changed")
 ASSERT(SIZEOF(.audio_backend_patch) == 0x2c, "audio_backend_patch size changed")
-ASSERT(SIZEOF(.after_audio_backend_patch) == 0x2a4, "after_audio_backend_patch size changed")
+ASSERT(SIZEOF(.audio_backend_pitch_command) == 0x2a4, "audio_backend_pitch_command size changed")
 ASSERT(SIZEOF(.audio_backend_volume) == 0x234, "audio_backend_volume size changed")
 ASSERT(SIZEOF(.audio_backend_pan_pedal) == 0x2dc, "audio_backend_pan_pedal size changed")
 ASSERT(SIZEOF(.audio_backend_voice_start) == 0xb0, "audio_backend_voice_start size changed")
@@ -3162,3 +3164,5 @@ D_800BA748 = 0x800BA748;
 ASSERT(SIZEOF(.controller_legacy_polled_buttons_bss) == 0x2, "controller legacy polled buttons BSS size changed")
 
 ASSERT(SIZEOF(.audio_sequence_tick_bss) == 16, "audio_sequence_tick_bss size changed")
+ASSERT(SIZEOF(.audio_backend_voice_release_all_bss) == 16, "audio_backend_voice_release_all_bss size changed")
+ASSERT(SIZEOF(.audio_backend_pitch_command_bss) == 24, "audio_backend_pitch_command_bss size changed")
