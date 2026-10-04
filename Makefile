@@ -7702,6 +7702,27 @@ build/us/audio_pitch_factors.o: src/game/audio/pitch_factors.c $(IDO) Makefile t
 RUNTIME_OBJECTS += build/us/audio_pitch_factors.o
 
 
+
+build/us/compression_huffman.o: src/game/compression/huffman.c include/audio_io.h include/compression_internal.h include/scheduler.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_huffman.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_huffman.raw.o $@ .text 0x7c4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_codes.o: src/game/compression/codes.c include/audio_io.h include/compression_internal.h include/scheduler.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_codes.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_codes.raw.o $@ .text 0x7e4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/compression_dynamic.o: src/game/compression/dynamic.c include/audio_io.h include/compression_internal.h include/scheduler.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/compression_dynamic.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/compression_dynamic.raw.o $@ .text 0x83c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/compression_huffman.o build/us/compression_codes.o build/us/compression_dynamic.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,406 matching C functions covering 289,464 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,239 bytes of source-owned initialized data, and 505,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,409 matching C functions covering 295,580 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,239 bytes of source-owned initialized data, and 505,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -329,10 +329,10 @@ The recent recovery extends the game-side audio pipeline. [Audio properties](doc
 [host and stream services](docs/audio-host-stream.md), [command controls and voice capture](docs/audio-command-engine.md),
 [hardware voice management](docs/audio-hardware-driver.md), and [sequence loading](docs/audio-sequence-loading.md)
 record the recovered audio pipeline. [Compression runtime](docs/compression-runtime.md)
-covers input handling, workspace allocation, block dispatch, fixed-block decoding,
-and the source-owned Huffman tables and buffers. The stored-block decoder is
-recovered. The table builder, dynamic, and literal/distance decoding loops
-still use fallback code.
+covers all fourteen functions: input handling, workspace allocation, block
+dispatch, Huffman table construction, stored, fixed and dynamic decoding,
+literal/distance copies, and the source-owned tables and buffers. All 8,592
+code bytes in this unit are recovered and independently verified.
 
 [Audio sequence seeking](docs/audio-seeking.md) recovers both complete stream
 walkers. The forward and restart paths preserve unsigned timing, backend and

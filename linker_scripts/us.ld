@@ -943,13 +943,13 @@ SECTIONS
     .audio_sequence_range_release 0x8005D95C : AT(0x5E55C) SUBALIGN(4) { build/us/audio_sequence_range_release.o(.text) }
     .after_audio_sequence_range_release 0x8005D9D8 : AT(0x5E5D8) { build/us/fallback.o(.rom_after_audio_sequence_range_release) }
     .audio_interrupt_service 0x8005D9E0 : AT(0x5E5E0) SUBALIGN(4) { build/us/audio_interrupt_service.o(.text) }
-    .cpu_after_audio_interrupt_service 0x8005DA20 : AT(0x5E620) { build/us/fallback.o(.rom_cpu_after_audio_interrupt_service) }
+    .compression_huffman 0x8005DA20 : AT(0x5E620) SUBALIGN(4) { build/us/compression_huffman.o(.text) }
     .compression_table_release 0x8005E1E4 : AT(0x5EDE4) SUBALIGN(4) { build/us/compression_table_release.o(.text) }
-    .endgame_5edec_5f5d0 0x8005E1EC : AT(0x5EDEC) { build/us/fallback.o(.rom_endgame_5edec_5f5d0) }
+    .compression_codes 0x8005E1EC : AT(0x5EDEC) SUBALIGN(4) { build/us/compression_codes.o(.text) }
     .compression_stored 0x8005E9D0 : AT(0x5F5D0) SUBALIGN(4) { build/us/compression_stored.o(.text) }
     .compression_fixed 0x8005ECA8 : AT(0x5F8A8) SUBALIGN(4) { build/us/compression_fixed.o(.text) }
     .compression_fixed_release 0x8005EE98 : AT(0x5FA98) SUBALIGN(4) { build/us/compression_fixed_release.o(.text) }
-    .after_compression_fixed_release 0x8005EEE0 : AT(0x5FAE0) { build/us/fallback.o(.rom_after_compression_fixed_release) }
+    .compression_dynamic 0x8005EEE0 : AT(0x5FAE0) SUBALIGN(4) { build/us/compression_dynamic.o(.text) }
     .compression_workspace 0x8005F71C : AT(0x6031C) SUBALIGN(4) { build/us/compression_workspace.o(.text) }
     .compression_allocate 0x8005F7E0 : AT(0x603E0) SUBALIGN(4) { build/us/compression_allocate.o(.text) }
     .compression_refill 0x8005F804 : AT(0x60404) SUBALIGN(4) { build/us/compression_refill.o(.text) }
@@ -2211,11 +2211,11 @@ ASSERT(SIZEOF(.audio_sequence_range_load) == 0xb0, "audio_sequence_range_load si
 ASSERT(SIZEOF(.audio_sequence_range_release) == 0x7c, "audio_sequence_range_release size changed")
 ASSERT(SIZEOF(.after_audio_sequence_range_release) == 0x8, "after_audio_sequence_range_release size changed")
 ASSERT(SIZEOF(.audio_interrupt_service) == 0x40, "audio_interrupt_service size changed")
-ASSERT(SIZEOF(.cpu_after_audio_interrupt_service) == 0x7c4, "cpu_after_audio_interrupt_service size changed")
+ASSERT(SIZEOF(.compression_huffman) == 0x7c4, "compression_huffman size changed")
 ASSERT(SIZEOF(.compression_table_release) == 0x8, "compression_table_release size changed")
 ASSERT(SIZEOF(.compression_fixed) == 0x1f0, "compression_fixed size changed")
 ASSERT(SIZEOF(.compression_fixed_release) == 0x48, "compression_fixed_release size changed")
-ASSERT(SIZEOF(.after_compression_fixed_release) == 0x83c, "after_compression_fixed_release size changed")
+ASSERT(SIZEOF(.compression_dynamic) == 0x83c, "compression_dynamic size changed")
 ASSERT(SIZEOF(.compression_workspace) == 0xc4, "compression_workspace size changed")
 ASSERT(SIZEOF(.compression_allocate) == 0x24, "compression_allocate size changed")
 ASSERT(SIZEOF(.compression_refill) == 0x74, "compression_refill size changed")
@@ -2473,7 +2473,7 @@ ASSERT(SIZEOF(.error_formatted) == 0x298, "error_formatted size changed")
 ASSERT(SIZEOF(.error_formatted_tail) == 0xc, "error_formatted_tail size changed")
 ASSERT(SIZEOF(.error_formatted_table) == 0x48, "error_formatted_table size changed")
 ASSERT(SIZEOF(.endgame_50584_50590) == 0xc, "endgame_50584_50590 size changed")
-ASSERT(SIZEOF(.endgame_5edec_5f5d0) == 0x7e4, "endgame_5edec_5f5d0 size changed")
+ASSERT(SIZEOF(.compression_codes) == 0x7e4, "compression_codes size changed")
 ASSERT(SIZEOF(.endgame_6131c_61320) == 0x4, "endgame_6131c_61320 size changed")
 ASSERT(SIZEOF(.endgame_63e1c_63e20) == 0x4, "endgame_63e1c_63e20 size changed")
 ASSERT(SIZEOF(.pi_queue_get) == 0x28, "pi_queue_get size changed")

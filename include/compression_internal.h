@@ -16,6 +16,7 @@ typedef char InflateCodeMustBe8Bytes[sizeof(InflateCode) == 8 ? 1 : -1];
 
 extern InflateCode *D_8008DA40;
 extern InflateCode *D_8008DA44;
+extern unsigned int D_8008DA48[19];
 extern unsigned short D_8008DA94[];
 extern unsigned short D_8008DAD4[];
 extern unsigned short D_8008DB14[];
@@ -37,6 +38,13 @@ extern unsigned int D_80192C00;
 extern unsigned int D_80192C04;
 extern unsigned int D_80192C08;
 extern unsigned int D_80192C0C;
+extern unsigned int D_80192C10[17];
+extern unsigned int D_80192C58[17];
+extern InflateCode *D_80192CA0[16];
+extern unsigned int D_80192CE0[288];
+extern unsigned int D_80193160[17];
+extern unsigned int D_801931A8[288];
+extern unsigned int D_80193628[320];
 
 int func_8005DA20(unsigned int *lengths, unsigned int count, unsigned int simpleCount,
                   unsigned short *bases, unsigned short *extraBits,
