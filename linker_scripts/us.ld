@@ -234,6 +234,8 @@ SECTIONS
     .early_player_counter_reset 0x8001BF48 : AT(0x1CB48) SUBALIGN(4) { build/us/early_player_counter_reset.o(.text) }
     .early_player_sequence 0x8001BFB0 : AT(0x1CBB0) SUBALIGN(4) { build/us/early_player_sequence.o(.text) }
     .cpu_after_early_player_sequence 0x8001C0C8 : AT(0x1CCC8) { build/us/fallback.o(.rom_cpu_after_early_player_sequence) }
+    .error_formatted 0x8001C49C : AT(0x1D09C) SUBALIGN(4) { build/us/error_formatted.o(.text) }
+    .error_formatted_tail 0x8001C734 : AT(0x1D334) { build/us/fallback.o(.rom_error_formatted_tail) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
     .script_service_files 0x8001C790 : AT(0x1D390) SUBALIGN(4) { build/us/script_service_files.o(.text) }
     .script_service_cache_access 0x8001C8C4 : AT(0x1D4C4) SUBALIGN(4) { build/us/script_service_cache_access.o(.text) }
@@ -1324,7 +1326,8 @@ SECTIONS
     .name_table_lookup_data 0x80090370 : AT(0x90F70) SUBALIGN(4) { build/us/name_table_lookup.o(.data) }
     .scene_action_fallback_90f96_90fe8 0x80090396 : AT(0x90F96) { build/us/fallback.o(.rom_scene_action_fallback_90f96_90fe8) }
     .scene_action_table 0x800903E8 : AT(0x90FE8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.rodata) }
-    .error_fallback_91060_92558 0x80090460 : AT(0x91060) { build/us/fallback.o(.rom_error_fallback_91060_92558) }
+    .error_formatted_table 0x80090460 : AT(0x91060) SUBALIGN(4) { build/us/error_formatted.o(.rodata) }
+    .error_fallback_910a8_92558 0x800904A8 : AT(0x910A8) { build/us/fallback.o(.rom_error_fallback_910a8_92558) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
     .endgame_data_92560_93698 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_93698) }
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
@@ -2431,7 +2434,10 @@ ASSERT(SIZEOF(.square_root) == 0x10, "square_root size changed")
 ASSERT(SIZEOF(.endgame_1b148_1b9a0) == 0x858, "endgame_1b148_1b9a0 size changed")
 ASSERT(SIZEOF(.endgame_1ca2c_1cb48) == 0x11c, "endgame_1ca2c_1cb48 size changed")
 ASSERT(SIZEOF(.early_player_sequence) == 0x118, "early_player_sequence size changed")
-ASSERT(SIZEOF(.cpu_after_early_player_sequence) == 0x678, "cpu_after_early_player_sequence size changed")
+ASSERT(SIZEOF(.cpu_after_early_player_sequence) == 0x3d4, "cpu_after_early_player_sequence size changed")
+ASSERT(SIZEOF(.error_formatted) == 0x298, "error_formatted size changed")
+ASSERT(SIZEOF(.error_formatted_tail) == 0xc, "error_formatted_tail size changed")
+ASSERT(SIZEOF(.error_formatted_table) == 0x48, "error_formatted_table size changed")
 ASSERT(SIZEOF(.endgame_50584_50590) == 0xc, "endgame_50584_50590 size changed")
 ASSERT(SIZEOF(.endgame_5edec_5f5d0) == 0x7e4, "endgame_5edec_5f5d0 size changed")
 ASSERT(SIZEOF(.endgame_6131c_61320) == 0x4, "endgame_6131c_61320 size changed")
@@ -2681,7 +2687,6 @@ D_80192830 = 0x80192830;
 D_80192834 = 0x80192834;
 D_8008F9A8 = 0x8008F9A8;
 D_8008F9C0 = 0x8008F9C0;
-func_8001C49C = 0x8001C49C;
 ASSERT(SIZEOF(.audio_backend_pan_command) == 0x154, "audio_backend_pan_command size changed")
 ASSERT(SIZEOF(.audio_backend_patch_trigger) == 0x180, "audio_backend_patch_trigger size changed")
 ASSERT(SIZEOF(.actor_dynamic_point_append) == 0x16c, "actor_dynamic_point_append size changed")
@@ -3059,7 +3064,7 @@ ASSERT(SIZEOF(.menu_options_page) == 0x30, "menu_options_page BSS size changed")
 ASSERT(SIZEOF(.scene_action_dispatch) == 0x2d4, "scene_action_dispatch size changed")
 ASSERT(SIZEOF(.scene_action_fallback_90f96_90fe8) == 0x52, "scene_action_fallback_90f96_90fe8 size changed")
 ASSERT(SIZEOF(.scene_action_table) == 0x38, "scene_action_table size changed")
-ASSERT(SIZEOF(.error_fallback_91060_92558) == 0x14f8, "error_fallback_91060_92558 size changed")
+ASSERT(SIZEOF(.error_fallback_910a8_92558) == 0x14b0, "error_fallback_910a8_92558 size changed")
 ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")
 ASSERT(SIZEOF(.early_boss_create) == 0x304, "early_boss_create size changed")
 ASSERT(SIZEOF(.boss_fallback_90588_9078c) == 0x204, "boss_fallback_90588_9078c size changed")

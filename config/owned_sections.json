@@ -3500,5 +3500,16 @@
       "D_80090454": 52
     },
     "evidence": "docs/error-formatters.md"
+  },
+  {
+    "source": "src/game/diagnostics/formatted.c",
+    "object": "build/us/error_formatted.o",
+    "input_section": ".rodata",
+    "section": ".error_formatted_table",
+    "vram": 2148074592,
+    "rom": 594016,
+    "size": 72,
+    "symbols": {},
+    "evidence": "docs/error-formatters.md"
   }
 ]

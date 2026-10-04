@@ -1,4 +1,4 @@
-"""Compare excluded error formatter candidates with bounded retail executions.
+"""Compare diagnostic formatters with bounded retail executions.
 
 Memory/string/number helpers execute freshly matched C. Output and the fatal
 reporter use recorded ABI stubs; the reporter returns synthetically.
@@ -21,16 +21,16 @@ from rom import ROOT, validate
 
 
 FORMAT, STRINGS, STACK = 0x80201010, 0x80210010, 0x80300000
-OUTPUT, REPORT = 0x8003CC38, 0x800496E0
-SUPPORT = ('game_memory', 'game_number_format', 'fixed_geometry_setup')
-CANDIDATES = ('error_fatal_format', 'error_warning_format')
+OUTPUT, REPORT = 0x80048DC0, 0x800496E0
+SUPPORT = ('game_memory', 'game_number_format', 'fixed_geometry_setup', 'geometry_debug_bridge')
+FORMATTERS = ('error_fatal_format', 'error_warning_format', 'error_formatted')
 DIGITS = b'0123456789ABCDEF'
 CALLER_SAVED = tuple(getattr(regs, 'UC_MIPS_REG_' + name) for name in
                      ('V0', 'V1', 'A0', 'A1', 'A2', 'A3',
                       'T0', 'T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9'))
 
 
-def oracle(format_string, values):
+def oracle(format_string, values, widths=False):
     """Model the supported conversions, including skipped unknown specifiers."""
     output = bytearray()
     index = argument = 0
@@ -43,6 +43,12 @@ def oracle(format_string, values):
         assert index < len(format_string), 'Cases omit dangling percent specifiers'
         specifier = format_string[index]
         index += 1
+        width = 0
+        if widths and specifier in b'2345':
+            width = specifier - ord('0')
+            assert index < len(format_string), 'Width cases include the skipped byte'
+            index += 1
+            specifier = ord('d')
         if specifier not in b'Ccdsx':
             continue
         value = values[argument]
@@ -55,14 +61,15 @@ def oracle(format_string, values):
             signed = value & 0xFFFFFFFF
             signed -= 0x100000000 if signed & 0x80000000 else 0
             assert signed != -0x80000000, 'INT_MIN decimal is outside this oracle'
-            output.extend(str(signed).encode('ascii'))
+            number = str(signed).encode('ascii')
+            output.extend(number.rjust(width + 1, b' '))
         else:
             output.extend(format(value & 0xFFFFFFFF, 'X').encode('ascii'))
     assert len(output) < 500
     return bytes(output)
 
 
-def cases():
+def cases(widths=False):
     yield b'', ()
     yield b'plain text', ()
     yield b'A' * 499, ()
@@ -82,15 +89,29 @@ def cases():
         if value & 0xFFFFFFFF != 0x80000000:
             yield b'%d', (value,)
     for specifier in range(32, 127):
-        if specifier not in b'Ccdsx':
+        if specifier not in (b'Ccdsx2345' if widths else b'Ccdsx'):
             yield b'%' + bytes([specifier]) + b'%C/%d', (81, -37)
     for value in (1, 65, 127, 128, 255):
         yield b'[%s]', (bytes([value]) * 200,)
+    if widths:
+        for width in b'2345':
+            for value in (0, 1, -1, 9, 10, -10, 99, 100, 999, 1000,
+                          9999, 10000, 99999, 100000, -9999, -99999,
+                          0x7FFFFFFF, -0x7FFFFFFF):
+                yield b'[' + b'%' + bytes([width]) + b'd]', (value,)
+            # Retail skips any byte after the width, even a percent or high byte.
+            for skipped in range(1, 256):
+                yield b'%' + bytes([width, skipped]) + b'/%d', (-7, 42)
+        yield b'%2d/%3d/%4d/%5d/%s/%x', (1, -1, 123, 12345, b'end', 0xFFFFFFFF)
+        yield b'%5d' + b'A' * 493, (0,)
+        for specifier in range(1, 256):
+            if specifier not in b'Ccdsx2345':
+                yield b'%' + bytes([specifier]) + b'%C/%d', (81, -37)
 
 
 def run(code, support, entry, size, case):
     format_string, values = case
-    expected = oracle(format_string, values)
+    expected = oracle(format_string, values, widths=entry == 0x8001C49C)
     uc, write, execute = machine(code, support)
     write(STACK - 0x2010, b'\xA7' * 16)
     write(STACK - 0x2000, b'\xA5' * 0x2080)
@@ -124,14 +145,16 @@ def run(code, support, entry, size, case):
         assert end >= 0, 'Output did not terminate within the message bound'
         return data[:end]
 
-    # The fully compared instruction at +0x40 establishes the output cursor.
+    # The independently compared setup instruction establishes the output cursor.
     own_code = next(data for address, data in code if address == entry)
-    assert own_code[0x40:0x42] == bytes.fromhex('27b0')
+    setup = 0x34 if entry == 0x8001C49C else 0x40
+    cursor = regs.UC_MIPS_REG_S1 if entry == 0x8001C49C else regs.UC_MIPS_REG_S0
+    assert own_code[setup:setup + 2] == bytes.fromhex('27b1' if entry == 0x8001C49C else '27b0')
 
     def capture_buffer(uc, address, size, user):
-        buffer.append(uc.reg_read(regs.UC_MIPS_REG_S0))
+        buffer.append(uc.reg_read(cursor))
 
-    uc.hook_add(UC_HOOK_CODE, capture_buffer, begin=entry + 0x44, end=entry + 0x44)
+    uc.hook_add(UC_HOOK_CODE, capture_buffer, begin=entry + setup + 4, end=entry + setup + 4)
 
     def guard_write(uc, access, address, size, value, user):
         physical = address & 0x1FFFFFFF
@@ -149,7 +172,7 @@ def run(code, support, entry, size, case):
                 (regs.UC_MIPS_REG_A0, regs.UC_MIPS_REG_A1,
                  regs.UC_MIPS_REG_A2, regs.UC_MIPS_REG_A3)]
         if address == OUTPUT:
-            if not trace:
+            if not trace and entry != 0x8001C49C:
                 assert args[0] == (0x80090420 if entry == 0x8001C0D0 else 0x80090454)
             else:
                 assert args[0] == buffer[0]
@@ -169,6 +192,8 @@ def run(code, support, entry, size, case):
     visible = expected.split(b'\0', 1)[0].hex()
     prefix = b'FATAL ERROR: ' if entry == 0x8001C0D0 else b'WARNING: '
     expected_trace = [['output', prefix.hex()], ['output', visible]]
+    if entry == 0x8001C49C:
+        expected_trace = [['output', visible]]
     if entry == 0x8001C0D0:
         expected_trace.append(['report', b'FATAL ERROR: %s %s %d\n'.hex(), visible,
                                b'errors.c'.hex(), 77])
@@ -189,7 +214,7 @@ def main():
     layout = SymbolLayoutSnapshot()
     comparisons, compiled, retail, support = {}, {}, {}, []
     records = MATCHING_BLOCKS + CANDIDATE_BLOCKS
-    for name in CANDIDATES + SUPPORT:
+    for name in FORMATTERS + SUPPORT:
         _, source, start, end = next(record for record in records if record[0] == name)
         report = compare_block(name, source, start, start - 0x80000000 + 0xC00,
                                end - 0x80000000 + 0xC00, target,
@@ -197,9 +222,16 @@ def main():
         comparisons[name] = report
         directory = ROOT / 'build/error-formatter-execution' / name
         code = (directory / (name + '.bin')).read_bytes()
-        if name in CANDIDATES:
+        if name in FORMATTERS:
             compiled[name] = [(start, code)]
             retail[name] = [(start, target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00])]
+            if name == 'error_formatted':
+                assert report['matches'], 'The accepted formatter must completely match'
+                sections, _ = elf_sections_and_symbols(directory / (name + '.elf'))
+                for owned in source_sections(source):
+                    assert owned['rom'] is not None
+                    compiled[name].append((owned['vram'], sections[owned['section']]['bytes']))
+                    retail[name].append((owned['vram'], target[owned['rom']:owned['rom'] + owned['size']]))
         else:
             assert report['matches'], 'Supporting source must completely match: ' + name
             support.append((start, code))
@@ -216,9 +248,9 @@ def main():
     assert target[0x7C71C:0x7C72C] == DIGITS
     support.append((0x8007BB1C, DIGITS))
     digest, count = hashlib.sha256(), 0
-    for name in CANDIDATES:
+    for name in FORMATTERS:
         _, _, start, end = next(record for record in records if record[0] == name)
-        for case in cases():
+        for case in cases(widths=name == 'error_formatted'):
             expected = run(retail[name], support, start, end - start, case)
             actual = run(compiled[name], support, start, end - start, case)
             assert actual == expected
@@ -230,7 +262,7 @@ def main():
                   comparisons=comparisons, data_comparison=data_report,
                   emulator=dict(package='unicorn', version=version('unicorn')),
                   checker_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-                  limits=['Both formatter candidates remain instruction nonmatching.',
+                  limits=['The fatal and warning candidates remain instruction nonmatching; the buffered formatter and its complete dispatch table match.',
                           'Output and the fatal reporter use ABI-clobbering stubs; the fatal reporter returns synthetically.',
                           'Only valid strings and output shorter than 500 bytes are exercised; overflowing buffers and dangling percent specifiers are omitted.',
                           'INT_MIN decimal conversion is omitted; hexadecimal covers all listed 32-bit boundaries.',

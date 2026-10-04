@@ -4,7 +4,7 @@ void func_8003CC30(void)
 {
 }
 
-void func_8003CC38(void)
+void func_8003CC38(unsigned char *message)
 {
-    func_80048DC0();
+    func_80048DC0(message);
 }

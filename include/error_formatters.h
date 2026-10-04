@@ -10,4 +10,7 @@ extern const char D_80090454[12];
 void func_8001C0D0(unsigned char *format, ...);
 void func_8001C2C4(unsigned char *format, ...);
 
+void func_8001C49C(unsigned char *format, ...);
+void func_8003CC38(unsigned char *message);
+
 #endif

@@ -27,6 +27,40 @@ Neither formatter contributes instruction ownership or matching-function
 progress. Their candidates remain excluded and are tracked in
 [issue #103](https://github.com/frankischilling/robotron64/issues/103).
 
+## Matching buffered formatter
+
+`src/game/diagnostics/formatted.c` recovers `func_8001C49C` across the
+complete 664-byte range `0x8001C49C..0x8001C734`. Its ordinary 500-byte
+message buffer produces the exact retail `0x248`-byte frame and output
+cursor at stack offset `0x54`. A conventional switch reproduces the
+18-entry table at `0x80090460..0x800904A8`, all 72 bytes and relocations.
+The canonical object removes eight zero alignment bytes from each of
+IDO's raw `.text` and `.rodata` sections; no live code, table entries,
+relocations or symbols are removed.
+
+The formatter supports the same conversions as the fatal and warning
+variants, plus width selectors `2`, `3`, `4` and `5`. Each selector skips
+the next format byte, even when that byte is not `d`, and pads decimal
+text until its length exceeds the selector. Thus `%2d` formats `1` as
+`  1`; `%2z` has the same conversion. Unknown specifiers consume no
+argument. These retail behaviors are preserved.
+
+Fresh complete IDO comparisons and independent splat/spimdisasm
+reassembly verify all 664 instruction bytes and all 72 table bytes.
+Objdiff reports 100% for the function, complete `.text` and complete
+`.rodata` after the reference uses the compiler's section-relative
+relocation conventions. Both reference forms independently link to
+retail bytes. Ghidra MCP verifies the same complete ranges and retains
+the variadic unsigned-byte prototype. m2c uses the verified context and
+both generated instruction and table assembly files.
+
+The execution harness adds 1,980 cases for this function. They cover the
+width boundaries, all nonzero skipped-byte values for each selector,
+every nonzero unknown specifier, character/number/string conversions,
+stacked arguments and 499-byte output. Retail and freshly compiled C use
+their own complete dispatch tables. The same guarded execution limits
+listed below apply.
+
 ## Excluded formatter candidates
 
 `src/game/diagnostics/fatal.c` and `warning.c` reconstruct the complete
@@ -48,15 +82,18 @@ mismatches.
 
 With `requirements-analysis.txt` installed, run
 `python3 tools/check_error_formatters.py`. It freshly compares both
-candidates and executes them against retail in 1,288 bounded cases.
-Three complete matching support units execute C for string operations,
-integer conversion and absolute value. Cases cover all 256 character
+candidates plus the matching buffered formatter and executes all three
+against retail in 3,268 bounded cases.
+Four complete matching support units execute C for string operations,
+integer conversion, absolute value and the output bridge. The bridge's
+message-pointer prototype is corrected without changing its 32 bytes;
+the complete 40-byte bridge unit remains matching. Cases cover all 256 character
 argument bytes, unsigned literal bytes, unknown specifiers, decimal and
 hexadecimal boundaries, empty strings and 499-byte output. Checks cover
 an independent output oracle, input guards, formatter byte writes,
 stack bounds, preserved registers and stacked arguments.
 
-Output submission and the fatal reporter use ABI-clobbering stubs. The
+Console output at `func_80048DC0` and the fatal reporter use ABI-clobbering stubs. The
 fatal reporter returns synthetically. Buffer overflow, dangling percent
 specifiers and `INT_MIN` decimal conversion are outside the checked
 cases. The hexadecimal alphabet is checked against retail and supplied
@@ -81,15 +118,16 @@ attributions remain in [CREDITS.md](../CREDITS.md).
 
 ## Validation
 
-Fresh independent comparisons pass for 870 runtime units, two startup
-units, 18 assembly units and 104 initialized-data/BSS units. A separate
+Fresh independent comparisons pass for 871 runtime units, two startup
+units, 18 assembly units and 105 initialized-data/BSS units. A separate
 clean source directory passes setup, build and full-ROM verification.
 All 155 tooling tests pass. The rebuilt 8,388,608-byte ROM has SHA-256
 `91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd`.
 The [provenance ledger](error-formatters-provenance.json) records the
 comparison and toolchain identities.
 
-This change adds 64 initialized source-owned bytes and no instructions
-or matching C functions. Totals remain 1,388 matching C functions and
-277,596 C bytes; initialized-data ownership rises to 30,731 bytes.
+This change adds one matching C function, 664 instruction bytes and 136
+initialized source-owned bytes: 64 diagnostic-message bytes and the
+72-byte generated table. Totals rise to 1,389 matching C functions,
+278,260 C bytes and 30,803 initialized-data bytes.
 Fallback code and data still prevent source-completion claims.
