@@ -53,7 +53,6 @@ REGIONS = (
     ("menu_options_fallback_26d78_26fe0", 0x26d78, 0x26fe0),
     ("endgame_2770c_284ac", 0x2770c, 0x284ac),
     ("endgame_28608_28610", 0x28608, 0x28610),
-    ("endgame_28ad4_28d8c", 0x28ad4, 0x28d8c),
     ("endgame_292e8_29c20", 0x292e8, 0x29c20),
     ("cpu_after_actor_behavior_countdown_trigger", 0x2e9bc, 0x2f25c),
     ("cpu_after_session_setup_noop", 0x2f264, 0x2f8c4),

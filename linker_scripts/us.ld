@@ -336,7 +336,7 @@ SECTIONS
     .actor_motion_mode 0x80027B9C : AT(0x2879C) SUBALIGN(4) { build/us/actor_motion_mode.o(.text) }
     .actor_motion_facing 0x80027CE4 : AT(0x288E4) SUBALIGN(4) { build/us/actor_motion_facing.o(.text) }
     .actor_nearest_match 0x80027D8C : AT(0x2898C) SUBALIGN(4) { build/us/actor_nearest_match.o(.text) }
-    .endgame_28ad4_28d8c 0x80027ED4 : AT(0x28AD4) { build/us/fallback.o(.rom_endgame_28ad4_28d8c) }
+    .actor_spawn_position 0x80027ED4 : AT(0x28AD4) SUBALIGN(4) { build/us/actor_spawn_position.o(.text) }
     .actor_pool_reset 0x8002818C : AT(0x28D8C) SUBALIGN(4) { build/us/actor_pool_reset.o(.text) }
     .actor_cleanup 0x800281C4 : AT(0x28DC4) SUBALIGN(4) { build/us/actor_cleanup.o(.text) }
     .actor_remove 0x80028274 : AT(0x28E74) SUBALIGN(4) { build/us/actor_remove.o(.text) }
@@ -2779,7 +2779,7 @@ ASSERT(SIZEOF(.actor_position_follow) == 0x90, "actor_position_follow size chang
 ASSERT(SIZEOF(.actor_value_follow) == 0x144, "actor_value_follow size changed")
 D_8008D578 = 0x8008D578;
 ASSERT(SIZEOF(.endgame_18b9c_198c8) == 0xd2c, "endgame_18b9c_198c8 size changed")
-ASSERT(SIZEOF(.endgame_28ad4_28d8c) == 0x2b8, "endgame_28ad4_28d8c size changed")
+ASSERT(SIZEOF(.actor_spawn_position) == 0x2b8, "actor_spawn_position size changed")
 ASSERT(SIZEOF(.endgame_35e44_35f60) == 0x11c, "endgame_35e44_35f60 size changed")
 ASSERT(SIZEOF(.early_parameter_slot_tick) == 0xd8, "early_parameter_slot_tick size changed")
 ASSERT(SIZEOF(.actor_group_setup) == 0x220, "actor_group_setup size changed")
