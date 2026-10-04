@@ -7,7 +7,7 @@ import re
 
 from manifest import project_path
 from rom import ROOT
-from compiler import profile_for_source
+from compiler import profile_for_source, compiler_support_files
 from toolchain import installed_identity
 
 
@@ -40,7 +40,8 @@ def local_headers(source_path, root):
 
 
 def require_local_headers(source_path, inputs, root):
-    missing = local_headers(source_path, root) - set(inputs)
+    required = local_headers(source_path, root) | compiler_support_files(source_path.relative_to(root).as_posix())
+    missing = required - set(inputs)
     if missing:
         raise ValueError(f"Build provenance omits local header: {', '.join(sorted(missing))}")
 
@@ -49,7 +50,8 @@ def record(source, object_name, headers=(), root=ROOT):
     root = root.resolve()
     source_path = project_path(root, source, "source")
     object_path = project_path(root, object_name, "object")
-    inputs = [source_path] + [project_path(root, header, "header") for header in headers]
+    headers = set(headers) | compiler_support_files(source_path.relative_to(root).as_posix())
+    inputs = [source_path] + [project_path(root, header, "header") for header in sorted(headers)]
     metadata = {
         "source": source_path.relative_to(root).as_posix(),
         "object": object_path.relative_to(root).as_posix(),

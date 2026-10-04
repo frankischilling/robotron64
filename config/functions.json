@@ -15777,5 +15777,27 @@
     "section": ".audio_seek_restart",
     "section_vram": 2147840292,
     "evidence": "docs/audio-seeking.md"
+  },
+  {
+    "name": "func_80058A58",
+    "rom": 366168,
+    "vram": 2147846744,
+    "size": 132,
+    "source": "src/game/audio/timing_tick.c",
+    "object": "build/us/audio_timing_tick.o",
+    "section": ".audio_timing_tick",
+    "section_vram": 2147846744,
+    "evidence": "docs/audio-timing-and-sequence-tick.md"
+  },
+  {
+    "name": "func_8005A9AC",
+    "rom": 374188,
+    "vram": 2147854764,
+    "size": 920,
+    "source": "src/game/audio/sequence_tick.c",
+    "object": "build/us/audio_sequence_tick.o",
+    "section": ".audio_sequence_tick",
+    "section_vram": 2147854764,
+    "evidence": "docs/audio-timing-and-sequence-tick.md"
   }
 ]

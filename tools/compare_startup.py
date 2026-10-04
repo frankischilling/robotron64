@@ -8,7 +8,7 @@ from manifest import load_manifest
 from rom import ROOT, validate
 from toolchain import install, installed_identity
 from trim_padding import trim
-from compiler import compile_source, profile_for_source
+from compiler import compile_source, profile_for_source, compiler_support_files
 from provenance import local_headers
 from owned_sections import (load_owned_sections, source_sections, trim_owned_sections,
                             linker_placements, verify_owned_binary)
@@ -83,6 +83,7 @@ def comparison_input_hashes(source, root=ROOT):
     inputs = {source, "config/startup_symbols.ld", "config/runtime_symbols.ld",
               "config/functions.json", "tools/compiler.py", "config/toolchain_files.json",
               "config/owned_sections.json", "tools/owned_sections.py"}
+    inputs.update(compiler_support_files(source))
     inputs.update(local_headers(root / source, root))
     inputs.update(path.relative_to(root).as_posix() for path in (root / "include").glob("*.h"))
     return {path: hashlib.sha256((root / path).read_bytes()).hexdigest()

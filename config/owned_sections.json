@@ -3813,5 +3813,22 @@
       "polledButtons": 0
     },
     "evidence": "docs/controller-polling-and-storage.md"
+  },
+  {
+    "source": "src/game/audio/sequence_tick.c",
+    "object": "build/us/audio_sequence_tick.o",
+    "input_section": ".bss",
+    "section": ".audio_sequence_tick_bss",
+    "vram": 2149132288,
+    "rom": null,
+    "size": 16,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192800": 0,
+      "D_80192804": 4,
+      "D_80192808": 8,
+      "D_8019280C": 12
+    },
+    "evidence": "docs/audio-timing-and-sequence-tick.md"
   }
 ]

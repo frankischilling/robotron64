@@ -115,8 +115,6 @@ REGIONS = (
     ("cpu_after_audio_voice_properties_capture", 0x58864, 0x58870),
     ("cpu_after_audio_handle_parameter_apply", 0x58f14, 0x58f20),
     ("cpu_after_audio_stream_storage", 0x58fb4, 0x59490),
-    ("cpu_after_audio_timing_rate", 0x59658, 0x596dc),
-    ("cpu_after_audio_engine_voice_end", 0x5b5ac, 0x5b950),
     ("after_audio_backend_voice_stop", 0x5c454, 0x5c5f8),
     ("after_audio_backend_patch", 0x5c624, 0x5c8c8),
     ("after_audio_backend_note_release", 0x5d8bc, 0x5d8c0),

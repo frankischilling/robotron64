@@ -874,7 +874,7 @@ SECTIONS
     .audio_host_control 0x8005891C : AT(0x5951C) SUBALIGN(4) { build/us/audio_host_control.o(.text) }
     .audio_command_lock 0x8005895C : AT(0x5955C) SUBALIGN(4) { build/us/audio_command_lock.o(.text) }
     .audio_timing_rate 0x800589DC : AT(0x595DC) SUBALIGN(4) { build/us/audio_timing_rate.o(.text) }
-    .cpu_after_audio_timing_rate 0x80058A58 : AT(0x59658) { build/us/fallback.o(.rom_cpu_after_audio_timing_rate) }
+    .audio_timing_tick 0x80058A58 : AT(0x59658) SUBALIGN(4) { build/us/audio_timing_tick.o(.text) }
     .audio_host_files 0x80058ADC : AT(0x596DC) SUBALIGN(4) { build/us/audio_host_files.o(.text) }
     .audio_diagnostics 0x80058C00 : AT(0x59800) SUBALIGN(4) { build/us/audio_diagnostics.o(.text) }
     .audio_command_queue 0x800592C0 : AT(0x59EC0) SUBALIGN(4) { build/us/audio_command_queue.o(.text) }
@@ -900,7 +900,7 @@ SECTIONS
     .audio_engine_voice_jump 0x8005A7C4 : AT(0x5B3C4) SUBALIGN(4) { build/us/audio_engine_voice_jump.o(.text) }
     .audio_engine_voice_return 0x8005A830 : AT(0x5B430) SUBALIGN(4) { build/us/audio_engine_voice_return.o(.text) }
     .audio_engine_voice_end 0x8005A88C : AT(0x5B48C) SUBALIGN(4) { build/us/audio_engine_voice_end.o(.text) }
-    .cpu_after_audio_engine_voice_end 0x8005A9AC : AT(0x5B5AC) { build/us/fallback.o(.rom_cpu_after_audio_engine_voice_end) }
+    .audio_sequence_tick 0x8005A9AC : AT(0x5B5AC) SUBALIGN(4) { build/us/audio_sequence_tick.o(.text) }
     .audio_rate_scale 0x8005AD50 : AT(0x5B950) SUBALIGN(4) { build/us/audio_rate_scale.o(.text) }
     .audio_voice_capture_control 0x8005AD88 : AT(0x5B988) SUBALIGN(4) { build/us/audio_voice_capture_control.o(.text) }
     .audio_voice_capture_resume 0x8005ADD0 : AT(0x5B9D0) SUBALIGN(4) { build/us/audio_voice_capture_resume.o(.text) }
@@ -1500,6 +1500,7 @@ SECTIONS
     .collision_dispatch_initialize_bss 0x800974A0 (NOLOAD) : SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.bss) }
     .actor_pool_allocate_bss 0x800A4628 (NOLOAD) : SUBALIGN(4) { build/us/actor_pool_allocate.o(.bss) }
     .actor_history_points_bss 0x8013EC00 (NOLOAD) : SUBALIGN(4) { build/us/actor_history_data.o(.bss) }
+    .audio_sequence_tick_bss 0x80192800 (NOLOAD) : SUBALIGN(4) { build/us/audio_sequence_tick.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -2145,7 +2146,7 @@ ASSERT(SIZEOF(.audio_host_callbacks) == 0x8c, "audio_host_callbacks size changed
 ASSERT(SIZEOF(.audio_host_control) == 0x40, "audio_host_control size changed")
 ASSERT(SIZEOF(.audio_command_lock) == 0x80, "audio_command_lock size changed")
 ASSERT(SIZEOF(.audio_timing_rate) == 0x7c, "audio_timing_rate size changed")
-ASSERT(SIZEOF(.cpu_after_audio_timing_rate) == 0x84, "cpu_after_audio_timing_rate size changed")
+ASSERT(SIZEOF(.audio_timing_tick) == 0x84, "audio_timing_tick size changed")
 ASSERT(SIZEOF(.audio_host_files) == 0x124, "audio_host_files size changed")
 ASSERT(SIZEOF(.audio_diagnostics) == 0x6c0, "audio_diagnostics size changed")
 ASSERT(SIZEOF(.audio_command_queue) == 0x240, "audio_command_queue size changed")
@@ -2169,7 +2170,7 @@ ASSERT(SIZEOF(.audio_engine_voice_call) == 0x88, "audio_engine_voice_call size c
 ASSERT(SIZEOF(.audio_engine_voice_jump) == 0x6c, "audio_engine_voice_jump size changed")
 ASSERT(SIZEOF(.audio_engine_voice_return) == 0x5c, "audio_engine_voice_return size changed")
 ASSERT(SIZEOF(.audio_engine_voice_end) == 0x120, "audio_engine_voice_end size changed")
-ASSERT(SIZEOF(.cpu_after_audio_engine_voice_end) == 0x3a4, "cpu_after_audio_engine_voice_end size changed")
+ASSERT(SIZEOF(.audio_sequence_tick) == 0x3a4, "audio_sequence_tick size changed")
 ASSERT(SIZEOF(.audio_rate_scale) == 0x38, "audio_rate_scale size changed")
 ASSERT(SIZEOF(.audio_voice_capture_control) == 0x48, "audio_voice_capture_control size changed")
 ASSERT(SIZEOF(.audio_voice_capture_resume) == 0xd8, "audio_voice_capture_resume size changed")
@@ -3159,3 +3160,5 @@ D_800736A8 = 0x800736A8;
 D_800BA748 = 0x800BA748;
 
 ASSERT(SIZEOF(.controller_legacy_polled_buttons_bss) == 0x2, "controller legacy polled buttons BSS size changed")
+
+ASSERT(SIZEOF(.audio_sequence_tick_bss) == 16, "audio_sequence_tick_bss size changed")

@@ -527,6 +527,8 @@ MATCHING_BLOCKS = (
     ("audio_command_lock", "src/game/audio_command_lock.c", 0x8005895C, 0x800589DC),
     ("audio_timing_rate", "src/game/audio_timing_rate.c", 0x800589DC, 0x80058A58),
     ("audio_command_queue", "src/game/audio_command_queue.c", 0x800592C0, 0x80059500),
+    ("audio_timing_tick", "src/game/audio/timing_tick.c", 0x80058A58, 0x80058ADC),
+    ("audio_sequence_tick", "src/game/audio/sequence_tick.c", 0x8005A9AC, 0x8005AD50),
     ("audio_stream_variable_read", "src/game/audio_stream_variable_read.c", 0x80059580, 0x800595D4),
     ("audio_handle_voice", "src/game/audio_handle_voice.c", 0x800564E0, 0x80056580),
     ("audio_handle_seek_relative", "src/game/audio_handle_seek_relative.c", 0x80057358, 0x800574B8),

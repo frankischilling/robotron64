@@ -20,6 +20,14 @@ PROFILES = {
     "sdk-o1-mips2": ("-O1", "-G", "0", "-non_shared", "-mips2", "-32"),
 }
 
+CONTEXT_PARTITIONS = {
+    "src/game/audio/sequence_tick.c": ("func_8005A9AC", "func_80059580", 0x3A4),
+}
+
+
+def compiler_support_files(source):
+    return {"tools/partition_text.py"} if source in CONTEXT_PARTITIONS else set()
+
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
     "src/game/renderer_projection/setup.c": "game-r4300-mul",
@@ -328,6 +336,15 @@ def compile_source(source, output, compiler=None):
     command = compiler_command(source, output, compiler)
     installed_identity(profile["version"])
     subprocess.run(command, check=True, cwd=ROOT)
+    path = Path(source)
+    relative = (path if path.is_absolute() else ROOT / path).resolve().relative_to(ROOT.resolve()).as_posix()
+    if relative in CONTEXT_PARTITIONS:
+        from partition_text import retain_function
+        destination = Path(output)
+        original = destination.read_bytes()
+        partitioned = retain_function(original, *CONTEXT_PARTITIONS[relative])
+        destination.with_name(destination.name + ".ido").write_bytes(original)
+        destination.write_bytes(partitioned)
     if "-mips3" in profile["flags"]:
         destination = Path(output)
         if not destination.is_absolute():
