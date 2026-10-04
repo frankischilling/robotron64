@@ -15,6 +15,11 @@ Completed locally:
 
 The [README](../README.md) records the current public function and byte totals, measured from the build's `progress.json`. Recent recovery covers actor-resource loading and setup helpers, object definitions, scene commands, background images, save-menu status dispatch, palette controls, controller services, and save/Pak file handling. See [movie track files](movie-files.md), [actor resources](actor-resources.md), [scene commands](scene-commands.md), [save menus](save-menus.md), [palette effects](palette-effects.md), [controller services](controller-services.md), [save format](save-game.md), and [Pak files](pak-files.md) for the behavior and compiled ranges.
 
+The [Controller Pak directory menu](controller-pak-menu.md) has a complete
+596-byte C comparison, 148 initialized bytes and 648 measured BSS bytes.
+Its title storage's original declaration remains unknown. A guarded execution
+check preserves the formatter and label-overlap behavior.
+
 The current checkpoint extends game audio through
 handle/property controls, voice capture and allocation, sequence-table loading,
 and compression input, workspace, and dispatch. Actor callbacks, menu and

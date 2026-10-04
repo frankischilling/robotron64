@@ -3736,5 +3736,51 @@
       "D_801902C8": 72
     },
     "evidence": "docs/audio-bank-loader.md"
+  },
+  {
+    "source": "src/game/save_menus/pak_directory_storage.c",
+    "object": "build/us/pak_directory_storage.o",
+    "input_section": ".data",
+    "section": ".pak_directory_count",
+    "vram": 2147973780,
+    "rom": 493204,
+    "size": 4,
+    "symbols": {
+      "D_80077A94": 0
+    },
+    "evidence": "docs/controller-pak-menu.md"
+  },
+  {
+    "source": "src/game/save_menus/pak_directory_storage.c",
+    "object": "build/us/pak_directory_storage.o",
+    "input_section": ".bss",
+    "section": ".pak_directory_buffers",
+    "vram": 2148249248,
+    "rom": null,
+    "size": 648,
+    "symbols": {
+      "D_800BAEA0": 0,
+      "D_800BAF08": 104,
+      "D_800BB0E8": 584
+    },
+    "evidence": "docs/controller-pak-menu.md"
+  },
+  {
+    "source": "src/game/save_menus/pak_directory_strings.c",
+    "object": "build/us/pak_directory_strings.o",
+    "input_section": ".data",
+    "section": ".pak_directory_strings",
+    "vram": 2148087864,
+    "rom": 607288,
+    "size": 144,
+    "symbols": {
+      "D_80093838": 0,
+      "D_80093850": 24,
+      "D_80093870": 56,
+      "D_80093878": 64,
+      "D_8009387C": 68,
+      "D_8009389C": 100
+    },
+    "evidence": "docs/controller-pak-menu.md"
   }
 ]
