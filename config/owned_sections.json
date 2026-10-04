@@ -3568,5 +3568,88 @@
       "D_8008D9D0": 0
     },
     "evidence": "docs/audio-playback-and-dispatch.md"
+  },
+  {
+    "source": "src/game/audio/startup/storage.c",
+    "object": "build/us/audio_synthesis_storage.o",
+    "input_section": ".data",
+    "section": ".audio_synthesis_storage_data",
+    "vram": 2148063272,
+    "rom": 582696,
+    "size": 28,
+    "symbols": {
+      "D_8008D828": 0,
+      "D_8008D82C": 4,
+      "D_8008D830": 8,
+      "D_8008D834": 12,
+      "D_8008D838": 16,
+      "D_8008D83C": 20,
+      "D_8008D840": 24
+    },
+    "evidence": "docs/audio-synthesis-startup.md"
+  },
+  {
+    "source": "src/game/audio/startup/rate_constant.c",
+    "object": "build/us/audio_synthesis_rate_constant.o",
+    "input_section": ".data",
+    "section": ".audio_synthesis_rate_constant",
+    "vram": 2148097216,
+    "rom": 616640,
+    "size": 4,
+    "symbols": {
+      "D_80095CC0": 0
+    },
+    "evidence": "docs/audio-synthesis-startup.md"
+  },
+  {
+    "source": "src/game/audio/startup/storage.c",
+    "object": "build/us/audio_synthesis_storage.o",
+    "input_section": ".bss",
+    "section": ".audio_synthesis_storage_bss",
+    "vram": 2149122528,
+    "rom": null,
+    "size": 128,
+    "symbols": {
+      "D_801901E0": 0,
+      "D_801901EC": 12,
+      "D_801901F0": 16,
+      "D_801901F4": 20,
+      "D_801901F8": 24,
+      "D_801901FC": 28,
+      "D_80190200": 32,
+      "D_80190204": 36,
+      "D_80190208": 40,
+      "D_80190220": 64,
+      "D_80190224": 68,
+      "D_80190228": 72,
+      "D_80190240": 96
+    },
+    "evidence": "docs/audio-synthesis-startup.md"
+  },
+  {
+    "source": "src/game/audio/startup/buffer_pointers.c",
+    "object": "build/us/audio_synthesis_buffer_pointers.o",
+    "input_section": ".bss",
+    "section": ".audio_synthesis_buffer_pointers",
+    "vram": 2149122432,
+    "rom": null,
+    "size": 20,
+    "symbols": {
+      "D_80190180": 0
+    },
+    "evidence": "docs/audio-synthesis-startup.md"
+  },
+  {
+    "source": "src/game/audio/startup/synth_state.c",
+    "object": "build/us/audio_synthesis_synth_state.o",
+    "input_section": ".bss",
+    "section": ".audio_synthesis_synth_state",
+    "vram": 2149122452,
+    "rom": null,
+    "size": 76,
+    "symbols": {
+      "D_80190194": 0
+    },
+    "evidence": "docs/audio-synthesis-startup.md"
   }
 ]

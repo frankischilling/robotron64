@@ -15645,5 +15645,27 @@
     "section": ".audio_backend_playback",
     "section_vram": 2147856484,
     "evidence": "docs/audio-playback-and-dispatch.md"
+  },
+  {
+    "name": "func_80051A0C",
+    "rom": 337420,
+    "vram": 2147817996,
+    "size": 500,
+    "source": "src/game/audio/startup/synthesis.c",
+    "object": "build/us/audio_synthesis_startup.o",
+    "section": ".audio_synthesis_startup",
+    "section_vram": 2147817996,
+    "evidence": "docs/audio-synthesis-startup.md"
+  },
+  {
+    "name": "func_80051C00",
+    "rom": 337920,
+    "vram": 2147818496,
+    "size": 1308,
+    "source": "src/game/audio/startup/driver.c",
+    "object": "build/us/audio_synthesis_driver.o",
+    "section": ".audio_synthesis_driver",
+    "section_vram": 2147818496,
+    "evidence": "docs/audio-synthesis-startup.md"
   }
 ]

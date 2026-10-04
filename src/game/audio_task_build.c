@@ -2,7 +2,6 @@
 
 extern int D_8008D798;
 extern unsigned int D_8008D834;
-extern void *D_80190180[2];
 extern unsigned int D_801901F0;
 extern unsigned int D_801901F4;
 extern unsigned int D_801901FC;
@@ -36,7 +35,7 @@ RspTask *func_800521C8(AudioRspRecord *record)
         record->count = D_801901F0;
     }
 
-    end = func_80065D78(D_80190180[D_8008D798], &generated, (short *)address, record->count);
+    end = func_80065D78(D_80190180.commands[D_8008D798], &generated, (short *)address, record->count);
     if (D_801901FC < generated) {
         func_8005889C(D_80095C84, 0, 0);
     }
@@ -48,9 +47,9 @@ RspTask *func_800521C8(AudioRspRecord *record)
     record->task.ucode = D_80071D10;
     record->task.ucode_data = D_80096FD0;
     record->task.ucode_data_size = 0x800;
-    record->task.data_ptr = D_80190180[D_8008D798];
+    record->task.data_ptr = D_80190180.commands[D_8008D798];
     record->task.data_size =
-        (((int)end - (int)D_80190180[D_8008D798]) >> 3) << 3;
+        (((int)end - (int)D_80190180.commands[D_8008D798]) >> 3) << 3;
     record->task.dram_stack = 0;
     record->task.dram_stack_size = 0;
     record->task.output_buff = 0;

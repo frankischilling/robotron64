@@ -755,7 +755,8 @@ SECTIONS
     .audio_generation 0x800515B0 : AT(0x521B0) SUBALIGN(4) { build/us/audio_generation.o(.text) }
     .audio_game_helpers 0x80051854 : AT(0x52454) SUBALIGN(4) { build/us/audio_game_helpers.o(.text) }
     .audio_io 0x800518E0 : AT(0x524E0) SUBALIGN(4) { build/us/audio_io.o(.text) }
-    .cpu_after_audio_io 0x80051A0C : AT(0x5260C) { build/us/fallback.o(.rom_cpu_after_audio_io) }
+    .audio_synthesis_startup 0x80051A0C : AT(0x5260C) SUBALIGN(4) { build/us/audio_synthesis_startup.o(.text) }
+    .audio_synthesis_driver 0x80051C00 : AT(0x52800) SUBALIGN(4) { build/us/audio_synthesis_driver.o(.text) }
     .audio_task_select 0x8005211C : AT(0x52D1C) SUBALIGN(4) { build/us/audio_task_select.o(.text) }
     .audio_task_build 0x800521C8 : AT(0x52DC8) SUBALIGN(4) { build/us/audio_task_build.o(.text) }
     .audio_dma_read 0x80052378 : AT(0x52F78) SUBALIGN(4) { build/us/audio_dma_read.o(.text) }
@@ -1258,7 +1259,8 @@ SECTIONS
     .controller_motor_strength_data 0x8008D510 : AT(0x8E110) SUBALIGN(4) { build/us/controller_motor_strength.o(.data) }
     .audio_dispatch_fallback_before 0x8008D514 : AT(0x8E114) { build/us/fallback.o(.rom_audio_dispatch_fallback_before) }
     .audio_dispatch 0x8008D800 : AT(0x8E400) SUBALIGN(4) { build/us/audio_dispatch.o(.data) }
-    .audio_dispatch_fallback_after 0x8008D828 : AT(0x8E428) { build/us/fallback.o(.rom_audio_dispatch_fallback_after) }
+    .audio_synthesis_storage_data 0x8008D828 : AT(0x8E428) SUBALIGN(4) { build/us/audio_synthesis_storage.o(.data) }
+    .audio_dispatch_after_synthesis_counts 0x8008D844 : AT(0x8E444) { build/us/fallback.o(.rom_audio_dispatch_after_synthesis_counts) }
     .audio_timing_data_data 0x8008D868 : AT(0x8E468) SUBALIGN(4) { build/us/audio_timing_data.o(.data) }
     .audio_commands_fallback_8e478_8e4d0 0x8008D878 : AT(0x8E478) { build/us/fallback.o(.rom_audio_commands_fallback_8e478_8e4d0) }
     .audio_command_lengths 0x8008D8D0 : AT(0x8E4D0) SUBALIGN(4) { build/us/audio_command_lengths.o(.data) }
@@ -1407,7 +1409,8 @@ SECTIONS
     .audio_dma_recycle_rodata 0x80095C9C : AT(0x9689C) SUBALIGN(4) { build/us/audio_dma_recycle.o(.rodata) }
     .endgame_data_968a8_968b0 0x80095CA8 : AT(0x968A8) { build/us/fallback.o(.rom_endgame_data_968a8_968b0) }
     .audio_memory_size_strings 0x80095CB0 : AT(0x968B0) SUBALIGN(4) { build/us/audio_memory_size.o(.rodata) }
-    .endgame_data_968b8_968c4 0x80095CB8 : AT(0x968B8) { build/us/fallback.o(.rom_endgame_data_968b8_968c4) }
+    .endgame_data_968b8_968c0 0x80095CB8 : AT(0x968B8) { build/us/fallback.o(.rom_endgame_data_968b8_968c0) }
+    .audio_synthesis_rate_constant 0x80095CC0 : AT(0x968C0) SUBALIGN(4) { build/us/audio_synthesis_rate_constant.o(.data) }
     .audio_pitch_scale_rodata 0x80095CC4 : AT(0x968C4) SUBALIGN(4) { build/us/audio_pitch_scale.o(.rodata) }
     .before_audio_backend_playback_rodata 0x80095CCC : AT(0x968CC) { build/us/fallback.o(.rom_before_audio_backend_playback_rodata) }
     .audio_backend_playback_rodata 0x80095CD0 : AT(0x968D0) SUBALIGN(4) { build/us/audio_backend_playback.o(.rodata) }
@@ -1472,6 +1475,9 @@ SECTIONS
     .renderer_texture_file_cache_bss 0x800CD3C0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.bss) }
     .actor_position_pair_add_bss 0x800A4580 (NOLOAD) : SUBALIGN(4) { build/us/actor_position_pair_add.o(.bss) }
     .actor_random_spawn_bss 0x800AD138 (NOLOAD) : SUBALIGN(4) { build/us/actor_random_spawn.o(.bss) }
+    .audio_synthesis_buffer_pointers 0x80190180 (NOLOAD) : SUBALIGN(4) { build/us/audio_synthesis_buffer_pointers.o(.bss) }
+    .audio_synthesis_synth_state 0x80190194 (NOLOAD) : SUBALIGN(4) { build/us/audio_synthesis_synth_state.o(.bss) }
+    .audio_synthesis_storage_bss 0x801901E0 (NOLOAD) : SUBALIGN(4) { build/us/audio_synthesis_storage.o(.bss) }
     .audio_callback_add_bss 0x801902F0 (NOLOAD) : SUBALIGN(4) { build/us/audio_callback_add.o(.bss) }
     .audio_callback_remove_bss 0x801902F8 (NOLOAD) : SUBALIGN(4) { build/us/audio_callback_remove.o(.bss) }
     .audio_backend_voice_release_bss 0x80192B38 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_voice_release.o(.bss) }
@@ -2018,7 +2024,7 @@ ASSERT(SIZEOF(.audio_thread) == 0x230, "audio_thread size changed")
 ASSERT(SIZEOF(.audio_generation) == 0x2a4, "audio_generation size changed")
 ASSERT(SIZEOF(.audio_game_helpers) == 0x8c, "audio_game_helpers size changed")
 ASSERT(SIZEOF(.audio_io) == 0x12c, "audio_io size changed")
-ASSERT(SIZEOF(.cpu_after_audio_io) == 0x710, "cpu_after_audio_io size changed")
+ASSERT(SIZEOF(.audio_synthesis_startup) == 0x1f4, "audio_synthesis_startup size changed")
 ASSERT(SIZEOF(.audio_task_select) == 0xac, "audio_task_select size changed")
 ASSERT(SIZEOF(.audio_task_build) == 0x1b0, "audio_task_build size changed")
 ASSERT(SIZEOF(.audio_pool_callback) == 0x34, "audio_pool_callback size changed")
@@ -2678,7 +2684,6 @@ D_8009EF94 = 0x8009EF94;
 D_80078274 = 0x80078274;
 D_8008D857 = 0x8008D857;
 D_801902EC = 0x801902EC;
-D_80190200 = 0x80190200;
 D_80192810 = 0x80192810;
 D_80192818 = 0x80192818;
 D_800AD2F8 = 0x800AD2F8;
@@ -2721,11 +2726,6 @@ ASSERT(SIZEOF(.endgame_f828_f830) == 0x8, "endgame_f828_f830 size changed")
 ASSERT(SIZEOF(.endgame_90540_90558) == 0x18, "endgame_90540_90558 size changed")
 D_8008D790 = 0x8008D790;
 D_8008D794 = 0x8008D794;
-D_8008D830 = 0x8008D830;
-D_801901E0 = 0x801901E0;
-D_80190208 = 0x80190208;
-D_80190220 = 0x80190220;
-D_8008D838 = 0x8008D838;
 ASSERT(SIZEOF(.audio_dma_read) == 0x1d4, "audio_dma_read size changed")
 ASSERT(SIZEOF(.audio_dma_recycle) == 0x150, "audio_dma_recycle size changed")
 ASSERT(SIZEOF(.audio_dma_read_rodata) == 0xc, "audio_dma_read_rodata size changed")
@@ -2835,7 +2835,7 @@ ASSERT(SIZEOF(.audio_memory_size) == 0x2cc, "audio_memory_size size changed")
 ASSERT(SIZEOF(.audio_memory_size_strings) == 0x8, "audio_memory_size_strings size changed")
 ASSERT(SIZEOF(.endgame_53c3c_5422c) == 0x5f0, "endgame_53c3c_5422c size changed")
 ASSERT(SIZEOF(.endgame_data_968a8_968b0) == 0x8, "endgame_data_968a8_968b0 size changed")
-ASSERT(SIZEOF(.endgame_data_968b8_968c4) == 0xc, "endgame_data_968b8_968c4 size changed")
+ASSERT(SIZEOF(.endgame_data_968b8_968c0) == 0x8, "endgame_data_968b8_968c0 size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize) == 0x328, "collision_dispatch_initialize size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize_strings) == 0x60, "collision_dispatch_initialize_strings size changed")
 ASSERT(SIZEOF(.boundary_fallback_19a1c_19cf8) == 0x2dc, "boundary_fallback_19a1c_19cf8 size changed")
@@ -2956,7 +2956,7 @@ ASSERT(SIZEOF(.controller_fallback_8e108_8e110) == 0x8, "controller_fallback_8e1
 ASSERT(SIZEOF(.controller_motor_strength_data) == 0x4, "controller_motor_strength_data size changed")
 ASSERT(SIZEOF(.audio_dispatch_fallback_before) == 0x2ec, "audio_dispatch_fallback_before size changed")
 ASSERT(SIZEOF(.audio_dispatch) == 0x28, "audio_dispatch size changed")
-ASSERT(SIZEOF(.audio_dispatch_fallback_after) == 0x40, "audio_dispatch_fallback_after size changed")
+ASSERT(SIZEOF(.audio_dispatch_after_synthesis_counts) == 0x24, "audio_dispatch_after_synthesis_counts size changed")
 ASSERT(SIZEOF(.controller_fallback_96738_967b0) == 0x78, "controller_fallback_96738_967b0 size changed")
 ASSERT(SIZEOF(.controller_motor_initialize_message_data) == 0x14, "controller_motor_initialize_message_data size changed")
 ASSERT(SIZEOF(.controller_fallback_967c4_967c8) == 0x4, "controller_fallback_967c4_967c8 size changed")
@@ -3123,3 +3123,12 @@ ASSERT(SIZEOF(.actor_collision_palette) == 0x6c, "actor_collision_palette size c
 ASSERT(SIZEOF(.error_messages) == 0x40, "error_messages size changed")
 
 ASSERT(SIZEOF(.audio_backend_playback_bss) == 0x20, "audio_backend_playback_bss size changed")
+
+ASSERT(SIZEOF(.audio_synthesis_storage_data) == 0x1c, "audio_synthesis_storage_data size changed")
+ASSERT(SIZEOF(.audio_synthesis_rate_constant) == 0x4, "audio_synthesis_rate_constant size changed")
+ASSERT(SIZEOF(.audio_synthesis_storage_bss) == 0x80, "audio_synthesis_storage_bss size changed")
+
+ASSERT(SIZEOF(.audio_synthesis_driver) == 0x51c, "audio_synthesis_driver size changed")
+
+ASSERT(SIZEOF(.audio_synthesis_buffer_pointers) == 0x14, "audio_synthesis_buffer_pointers size changed")
+ASSERT(SIZEOF(.audio_synthesis_synth_state) == 0x4c, "audio_synthesis_synth_state size changed")
