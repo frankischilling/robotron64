@@ -15,6 +15,12 @@ Completed locally:
 
 The [README](../README.md) records the current public function and byte totals, measured from the build's `progress.json`. Recent recovery covers actor-resource loading and setup helpers, object definitions, scene commands, background images, save-menu status dispatch, palette controls, controller services, and save/Pak file handling. See [movie track files](movie-files.md), [actor resources](actor-resources.md), [scene commands](scene-commands.md), [save menus](save-menus.md), [palette effects](palette-effects.md), [controller services](controller-services.md), [save format](save-game.md), and [Pak files](pak-files.md) for the behavior and compiled ranges.
 
+The [boss update](boss-update.md) has a complete 668-byte C comparison,
+24 retained initializer bytes and 6,936 guarded execution cases. Lighting
+executes matching source. Effect, trigger and spawn calls use recorded ABI
+boundaries; complete gameplay and original unused-local declarations remain
+outside that proof.
+
 The [Controller Pak directory menu](controller-pak-menu.md) has a complete
 596-byte C comparison, 148 initialized bytes and 648 measured BSS bytes.
 Its title storage's original declaration remains unknown. A guarded execution

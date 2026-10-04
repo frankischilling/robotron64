@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,396 matching C functions covering 283,992 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,199 bytes of source-owned initialized data, and 505,131 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,397 matching C functions covering 284,660 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,223 bytes of source-owned initialized data, and 505,131 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,12 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Boss update](docs/boss-update.md) recovers the complete 668-byte light,
+animation-speed and timed-spawn caller plus its 24 retained initializer bytes.
+Its checker verifies 6,936 guarded cases with compiled lighting and recorded
+effect, trigger and spawn boundaries. Original declarations for the unused
+stack area and initializer views remain unknown.
 
 [Audio allocation and command tables](docs/audio-allocation-and-commands.md)
 recover the complete 740-byte instance allocator, the 1,044-byte sequence data

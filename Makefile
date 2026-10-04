@@ -7617,6 +7617,16 @@ build/us/pak_directory_strings.o: src/game/save_menus/pak_directory_strings.c in
 RUNTIME_OBJECTS += build/us/pak_directory_strings.o
 
 
+# Boss update and retained aggregate initializers.
+build/us/boss_update.o: src/game/actor_groups/boss_update.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/actor_resource_5c_internal.h include/actor_resource_internal.h include/debug_output.h include/destination_format.h include/early_bonus_internal.h include/early_game_more.h include/early_game_state.h include/early_session_state.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_recovery.h include/pak_file.h include/rom_files.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/boss_update.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/boss_update.raw.o build/us/boss_update.text.o .text 0x29c
+	$(PYTHON) tools/owned_sections.py $< build/us/boss_update.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/boss_update.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

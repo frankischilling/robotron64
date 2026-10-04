@@ -168,7 +168,7 @@ SECTIONS
     .early_actor_decision 0x8000FBC0 : AT(0x107C0) SUBALIGN(4) { build/us/early_actor_decision.o(.text) }
     .early_reset_parameter 0x80010460 : AT(0x11060) SUBALIGN(4) { build/us/early_reset_parameter.o(.text) }
     .early_boss_create 0x8001049C : AT(0x1109C) SUBALIGN(4) { build/us/early_boss_create.o(.text) }
-    .movement_fallback_113a0_1163c 0x800107A0 : AT(0x113A0) { build/us/fallback.o(.rom_movement_fallback_113a0_1163c) }
+    .boss_update 0x800107A0 : AT(0x113A0) SUBALIGN(4) { build/us/boss_update.o(.text) }
     .early_actor_movement 0x80010A3C : AT(0x1163C) SUBALIGN(4) { build/us/early_actor_movement.o(.text) }
     .movement_fallback_11c28_13290 0x80011028 : AT(0x11C28) { build/us/fallback.o(.rom_movement_fallback_11c28_13290) }
     .early_float_step 0x80012690 : AT(0x13290) SUBALIGN(4) { build/us/early_float_step.o(.text) }
@@ -1198,7 +1198,8 @@ SECTIONS
     .early_boss_trigger_records 0x80073590 : AT(0x74190) SUBALIGN(4) { build/us/early_boss_trigger_records.o(.data) }
     .trigger_fallback_742a8_742ac 0x800736A8 : AT(0x742A8) { build/us/fallback.o(.rom_trigger_fallback_742a8_742ac) }
     .early_reset_parameter_data 0x800736AC : AT(0x742AC) SUBALIGN(4) { build/us/early_reset_parameter.o(.data) }
-    .collision_fallback_742b8_74550 0x800736B8 : AT(0x742B8) { build/us/fallback.o(.rom_collision_fallback_742b8_74550) }
+    .boss_update_initializers 0x800736B8 : AT(0x742B8) SUBALIGN(4) { build/us/boss_update.o(.data) }
+    .collision_fallback_742d0_74550 0x800736D0 : AT(0x742D0) { build/us/fallback.o(.rom_collision_fallback_742d0_74550) }
     .actor_collision_palette 0x80073950 : AT(0x74550) SUBALIGN(4) { build/us/actor_collision_palette.o(.data) }
     .actor_collision_pickup_order 0x800739BC : AT(0x745BC) SUBALIGN(4) { build/us/actor_collision_pickup_order.o(.data) }
     .collision_fallback_745c8_74648 0x800739C8 : AT(0x745C8) { build/us/fallback.o(.rom_collision_fallback_745c8_74648) }
@@ -3101,7 +3102,7 @@ ASSERT(SIZEOF(.trigger_fallback_73d40_74188) == 0x448, "trigger_fallback_73d40_7
 ASSERT(SIZEOF(.early_boss_trigger_state) == 0x4, "early_boss_trigger_state size changed")
 ASSERT(SIZEOF(.trigger_fallback_7418c_74190) == 0x4, "trigger_fallback_7418c_74190 size changed")
 ASSERT(SIZEOF(.early_actor_decision) == 0x8a0, "early_actor_decision size changed")
-ASSERT(SIZEOF(.movement_fallback_113a0_1163c) == 0x29c, "movement_fallback_113a0_1163c size changed")
+ASSERT(SIZEOF(.boss_update) == 0x29c, "boss_update size changed")
 ASSERT(SIZEOF(.early_actor_movement) == 0x5ec, "early_actor_movement size changed")
 ASSERT(SIZEOF(.movement_fallback_11c28_13290) == 0x1668, "movement_fallback_11c28_13290 size changed")
 ASSERT(SIZEOF(.early_actor_movement_switch) == 0x18, "early_actor_movement_switch size changed")
@@ -3128,7 +3129,8 @@ ASSERT(SIZEOF(.actor_collision_impact) == 0x748, "actor_collision_impact size ch
 ASSERT(SIZEOF(.collision_fallback_90b1c_90bac) == 0x90, "collision_fallback_90b1c_90bac size changed")
 ASSERT(SIZEOF(.actor_collision_impact_switch) == 0x8c, "actor_collision_impact_switch size changed")
 ASSERT(SIZEOF(.collision_fallback_90c38_90c98) == 0x60, "collision_fallback_90c38_90c98 size changed")
-ASSERT(SIZEOF(.collision_fallback_742b8_74550) == 0x298, "collision_fallback_742b8_74550 size changed")
+ASSERT(SIZEOF(.boss_update_initializers) == 0x18, "boss_update_initializers size changed")
+ASSERT(SIZEOF(.collision_fallback_742d0_74550) == 0x280, "collision_fallback_742d0_74550 size changed")
 ASSERT(SIZEOF(.actor_collision_palette) == 0x6c, "actor_collision_palette size changed")
 
 ASSERT(SIZEOF(.error_messages) == 0x40, "error_messages size changed")
@@ -3150,3 +3152,5 @@ ASSERT(SIZEOF(.audio_bank_context_pointer) == 0x4, "audio_bank_context_pointer s
 ASSERT(SIZEOF(.pak_directory_count) == 0x4, "pak_directory_count size changed")
 ASSERT(SIZEOF(.pak_directory_buffers) == 0x288, "pak_directory_buffers size changed")
 ASSERT(SIZEOF(.pak_directory_strings) == 0x90, "pak_directory_strings size changed")
+D_800736A8 = 0x800736A8;
+D_800BA748 = 0x800BA748;

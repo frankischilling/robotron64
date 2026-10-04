@@ -15711,5 +15711,16 @@
     "section": ".pak_menu_directory",
     "section_vram": 2147641276,
     "evidence": "docs/controller-pak-menu.md"
+  },
+  {
+    "name": "func_800107A0",
+    "rom": 70560,
+    "vram": 2147551136,
+    "size": 668,
+    "source": "src/game/actor_groups/boss_update.c",
+    "object": "build/us/boss_update.o",
+    "section": ".boss_update",
+    "section_vram": 2147551136,
+    "evidence": "docs/boss-update.md"
   }
 ]
