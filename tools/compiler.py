@@ -22,6 +22,8 @@ PROFILES = {
 
 CONTEXT_PARTITIONS = {
     "src/game/audio/sequence_tick.c": ("func_8005A9AC", "func_80059580", 0x3A4),
+    "src/game/audio/backend/pitch_command.c": ("func_8005BA24", "func_8005B000", 0x2A4),
+    "src/game/audio/backend/voice_release_all.c": ("func_8005B854", "func_8005AEA8", 0x1A4),
 }
 
 
@@ -169,6 +171,7 @@ SOURCE_PROFILES = {
     "src/sdk/thread_start.c": "sdk-o1-mips2",
     "src/sdk/thread_create.c": "sdk-o1-mips2",
     "src/game/audio_pitch_scale.c": "game-r4300-mul",
+    "src/game/audio/backend/pitch_command.c": "game-r4300-mul",
     "src/libultra/ai_buffer.c": "sdk-o1-mips2",
     "src/libultra/ai_busy.c": "sdk-o1-mips2",
     "src/libultra/ai_frequency.c": "sdk-o1-mips2",

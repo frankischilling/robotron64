@@ -29,5 +29,7 @@ and analysis tools are credited in [CREDITS](../CREDITS.md).
 
 Complete independent comparisons, relocation checks, guarded execution and
 fresh build results are recorded in the [proof ledger](audio-playback-and-dispatch-provenance.json).
-The remaining release, pitch-command, stream walkers and sequencer candidates
-retain their fallback bytes and contribute no matching code progress.
+The [voice release and pitch command](audio-voice-release-and-pitch.md),
+[stream walkers](audio-seeking.md) and
+[sequence tick](audio-timing-and-sequence-tick.md) have since been recovered
+with their own complete comparisons and execution checks.

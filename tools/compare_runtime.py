@@ -560,6 +560,8 @@ MATCHING_BLOCKS = (
     ("audio_backend_update", "src/game/audio_backend_update.c", 0x8005B66C, 0x8005B7BC),
     ("audio_backend_voice_stop", "src/game/audio_backend_voice_stop.c", 0x8005B7BC, 0x8005B854),
     ("audio_backend_playback", "src/game/audio/backend/playback.c", 0x8005B064, 0x8005B3A8),
+    ("audio_backend_voice_release_all", "src/game/audio/backend/voice_release_all.c", 0x8005B854, 0x8005B9F8),
+    ("audio_backend_pitch_command", "src/game/audio/backend/pitch_command.c", 0x8005BA24, 0x8005BCC8),
     ("audio_backend_patch", "src/game/audio_backend_patch.c", 0x8005B9F8, 0x8005BA24),
     ("audio_backend_release", "src/game/audio_backend_release.c", 0x8005C4F8, 0x8005C684),
     ("audio_backend_decay", "src/game/audio_backend_decay.c", 0x8005C684, 0x8005C7F8),

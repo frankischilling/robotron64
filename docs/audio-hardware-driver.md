@@ -57,15 +57,17 @@ and placement checks use Robotron's own instructions and data.
 ## Pitch code and constants
 
 The pitch helper uses exponentiation by squaring with the target's positive
-and negative cent factors, then applies the output-rate ratio. Its C literals
-generate the eight bytes at `0x80095CC4..0x80095CCC`; that interval is removed
-from the extracted-data fallback and is verified as source-owned `.rodata`.
+and negative cent factors, then applies the output-rate ratio. The two named
+constant floats in `src/game/audio/pitch_factors.c` own the eight bytes at
+`0x80095CC4..0x80095CCC`. They replace the earlier helper literals at the same
+addresses; IDO emits the named values in `.data`. See the current
+[voice-command proof](audio-voice-release-and-pitch.md).
 
 The complete 100-byte function matches IDO 5.3 with the usual game options and
 `-Wab,-r4300_mul`. Without that assembler option, the tested helper is four
 bytes shorter and lacks the target multiply-hazard NOP. A compound assignment
 to the final ratio also preserves the target floating-point return sequence.
-The option is assigned only to this verified source file; the default game
+The option also applies to its visible context in the recovered pitch command; the default game
 profile and the previously established SDK profiles are retained. No emitted
 instruction is patched after compilation.
 

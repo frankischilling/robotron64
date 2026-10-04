@@ -319,16 +319,19 @@
     "evidence": "docs/frame-submission.md"
   },
   {
-    "input_section": ".rodata",
+    "input_section": ".data",
     "vram": 2148097220,
     "rom": 616644,
     "size": 8,
-    "symbols": {},
+    "symbols": {
+      "D_FLT_80095CC4": 0,
+      "D_FLT_80095CC8": 4
+    },
     "section": ".audio_pitch_scale_rodata",
     "static_symbols": {},
-    "source": "src/game/audio_pitch_scale.c",
-    "object": "build/us/audio_pitch_scale.o",
-    "evidence": "docs/audio-hardware-driver.md"
+    "source": "src/game/audio/pitch_factors.c",
+    "object": "build/us/audio_pitch_factors.o",
+    "evidence": "docs/audio-voice-release-and-pitch.md"
   },
   {
     "input_section": ".rodata",
@@ -3830,5 +3833,53 @@
       "D_8019280C": 12
     },
     "evidence": "docs/audio-timing-and-sequence-tick.md"
+  },
+  {
+    "source": "src/game/audio/backend/voice_release_all.c",
+    "object": "build/us/audio_backend_voice_release_all.o",
+    "input_section": ".bss",
+    "section": ".audio_backend_voice_release_all_bss",
+    "vram": 2149133008,
+    "rom": null,
+    "size": 16,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192AD0": 0,
+      "D_80192AD4": 4,
+      "D_80192AD8": 8,
+      "D_80192ADC": 12
+    },
+    "evidence": "docs/audio-voice-release-and-pitch.md"
+  },
+  {
+    "source": "src/game/audio/backend/pitch_command.c",
+    "object": "build/us/audio_backend_pitch_command.o",
+    "input_section": ".bss",
+    "section": ".audio_backend_pitch_command_bss",
+    "vram": 2149133028,
+    "rom": null,
+    "size": 24,
+    "symbols": {},
+    "static_symbols": {
+      "D_80192AE4": 0,
+      "D_80192AE8": 4,
+      "D_80192AEC": 8,
+      "D_80192AF0": 12,
+      "D_80192AF4": 16,
+      "D_80192AF8": 20
+    },
+    "evidence": "docs/audio-voice-release-and-pitch.md"
+  },
+  {
+    "source": "src/game/audio/backend/pitch_command.c",
+    "object": "build/us/audio_backend_pitch_command.o",
+    "input_section": ".rodata",
+    "section": ".audio_backend_pitch_command_rodata",
+    "vram": 2148097248,
+    "rom": 616672,
+    "size": 16,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/audio-voice-release-and-pitch.md"
   }
 ]

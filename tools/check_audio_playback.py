@@ -16,6 +16,8 @@ from unicorn import mips_const as regs
 from check_actor_group_path import machine, word, SENTINEL
 from check_audio_instance_allocate import CALLER_SAVED
 from compare_startup import compare_block, SymbolLayoutSnapshot
+from compare_data import compare_unit, comparison_directory
+from owned_sections import source_sections
 from rom import ROOT, validate
 
 NAME = 'audio_backend_playback'
@@ -188,15 +190,17 @@ def main():
     pitch = compare_block('audio_pitch_scale', 'src/game/audio_pitch_scale.c', 0x8005B000,
                           0x5BC00, 0x5BC64, target, family=family, layout=layout)
     assert comparison['matches'] and pitch['matches'], (comparison, pitch)
+    factor_source = 'src/game/audio/pitch_factors.c'
+    factors = compare_unit(factor_source, source_sections(factor_source), target, layout)
     output = ROOT / 'build' / family
     compiled = (output / NAME / (NAME + '.bin')).read_bytes()
     pitch_code = (output / 'audio_pitch_scale/audio_pitch_scale.bin').read_bytes()
     constants = [(0x80095CD0, target[0x968D0:0x968E0]),
                  (0x80095CC4, target[0x968C4:0x968CC])]
     rebuilt_constants = []
-    for unit, section in [(NAME, '.audio_backend_playback_rodata'),
-                          ('audio_pitch_scale', '.audio_pitch_scale_rodata')]:
-        with (output / unit / (unit + '.elf')).open('rb') as file:
+    for path, section in [(output / NAME / (NAME + '.elf'), '.audio_backend_playback_rodata'),
+                          (comparison_directory(factor_source) / 'compiled.elf', '.audio_pitch_scale_rodata')]:
+        with path.open('rb') as file:
             record = ELFFile(file).get_section_by_name(section)
             rebuilt_constants.append((record['sh_addr'], record.data()))
     assert rebuilt_constants == constants
@@ -208,6 +212,7 @@ def main():
         digest.update(json.dumps([case, rebuilt], sort_keys=True).encode())
         count += 1
     report = dict(matches=True, cases=count, comparison=comparison, pitch_comparison=pitch,
+                  factor_comparison=factors,
                   trace_sha256=digest.hexdigest(), emulator=version('unicorn'),
                   checker_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                   machine_helper_sha256=hashlib.sha256((ROOT / 'tools/check_actor_group_path.py').read_bytes()).hexdigest(),
