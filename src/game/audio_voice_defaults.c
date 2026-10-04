@@ -16,9 +16,9 @@ void func_8005362C(AudioVoice *voice, AudioSequenceTrack *track, AudioProperties
     voice->unknown20 = 0;
     voice->unknown24 = 0;
     voice->position28 = 0;
-    voice->returnStack = (unsigned char **)voice->unknown3C;
+    voice->returnStack = voice->returnStackStart;
     voice->labelCount = track->header->labelCount;
-    voice->unknown44[1] = track->header->commandBytes;
+    voice->commandBytes = track->header->commandBytes;
     voice->controlMask = track->header->controlMask;
     if (!(properties && properties->fields)) {
         fields = 0;

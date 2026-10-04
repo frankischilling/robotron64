@@ -1,5 +1,6 @@
 #include "../../include/audio_runtime.h"
 #include "../../include/audio_config.h"
+#include "../../include/audio_loader_internal.h"
 #include "../../include/heap.h"
 
 extern unsigned char D_0066BEE0[];
@@ -19,7 +20,6 @@ extern unsigned char *D_80190150;
 extern AudioHeap D_80190158;
 
 int func_80052D70(unsigned char *source);
-void func_8005303C(unsigned char *source, void *allocation, int size);
 void func_80058890(void (*callback)(int, int, int));
 void func_800588C8(int (*callback)(int, int, int, int));
 int func_8005D220(AudioContext *context, unsigned char *source);

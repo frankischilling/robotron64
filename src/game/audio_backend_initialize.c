@@ -5,11 +5,11 @@ void func_8005B3A8(AudioContext *context)
     static int D_80192ABC;
 
     D_80192810 = context;
-    D_80192828 = (unsigned int *)D_80192810->unknown00;
+    D_80192828 = D_80192810->ticks;
     D_80192814 = D_80192810->instances;
     D_80192818 = D_80192810->voices;
     D_8019281C = D_80192810->statusRecords;
-    D_80192824 = (AudioPatchBank *)D_80192810->unknown14;
+    D_80192824 = D_80192810->patchBank;
     D_80192820 = D_8008D83C;
     D_8019282C = (AudioPatchRecord *)D_80192824->data;
     D_80192830 = (AudioPatchRegion *)(D_8019282C + D_80192824->patchCount);

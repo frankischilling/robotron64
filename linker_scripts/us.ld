@@ -770,7 +770,7 @@ SECTIONS
     .audio_config 0x80052780 : AT(0x53380) SUBALIGN(4) { build/us/audio_config.o(.text) }
     .audio_control 0x80052A00 : AT(0x53600) SUBALIGN(4) { build/us/audio_control.o(.text) }
     .audio_memory_size 0x80052D70 : AT(0x53970) SUBALIGN(4) { build/us/audio_memory_size.o(.text) }
-    .endgame_53c3c_5422c 0x8005303C : AT(0x53C3C) { build/us/fallback.o(.rom_endgame_53c3c_5422c) }
+    .audio_bank_load 0x8005303C : AT(0x53C3C) SUBALIGN(4) { build/us/audio_bank_load.o(.text) }
     .audio_voice_defaults 0x8005362C : AT(0x5422C) SUBALIGN(4) { build/us/audio_voice_defaults.o(.text) }
     .audio_voice_sequence_bind 0x800538F8 : AT(0x544F8) SUBALIGN(4) { build/us/audio_voice_sequence_bind.o(.text) }
     .audio_instance_allocate 0x8005396C : AT(0x5456C) SUBALIGN(4) { build/us/audio_instance_allocate.o(.text) }
@@ -1257,10 +1257,12 @@ SECTIONS
     .controller_access_guard_data 0x8008D504 : AT(0x8E104) SUBALIGN(4) { build/us/controller_access_guard.o(.data) }
     .controller_fallback_8e108_8e110 0x8008D508 : AT(0x8E108) { build/us/fallback.o(.rom_controller_fallback_8e108_8e110) }
     .controller_motor_strength_data 0x8008D510 : AT(0x8E110) SUBALIGN(4) { build/us/controller_motor_strength.o(.data) }
-    .audio_dispatch_fallback_before 0x8008D514 : AT(0x8E114) { build/us/fallback.o(.rom_audio_dispatch_fallback_before) }
+    .audio_before_bank_allocation_state 0x8008D514 : AT(0x8E114) { build/us/fallback.o(.rom_audio_before_bank_allocation_state) }
+    .audio_bank_allocation_state 0x8008D7B0 : AT(0x8E3B0) SUBALIGN(4) { build/us/audio_bank_allocation_state.o(.data) }
+    .audio_after_bank_allocation_state 0x8008D7D8 : AT(0x8E3D8) { build/us/fallback.o(.rom_audio_after_bank_allocation_state) }
     .audio_dispatch 0x8008D800 : AT(0x8E400) SUBALIGN(4) { build/us/audio_dispatch.o(.data) }
     .audio_synthesis_storage_data 0x8008D828 : AT(0x8E428) SUBALIGN(4) { build/us/audio_synthesis_storage.o(.data) }
-    .audio_dispatch_after_synthesis_counts 0x8008D844 : AT(0x8E444) { build/us/fallback.o(.rom_audio_dispatch_after_synthesis_counts) }
+    .audio_bank_loader_storage 0x8008D844 : AT(0x8E444) SUBALIGN(4) { build/us/audio_bank_loader_storage.o(.data) }
     .audio_timing_data_data 0x8008D868 : AT(0x8E468) SUBALIGN(4) { build/us/audio_timing_data.o(.data) }
     .audio_commands_fallback_8e478_8e4d0 0x8008D878 : AT(0x8E478) { build/us/fallback.o(.rom_audio_commands_fallback_8e478_8e4d0) }
     .audio_command_lengths 0x8008D8D0 : AT(0x8E4D0) SUBALIGN(4) { build/us/audio_command_lengths.o(.data) }
@@ -1409,7 +1411,7 @@ SECTIONS
     .audio_dma_recycle_rodata 0x80095C9C : AT(0x9689C) SUBALIGN(4) { build/us/audio_dma_recycle.o(.rodata) }
     .endgame_data_968a8_968b0 0x80095CA8 : AT(0x968A8) { build/us/fallback.o(.rom_endgame_data_968a8_968b0) }
     .audio_memory_size_strings 0x80095CB0 : AT(0x968B0) SUBALIGN(4) { build/us/audio_memory_size.o(.rodata) }
-    .endgame_data_968b8_968c0 0x80095CB8 : AT(0x968B8) { build/us/fallback.o(.rom_endgame_data_968b8_968c0) }
+    .audio_bank_load_signature 0x80095CB8 : AT(0x968B8) SUBALIGN(4) { build/us/audio_bank_load.o(.rodata) }
     .audio_synthesis_rate_constant 0x80095CC0 : AT(0x968C0) SUBALIGN(4) { build/us/audio_synthesis_rate_constant.o(.data) }
     .audio_pitch_scale_rodata 0x80095CC4 : AT(0x968C4) SUBALIGN(4) { build/us/audio_pitch_scale.o(.rodata) }
     .before_audio_backend_playback_rodata 0x80095CCC : AT(0x968CC) { build/us/fallback.o(.rom_before_audio_backend_playback_rodata) }
@@ -1478,6 +1480,8 @@ SECTIONS
     .audio_synthesis_buffer_pointers 0x80190180 (NOLOAD) : SUBALIGN(4) { build/us/audio_synthesis_buffer_pointers.o(.bss) }
     .audio_synthesis_synth_state 0x80190194 (NOLOAD) : SUBALIGN(4) { build/us/audio_synthesis_synth_state.o(.bss) }
     .audio_synthesis_storage_bss 0x801901E0 (NOLOAD) : SUBALIGN(4) { build/us/audio_synthesis_storage.o(.bss) }
+    .audio_bank_state 0x80190280 (NOLOAD) : SUBALIGN(4) { build/us/audio_bank_state.o(.bss) }
+    .audio_bank_context_pointer 0x801902EC (NOLOAD) : SUBALIGN(4) { build/us/audio_bank_loader_storage.o(.bss) }
     .audio_callback_add_bss 0x801902F0 (NOLOAD) : SUBALIGN(4) { build/us/audio_callback_add.o(.bss) }
     .audio_callback_remove_bss 0x801902F8 (NOLOAD) : SUBALIGN(4) { build/us/audio_callback_remove.o(.bss) }
     .audio_backend_voice_release_bss 0x80192B38 (NOLOAD) : SUBALIGN(4) { build/us/audio_backend_voice_release.o(.bss) }
@@ -2683,7 +2687,6 @@ ASSERT(SIZEOF(.endgame_4c900_4cc90) == 0x390, "endgame_4c900_4cc90 size changed"
 D_8009EF94 = 0x8009EF94;
 D_80078274 = 0x80078274;
 D_8008D857 = 0x8008D857;
-D_801902EC = 0x801902EC;
 D_80192810 = 0x80192810;
 D_80192818 = 0x80192818;
 D_800AD2F8 = 0x800AD2F8;
@@ -2833,9 +2836,9 @@ ASSERT(SIZEOF(.endgame_data_95880_95b20) == 0x2a0, "endgame_data_95880_95b20 siz
 ASSERT(SIZEOF(.audio_voice_defaults) == 0x2CC, "audio voice defaults text size changed")
 ASSERT(SIZEOF(.audio_memory_size) == 0x2cc, "audio_memory_size size changed")
 ASSERT(SIZEOF(.audio_memory_size_strings) == 0x8, "audio_memory_size_strings size changed")
-ASSERT(SIZEOF(.endgame_53c3c_5422c) == 0x5f0, "endgame_53c3c_5422c size changed")
+ASSERT(SIZEOF(.audio_bank_load) == 0x5f0, "audio_bank_load size changed")
 ASSERT(SIZEOF(.endgame_data_968a8_968b0) == 0x8, "endgame_data_968a8_968b0 size changed")
-ASSERT(SIZEOF(.endgame_data_968b8_968c0) == 0x8, "endgame_data_968b8_968c0 size changed")
+ASSERT(SIZEOF(.audio_bank_load_signature) == 0x8, "audio_bank_load_signature size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize) == 0x328, "collision_dispatch_initialize size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize_strings) == 0x60, "collision_dispatch_initialize_strings size changed")
 ASSERT(SIZEOF(.boundary_fallback_19a1c_19cf8) == 0x2dc, "boundary_fallback_19a1c_19cf8 size changed")
@@ -2954,9 +2957,11 @@ ASSERT(SIZEOF(.controller_pak_directory_state_bss) == 0x350, "controller_pak_dir
 ASSERT(SIZEOF(.controller_access_guard_data) == 0x4, "controller_access_guard_data size changed")
 ASSERT(SIZEOF(.controller_fallback_8e108_8e110) == 0x8, "controller_fallback_8e108_8e110 size changed")
 ASSERT(SIZEOF(.controller_motor_strength_data) == 0x4, "controller_motor_strength_data size changed")
-ASSERT(SIZEOF(.audio_dispatch_fallback_before) == 0x2ec, "audio_dispatch_fallback_before size changed")
+ASSERT(SIZEOF(.audio_before_bank_allocation_state) == 0x29c, "audio_before_bank_allocation_state size changed")
+ASSERT(SIZEOF(.audio_bank_allocation_state) == 0x28, "audio_bank_allocation_state size changed")
+ASSERT(SIZEOF(.audio_after_bank_allocation_state) == 0x28, "audio_after_bank_allocation_state size changed")
 ASSERT(SIZEOF(.audio_dispatch) == 0x28, "audio_dispatch size changed")
-ASSERT(SIZEOF(.audio_dispatch_after_synthesis_counts) == 0x24, "audio_dispatch_after_synthesis_counts size changed")
+ASSERT(SIZEOF(.audio_bank_loader_storage) == 0x24, "audio_bank_loader_storage size changed")
 ASSERT(SIZEOF(.controller_fallback_96738_967b0) == 0x78, "controller_fallback_96738_967b0 size changed")
 ASSERT(SIZEOF(.controller_motor_initialize_message_data) == 0x14, "controller_motor_initialize_message_data size changed")
 ASSERT(SIZEOF(.controller_fallback_967c4_967c8) == 0x4, "controller_fallback_967c4_967c8 size changed")
@@ -3132,3 +3137,6 @@ ASSERT(SIZEOF(.audio_synthesis_driver) == 0x51c, "audio_synthesis_driver size ch
 
 ASSERT(SIZEOF(.audio_synthesis_buffer_pointers) == 0x14, "audio_synthesis_buffer_pointers size changed")
 ASSERT(SIZEOF(.audio_synthesis_synth_state) == 0x4c, "audio_synthesis_synth_state size changed")
+
+ASSERT(SIZEOF(.audio_bank_state) == 0x6c, "audio_bank_state size changed")
+ASSERT(SIZEOF(.audio_bank_context_pointer) == 0x4, "audio_bank_context_pointer size changed")
