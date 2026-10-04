@@ -15,6 +15,11 @@ Completed locally:
 
 The [README](../README.md) records the current public function and byte totals, measured from the build's `progress.json`. Recent recovery covers actor-resource loading and setup helpers, object definitions, scene commands, background images, save-menu status dispatch, palette controls, controller services, and save/Pak file handling. See [movie track files](movie-files.md), [actor resources](actor-resources.md), [scene commands](scene-commands.md), [save menus](save-menus.md), [palette effects](palette-effects.md), [controller services](controller-services.md), [save format](save-game.md), and [Pak files](pak-files.md) for the behavior and compiled ranges.
 
+Both [controller polling procedures](controller-polling-and-storage.md) now
+have complete comparisons covering 832 bytes. Their 6,316 guarded cases check
+connection masks, signed sticks, button edges and SDK call boundaries. The
+existing button halfwords retain their addresses as private static storage.
+
 The [random spawn-position chooser](actor-spawn-position.md) has a complete
 696-byte C comparison. Its signed arithmetic, axis constraints, per-actor
 rejection budget and failure output are checked with matching absolute-value
