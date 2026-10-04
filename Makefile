@@ -7442,6 +7442,26 @@ build/us/boundary_dispatch.o: src/game/actor_groups/boundary_dispatch.c include/
 
 RUNTIME_OBJECTS += build/us/boundary_dispatch.o
 
+
+# Fatal and warning formatter strings, including complete alignment bytes.
+build/us/error_messages.o: src/game/diagnostics/messages.c include/error_formatters.h $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/error_messages.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/error_messages.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ include/error_formatters.h
+
+RUNTIME_OBJECTS += build/us/error_messages.o
+
+# Buffered diagnostic formatter and its complete generated dispatch table.
+build/us/error_formatted.o: src/game/diagnostics/formatted.c include/error_formatters.h include/game_memory.h include/game_stdarg.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/error_formatted.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/error_formatted.raw.o build/us/error_formatted.text.o .text 0x298
+	$(PYTHON) tools/owned_sections.py $< build/us/error_formatted.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ include/error_formatters.h include/game_memory.h include/game_stdarg.h
+
+RUNTIME_OBJECTS += build/us/error_formatted.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

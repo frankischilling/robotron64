@@ -1,0 +1,450 @@
+{
+  "new_c_functions": 1,
+  "new_instruction_bytes": 664,
+  "new_initialized_bytes": 136,
+  "new_bss_bytes": 0,
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "comparison": {
+    "source": "src/game/diagnostics/messages.c",
+    "matches": true,
+    "sections": [
+      {
+        "ownership": {
+          "source": "src/game/diagnostics/messages.c",
+          "object": "build/us/error_messages.o",
+          "input_section": ".rodata",
+          "section": ".error_messages",
+          "vram": 2148074528,
+          "rom": 593952,
+          "size": 64,
+          "symbols": {
+            "D_80090420": 0,
+            "D_80090430": 16,
+            "D_80090448": 40,
+            "D_80090454": 52
+          },
+          "evidence": "docs/error-formatters.md"
+        },
+        "bytes_sha256": "f0273fe62d33d14acaaf160400eef9f0b56071ebb4de9f897851a46c9a88ed55"
+      }
+    ],
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    }
+  },
+  "reference": {
+    "generator": "splat 0.50.0 / spimdisasm 1.42.4",
+    "assembler": "GNU MIPS binutils 2.42",
+    "size": 64,
+    "reference_sha256": "f0273fe62d33d14acaaf160400eef9f0b56071ebb4de9f897851a46c9a88ed55",
+    "reference_object_sha256": "5dbb0d489f8f4793a721ab0ebdfeb757c2dd2ae3464ce33b019d47b0f9352417",
+    "compiled_object_sha256": "1aa0bb2b67815a2e209e6f7f4f48daef7dbc01a4a78f1ba91b264003766737a4",
+    "all_four_symbols_objdiff_percent": 100,
+    "complete_rodata_objdiff_percent": 100
+  },
+  "validation": {
+    "independent_comparisons": {
+      "runtime": {
+        "matches": true,
+        "source_units": 871,
+        "report_sha256": "3e741ae04c5150f6f7da679d682fca220920f07393fe02217c6111f4db992332"
+      },
+      "startup": {
+        "matches": true,
+        "source_units": 2,
+        "report_sha256": "f0b16b6d9b194032952c771659548b14711d23400d549ec3f20ba6cf8222df3b"
+      },
+      "assembly": {
+        "matches": true,
+        "source_units": 18,
+        "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data": {
+        "matches": true,
+        "source_units": 104,
+        "report_sha256": "c216ccadc35946705e16aa29ff2e956d990ecad7f47441a212f6890e4f87a0a8"
+      }
+    },
+    "clean_setup": true,
+    "clean_verify": true,
+    "tool_tests": 155,
+    "whole_rom_bytes": 8388608,
+    "clean_build_log_sha256": "a603537c55a0eb8b1d7e3444db73fbd03acf893b1187c3dac19b37bb9207779f"
+  },
+  "remaining": {
+    "fatal_formatter_instruction_bytes": 500,
+    "warning_formatter_instruction_bytes": 472,
+    "matching_c": false
+  },
+  "inputs_sha256": {
+    "src/game/diagnostics/messages.c": "6b75495e09b52022bbff8335619416716337763b511ecf4a230101bf957b6118",
+    "src/game/diagnostics/formatted.c": "29c1011102905608e89bb20a05f2f73bd979f458b9ff8258d79aef847ae29447",
+    "src/game/diagnostics/fatal.c": "cb187677a6db1f108829d5dac41a418fa621d7e028a554db08e72f6ea6b45e6c",
+    "src/game/diagnostics/warning.c": "12f9ecf1d8c5e430f7383af14246d439f53ac02677948170af86654581e97cf7",
+    "src/game/geometry_debug_bridge.c": "b272a93dcd45923975944765184ff1d1d2bf4f01a24f759b5d0d704986a1ae94",
+    "include/error_formatters.h": "a07753b6fdc1ae7a113bb3e75767039be3173dc3601e611c931c1282423dd9b3",
+    "tools/check_error_formatters.py": "2e7c4b3d46d16c0bfbf91465eaa066635ad241fffde0d7829c0cbacee4ba045c",
+    "tools/compare_runtime.py": "9c17c118c9acd2e3d3bae9e9fd0e8132c0a62d2bea26af04a7907ce5eca7c841",
+    "config/owned_sections.json": "9aa2352d71ab72412320026f314478485764402398c62fafc75cceadf96f1867",
+    "config/functions.json": "6ba6270eb89e239653c2e5ec4cf422a6ffde15318e542c115e660e62e8195736",
+    "config/runtime_symbols.ld": "aeebed1611569a268576f6dd0c09f016a8f6e97ef56fc7d30cec4ff031afba1c",
+    "config/startup_symbols.ld": "d9a4b0bdb16f6c246881ddb6e1e9aa506070c26bd43ceb34571c14f88a8cb0ec",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "Makefile": "396c356a12ecea7255e7aa6db23458f7e5e37d15461b768f74d6d7199b48a6e8",
+    "tools/extract.py": "67029b512a0719141ff9479360c31715e2cd301ad7489e531fafad4918f3769a",
+    "linker_scripts/us.ld": "bee287080bcaac8814f81f5e1e3dd5fd052b93bc8ee18f4095443795ee1ed76b"
+  },
+  "formatter_execution": {
+    "matches": true,
+    "cases": 3268,
+    "trace_sha256": "e8040aed330fe84ab54e8199e2dfa0ef1280f3e48fec48fe67999546bca48e6f",
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "checker_sha256": "2e7c4b3d46d16c0bfbf91465eaa066635ad241fffde0d7829c0cbacee4ba045c",
+    "limits": [
+      "The fatal and warning candidates remain instruction nonmatching; the buffered formatter and its complete dispatch table match.",
+      "Output and the fatal reporter use ABI-clobbering stubs; the fatal reporter returns synthetically.",
+      "Only valid strings and output shorter than 500 bytes are exercised; overflowing buffers and dangling percent specifiers are omitted.",
+      "INT_MIN decimal conversion is omitted; hexadecimal covers all listed 32-bit boundaries.",
+      "The standard hexadecimal alphabet is checked against retail but is not credited as source-owned data.",
+      "Stack bounds, output byte writes, preserved registers, input buffers and stacked arguments are checked."
+    ],
+    "report_sha256": "eee5e6b6fe1b2397c1c74e85bf7a1a39068632b441957a1b404d5b868e72a2f2"
+  },
+  "candidate_comparisons": {
+    "error_fatal_format": {
+      "source": "src/game/diagnostics/fatal.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 500,
+      "actual_size": 500,
+      "matches": false,
+      "different_words": [
+        {
+          "vram": "0x8001c0d0",
+          "expected": "27bdfbb8",
+          "actual": "27bdfdb0"
+        },
+        {
+          "vram": "0x8001c0fc",
+          "expected": "afa40448",
+          "actual": "afa40250"
+        },
+        {
+          "vram": "0x8001c100",
+          "expected": "afa5044c",
+          "actual": "afa50254"
+        },
+        {
+          "vram": "0x8001c104",
+          "expected": "afa60450",
+          "actual": "afa60258"
+        },
+        {
+          "vram": "0x8001c108",
+          "expected": "afa70454",
+          "actual": "afa7025c"
+        },
+        {
+          "vram": "0x8001c110",
+          "expected": "27b00254",
+          "actual": "27b0005c"
+        },
+        {
+          "vram": "0x8001c118",
+          "expected": "27b1044c",
+          "actual": "27b10254"
+        },
+        {
+          "vram": "0x8001c13c",
+          "expected": "8faf0448",
+          "actual": "8faf0250"
+        },
+        {
+          "vram": "0x8001c148",
+          "expected": "afb80448",
+          "actual": "afb80250"
+        },
+        {
+          "vram": "0x8001c184",
+          "expected": "8fab0448",
+          "actual": "8fab0250"
+        },
+        {
+          "vram": "0x8001c220",
+          "expected": "8fab0448",
+          "actual": "8fab0250"
+        },
+        {
+          "vram": "0x8001c230",
+          "expected": "afac0448",
+          "actual": "afac0250"
+        },
+        {
+          "vram": "0x8001c238",
+          "expected": "8fad0448",
+          "actual": "8fad0250"
+        },
+        {
+          "vram": "0x8001c244",
+          "expected": "afae0448",
+          "actual": "afae0250"
+        },
+        {
+          "vram": "0x8001c248",
+          "expected": "8faf0448",
+          "actual": "8faf0250"
+        },
+        {
+          "vram": "0x8001c274",
+          "expected": "27a40254",
+          "actual": "27a4005c"
+        },
+        {
+          "vram": "0x8001c288",
+          "expected": "27a50254",
+          "actual": "27a5005c"
+        },
+        {
+          "vram": "0x8001c2c0",
+          "expected": "27bd0448",
+          "actual": "27bd0250"
+        }
+      ]
+    },
+    "error_warning_format": {
+      "source": "src/game/diagnostics/warning.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 472,
+      "actual_size": 472,
+      "matches": false,
+      "different_words": [
+        {
+          "vram": "0x8001c2c4",
+          "expected": "27bdfbb8",
+          "actual": "27bdfdb0"
+        },
+        {
+          "vram": "0x8001c2f0",
+          "expected": "afa40448",
+          "actual": "afa40250"
+        },
+        {
+          "vram": "0x8001c2f4",
+          "expected": "afa5044c",
+          "actual": "afa50254"
+        },
+        {
+          "vram": "0x8001c2f8",
+          "expected": "afa60450",
+          "actual": "afa60258"
+        },
+        {
+          "vram": "0x8001c2fc",
+          "expected": "afa70454",
+          "actual": "afa7025c"
+        },
+        {
+          "vram": "0x8001c304",
+          "expected": "27b00254",
+          "actual": "27b0005c"
+        },
+        {
+          "vram": "0x8001c30c",
+          "expected": "27b1044c",
+          "actual": "27b10254"
+        },
+        {
+          "vram": "0x8001c330",
+          "expected": "8faf0448",
+          "actual": "8faf0250"
+        },
+        {
+          "vram": "0x8001c33c",
+          "expected": "afb80448",
+          "actual": "afb80250"
+        },
+        {
+          "vram": "0x8001c378",
+          "expected": "8fab0448",
+          "actual": "8fab0250"
+        },
+        {
+          "vram": "0x8001c414",
+          "expected": "8fab0448",
+          "actual": "8fab0250"
+        },
+        {
+          "vram": "0x8001c424",
+          "expected": "afac0448",
+          "actual": "afac0250"
+        },
+        {
+          "vram": "0x8001c42c",
+          "expected": "8fad0448",
+          "actual": "8fad0250"
+        },
+        {
+          "vram": "0x8001c438",
+          "expected": "afae0448",
+          "actual": "afae0250"
+        },
+        {
+          "vram": "0x8001c43c",
+          "expected": "8faf0448",
+          "actual": "8faf0250"
+        },
+        {
+          "vram": "0x8001c468",
+          "expected": "27a40254",
+          "actual": "27a4005c"
+        },
+        {
+          "vram": "0x8001c498",
+          "expected": "27bd0448",
+          "actual": "27bd0250"
+        }
+      ]
+    }
+  },
+  "formatter_references": {
+    "fatal": {
+      "size": 500,
+      "bytes_sha256": "594dcb27de6c167a50ea1d3f85a85abeed29582fa321619a255268e33205b499",
+      "reference_object_sha256": "c19677786ea87ac5f5bc10f22781c36c356c6fb179ffb2f42668ec4bc820b008",
+      "compiled_object_sha256": "177da047018cf490b3cda3f8e51f9a15d9a18c8f86c3f98d12c226a2b3260520",
+      "objdiff_report_sha256": "63e2c9009308bf81c319a18cd5612be403e250a0860d676b24e1663e2022ecbd"
+    },
+    "warning": {
+      "size": 472,
+      "bytes_sha256": "f214ee99a774b24820cf0a622b43bde89b118ee80deea4b2d51e8be81e20b911",
+      "reference_object_sha256": "a0da885d11e3889e5ee3864023ef67336536468740be4be832cb81bfbd0e46eb",
+      "compiled_object_sha256": "3092d78ede04107f653e166299fb998f933ec1d51d561b47db9de63657c5722f",
+      "objdiff_report_sha256": "37432821dd31f53fb3cf108706f23c8a579a1931e46c43c74cf9d2d2ac8ad51c"
+    },
+    "buffered": {
+      ".text": {
+        "size": 664,
+        "sha256": "0faa2a2eb245ac67aee13f82b3fced840a36d258b04afe7afc3abf51c10c3c13"
+      },
+      ".rodata": {
+        "size": 72,
+        "sha256": "718a5af5f6c4080ca9d71ee5dd88b2b9d30b20fbcf70db7825667edc7f94f75e"
+      },
+      "reference_object_sha256": "e57fb7ad442483dd0d5f65f5a33311db233a54adcab28751f9474978afacf297",
+      "compiled_object_sha256": "b20b1af2b8771ecb0e04433351a8afc42d286e8067d90c75013e45f1164726f2",
+      "canonical_reference_sha256": "dc7939af2a00541f2a5b6e4888eeb78cdcf5106782bdb15d82a73a3ab43ccc38",
+      "objdiff_report_sha256": "5fd1fd3cdfa53a837b2ddc8353bea56b7295c102d21b624cec096b96e8d68049"
+    }
+  },
+  "matching_formatter_comparison": {
+    "source": "src/game/diagnostics/formatted.c",
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "expected_size": 664,
+    "actual_size": 664,
+    "matches": true,
+    "different_words": []
+  },
+  "matching_output_bridge_comparison": {
+    "source": "src/game/geometry_debug_bridge.c",
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "expected_size": 40,
+    "actual_size": 40,
+    "matches": true,
+    "different_words": []
+  },
+  "ghidra_verified_ranges": {
+    "8001C49C": {
+      "size": 664,
+      "sha256": "0faa2a2eb245ac67aee13f82b3fced840a36d258b04afe7afc3abf51c10c3c13"
+    },
+    "80090460": {
+      "size": 72,
+      "sha256": "718a5af5f6c4080ca9d71ee5dd88b2b9d30b20fbcf70db7825667edc7f94f75e"
+    }
+  }
+}

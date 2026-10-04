@@ -879,6 +879,7 @@ MATCHING_BLOCKS = (
     ("renderer_alpha_quad", "src/game/renderer_primitives/alpha_quad.c", 0x80045214, 0x800453D8),
     ("renderer_mesh_submit", "src/game/renderer_primitives/mesh_submit.c", 0x80045534, 0x80045934),
     ("destination_format", "src/game/formatting/destination.c", 0x800363D0, 0x80036668),
+    ("error_formatted", "src/game/diagnostics/formatted.c", 0x8001C49C, 0x8001C734),
     ("renderer_diagnostic_report", "src/game/renderer_diagnostics/report.c", 0x8004C6E0, 0x8004CCA4),
     ("actor_group_setup", "src/game/actor_groups/setup.c", 0x8000E108, 0x8000E328),
 )
@@ -911,6 +912,8 @@ CANDIDATE_BLOCKS = (
     ("early_render_fan", "src/game/early_render_fan.c", 0x8000B9D4, 0x8000BE80),
     ("early_render_tube_wide", "src/game/early_render_tube_wide.c", 0x8000B5AC, 0x8000B964),
     ("early_render_tube", "src/game/early_render_tube.c", 0x8000B1E4, 0x8000B5AC),
+    ("error_fatal_format", "src/game/diagnostics/fatal.c", 0x8001C0D0, 0x8001C2C4),
+    ("error_warning_format", "src/game/diagnostics/warning.c", 0x8001C2C4, 0x8001C49C),
     ("early_input_sequence_define", "src/game/early_input_sequence_define.c", 0x8001BE2C, 0x8001BF48),
     ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),

@@ -14,7 +14,8 @@ complete transitive input snapshot and hashes.
 
 | Source | Target range | Bytes | Current proof |
 | --- | --- | ---: | --- |
-| formatter target evidence | `0x8001C0D0..0x8001C734` | 1,636 | source still unresolved |
+| excluded fatal/warning candidates | `0x8001C0D0..0x8001C49C` | 972 | stack declarations unresolved |
+| `diagnostics/formatted.c` | `0x8001C49C..0x8001C734` | 664 | 664/664 and complete 72-byte table, zero differing words |
 | `script_service_cache_reset.c` | `0x8001C740..0x8001C790` | 80 | 80/80, zero differing words |
 | `script_service_files.c` | `0x8001C790..0x8001C8C4` | 308 | 308/308, zero differing words |
 | `script_service_cache_access.c` | `0x8001C8C4..0x8001CB48` | 644 | 644/644, zero differing words |
@@ -49,7 +50,9 @@ offset `0x54` in a `0x248`-byte frame. The two diagnostic variants place it
 at offset `0x254` in a `0x448`-byte frame. The extra `0x200` bytes in those
 two frames are not referenced by target instructions. No ordinary source
 evidence has established what source declaration caused that allocation, so
-no dummy local was added to force an exact frame.
+no dummy local was added to force an exact frame. The current fatal and
+warning candidates and bounded execution checks are documented in
+[error formatters](error-formatters.md); both remain excluded.
 
 `func_8001C49C` also accepts `%2d`, `%3d`, `%4d`, and `%5d`. Those forms set a
 decimal padding selector and insert leading spaces by moving the existing
@@ -58,8 +61,10 @@ For example, `%2d` produces at least three characters. The target dispatches cha
 through an 18-entry, 72-byte jump table at `0x80090460..0x800904A8`:
 `2`, `3`, `4`, and `5` select their respective widths, `C` selects the
 character path, and the remaining entries select the default path. The
-formatter source and that table remain unresolved rather than being
-reconstructed with artificial control flow.
+complete formatter source and table now match; their fresh comparison,
+independent reassembly and bounded execution evidence are documented in
+[error formatters](error-formatters.md). A width selector skips the next
+byte even if that byte is not `d`.
 
 ## Scripted-file records
 

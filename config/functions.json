@@ -15623,5 +15623,16 @@
     "section": ".boundary_dispatch",
     "section_vram": 2147586296,
     "evidence": "docs/actor-boundary-dispatch.md"
+  },
+  {
+    "name": "func_8001C49C",
+    "rom": 118940,
+    "vram": 2147599516,
+    "size": 664,
+    "source": "src/game/diagnostics/formatted.c",
+    "object": "build/us/error_formatted.o",
+    "section": ".error_formatted",
+    "section_vram": 2147599516,
+    "evidence": "docs/error-formatters.md"
   }
 ]
