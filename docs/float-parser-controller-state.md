@@ -31,9 +31,10 @@ bytes. Polling stores the coordinates into signed word arrays, current and
 previous buttons into word arrays, and newly pressed bits into a fifth word
 array. The older polling path also stores a button halfword at `0x8013DC08`.
 The complete loops and their indexed load/store widths establish these
-extents; neither polling procedure is counted as matching from this work.
+extents. The original storage checkpoint did not count either poll as
+matching; [both complete procedures now match](controller-polling-and-storage.md).
 
-`controller_pad_state.c` owns these 106 BSS bytes:
+`controller_pad_state.c` now owns these 104 BSS bytes:
 
 | Address | Size | Definition |
 | --- | ---: | --- |
@@ -43,16 +44,20 @@ extents; neither polling procedure is counted as matching from this work.
 | `0x8013DBD8` | 16 | Current button words |
 | `0x8013DBE8` | 16 | Previous button words |
 | `0x8013DBF8` | 16 | Newly pressed button words |
-| `0x8013DC08` | 2 | Legacy last-button halfword |
 
-The compiler emits all seven symbols at these offsets. Six trailing alignment
-bytes are trimmed; their ownership is not inferred. BSS consumes no ROM
+The compiler emits all six array symbols at these offsets. Eight trailing
+alignment bytes are trimmed; their ownership is not inferred. The existing
+two-byte legacy last-button word at `0x8013DC08` now belongs to the matching
+poll's function-local static, preserving its address and total BSS ownership.
+BSS consumes no ROM
 payload. Independent data checks verify the trimmed extent, symbol offsets,
 linked placement, and absence of executable code. The existing input mapper,
 button readers, and edge consumers retain complete instruction comparisons.
 
 [The provenance ledger](float-parser-controller-state-provenance.json)
-records the exact source, header, compiler, instruction, and data-proof hashes.
+records the earlier storage checkpoint's source, header, compiler, instruction,
+and data-proof hashes. The current ownership split and poll comparisons are in
+the [polling ledger](controller-polling-and-storage-provenance.json).
 The runtime comparison and linked ROM build must pass again after any input
 changes; the ledger records this checkpoint rather than replacing those checks.
 

@@ -1913,15 +1913,14 @@
     "section": ".controller_pad_state_bss",
     "vram": 2148785056,
     "rom": null,
-    "size": 106,
+    "size": 104,
     "symbols": {
       "D_8013DBA0": 0,
       "D_8013DBB8": 24,
       "D_8013DBC8": 40,
       "D_8013DBD8": 56,
       "D_8013DBE8": 72,
-      "D_8013DBF8": 88,
-      "D_8013DC08": 104
+      "D_8013DBF8": 88
     },
     "evidence": "docs/float-parser-controller-state.md"
   },
@@ -2462,17 +2461,18 @@
     "evidence": "docs/controller-polling-and-storage.md"
   },
   {
-    "source": "src/game/controller/polled_buttons.c",
-    "object": "build/us/controller_polled_buttons.o",
+    "source": "src/game/controller/poll.c",
+    "object": "build/us/controller_poll.o",
     "input_section": ".bss",
     "section": ".controller_polled_buttons_bss",
     "vram": 2148807744,
     "rom": null,
     "size": 2,
-    "symbols": {
-      "D_80143440": 0
-    },
-    "evidence": "docs/controller-polling-and-storage.md"
+    "symbols": {},
+    "evidence": "docs/controller-polling-and-storage.md",
+    "static_symbols": {
+      "polledButtons": 0
+    }
   },
   {
     "source": "src/game/controller/pak_directory.c",
@@ -3799,5 +3799,19 @@
       "D_800736CC": 20
     },
     "evidence": "docs/boss-update.md"
+  },
+  {
+    "source": "src/game/controller/legacy_poll.c",
+    "object": "build/us/controller_legacy_poll.o",
+    "input_section": ".bss",
+    "section": ".controller_legacy_polled_buttons_bss",
+    "vram": 2148785160,
+    "rom": null,
+    "size": 2,
+    "symbols": {},
+    "static_symbols": {
+      "polledButtons": 0
+    },
+    "evidence": "docs/controller-polling-and-storage.md"
   }
 ]

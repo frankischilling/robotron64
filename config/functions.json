@@ -15733,5 +15733,27 @@
     "section": ".actor_spawn_position",
     "section_vram": 2147647188,
     "evidence": "docs/actor-spawn-position.md"
+  },
+  {
+    "name": "func_8004F330",
+    "rom": 327472,
+    "vram": 2147808048,
+    "size": 424,
+    "source": "src/game/controller/poll.c",
+    "object": "build/us/controller_poll.o",
+    "section": ".controller_poll",
+    "section_vram": 2147808048,
+    "evidence": "docs/controller-polling-and-storage.md"
+  },
+  {
+    "name": "func_8004C1E0",
+    "rom": 314848,
+    "vram": 2147795424,
+    "size": 408,
+    "source": "src/game/controller/legacy_poll.c",
+    "object": "build/us/controller_legacy_poll.o",
+    "section": ".controller_legacy_poll",
+    "section_vram": 2147795424,
+    "evidence": "docs/controller-polling-and-storage.md"
   }
 ]

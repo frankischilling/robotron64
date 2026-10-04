@@ -695,7 +695,7 @@ SECTIONS
     .controller_legacy_initialize 0x8004C090 : AT(0x4CC90) SUBALIGN(4) { build/us/controller_legacy_initialize.o(.text) }
     .controller_legacy_scan 0x8004C0D4 : AT(0x4CCD4) SUBALIGN(4) { build/us/controller_legacy_scan.o(.text) }
     .controller_legacy_present 0x8004C1C8 : AT(0x4CDC8) SUBALIGN(4) { build/us/controller_legacy_present.o(.text) }
-    .cpu_after_controller_legacy_present 0x8004C1E0 : AT(0x4CDE0) { build/us/fallback.o(.rom_cpu_after_controller_legacy_present) }
+    .controller_legacy_poll 0x8004C1E0 : AT(0x4CDE0) SUBALIGN(4) { build/us/controller_legacy_poll.o(.text) }
     .pak_file_status 0x8004C378 : AT(0x4CF78) SUBALIGN(4) { build/us/pak_file_status.o(.text) }
     .pak_file_open 0x8004C3AC : AT(0x4CFAC) SUBALIGN(4) { build/us/pak_file_open.o(.text) }
     .pak_file_read 0x8004C564 : AT(0x4D164) SUBALIGN(4) { build/us/pak_file_read.o(.text) }
@@ -736,7 +736,7 @@ SECTIONS
     .controller_access 0x8004EFB0 : AT(0x4FBB0) SUBALIGN(4) { build/us/controller_access.o(.text) }
     .controller_motor_commands 0x8004F178 : AT(0x4FD78) SUBALIGN(4) { build/us/controller_motor_commands.o(.text) }
     .controller_scan 0x8004F1EC : AT(0x4FDEC) SUBALIGN(4) { build/us/controller_scan.o(.text) }
-    .endgame_4ff30_500d8 0x8004F330 : AT(0x4FF30) { build/us/fallback.o(.rom_endgame_4ff30_500d8) }
+    .controller_poll 0x8004F330 : AT(0x4FF30) SUBALIGN(4) { build/us/controller_poll.o(.text) }
     .controller_service_setup 0x8004F4D8 : AT(0x500D8) SUBALIGN(4) { build/us/controller_service_setup.o(.text) }
     .controller_motor_duty 0x8004F850 : AT(0x50450) SUBALIGN(4) { build/us/controller_motor_duty.o(.text) }
     .frame_interval_set 0x8004F960 : AT(0x50560) SUBALIGN(4) { build/us/frame_interval_set.o(.text) }
@@ -1505,6 +1505,7 @@ SECTIONS
     .camera_state_data_bss 0x800C8B88 (NOLOAD) : SUBALIGN(4) { build/us/camera_state_data.o(.bss) }
     .camera_matrix_data_bss 0x800CD250 (NOLOAD) : SUBALIGN(4) { build/us/camera_matrix_data.o(.bss) }
     .controller_pad_state_bss 0x8013DBA0 (NOLOAD) : SUBALIGN(4) { build/us/controller_pad_state.o(.bss) }
+    .controller_legacy_polled_buttons_bss 0x8013DC08 (NOLOAD) : SUBALIGN(4) { build/us/controller_legacy_poll.o(.bss) }
     .early_input_cursor_data_bss 0x8009E588 (NOLOAD) : SUBALIGN(4) { build/us/early_input_cursor_data.o(.bss) }
     .early_input_button_data_bss 0x8009E590 (NOLOAD) : SUBALIGN(4) { build/us/early_input_button_data.o(.bss) }
     .early_input_counter_data_bss 0x8009E9E0 (NOLOAD) : SUBALIGN(4) { build/us/early_input_counter_data.o(.bss) }
@@ -1521,7 +1522,7 @@ SECTIONS
     .controller_file_index_bss 0x8013DB78 (NOLOAD) : SUBALIGN(4) { build/us/controller_file_index.o(.bss) }
     .controller_motor_command_bss 0x80143418 (NOLOAD) : SUBALIGN(4) { build/us/controller_motor_command.o(.bss) }
     .controller_access_queue_bss 0x80143428 (NOLOAD) : SUBALIGN(4) { build/us/controller_access_queue.o(.bss) }
-    .controller_polled_buttons_bss 0x80143440 (NOLOAD) : SUBALIGN(4) { build/us/controller_polled_buttons.o(.bss) }
+    .controller_polled_buttons_bss 0x80143440 (NOLOAD) : SUBALIGN(4) { build/us/controller_poll.o(.bss) }
     .controller_pak_directory_state_bss 0x80143450 (NOLOAD) : SUBALIGN(4) { build/us/controller_pak_directory_state.o(.bss) }
     .controller_access_message_bss 0x80143424 (NOLOAD) : SUBALIGN(4) { build/us/controller_access_message.o(.bss) }
     .renderer_resource_identifier_maps_bss 0x800C8E00 (NOLOAD) : SUBALIGN(4) { build/us/renderer_resource_identifier_maps.o(.bss) }
@@ -1992,7 +1993,7 @@ ASSERT(SIZEOF(.graphics_state_helpers) == 0x8c, "graphics_state_helpers size cha
 ASSERT(SIZEOF(.controller_legacy_initialize) == 0x44, "controller_legacy_initialize size changed")
 ASSERT(SIZEOF(.controller_legacy_scan) == 0xf4, "controller_legacy_scan size changed")
 ASSERT(SIZEOF(.controller_legacy_present) == 0x18, "controller_legacy_present size changed")
-ASSERT(SIZEOF(.cpu_after_controller_legacy_present) == 0x198, "cpu_after_controller_legacy_present size changed")
+ASSERT(SIZEOF(.controller_legacy_poll) == 0x198, "controller_legacy_poll size changed")
 ASSERT(SIZEOF(.pak_file_status) == 0x34, "pak_file_status size changed")
 ASSERT(SIZEOF(.pak_file_open) == 0x1b8, "pak_file_open size changed")
 ASSERT(SIZEOF(.pak_file_read) == 0x78, "pak_file_read size changed")
@@ -2789,7 +2790,7 @@ ASSERT(SIZEOF(.renderer_status_message) == 0x14, "renderer_status_message size c
 ASSERT(SIZEOF(.endgame_data_960a4_960b0) == 0xc, "endgame_data_960a4_960b0 size changed")
 ASSERT(SIZEOF(.early_boundary_actor_spawn) == 0x18c, "early_boundary_actor_spawn size changed")
 ASSERT(SIZEOF(.controller_service_setup) == 0x378, "controller_service_setup size changed")
-ASSERT(SIZEOF(.endgame_4ff30_500d8) == 0x1a8, "endgame_4ff30_500d8 size changed")
+ASSERT(SIZEOF(.controller_poll) == 0x1a8, "controller_poll size changed")
 func_800640D0 = 0x800640D0;
 ASSERT(SIZEOF(.controller_motor_state_data) == 0x20, "controller_motor_state_data size changed")
 ASSERT(SIZEOF(.controller_thread_state_bss) == 0x2208, "controller_thread_state_bss size changed")
@@ -2894,7 +2895,7 @@ ASSERT(SIZEOF(.camera_state_data_bss) == 0x78, "camera_state_data BSS size chang
 ASSERT(SIZEOF(.camera_matrix_data_bss) == 0x24, "camera_matrix_data BSS size changed")
 ASSERT(SIZEOF(.controller_input) == 0x320, "controller_input size changed")
 ASSERT(SIZEOF(.game_float_parse) == 0x174, "game_float_parse size changed")
-ASSERT(SIZEOF(.controller_pad_state_bss) == 0x6a, "controller_pad_state BSS size changed")
+ASSERT(SIZEOF(.controller_pad_state_bss) == 0x68, "controller_pad_state BSS size changed")
 ASSERT(SIZEOF(.actor_position_submit) == 0xa4, "actor_position_submit size changed")
 ASSERT(SIZEOF(.actor_position_submit_constant) == 0x4, "actor_position_submit_constant size changed")
 ASSERT(SIZEOF(.save_menu_score_step) == 0xec, "save_menu_score_step size changed")
@@ -3154,3 +3155,5 @@ ASSERT(SIZEOF(.pak_directory_buffers) == 0x288, "pak_directory_buffers size chan
 ASSERT(SIZEOF(.pak_directory_strings) == 0x90, "pak_directory_strings size changed")
 D_800736A8 = 0x800736A8;
 D_800BA748 = 0x800BA748;
+
+ASSERT(SIZEOF(.controller_legacy_polled_buttons_bss) == 0x2, "controller legacy polled buttons BSS size changed")

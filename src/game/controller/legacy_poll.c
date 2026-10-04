@@ -1,8 +1,8 @@
 #include "../../../include/controller_services.h"
 
-/* Excluded candidate; see docs/controller-polling-and-storage.md. */
 int func_8004C1E0(int port)
 {
+    static unsigned short polledButtons;
     int controller;
     int buttons;
 
@@ -14,13 +14,14 @@ int func_8004C1E0(int port)
     func_800620A4(D_8013DBA0);
     for (controller = 0; controller < 4; controller++) {
         if (D_8013D9D0 & (1 << controller)) {
-            buttons = D_8013DBA0[controller].buttons;
+            polledButtons = D_8013DBA0[controller].buttons;
+            buttons = polledButtons;
             D_8013DBD8[controller] = buttons;
             D_8013DBB8[controller] = D_8013DBA0[controller].stickX;
             D_8013DBC8[controller] = D_8013DBA0[controller].stickY;
-            D_8013DBF8[controller] = buttons & (buttons ^ D_8013DBE8[controller]);
+            D_8013DBF8[controller] = (buttons ^ D_8013DBE8[controller]) &
+                                   D_8013DBD8[controller];
             D_8013DBE8[controller] = buttons;
-            D_8013DC08 = buttons;
         }
     }
     return D_8013D9D0;

@@ -3,7 +3,6 @@
 
 #include "controller_services.h"
 
-extern unsigned short D_8013DC08;
 
 void func_8004C090(void);
 void func_8004C0B0(void);
