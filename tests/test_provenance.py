@@ -30,6 +30,27 @@ class ProvenanceTests(unittest.TestCase):
     def test_accepts_current_source_headers_and_object(self):
         self.verify()
 
+    def test_partition_helper_is_required_and_changes_invalidate_the_object(self):
+        source = "src/game/audio/sequence_tick.c"
+        helper = "tools/partition_text.py"
+        for name in (source, helper):
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("synthetic input\n")
+        record(source, "compiled.o", root=self.root)
+        verify_record(source, "compiled.o", self.root)
+        path = object_record(self.root / "compiled.o")
+        metadata = json.loads(path.read_text())
+        self.assertIn(helper, metadata["inputs"])
+        del metadata["inputs"][helper]
+        path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, "omits local header.*partition_text.py"):
+            verify_record(source, "compiled.o", self.root)
+        record(source, "compiled.o", root=self.root)
+        (self.root / helper).write_text("changed helper\n")
+        with self.assertRaisesRegex(ValueError, "Build input changed.*partition_text.py"):
+            verify_record(source, "compiled.o", self.root)
+
     def test_rejects_wrong_existing_source(self):
         (self.root / "other.c").write_text("void unrelated(void) {}\n")
         with self.assertRaisesRegex(ValueError, "Compiled source"):

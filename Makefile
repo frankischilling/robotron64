@@ -7663,6 +7663,20 @@ build/us/audio_seek_restart.o: src/game/audio/seek_restart.c include/audio_prope
 
 RUNTIME_OBJECTS += build/us/audio_seek_forward.o build/us/audio_seek_restart.o
 
+build/us/audio_timing_tick.o: src/game/audio/timing_tick.c include/audio_host_internal.h include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_timing_tick.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_timing_tick.raw.o $@ .text 0x84
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_sequence_tick.o: src/game/audio/sequence_tick.c src/game/audio_stream_variable_read.c include/audio_host_internal.h include/audio_properties_internal.h include/audio_engine_tables_internal.h include/audio_property_pipeline_internal.h $(IDO) Makefile tools/partition_text.py tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_sequence_tick.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_sequence_tick.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^) src/game/audio_stream_variable_read.c tools/partition_text.py
+
+RUNTIME_OBJECTS += build/us/audio_timing_tick.o build/us/audio_sequence_tick.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
