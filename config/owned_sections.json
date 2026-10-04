@@ -3511,5 +3511,62 @@
     "size": 72,
     "symbols": {},
     "evidence": "docs/error-formatters.md"
+  },
+  {
+    "source": "src/game/audio/backend/playback.c",
+    "object": "build/us/audio_backend_playback.o",
+    "input_section": ".rodata",
+    "section": ".audio_backend_playback_rodata",
+    "vram": 2148097232,
+    "rom": 616656,
+    "size": 16,
+    "symbols": {},
+    "evidence": "docs/audio-playback-and-dispatch.md"
+  },
+  {
+    "source": "src/game/audio/backend/playback.c",
+    "object": "build/us/audio_backend_playback.o",
+    "input_section": ".bss",
+    "section": ".audio_backend_playback_bss",
+    "vram": 2149132956,
+    "rom": null,
+    "size": 32,
+    "symbols": {},
+    "static_symbols": {
+      "voice": 0,
+      "volume": 4,
+      "pan": 8,
+      "bend": 12,
+      "configuration": 16,
+      "pitch": 24,
+      "attackTime": 28
+    },
+    "evidence": "docs/audio-playback-and-dispatch.md"
+  },
+  {
+    "source": "src/game/audio/dispatch.c",
+    "object": "build/us/audio_dispatch.o",
+    "input_section": ".data",
+    "section": ".audio_dispatch",
+    "vram": 2148063232,
+    "rom": 582656,
+    "size": 40,
+    "symbols": {
+      "D_8008D800": 0
+    },
+    "evidence": "docs/audio-playback-and-dispatch.md"
+  },
+  {
+    "source": "src/game/audio/backend/commands.c",
+    "object": "build/us/audio_backend_commands.o",
+    "input_section": ".data",
+    "section": ".audio_backend_commands",
+    "vram": 2148063696,
+    "rom": 583120,
+    "size": 76,
+    "symbols": {
+      "D_8008D9D0": 0
+    },
+    "evidence": "docs/audio-playback-and-dispatch.md"
   }
 ]

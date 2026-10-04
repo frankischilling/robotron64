@@ -1,20 +1,23 @@
 # Recovery checkpoint
 
-The source checkpoint contains 1,361 matching C functions covering 255,832 bytes.
-It also contains twenty-nine assembly functions covering 4,372 live bytes, 27,727 bytes
-of source-owned initialized data, and 458,883 bytes of source-owned BSS. The
-previously published checkpoint `9efb6ef` contained 927 C functions covering
-121,048 bytes and one 56-byte assembly procedure. The current source adds
-434 complete C functions, 134,784 C bytes, twenty-eight assembly procedures with
-4,316 live bytes, 26,079 reconstructed initialized bytes, and 454,793 BSS bytes.
-Another 296 initialized bytes belong to the existing text implementation's
-generated table, whose ownership is now explicitly checked and counted.
+The source checkpoint contains 1,390 matching C functions covering 279,096 bytes.
+It also contains twenty-nine assembly functions covering 4,372 live bytes, 30,935
+bytes of source-owned initialized data, and 504,147 bytes of source-owned BSS.
+These totals include only complete procedures and sections whose source,
+placement, symbols and bytes are verified against the supplied target.
 
 The complete ROM still uses extracted fallback ranges. The game is not fully
 decompiled, and neither the total executable size nor the complete function
 denominator is established. ROM equality does not measure source completion.
 
 ## Recovered behavior
+
+[Playback setup and dispatch](audio-playback-and-dispatch.md) adds the complete
+836-byte playback procedure, sixteen bytes of pitch-bend constants, 32 bytes
+of private state, and the complete ten-pointer registry and nineteen-callback
+driver table. Its execution checker compares 195 guarded cases with retail
+instructions and an independent numeric model. SDK allocation and start remain
+recorded call boundaries in that checker.
 
 [Actor retirement and manual movement](actor-retirement-and-manual-motion.md)
 adds two complete matching procedures covering 2,600 instruction bytes,

@@ -119,10 +119,10 @@ typedef struct AudioContext {
 typedef void (*AudioVoiceCommand)(AudioVoice *voice);
 
 typedef struct AudioOperations {
-    void *unknown00;
+    void (*initialize)(AudioContext *context);
     void (*release)(AudioContext *context);
     AudioVoiceCommand frameUpdate;
-    void *unknown0C[2];
+    AudioVoiceCommand reserved[2];
     void (*stopVoice)(AudioVoice *voice);
     void (*pauseVoice)(AudioVoice *voice);
     /* Encoded voice commands 7 through 18, indexed by command minus 7. */
