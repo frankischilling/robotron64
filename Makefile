@@ -7573,6 +7573,24 @@ build/us/audio_bank_state.o: src/game/audio/startup/bank_state.c include/audio_b
 
 RUNTIME_OBJECTS += build/us/audio_bank_state.o
 
+# Complete fatal/warning formatters and their measured stack storage.
+build/us/error_fatal_format.o: src/game/diagnostics/fatal.c include/error_formatters.h include/error_message_storage_internal.h include/game_memory.h include/game_stdarg.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/error_fatal_format.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/error_fatal_format.raw.o $@ .text 0x1f4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/error_fatal_format.o
+
+build/us/error_warning_format.o: src/game/diagnostics/warning.c include/error_formatters.h include/error_message_storage_internal.h include/game_memory.h include/game_stdarg.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/error_warning_format.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/error_warning_format.raw.o $@ .text 0x1d8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/error_warning_format.o
+
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

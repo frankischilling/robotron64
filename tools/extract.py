@@ -34,7 +34,7 @@ REGIONS = (
     ("endgame_1af44_1af50", 0x1af44, 0x1af50),
     ("endgame_1b148_1b9a0", 0x1b148, 0x1b9a0),
     ("endgame_1ca2c_1cb48", 0x1ca2c, 0x1cb48),
-    ("cpu_after_early_player_sequence", 0x1ccc8, 0x1d09c),
+    ("early_player_sequence_tail", 0x1ccc8, 0x1ccd0),
     ("error_formatted_tail", 0x1d334, 0x1d340),
     ("cpu_after_script_service_cache_access", 0x1d748, 0x1d750),
     ("cpu_after_script_service_commands", 0x1d994, 0x1d9a0),
