@@ -3782,5 +3782,22 @@
       "D_8009389C": 100
     },
     "evidence": "docs/controller-pak-menu.md"
+  },
+  {
+    "source": "src/game/actor_groups/boss_update.c",
+    "object": "build/us/boss_update.o",
+    "input_section": ".data",
+    "section": ".boss_update_initializers",
+    "vram": 2147956408,
+    "rom": 475832,
+    "size": 24,
+    "symbols": {},
+    "static_symbols": {
+      "D_800736B8": 0,
+      "D_800736C4": 12,
+      "D_800736C8": 16,
+      "D_800736CC": 20
+    },
+    "evidence": "docs/boss-update.md"
   }
 ]

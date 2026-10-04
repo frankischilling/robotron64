@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("boss_update", "src/game/actor_groups/boss_update.c", 0x800107A0, 0x80010A3C),
     ("pak_menu_directory", "src/game/save_menus/pak_directory.c", 0x800267BC, 0x80026A10),
     ("boundary_dispatch", "src/game/actor_groups/boundary_dispatch.c", 0x800190F8, 0x800194DC),
     ("actor_collision_impact", "src/game/collisions/impact.c", 0x80016C1C, 0x80017364),

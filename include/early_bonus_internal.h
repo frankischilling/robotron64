@@ -13,5 +13,7 @@ extern int D_8009734C;
 GameActor *func_8000F030(ActorBehaviorActorInternal *actor, int index, int kind);
 void func_8000F318(ActorBehaviorActorInternal *actor);
 void func_8000FBC0(ActorBehaviorActorInternal *actor);
+void func_8000F814(EarlyGameActor *actor);
+void func_800107A0(void);
 
 #endif
