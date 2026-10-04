@@ -15667,5 +15667,16 @@
     "section": ".audio_synthesis_driver",
     "section_vram": 2147818496,
     "evidence": "docs/audio-synthesis-startup.md"
+  },
+  {
+    "name": "func_8005303C",
+    "rom": 343100,
+    "vram": 2147823676,
+    "size": 1520,
+    "source": "src/game/audio/startup/bank_load.c",
+    "object": "build/us/audio_bank_load.o",
+    "section": ".audio_bank_load",
+    "section_vram": 2147823676,
+    "evidence": "docs/audio-bank-loader.md"
   }
 ]

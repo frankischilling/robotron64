@@ -952,7 +952,7 @@ build/us/object_reset.o: src/game/object_reset.c include/game_memory.h include/o
 	$(PYTHON) tools/trim_padding.py build/us/object_reset.raw.o $@ .text 0x8c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_startup.o: src/game/audio_startup.c include/audio_config.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/heap.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_startup.o: src/game/audio_startup.c include/audio_backend_internal.h include/audio_bank_layout_internal.h include/audio_callbacks.h include/audio_config.h include/audio_control.h include/audio_file_services_internal.h include/audio_host_internal.h include/audio_io.h include/audio_loader_internal.h include/audio_patch_table_internal.h include/audio_properties_internal.h include/audio_runtime.h include/audio_voice_capture_internal.h include/heap.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_startup.raw.o $@ .text 0x2e4
@@ -6101,7 +6101,7 @@ build/us/audio_voice_defaults.o: src/game/audio_voice_defaults.c include/audio_f
 RUNTIME_OBJECTS += \
     build/us/audio_voice_defaults.o
 
-build/us/audio_memory_size.o: src/game/audio_memory_size.c tools/owned_sections.py config/owned_sections.json include/audio_control.h include/audio_file_services_internal.h include/audio_host_internal.h include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_memory_size.o: src/game/audio_memory_size.c include/audio_backend_internal.h include/audio_bank_layout_internal.h include/audio_callbacks.h include/audio_control.h include/audio_file_services_internal.h include/audio_host_internal.h include/audio_io.h include/audio_loader_internal.h include/audio_patch_table_internal.h include/audio_properties_internal.h include/audio_runtime.h include/audio_voice_capture_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h tools/owned_sections.py config/owned_sections.json $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_memory_size.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_memory_size.raw.o build/us/audio_memory_size.text.o .text 0x2cc
@@ -7537,6 +7537,41 @@ build/us/audio_synthesis_synth_state.o: src/game/audio/startup/synth_state.c inc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/audio_synthesis_synth_state.o
+
+
+# SN64 bank loading and complete configuration/control storage.
+build/us/audio_bank_load.o: src/game/audio/startup/bank_load.c include/audio_backend_internal.h include/audio_bank_layout_internal.h include/audio_callbacks.h include/audio_control.h include/audio_file_services_internal.h include/audio_host_internal.h include/audio_io.h include/audio_loader_internal.h include/audio_patch_table_internal.h include/audio_properties_internal.h include/audio_runtime.h include/audio_voice_capture_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_bank_load.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_bank_load.raw.o build/us/audio_bank_load.text.o .text 0x5f0
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_bank_load.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_bank_load.o
+
+build/us/audio_bank_allocation_state.o: src/game/audio/startup/allocation_state.c include/audio_backend_internal.h include/audio_bank_layout_internal.h include/audio_callbacks.h include/audio_control.h include/audio_file_services_internal.h include/audio_host_internal.h include/audio_io.h include/audio_loader_internal.h include/audio_patch_table_internal.h include/audio_properties_internal.h include/audio_runtime.h include/audio_voice_capture_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_bank_allocation_state.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_bank_allocation_state.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_bank_allocation_state.o
+
+build/us/audio_bank_loader_storage.o: src/game/audio/startup/loader_storage.c include/audio_backend_internal.h include/audio_bank_layout_internal.h include/audio_callbacks.h include/audio_control.h include/audio_file_services_internal.h include/audio_host_internal.h include/audio_io.h include/audio_loader_internal.h include/audio_patch_table_internal.h include/audio_properties_internal.h include/audio_runtime.h include/audio_voice_capture_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_bank_loader_storage.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_bank_loader_storage.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_bank_loader_storage.o
+
+build/us/audio_bank_state.o: src/game/audio/startup/bank_state.c include/audio_backend_internal.h include/audio_bank_layout_internal.h include/audio_callbacks.h include/audio_control.h include/audio_file_services_internal.h include/audio_host_internal.h include/audio_io.h include/audio_loader_internal.h include/audio_patch_table_internal.h include/audio_properties_internal.h include/audio_runtime.h include/audio_voice_capture_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_bank_state.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_bank_state.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_bank_state.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

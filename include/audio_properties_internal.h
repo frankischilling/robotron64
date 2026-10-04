@@ -8,7 +8,13 @@ typedef struct AudioRecordSlot {
 } AudioRecordSlot;
 
 typedef struct AudioRecordTable {
-    unsigned int unknown00[8];
+    unsigned int signature;
+    unsigned int version;
+    unsigned int unknown08[2];
+    unsigned char storageMode;
+    unsigned char unknown11[7];
+    unsigned int dataSize;
+    unsigned int unknown1C;
     AudioRecordSlot *slots;
 } AudioRecordTable;
 
@@ -64,9 +70,10 @@ typedef struct AudioVoice {
     unsigned char *data;
     unsigned char *command;
     unsigned int *labelOffsets;
-    unsigned int unknown3C;
+    unsigned char **returnStackStart;
     unsigned char **returnStack;
-    unsigned int unknown44[2];
+    unsigned char **returnStackEnd;
+    unsigned int commandBytes;
     void *record4C;
 } AudioVoice;
 
@@ -99,18 +106,21 @@ typedef struct AudioStatusRecord {
     unsigned int time;
 } AudioStatusRecord;
 
+struct AudioPatchBank;
+
 typedef struct AudioContext {
-    unsigned int unknown00;
+    unsigned int *ticks;
     unsigned char activeCount;
     unsigned char activeVoiceCount;
     unsigned char activeStatusCount;
-    unsigned char unknown07[2];
+    unsigned char hardwareVoiceCapacity;
+    unsigned char unknown08;
     unsigned char callbackCount;
     unsigned char voiceIndexCount;
-    unsigned char unknown0B;
+    unsigned char returnStackCapacity;
     AudioRecordTable *table;
     AudioCallbackRecord *callbacks;
-    unsigned int unknown14;
+    struct AudioPatchBank *patchBank;
     AudioInstance *instances;
     AudioVoice *voices;
     AudioStatusRecord *statusRecords;
@@ -147,6 +157,8 @@ typedef char AudioVoiceMustBe80Bytes[sizeof(AudioVoice) == 0x50 ? 1 : -1];
 typedef char AudioPropertiesMustBe20Bytes[sizeof(AudioProperties) == 0x14 ? 1 : -1];
 typedef char AudioCallbackRecordMustBe8Bytes[sizeof(AudioCallbackRecord) == 8 ? 1 : -1];
 typedef char AudioRecordSlotMustBe16Bytes[sizeof(AudioRecordSlot) == 16 ? 1 : -1];
+typedef char AudioRecordTableMustBe36Bytes[sizeof(AudioRecordTable) == 36 ? 1 : -1];
+typedef char AudioContextMustBe36Bytes[sizeof(AudioContext) == 36 ? 1 : -1];
 typedef char AudioStatusRecordMustBe20Bytes[sizeof(AudioStatusRecord) == 20 ? 1 : -1];
 typedef char AudioOperationsMustBe76Bytes[sizeof(AudioOperations) == 76 ? 1 : -1];
 
