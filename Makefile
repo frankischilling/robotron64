@@ -5659,7 +5659,7 @@ RUNTIME_OBJECTS += \
     build/us/audio_backend_patch_trigger.o \
     build/us/actor_dynamic_point_append.o
 
-build/us/save_menu_pak_name_select.o: src/game/save_menu_pak_name_select.c include/destination_format.h include/controller_input.h include/controller_services.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/save_menu_pak_name_select.o: src/game/save_menu_pak_name_select.c include/controller_pak_menu_internal.h include/destination_format.h include/controller_input.h include/controller_services.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_pak_name_select.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_name_select.raw.o $@ .text 0x90
@@ -7589,6 +7589,32 @@ build/us/error_warning_format.o: src/game/diagnostics/warning.c include/error_fo
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/error_warning_format.o
+
+
+# Controller Pak directory menu and verified strings/storage.
+build/us/pak_menu_directory.o: src/game/save_menus/pak_directory.c include/controller_input.h include/controller_pak_menu_internal.h include/controller_services.h include/destination_format.h include/game_memory.h include/menu_label_internal.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pak_menu_directory.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/pak_menu_directory.raw.o $@ .text 0x254
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/pak_menu_directory.o
+
+build/us/pak_directory_storage.o: src/game/save_menus/pak_directory_storage.c include/controller_pak_menu_internal.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pak_directory_storage.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/pak_directory_storage.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/pak_directory_storage.o
+
+build/us/pak_directory_strings.o: src/game/save_menus/pak_directory_strings.c include/controller_pak_menu_internal.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/pak_directory_strings.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/pak_directory_strings.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/pak_directory_strings.o
 
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld

@@ -15700,5 +15700,16 @@
     "section": ".error_warning_format",
     "section_vram": 2147599044,
     "evidence": "docs/error-formatter-frames.md"
+  },
+  {
+    "name": "func_800267BC",
+    "rom": 160700,
+    "vram": 2147641276,
+    "size": 596,
+    "source": "src/game/save_menus/pak_directory.c",
+    "object": "build/us/pak_menu_directory.o",
+    "section": ".pak_menu_directory",
+    "section_vram": 2147641276,
+    "evidence": "docs/controller-pak-menu.md"
   }
 ]
