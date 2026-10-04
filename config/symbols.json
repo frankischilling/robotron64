@@ -311,5 +311,29 @@
     "rom": "0x65d80",
     "vram": "0x80065180",
     "status": "behavior supported; see docs/scheduler.md"
+  },
+  {
+    "name": "func_8005B064",
+    "vram": "0x8005B064",
+    "rom": "0x5BC64",
+    "status": "matching C; see docs/audio-playback-and-dispatch.md"
+  },
+  {
+    "name": "D_8008D800",
+    "vram": "0x8008D800",
+    "rom": "0x8E400",
+    "status": "matching initialized data; ten backend pointers; see docs/audio-playback-and-dispatch.md"
+  },
+  {
+    "name": "D_8008D9D0",
+    "vram": "0x8008D9D0",
+    "rom": "0x8E5D0",
+    "status": "matching initialized data; nineteen driver callbacks; see docs/audio-playback-and-dispatch.md"
+  },
+  {
+    "name": "func_8005BA24",
+    "vram": "0x8005BA24",
+    "rom": "0x5C624",
+    "status": "verified 676-byte hardware pitch command; C candidate remains nonmatching"
   }
 ]

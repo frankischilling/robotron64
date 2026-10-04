@@ -1,0 +1,316 @@
+{
+  "audit_date": "2026-10-03",
+  "new_c_functions": 1,
+  "new_instruction_bytes": 836,
+  "new_initialized_bytes": 132,
+  "new_bss_bytes": 32,
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "playback_comparison": {
+    "source": "src/game/audio/backend/playback.c",
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "expected_size": 836,
+    "actual_size": 836,
+    "matches": true,
+    "different_words": []
+  },
+  "pitch_support_comparison": {
+    "source": "src/game/audio_pitch_scale.c",
+    "compiler_profile": {
+      "name": "game-r4300-mul",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32",
+        "-Wab,-r4300_mul"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "expected_size": 100,
+    "actual_size": 100,
+    "matches": true,
+    "different_words": []
+  },
+  "independent_references": {
+    "playback": {
+      "blocks": [
+        {
+          "section": ".text",
+          "vram": 2147856484,
+          "rom": 375908,
+          "size": 836,
+          "sha256": "9dc7f633930a76a5605624768b19f9b76ac964d6a26abd65222d383197abc00d"
+        },
+        {
+          "section": ".rodata",
+          "vram": 2148097232,
+          "rom": 616656,
+          "size": 16,
+          "sha256": "47fd53fdd04193bd33f7c7411279c4e28903b54bcf35d29cf24762be5b7fefe5"
+        }
+      ],
+      "reference_object_sha256": "32406250b05a21e9d76d090e9b9ed53cfcc6c05d8d3e4f84e3b830c0b5ebb0d6",
+      "compiled_object_sha256": "030ae495a4e302a05b8041b14540ba7e837aa2744076cfdc04e46fff172b2c38",
+      "objdiff_report_sha256": "e00b6888801e731be3498b6b5f60ad30c3c5fec11ec5671316ad54f094badfe4",
+      "scores": {
+        "left": {
+          ".text": 100.0,
+          ".data": 0.0,
+          ".bss": 100.0,
+          ".rodata": 100.0
+        },
+        "right": {
+          ".text": null,
+          ".rodata": null,
+          ".bss": null
+        }
+      }
+    },
+    "registry": {
+      "blocks": [
+        {
+          "section": ".data",
+          "vram": 2148063232,
+          "rom": 582656,
+          "size": 40,
+          "sha256": "5fd8eec85ec0ddeec1848039ad02e5467d22bb59d60b57010e6a714f39d212ea"
+        }
+      ],
+      "reference_object_sha256": "814bbce7045b883f56c12275179afd3b1264b824342a27a6662ca22a18c3c58f",
+      "compiled_object_sha256": "95bbb941f23a4bdb79b7b929a110eb3b5adfa6784ac6c6352d96ca765a603f45",
+      "objdiff_report_sha256": "67fc5039e8afb507e9f6259d4f5022722c8cf7b401d3b617feb7ee76b0139d4c",
+      "scores": {
+        "left": {
+          ".text": null,
+          ".data": 100.0,
+          ".bss": 0.0
+        },
+        "right": {
+          ".data": null
+        }
+      }
+    },
+    "driver": {
+      "blocks": [
+        {
+          "section": ".data",
+          "vram": 2148063696,
+          "rom": 583120,
+          "size": 76,
+          "sha256": "26b157c44c63a5c2abc390399d8e23254e2a674c4cf3d41c4101df297c5ac062"
+        }
+      ],
+      "reference_object_sha256": "c9fe46d8f3001b511bf35ebf58a8f4e4bcf8da5434456fd4c83abe04b009592a",
+      "compiled_object_sha256": "c959d815c4fc16459b29bff101339ca35c7bc7e1ba5b2c69b273b3a5d9c23c62",
+      "objdiff_report_sha256": "e244c8b1b78a4813116df7dc816518a8c09cb863bd69f1348dbc0277fce5de27",
+      "scores": {
+        "left": {
+          ".text": null,
+          ".data": 100.0,
+          ".bss": 0.0
+        },
+        "right": {
+          ".data": null
+        }
+      }
+    }
+  },
+  "execution": {
+    "matches": true,
+    "cases": 195,
+    "trace_sha256": "030b0c6489039662abe5fd80e2c8ce238a9494fa2a4f875c031d18a1e1a49084",
+    "emulator": "2.1.1",
+    "checker_sha256": "838283d4df0d2ba54f9ac851e3b04f986c9cde1514a6f532971b62313d369a09",
+    "machine_helper_sha256": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
+    "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "limits": [
+      "SDK allocation and start use recorded stubs; devices and SDK callees are outside scope.",
+      "Caller-saved integer and floating registers are clobbered at both SDK boundaries.",
+      "Private BSS including padding, input records, pointer globals, guards, stack and callee-saved registers checked.",
+      "Finite pitch fixtures cover signed bend and separate up/down factors; volume uses observed 32-bit wrapping."
+    ]
+  },
+  "ghidra_verified_ranges": {
+    "8005B064": {
+      "size": 836,
+      "sha256": "9dc7f633930a76a5605624768b19f9b76ac964d6a26abd65222d383197abc00d"
+    },
+    "8008D800": {
+      "size": 40,
+      "sha256": "5fd8eec85ec0ddeec1848039ad02e5467d22bb59d60b57010e6a714f39d212ea"
+    },
+    "8008D9D0": {
+      "size": 76,
+      "sha256": "26b157c44c63a5c2abc390399d8e23254e2a674c4cf3d41c4101df297c5ac062"
+    },
+    "80095CD0": {
+      "size": 16,
+      "sha256": "47fd53fdd04193bd33f7c7411279c4e28903b54bcf35d29cf24762be5b7fefe5"
+    },
+    "8005BA24": {
+      "size": 676,
+      "sha256": "64522eafca1fbe21c9b351ab43169dc52c2f5f777dbaadd1d89b9c226493cc2a"
+    }
+  },
+  "ghidra_operations_layout": {
+    "name": "AudioOperations",
+    "size": 76,
+    "alignment": 4,
+    "fields": [
+      {
+        "offset": 0,
+        "size": 4,
+        "type": "_func_3 *",
+        "name": "pInitialize"
+      },
+      {
+        "offset": 4,
+        "size": 4,
+        "type": "_func_3 *",
+        "name": "release"
+      },
+      {
+        "offset": 8,
+        "size": 4,
+        "type": "AudioVoiceCommand",
+        "name": "frameUpdate"
+      },
+      {
+        "offset": 12,
+        "size": 8,
+        "type": "AudioVoiceCommand[2]",
+        "name": "aReserved"
+      },
+      {
+        "offset": 20,
+        "size": 4,
+        "type": "_func_4 *",
+        "name": "stopVoice"
+      },
+      {
+        "offset": 24,
+        "size": 4,
+        "type": "_func_5 *",
+        "name": "pauseVoice"
+      },
+      {
+        "offset": 28,
+        "size": 48,
+        "type": "AudioVoiceCommand[12]",
+        "name": "commands"
+      }
+    ]
+  },
+  "ghidra_prototypes": {
+    "8005B064": "void func_8005B064(AudioStatusRecord * hardware)",
+    "8005BA24": "void func_8005BA24(AudioVoice * voice)",
+    "8005C32C": "void func_8005C32C(AudioVoice * voice)"
+  },
+  "validation": {
+    "independent_comparisons": {
+      "runtime": {
+        "matches": true,
+        "source_units": 872,
+        "report_sha256": "e2085a220664cfe6f1500e189617a12d2cb83f0c2c9575813972e424e9b2f490"
+      },
+      "startup": {
+        "matches": true,
+        "source_units": 2,
+        "report_sha256": "820362d6dbec3af8f2af9ed320c2ebd4e401e97a3dc3bf64d95ba8a161d2283d"
+      },
+      "assembly": {
+        "matches": true,
+        "source_units": 18,
+        "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data": {
+        "matches": true,
+        "source_units": 106,
+        "report_sha256": "6554966da6b44afc74f9a45d525242308881aa69a34389dd312ef3535f1ebd68"
+      }
+    },
+    "clean_setup": true,
+    "clean_rom_matches": true,
+    "clean_rom_bytes": 8388608,
+    "tests_passed": 155,
+    "clean_build_log_sha256": "aa5c2af575ce205a4bab8f5f5b3d36aac6b1abb571d55acb1baefb89fffd58b3"
+  },
+  "checkpoint": {
+    "matched_c_functions": 1390,
+    "matched_c_bytes": 279096,
+    "matched_assembly_functions": 29,
+    "matched_assembly_bytes": 4372,
+    "source_owned_initialized_bytes": 30935,
+    "source_owned_bss_bytes": 504147,
+    "total_code_bytes": null,
+    "total_functions": null,
+    "matching_code_percent": null,
+    "unmeasured_rom_bytes": 8074205,
+    "whole_rom_matches": true
+  },
+  "inputs_sha256": {
+    "Makefile": "dabef08a007e1cc6cf91309c7be77b141aea69288f724312c498e201267ddacf",
+    "config/functions.json": "7bc04c36bd3681b0fabf1dae28e3504f7967bfb93a386a3ead08c413d5fa0892",
+    "config/owned_sections.json": "7ad9a38dd406dc5b544ff430901914950d67d7da38e19e9b992e6fa45277a27c",
+    "config/runtime_symbols.ld": "364b04839769097dc3920170a0b753d77a0f9a4d8c2ef5d0c2be6ce718341cd3",
+    "config/symbols.json": "686b5283af914988ff17a292c522c51f8c1bbf631af4e72f64bca1e0b58985e6",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "include/audio_backend_internal.h": "2acf19d8166c5cd4091b88c5af4adb27d4463d417c60e34e646f77ba5e7cc97b",
+    "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+    "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+    "include/audio_engine_tables_internal.h": "dd6b732f8de8b2130b8c7a47d0fc79a7fa95afe54874d3202d25babf2940a17b",
+    "include/audio_io.h": "3c8b1897d96db51a8c7ad05cdcec2a00d79b17b3fa4dfbbb7ec7632171767c79",
+    "include/audio_properties_internal.h": "606f51d2c6f3ad2a42eb98ae10dc65224df6c82603b605acc6f4119acb4e316b",
+    "include/audio_runtime.h": "3536274ad6743227d5d952e567de7e5404f3dae993a9682121b217633eed40ea",
+    "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683",
+    "include/scheduler.h": "17b5151851081813145e8ddbc1edc14f5508c5aabef31e16597451ad872eab7c",
+    "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+    "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+    "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+    "include/sdk_device_manager.h": "faac5bafa8ae1587a0a177eb37323c3c0ff16c6822c7bc75a0bcfe2a41cb6900",
+    "include/sdk_pi_device.h": "e2ffc49fd3de308f2d0daf75a038f098dac0024c413e1fb77b7ca51e01018b44",
+    "include/sdk_pi_dma.h": "40d7b5755f20a5eab62933f09fe065061653d4e11ef001b7dd7acd9dd0a0632d",
+    "include/sdk_pi_transfer.h": "fe0c22783ee9a451956ee0dfc8457193dcdf9869b0d5ef5f7d0b88d2a61c8420",
+    "include/sdk_pi_word.h": "bd173c27d20848bb1b478b504e81b4c904c104f37bc1c9dec1e9bd118d2e63b9",
+    "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+    "linker_scripts/us.ld": "99e34e060c10c8bcc1c197a572908f49cd9d0d01fcc46be31d3e3148363a44b0",
+    "src/game/audio/backend/commands.c": "3d217d853d4fe3c2857fe26e40e744ceb9d85066763f9c26ec99aba02c8f5a45",
+    "src/game/audio/backend/playback.c": "e62ff92586bea151909949c51b75629102efbefb8edf8875bf6400a7ea109d4b",
+    "src/game/audio/dispatch.c": "5aabe73c4f99a06c8777dd319d5482e17eedfb6c07ca946dffcd460db4cd1cf0",
+    "src/game/audio_unused_command.c": "4e6856efe2b6bfc5b73271cdc80059a2f5b8aa75221e0e5c8716d2279c5221f9",
+    "tools/check_audio_playback.py": "838283d4df0d2ba54f9ac851e3b04f986c9cde1514a6f532971b62313d369a09",
+    "tools/compare_runtime.py": "5b36464a86a851f4b5315390383aeb2893706df1e243c0d7ba194e5f06541d6c",
+    "tools/extract.py": "8fc6723322f4f1fd008e41762d8533fa12689f344f5084adc07ba902f6e5e9f3"
+  },
+  "limits": [
+    "SDK allocation and wave-start device behavior is outside the guarded CPU checker.",
+    "Ghidra MCP adds p/a member-name prefixes; callback types and offsets agree with the C header.",
+    "The newly identified 676-byte pitch command remains fallback and is not matching-source progress.",
+    "Release, stream walkers, sequencer and renderer probes remain excluded; whole-ROM equality includes fallback."
+  ]
+}

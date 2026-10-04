@@ -4733,11 +4733,11 @@ build/us/renderer_flag_set.o: src/game/renderer_flag_set.c include/debug_output.
 	$(PYTHON) tools/trim_padding.py build/us/renderer_flag_set.raw.o $@ .text 0xc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/audio_unused_command.o: src/game/audio_unused_command.c $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/audio_unused_command.o: src/game/audio_unused_command.c include/audio_properties_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_unused_command.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/audio_unused_command.raw.o $@ .text 0x8
-	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+	$(PYTHON) tools/provenance.py $< $@ include/audio_properties_internal.h $(filter include/%,$^)
 
 build/us/early_pool_initialize.o: src/game/early_pool_initialize.c include/early_pool_tick.h include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
@@ -7461,6 +7461,33 @@ build/us/error_formatted.o: src/game/diagnostics/formatted.c include/error_forma
 	$(PYTHON) tools/provenance.py $< $@ include/error_formatters.h include/game_memory.h include/game_stdarg.h
 
 RUNTIME_OBJECTS += build/us/error_formatted.o
+
+
+# Audio playback setup and complete callback dispatch tables.
+build/us/audio_backend_playback.o: src/game/audio/backend/playback.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/audio_voice_capture_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_playback.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_backend_playback.raw.o build/us/audio_backend_playback.text.o .text 0x344
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_backend_playback.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_backend_playback.o
+
+build/us/audio_dispatch.o: src/game/audio/dispatch.c include/audio_engine_tables_internal.h include/audio_properties_internal.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_dispatch.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_dispatch.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_dispatch.o
+
+build/us/audio_backend_commands.o: src/game/audio/backend/commands.c include/audio_backend_internal.h include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/audio_voice_capture_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_backend_commands.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_backend_commands.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_backend_commands.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

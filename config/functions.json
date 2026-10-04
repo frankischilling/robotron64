@@ -15634,5 +15634,16 @@
     "section": ".error_formatted",
     "section_vram": 2147599516,
     "evidence": "docs/error-formatters.md"
+  },
+  {
+    "name": "func_8005B064",
+    "rom": 375908,
+    "vram": 2147856484,
+    "size": 836,
+    "source": "src/game/audio/backend/playback.c",
+    "object": "build/us/audio_backend_playback.o",
+    "section": ".audio_backend_playback",
+    "section_vram": 2147856484,
+    "evidence": "docs/audio-playback-and-dispatch.md"
   }
 ]

@@ -84,8 +84,8 @@ ROM and linked source provenance before reporting recovered code. `make test`
 checks the compiler-profile selection, manifest, and verification tools.
 
 The [bank initializer](audio-bank-layout.md) has since been recovered as a
-complete 708-byte function with four bytes of private BSS. Playback setup,
-note setup, several command handlers, and portions of the sequencer are still candidates.
+complete 708-byte function with four bytes of private BSS. Several command
+handlers and portions of the sequencer are still candidates.
 Same-size or low-difference
 results do not qualify as matches and have not replaced their fallback spans.
 This batch does not claim that the entire audio system is source-recovered.
@@ -108,4 +108,6 @@ pointers. This assignment order reproduces the target's load scheduling and
 all 176 bytes with the canonical audio header. The
 [voice-initialization ledger](audio-voice-start-provenance.json) retains the
 archived complete comparison and source identities. This procedure defines
-no initialized data or private BSS; playback at `0x8005B064` remains fallback.
+no initialized data or private BSS. The subsequent [playback and dispatch
+recovery](audio-playback-and-dispatch.md) owns the complete playback procedure
+at `0x8005B064` and both backend tables.
