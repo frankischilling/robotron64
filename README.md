@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,400 matching C functions covering 286,188 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,223 bytes of source-owned initialized data, and 505,131 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,402 matching C functions covering 287,316 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,223 bytes of source-owned initialized data, and 505,131 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -323,6 +323,12 @@ covers input handling, workspace allocation, block dispatch, fixed-block decodin
 and the source-owned Huffman tables and buffers. The stored-block decoder is
 recovered. The table builder, dynamic, and literal/distance decoding loops
 still use fallback code.
+
+[Audio sequence seeking](docs/audio-seeking.md) recovers both complete stream
+walkers. The forward and restart paths preserve unsigned timing, backend and
+sequence dispatch, and their different returned-cursor behavior after redirects.
+The guarded execution check uses the real variable-length decoder and an
+independent array model across 1,808 cases.
 
 [Bank initialization](docs/audio-bank-layout.md) and the
 [volume, pan, and pedal commands](docs/audio-driver-commands.md) preserve the

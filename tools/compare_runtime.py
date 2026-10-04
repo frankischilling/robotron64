@@ -11,6 +11,9 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("audio_seek_forward", "src/game/audio/seek_forward.c", 0x80056EF0, 0x80057124),
+    ("audio_seek_restart", "src/game/audio/seek_restart.c", 0x80057124, 0x80057358),
+
     ("actor_spawn_position", "src/game/actor_spawn_position.c", 0x80027ED4, 0x8002818C),
     ("boss_update", "src/game/actor_groups/boss_update.c", 0x800107A0, 0x80010A3C),
     ("pak_menu_directory", "src/game/save_menus/pak_directory.c", 0x800267BC, 0x80026A10),
