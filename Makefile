@@ -7444,11 +7444,11 @@ RUNTIME_OBJECTS += build/us/boundary_dispatch.o
 
 
 # Fatal and warning formatter strings, including complete alignment bytes.
-build/us/error_messages.o: src/game/diagnostics/messages.c $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/error_messages.o: src/game/diagnostics/messages.c include/error_formatters.h $(IDO) Makefile tools/owned_sections.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/error_messages.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/error_messages.raw.o $@
-	$(PYTHON) tools/provenance.py $< $@
+	$(PYTHON) tools/provenance.py $< $@ include/error_formatters.h
 
 RUNTIME_OBJECTS += build/us/error_messages.o
 

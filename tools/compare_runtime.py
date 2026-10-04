@@ -911,6 +911,8 @@ CANDIDATE_BLOCKS = (
     ("early_render_fan", "src/game/early_render_fan.c", 0x8000B9D4, 0x8000BE80),
     ("early_render_tube_wide", "src/game/early_render_tube_wide.c", 0x8000B5AC, 0x8000B964),
     ("early_render_tube", "src/game/early_render_tube.c", 0x8000B1E4, 0x8000B5AC),
+    ("error_fatal_format", "src/game/diagnostics/fatal.c", 0x8001C0D0, 0x8001C2C4),
+    ("error_warning_format", "src/game/diagnostics/warning.c", 0x8001C2C4, 0x8001C49C),
     ("early_input_sequence_define", "src/game/early_input_sequence_define.c", 0x8001BE2C, 0x8001BF48),
     ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),

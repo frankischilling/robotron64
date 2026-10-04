@@ -6,8 +6,8 @@ Both use a 500-byte message buffer and read integer and pointer varargs
 from the o32 argument homes. They recognize `%C`, `%c`, `%d`, `%s` and
 `%x`. An unrecognized percent specifier consumes the specifier without
 advancing the argument cursor. Character arguments use the last byte of
-the four-byte home. This is static evidence from retail MIPS, not a
-complete execution proof or a claim that either formatter matches C.
+the four-byte home. Retail MIPS and Ghidra establish those findings;
+the bounded execution checks below cover the reconstructed candidates.
 
 `src/game/diagnostics/messages.c` reconstructs the 64 initialized bytes
 at `0x80090420..0x80090460`, including the four diagnostic strings,
@@ -24,8 +24,44 @@ symbols and complete `.rodata` section each match the canonical source
 object at 100% in objdiff. IDO emits 62 raw section bytes; the existing
 owned-section normalizer preserves the final two zero alignment bytes.
 Neither formatter contributes instruction ownership or matching-function
-progress. Their candidates remain private and are tracked in
+progress. Their candidates remain excluded and are tracked in
 [issue #103](https://github.com/frankischilling/robotron64/issues/103).
+
+## Excluded formatter candidates
+
+`src/game/diagnostics/fatal.c` and `warning.c` reconstruct the complete
+formatting loops and diagnostic calls. They preserve the unsigned input
+bytes and consume promoted character arguments through an ordinary
+integer vararg followed by a byte conversion. The existing shared
+`game_stdarg.h` is unchanged.
+
+Fresh complete comparisons compile to 500 and 472 bytes, with 18 and
+17 differing words respectively. All differences are stack immediates.
+Both source frames are `0x250` bytes with the message at offset `0x5C`;
+retail uses `0x448` and `0x254`. The declaration that caused that target
+allocation remains unresolved. No unused padding declaration was added
+just to remove those differences. The candidates are listed only in
+`CANDIDATE_BLOCKS` and are absent from the matching manifest and ROM.
+Independent splat/spimdisasm references reassemble to all 500/472 retail
+bytes; m2c uses the verified declarations, and objdiff retains the stack
+mismatches.
+
+With `requirements-analysis.txt` installed, run
+`python3 tools/check_error_formatters.py`. It freshly compares both
+candidates and executes them against retail in 1,288 bounded cases.
+Three complete matching support units execute C for string operations,
+integer conversion and absolute value. Cases cover all 256 character
+argument bytes, unsigned literal bytes, unknown specifiers, decimal and
+hexadecimal boundaries, empty strings and 499-byte output. Checks cover
+an independent output oracle, input guards, formatter byte writes,
+stack bounds, preserved registers and stacked arguments.
+
+Output submission and the fatal reporter use ABI-clobbering stubs. The
+fatal reporter returns synthetically. Buffer overflow, dangling percent
+specifiers and `INT_MIN` decimal conversion are outside the checked
+cases. The hexadecimal alphabet is checked against retail and supplied
+as a known constant; those bytes receive no new ownership credit. These
+executions do not establish instruction matching or full-game behavior.
 
 The accompanying actor research retains the excluded boundary clamp's
 two spill-slot differences at `0x80018590` and `0x80018594`. Independent

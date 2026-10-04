@@ -53,7 +53,7 @@
     "size": 64,
     "reference_sha256": "f0273fe62d33d14acaaf160400eef9f0b56071ebb4de9f897851a46c9a88ed55",
     "reference_object_sha256": "5dbb0d489f8f4793a721ab0ebdfeb757c2dd2ae3464ce33b019d47b0f9352417",
-    "compiled_object_sha256": "0261808e5e534f91ac10295dcca63cc2e6fc1747f842aa65e450fde65def5d92",
+    "compiled_object_sha256": "1aa0bb2b67815a2e209e6f7f4f48daef7dbc01a4a78f1ba91b264003766737a4",
     "all_four_symbols_objdiff_percent": 100,
     "complete_rodata_objdiff_percent": 100
   },
@@ -62,12 +62,12 @@
       "runtime": {
         "matches": true,
         "source_units": 870,
-        "report_sha256": "c38e26bcc74ab3dc65d4d967aee02938cc49616e28180161334f035bb77e9f2b"
+        "report_sha256": "d0afcf630d94c5cffaee9d13e87192f393985168b6c71a7cc82e38c433b4a119"
       },
       "startup": {
         "matches": true,
         "source_units": 2,
-        "report_sha256": "cc517c62e006c4ce333c3636f7714e14e5a7aa0c3a86a7fa7a1b6e5ae17b32d9"
+        "report_sha256": "66c2452feaba9deebdf90fd39ceb2d5b5ede4414236fed3e2c3d8ece31156842"
       },
       "assembly": {
         "matches": true,
@@ -77,7 +77,7 @@
       "data": {
         "matches": true,
         "source_units": 104,
-        "report_sha256": "dfeb8d82a809b67a1cf955d079d4a40153b0387a076e26b4ce9b7819ea69e5f3"
+        "report_sha256": "78a3f19973a3b013f6557fe3866cfe4a1b6b7883f15a7305113f9e4028d95c90"
       }
     },
     "clean_setup": true,
@@ -91,13 +91,282 @@
     "matching_c": false
   },
   "inputs_sha256": {
-    "src/game/diagnostics/messages.c": "ded887da45c7ec3ebd15ebc4e1a93a8ff034a84ff5890266748cd2e635bdba50",
+    "src/game/diagnostics/messages.c": "6b75495e09b52022bbff8335619416716337763b511ecf4a230101bf957b6118",
+    "src/game/diagnostics/fatal.c": "cb187677a6db1f108829d5dac41a418fa621d7e028a554db08e72f6ea6b45e6c",
+    "src/game/diagnostics/warning.c": "12f9ecf1d8c5e430f7383af14246d439f53ac02677948170af86654581e97cf7",
+    "include/error_formatters.h": "440173c049852249171578464f45849041e2bd4926fb66f1e10cc4e4fd600c40",
+    "tools/check_error_formatters.py": "30e05e267202866711c88a37acc2cf0af47c76be374d805d0c95dca82ac3e72f",
+    "tools/compare_runtime.py": "163c5583f6507e1edacb6b160d8d586b333588d4881ae146864d7f61e25bab43",
     "config/owned_sections.json": "b6d138652d277634085b182a75bc240e4568e972205ab02e7a818c3707690840",
     "config/functions.json": "2af8949cefd379d6b0e1b3a872a7d6ec14d1c57fedb79078c42fd7069a2344e3",
     "config/runtime_symbols.ld": "7e2997d044dd30045c8d4d43d12ba71b813fb9735b64fb8178d1e9ae0ea18717",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
-    "Makefile": "05e752b53c282d97b177979998ebfc2a647fa59f68cc8e1441185edd34789ba9",
+    "Makefile": "eecae69e131beeb6ae7ed77ef09048f272f8f6e3e85315fe13373edada4cf5fb",
     "tools/extract.py": "f95cd1d57d7ebc3cef44f634bb8c4ddd50c022fca5cd4abc4cb62b31c80dd39a",
     "linker_scripts/us.ld": "0c2f8fc039d68ee7cb8ad3fc5060aab6c1d48bffeb82eba0ec4f2c19fcad7f7e"
+  },
+  "formatter_execution": {
+    "matches": true,
+    "cases": 1288,
+    "trace_sha256": "157d62ee4b8c11c103b5e109b3bf41909b7a33515b0deab30d87d03f6c2fc057",
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "checker_sha256": "30e05e267202866711c88a37acc2cf0af47c76be374d805d0c95dca82ac3e72f",
+    "limits": [
+      "Both formatter candidates remain instruction nonmatching.",
+      "Output and the fatal reporter use ABI-clobbering stubs; the fatal reporter returns synthetically.",
+      "Only valid strings and output shorter than 500 bytes are exercised; overflowing buffers and dangling percent specifiers are omitted.",
+      "INT_MIN decimal conversion is omitted; hexadecimal covers all listed 32-bit boundaries.",
+      "The standard hexadecimal alphabet is checked against retail but is not credited as source-owned data.",
+      "Stack bounds, output byte writes, preserved registers, input buffers and stacked arguments are checked."
+    ],
+    "report_sha256": "d17c49b1181b0075213220debb54dca671ec0837a01788f8c6777ff8f38eea3f"
+  },
+  "candidate_comparisons": {
+    "error_fatal_format": {
+      "source": "src/game/diagnostics/fatal.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 500,
+      "actual_size": 500,
+      "matches": false,
+      "different_words": [
+        {
+          "vram": "0x8001c0d0",
+          "expected": "27bdfbb8",
+          "actual": "27bdfdb0"
+        },
+        {
+          "vram": "0x8001c0fc",
+          "expected": "afa40448",
+          "actual": "afa40250"
+        },
+        {
+          "vram": "0x8001c100",
+          "expected": "afa5044c",
+          "actual": "afa50254"
+        },
+        {
+          "vram": "0x8001c104",
+          "expected": "afa60450",
+          "actual": "afa60258"
+        },
+        {
+          "vram": "0x8001c108",
+          "expected": "afa70454",
+          "actual": "afa7025c"
+        },
+        {
+          "vram": "0x8001c110",
+          "expected": "27b00254",
+          "actual": "27b0005c"
+        },
+        {
+          "vram": "0x8001c118",
+          "expected": "27b1044c",
+          "actual": "27b10254"
+        },
+        {
+          "vram": "0x8001c13c",
+          "expected": "8faf0448",
+          "actual": "8faf0250"
+        },
+        {
+          "vram": "0x8001c148",
+          "expected": "afb80448",
+          "actual": "afb80250"
+        },
+        {
+          "vram": "0x8001c184",
+          "expected": "8fab0448",
+          "actual": "8fab0250"
+        },
+        {
+          "vram": "0x8001c220",
+          "expected": "8fab0448",
+          "actual": "8fab0250"
+        },
+        {
+          "vram": "0x8001c230",
+          "expected": "afac0448",
+          "actual": "afac0250"
+        },
+        {
+          "vram": "0x8001c238",
+          "expected": "8fad0448",
+          "actual": "8fad0250"
+        },
+        {
+          "vram": "0x8001c244",
+          "expected": "afae0448",
+          "actual": "afae0250"
+        },
+        {
+          "vram": "0x8001c248",
+          "expected": "8faf0448",
+          "actual": "8faf0250"
+        },
+        {
+          "vram": "0x8001c274",
+          "expected": "27a40254",
+          "actual": "27a4005c"
+        },
+        {
+          "vram": "0x8001c288",
+          "expected": "27a50254",
+          "actual": "27a5005c"
+        },
+        {
+          "vram": "0x8001c2c0",
+          "expected": "27bd0448",
+          "actual": "27bd0250"
+        }
+      ]
+    },
+    "error_warning_format": {
+      "source": "src/game/diagnostics/warning.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 472,
+      "actual_size": 472,
+      "matches": false,
+      "different_words": [
+        {
+          "vram": "0x8001c2c4",
+          "expected": "27bdfbb8",
+          "actual": "27bdfdb0"
+        },
+        {
+          "vram": "0x8001c2f0",
+          "expected": "afa40448",
+          "actual": "afa40250"
+        },
+        {
+          "vram": "0x8001c2f4",
+          "expected": "afa5044c",
+          "actual": "afa50254"
+        },
+        {
+          "vram": "0x8001c2f8",
+          "expected": "afa60450",
+          "actual": "afa60258"
+        },
+        {
+          "vram": "0x8001c2fc",
+          "expected": "afa70454",
+          "actual": "afa7025c"
+        },
+        {
+          "vram": "0x8001c304",
+          "expected": "27b00254",
+          "actual": "27b0005c"
+        },
+        {
+          "vram": "0x8001c30c",
+          "expected": "27b1044c",
+          "actual": "27b10254"
+        },
+        {
+          "vram": "0x8001c330",
+          "expected": "8faf0448",
+          "actual": "8faf0250"
+        },
+        {
+          "vram": "0x8001c33c",
+          "expected": "afb80448",
+          "actual": "afb80250"
+        },
+        {
+          "vram": "0x8001c378",
+          "expected": "8fab0448",
+          "actual": "8fab0250"
+        },
+        {
+          "vram": "0x8001c414",
+          "expected": "8fab0448",
+          "actual": "8fab0250"
+        },
+        {
+          "vram": "0x8001c424",
+          "expected": "afac0448",
+          "actual": "afac0250"
+        },
+        {
+          "vram": "0x8001c42c",
+          "expected": "8fad0448",
+          "actual": "8fad0250"
+        },
+        {
+          "vram": "0x8001c438",
+          "expected": "afae0448",
+          "actual": "afae0250"
+        },
+        {
+          "vram": "0x8001c43c",
+          "expected": "8faf0448",
+          "actual": "8faf0250"
+        },
+        {
+          "vram": "0x8001c468",
+          "expected": "27a40254",
+          "actual": "27a4005c"
+        },
+        {
+          "vram": "0x8001c498",
+          "expected": "27bd0448",
+          "actual": "27bd0250"
+        }
+      ]
+    }
+  },
+  "formatter_references": {
+    "fatal": {
+      "size": 500,
+      "bytes_sha256": "594dcb27de6c167a50ea1d3f85a85abeed29582fa321619a255268e33205b499",
+      "reference_object_sha256": "c19677786ea87ac5f5bc10f22781c36c356c6fb179ffb2f42668ec4bc820b008",
+      "compiled_object_sha256": "a2931d40d1fa486b5c995a275431cf6e0166d582b73fa0d22b2b9153eaf81531",
+      "objdiff_report_sha256": "63e2c9009308bf81c319a18cd5612be403e250a0860d676b24e1663e2022ecbd"
+    },
+    "warning": {
+      "size": 472,
+      "bytes_sha256": "f214ee99a774b24820cf0a622b43bde89b118ee80deea4b2d51e8be81e20b911",
+      "reference_object_sha256": "a0da885d11e3889e5ee3864023ef67336536468740be4be832cb81bfbd0e46eb",
+      "compiled_object_sha256": "46af7e3924679348c00b5b0db4d4e2879dc55560bc3b3f82534a5e96bcd10e5b",
+      "objdiff_report_sha256": "37432821dd31f53fb3cf108706f23c8a579a1931e46c43c74cf9d2d2ac8ad51c"
+    }
   }
 }

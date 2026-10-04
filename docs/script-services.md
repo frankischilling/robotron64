@@ -49,7 +49,9 @@ offset `0x54` in a `0x248`-byte frame. The two diagnostic variants place it
 at offset `0x254` in a `0x448`-byte frame. The extra `0x200` bytes in those
 two frames are not referenced by target instructions. No ordinary source
 evidence has established what source declaration caused that allocation, so
-no dummy local was added to force an exact frame.
+no dummy local was added to force an exact frame. The current fatal and
+warning candidates and bounded execution checks are documented in
+[error formatters](error-formatters.md); both remain excluded.
 
 `func_8001C49C` also accepts `%2d`, `%3d`, `%4d`, and `%5d`. Those forms set a
 decimal padding selector and insert leading spaces by moving the existing
