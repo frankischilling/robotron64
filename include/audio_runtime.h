@@ -36,15 +36,22 @@ typedef struct AudioRspRecord {
     RspTask task;
 } AudioRspRecord;
 
+typedef struct AudioBufferPointers {
+    void *commands[2];
+    AudioRspRecord *records[3];
+} AudioBufferPointers;
+
 typedef char AudioHeapMustBe16Bytes[sizeof(AudioHeap) == 0x10 ? 1 : -1];
 typedef char AudioSettingsMustBe28Bytes[sizeof(AudioSettings) == 0x1C ? 1 : -1];
 typedef char AudioTaskRecordMustBe96Bytes[sizeof(AudioTaskRecord) == 0x60 ? 1 : -1];
 typedef char AudioRspRecordMustBe72Bytes[sizeof(AudioRspRecord) == 0x48 ? 1 : -1];
+typedef char AudioBufferPointersMustBe20Bytes[sizeof(AudioBufferPointers) == 20 ? 1 : -1];
 
 extern void *D_8014BE50;
 extern int D_8014BE54;
 extern AudioRspRecord *D_8008D7A0;
-extern AudioRspRecord *D_80190188[3];
+extern AudioBufferPointers D_80190180;
+#define D_80190188 (D_80190180.records)
 
 void func_8005109C(int priority, int televisionType);
 void func_80051380(void *argument);

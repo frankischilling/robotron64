@@ -431,6 +431,8 @@ MATCHING_BLOCKS = (
     ("audio_generation", "src/game/audio_generation.c", 0x800515B0, 0x80051854),
     ("audio_game_helpers", "src/game/audio_game_helpers.c", 0x80051854, 0x800518E0),
     ("audio_io", "src/game/audio_io.c", 0x800518E0, 0x80051A0C),
+    ("audio_synthesis_driver", "src/game/audio/startup/driver.c", 0x80051C00, 0x8005211C),
+    ("audio_synthesis_startup", "src/game/audio/startup/synthesis.c", 0x80051A0C, 0x80051C00),
     ("audio_task_select", "src/game/audio_task_select.c", 0x8005211C, 0x800521C8),
     ("audio_task_build", "src/game/audio_task_build.c", 0x800521C8, 0x80052378),
     ("audio_pool_callback", "src/game/audio_pool_callback.c", 0x8005254C, 0x80052580),

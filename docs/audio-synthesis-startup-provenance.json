@@ -1,0 +1,1266 @@
+{
+  "audit_date": "2026-10-04",
+  "new_c_functions": 2,
+  "new_instruction_bytes": 1808,
+  "new_initialized_bytes": 32,
+  "new_bss_bytes": 224,
+  "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "startup_execution": {
+    "matches": true,
+    "cases": 3024,
+    "factory_cases": 27,
+    "comparisons": {
+      "audio_synthesis_startup": {
+        "source": "src/game/audio/startup/synthesis.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 500,
+        "actual_size": 500,
+        "matches": true,
+        "different_words": []
+      },
+      "message_queue": {
+        "source": "src/sdk/message_queue.c",
+        "compiler_profile": {
+          "name": "sdk-o1-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O1",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 44,
+        "actual_size": 44,
+        "matches": true,
+        "different_words": []
+      },
+      "audio_voice_capture_control": {
+        "source": "src/game/audio_voice_capture_control.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 72,
+        "actual_size": 72,
+        "matches": true,
+        "different_words": []
+      },
+      "audio_rate_scale": {
+        "source": "src/game/audio_rate_scale.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 56,
+        "actual_size": 56,
+        "matches": true,
+        "different_words": []
+      },
+      "audio_io": {
+        "source": "src/game/audio_io.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 300,
+        "actual_size": 300,
+        "matches": true,
+        "different_words": []
+      },
+      "audio_pool_callback": {
+        "source": "src/game/audio_pool_callback.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 52,
+        "actual_size": 52,
+        "matches": true,
+        "different_words": []
+      }
+    },
+    "data_comparisons": {
+      "src/game/audio/startup/storage.c": {
+        "source": "src/game/audio/startup/storage.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/audio/startup/storage.c",
+              "object": "build/us/audio_synthesis_storage.o",
+              "input_section": ".data",
+              "section": ".audio_synthesis_storage_data",
+              "vram": 2148063272,
+              "rom": 582696,
+              "size": 28,
+              "symbols": {
+                "D_8008D828": 0,
+                "D_8008D82C": 4,
+                "D_8008D830": 8,
+                "D_8008D834": 12,
+                "D_8008D838": 16,
+                "D_8008D83C": 20,
+                "D_8008D840": 24
+              },
+              "evidence": "docs/audio-synthesis-startup.md"
+            },
+            "bytes_sha256": "384d1d2aea34acfaa0a0456623f0491b79d42dce71d6d0b5e4a722e060a1367a"
+          },
+          {
+            "ownership": {
+              "source": "src/game/audio/startup/storage.c",
+              "object": "build/us/audio_synthesis_storage.o",
+              "input_section": ".bss",
+              "section": ".audio_synthesis_storage_bss",
+              "vram": 2149122528,
+              "rom": null,
+              "size": 128,
+              "symbols": {
+                "D_801901E0": 0,
+                "D_801901EC": 12,
+                "D_801901F0": 16,
+                "D_801901F4": 20,
+                "D_801901F8": 24,
+                "D_801901FC": 28,
+                "D_80190200": 32,
+                "D_80190204": 36,
+                "D_80190208": 40,
+                "D_80190220": 64,
+                "D_80190224": 68,
+                "D_80190228": 72,
+                "D_80190240": 96
+              },
+              "evidence": "docs/audio-synthesis-startup.md"
+            },
+            "bytes_sha256": null
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/audio/startup/rate_constant.c": {
+        "source": "src/game/audio/startup/rate_constant.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/audio/startup/rate_constant.c",
+              "object": "build/us/audio_synthesis_rate_constant.o",
+              "input_section": ".data",
+              "section": ".audio_synthesis_rate_constant",
+              "vram": 2148097216,
+              "rom": 616640,
+              "size": 4,
+              "symbols": {
+                "D_80095CC0": 0
+              },
+              "evidence": "docs/audio-synthesis-startup.md"
+            },
+            "bytes_sha256": "9a0a99e7a4e96f2da1a16c630d9ccfb0fbd2c74bb99f9a5893dc4f9471c8da9f"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      }
+    },
+    "trace_sha256": "4aadabda3d24a870545e413ac1a0dfbf339310ea58a71637a1356a29ded653bf",
+    "emulator": "2.1.1",
+    "checker_sha256": "a2dacd09243565189306a5b030bef68323b7467eec2b3b25aaab3940373939a5",
+    "machine_helper_sha256": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
+    "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "limits": [
+      "SDK frequency, driver, reset and control use recorded ABI stubs; devices and downstream driver behavior are outside scope.",
+      "Freshly matched queue, capture token, unsigned rate scale and delay helpers execute complete retail code.",
+      "Caller-saved integer and floating registers are clobbered; callee-saved integer/float registers and SP are checked.",
+      "Full settings, parameters, heap, queue/messages, state, configuration padding, frame gap, guards and memory bounds are checked.",
+      "Finite conversions cover signed delays and unsigned high-bit frequencies; out-of-range float-to-int and malformed parameter pointers are outside scope."
+    ]
+  },
+  "driver_execution": {
+    "matches": true,
+    "cases": 36,
+    "comparisons": {
+      "audio_synthesis_driver": {
+        "source": "src/game/audio/startup/driver.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 1308,
+        "actual_size": 1308,
+        "matches": true,
+        "different_words": []
+      },
+      "audio_heap_allocate": {
+        "source": "src/sdk/audio_heap_allocate.c",
+        "compiler_profile": {
+          "name": "sdk-o2-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 84,
+        "actual_size": 84,
+        "matches": true,
+        "different_words": []
+      },
+      "audio_link_nodes": {
+        "source": "src/sdk/audio_link_nodes.c",
+        "compiler_profile": {
+          "name": "sdk-o2-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 84,
+        "actual_size": 84,
+        "matches": true,
+        "different_words": []
+      },
+      "message_queue": {
+        "source": "src/sdk/message_queue.c",
+        "compiler_profile": {
+          "name": "sdk-o1-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O1",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 44,
+        "actual_size": 44,
+        "matches": true,
+        "different_words": []
+      },
+      "audio_io": {
+        "source": "src/game/audio_io.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 300,
+        "actual_size": 300,
+        "matches": true,
+        "different_words": []
+      }
+    },
+    "trace_sha256": "b152524f7f0d829e0c1c2f8374a50139d60becbde95ae5e6cbe4893e49ce42b9",
+    "emulator": "2.1.1",
+    "checker_sha256": "c21d727d9edfee9160fcb9a1fbef7ff0785c87266e2e51df438cac0cd4876597",
+    "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "limits": [
+      "SDK synthesizer construction is a recorded ABI stub; SDK/device behavior is outside scope.",
+      "Actual freshly matched heap allocation, byte clearing, linked-list insertion and queue setup execute.",
+      "Full arena including allocation alignment and unused capacity, inputs, globals, BSS, guards, stack, integer and floating callee-saved registers are checked.",
+      "Finite rates and bounded successful allocations are covered; malformed zero buffer counts and heap exhaustion retain original behavior and are outside scope."
+    ]
+  },
+  "independent_references": {
+    "synthesis": {
+      "blocks": [
+        {
+          "section": ".text",
+          "vram": 2147817996,
+          "rom": 337420,
+          "size": 500,
+          "sha256": "c5ab76fc432508e557db187f28e02f570876fbbeb088cd59653e6da457944625"
+        }
+      ],
+      "scores": {
+        ".text": 100.0
+      },
+      "reference_object_sha256": "8845c857a57510039d31f5a1079053288c59771799e0fdfd0ffe00a26d7b6226",
+      "compiled_object_sha256": "af0360398004149ddc2a6781ce1eb444ad67957e2a6d9702cf728745517404cb",
+      "report_sha256": "aa404d3b07981b8890d57da9cecb7b6f49d1b48cc6e97da1362889e49fd908c1"
+    },
+    "driver": {
+      "blocks": [
+        {
+          "section": ".text",
+          "vram": 2147818496,
+          "rom": 337920,
+          "size": 1308,
+          "sha256": "4203148074c8c91fc394bdacf7529c8ddd7768e983f093e5e5e334457174225e"
+        }
+      ],
+      "scores": {
+        ".text": 100.0
+      },
+      "reference_object_sha256": "ca58712addce76464a7dafdfd3dd840ccc23a4b1ea733d890dac2410101b97ec",
+      "compiled_object_sha256": "b172c2beacbe32a59860e55e932349b9a1464d8e1ff11ee003daba30e7c8c32a",
+      "report_sha256": "30916e953b88f82f1b50ef5cade7f53c4c7197beb75fd0deda28f208c81917f6"
+    },
+    "counts": {
+      "blocks": [
+        {
+          "section": ".data",
+          "vram": 2148063272,
+          "rom": 582696,
+          "size": 28,
+          "sha256": "384d1d2aea34acfaa0a0456623f0491b79d42dce71d6d0b5e4a722e060a1367a"
+        }
+      ],
+      "bss_bytes": 128,
+      "scores": {
+        ".data": 100.0,
+        ".bss": 100.0
+      },
+      "reference_object_sha256": "cd15d9214199b977188c745d0432113a84f3a4a4d8f6e4d577637e2bf92abd09",
+      "compiled_object_sha256": "d80a3e2f78a879a0839927454ea8c0882e3974070d8c8ae321080584ece710a8",
+      "report_sha256": "ec512e7b427c7aeb023d42d4596ae688a048e02e727372beace8b6a6c50d2147"
+    },
+    "rate": {
+      "blocks": [
+        {
+          "section": ".data",
+          "vram": 2148097216,
+          "rom": 616640,
+          "size": 4,
+          "sha256": "9a0a99e7a4e96f2da1a16c630d9ccfb0fbd2c74bb99f9a5893dc4f9471c8da9f"
+        }
+      ],
+      "bss_bytes": 0,
+      "scores": {
+        ".data": 100.0
+      },
+      "reference_object_sha256": "a57ce5bb47c91bef71ed33e038c897eea45d09f37cb579a4f9b0087efabe5d0d",
+      "compiled_object_sha256": "e1fea7b1ce80ef69ef710ae8a47d5aa59c6d013a560b65709c2e90025bfaa002",
+      "report_sha256": "0b1c98d2e83ab573f0cac5cb109705880bccdfca7fbb2e439baef8e0ed058fdf"
+    },
+    "buffers": {
+      "blocks": [],
+      "bss_bytes": 20,
+      "scores": {
+        ".bss": 100.0
+      },
+      "reference_object_sha256": "e40797456a470d6db157e6a35ce285fe4d0801aefacdd1dbd4564645e2ab97e3",
+      "compiled_object_sha256": "66d216e960a655d52f56a40dff0e47a9d1e6f5cb1d9f6c3e4b7f4f7e97a58e44",
+      "report_sha256": "29c1432a3c95f68e8329f49308cd05e59ac0b64f973e175ade31cd6b2ec536e5"
+    },
+    "synth_state": {
+      "blocks": [],
+      "bss_bytes": 76,
+      "scores": {
+        ".bss": 100.0
+      },
+      "reference_object_sha256": "bd240b7aeea80cdff571a0689222736714f1f6ac2d8f95cf79874ef898fe9409",
+      "compiled_object_sha256": "a14bec03307376ca9c79ec7b39ec81d40336b9c1802057316609975f13417e54",
+      "report_sha256": "35d218ac138b50743dd0653ac36164f95752a824ac3f41b738f843a46994a3cc"
+    }
+  },
+  "independent_tool_artifacts_sha256": {
+    "split.yaml": "2530d3f8fece2918a132e3e0f04fd64d2dc4639615302f750a2dea56838daf87",
+    "symbols.txt": "bcf0c41c3bb537bca6a9a58ccc2cec62fd4074b63c4608b744dac2da11b843a4",
+    "synthesis-context.c": "4930c26f58efdb384a1667bde11e6988b55b98240dbaf9246c11217bf80dfd79",
+    "driver-context.c": "a3f8aa10e2e03d0369af881f2b22163cb8aeb0537a3736511450f0e1c05bee65",
+    "synthesis-m2c.c": "94cb94666a7ff3211998540915fc5514b4f963c0e4ed5c386128388531772f6d",
+    "driver-m2c.c": "cb2c56455b590ed5cdb41d6eb947f0e4d7ad37335b9421c94d8f780b54637300",
+    "matching.json": "390fa98dd57763430f18f309f352127c988ccb15d62ba3cb887a1ab21311d727",
+    "match0.log": "f0d7b1b29e0e351618bed2872020e7d068e40e6fcc0297a50233f278fcb95079",
+    "diff0.log": "c6da5d29e6ddb9eecec853d4f193ab4c78377efd80e4bb98e170893f5a32dcf3",
+    "diff1.log": "ccc7a43a8e482154a85170a9e9438e969e74d774b7e1970f5e06c8b37ca00d6e",
+    "spim-functions.csv": "61a55b6924b40769e59a65763b8a166d779c2937c453014ee32df48e9f853134",
+    "spim-context.csv": "795bce3b30c4d8a9e6f05dd6bb197be552287c335e8ecf67d0aaed5d4fb8e1ca",
+    "spim/baserom_80051A0C.text.s": "63f6c0fa0ba31ef85361be3a1d2e635ab72df0368e4105a5a1879c0395be1958"
+  },
+  "independent_tools": [
+    "splat",
+    "spimdisasm",
+    "m2c mips-ido-c",
+    "asm-differ",
+    "objdiff",
+    "MIPS binutils",
+    "robotron-tools match --fresh"
+  ],
+  "ghidra_verified_ranges": {
+    "80051A0C": {
+      "size": 500,
+      "sha256": "c5ab76fc432508e557db187f28e02f570876fbbeb088cd59653e6da457944625"
+    },
+    "80051C00": {
+      "size": 1308,
+      "sha256": "4203148074c8c91fc394bdacf7529c8ddd7768e983f093e5e5e334457174225e"
+    },
+    "8008D828": {
+      "size": 28,
+      "sha256": "384d1d2aea34acfaa0a0456623f0491b79d42dce71d6d0b5e4a722e060a1367a"
+    },
+    "80095CC0": {
+      "size": 4,
+      "sha256": "9a0a99e7a4e96f2da1a16c630d9ccfb0fbd2c74bb99f9a5893dc4f9471c8da9f"
+    }
+  },
+  "ghidra_layouts": {
+    "AudioBufferPointers": {
+      "name": "AudioBufferPointers",
+      "size": 20,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 8,
+          "type": "void *[2]",
+          "name": "commands"
+        },
+        {
+          "offset": 8,
+          "size": 12,
+          "type": "AudioRspRecord *[3]",
+          "name": "records"
+        }
+      ]
+    },
+    "AudioSynth": {
+      "name": "AudioSynth",
+      "size": 76,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 4,
+          "type": "AudioCallbackState *",
+          "name": "head"
+        },
+        {
+          "offset": 4,
+          "size": 8,
+          "type": "AudioLink",
+          "name": "freeVoices"
+        },
+        {
+          "offset": 12,
+          "size": 8,
+          "type": "AudioLink",
+          "name": "allocatedVoices"
+        },
+        {
+          "offset": 20,
+          "size": 8,
+          "type": "AudioLink",
+          "name": "pendingFreeVoices"
+        },
+        {
+          "offset": 28,
+          "size": 4,
+          "type": "int",
+          "name": "parameterSamples"
+        },
+        {
+          "offset": 32,
+          "size": 4,
+          "type": "int",
+          "name": "currentSamples"
+        },
+        {
+          "offset": 36,
+          "size": 4,
+          "type": "AudioDmaFactory",
+          "name": "dma"
+        },
+        {
+          "offset": 40,
+          "size": 4,
+          "type": "AudioHeap *",
+          "name": "heap"
+        },
+        {
+          "offset": 44,
+          "size": 4,
+          "type": "AudioParameter *",
+          "name": "parameterList"
+        },
+        {
+          "offset": 48,
+          "size": 4,
+          "type": "AudioBus *",
+          "name": "mainBus"
+        },
+        {
+          "offset": 52,
+          "size": 4,
+          "type": "AudioAuxiliaryBus *",
+          "name": "auxiliaryBus"
+        },
+        {
+          "offset": 56,
+          "size": 4,
+          "type": "AudioFilter *",
+          "name": "outputFilter"
+        },
+        {
+          "offset": 60,
+          "size": 4,
+          "type": "int",
+          "name": "physicalVoiceCount"
+        },
+        {
+          "offset": 64,
+          "size": 4,
+          "type": "int",
+          "name": "maxAuxiliaryBuses"
+        },
+        {
+          "offset": 68,
+          "size": 4,
+          "type": "int",
+          "name": "outputRate"
+        },
+        {
+          "offset": 72,
+          "size": 4,
+          "type": "int",
+          "name": "maxOutputSamples"
+        }
+      ]
+    },
+    "AudioRspRecord": {
+      "name": "AudioRspRecord",
+      "size": 72,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 4,
+          "type": "void *",
+          "name": "data"
+        },
+        {
+          "offset": 4,
+          "size": 2,
+          "type": "short",
+          "name": "count"
+        },
+        {
+          "offset": 6,
+          "size": 2,
+          "type": "ushort",
+          "name": "unknown06"
+        },
+        {
+          "offset": 8,
+          "size": 64,
+          "type": "RspTask",
+          "name": "task"
+        }
+      ]
+    },
+    "AudioPoolState": {
+      "name": "AudioPoolState",
+      "size": 12,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 1,
+          "type": "uchar",
+          "name": "initialized"
+        },
+        {
+          "offset": 4,
+          "size": 4,
+          "type": "AudioDmaBuffer *",
+          "name": "active"
+        },
+        {
+          "offset": 8,
+          "size": 4,
+          "type": "AudioDmaBuffer *",
+          "name": "free"
+        }
+      ]
+    },
+    "AudioDmaBuffer": {
+      "name": "AudioDmaBuffer",
+      "size": 20,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 4,
+          "type": "AudioDmaBuffer *",
+          "name": "next"
+        },
+        {
+          "offset": 4,
+          "size": 4,
+          "type": "AudioDmaBuffer *",
+          "name": "previous"
+        },
+        {
+          "offset": 8,
+          "size": 4,
+          "type": "uint",
+          "name": "deviceAddress"
+        },
+        {
+          "offset": 12,
+          "size": 4,
+          "type": "uint",
+          "name": "lastFrame"
+        },
+        {
+          "offset": 16,
+          "size": 4,
+          "type": "uchar *",
+          "name": "data"
+        }
+      ]
+    },
+    "AudioSettings": {
+      "name": "AudioSettings",
+      "size": 28,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 4,
+          "type": "float",
+          "name": "frameRate"
+        },
+        {
+          "offset": 4,
+          "size": 4,
+          "type": "uint",
+          "name": "frequency"
+        },
+        {
+          "offset": 8,
+          "size": 4,
+          "type": "int",
+          "name": "bufferSize"
+        },
+        {
+          "offset": 12,
+          "size": 4,
+          "type": "AudioHeap *",
+          "name": "heap"
+        },
+        {
+          "offset": 16,
+          "size": 4,
+          "type": "uchar *",
+          "name": "romBase"
+        },
+        {
+          "offset": 20,
+          "size": 4,
+          "type": "int",
+          "name": "effectType"
+        },
+        {
+          "offset": 24,
+          "size": 4,
+          "type": "int *",
+          "name": "effectParameters"
+        }
+      ]
+    },
+    "SdkAudioSynthConfig": {
+      "name": "SdkAudioSynthConfig",
+      "size": 36,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 4,
+          "type": "int",
+          "name": "maxVirtualVoices"
+        },
+        {
+          "offset": 4,
+          "size": 4,
+          "type": "int",
+          "name": "maxPhysicalVoices"
+        },
+        {
+          "offset": 8,
+          "size": 4,
+          "type": "int",
+          "name": "maxUpdates"
+        },
+        {
+          "offset": 12,
+          "size": 4,
+          "type": "int",
+          "name": "maxEffectBuses"
+        },
+        {
+          "offset": 16,
+          "size": 4,
+          "type": "AudioDmaFactory",
+          "name": "dma"
+        },
+        {
+          "offset": 20,
+          "size": 4,
+          "type": "AudioHeap *",
+          "name": "heap"
+        },
+        {
+          "offset": 24,
+          "size": 4,
+          "type": "int",
+          "name": "outputRate"
+        },
+        {
+          "offset": 28,
+          "size": 1,
+          "type": "uchar",
+          "name": "effectType"
+        },
+        {
+          "offset": 32,
+          "size": 4,
+          "type": "int *",
+          "name": "parameters"
+        }
+      ]
+    },
+    "SdkPiDmaMessage": {
+      "name": "SdkPiDmaMessage",
+      "size": 24,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 2,
+          "type": "ushort",
+          "name": "type"
+        },
+        {
+          "offset": 2,
+          "size": 1,
+          "type": "uchar",
+          "name": "priority"
+        },
+        {
+          "offset": 3,
+          "size": 1,
+          "type": "uchar",
+          "name": "status"
+        },
+        {
+          "offset": 4,
+          "size": 4,
+          "type": "OSMesgQueue *",
+          "name": "returnQueue"
+        },
+        {
+          "offset": 8,
+          "size": 4,
+          "type": "void *",
+          "name": "dramAddress"
+        },
+        {
+          "offset": 12,
+          "size": 4,
+          "type": "uint",
+          "name": "cartridgeAddress"
+        },
+        {
+          "offset": 16,
+          "size": 4,
+          "type": "uint",
+          "name": "size"
+        },
+        {
+          "offset": 20,
+          "size": 4,
+          "type": "SdkPiDeviceHandle *",
+          "name": "handle"
+        }
+      ]
+    },
+    "OSMesgQueue": {
+      "name": "OSMesgQueue",
+      "size": 24,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 4,
+          "type": "OSThread *",
+          "name": "receivers"
+        },
+        {
+          "offset": 4,
+          "size": 4,
+          "type": "OSThread *",
+          "name": "senders"
+        },
+        {
+          "offset": 8,
+          "size": 4,
+          "type": "int",
+          "name": "count"
+        },
+        {
+          "offset": 12,
+          "size": 4,
+          "type": "int",
+          "name": "first"
+        },
+        {
+          "offset": 16,
+          "size": 4,
+          "type": "int",
+          "name": "capacity"
+        },
+        {
+          "offset": 20,
+          "size": 4,
+          "type": "OSMesg *",
+          "name": "messages"
+        }
+      ]
+    }
+  },
+  "ghidra_prototypes": {
+    "80051A0C": "void func_80051A0C(AudioSettings * settings)",
+    "80051C00": "void func_80051C00(SdkAudioSynthConfig * configuration, AudioSettings * settings)",
+    "8005254C": "AudioDmaCallback func_8005254C(void)"
+  },
+  "ghidra_saved": true,
+  "validation": {
+    "independent_comparisons": {
+      "runtime": {
+        "matches": true,
+        "source_units": 874,
+        "report_sha256": "d8cb4ad6512f25f20b2caeabc9a991601cbb942706e4345ef6a6e8b3794e3c99"
+      },
+      "startup": {
+        "matches": true,
+        "source_units": 2,
+        "report_sha256": "6760461f23492ef0afcf6c44fe8f66f5b6463583158ae880f4ccce2ce8f36cfb"
+      },
+      "assembly": {
+        "matches": true,
+        "source_units": 18,
+        "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data": {
+        "matches": true,
+        "source_units": 110,
+        "report_sha256": "a7fb5c17bd4aff165f7cb9597402f8232d37667fd911a33f7704c1d03e106703"
+      }
+    },
+    "clean_setup": true,
+    "clean_rom_matches": true,
+    "clean_rom_bytes": 8388608,
+    "tests_passed": 155,
+    "clean_build_log_sha256": "9ffffce2b105f99a38db1bc26be3d09900dc640c36cf257d1f34683a86f90cb0"
+  },
+  "checkpoint": {
+    "matched_c_functions": 1392,
+    "matched_c_bytes": 280904,
+    "matched_assembly_functions": 29,
+    "matched_assembly_bytes": 4372,
+    "source_owned_initialized_bytes": 30967,
+    "source_owned_bss_bytes": 504371,
+    "total_code_bytes": null,
+    "total_functions": null,
+    "matching_code_percent": null,
+    "unmeasured_rom_bytes": 8072365,
+    "whole_rom_matches": true
+  },
+  "remaining": {
+    "fallback_cpu_bytes": 169292,
+    "fallback_ranges": 207,
+    "unclassified_candidate_bytes": 152,
+    "complete_function_denominator": null
+  },
+  "inputs_sha256": {
+    "Makefile": "074fb9d768b737bbebe1476ae9702d7ddbb70503675c23127335acc4667dd1de",
+    "README.md": "db692b88c01bfa981477441fe962a4ec759651500e9f8e91d898ad3aa644a946",
+    "config/functions.json": "f6ae7a59dcbafc5697e99a1e6d387027d969430b60d9d5f1733bb61b3cf6c4db",
+    "config/owned_sections.json": "341e0a83efad8dd3a545f6c8fb04d36fcc3a2a55b916ace6b124ab8b065826dd",
+    "config/runtime_symbols.ld": "7149db2e2d963d48b9ffcfae7efe2156cd21c1181767f0a349aeec7a3aac1a73",
+    "config/startup_symbols.ld": "0cec51a0f14e8484aeb129868ac9edb873026fb271a8249a487d764253e1c6ca",
+    "config/symbols.json": "686b5283af914988ff17a292c522c51f8c1bbf631af4e72f64bca1e0b58985e6",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "docs/audio-synthesis-startup.md": "985effd9d66d6ff6daf70111dc797031eb92b38ecdb12a321afa9153095c6bdc",
+    "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
+    "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
+    "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
+    "include/actor_behavior_internal.h": "a34cc98195a029e4003cc251f4e172d595214582a339404eb78449926fa99373",
+    "include/actor_behavior_more_internal.h": "f2e8d0c8db3ad33093105ea64d661f78457c6fbc55025c326732e6e391801f64",
+    "include/actor_behavior_next_internal.h": "bb0980b227ed20ff6e426199c5ba90c2cc5a5fbd8e3c8b20f951d12e7ff39a54",
+    "include/actor_brain_internal.h": "5a3bb4ac3303bf032876bff2c707a11b3a85115b369a252c586850df93de5e65",
+    "include/actor_collision_services.h": "ca36020b44ba3a04cdb63937393530f68f8383123c7bd2828581aeba27a338d4",
+    "include/actor_duration_internal.h": "51b83fc836a67c71f352c2f234c06593d2f24a72bc45cb578c938874c5f14831",
+    "include/actor_dynamic_pool_internal.h": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
+    "include/actor_enforcer_internal.h": "26629c4bc9a0e6a4136e575bd3b864daf91876501c8f47b7807a9e2a403bd616",
+    "include/actor_history_internal.h": "d53cd9bfd7c00bbf88deee633adc97535d8d5c421c78686041d0adc355e3c79a",
+    "include/actor_hulk_internal.h": "224fbf4d7e357ebdcd2e22b0ddd65a0e0b6897ff6b2581507996e62de7d37862",
+    "include/actor_human_internal.h": "0f0d3c3a508b911ef825e73889494a2d051bea0c93772182ed5ba15cb3ee3849",
+    "include/actor_lifecycle_internal.h": "6d47f2191d380d2b1ace7773f9d07475f33d419d48c4786bfb266c0e380f7e26",
+    "include/actor_motion_internal.h": "c311a16b465c8dea95438a609a479007bd93e3493c6f547ae65e5f69cea50f57",
+    "include/actor_position_pairs.h": "5ee0f4c87fc1a42c72cb90b9b2b781a44dfbfb6c736af64e3bbcc2c90e4b45a9",
+    "include/actor_projectile_internal.h": "8baf67e69fe26649c1fe07531f0eec0ca97ba04075d6a871f4e65a93ae343228",
+    "include/actor_pursuit_internal.h": "ad11f70d7810ea6cffc7454ae1e3527a9cb4e8c96324fdb5949c30b6f095a443",
+    "include/actor_resource_5c_internal.h": "0b6f292c42691888a4ff24edff575f479ed8c19ed98d41484528ab8478db95ed",
+    "include/actor_resource_internal.h": "80172f5b62f25382b7b8ab862603abfbc8484bb1fe482baf971444b2baa873da",
+    "include/actor_setup_internal.h": "062e4d8cbec10220ed53e3883f8fa94ca0730dd4877f5004ec92077409a72541",
+    "include/actor_spawn_callback_internal.h": "8cf97711f0117dd13efe82c78f3856d6d6968d9ddacc005fe65830bccc53ac36",
+    "include/actor_spawn_internal.h": "f7479dbdb87ac6279fc0df86c496596a9170129e46f828783c67768c95c1ea38",
+    "include/actor_stride_internal.h": "ddb173f1de44bf907795c5199952f85d7520bfd11d48401b450864f9d52ebfae",
+    "include/audio_backend_internal.h": "2acf19d8166c5cd4091b88c5af4adb27d4463d417c60e34e646f77ba5e7cc97b",
+    "include/audio_bank_layout_internal.h": "2d44c9c36412dd253e9e6c90844c5bef7c5c9583597c76eba92123b0bc2f7706",
+    "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+    "include/audio_commands.h": "d34eacf0081a7745ae958c4484ea6d0a070859879dc7203d609e499976854d53",
+    "include/audio_config.h": "d4f8f3f9023b9e70d0cd25c449ae48486a2ddbb2574d0a95cec4487eb406b6a6",
+    "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+    "include/audio_engine_tables_internal.h": "dd6b732f8de8b2130b8c7a47d0fc79a7fa95afe54874d3202d25babf2940a17b",
+    "include/audio_file_services_internal.h": "57053064c501d51bf2f77dc2a526e39c501f10090777bdea0fdf291713e18d85",
+    "include/audio_game.h": "f63a58f0375dd51938376df76002d52c21b2e8ef60c8e462b1fc327367922935",
+    "include/audio_host_internal.h": "6c98f4911f1f758707b7206765587460f4a4b0a42e2eab1c5654488c2810d23a",
+    "include/audio_io.h": "3c8b1897d96db51a8c7ad05cdcec2a00d79b17b3fa4dfbbb7ec7632171767c79",
+    "include/audio_patch_table_internal.h": "1037a705b754ea3e3b8db43789cb00de8897ae64d83df9b5194cd8e3ebe9bba6",
+    "include/audio_properties_internal.h": "606f51d2c6f3ad2a42eb98ae10dc65224df6c82603b605acc6f4119acb4e316b",
+    "include/audio_property_pipeline_internal.h": "9bb38df465f8fe3a2ea60365f3ce7dde30e205a207d5f5e777e096abee6930f3",
+    "include/audio_runtime.h": "a2ca2aca620f461001805f464b0c599f8ce1dc64d21fee3b3c1457784744d25a",
+    "include/audio_sequence_internal.h": "efcecd311119771bb871df157d101657b863e3ae02aeea7e8f95e578c1e75324",
+    "include/audio_synthesis_internal.h": "367b5e5c178752fba67aaabbdba696e9f268e47c9e7d8ca135cdab73a4617672",
+    "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683",
+    "include/command_script.h": "cfa4ed9738ae5994ff59ab90864204f017dde3c007c860536f6c53be9b2575e6",
+    "include/compression_internal.h": "04e668084c5cb9a1b194bdf28664495b3995cf79723aa1cee29940f7b3f84e5c",
+    "include/controller_input.h": "48fd3ecefa518b37c2eb1368933f7ccbaae21911d732b94503b1bda2732f8598",
+    "include/controller_legacy.h": "11b4270a1b1c80515230b96621cc7684819e94e68556ecaa6ee0e83eb103ad78",
+    "include/controller_services.h": "997ab6ac0d1d36ac0b23515e60b6ed965b562cad0b3b82c8732ad7b04ae037d8",
+    "include/debug_output.h": "ba12435a24f3162d1015f7960f38420e2f34ea16e02c6adb679706cc263a329d",
+    "include/debug_text_internal.h": "0c1a2fc419e668e7421311cc98fd3d1200ca037e4c9c64074e0b020fbf2048cf",
+    "include/destination_format.h": "d4384f14dfd1a3122d4347e371f4d8d6f8c9bcb7a625947759ed7c0b3361f65f",
+    "include/early_bonus_internal.h": "ec1331c91e23d9e734c220a8bde2a508e8ce62735a7a095480ec8681f7f6052c",
+    "include/early_collision_internal.h": "592b75d410d11f83b9e92970d027d3ba3999e11a48ff723c44b13ecf16df59bc",
+    "include/early_game_helpers.h": "23066df1efae4aada40178d589fa2823c8e37a2b2e1e87d694b5711a20aaeaa5",
+    "include/early_game_medium.h": "9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f",
+    "include/early_game_medium_next.h": "0c7cf3adcd946c8c507adaad037451830ca89721a357ce9a2dbc306621e069ac",
+    "include/early_game_more.h": "2bacab31a51464c37f7a7fbf493b2df514fe8d7f81a2943cddd4937c4827ad44",
+    "include/early_game_state.h": "f05333c37db6b5fdaf6fa0e058202eccbb221dbd167c8f2f8fd97630698fe26e",
+    "include/early_input_internal.h": "c9f7f26eda442a1dc5d6000b4d2e7e74a4f663ee36d62ddfd2290bdb1d1a315b",
+    "include/early_name_table.h": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
+    "include/early_parameter_internal.h": "6d20b7dc53bb972abd920df102377c4dda62f6c68647a5eb09b61d9afabf1c20",
+    "include/early_pool_tick.h": "50122670755bbdd5704eff40f5fcdc32293e07a9f217898d1b1524d067dfa927",
+    "include/early_render_effects_internal.h": "b8fa58169da2a04ce64c3917883be80ac98718207fe5cf54f54dc05ab1f173f0",
+    "include/early_render_internal.h": "d5d9b4598a5c2987f5fe075b2fd9afb29a2ca42b369b0ea4fe20764898d2e740",
+    "include/early_resource_state.h": "d5f560a8dba312fdd195194d3653b62c5e66d631dc669dc643017a0fb87b71f8",
+    "include/early_session_state.h": "937c976c64bafd92b3ad05ef64c3811d93c0fbbc06d391d930edd48eecd89cb2",
+    "include/effect_draw_config_internal.h": "a5c3634a270bdeaf4b1a4698b5b583f0e49b08d7e2528efb3ac57101f2eb82f3",
+    "include/error_formatters.h": "a07753b6fdc1ae7a113bb3e75767039be3173dc3601e611c931c1282423dd9b3",
+    "include/fixed_geometry.h": "530e2dc24043761f8b2b4db04e47a0e7fe30070d82cd036ba4e21e1af74f5055",
+    "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
+    "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
+    "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
+    "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
+    "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
+    "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
+    "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
+    "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
+    "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
+    "include/menu_label_internal.h": "dc60421b0ef2ebee8b68e0a151543a447982e3a0f24704537936fc530c468811",
+    "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
+    "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+    "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
+    "include/object_draw.h": "b7df01c47c10cb88f298aaa4cca24488b8ba64df4cde3f02d436ecee5ccf862c",
+    "include/object_helpers.h": "1ddd7a85251a44eeb84db02002b7a08d980e9293b68b7145bdf471eba85c3116",
+    "include/object_history.h": "d20ac506136b1802a1ea7945dce3556ebac35035aac89ecc5773ebd76f852ae2",
+    "include/object_history_internal.h": "061ce164bcd66256d4626d6d63bd377f97b3683f7d839c16c086752c6ee423f2",
+    "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
+    "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
+    "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
+    "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
+    "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
+    "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
+    "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
+    "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
+    "include/renderer_diagnostic_internal.h": "86f0d8c8ec7fc912c4df140d08a5b955a4b3076f917a27307552c1183f6343e3",
+    "include/renderer_draw_state_internal.h": "f3b8b2160e59663a7b648042fe654b30a9f400e4c2aae15d7279c7ffaf96d5d1",
+    "include/renderer_geometry_internal.h": "c03a93b5dfba054db766d5ee2f8c5ba1417993a3385ec40ad1440a5fc2fced3c",
+    "include/renderer_image_setup_internal.h": "5c953b01bedc5b443dd9da0366db2e5d0e98943aed6af343ec89791045e0947d",
+    "include/renderer_object_glyph_internal.h": "6bbf74e29517f4c519088cd29242c6226ed6927e7b1f996c2d318842e8c5d83c",
+    "include/renderer_peak_metrics.h": "bc55ddea66e92f5e40909ea6713c3cedec1cff1b4a0f2d656f07bb786d990567",
+    "include/renderer_polygon_messages.h": "59761780941783b420d2a8a75c1252dacf77efa14b22ebe683cee5208462259a",
+    "include/renderer_primitives_internal.h": "8ac70e9b97c8abfa87a1b0e54b0bb33add0ad2c941c7da140415b000b82f12dc",
+    "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
+    "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
+    "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
+    "include/renderer_setup_internal.h": "c3d0fe94d35e4f0231423db7f44c0e9f2796727d89d9a16b4f0b47fae3f51142",
+    "include/renderer_surfaces_internal.h": "bd86ed1e67d674163faff2aaf050bc6d31dc37ef6cfc16f645d348e76f086fe7",
+    "include/renderer_texture_cache.h": "c575de43f39051b977175a24ba6514e512da3ca24bf3c12c324179a1dd324ad8",
+    "include/renderer_texture_index.h": "fb156fa0de759919adfbfd5b972b160be40db4514598a665ce23356d6ccd129c",
+    "include/resource_arena.h": "3e00fe584eabac2d0a2ab54fd3ebda3033293f22ca430fdd44fa99b45f5d9972",
+    "include/resource_bridge_internal.h": "54c95d12346fa764488a64ccc0646631dbe9abe9a0f3e7b087e273c120eb7e08",
+    "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
+    "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
+    "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
+    "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+    "include/save_menu_internal.h": "8c69cc8b3497726b45c9262956cd2c1a87a4afca68d5f09d312168e4ee6dacd2",
+    "include/save_menu_legacy_internal.h": "bd050d7e63704fce5dab1f291d91197ce6c37f9eb813a9233d2b9381ef0d1726",
+    "include/save_menu_nav_internal.h": "b655041106cdb85aea6c26868c3446aa2eae3d8089a8235087d057bb89c5c73a",
+    "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
+    "include/scene_action_internal.h": "540d754daa04b693d7cbe5f06e240bffe571188966171b9f3add64bdeb6fb089",
+    "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
+    "include/scene_background_internal.h": "c2199191e33f34eeda432ebbcf504c3bd944fc7634be42510f87550e4a9e9c10",
+    "include/scene_commands_internal.h": "a21b97d1d652b686d51f894b0611b494421f9fa57563aaa2a8ff101cb6032efb",
+    "include/scene_counter_internal.h": "003940936d136fc9d45b0e42d59de4cec15b1a81b8919a802a69961ef7d8d819",
+    "include/scene_definition.h": "069a4d5c9f25a2bb5aeab76fe93f500495f1a5d21f9ea2056fece2640d04fb52",
+    "include/scene_player_runtime_internal.h": "a039e5cf7c309c1e36f960e78cdfc478e94e85825d431cc4d08f2fe74fec1fd5",
+    "include/scheduler.h": "17b5151851081813145e8ddbc1edc14f5508c5aabef31e16597451ad872eab7c",
+    "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+    "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+    "include/script_service_internal.h": "dbd1c1e75788351372596698cb05a80eb9698897a63a0e545555ad1783e25398",
+    "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+    "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+    "include/sdk_audio_decoder.h": "9b4b04b8f650377e63e6e0ccee0eb2c7bcdff77286dcd6949985a8aa290b72e4",
+    "include/sdk_audio_effect.h": "255cd3751e4df76c5adca95e4d49f29bcd49fb4666057fe07b6233749dd8f5a3",
+    "include/sdk_audio_envelope.h": "bb3d93f3848cf32f203f33d3c1f0dd3f4db31ca61a725c5577110be4bb227b77",
+    "include/sdk_audio_mix_commands.h": "81a9225e07bf4a1fa53b2aa64d1dafe134976588b6a174bebc7964a9b84b43aa",
+    "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a",
+    "include/sdk_audio_reverb.h": "5be4f6f37c9346bf2085f707ab2afc2862b9848f6f5893cd0769c055f43ac009",
+    "include/sdk_camera.h": "d227c229ceae6bf2c7e2682705cab751e60faa760cb70230fd6431dfdd7f6d15",
+    "include/sdk_controller.h": "248fc10e1aeb31d2e6b000bf6e478cc8094a412fbf5af7f6868e03d251c6b90c",
+    "include/sdk_device_manager.h": "faac5bafa8ae1587a0a177eb37323c3c0ff16c6822c7bc75a0bcfe2a41cb6900",
+    "include/sdk_events.h": "b5fc02d01795bf2fa1af4ce5a66c8dcdd81db38fe0c6696067ba47966fdefdbb",
+    "include/sdk_float_math.h": "16ab5392286945c018316e741102e1a35d03927f4f1ff5472a7eeb0b19d4510e",
+    "include/sdk_float_values.h": "274d1bb5a4df4fe66d13c8d15157321e096545ed5c25c93eb057a93bae0f2a16",
+    "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+    "include/sdk_math.h": "177c464c4fa2a4b6305415fc5e58bc205b5a47883d30c45ecaceb44e4256fa71",
+    "include/sdk_matrix.h": "d0a1e821bf9243ab3793d791c87924e507c9483d23f98f8914969eddf563c864",
+    "include/sdk_pfs.h": "0ba4f4c909d078eec17f80547866bdcb03327b904e0f641f684860054b4f89c9",
+    "include/sdk_pfs_internal.h": "3bf7486adb6db16cab11ffa7dd37d2f9a5ccd6a8920c281b9c12d45028f74390",
+    "include/sdk_pi_device.h": "e2ffc49fd3de308f2d0daf75a038f098dac0024c413e1fb77b7ca51e01018b44",
+    "include/sdk_pi_disk.h": "203c9449cf329958baec21c9b2669e1036d6514c191d3853ba6c2356ae3bc01e",
+    "include/sdk_pi_dma.h": "40d7b5755f20a5eab62933f09fe065061653d4e11ef001b7dd7acd9dd0a0632d",
+    "include/sdk_pi_transfer.h": "fe0c22783ee9a451956ee0dfc8457193dcdf9869b0d5ef5f7d0b88d2a61c8420",
+    "include/sdk_pi_word.h": "bd173c27d20848bb1b478b504e81b4c904c104f37bc1c9dec1e9bd118d2e63b9",
+    "include/sdk_rsp.h": "08a2b63a4d4490026a351cc62f776283466a4de2a7c5338551c34ecd53a69264",
+    "include/sdk_short_math.h": "19b800ee2bc1a36ace67534a97c988c202a9ebc113b251a219e3b16c60d432fd",
+    "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+    "include/sdk_sp_task.h": "c3fa6c6fcfdfaeabf65c587d3dd93529b815e3d1daf480c542b3fdd0e1f988a3",
+    "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488",
+    "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+    "include/sdk_timers.h": "1002e9c9f6126c5fe5a1ec619af273ea81e4db3d2d53de4b6de48e4ad27a676e",
+    "include/sdk_video_internal.h": "a266c0283417fb2f11355242ecd14b62112c484841b01ed16bc5f6f906c6148f",
+    "include/sdk_video_manager.h": "bf982a62f168ce834f7d12e76c9d8486e55e01cc75b0c7fa90c68c7baef6ecca",
+    "include/session_menu_internal.h": "0593514df146ea9df633c5ddf39c4400664771d76996341ceaecb3b32b667991",
+    "include/session_setup_internal.h": "8d1a1ee1780f7d27285bffc33f9890733c6e3574da5ef7134cd73cec53d95ef4",
+    "include/sound_bridge_internal.h": "f5de1a7e5b00eecbd808a99391a8fbf3e777e837dcde94ee08ed5df353f7db48",
+    "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
+    "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
+    "linker_scripts/us.ld": "3dbe765c1840cd40642a4609bc7e93d9da5d4a0c5b10c7f90e5797cb02629709",
+    "src/game/audio/startup/buffer_pointers.c": "49b9fa75199b06bcb5c8190db989af269a5a699fef7f3300633431623fc4c0bf",
+    "src/game/audio/startup/driver.c": "c75bfc6940f9549c6ebc40bccbb406850a0e01fd36e73dfea531e7a192642cba",
+    "src/game/audio/startup/rate_constant.c": "7f74c71200e476099756b89396d08a03fbc5e654cdc3f468fa7688ef14dc8a8f",
+    "src/game/audio/startup/storage.c": "841248ab75c6d02f21e19fbdc36b617b16af33fd76b99a0870159aa84a2339fb",
+    "src/game/audio/startup/synth_state.c": "5bcef3f3d1658b1c6302e8de047bef99bd0b931e5505b626304b22bbd0d42a94",
+    "src/game/audio/startup/synthesis.c": "b49cb024e96df68096c5f321f9c9e78bb41e2973189aef2c9a95aabab801725f",
+    "src/game/audio_io.c": "3aacfd0a4185fa4fb31d19c201d1a5baf8e2814a9147041de69050af1b11d037",
+    "src/game/audio_pool_callback.c": "bbca68f2849363c0800500d30db250970fd1552f28f68dc7f90380139bd13a35",
+    "src/game/audio_rate_scale.c": "a6ae0600baf236453f7ce15fe80297b095a07bb93ec6f4b4d9ebcd556ceacb37",
+    "src/game/audio_task_build.c": "3b316bf9b24b7b84de1a290f06562a904caa5d5b212cf58cd940eb6e398dfcc9",
+    "src/game/audio_task_select.c": "c339d2bd0fbd7e0428a9c1d37fb5492722146d8ce0287144139a3d6f9642b7fa",
+    "src/game/audio_voice_capture_control.c": "dcad7567f73157bba82fa774034046c9492c58b3cf71eb056eb8a8e54f01dd5a",
+    "src/sdk/audio_heap_allocate.c": "f6e880ce4a4c6a7dbab3a6d8ea450470ebb7ad8d0954a0fb873e3c29a75ad877",
+    "src/sdk/audio_link_nodes.c": "1408ba5f0081db1d597b2b095a28b9a503cca917d664e65c8d49dd0eca5022a6",
+    "src/sdk/message_queue.c": "a26e580e909d0c4ba55ed5f6f91a216648daa72a3c796a2e6038cbdbe8c35b33",
+    "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
+    "tools/check_audio_instance_allocate.py": "98b2ab9117483f4600b2546d86451a91e8d18c33d6ce50201fc57566496cb7e0",
+    "tools/check_audio_synthesis_driver.py": "c21d727d9edfee9160fcb9a1fbef7ff0785c87266e2e51df438cac0cd4876597",
+    "tools/check_audio_synthesis_startup.py": "a2dacd09243565189306a5b030bef68323b7467eec2b3b25aaab3940373939a5",
+    "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
+    "tools/compare_runtime.py": "aabd232fea170d846cab3cff13c1191b077a02b3dd9cd89af79aa1a701e0d64e",
+    "tools/compare_startup.py": "427fa376ef58862cda20f4f62fea13f6dc4f3a734ad0b9751b9ab1d422435709",
+    "tools/compiler.py": "a1841eb3a11f3dedc0a2f5724beceef605efc868793e73813dc45f9fb2c0c024",
+    "tools/extract.py": "8857f84630fa8df1137d1036578f50fc6dcaa073e96f6bce65ba82b9e02dada3",
+    "tools/manifest.py": "364bf7db90d27dc4eb0a928bb853c8476355bed4dc157266e3c159dc126f3c21",
+    "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
+    "tools/provenance.py": "56bf82f2e6db664442defa817e002298c7a840894e1455a0080150be353ccc80",
+    "tools/rom.py": "e0a61a3034aad22593a66275e77cc828765b83185291872325fc23ea3881a3e2",
+    "tools/toolchain.py": "83a91499cbef3c6f7319c8482e2decb06b3cad9a67ec398460ab4fae22b08c5b",
+    "tools/trim_padding.py": "03185161972900b515a1a0bcdeef53c1999e4bdcf456df74a1f810cefb6a8a2b"
+  },
+  "limits": [
+    "The two routines are checked separately; SDK frequency, driver handoff, reset, control and SDK synthesizer construction use recorded ABI boundaries. Hardware and downstream SDK device behavior are outside these execution checks.",
+    "The original purpose of the unused startup stack gap is unknown. A 32-byte unused local reproduces the independently verified full 128-byte frame; no original local name or type is claimed.",
+    "Original partial configuration initialization and low-byte effect truncation are preserved. The no-argument DMA factory ignores the state pointer supplied by the matching SDK caller.",
+    "Out-of-range float conversions, malformed parameter pointers, zero DMA-pool counts and heap exhaustion retain original behavior and are outside the guarded fixtures.",
+    "BSS has no ROM payload. Independently assembled declaration extents and object relocations verify the 224-byte layout, supported by instruction accesses and matching SDK structures.",
+    "Sequence walker, timing and pitch probes remain excluded. Whole-ROM equality still includes extracted fallback and does not establish complete decompilation."
+  ]
+}

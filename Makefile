@@ -7489,6 +7489,55 @@ build/us/audio_backend_commands.o: src/game/audio/backend/commands.c include/aud
 
 RUNTIME_OBJECTS += build/us/audio_backend_commands.o
 
+# Audio synthesis configuration and custom-effect delay conversion.
+build/us/audio_synthesis_startup.o: src/game/audio/startup/synthesis.c include/audio_synthesis_internal.h include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_synthesis_startup.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_synthesis_startup.raw.o $@ .text 0x1f4
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_synthesis_startup.o
+
+build/us/audio_synthesis_storage.o: src/game/audio/startup/storage.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/audio_synthesis_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_synthesis_storage.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_synthesis_storage.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_synthesis_storage.o
+
+build/us/audio_synthesis_rate_constant.o: src/game/audio/startup/rate_constant.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/audio_synthesis_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_synthesis_rate_constant.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_synthesis_rate_constant.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_synthesis_rate_constant.o
+
+build/us/audio_synthesis_driver.o: src/game/audio/startup/driver.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/audio_synthesis_internal.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_synthesis_driver.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/audio_synthesis_driver.raw.o $@ .text 0x51c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_synthesis_driver.o
+
+build/us/audio_synthesis_buffer_pointers.o: src/game/audio/startup/buffer_pointers.c include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_synthesis_buffer_pointers.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_synthesis_buffer_pointers.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_synthesis_buffer_pointers.o
+
+build/us/audio_synthesis_synth_state.o: src/game/audio/startup/synth_state.c include/audio_callbacks.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_audio.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_synthesis_synth_state.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_synthesis_synth_state.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/audio_synthesis_synth_state.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
