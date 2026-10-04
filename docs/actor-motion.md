@@ -26,10 +26,15 @@ The strict build trims the compiler's trailing alignment padding to `0xE4`;
 all 228 owned bytes then match the USA ROM. No shared actor or sound prototype
 change is required.
 
-Two neighboring motion functions remain ordinary C candidates:
+The two neighboring motion functions also match their complete bodies:
 
-- `func_80027D8C`, `0x80027D8C..0x80027ED4`, target 328 bytes. The best retained candidate is 328 bytes with 21 differing words. The control flow, filters, early return, linked-list walk, and closest-distance comparison are established. The residual is concentrated in register assignment and the order in which the X/Y deltas are materialized before the two `func_8004CEF0` calls. The retained source snapshot has SHA-256 `7b1213c6e3659fd1b5c028a6e2164575fd9f8e0116375495917e7ed9aa5f1684` and is frozen at `.local/recovery44-actors/frozen/best-actor_motion_find-5.3-O2-mips1/`.
-- `func_80027ED4`, `0x80027ED4..0x8002818C`, target 696 bytes. The best retained candidate is 696 bytes with 18 differing words. Its retry loop, random candidate construction, optional axis constraint, actor-spacing rejection, 100-attempt failure path, and final three-word position copy are all represented. The remaining words are register choices and four-byte stack-slot shifts around the candidate position and saved spacing argument; the branch structure and total size already match. The retained source snapshot has SHA-256 `1927da0b86a21a394c6814cdf0601cffa83fe15f0e83ccb12aca9c6113a5672a` and is frozen at `.local/recovery44-actors/frozen/best-actor_motion_position-5.3-O2-mips1/`.
+- `func_80027D8C`, `0x80027D8C..0x80027ED4`, 328 bytes, is represented by `src/game/actor_nearest_match.c`. It filters actor kind, resource kind and animation, optionally returns the first match, and otherwise selects the closest actor by summed absolute X/Y distance.
+- `func_80027ED4`, `0x80027ED4..0x8002818C`, 696 bytes, is represented by `src/game/actor_spawn_position.c`. It constructs random positions, optionally constrains an axis, and scans the actor list for spacing rejection. The budget is consumed per rejecting actor, so several actors can consume it in one attempt. Failure preserves the output; success copies three position words. See [Random spawn position](actor-spawn-position.md) for the complete comparison and guarded execution proof.
+
+The earlier 21-word and 18-word candidates remain frozen at
+`.local/recovery44-actors/frozen/best-actor_motion_find-5.3-O2-mips1/` and
+`.local/recovery44-actors/frozen/best-actor_motion_position-5.3-O2-mips1/`.
+They document earlier research and are not the current matching evidence.
 
 The target accesses in these helpers confirm the actor fields used by the private motion view: object index at `+0x0C`, actor kind at `+0x1C`, animation index at `+0x1F`, mode byte at `+0x20`, resource pointer at `+0x24`, X/Y position words at `+0x60/+0x64`, and linked-list next pointer at `+0x78`. No shared actor header change is required for this handoff.
 
@@ -39,5 +44,6 @@ The larger actor candidates remain outside matching progress:
 - `func_8001EB2C` in `src/game/actor_setup_text_update.c` is exactly the target size, 1,708 bytes, with 371 differing words. The 20-entry `0x14`-stride runtime records, `0x1C` placement records, elapsed-time positioning, label formatting, two extra labels, transform calls, and timeout cleanup are represented. Reordering the independent formatting streams and the index/Z calculations did not reduce the 371-word residual, which remains broad register/scheduling allocation within the main loop. The retained source SHA-256 is `bc9dcd5f491d12c2169eaeacc518ca052030932a7986c424a2bdf4b1e4b7e3e4`; full proof is frozen at `.local/recovery44-actors/frozen/best-actor_setup_text_update-5.3-O2-mips1/`.
 
 The earlier frozen directories preserve the historical candidates and their
-proofs. Current matching status for `func_80027CE4` comes from the complete
-canonical comparison above; the other listed candidates remain excluded.
+proofs. Current matching status for the motion helpers comes from complete
+canonical comparisons; the larger setup candidates listed above remain
+excluded from those comparisons.

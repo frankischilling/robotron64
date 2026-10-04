@@ -15722,5 +15722,16 @@
     "section": ".boss_update",
     "section_vram": 2147551136,
     "evidence": "docs/boss-update.md"
+  },
+  {
+    "name": "func_80027ED4",
+    "rom": 166612,
+    "vram": 2147647188,
+    "size": 696,
+    "source": "src/game/actor_spawn_position.c",
+    "object": "build/us/actor_spawn_position.o",
+    "section": ".actor_spawn_position",
+    "section_vram": 2147647188,
+    "evidence": "docs/actor-spawn-position.md"
   }
 ]
