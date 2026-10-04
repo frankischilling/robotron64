@@ -12,7 +12,7 @@ from pathlib import Path
 from unicorn import UC_HOOK_CODE, UC_HOOK_MEM_WRITE
 from unicorn import mips_const as regs
 
-from check_actor_group_path import machine, word
+from check_actor_group_path import machine, word, SENTINEL
 from compare_data import compare_unit
 from compare_runtime import CANDIDATE_BLOCKS, MATCHING_BLOCKS
 from compare_startup import SymbolLayoutSnapshot, compare_block
@@ -22,6 +22,7 @@ from rom import ROOT, validate
 
 FORMAT, STRINGS, STACK = 0x80201010, 0x80210010, 0x80300000
 OUTPUT, REPORT = 0x80048DC0, 0x800496E0
+FP_INIT, FP_STUB, FP_RETURN = 0x80001800, 0x80001000, 0x80002000
 SUPPORT = ('game_memory', 'game_number_format', 'fixed_geometry_setup', 'geometry_debug_bridge')
 FORMATTERS = ('error_fatal_format', 'error_warning_format', 'error_formatted')
 DIGITS = b'0123456789ABCDEF'
@@ -88,7 +89,7 @@ def cases(widths=False):
         yield b'%x', (value,)
         if value & 0xFFFFFFFF != 0x80000000:
             yield b'%d', (value,)
-    for specifier in range(32, 127):
+    for specifier in range(1, 256) if not widths else range(32, 127):
         if specifier not in (b'Ccdsx2345' if widths else b'Ccdsx'):
             yield b'%' + bytes([specifier]) + b'%C/%d', (81, -37)
     for value in (1, 65, 127, 128, 255):
@@ -112,7 +113,20 @@ def cases(widths=False):
 def run(code, support, entry, size, case):
     format_string, values = case
     expected = oracle(format_string, values, widths=entry == 0x8001C49C)
-    uc, write, execute = machine(code, support)
+    # Unicorn's MIPS API cannot access these FPRs directly. Use MIPS loads/stores
+    # to seed, clobber and observe them, as in the synthesis execution checker.
+    fp_seed = b''.join(word(0x3F000000 + index * 0x10000) for index in range(32))
+    initializer = b''.join(word(0xC4003000 | index << 16 | index * 4) for index in range(32))
+    initializer += word(0x08000000 | ((entry >> 2) & 0x3FFFFFF)) + word(0)
+    clobber = b''.join(word(0xC4003080 | index << 16) for index in range(20))
+    clobber += word(0x03E00008) + word(0)
+    observer = b''.join(word(0xE4003100 | index << 16 | (index - 20) * 4)
+                        for index in range(20, 32))
+    observer += word(0x08000000 | ((SENTINEL >> 2) & 0x3FFFFFF)) + word(0)
+    uc, write, execute = machine(code + [(FP_INIT, initializer), (FP_STUB, clobber),
+                                        (FP_RETURN, observer)], support)
+    write(0x3000, fp_seed + word(0x42E00000))
+    write(0x3100, b'\x89' * 48)
     write(STACK - 0x2010, b'\xA7' * 16)
     write(STACK - 0x2000, b'\xA5' * 0x2080)
     guarded_format = b'\xA9' * 16 + format_string + b'\0' + b'\xB9' * 16
@@ -134,6 +148,8 @@ def run(code, support, entry, size, case):
     stack_arguments = b''.join(word(value) for value in arguments[3:])
     write(STACK + 16, stack_arguments)
     uc.reg_write(regs.UC_MIPS_REG_A0, FORMAT)
+    uc.reg_write(regs.UC_MIPS_REG_GP, 0xA1234000)
+    uc.reg_write(regs.UC_MIPS_REG_RA, FP_RETURN)
     trace, buffer = [], []
 
     def read(address, size):
@@ -147,6 +163,10 @@ def run(code, support, entry, size, case):
 
     # The independently compared setup instruction establishes the output cursor.
     own_code = next(data for address, data in code if address == entry)
+    unreferenced = None
+    if entry != 0x8001C49C:
+        assert own_code[:4] == bytes.fromhex('27bdfbb8'), 'Measured 0x448-byte frame'
+        unreferenced = (STACK - 0x448 + 0x40, STACK - 0x448 + 0x254)
     setup = 0x34 if entry == 0x8001C49C else 0x40
     cursor = regs.UC_MIPS_REG_S1 if entry == 0x8001C49C else regs.UC_MIPS_REG_S0
     assert own_code[setup:setup + 2] == bytes.fromhex('27b1' if entry == 0x8001C49C else '27b0')
@@ -158,8 +178,14 @@ def run(code, support, entry, size, case):
 
     def guard_write(uc, access, address, size, value, user):
         physical = address & 0x1FFFFFFF
+        if 0x3100 <= physical and physical + size <= 0x3130:
+            assert FP_RETURN <= uc.reg_read(regs.UC_MIPS_REG_PC) < FP_RETURN + len(observer)
+            return
         assert STACK - 0x2000 <= (physical | 0x80000000)
         assert (physical | 0x80000000) + size <= STACK + 16
+        if unreferenced:
+            assert ((physical | 0x80000000) + size <= unreferenced[0] or
+                    (physical | 0x80000000) >= unreferenced[1]), 'Unreferenced stack storage was written'
         pc = uc.reg_read(regs.UC_MIPS_REG_PC)
         if entry <= pc < entry + size_of_function and size == 1:
             assert buffer and buffer[0] <= (physical | 0x80000000) < buffer[0] + 500
@@ -184,11 +210,15 @@ def run(code, support, entry, size, case):
                           string(args[2]).hex(), args[3]])
         for index, register in enumerate(CALLER_SAVED):
             uc.reg_write(register, 0xB2340000 + index * 257)
-        uc.reg_write(regs.UC_MIPS_REG_PC, uc.reg_read(regs.UC_MIPS_REG_RA))
+        uc.reg_write(regs.UC_MIPS_REG_PC, FP_STUB)
 
     for address in (OUTPUT, REPORT):
         uc.hook_add(UC_HOOK_CODE, boundary, begin=address, end=address)
-    execute(entry)
+    execute(FP_INIT)
+    assert uc.reg_read(regs.UC_MIPS_REG_GP) == 0xA1234000
+    assert read(0x3100, 48) == fp_seed[80:128]
+    if unreferenced:
+        assert read(unreferenced[0], unreferenced[1] - unreferenced[0]) == b'\xA5' * 532
     visible = expected.split(b'\0', 1)[0].hex()
     prefix = b'FATAL ERROR: ' if entry == 0x8001C0D0 else b'WARNING: '
     expected_trace = [['output', prefix.hex()], ['output', visible]]
@@ -223,6 +253,7 @@ def main():
         directory = ROOT / 'build/error-formatter-execution' / name
         code = (directory / (name + '.bin')).read_bytes()
         if name in FORMATTERS:
+            assert report['matches'], 'The accepted formatter must completely match: ' + name
             compiled[name] = [(start, code)]
             retail[name] = [(start, target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00])]
             if name == 'error_formatted':
@@ -262,12 +293,13 @@ def main():
                   comparisons=comparisons, data_comparison=data_report,
                   emulator=dict(package='unicorn', version=version('unicorn')),
                   checker_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-                  limits=['The fatal and warning candidates remain instruction nonmatching; the buffered formatter and its complete dispatch table match.',
+                  limits=['All three formatter ranges and the buffered formatter dispatch table completely match.',
                           'Output and the fatal reporter use ABI-clobbering stubs; the fatal reporter returns synthetically.',
                           'Only valid strings and output shorter than 500 bytes are exercised; overflowing buffers and dangling percent specifiers are omitted.',
                           'INT_MIN decimal conversion is omitted; hexadecimal covers all listed 32-bit boundaries.',
                           'The standard hexadecimal alphabet is checked against retail but is not credited as source-owned data.',
-                          'Stack bounds, output byte writes, preserved registers, input buffers and stacked arguments are checked.'])
+                          'Stack bounds, output byte writes, integer and floating-point callee-saved registers, GP, input buffers and stacked arguments are checked.',
+                          'For each fatal/warning execution, all 532 bytes between the saved registers and message buffer remain untouched; their original purpose is unknown.'])
     output = ROOT / 'build/error-formatter-execution/report.json'
     output.write_text(json.dumps(report, indent=2) + '\n')
     print('Passed bounded formatter execution:', count, output, flush=True)

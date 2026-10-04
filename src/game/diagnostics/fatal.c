@@ -2,20 +2,20 @@
 #include "../../../include/error_formatters.h"
 #include "../../../include/game_stdarg.h"
 #include "../../../include/debug_output.h"
+#include "../../../include/error_message_storage_internal.h"
 
 void func_8003CC38(unsigned char *message);
 
 
-/* Excluded candidate: the target stack frame remains unresolved. */
 void func_8001C0D0(unsigned char *format, ...)
 {
-    unsigned char message[500];
+    ErrorMessageStorage storage;
     unsigned char *text;
     int character;
     int marker;
     va_list args;
 
-    text = message;
+    text = storage.message;
     character = *format;
     marker = '%';
     va_start(args, format);
@@ -56,6 +56,6 @@ void func_8001C0D0(unsigned char *format, ...)
     *text = 0;
     va_end(args);
     func_8003CC38((unsigned char *)D_80090420);
-    func_8003CC38(message);
-    func_800496E0((unsigned char *)D_80090430, message, D_80090448, 77);
+    func_8003CC38(storage.message);
+    func_800496E0((unsigned char *)D_80090430, storage.message, D_80090448, 77);
 }

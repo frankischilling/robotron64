@@ -15678,5 +15678,27 @@
     "section": ".audio_bank_load",
     "section_vram": 2147823676,
     "evidence": "docs/audio-bank-loader.md"
+  },
+  {
+    "name": "func_8001C0D0",
+    "rom": 117968,
+    "vram": 2147598544,
+    "size": 500,
+    "source": "src/game/diagnostics/fatal.c",
+    "object": "build/us/error_fatal_format.o",
+    "section": ".error_fatal_format",
+    "section_vram": 2147598544,
+    "evidence": "docs/error-formatter-frames.md"
+  },
+  {
+    "name": "func_8001C2C4",
+    "rom": 118468,
+    "vram": 2147599044,
+    "size": 472,
+    "source": "src/game/diagnostics/warning.c",
+    "object": "build/us/error_warning_format.o",
+    "section": ".error_warning_format",
+    "section_vram": 2147599044,
+    "evidence": "docs/error-formatter-frames.md"
   }
 ]

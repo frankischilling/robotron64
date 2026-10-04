@@ -58,7 +58,6 @@ __initial_stack_top = 0x8013A280;
 
 D_800B1BE8 = 0x800B1BE8;
 D_8008F620 = 0x8008F620;
-func_8001C0D0 = 0x8001C0D0;
 
 D_8008F64C = 0x8008F64C;
 
@@ -233,7 +232,9 @@ SECTIONS
     .endgame_1ca2c_1cb48 0x8001BE2C : AT(0x1CA2C) { build/us/fallback.o(.rom_endgame_1ca2c_1cb48) }
     .early_player_counter_reset 0x8001BF48 : AT(0x1CB48) SUBALIGN(4) { build/us/early_player_counter_reset.o(.text) }
     .early_player_sequence 0x8001BFB0 : AT(0x1CBB0) SUBALIGN(4) { build/us/early_player_sequence.o(.text) }
-    .cpu_after_early_player_sequence 0x8001C0C8 : AT(0x1CCC8) { build/us/fallback.o(.rom_cpu_after_early_player_sequence) }
+    .early_player_sequence_tail 0x8001C0C8 : AT(0x1CCC8) { build/us/fallback.o(.rom_early_player_sequence_tail) }
+    .error_fatal_format 0x8001C0D0 : AT(0x1CCD0) SUBALIGN(4) { build/us/error_fatal_format.o(.text) }
+    .error_warning_format 0x8001C2C4 : AT(0x1CEC4) SUBALIGN(4) { build/us/error_warning_format.o(.text) }
     .error_formatted 0x8001C49C : AT(0x1D09C) SUBALIGN(4) { build/us/error_formatted.o(.text) }
     .error_formatted_tail 0x8001C734 : AT(0x1D334) { build/us/fallback.o(.rom_error_formatted_tail) }
     .script_service_cache_reset 0x8001C740 : AT(0x1D340) SUBALIGN(4) { build/us/script_service_cache_reset.o(.text) }
@@ -2453,7 +2454,9 @@ ASSERT(SIZEOF(.square_root) == 0x10, "square_root size changed")
 ASSERT(SIZEOF(.endgame_1b148_1b9a0) == 0x858, "endgame_1b148_1b9a0 size changed")
 ASSERT(SIZEOF(.endgame_1ca2c_1cb48) == 0x11c, "endgame_1ca2c_1cb48 size changed")
 ASSERT(SIZEOF(.early_player_sequence) == 0x118, "early_player_sequence size changed")
-ASSERT(SIZEOF(.cpu_after_early_player_sequence) == 0x3d4, "cpu_after_early_player_sequence size changed")
+ASSERT(SIZEOF(.early_player_sequence_tail) == 0x8, "early_player_sequence_tail size changed")
+ASSERT(SIZEOF(.error_fatal_format) == 0x1f4, "error_fatal_format size changed")
+ASSERT(SIZEOF(.error_warning_format) == 0x1d8, "error_warning_format size changed")
 ASSERT(SIZEOF(.error_formatted) == 0x298, "error_formatted size changed")
 ASSERT(SIZEOF(.error_formatted_tail) == 0xc, "error_formatted_tail size changed")
 ASSERT(SIZEOF(.error_formatted_table) == 0x48, "error_formatted_table size changed")
