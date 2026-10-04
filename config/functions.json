@@ -15821,5 +15821,38 @@
     "section": ".audio_backend_pitch_command",
     "section_vram": 2147858980,
     "evidence": "docs/audio-voice-release-and-pitch.md"
+  },
+  {
+    "name": "func_8005DA20",
+    "rom": 386592,
+    "vram": 2147867168,
+    "size": 1988,
+    "source": "src/game/compression/huffman.c",
+    "object": "build/us/compression_huffman.o",
+    "section": ".compression_huffman",
+    "section_vram": 2147867168,
+    "evidence": "docs/compression-runtime.md"
+  },
+  {
+    "name": "func_8005E1EC",
+    "rom": 388588,
+    "vram": 2147869164,
+    "size": 2020,
+    "source": "src/game/compression/codes.c",
+    "object": "build/us/compression_codes.o",
+    "section": ".compression_codes",
+    "section_vram": 2147869164,
+    "evidence": "docs/compression-runtime.md"
+  },
+  {
+    "name": "func_8005EEE0",
+    "rom": 391904,
+    "vram": 2147872480,
+    "size": 2108,
+    "source": "src/game/compression/dynamic.c",
+    "object": "build/us/compression_dynamic.o",
+    "section": ".compression_dynamic",
+    "section_vram": 2147872480,
+    "evidence": "docs/compression-runtime.md"
   }
 ]

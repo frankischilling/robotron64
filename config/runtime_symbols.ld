@@ -809,9 +809,6 @@ D_80192BBC = 0x80192BBC;
 D_80192BC0 = 0x80192BC0;
 
 /* Remaining fallback compression procedures used by recovered source. */
-func_8005DA20 = 0x8005DA20;
-func_8005E1EC = 0x8005E1EC;
-func_8005EEE0 = 0x8005EEE0;
 
 /* References used by recovered audio hardware driver units. */
 D_80093E94 = 0x80093E94;
