@@ -29,6 +29,12 @@ The seven-entry transition index table adds 28 initialized control-data bytes;
 the adjacent palette resource remains extracted.
 The per-frame transition update remains excluded pending instruction matching.
 
+The [renderer color wave state](renderer-color-wave.md) adds 260 bytes of
+checked BSS ownership for its time accumulator and sixteen wave records.
+An aggregate preserves the array's four-byte offset without IDO inserting
+padding. The related color grids and material reset still use fallback;
+their close instruction comparisons do not add recovered function bytes.
+
 The [random spawn-position chooser](actor-spawn-position.md) has a complete
 696-byte C comparison. Its signed arithmetic, axis constraints, per-actor
 rejection budget and failure output are checked with matching absolute-value

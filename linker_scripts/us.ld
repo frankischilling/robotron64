@@ -1553,6 +1553,7 @@ SECTIONS
     .object_record_storage 0x800BF918 (NOLOAD) : SUBALIGN(4) { build/us/object_record_storage.o(.bss) }
     .object_slot_storage 0x800C86C0 (NOLOAD) : SUBALIGN(4) { build/us/object_slot_storage.o(.bss) }
     .palette_command_storage 0x800BB230 (NOLOAD) : SUBALIGN(4) { build/us/palette_command_storage.o(.bss) }
+    .renderer_color_wave_storage 0x800CD2B4 (NOLOAD) : SUBALIGN(4) { build/us/renderer_color_wave_storage.o(.bss) }
     .menu_options_records 0x800AEF00 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_records.o(.bss) }
     .menu_options_page 0x800AF1A8 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_page.o(.bss) }
     .scene_action_pickup_count 0x800BAE8C (NOLOAD) : SUBALIGN(4) { build/us/scene_action_pickup_count.o(.bss) }
@@ -3183,3 +3184,5 @@ ASSERT(SIZEOF(.renderer_gradient_extents) == 8, "renderer_gradient_extents size 
 ASSERT(SIZEOF(.renderer_border_gradient) == 0x344, "renderer_border_gradient size changed")
 
 ASSERT(SIZEOF(.palette_command_storage) == 0x3d20, "palette_command_storage BSS size changed")
+
+ASSERT(SIZEOF(.renderer_color_wave_storage) == 260, "renderer_color_wave_storage BSS size changed")

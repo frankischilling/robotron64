@@ -3936,5 +3936,18 @@
       "D_80077C20": 0
     },
     "evidence": "docs/palette-transitions.md"
+  },
+  {
+    "source": "src/game/renderer_surfaces/color_wave_storage.c",
+    "object": "build/us/renderer_color_wave_storage.o",
+    "input_section": ".bss",
+    "section": ".renderer_color_wave_storage",
+    "vram": 2148324020,
+    "rom": null,
+    "size": 260,
+    "symbols": {
+      "D_800CD2B4": 0
+    },
+    "evidence": "docs/renderer-color-wave.md"
   }
 ]

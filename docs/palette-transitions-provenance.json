@@ -200,11 +200,11 @@
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "matches": true,
-        "report_sha256": "f846b3181cf6fa5fec6eb2a2c079c6296a893540b52e3f88bc8b189e34cf3a89"
+        "report_sha256": "78366c942ca0099f3252ed1eb05918e4b66c8ce8250ff0e6565cb6de2577b1a6"
       },
       "startup-comparison": {
         "matches": true,
-        "report_sha256": "cbc0e65abf875822146baf18013c97e6513125660ebd0ba29f80b783dd14c695"
+        "report_sha256": "856c395d3f1c67e51c075d99bca29f02e0c9db4f1406e2a1b3ebb83eee018eec"
       },
       "assembly-comparison": {
         "matches": true,
@@ -212,7 +212,7 @@
       },
       "data-comparison": {
         "matches": true,
-        "report_sha256": "257bd5a79492055959ead80543abdfbd175fcfe69829c8f2fa2af4026c9abd51"
+        "report_sha256": "13fee9e3653184e4eab85abcf88baee1ec9983d16d4689bdbd8214f9c3beb8b0"
       }
     },
     "progress": {
@@ -221,7 +221,7 @@
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
       "source_owned_initialized_bytes": 31419,
-      "source_owned_bss_bytes": 520835,
+      "source_owned_bss_bytes": 521095,
       "whole_rom_matches": true
     }
   },
@@ -233,12 +233,12 @@
     "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
     "tools/check_palette_transitions.py": "f0b2fd85e5566529a245910493ed5437af7e21fc7929e50d6c2e213ef06d79d9",
     "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
-    "Makefile": "500d1fa03ae80ac3ae0a2bee62799d498afff6c3df1f7cb7b6f307f1981a202a",
+    "Makefile": "2742bc9a53920e7567bf9816c3ac4fa4bea059e06ce575d650beffb9158a7ff2",
     "config/functions.json": "736b2504c093d03a0130ff0ee37003bea17668d8421b312fc1fcffa20461e4ad",
-    "config/owned_sections.json": "e783995fbf5d98a33f24988bbdc069d3af696fe726794871c78a048930263ac8",
+    "config/owned_sections.json": "91415ae4e742f9a3778a793eb10bb698982fbdbd8e0723e586242a086fe0e668",
     "config/runtime_symbols.ld": "5a47bf033c0dd4dd0f5872658bf74cb924d1c6ccde4376dcc2483e0c7ac6e32c",
     "config/startup_symbols.ld": "14b4d400aea931cd6aeb3f981cf00140167e4436cc26d298959b6e8033c4e071",
-    "linker_scripts/us.ld": "20e94da4e9e267787355ed8f6f3c2c3f532e49c2fc2af03e77d8922440509e38",
+    "linker_scripts/us.ld": "c21e956dd8597ae423ac9c01bbda9b27c564d98b4447c81b9f6719ceb434e2c2",
     "tools/extract.py": "aa9bd28883437b6debad3c52671347a588ee044163bf376c80e20a2dd6a7ca1e"
   },
   "tools": [
