@@ -1,4 +1,4 @@
-#include "../../../include/actor_behavior_internal.h"
+#include "../../../include/actor_damage_internal.h"
 #include "../../../include/scene_counter_internal.h"
 
 extern int D_8009EFA0;
@@ -8,7 +8,6 @@ extern int D_800BA74C;
 
 void func_80015BD4(void *state);
 void func_8001B4F8(ActorBehaviorActorInternal *actor, ActorBehaviorActorInternal *other);
-int func_80035244(ActorBehaviorActorInternal *actor, ActorBehaviorActorInternal *other);
 
 int func_80015BF8(ActorBehaviorActorInternal *first,
                   ActorBehaviorActorInternal *second,

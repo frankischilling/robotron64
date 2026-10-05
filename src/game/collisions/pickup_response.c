@@ -1,4 +1,4 @@
-#include "../../../include/actor_behavior_internal.h"
+#include "../../../include/actor_damage_internal.h"
 #include "../../../include/early_game_state.h"
 #include "../../../include/scene_counter_internal.h"
 #include "../../../include/save_game.h"
@@ -9,7 +9,6 @@ extern int D_800AE560;
 extern int D_800B6FD4;
 void func_8003BF9C();
 int func_8003614C(int sound, int unused, int enabled, int fourth);
-int func_80035244(ActorBehaviorActorInternal *first, ActorBehaviorActorInternal *second);
 
 int func_80015F00(ActorBehaviorActorInternal *first,
                   ActorBehaviorActorInternal *second,

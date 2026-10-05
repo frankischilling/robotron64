@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("actor_damage", "src/game/collisions/damage.c", 0x80035244, 0x80035360),
     ("audio_seek_forward", "src/game/audio/seek_forward.c", 0x80056EF0, 0x80057124),
     ("audio_seek_restart", "src/game/audio/seek_restart.c", 0x80057124, 0x80057358),
 

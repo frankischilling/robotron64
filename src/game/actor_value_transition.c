@@ -1,4 +1,5 @@
 #include "../../include/actor_animation_state.h"
+#include "../../include/actor_damage_internal.h"
 
 typedef struct ActorValueOwner {
     unsigned char unknown00[0xC];

@@ -73,7 +73,9 @@ Called game services use integer and floating-point ABI stubs. These
 checks establish the recovered handler's behavior at those boundaries;
 actual damage, allocation and rendering effects, invalid palette indices,
 complete caller bounds and full gameplay remain unproved. The neighboring
-separation candidate and the separate damage candidate remain excluded.
+separation candidate and the separate damage candidate remained excluded at
+this checkpoint. The subsequent [damage recovery](actor-damage.md) matches the
+complete damage handler and checks it with its real balance and value helpers.
 
 The isolated extraction and rebuild reproduce all 8,388,608 ROM bytes.
 All 152 tooling tests pass. Fresh independent comparisons cover 866

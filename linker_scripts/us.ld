@@ -486,7 +486,7 @@ SECTIONS
     .resource_selection_clear 0x800338F0 : AT(0x344F0) SUBALIGN(4) { build/us/resource_selection_clear.o(.text) }
     .endgame_34574_35d90 0x80033974 : AT(0x34574) { build/us/fallback.o(.rom_endgame_34574_35d90) }
     .actor_value_transition 0x80035190 : AT(0x35D90) SUBALIGN(4) { build/us/actor_value_transition.o(.text) }
-    .endgame_35e44_35f60 0x80035244 : AT(0x35E44) { build/us/fallback.o(.rom_endgame_35e44_35f60) }
+    .actor_damage 0x80035244 : AT(0x35E44) SUBALIGN(4) { build/us/actor_damage.o(.text) }
     .actor_value_follow 0x80035360 : AT(0x35F60) SUBALIGN(4) { build/us/actor_value_follow.o(.text) }
     .scene_actor_parameter_reset 0x800354A4 : AT(0x360A4) SUBALIGN(4) { build/us/scene_actor_parameter_reset.o(.text) }
     .actor_retirement 0x800354C8 : AT(0x360C8) SUBALIGN(4) { build/us/actor_retirement.o(.text) }
@@ -2786,7 +2786,7 @@ ASSERT(SIZEOF(.actor_value_follow) == 0x144, "actor_value_follow size changed")
 D_8008D578 = 0x8008D578;
 ASSERT(SIZEOF(.endgame_18b9c_198c8) == 0xd2c, "endgame_18b9c_198c8 size changed")
 ASSERT(SIZEOF(.actor_spawn_position) == 0x2b8, "actor_spawn_position size changed")
-ASSERT(SIZEOF(.endgame_35e44_35f60) == 0x11c, "endgame_35e44_35f60 size changed")
+ASSERT(SIZEOF(.actor_damage) == 0x11c, "actor_damage size changed")
 ASSERT(SIZEOF(.early_parameter_slot_tick) == 0xd8, "early_parameter_slot_tick size changed")
 ASSERT(SIZEOF(.actor_group_setup) == 0x220, "actor_group_setup size changed")
 ASSERT(SIZEOF(.early_actor_follow_owner) == 0x11c, "early_actor_follow_owner size changed")
