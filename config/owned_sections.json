@@ -3923,5 +3923,18 @@
       "D_800BEF4C": 15644
     },
     "evidence": "docs/palette-transitions.md"
+  },
+  {
+    "source": "src/game/palette_effects/transition_order.c",
+    "object": "build/us/palette_transition_order.o",
+    "input_section": ".data",
+    "section": ".palette_transition_order",
+    "vram": 2147974176,
+    "rom": 493600,
+    "size": 28,
+    "symbols": {
+      "D_80077C20": 0
+    },
+    "evidence": "docs/palette-transitions.md"
   }
 ]

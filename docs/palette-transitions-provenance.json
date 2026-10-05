@@ -1,5 +1,5 @@
 {
-  "scope": "Complete transition allocation code and the contiguous palette-command BSS. Per-frame update remains extracted fallback.",
+  "scope": "Complete transition allocation code, contiguous palette-command BSS, and seven-entry transition index table. Per-frame update remains extracted fallback.",
   "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "allocator": {
     "function": "func_80031B28",
@@ -163,17 +163,48 @@
     },
     "basis": "Adjacent global addresses, command-function accesses, record layouts, and independent raw/linked IDO size and offset checks. No retail BSS contents are claimed."
   },
+  "transition_order": {
+    "source": "src/game/palette_effects/transition_order.c",
+    "vram_start": "0x80077C20",
+    "vram_end": "0x80077C3C",
+    "rom_start": "0x78820",
+    "rom_end": "0x7883C",
+    "size": 28,
+    "input_section": ".data",
+    "count": 7,
+    "stride": 4,
+    "symbols": {
+      "D_80077C20": 0
+    },
+    "compiled_and_reference_data_sha256": "a091bf39ee84f0a7c763dba492216c4500519600e29f0f216607c2e3c2a31051",
+    "independently_assembled_reference": {
+      "size": 28,
+      "vram_start": "0x80077C20",
+      "vram_end": "0x80077C3C",
+      "rom_start": "0x78820",
+      "rom_end": "0x7883C",
+      "reference_and_retail_sha256": "a091bf39ee84f0a7c763dba492216c4500519600e29f0f216607c2e3c2a31051",
+      "objdiff_data_match_percent": 100,
+      "matches": true
+    },
+    "reference_object_sha256": "f6c59e6d1fceb20788e0a85c677fcd1b63086116f56c26afc76486ffc00f7a51",
+    "reference_elf_sha256": "cc0043e505bfdb2c3ceee65f901df8f63772b243b1b9230ad45621fc5c9768c6",
+    "objdiff_report_sha256": "9cb47a1939b01f082a6cb22be612936b4ea7b8d9b5131aeefeeff7d999bad2fe",
+    "independent_object_sha256": "40be5d9b61599a63b9a9881aed7a5f59fdce38a6a62a389703c74cb44630da7a",
+    "independent_elf_sha256": "0d09d2c3b5cba9fe2bc1f75113ac32744f0cf67edda48f59098f01f527e012a2",
+    "basis": "The update loads word-stride source-color indices. Bitmap setup and nineteen resource records reference the adjacent palette at 0x80077C3C, establishing the complete control-table extent. Neighboring assets remain extracted."
+  },
   "checks": {
     "clean_build_and_rom_equality": true,
     "tooling_tests": 163,
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "matches": true,
-        "report_sha256": "bcfb479da4ee3ad18123af8dcc2586d08e943f5f70d352ba64cb2fd15bb3f8fb"
+        "report_sha256": "f846b3181cf6fa5fec6eb2a2c079c6296a893540b52e3f88bc8b189e34cf3a89"
       },
       "startup-comparison": {
         "matches": true,
-        "report_sha256": "76a6b6e13b8d014c2579a74a3cb404f60a17d4669df4e8407144788f452fd0e7"
+        "report_sha256": "cbc0e65abf875822146baf18013c97e6513125660ebd0ba29f80b783dd14c695"
       },
       "assembly-comparison": {
         "matches": true,
@@ -181,7 +212,7 @@
       },
       "data-comparison": {
         "matches": true,
-        "report_sha256": "bb925ba992de5dc380eb7384667bdf8128ef50785ea3e84de290b6c1943a21c5"
+        "report_sha256": "257bd5a79492055959ead80543abdfbd175fcfe69829c8f2fa2af4026c9abd51"
       }
     },
     "progress": {
@@ -189,7 +220,7 @@
       "matched_c_bytes": 298928,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
-      "source_owned_initialized_bytes": 31391,
+      "source_owned_initialized_bytes": 31419,
       "source_owned_bss_bytes": 520835,
       "whole_rom_matches": true
     }
@@ -197,16 +228,18 @@
   "inputs_sha256": {
     "src/game/palette_effects/transition_allocate.c": "097ad3cf6f83be83bd83d8a292209e1e32d2696586090859399879dcc8de25b2",
     "src/game/palette_effects/command_storage.c": "5d68a2cba1938803a13dc423e722358a5067509df97cbb882c1830560fa6ddf8",
+    "src/game/palette_effects/transition_order.c": "6612a6c1b54d8ab212f540ceb03e78110516acf70c97995fd798cbb51af11b12",
     "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
     "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
     "tools/check_palette_transitions.py": "6b31858f79b581f1f3502a5e658d5e9858adfdace0f20bc16d8178b9e1ee1608",
     "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
-    "Makefile": "3d09e991c100417d6d942d822c36191cc8f84e61a29e29bc6c3186972605a706",
+    "Makefile": "500d1fa03ae80ac3ae0a2bee62799d498afff6c3df1f7cb7b6f307f1981a202a",
     "config/functions.json": "736b2504c093d03a0130ff0ee37003bea17668d8421b312fc1fcffa20461e4ad",
-    "config/owned_sections.json": "30701418be80ab00f912877c0aa7249c8a14e5c41ccfe1c6b541ee731783fb52",
+    "config/owned_sections.json": "e783995fbf5d98a33f24988bbdc069d3af696fe726794871c78a048930263ac8",
     "config/runtime_symbols.ld": "5a47bf033c0dd4dd0f5872658bf74cb924d1c6ccde4376dcc2483e0c7ac6e32c",
     "config/startup_symbols.ld": "14b4d400aea931cd6aeb3f981cf00140167e4436cc26d298959b6e8033c4e071",
-    "linker_scripts/us.ld": "5c7e02bb4c070eb6866b3ac6418c8495335caa964ae29cebdd816985ea8a14bd"
+    "linker_scripts/us.ld": "20e94da4e9e267787355ed8f6f3c2c3f532e49c2fc2af03e77d8922440509e38",
+    "tools/extract.py": "aa9bd28883437b6debad3c52671347a588ee044163bf376c80e20a2dd6a7ca1e"
   },
   "tools": [
     "Ghidra 12.1.4 with GhidraMCP",

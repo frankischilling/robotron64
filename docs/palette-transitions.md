@@ -12,8 +12,8 @@ The complete range is `0x80031B28..0x80031C10`, ROM
 `0x32728..0x32810`, or 232 instruction bytes. IDO 5.3 with the pinned game
 profile produces that entire range. The build trims only the compiler's
 verified trailing alignment, asserts the linked section size, and replaces
-the corresponding extraction span. No new initialized data or BSS ownership
-is claimed; the two shared palette arrays and transition pool were already
+the corresponding extraction span. The allocator adds no initialized data or
+BSS ownership. The two shared palette arrays and transition pool were already
 declared in `include/palette_effects.h`.
 
 The byte-sized temporary and separate array/record-pointer accesses preserve
@@ -57,6 +57,14 @@ The color command checks `index >= 551`, despite the 550-entry extent, and the
 range command checks `index >= 31`, despite the 30-entry extent. Both write paths
 remain unchanged: the extra index can overlap the following storage. These
 diagnostics do not establish larger arrays.
+
+`transition_order.c` defines the seven integer source-color indices used by
+mode eight at `0x80077C20..0x80077C3C`, ROM `0x78820..0x7883C`. The update's
+word-stride reference starts the table; the adjacent palette resource at
+`0x80077C3C` is referenced by the bitmap setup and nineteen resource records.
+The complete 28-byte index table is functional control data. Its neighboring
+palette and bitmap assets remain extracted. Independent IDO compilation and
+separate MIPS assembly verify every table byte.
 
 Private splat 0.50.0 and spimdisasm 1.42.4 output reassembles to the complete
 retail allocation range. The independently assembled instruction hash is

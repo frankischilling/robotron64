@@ -1212,7 +1212,9 @@ SECTIONS
     .pak_directory_count 0x80077A94 : AT(0x78694) SUBALIGN(4) { build/us/pak_directory_storage.o(.data) }
     .diagnostic_fallback_74688_786a0_after_pak 0x80077A98 : AT(0x78698) { build/us/fallback.o(.rom_diagnostic_fallback_74688_786a0_after_pak) }
     .renderer_diagnostic_object_pool 0x80077AA0 : AT(0x786A0) SUBALIGN(4) { build/us/renderer_diagnostic_object_pool.o(.data) }
-    .diagnostic_fallback_786a8_78d50 0x80077AA8 : AT(0x786A8) { build/us/fallback.o(.rom_diagnostic_fallback_786a8_78d50) }
+    .palette_order_before 0x80077AA8 : AT(0x786A8) { build/us/fallback.o(.rom_palette_order_before) }
+    .palette_transition_order 0x80077C20 : AT(0x78820) SUBALIGN(4) { build/us/palette_transition_order.o(.data) }
+    .palette_order_after 0x80077C3C : AT(0x7883C) { build/us/fallback.o(.rom_palette_order_after) }
     .movie_commands_data 0x80078150 : AT(0x78D50) SUBALIGN(4) { build/us/movie_prepare.o(.data) }
     .diagnostic_fallback_78db8_78de4 0x800781B8 : AT(0x78DB8) { build/us/fallback.o(.rom_diagnostic_fallback_78db8_78de4) }
     .renderer_diagnostic_instance_pool 0x800781E4 : AT(0x78DE4) SUBALIGN(4) { build/us/renderer_diagnostic_instance_pool.o(.data) }
@@ -2953,7 +2955,9 @@ ASSERT(SIZEOF(.renderer_diagnostic_instance_pool) == 0x8, "renderer_diagnostic_i
 ASSERT(SIZEOF(.diagnostic_fallback_74688_786a0_before_pak) == 0x400c, "diagnostic_fallback_74688_786a0_before_pak size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_74688_786a0_after_pak) == 0x8, "diagnostic_fallback_74688_786a0_after_pak size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_object_pool) == 0x8, "renderer_diagnostic_object_pool size changed")
-ASSERT(SIZEOF(.diagnostic_fallback_786a8_78d50) == 0x6a8, "diagnostic_fallback_786a8_78d50 size changed")
+ASSERT(SIZEOF(.palette_order_before) == 0x178, "palette_order_before size changed")
+ASSERT(SIZEOF(.palette_transition_order) == 0x1c, "palette_transition_order size changed")
+ASSERT(SIZEOF(.palette_order_after) == 0x514, "palette_order_after size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_movie_pool) == 0x8, "renderer_diagnostic_movie_pool size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_70110_737e0) == 0x36d0, "diagnostic_fallback_70110_737e0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_path_pool) == 0x8, "renderer_diagnostic_path_pool size changed")

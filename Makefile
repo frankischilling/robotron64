@@ -7787,6 +7787,14 @@ build/us/palette_command_storage.o: src/game/palette_effects/command_storage.c i
 
 RUNTIME_OBJECTS += build/us/palette_command_storage.o
 
+build/us/palette_transition_order.o: src/game/palette_effects/transition_order.c include/palette.h include/palette_effects.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/palette_transition_order.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/palette_transition_order.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/palette_transition_order.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

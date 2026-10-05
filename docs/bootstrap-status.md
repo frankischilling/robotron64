@@ -25,6 +25,8 @@ The [palette transition allocator](palette-transitions.md) has a complete
 RGB inputs, and four-byte base-color snapshot preserve the existing pool layout.
 The related command storage adds 15,648 bytes of checked BSS ownership for
 source colors, configurations, ranges, and counters.
+The seven-entry transition index table adds 28 initialized control-data bytes;
+the adjacent palette resource remains extracted.
 The per-frame transition update remains excluded pending instruction matching.
 
 The [random spawn-position chooser](actor-spawn-position.md) has a complete

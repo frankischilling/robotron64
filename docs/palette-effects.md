@@ -62,10 +62,12 @@ the target's signed arithmetic and original handling of exceptional inputs.
 These units own no initialized data or BSS. Their complete comparisons and
 source/header/compiler hashes are retained under `build/sdk-options`.
 
-## Transition candidates
+## Transition allocation and update
 
-The recovered transition allocator and update sources are still checked
-independently before admission to matching progress. The target
+The [transition allocator](palette-transitions.md) now matches its complete
+232-byte range and owns that code in the build. The per-frame transition
+update remains extracted fallback while its candidate instruction ordering is
+unresolved. The target
 supports four update paths: interpolation, two arithmetic palette-index
 cycles, and a cycle through an index table. It restores or blends the original
 color when a range is released. Position arithmetic includes the original
@@ -75,7 +77,8 @@ The update routine marks changed colors and uploads each changed entry's
 contiguous suffix. It does not skip the remaining entries of a suffix after
 uploading it. The fade update computes a local 256-color buffer without a
 palette-upload call in its target body. These observed behaviors are preserved
-in the candidates.
+in the recovered source and remaining update candidate. The fade update's
+complete `0x800316AC..0x80031B28` range is already source-owned.
 
 Original candidates, full target-function boundaries, callers, and later
 source-level comparison records are kept under `.local/recovery29-palette`
