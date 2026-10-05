@@ -69,3 +69,7 @@ The per-frame routine at `0x80031ECC..0x8003237C` remains extracted fallback.
 Its candidate C is excluded while instruction ordering is unresolved. Retail
 submits overlapping palette uploads for consecutive changed entries; future
 recovery must preserve that behavior.
+
+The [recorded proof](palette-transitions-provenance.json) contains the current
+compiler identity, instruction hash, storage extents, mutation results, input
+hashes, and complete-comparison results.

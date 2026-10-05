@@ -1,0 +1,227 @@
+{
+  "scope": "Complete transition allocation code and the contiguous palette-command BSS. Per-frame update remains extracted fallback.",
+  "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "allocator": {
+    "function": "func_80031B28",
+    "vram_start": "0x80031B28",
+    "vram_end": "0x80031C10",
+    "rom_start": "0x32728",
+    "rom_end": "0x32810",
+    "size": 232,
+    "compiled_and_reference_text_sha256": "ab64e2083057f75d9d379f5d694bf69d4d1c95246da3af8a923e3fa0eabe3940",
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "complete_reference_reassembly_matches_retail": true,
+    "reference_object_sha256": "d766a530b87e4e51f9578415c9ef198ab4bea04970292000840d61fa8ba5caef",
+    "reference_elf_sha256": "734bea2d771df66e3bc02794cd6d602920d8524ae571c07ed7554240e9ded622",
+    "objdiff_function_match_percent": 100,
+    "objdiff_text_match_percent": 100,
+    "objdiff_report_sha256": "300070e722173ba98657a44144a41c57137402c3df804dae34c6c4d7115f1e79",
+    "execution_cases": 9680,
+    "full_pool_cases": 1936,
+    "mutations_detected": {
+      "index_mask": [
+        0,
+        128,
+        0,
+        0,
+        1,
+        -1,
+        2147483647
+      ],
+      "mode_mask": [
+        0,
+        0,
+        127,
+        0,
+        1,
+        -1,
+        2147483647
+      ],
+      "step_destination": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        2147483647
+      ],
+      "activation_destination": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        2147483647
+      ],
+      "source_blue": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        2147483647
+      ]
+    },
+    "trace_sha256": "25671b5dda4641e2dc82932b2eb69be5e76caff2682527cd4e8600a70bcddd0f",
+    "emulator": "Unicorn 2.1.1",
+    "limits": [
+      "Complete allocation instructions execute without callee stubs.",
+      "Palette/source-color BSS uses deterministic input images, not a whole-game snapshot.",
+      "Pool, padding, read/write ranges, stack, GP, SP and saved integer registers are checked.",
+      "The per-frame update, concurrent pool mutation and arbitrary invalid color indices are outside this proof."
+    ]
+  },
+  "command_storage": {
+    "source": "src/game/palette_effects/command_storage.c",
+    "vram_start": "0x800BB230",
+    "vram_end": "0x800BEF50",
+    "size": 15648,
+    "input_section": ".bss",
+    "elf_section_type": "SHT_NOBITS",
+    "rom_bytes": 0,
+    "independent_layout_matches": true,
+    "symbols": {
+      "D_800BB230": 0,
+      "D_800BBAC8": 2200,
+      "D_800BEE58": 15400,
+      "D_800BEF48": 15640,
+      "D_800BEF4C": 15644
+    },
+    "extents": {
+      "source_colors": {
+        "count": 550,
+        "stride": 4
+      },
+      "configs": {
+        "count": 550,
+        "stride": 24
+      },
+      "ranges": {
+        "count": 30,
+        "stride": 8
+      },
+      "counters": {
+        "count": 2,
+        "stride": 4
+      }
+    },
+    "independent_object_sha256": "811684be104c843feb8b0074210569991bc522428abef681d0748fb01be2537b",
+    "independent_elf_sha256": "1a5da3acc7eef0d2b4ba7b239cc213006c0554322a8de7eaa20afe5580d47ff7",
+    "independently_assembled_layout": {
+      "basis": "Independently assembled NOBITS layout from recorded addresses and verified C types; no retail BSS contents or initialized bytes.",
+      "bytes": 15648,
+      "symbols": [
+        [
+          "D_800BB230",
+          0,
+          2200
+        ],
+        [
+          "D_800BBAC8",
+          2200,
+          13200
+        ],
+        [
+          "D_800BEE58",
+          15400,
+          240
+        ],
+        [
+          "D_800BEF48",
+          15640,
+          4
+        ],
+        [
+          "D_800BEF4C",
+          15644,
+          4
+        ]
+      ],
+      "objdiff_bss_match_percent": 100,
+      "reference_object_sha256": "667bb4fd50f361d570f434d8240f4b119dda2e5d9b6b2b6690d6d914cb2ef84f",
+      "objdiff_report_sha256": "4401ed931c28b48641e8c216d1eeac699e1d9934b436d2d1573eec6fd1531105"
+    },
+    "basis": "Adjacent global addresses, command-function accesses, record layouts, and independent raw/linked IDO size and offset checks. No retail BSS contents are claimed."
+  },
+  "checks": {
+    "clean_build_and_rom_equality": true,
+    "tooling_tests": 163,
+    "fresh_independent_comparisons": {
+      "runtime-comparison": {
+        "matches": true,
+        "report_sha256": "bcfb479da4ee3ad18123af8dcc2586d08e943f5f70d352ba64cb2fd15bb3f8fb"
+      },
+      "startup-comparison": {
+        "matches": true,
+        "report_sha256": "76a6b6e13b8d014c2579a74a3cb404f60a17d4669df4e8407144788f452fd0e7"
+      },
+      "assembly-comparison": {
+        "matches": true,
+        "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data-comparison": {
+        "matches": true,
+        "report_sha256": "bb925ba992de5dc380eb7384667bdf8128ef50785ea3e84de290b6c1943a21c5"
+      }
+    },
+    "progress": {
+      "matched_c_functions": 1415,
+      "matched_c_bytes": 298928,
+      "matched_assembly_functions": 29,
+      "matched_assembly_bytes": 4372,
+      "source_owned_initialized_bytes": 31391,
+      "source_owned_bss_bytes": 520835,
+      "whole_rom_matches": true
+    }
+  },
+  "inputs_sha256": {
+    "src/game/palette_effects/transition_allocate.c": "097ad3cf6f83be83bd83d8a292209e1e32d2696586090859399879dcc8de25b2",
+    "src/game/palette_effects/command_storage.c": "5d68a2cba1938803a13dc423e722358a5067509df97cbb882c1830560fa6ddf8",
+    "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
+    "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
+    "tools/check_palette_transitions.py": "6b31858f79b581f1f3502a5e658d5e9858adfdace0f20bc16d8178b9e1ee1608",
+    "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
+    "Makefile": "3d09e991c100417d6d942d822c36191cc8f84e61a29e29bc6c3186972605a706",
+    "config/functions.json": "736b2504c093d03a0130ff0ee37003bea17668d8421b312fc1fcffa20461e4ad",
+    "config/owned_sections.json": "30701418be80ab00f912877c0aa7249c8a14e5c41ccfe1c6b541ee731783fb52",
+    "config/runtime_symbols.ld": "5a47bf033c0dd4dd0f5872658bf74cb924d1c6ccde4376dcc2483e0c7ac6e32c",
+    "config/startup_symbols.ld": "14b4d400aea931cd6aeb3f981cf00140167e4436cc26d298959b6e8033c4e071",
+    "linker_scripts/us.ld": "5c7e02bb4c070eb6866b3ac6418c8495335caa964ae29cebdd816985ea8a14bd"
+  },
+  "tools": [
+    "Ghidra 12.1.4 with GhidraMCP",
+    "splat 0.50.0",
+    "spimdisasm 1.42.4",
+    "m2c",
+    "asm-differ",
+    "objdiff-cli 3.8.2",
+    "decomp-permuter with stack checking",
+    "MIPS binutils",
+    "Unicorn 2.1.1"
+  ],
+  "limits": [
+    "The extracted per-frame transition update is excluded from source ownership.",
+    "Whole-ROM equality includes remaining extracted fallback code and assets.",
+    "Original local variable names and complete gameplay are not established by this proof."
+  ]
+}
