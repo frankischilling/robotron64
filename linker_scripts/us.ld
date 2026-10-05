@@ -614,7 +614,10 @@ SECTIONS
     .model_framebuffer_draw 0x80040560 : AT(0x41160) SUBALIGN(4) { build/us/model_framebuffer_draw.o(.text) }
     .model_framebuffer_strip 0x80040724 : AT(0x41324) SUBALIGN(4) { build/us/model_framebuffer_strip.o(.text) }
     .model_framebuffer_texture 0x80040874 : AT(0x41474) SUBALIGN(4) { build/us/model_framebuffer_texture.o(.text) }
-    .endgame_41568_43430 0x80040968 : AT(0x41568) { build/us/fallback.o(.rom_endgame_41568_43430) }
+    .endgame_41568_41b5c 0x80040968 : AT(0x41568) { build/us/fallback.o(.rom_endgame_41568_41b5c) }
+    .renderer_color_gradient 0x80040F5C : AT(0x41B5C) SUBALIGN(4) { build/us/renderer_color_gradient.o(.text) }
+    .renderer_border_gradient 0x80041180 : AT(0x41D80) SUBALIGN(4) { build/us/renderer_border_gradient.o(.text) }
+    .endgame_420c4_43430 0x800414C4 : AT(0x420c4) { build/us/fallback.o(.rom_endgame_420c4_43430) }
     .renderer_texture_file_cache 0x80042830 : AT(0x43430) SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.text) }
     .endgame_434c0_43c70 0x800428C0 : AT(0x434C0) { build/us/fallback.o(.rom_endgame_434c0_43c70) }
     .renderer_camera_square 0x80043070 : AT(0x43C70) SUBALIGN(4) { build/us/renderer_camera_square.o(.text) }
@@ -1231,7 +1234,9 @@ SECTIONS
     .renderer_setup_lighting 0x8007CB00 : AT(0x7D700) SUBALIGN(4) { build/us/renderer_setup_lighting.o(.rodata) }
     .renderer_frame_geometry_commands 0x8007CB18 : AT(0x7D718) SUBALIGN(4) { build/us/renderer_frame_geometry_commands.o(.data) }
     .renderer_frame_rdp_commands 0x8007CB58 : AT(0x7D758) SUBALIGN(4) { build/us/renderer_frame_rdp_commands.o(.rodata) }
-    .renderer_setup_fallback_7d7d8_7d98c 0x8007CBD8 : AT(0x7D7D8) { build/us/fallback.o(.rom_renderer_setup_fallback_7d7d8_7d98c) }
+    .renderer_setup_fallback_7d7d8_7d8a8 0x8007CBD8 : AT(0x7D7D8) { build/us/fallback.o(.rom_renderer_setup_fallback_7d7d8_7d8a8) }
+    .renderer_gradient_extents 0x8007CCA8 : AT(0x7D8A8) SUBALIGN(4) { build/us/renderer_gradient_extents.o(.data) }
+    .renderer_setup_fallback_7d8b0_7d98c 0x8007CCB0 : AT(0x7D8B0) { build/us/fallback.o(.rom_renderer_setup_fallback_7d8b0_7d98c) }
     .renderer_texture_file_cache_data 0x8007CD8C : AT(0x7D98C) SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.data) }
     .diagnostic_fallback_7d994_7d9a0 0x8007CD94 : AT(0x7D994) { build/us/fallback.o(.rom_diagnostic_fallback_7d994_7d9a0) }
     .renderer_diagnostic_vertex_pool 0x8007CDA0 : AT(0x7D9A0) SUBALIGN(4) { build/us/renderer_diagnostic_vertex_pool.o(.data) }
@@ -2594,7 +2599,8 @@ ASSERT(SIZEOF(.renderer_texture_file_cache) == 0x90, "renderer_texture_file_cach
 ASSERT(SIZEOF(.menu_transition_start_bss) == 0x64, "menu_transition_start_bss size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache_data) == 0x8, "renderer_texture_file_cache_data size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache_bss) == 0x804, "renderer_texture_file_cache_bss size changed")
-ASSERT(SIZEOF(.endgame_41568_43430) == 0x1ec8, "endgame_41568_43430 size changed")
+ASSERT(SIZEOF(.endgame_41568_41b5c) == 0x5f4, "endgame_41568_41b5c size changed")
+ASSERT(SIZEOF(.endgame_420c4_43430) == 0x136c, "endgame_420c4_43430 size changed")
 D_8009B1C4 = 0x8009B1C4;
 D_8009BF78 = 0x8009BF78;
 func_80049E3C = 0x80049E3C;
@@ -3027,7 +3033,8 @@ ASSERT(SIZEOF(.renderer_setup_fallback_7d6d8_7d700) == 0x28, "renderer_setup_fal
 ASSERT(SIZEOF(.renderer_setup_lighting) == 0x18, "renderer_setup_lighting size changed")
 ASSERT(SIZEOF(.renderer_frame_geometry_commands) == 0x40, "renderer_frame_geometry_commands size changed")
 ASSERT(SIZEOF(.renderer_frame_rdp_commands) == 0x80, "renderer_frame_rdp_commands size changed")
-ASSERT(SIZEOF(.renderer_setup_fallback_7d7d8_7d98c) == 0x1b4, "renderer_setup_fallback_7d7d8_7d98c size changed")
+ASSERT(SIZEOF(.renderer_setup_fallback_7d7d8_7d8a8) == 0xd0, "renderer_setup_fallback_7d7d8_7d8a8 size changed")
+ASSERT(SIZEOF(.renderer_setup_fallback_7d8b0_7d98c) == 0xdc, "renderer_setup_fallback_7d8b0_7d98c size changed")
 ASSERT(SIZEOF(.tweak_variables) == 0x4b0, "tweak_variables size changed")
 ASSERT(SIZEOF(.tweak_pages) == 0x78, "tweak_pages size changed")
 ASSERT(SIZEOF(.tweak_difficulties) == 0x168, "tweak_difficulties size changed")
@@ -3165,3 +3172,8 @@ ASSERT(SIZEOF(.controller_legacy_polled_buttons_bss) == 0x2, "controller legacy 
 ASSERT(SIZEOF(.audio_sequence_tick_bss) == 16, "audio_sequence_tick_bss size changed")
 ASSERT(SIZEOF(.audio_backend_voice_release_all_bss) == 16, "audio_backend_voice_release_all_bss size changed")
 ASSERT(SIZEOF(.audio_backend_pitch_command_bss) == 24, "audio_backend_pitch_command_bss size changed")
+
+ASSERT(SIZEOF(.renderer_color_gradient) == 0x224, "renderer_color_gradient size changed")
+ASSERT(SIZEOF(.renderer_gradient_extents) == 8, "renderer_gradient_extents size changed")
+
+ASSERT(SIZEOF(.renderer_border_gradient) == 0x344, "renderer_border_gradient size changed")

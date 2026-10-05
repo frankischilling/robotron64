@@ -11,6 +11,8 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("renderer_border_gradient", "src/game/renderer_surfaces/border_gradient.c", 0x80041180, 0x800414C4),
+    ("renderer_color_gradient", "src/game/renderer_surfaces/color_gradient.c", 0x80040F5C, 0x80041180),
     ("actor_damage", "src/game/collisions/damage.c", 0x80035244, 0x80035360),
     ("actor_collision_separation", "src/game/collisions/separation.c", 0x80018E1C, 0x800190F8),
     ("audio_seek_forward", "src/game/audio/seek_forward.c", 0x80056EF0, 0x80057124),

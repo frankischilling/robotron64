@@ -15876,5 +15876,27 @@
     "section": ".actor_collision_separation",
     "section_vram": 2147585564,
     "evidence": "docs/actor-collision-separation.md"
+  },
+  {
+    "name": "func_80040F5C",
+    "rom": 269148,
+    "vram": 2147749724,
+    "size": 548,
+    "source": "src/game/renderer_surfaces/color_gradient.c",
+    "object": "build/us/renderer_color_gradient.o",
+    "section": ".renderer_color_gradient",
+    "section_vram": 2147749724,
+    "evidence": "docs/renderer-color-gradient.md"
+  },
+  {
+    "name": "func_80041180",
+    "rom": 269696,
+    "vram": 2147750272,
+    "size": 836,
+    "source": "src/game/renderer_surfaces/border_gradient.c",
+    "object": "build/us/renderer_border_gradient.o",
+    "section": ".renderer_border_gradient",
+    "section_vram": 2147750272,
+    "evidence": "docs/renderer-color-gradient.md"
   }
 ]

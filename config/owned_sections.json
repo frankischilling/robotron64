@@ -3881,5 +3881,19 @@
     "symbols": {},
     "static_symbols": {},
     "evidence": "docs/audio-voice-release-and-pitch.md"
+  },
+  {
+    "source": "src/game/renderer_surfaces/gradient_extents.c",
+    "object": "build/us/renderer_gradient_extents.o",
+    "input_section": ".data",
+    "section": ".renderer_gradient_extents",
+    "vram": 2147994792,
+    "rom": 514216,
+    "size": 8,
+    "symbols": {
+      "D_8007CCA8": 0,
+      "D_8007CCAC": 4
+    },
+    "evidence": "docs/renderer-color-gradient.md"
   }
 ]
