@@ -149,7 +149,7 @@ build/us/early_actor_pair_balance.o: src/game/early_actor_pair_balance.c include
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_pair_balance.raw.o $@ .text 0x54
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_actor_create.o: src/game/early_actor_create.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_actor_create.o: src/game/early_actor_create.c include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h include/actor_collision_separation_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_create.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_create.raw.o $@ .text 0x164
@@ -179,7 +179,7 @@ build/us/early_actor_mode0.o: src/game/early_actor_mode0.c include/actor.h inclu
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_mode0.raw.o $@ .text 0x24
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_six_arg_forward.o: src/game/early_six_arg_forward.c include/early_game_helpers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_six_arg_forward.o: src/game/early_six_arg_forward.c include/early_game_helpers.h include/actor_collision_separation_internal.h include/actor_behavior_internal.h include/actor.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_six_arg_forward.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_six_arg_forward.raw.o $@ .text 0x3c
@@ -5054,7 +5054,7 @@ build/us/pi_disk_recover.o: src/sdk/pi_disk_recover.c include/sdk_pi_disk.h incl
 	$(PYTHON) tools/trim_padding.py build/us/pi_disk_recover.raw.o $@ .text 0xe8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_actor_forward_and_guard.o: src/game/early_actor_forward_and_guard.c include/actor_damage_internal.h include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_actor_forward_and_guard.o: src/game/early_actor_forward_and_guard.c include/actor_damage_internal.h include/actor.h include/actor_behavior_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h include/actor_collision_separation_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_actor_forward_and_guard.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_forward_and_guard.raw.o $@ .text 0x78
@@ -5701,7 +5701,7 @@ RUNTIME_OBJECTS += \
     build/us/audio_dma_read.o \
     build/us/audio_dma_recycle.o
 
-build/us/actor_collision_animation.o: src/game/actor_collision_animation.c include/destination_format.h include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/actor_collision_services.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_collision_animation.o: src/game/actor_collision_animation.c include/destination_format.h include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/actor_collision_services.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h include/actor_collision_separation_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_collision_animation.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/actor_collision_animation.raw.o $@ .text 0xa0
@@ -6173,7 +6173,7 @@ build/us/early_relative_position.o: src/game/early_relative_position.c include/a
 
 RUNTIME_OBJECTS += build/us/early_relative_position.o
 
-build/us/actor_contact_gate.o: src/game/actor_contact_gate.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_contact_gate.o: src/game/actor_contact_gate.c include/actor.h include/actor_behavior_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h include/actor_collision_separation_internal.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_contact_gate.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/actor_contact_gate.raw.o $@ .text 0x278
@@ -7730,6 +7730,14 @@ build/us/actor_damage.o: src/game/collisions/damage.c include/actor_damage_inter
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/actor_damage.o
+
+build/us/actor_collision_separation.o: src/game/collisions/separation.c include/actor_collision_separation_internal.h include/actor_behavior_internal.h include/actor_motion_internal.h include/actor.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_collision_separation.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_collision_separation.raw.o $@ .text 0x2dc
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_collision_separation.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

@@ -15865,5 +15865,16 @@
     "section": ".actor_damage",
     "section_vram": 2147701316,
     "evidence": "docs/actor-damage.md"
+  },
+  {
+    "name": "func_80018E1C",
+    "rom": 104988,
+    "vram": 2147585564,
+    "size": 732,
+    "source": "src/game/collisions/separation.c",
+    "object": "build/us/actor_collision_separation.o",
+    "section": ".actor_collision_separation",
+    "section_vram": 2147585564,
+    "evidence": "docs/actor-collision-separation.md"
   }
 ]

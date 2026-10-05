@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,410 matching C functions covering 295,864 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,239 bytes of source-owned initialized data, and 505,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,411 matching C functions covering 296,596 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,239 bytes of source-owned initialized data, and 505,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 

@@ -203,7 +203,7 @@ SECTIONS
     .actor_collision_score_result 0x80017E50 : AT(0x18A50) SUBALIGN(4) { build/us/actor_collision_score_result.o(.text) }
     .endgame_18b9c_198c8 0x80017F9C : AT(0x18B9C) { build/us/fallback.o(.rom_endgame_18b9c_198c8) }
     .actor_collision_separate 0x80018CC8 : AT(0x198C8) SUBALIGN(4) { build/us/actor_collision_separate.o(.text) }
-    .boundary_fallback_19a1c_19cf8 0x80018E1C : AT(0x19A1C) { build/us/fallback.o(.rom_boundary_fallback_19a1c_19cf8) }
+    .actor_collision_separation 0x80018E1C : AT(0x19A1C) SUBALIGN(4) { build/us/actor_collision_separation.o(.text) }
     .boundary_dispatch 0x800190F8 : AT(0x19CF8) SUBALIGN(4) { build/us/boundary_dispatch.o(.text) }
     .boundary_fallback_1a0dc_1aa40 0x800194DC : AT(0x1A0DC) { build/us/fallback.o(.rom_boundary_fallback_1a0dc_1aa40) }
     .collision_dispatch_initialize 0x80019E40 : AT(0x1AA40) SUBALIGN(4) { build/us/collision_dispatch_initialize.o(.text) }
@@ -2744,7 +2744,6 @@ ASSERT(SIZEOF(.audio_dma_read) == 0x1d4, "audio_dma_read size changed")
 ASSERT(SIZEOF(.audio_dma_recycle) == 0x150, "audio_dma_recycle size changed")
 ASSERT(SIZEOF(.audio_dma_read_rodata) == 0xc, "audio_dma_read_rodata size changed")
 ASSERT(SIZEOF(.audio_dma_recycle_rodata) == 0xc, "audio_dma_recycle_rodata size changed")
-func_80018E1C = 0x80018E1C;
 D_800739CC = 0x800739CC;
 ASSERT(SIZEOF(.actor_collision_animation) == 0xa0, "actor_collision_animation size changed")
 ASSERT(SIZEOF(.actor_collision_score_result) == 0x14c, "actor_collision_score_result size changed")
@@ -2852,7 +2851,7 @@ ASSERT(SIZEOF(.endgame_data_968a8_968b0) == 0x8, "endgame_data_968a8_968b0 size 
 ASSERT(SIZEOF(.audio_bank_load_signature) == 0x8, "audio_bank_load_signature size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize) == 0x328, "collision_dispatch_initialize size changed")
 ASSERT(SIZEOF(.collision_dispatch_initialize_strings) == 0x60, "collision_dispatch_initialize_strings size changed")
-ASSERT(SIZEOF(.boundary_fallback_19a1c_19cf8) == 0x2dc, "boundary_fallback_19a1c_19cf8 size changed")
+ASSERT(SIZEOF(.actor_collision_separation) == 0x2dc, "actor_collision_separation size changed")
 ASSERT(SIZEOF(.boundary_dispatch) == 0x3e4, "boundary_dispatch size changed")
 ASSERT(SIZEOF(.boundary_fallback_1a0dc_1aa40) == 0x964, "boundary_fallback_1a0dc_1aa40 size changed")
 ASSERT(SIZEOF(.endgame_1ad68_1ad70) == 0x8, "endgame_1ad68_1ad70 size changed")

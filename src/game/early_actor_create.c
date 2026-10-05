@@ -1,9 +1,8 @@
 #include "../../include/early_game_state.h"
 #include "../../include/object.h"
+#include "../../include/actor_collision_separation_internal.h"
 
 extern TextGlyphResource D_800B49A0;
-extern int func_80018E1C(int first, int second, int third, int fourth,
-                         int fifth, int sixth);
 
 void func_80015184(int index, int *position)
 {
@@ -35,6 +34,8 @@ void func_80015218(EarlyGameActor *source)
 
 int func_800152AC(int first, int second, int third, int fourth)
 {
-    func_80018E1C(first, second, 10, 10, third, fourth);
+    func_80018E1C((ActorBehaviorActorInternal *)first,
+                   (ActorBehaviorActorInternal *)second,
+                   10, 10, (int *)third, (int *)fourth);
     return 0;
 }

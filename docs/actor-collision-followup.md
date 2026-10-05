@@ -90,9 +90,11 @@ the accepted sources. Extracted assembly, reference objects and tool
 output remain in ignored directories. Tools and references are credited
 in [CREDITS.md](../CREDITS.md).
 
-The larger callback at `0x8001567C` remains a private nonmatching candidate,
-along with the separate damage candidate. Neither contributes source
-ownership or matching progress. [Issue #43](https://github.com/frankischilling/robotron64/issues/43)
+The larger callback at `0x8001567C` remains a private nonmatching candidate.
+It contributes no source ownership or matching progress. The damage candidate
+was excluded at this checkpoint; the subsequent [damage recovery](actor-damage.md)
+matches its complete range and executes it with real balance and value helpers.
+[Issue #43](https://github.com/frankischilling/robotron64/issues/43)
 tracks remaining early actor work. The [provenance ledger](actor-collision-followup-provenance.json)
 records complete comparison, input, object-layout, execution and
 clean-build evidence. Whole-ROM equality includes fallback; this
