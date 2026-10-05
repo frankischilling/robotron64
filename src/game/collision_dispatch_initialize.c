@@ -11,7 +11,6 @@ typedef char CollisionCallbackMatrixMustBe400Bytes[
 typedef struct ActorContactPoint ActorContactPoint;
 extern int func_8001669C(ActorBehaviorActorInternal *, ActorBehaviorActorInternal *,
                          ActorContactPoint *, ActorContactPoint *);
-extern int func_80016950(EarlyGameActor *, EarlyGameActor *, int *, int *);
 extern int func_80015BF8(EarlyGameActor *, EarlyGameActor *, int *, int *);
 extern int func_8001737C(EarlyGameActor *, EarlyGameActor *, int *, int *);
 extern int func_8001567C(EarlyGameActor *, EarlyGameActor *, int *, int *);
@@ -40,7 +39,7 @@ void func_80019E40(void)
                     handler = (CollisionHandler)func_8001669C;
                     break;
                 case 1:
-                    handler = func_80016950;
+                    handler = (CollisionHandler)func_80016950;
                     break;
                 case 2:
                     handler = func_80015BF8;

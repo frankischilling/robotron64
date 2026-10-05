@@ -6,6 +6,10 @@
 
 extern unsigned char D_80073950[36][3];
 
+int func_80016950(ActorBehaviorActorInternal *first,
+                  ActorBehaviorActorInternal *second,
+                  int *firstPosition, int *secondPosition);
+
 unsigned char func_80016C1C(ActorBehaviorActorInternal *first,
                            ActorBehaviorActorInternal *second,
                            int *firstPosition, int *secondPosition);

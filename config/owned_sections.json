@@ -3895,5 +3895,16 @@
       "D_8007CCAC": 4
     },
     "evidence": "docs/renderer-color-gradient.md"
+  },
+  {
+    "source": "src/game/collisions/kind_response.c",
+    "object": "build/us/actor_collision_kind_response.o",
+    "input_section": ".rodata",
+    "section": ".actor_collision_kind_response_rodata",
+    "vram": 2148073244,
+    "rom": 592668,
+    "size": 144,
+    "symbols": {},
+    "evidence": "docs/actor-collision-kind-response.md"
   }
 ]
