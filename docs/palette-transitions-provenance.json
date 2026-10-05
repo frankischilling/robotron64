@@ -33,8 +33,8 @@
     "objdiff_function_match_percent": 100,
     "objdiff_text_match_percent": 100,
     "objdiff_report_sha256": "300070e722173ba98657a44144a41c57137402c3df804dae34c6c4d7115f1e79",
-    "execution_cases": 9680,
-    "full_pool_cases": 1936,
+    "execution_cases": 14520,
+    "full_pool_cases": 2904,
     "mutations_detected": {
       "index_mask": [
         0,
@@ -82,7 +82,7 @@
         2147483647
       ]
     },
-    "trace_sha256": "25671b5dda4641e2dc82932b2eb69be5e76caff2682527cd4e8600a70bcddd0f",
+    "trace_sha256": "f04f85b3a79f4b2caabdd37a32e37c88214aae4a26d8aaeef016d8bfdd2e48d2",
     "emulator": "Unicorn 2.1.1",
     "limits": [
       "Complete allocation instructions execute without callee stubs.",
@@ -231,7 +231,7 @@
     "src/game/palette_effects/transition_order.c": "6612a6c1b54d8ab212f540ceb03e78110516acf70c97995fd798cbb51af11b12",
     "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
     "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
-    "tools/check_palette_transitions.py": "6b31858f79b581f1f3502a5e658d5e9858adfdace0f20bc16d8178b9e1ee1608",
+    "tools/check_palette_transitions.py": "f0b2fd85e5566529a245910493ed5437af7e21fc7929e50d6c2e213ef06d79d9",
     "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
     "Makefile": "500d1fa03ae80ac3ae0a2bee62799d498afff6c3df1f7cb7b6f307f1981a202a",
     "config/functions.json": "736b2504c093d03a0130ff0ee37003bea17668d8421b312fc1fcffa20461e4ad",

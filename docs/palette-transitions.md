@@ -35,12 +35,14 @@ instructions with an independent record oracle. It checks first-free-slot
 selection, a full pool, signed and oversized palette indices, mode truncation,
 signed phase/step boundaries, RGB loads, the four-byte color snapshot, padding,
 unchanged later slots, input guards, stack writes, and integer ABI preservation.
+The source-color fixture contains all 550 entries. Cases sample the final two
+entries in both source positions.
 Instruction mutations challenge the index mask, mode mask, step destination,
 activation destination, and source-blue read. The input tables use deterministic
 BSS images; complete gameplay and concurrent pool mutation are outside this
 check.
 
-The allocation checker passes 9,680 cases, including 1,936 full-pool cases.
+The allocation checker passes 14,520 cases, including 2,904 full-pool cases.
 All five instruction mutation probes are detected. The independently linked
 allocation reference and fresh C output also compare at 100% for the complete
 function and `.text` section in objdiff.

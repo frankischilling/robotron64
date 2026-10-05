@@ -16,6 +16,7 @@ from rom import ROOT, validate
 ENTRY, END, STACK = 0x80031B28, 0x80031C10, 0x80300000
 POOL, PALETTE, COLORS = 0x8009D120, 0x8009CD18, 0x800BB230
 COUNT, STRIDE = 100, 52
+SOURCE_COLOR_COUNT = 550
 
 
 def state(case):
@@ -29,7 +30,7 @@ def state(case):
             pool[(slot + 1) * STRIDE + 1] &= 127
     palette_data = bytes(((i * 19 + 29) ^ ((i // 4) * 31 >> 3)) & 255
                          for i in range(1024 + 24))
-    color_data = bytes((i * 23 + 41) & 255 for i in range(1024 + 32))
+    color_data = bytes((i * 23 + 41) & 255 for i in range(SOURCE_COLOR_COUNT * 4 + 32))
     return {POOL: bytes(pool), PALETTE - 16: palette_data, COLORS - 16: color_data}
 
 
@@ -124,7 +125,9 @@ def main():
                  (0, 1, 50, 99, 100),
                  (-2147483648, -257, -129, -1, 0, 1, 127, 128, 255, 256, 2147483647),
                  (0, 1, 2, 4, 8, 16, 32, 63, 127, 128, -1),
-                 ((0, 1), (1, 0), (-1, 255), (255, -1)),
+                 ((0, 1), (1, 0), (-1, 255), (255, -1),
+                  (SOURCE_COLOR_COUNT - 2, SOURCE_COLOR_COUNT - 1),
+                  (SOURCE_COLOR_COUNT - 1, SOURCE_COLOR_COUNT - 2)),
                  ((0, 0), (-1, 1), (-2147483648, 2147483647), (2147483647, -2147483648)))]
     digest = hashlib.sha256()
     for i, case in enumerate(cases):
