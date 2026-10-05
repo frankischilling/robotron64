@@ -15854,5 +15854,16 @@
     "section": ".compression_dynamic",
     "section_vram": 2147872480,
     "evidence": "docs/compression-runtime.md"
+  },
+  {
+    "name": "func_80035244",
+    "rom": 220740,
+    "vram": 2147701316,
+    "size": 284,
+    "source": "src/game/collisions/damage.c",
+    "object": "build/us/actor_damage.o",
+    "section": ".actor_damage",
+    "section_vram": 2147701316,
+    "evidence": "docs/actor-damage.md"
   }
 ]
