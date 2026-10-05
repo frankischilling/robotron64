@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,413 matching C functions covering 297,980 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,247 bytes of source-owned initialized data, and 505,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,414 matching C functions covering 298,696 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,391 bytes of source-owned initialized data, and 505,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,10 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Collision-kind response](docs/actor-collision-kind-response.md) recovers the complete
+716-byte handler and its 144-byte dispatch table. Its checker verifies 3,871
+guarded cases, including the real contact predicate and selected callback mutations.
 
 [Random spawn position](docs/actor-spawn-position.md) recovers the complete
 696-byte chooser, including signed random arithmetic, actor-spacing tests

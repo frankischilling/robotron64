@@ -15898,5 +15898,16 @@
     "section": ".renderer_border_gradient",
     "section_vram": 2147750272,
     "evidence": "docs/renderer-color-gradient.md"
+  },
+  {
+    "name": "func_80016950",
+    "rom": 95568,
+    "vram": 2147576144,
+    "size": 716,
+    "source": "src/game/collisions/kind_response.c",
+    "object": "build/us/actor_collision_kind_response.o",
+    "section": ".actor_collision_kind_response",
+    "section_vram": 2147576144,
+    "evidence": "docs/actor-collision-kind-response.md"
   }
 ]

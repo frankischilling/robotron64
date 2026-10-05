@@ -7763,6 +7763,14 @@ build/us/renderer_border_gradient.o: src/game/renderer_surfaces/border_gradient.
 
 RUNTIME_OBJECTS += build/us/renderer_border_gradient.o
 
+build/us/actor_collision_kind_response.o: src/game/collisions/kind_response.c include/actor.h include/actor_behavior_internal.h include/actor_collision_services.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_collision_kind_response.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_collision_kind_response.raw.o $@ .text 0x2cc
+	$(PYTHON) tools/provenance.py $< $@ include/actor.h include/actor_behavior_internal.h include/actor_collision_services.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h
+
+RUNTIME_OBJECTS += build/us/actor_collision_kind_response.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

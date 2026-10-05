@@ -192,7 +192,7 @@ SECTIONS
     .actor_collision_kind_dispatch 0x80016618 : AT(0x17218) SUBALIGN(4) { build/us/actor_collision_kind_dispatch.o(.text) }
     .actor_contact_gate 0x8001669C : AT(0x1729C) SUBALIGN(4) { build/us/actor_contact_gate.o(.text) }
     .early_six_arg_forward 0x80016914 : AT(0x17514) SUBALIGN(4) { build/us/early_six_arg_forward.o(.text) }
-    .collision_fallback_17550_1781c 0x80016950 : AT(0x17550) { build/us/fallback.o(.rom_collision_fallback_17550_1781c) }
+    .actor_collision_kind_response 0x80016950 : AT(0x17550) SUBALIGN(4) { build/us/actor_collision_kind_response.o(.text) }
     .actor_collision_impact 0x80016C1C : AT(0x1781C) SUBALIGN(4) { build/us/actor_collision_impact.o(.text) }
     .early_callback_false 0x80017364 : AT(0x17F64) SUBALIGN(4) { build/us/early_callback_false.o(.text) }
     .endgame_17f7c_1862c 0x8001737C : AT(0x17F7C) { build/us/fallback.o(.rom_endgame_17f7c_1862c) }
@@ -1327,7 +1327,7 @@ SECTIONS
     .actor_collision_response_gate_switch 0x8008FE64 : AT(0x90A64) SUBALIGN(4) { build/us/actor_collision_response_gate.o(.rodata) }
     .actor_collision_rebound_switch 0x8008FEE8 : AT(0x90AE8) SUBALIGN(4) { build/us/actor_collision_rebound.o(.rodata) }
     .actor_collision_kind_dispatch_rodata 0x8008FF08 : AT(0x90B08) SUBALIGN(4) { build/us/actor_collision_kind_dispatch.o(.rodata) }
-    .collision_fallback_90b1c_90bac 0x8008FF1C : AT(0x90B1C) { build/us/fallback.o(.rom_collision_fallback_90b1c_90bac) }
+    .actor_collision_kind_response_rodata 0x8008FF1C : AT(0x90B1C) SUBALIGN(4) { build/us/actor_collision_kind_response.o(.rodata) }
     .actor_collision_impact_switch 0x8008FFAC : AT(0x90BAC) SUBALIGN(4) { build/us/actor_collision_impact.o(.rodata) }
     .collision_fallback_90c38_90c98 0x80090038 : AT(0x90C38) { build/us/fallback.o(.rom_collision_fallback_90c38_90c98) }
     .actor_collision_death_result_rodata 0x80090098 : AT(0x90C98) SUBALIGN(4) { build/us/actor_collision_death_result.o(.rodata) }
@@ -2866,7 +2866,6 @@ ASSERT(SIZEOF(.boundary_fallback_90d38_90d3c) == 0x4, "boundary_fallback_90d38_9
 ASSERT(SIZEOF(.collision_dispatch_initialize_bss) == 0x190, "collision callback table size changed")
 func_8001567C = 0x8001567C;
 func_8001669C = 0x8001669C;
-func_80016950 = 0x80016950;
 func_8001737C = 0x8001737C;
 ASSERT(SIZEOF(.renderer_projection_highlight) == 0x2b8, "renderer_projection_highlight size changed")
 ASSERT(SIZEOF(.renderer_projection_highlight_constants) == 0x30, "renderer_projection_highlight_constants size changed")
@@ -3136,9 +3135,9 @@ ASSERT(SIZEOF(.actor_collision_retirement_message) == 0x1c, "actor_collision_ret
 D_8009F878 = 0x8009F878;
 ASSERT(SIZEOF(.actor_group_rotate) == 0x174, "actor_group_rotate size changed")
 ASSERT(SIZEOF(.rotation_fallback_f494_f6e4) == 0x250, "rotation_fallback_f494_f6e4 size changed")
-ASSERT(SIZEOF(.collision_fallback_17550_1781c) == 0x2cc, "collision_fallback_17550_1781c size changed")
+ASSERT(SIZEOF(.actor_collision_kind_response) == 0x2cc, "actor_collision_kind_response size changed")
 ASSERT(SIZEOF(.actor_collision_impact) == 0x748, "actor_collision_impact size changed")
-ASSERT(SIZEOF(.collision_fallback_90b1c_90bac) == 0x90, "collision_fallback_90b1c_90bac size changed")
+ASSERT(SIZEOF(.actor_collision_kind_response_rodata) == 0x90, "actor_collision_kind_response table changed")
 ASSERT(SIZEOF(.actor_collision_impact_switch) == 0x8c, "actor_collision_impact_switch size changed")
 ASSERT(SIZEOF(.collision_fallback_90c38_90c98) == 0x60, "collision_fallback_90c38_90c98 size changed")
 ASSERT(SIZEOF(.boss_update_initializers) == 0x18, "boss_update_initializers size changed")
