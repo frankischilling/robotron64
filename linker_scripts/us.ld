@@ -610,6 +610,7 @@ SECTIONS
     .endgame_409c4_40c0c 0x8003FDC4 : AT(0x409C4) { build/us/fallback.o(.rom_endgame_409c4_40c0c) }
     .model_vertices_scatter 0x8004000C : AT(0x40C0C) SUBALIGN(4) { build/us/model_vertices_scatter.o(.text) }
     .cpu_after_model_vertices_scatter 0x800400C4 : AT(0x40CC4) { build/us/fallback.o(.rom_cpu_after_model_vertices_scatter) }
+    .renderer_background_dispatch 0x800400D0 : AT(0x40CD0) SUBALIGN(4) { build/us/renderer_background_dispatch.o(.text) }
     .model_framebuffer_copy 0x800404F4 : AT(0x410F4) SUBALIGN(4) { build/us/model_framebuffer_copy.o(.text) }
     .model_framebuffer_draw 0x80040560 : AT(0x41160) SUBALIGN(4) { build/us/model_framebuffer_draw.o(.text) }
     .model_framebuffer_strip 0x80040724 : AT(0x41324) SUBALIGN(4) { build/us/model_framebuffer_strip.o(.text) }
@@ -1238,7 +1239,8 @@ SECTIONS
     .renderer_frame_rdp_commands 0x8007CB58 : AT(0x7D758) SUBALIGN(4) { build/us/renderer_frame_rdp_commands.o(.rodata) }
     .renderer_setup_fallback_7d7d8_7d8a8 0x8007CBD8 : AT(0x7D7D8) { build/us/fallback.o(.rom_renderer_setup_fallback_7d7d8_7d8a8) }
     .renderer_gradient_extents 0x8007CCA8 : AT(0x7D8A8) SUBALIGN(4) { build/us/renderer_gradient_extents.o(.data) }
-    .renderer_setup_fallback_7d8b0_7d98c 0x8007CCB0 : AT(0x7D8B0) { build/us/fallback.o(.rom_renderer_setup_fallback_7d8b0_7d98c) }
+    .renderer_background_color_mode 0x8007CCB0 : AT(0x7D8B0) SUBALIGN(4) { build/us/renderer_background_color_mode.o(.data) }
+    .renderer_setup_fallback_7d8b4_7d98c 0x8007CCB4 : AT(0x7D8B4) { build/us/fallback.o(.rom_renderer_setup_fallback_7d8b4_7d98c) }
     .renderer_texture_file_cache_data 0x8007CD8C : AT(0x7D98C) SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.data) }
     .diagnostic_fallback_7d994_7d9a0 0x8007CD94 : AT(0x7D994) { build/us/fallback.o(.rom_diagnostic_fallback_7d994_7d9a0) }
     .renderer_diagnostic_vertex_pool 0x8007CDA0 : AT(0x7D9A0) SUBALIGN(4) { build/us/renderer_diagnostic_vertex_pool.o(.data) }
@@ -1386,7 +1388,8 @@ SECTIONS
     .object_camera_angles_constant 0x80094C48 : AT(0x95848) SUBALIGN(4) { build/us/object_camera_angles.o(.rodata) }
     .object_camera_angles_alt_constant 0x80094C4C : AT(0x9584C) SUBALIGN(4) { build/us/object_camera_angles_alt.o(.rodata) }
     .model_file_relocate_strings 0x80094C50 : AT(0x95850) SUBALIGN(4) { build/us/model_file_relocate.o(.rodata) }
-    .endgame_data_95880_95b20 0x80094C80 : AT(0x95880) { build/us/fallback.o(.rom_endgame_data_95880_95b20) }
+    .renderer_background_dispatch_table 0x80094C80 : AT(0x95880) SUBALIGN(4) { build/us/renderer_background_dispatch.o(.rodata) }
+    .endgame_data_958ac_95b20 0x80094CAC : AT(0x958AC) { build/us/fallback.o(.rom_endgame_data_958ac_95b20) }
     .renderer_vertex_attributes_strings 0x80094F20 : AT(0x95B20) SUBALIGN(4) { build/us/renderer_vertex_attributes.o(.rodata) }
     .renderer_vertex_positions_strings 0x80095010 : AT(0x95C10) SUBALIGN(4) { build/us/renderer_vertex_positions.o(.rodata) }
     .renderer_expanded_triangle_strings 0x80095060 : AT(0x95C60) SUBALIGN(4) { build/us/renderer_expanded_triangle.o(.rodata) }
@@ -1961,7 +1964,7 @@ ASSERT(SIZEOF(.model_camera_rotation) == 0x1a4, "model_camera_rotation size chan
 ASSERT(SIZEOF(.model_mesh_iteration) == 0x24, "model_mesh_iteration size changed")
 ASSERT(SIZEOF(.model_normals_blend) == 0x200, "model_normals_blend size changed")
 ASSERT(SIZEOF(.model_vertices_scatter) == 0xb8, "model_vertices_scatter size changed")
-ASSERT(SIZEOF(.cpu_after_model_vertices_scatter) == 0x430, "cpu_after_model_vertices_scatter size changed")
+ASSERT(SIZEOF(.cpu_after_model_vertices_scatter) == 0xC, "cpu_after_model_vertices_scatter size changed")
 ASSERT(SIZEOF(.model_framebuffer_copy) == 0x6c, "model_framebuffer_copy size changed")
 ASSERT(SIZEOF(.model_framebuffer_draw) == 0x1c4, "model_framebuffer_draw size changed")
 ASSERT(SIZEOF(.model_framebuffer_strip) == 0x150, "model_framebuffer_strip size changed")
@@ -2852,7 +2855,7 @@ ASSERT(SIZEOF(.renderer_matrix_submit) == 0x298, "renderer_matrix_submit size ch
 ASSERT(SIZEOF(.renderer_matrix_submit_strings) == 0x40, "renderer_matrix_submit_strings size changed")
 ASSERT(SIZEOF(.model_file_relocate) == 0x294, "model_file_relocate size changed")
 ASSERT(SIZEOF(.model_file_relocate_strings) == 0x30, "model_file_relocate_strings size changed")
-ASSERT(SIZEOF(.endgame_data_95880_95b20) == 0x2a0, "endgame_data_95880_95b20 size changed")
+ASSERT(SIZEOF(.endgame_data_958ac_95b20) == 0x274, "endgame_data_958ac_95b20 size changed")
 ASSERT(SIZEOF(.audio_voice_defaults) == 0x2CC, "audio voice defaults text size changed")
 ASSERT(SIZEOF(.audio_memory_size) == 0x2cc, "audio_memory_size size changed")
 ASSERT(SIZEOF(.audio_memory_size_strings) == 0x8, "audio_memory_size_strings size changed")
@@ -3039,7 +3042,7 @@ ASSERT(SIZEOF(.renderer_setup_lighting) == 0x18, "renderer_setup_lighting size c
 ASSERT(SIZEOF(.renderer_frame_geometry_commands) == 0x40, "renderer_frame_geometry_commands size changed")
 ASSERT(SIZEOF(.renderer_frame_rdp_commands) == 0x80, "renderer_frame_rdp_commands size changed")
 ASSERT(SIZEOF(.renderer_setup_fallback_7d7d8_7d8a8) == 0xd0, "renderer_setup_fallback_7d7d8_7d8a8 size changed")
-ASSERT(SIZEOF(.renderer_setup_fallback_7d8b0_7d98c) == 0xdc, "renderer_setup_fallback_7d8b0_7d98c size changed")
+ASSERT(SIZEOF(.renderer_setup_fallback_7d8b4_7d98c) == 0xd8, "renderer_setup_fallback_7d8b4_7d98c size changed")
 ASSERT(SIZEOF(.tweak_variables) == 0x4b0, "tweak_variables size changed")
 ASSERT(SIZEOF(.tweak_pages) == 0x78, "tweak_pages size changed")
 ASSERT(SIZEOF(.tweak_difficulties) == 0x168, "tweak_difficulties size changed")
@@ -3186,3 +3189,7 @@ ASSERT(SIZEOF(.renderer_border_gradient) == 0x344, "renderer_border_gradient siz
 ASSERT(SIZEOF(.palette_command_storage) == 0x3d20, "palette_command_storage BSS size changed")
 
 ASSERT(SIZEOF(.renderer_color_wave_storage) == 260, "renderer_color_wave_storage BSS size changed")
+
+ASSERT(SIZEOF(.renderer_background_dispatch) == 0x424, "renderer_background_dispatch size changed")
+ASSERT(SIZEOF(.renderer_background_dispatch_table) == 0x2C, "renderer_background_dispatch_table size changed")
+ASSERT(SIZEOF(.renderer_background_color_mode) == 4, "renderer_background_color_mode size changed")

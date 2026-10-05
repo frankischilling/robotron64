@@ -31,6 +31,8 @@ typedef char RendererColorWaveArrayMustStartAt4[
 extern RendererColorWaveState D_800CD2B4;
 #define D_800CD2B8 (D_800CD2B4.waves)
 
+extern int D_8007CCB0;
+void func_800400D0(void);
 void func_800414C4(int red, int green, int blue);
 void func_80041B24(int r1, int g1, int b1, int r2, int g2, int b2);
 

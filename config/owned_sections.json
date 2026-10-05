@@ -3949,5 +3949,30 @@
       "D_800CD2B4": 0
     },
     "evidence": "docs/renderer-color-wave.md"
+  },
+  {
+    "source": "src/game/renderer_surfaces/background_dispatch.c",
+    "object": "build/us/renderer_background_dispatch.o",
+    "input_section": ".rodata",
+    "section": ".renderer_background_dispatch_table",
+    "vram": 2148093056,
+    "rom": 612480,
+    "size": 44,
+    "symbols": {},
+    "static_symbols": {},
+    "evidence": "docs/renderer-background-dispatch.md"
+  },
+  {
+    "source": "src/game/renderer_surfaces/background_color_mode.c",
+    "object": "build/us/renderer_background_color_mode.o",
+    "input_section": ".data",
+    "section": ".renderer_background_color_mode",
+    "vram": 2147994800,
+    "rom": 514224,
+    "size": 4,
+    "symbols": {
+      "D_8007CCB0": 0
+    },
+    "evidence": "docs/renderer-background-dispatch.md"
   }
 ]

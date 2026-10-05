@@ -341,5 +341,17 @@
     "vram": "0x8008D96C",
     "rom": "0x8E56C",
     "status": "verified alias for the sequence-command member at D_8008D920 + 0x4C; see docs/audio-seeking.md"
+  },
+  {
+    "name": "func_800400D0",
+    "rom": "0x40cd0",
+    "vram": "0x800400d0",
+    "status": "matching C; docs/renderer-background-dispatch.md"
+  },
+  {
+    "name": "D_8007CCB0",
+    "rom": "0x7d8b0",
+    "vram": "0x8007ccb0",
+    "status": "source-owned initialized int; docs/renderer-background-dispatch.md"
   }
 ]

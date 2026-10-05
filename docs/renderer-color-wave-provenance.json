@@ -63,10 +63,10 @@
       "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
     },
     "inputs_sha256": {
-      "config/functions.json": "736b2504c093d03a0130ff0ee37003bea17668d8421b312fc1fcffa20461e4ad",
-      "config/owned_sections.json": "91415ae4e742f9a3778a793eb10bb698982fbdbd8e0723e586242a086fe0e668",
-      "config/runtime_symbols.ld": "5a47bf033c0dd4dd0f5872658bf74cb924d1c6ccde4376dcc2483e0c7ac6e32c",
-      "config/startup_symbols.ld": "14b4d400aea931cd6aeb3f981cf00140167e4436cc26d298959b6e8033c4e071",
+      "config/functions.json": "d7e0b07e463aebc91a08c45cfe3f8e3a843651dcd6631b1474860cc29613aa40",
+      "config/owned_sections.json": "cb179d815d7ab55d03cd332c57085ac8e8cfbcc8ae51878194db771fb3eeea44",
+      "config/runtime_symbols.ld": "6264cd1b497d6713d13fb51cd3b7c9523e1b4dcbf9ce1245d3a18e0f3707bb5a",
+      "config/startup_symbols.ld": "d6e3b894b7f030e4675b049a9d8a6b0101c531463bbcbd8fa84d9fd8eac7c87a",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
       "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
       "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -167,7 +167,7 @@
       "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
       "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
       "include/renderer_color_gradient_internal.h": "c0329280b4d2af9a5a3412c944049a061b310013b54823a238746617295a83f8",
-      "include/renderer_color_wave_internal.h": "ef6fd1a851474212ce349b265525fd3e3e131d94d92f6a859bea24b4f889c120",
+      "include/renderer_color_wave_internal.h": "17767b081b1665f1c098c80ec219a37fe18eaa3597d62cd4d35d49d976daf9bb",
       "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
       "include/renderer_diagnostic_internal.h": "86f0d8c8ec7fc912c4df140d08a5b955a4b3076f917a27307552c1183f6343e3",
       "include/renderer_draw_state_internal.h": "f3b8b2160e59663a7b648042fe654b30a9f400e4c2aae15d7279c7ffaf96d5d1",
@@ -250,33 +250,33 @@
     }
   },
   "checks": {
-    "clean_build_and_whole_rom_equality": true,
-    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "clean_extraction_and_build": true,
     "tooling_tests": 163,
     "fresh_independent_comparisons": {
       "runtime-comparison": {
-        "matches": true,
-        "report_sha256": "78366c942ca0099f3252ed1eb05918e4b66c8ce8250ff0e6565cb6de2577b1a6"
+        "units": 898,
+        "report_sha256": "495ea5bf61a27b52b63910564f45c51dd421146b7241f47b6230a1045e01e91a"
       },
       "startup-comparison": {
-        "matches": true,
-        "report_sha256": "856c395d3f1c67e51c075d99bca29f02e0c9db4f1406e2a1b3ebb83eee018eec"
+        "units": 2,
+        "report_sha256": "7193711b4711641388b065034e7561dfb0474e6f7b40ec58b3893f0a9d88e631"
       },
       "assembly-comparison": {
-        "matches": true,
+        "units": 18,
         "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
       },
       "data-comparison": {
-        "matches": true,
-        "report_sha256": "13fee9e3653184e4eab85abcf88baee1ec9983d16d4689bdbd8214f9c3beb8b0"
+        "units": 120,
+        "report_sha256": "e9fafe5d31aa52fd8930a5f0990ff8020f0dcdc5434336b26d3c3937b6003840"
       }
     },
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
     "progress": {
-      "matched_c_functions": 1415,
-      "matched_c_bytes": 298928,
+      "matched_c_functions": 1416,
+      "matched_c_bytes": 299988,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
-      "source_owned_initialized_bytes": 31419,
+      "source_owned_initialized_bytes": 31467,
       "source_owned_bss_bytes": 521095
     }
   }

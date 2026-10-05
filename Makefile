@@ -7803,6 +7803,23 @@ build/us/renderer_color_wave_storage.o: src/game/renderer_surfaces/color_wave_st
 
 RUNTIME_OBJECTS += build/us/renderer_color_wave_storage.o
 
+build/us/renderer_background_dispatch.o: src/game/renderer_surfaces/background_dispatch.c include/fixed_math.h include/sdk_matrix.h include/scalar_math.h include/game_memory.h include/palette.h include/palette_effects.h include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/scene_background_internal.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_background_dispatch.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_background_dispatch.raw.o build/us/renderer_background_dispatch.owned.o
+	$(PYTHON) tools/trim_padding.py build/us/renderer_background_dispatch.owned.o $@ .text 0x424
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_background_dispatch.o
+
+build/us/renderer_background_color_mode.o: src/game/renderer_surfaces/background_color_mode.c include/fixed_math.h include/sdk_matrix.h include/scalar_math.h include/game_memory.h include/palette.h include/palette_effects.h include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/scene_background_internal.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_background_color_mode.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_background_color_mode.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_background_color_mode.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

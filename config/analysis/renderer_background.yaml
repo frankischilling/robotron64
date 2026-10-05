@@ -1,0 +1,33 @@
+name: Robotron 64 verified background dispatch ranges
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: renderer_background
+  base_path: ../../.local/renderer-background-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: background_dispatch
+    type: code
+    start: 0x40CD0
+    vram: 0x800400D0
+    subsegments:
+      - [0x40CD0, asm, background_dispatch]
+  - [0x410F4, bin, after_dispatch]
+  - name: background_color_mode
+    type: code
+    start: 0x7D8B0
+    vram: 0x8007CCB0
+    subsegments:
+      - [0x7D8B0, data, background_color_mode]
+  - [0x7D8B4, bin, after_mode]
+  - name: background_dispatch_table
+    type: code
+    start: 0x95880
+    vram: 0x80094C80
+    subsegments:
+      - [0x95880, rodata, background_dispatch_table]
+  - [0x958AC, bin, remainder]
+  - [0x800000]

@@ -15920,5 +15920,16 @@
     "section": ".palette_transition_allocate",
     "section_vram": 2147687208,
     "evidence": "docs/palette-transitions.md"
+  },
+  {
+    "name": "func_800400D0",
+    "rom": 265424,
+    "vram": 2147746000,
+    "size": 1060,
+    "source": "src/game/renderer_surfaces/background_dispatch.c",
+    "object": "build/us/renderer_background_dispatch.o",
+    "section": ".renderer_background_dispatch",
+    "section_vram": 2147746000,
+    "evidence": "docs/renderer-background-dispatch.md"
   }
 ]

@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,415 matching C functions covering 298,928 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,419 bytes of source-owned initialized data, and 521,095 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,416 matching C functions covering 299,988 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,467 bytes of source-owned initialized data, and 521,095 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -308,6 +308,11 @@ The controller-sampling caller also matches all 212 original instruction bytes. 
 also has a complete matching source comparison.
 
 The [renderer-state recovery](docs/graphics-state.md) covers display-list termination and calls, render-mode switching, directional lights, vertex-pool accounting, and environment colors. [Renderer geometry](docs/renderer-geometry.md) records hardware vertex attributes, material selection, texture uploads, and vertex-copy loops. [Sound bridges](docs/sound-bridge.md) and [geometry bridges](docs/geometry-bridges.md) document the game-side sound queue and transform wrappers. All counted functions and their generated tables or strings pass complete comparisons.
+
+[Background dispatch](docs/renderer-background-dispatch.md) recovers the
+complete per-frame renderer selection, three color modes, background extents,
+and view-matrix restoration. Its eleven-entry switch table and initial color
+mode compile from source. The guarded execution check covers 15,000 cases.
 
 [Textured polygon submission](docs/renderer-textured-submission.md) recovers
 complete triangle and quad submission, packed texture corner consumption,
