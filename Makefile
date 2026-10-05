@@ -7820,6 +7820,14 @@ build/us/renderer_background_color_mode.o: src/game/renderer_surfaces/background
 
 RUNTIME_OBJECTS += build/us/renderer_background_color_mode.o
 
+build/us/renderer_material_cache_reset.o: src/game/renderer_resources/material_reset.c include/renderer_material_internal.h include/graphics_state_internal.h include/resource_bridge_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/object_runtime.h include/text.h include/object.h include/game_memory.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_material_cache_reset.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_material_cache_reset.raw.o $@ .text 0x778
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_material_cache_reset.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

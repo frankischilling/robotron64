@@ -15931,5 +15931,16 @@
     "section": ".renderer_background_dispatch",
     "section_vram": 2147746000,
     "evidence": "docs/renderer-background-dispatch.md"
+  },
+  {
+    "name": "func_800420B0",
+    "rom": 273584,
+    "vram": 2147754160,
+    "size": 1912,
+    "source": "src/game/renderer_resources/material_reset.c",
+    "object": "build/us/renderer_material_cache_reset.o",
+    "section": ".renderer_material_cache_reset",
+    "section_vram": 2147754160,
+    "evidence": "docs/renderer-material-reset.md"
   }
 ]

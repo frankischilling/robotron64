@@ -618,7 +618,9 @@ SECTIONS
     .endgame_41568_41b5c 0x80040968 : AT(0x41568) { build/us/fallback.o(.rom_endgame_41568_41b5c) }
     .renderer_color_gradient 0x80040F5C : AT(0x41B5C) SUBALIGN(4) { build/us/renderer_color_gradient.o(.text) }
     .renderer_border_gradient 0x80041180 : AT(0x41D80) SUBALIGN(4) { build/us/renderer_border_gradient.o(.text) }
-    .endgame_420c4_43430 0x800414C4 : AT(0x420c4) { build/us/fallback.o(.rom_endgame_420c4_43430) }
+    .endgame_420c4_42cb0 0x800414C4 : AT(0x420c4) { build/us/fallback.o(.rom_endgame_420c4_42cb0) }
+    .renderer_material_cache_reset 0x800420B0 : AT(0x42CB0) SUBALIGN(4) { build/us/renderer_material_cache_reset.o(.text) }
+    .cpu_after_renderer_material_reset 0x80042828 : AT(0x43428) { build/us/fallback.o(.rom_cpu_after_renderer_material_reset) }
     .renderer_texture_file_cache 0x80042830 : AT(0x43430) SUBALIGN(4) { build/us/renderer_texture_file_cache.o(.text) }
     .endgame_434c0_43c70 0x800428C0 : AT(0x434C0) { build/us/fallback.o(.rom_endgame_434c0_43c70) }
     .renderer_camera_square 0x80043070 : AT(0x43C70) SUBALIGN(4) { build/us/renderer_camera_square.o(.text) }
@@ -2607,7 +2609,9 @@ ASSERT(SIZEOF(.menu_transition_start_bss) == 0x64, "menu_transition_start_bss si
 ASSERT(SIZEOF(.renderer_texture_file_cache_data) == 0x8, "renderer_texture_file_cache_data size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache_bss) == 0x804, "renderer_texture_file_cache_bss size changed")
 ASSERT(SIZEOF(.endgame_41568_41b5c) == 0x5f4, "endgame_41568_41b5c size changed")
-ASSERT(SIZEOF(.endgame_420c4_43430) == 0x136c, "endgame_420c4_43430 size changed")
+ASSERT(SIZEOF(.endgame_420c4_42cb0) == 0xbec, "endgame_420c4_42cb0 size changed")
+ASSERT(SIZEOF(.renderer_material_cache_reset) == 0x778, "renderer_material_cache_reset size changed")
+ASSERT(SIZEOF(.cpu_after_renderer_material_reset) == 8, "renderer_material_reset alignment changed")
 D_8009B1C4 = 0x8009B1C4;
 D_8009BF78 = 0x8009BF78;
 func_80049E3C = 0x80049E3C;

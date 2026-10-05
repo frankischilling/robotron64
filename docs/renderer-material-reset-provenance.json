@@ -1,49 +1,13 @@
 {
-  "basis": "Independent NOBITS layout from complete record loop extents and verified C field sizes; no retail BSS contents.",
-  "vram": "0x800cd2b4",
-  "bytes": 260,
-  "symbols": [
-    [
-      "D_800CD2B4",
-      0,
-      260
-    ]
-  ],
-  "fields": {
-    "time": {
-      "offset": 0,
-      "bytes": 4
-    },
-    "waves": {
-      "offset": 4,
-      "bytes": 256,
-      "entries": 16,
-      "stride": 16
-    }
-  },
-  "objdiff_bss_match_percent": 100,
-  "reference_object_sha256": "d0bedf1d8ee0d9fd3729dce9ebe5c66346360d136d2787259cc7d31a38d0ed49",
+  "scope": "Complete 1912-byte renderer material cache reset; eight alignment bytes independently verified and excluded from recovered totals.",
+  "retail_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "vram_start": "0x800420B0",
+  "vram_end": "0x80042828",
+  "rom_start": "0x42CB0",
+  "rom_end": "0x43428",
+  "generated_data_bytes": 0,
   "compiler_comparison": {
-    "source": "src/game/renderer_surfaces/color_wave_storage.c",
-    "matches": true,
-    "sections": [
-      {
-        "ownership": {
-          "source": "src/game/renderer_surfaces/color_wave_storage.c",
-          "object": "build/us/renderer_color_wave_storage.o",
-          "input_section": ".bss",
-          "section": ".renderer_color_wave_storage",
-          "vram": 2148324020,
-          "rom": null,
-          "size": 260,
-          "symbols": {
-            "D_800CD2B4": 0
-          },
-          "evidence": "docs/renderer-color-wave.md"
-        },
-        "bytes_sha256": null
-      }
-    ],
+    "source": "src/game/renderer_resources/material_reset.c",
     "compiler_profile": {
       "name": "game",
       "version": "5.3",
@@ -244,12 +208,142 @@
       "include/sound_bridge_internal.h": "f5de1a7e5b00eecbd808a99391a8fbf3e777e837dcde94ee08ed5df353f7db48",
       "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
       "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-      "src/game/renderer_surfaces/color_wave_storage.c": "cc9915a682c8b183121b6c9cdb9ae11142608b31201a871d660a5e3f1d931219",
+      "src/game/renderer_resources/material_reset.c": "4b82cc1548804a4e02e436bd393fdcec2a52512a565d11ef6a48dd4b2b29af94",
       "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
-      "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
-      "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4"
+      "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
+    },
+    "expected_size": 1920,
+    "actual_size": 1920,
+    "matches": true,
+    "different_words": []
+  },
+  "reference_reassembly": [
+    {
+      "tool": "spim",
+      "bytes": 1920,
+      "function_bytes": 1912,
+      "alignment_bytes": 8,
+      "retail_equal": true,
+      "sha256": "0b3db9ee7358b0cac8efecc6cdcb86ccf67b4d133a86fd24d370578ca540dce8",
+      "object_sha256": "520edd9d3756610ec0179dfd13fed8aa6de7844296bcb62eb7f2b2cbcd18f821",
+      "undefined_symbols": [
+        "D_80078274",
+        "D_8007A1B4",
+        "D_8009AFD9",
+        "D_8009B031",
+        "D_8009B089",
+        "D_8009B0E1",
+        "D_8009F560",
+        "D_800AC999",
+        "D_800ACAAD",
+        "D_800ACFB9",
+        "D_800AD011",
+        "D_800AD069",
+        "D_800AD0C1",
+        "D_800AF2C1",
+        "D_800AF329",
+        "D_800AF391",
+        "D_800B1BE8",
+        "D_800BEF60",
+        "D_800BF2C0",
+        "D_80126B74",
+        "D_80126B78",
+        "D_80126B80",
+        "func_8004BC8C"
+      ]
+    },
+    {
+      "tool": "splat",
+      "bytes": 1920,
+      "function_bytes": 1912,
+      "alignment_bytes": 8,
+      "retail_equal": true,
+      "sha256": "0b3db9ee7358b0cac8efecc6cdcb86ccf67b4d133a86fd24d370578ca540dce8",
+      "object_sha256": "cbaf4d89ccb51ac228198c88ac7782f7833482032029c476488f5b0d7cbdc721",
+      "undefined_symbols": [
+        "D_80078274",
+        "D_8007A1B4",
+        "D_8009AFD9",
+        "D_8009B031",
+        "D_8009B089",
+        "D_8009B0E1",
+        "D_8009F560",
+        "D_800AC999",
+        "D_800ACAAD",
+        "D_800ACFB9",
+        "D_800AD011",
+        "D_800AD069",
+        "D_800AD0C1",
+        "D_800AF2C1",
+        "D_800AF329",
+        "D_800AF391",
+        "D_800B1BE8",
+        "D_800BEF60",
+        "D_800BF2C0",
+        "D_80126B74",
+        "D_80126B78",
+        "D_80126B80",
+        "func_8004BC8C"
+      ]
+    }
+  ],
+  "objdiff": {
+    "function_match_percent": 100,
+    "text_match_percent": 100,
+    "report_sha256": "e897838da71f423e1a5d64493e75f04a5fdbfc6d80760f1ae8626451383b2965"
+  },
+  "asm_differ": {
+    "score": 0,
+    "report_sha256": "f9575b98cc5f96d27de1e2c39fa365996543df8e587172fb3c6e1f3d0167b340"
+  },
+  "matching_workbench": {
+    "fresh": true,
+    "matches": true,
+    "complete_bytes": 1920,
+    "report_sha256": "292f2dbe9b9552a1bcd205d4327b203beb3b8c216e31d833843e18bfcadb9d15"
+  },
+  "execution": {
+    "instruction_matches": true,
+    "execution_cases": 350,
+    "distinct_kind_addresses": 68,
+    "trace_sha256": "caa8c93880cc7c8422f5b978de924ae83c7bed38e03190fad9a2cc897b65b656",
+    "mutants": [
+      {
+        "name": "default flag value",
+        "detected": true,
+        "reason": "('Independent state oracle', '0x80078264', 0)"
+      },
+      {
+        "name": "loop destination shift",
+        "detected": true,
+        "reason": "('Write guard', '0x80078278', 4)"
+      },
+      {
+        "name": "resource flag value",
+        "detected": true,
+        "reason": "('Independent state oracle', '0x80078264', 0)"
+      }
+    ],
+    "limits": [
+      "All 1912 instruction bytes match; eight verified alignment bytes are excluded from recovered instruction totals.",
+      "Deterministic initialized records are not an end-to-end gameplay snapshot.",
+      "Complete freshly matched cache and resource reset callees execute without stubs."
+    ]
+  },
+  "support_comparisons": {
+    "renderer_cache_flags_clear": {
+      "source": "src/game/renderer_cache_flags_clear.c",
+      "matches": true,
+      "bytes": 116
+    },
+    "actor_resource_reset": {
+      "source": "src/game/actor_resource_reset.c",
+      "matches": true,
+      "bytes": 400
     }
   },
+  "execution_checker_sha256": "27a4ec45b6fe32ffe37b6bf445c7797b207ed901bb1dbf25bbab40f506e40075",
+  "unicorn": "2.1.1",
   "checks": {
     "clean_extraction_and_build": true,
     "tooling_tests": 163,
@@ -283,6 +377,22 @@
       "matched_assembly_bytes": 4372,
       "source_owned_initialized_bytes": 31467,
       "source_owned_bss_bytes": 521095
-    }
+    },
+    "canonical_input_comparisons": true
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "prototype": "void func_800420B0(void)",
+    "imported_type": "RendererMaterialSlotView",
+    "callers": [
+      "func_8002824C",
+      "func_800470F4"
+    ]
+  },
+  "splat_spec": {
+    "source": "config/analysis/renderer_background.yaml",
+    "sha256": "4392c06a1c8c5556406e9fa18d57f4d89e9beff60bc1388d3041a5a2349ca3d4",
+    "splat_version": "0.50.0",
+    "spimdisasm_version": "1.42.4"
   }
 }
