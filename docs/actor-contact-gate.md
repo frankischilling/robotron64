@@ -17,8 +17,10 @@ The gate rejects a pair when the absolute Z difference exceeds the
 absolute value of half the `GRUNT2_HOVER_HEIGHT` setting, or when both actors'
 fields at `0x28` are nonzero. Otherwise it calls `func_80018E1C` with the ordered
 actors, their signed resource halfwords at `0x5A`, and the copied positions.
-Every path returns zero. The halfwords and the callee's arguments keep generic
-names until their meanings are established.
+Every path returns zero. The [weighted separation recovery](actor-collision-separation.md)
+establishes those signed halfwords as the two displacement weights and gives
+the callee a shared six-argument declaration. The complete contact gate still
+matches after using that declaration and passing the copied position arrays.
 
 The earlier candidate differed only in branch operand order at
 `0x80016714`, `0x80016724`, and `0x800167E8`. A reusable short comparison value

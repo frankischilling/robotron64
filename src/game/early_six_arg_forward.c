@@ -1,10 +1,11 @@
 #include "../../include/early_game_helpers.h"
+#include "../../include/actor_collision_separation_internal.h"
 
-int func_80018E1C(int first, int second, int value, int flag,
-                  int fifth, int sixth);
 
 int func_80016914(int first, int second, int third, int fourth)
 {
-    func_80018E1C(first, second, 100, 0, third, fourth);
+    func_80018E1C((ActorBehaviorActorInternal *)first,
+                   (ActorBehaviorActorInternal *)second,
+                   100, 0, (int *)third, (int *)fourth);
     return 0;
 }

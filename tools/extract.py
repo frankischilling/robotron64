@@ -27,7 +27,6 @@ REGIONS = (
     ("collision_fallback_17550_1781c", 0x17550, 0x1781c),
     ("endgame_17f7c_1862c", 0x17f7c, 0x1862c),
     ("endgame_18b9c_198c8", 0x18b9c, 0x198c8),
-    ("boundary_fallback_19a1c_19cf8", 0x19a1c, 0x19cf8),
     ("boundary_fallback_1a0dc_1aa40", 0x1a0dc, 0x1aa40),
     ("endgame_1ad68_1ad70", 0x1ad68, 0x1ad70),
     ("endgame_1af44_1af50", 0x1af44, 0x1af50),

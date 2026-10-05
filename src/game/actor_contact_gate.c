@@ -1,4 +1,5 @@
 #include "../../include/actor_behavior_internal.h"
+#include "../../include/actor_collision_separation_internal.h"
 
 typedef struct ActorContactPoint {
     int value[3];
@@ -14,10 +15,6 @@ typedef struct ActorContactResource {
 
 extern int D_800BA74C;
 extern int D_800B8F60;
-void func_80018E1C(ActorBehaviorActorInternal *first,
-                   ActorBehaviorActorInternal *second, int firstValue,
-                   int secondValue, ActorContactPoint *firstPosition,
-                   ActorContactPoint *secondPosition);
 
 #define CONTACT_ABSOLUTE(value) \
     ((value) < 0 ? (value) * -1 : (value))
@@ -81,6 +78,6 @@ int func_8001669C(ActorBehaviorActorInternal *first,
     func_80018E1C(first, second,
                   ((ActorContactResource *)first->resource24)->value5A,
                   ((ActorContactResource *)second->resource24)->value5A,
-                  &firstPosition, &secondPosition);
+                  firstPosition.value, secondPosition.value);
     return 0;
 }
