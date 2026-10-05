@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("palette_transition_allocate", "src/game/palette_effects/transition_allocate.c", 0x80031B28, 0x80031C10),
     ("actor_collision_kind_response", "src/game/collisions/kind_response.c", 0x80016950, 0x80016C1C),
     ("renderer_border_gradient", "src/game/renderer_surfaces/border_gradient.c", 0x80041180, 0x800414C4),
     ("renderer_color_gradient", "src/game/renderer_surfaces/color_gradient.c", 0x80040F5C, 0x80041180),

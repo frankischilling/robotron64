@@ -463,7 +463,7 @@ SECTIONS
     .scene_palette_load 0x800314FC : AT(0x320FC) SUBALIGN(4) { build/us/scene_palette_load.o(.text) }
     .palette_fade_controls 0x80031564 : AT(0x32164) SUBALIGN(4) { build/us/palette_fade_controls.o(.text) }
     .palette_fade_update 0x800316AC : AT(0x322AC) SUBALIGN(4) { build/us/palette_fade_update.o(.text) }
-    .palette_fallback_32728_32810 0x80031B28 : AT(0x32728) { build/us/fallback.o(.rom_palette_fallback_32728_32810) }
+    .palette_transition_allocate 0x80031B28 : AT(0x32728) SUBALIGN(4) { build/us/palette_transition_allocate.o(.text) }
     .palette_transition_reset 0x80031C10 : AT(0x32810) SUBALIGN(4) { build/us/palette_transition_reset.o(.text) }
     .palette_transition_range 0x80031C44 : AT(0x32844) SUBALIGN(4) { build/us/palette_transition_range.o(.text) }
     .cpu_after_palette_transition_range 0x80031ECC : AT(0x32ACC) { build/us/fallback.o(.rom_cpu_after_palette_transition_range) }
@@ -1550,6 +1550,7 @@ SECTIONS
     .palette_fade_step 0x8009E580 (NOLOAD) : SUBALIGN(4) { build/us/palette_fade_step.o(.bss) }
     .object_record_storage 0x800BF918 (NOLOAD) : SUBALIGN(4) { build/us/object_record_storage.o(.bss) }
     .object_slot_storage 0x800C86C0 (NOLOAD) : SUBALIGN(4) { build/us/object_slot_storage.o(.bss) }
+    .palette_command_storage 0x800BB230 (NOLOAD) : SUBALIGN(4) { build/us/palette_command_storage.o(.bss) }
     .menu_options_records 0x800AEF00 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_records.o(.bss) }
     .menu_options_page 0x800AF1A8 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_page.o(.bss) }
     .scene_action_pickup_count 0x800BAE8C (NOLOAD) : SUBALIGN(4) { build/us/scene_action_pickup_count.o(.bss) }
@@ -3079,7 +3080,7 @@ ASSERT(SIZEOF(.script_diagnostic_fallback_94cb4_94d10) == 0x5c, "script_diagnost
 ASSERT(SIZEOF(.command_script_diagnostics) == 0x24, "command_script_diagnostics size changed")
 ASSERT(SIZEOF(.script_diagnostic_fallback_94d34_94d6c) == 0x38, "script_diagnostic_fallback_94d34_94d6c size changed")
 ASSERT(SIZEOF(.palette_fade_update) == 0x47c, "palette_fade_update size changed")
-ASSERT(SIZEOF(.palette_fallback_32728_32810) == 0xe8, "palette_fallback_32728_32810 size changed")
+ASSERT(SIZEOF(.palette_transition_allocate) == 0xe8, "palette_transition_allocate size changed")
 ASSERT(SIZEOF(.palette_base_storage) == 0x400, "palette_base_storage BSS size changed")
 ASSERT(SIZEOF(.palette_transition_storage) == 0x1450, "palette_transition_storage BSS size changed")
 ASSERT(SIZEOF(.palette_fade_color) == 0x4, "palette_fade_color BSS size changed")
@@ -3176,3 +3177,5 @@ ASSERT(SIZEOF(.renderer_color_gradient) == 0x224, "renderer_color_gradient size 
 ASSERT(SIZEOF(.renderer_gradient_extents) == 8, "renderer_gradient_extents size changed")
 
 ASSERT(SIZEOF(.renderer_border_gradient) == 0x344, "renderer_border_gradient size changed")
+
+ASSERT(SIZEOF(.palette_command_storage) == 0x3d20, "palette_command_storage BSS size changed")

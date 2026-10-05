@@ -20,6 +20,13 @@ have complete comparisons covering 832 bytes. Their 6,316 guarded cases check
 connection masks, signed sticks, button edges and SDK call boundaries. The
 existing button halfwords retain their addresses as private static storage.
 
+The [palette transition allocator](palette-transitions.md) has a complete
+232-byte C comparison. Its first-free-record selection, bitfield narrowing,
+RGB inputs, and four-byte base-color snapshot preserve the existing pool layout.
+The related command storage adds 15,648 bytes of checked BSS ownership for
+source colors, configurations, ranges, and counters.
+The per-frame transition update remains excluded pending instruction matching.
+
 The [random spawn-position chooser](actor-spawn-position.md) has a complete
 696-byte C comparison. Its signed arithmetic, axis constraints, per-actor
 rejection budget and failure output are checked with matching absolute-value

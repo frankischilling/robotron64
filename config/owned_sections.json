@@ -3906,5 +3906,22 @@
     "size": 144,
     "symbols": {},
     "evidence": "docs/actor-collision-kind-response.md"
+  },
+  {
+    "source": "src/game/palette_effects/command_storage.c",
+    "object": "build/us/palette_command_storage.o",
+    "input_section": ".bss",
+    "section": ".palette_command_storage",
+    "vram": 2148250160,
+    "rom": null,
+    "size": 15648,
+    "symbols": {
+      "D_800BB230": 0,
+      "D_800BBAC8": 2200,
+      "D_800BEE58": 15400,
+      "D_800BEF48": 15640,
+      "D_800BEF4C": 15644
+    },
+    "evidence": "docs/palette-transitions.md"
   }
 ]

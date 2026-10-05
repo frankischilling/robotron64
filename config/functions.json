@@ -15909,5 +15909,16 @@
     "section": ".actor_collision_kind_response",
     "section_vram": 2147576144,
     "evidence": "docs/actor-collision-kind-response.md"
+  },
+  {
+    "name": "func_80031B28",
+    "rom": 206632,
+    "vram": 2147687208,
+    "size": 232,
+    "source": "src/game/palette_effects/transition_allocate.c",
+    "object": "build/us/palette_transition_allocate.o",
+    "section": ".palette_transition_allocate",
+    "section_vram": 2147687208,
+    "evidence": "docs/palette-transitions.md"
   }
 ]
