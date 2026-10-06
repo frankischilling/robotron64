@@ -77,4 +77,3 @@ const FrameCommand D_8007C738[7] = {
     RENDERER_SETUP_COMMAND(0xFC26A004, 0x1FFC93FC), /* Set combine mode. */
     RENDERER_SETUP_COMMAND(0xB8000000, 0x00000000), /* End display list. */
 };
-

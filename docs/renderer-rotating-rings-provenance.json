@@ -282,7 +282,7 @@
     "fresh": true,
     "matches": true,
     "complete_bytes": 568,
-    "report_sha256": "8bb1b55cbaaae0f77c244557c549fc1a597fd1599ef72818af7dc1b3f5b03133"
+    "report_sha256": "1d17f3ba4c3657a48e734c6cec165d022870d490885fd8d73edd663b23acf4e6"
   },
   "execution": {
     "status": "Complete 568-byte source instruction match and guarded CPU execution",
@@ -425,7 +425,7 @@
       "data-comparison": {
         "units": 122,
         "matches": true,
-        "report_sha256": "145ddc1482f60dbf36e06615b70db13a622cb3d4da89885ea131150ea10d18cf"
+        "report_sha256": "c68b35f4ade2260efc3ff240b03e5ca17043fd057ac5a4152af01449e2be1a1a"
       }
     },
     "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
@@ -443,7 +443,7 @@
       "unclassified_bytes": 164
     },
     "canonical_input_comparisons": true,
-    "clean_build_log_sha256": "c6167e889aba5ac4be219bd8b8e3b4b181d17c741bbd0862b9e0afbeb6503083"
+    "clean_build_log_sha256": "a0fde9097d22f4076861e9a819183eb4e25a415fbc2f1dc5a0bf0f6280ed98f3"
   },
   "limits": [
     "CPU memory and packet proof does not execute the RSP or establish visual rendering correctness.",
