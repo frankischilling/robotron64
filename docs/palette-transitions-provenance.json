@@ -215,7 +215,7 @@
         "include/palette.h": "44f7adde8e518fa5341c5e080372142d298426ce5e04f5bc97054ec5f43d1dee",
         "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
         "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
-        "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
+        "include/platform_services.h": "79e5ecae44b4205ae8c042199221ad09a566f27b71e3cef03f3545d6d8f52547",
         "include/renderer_color_gradient_internal.h": "c0329280b4d2af9a5a3412c944049a061b310013b54823a238746617295a83f8",
         "include/renderer_color_wave_internal.h": "5f8810a4fc4618e98b754e0536d06a06695b0560655f613982b788e1b711a6c1",
         "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
@@ -421,9 +421,9 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 83.16,
+        "elapsed_seconds": 89.36,
         "log": ".local/renderer-color/color-tables-clean-build.log",
-        "log_sha256": "6c36a6721fd1b9622dbc194af961ce62bc2c08faa47c05247c9bfdd244f47724"
+        "log_sha256": "ed8b3449e985ee710c61a7c83905e87c01c299cc48e09c6e9d4f705b9005f050"
       },
       {
         "command": [
@@ -434,26 +434,26 @@
         "returncode": 0,
         "elapsed_seconds": 2.34,
         "log": ".local/renderer-color/color-tables-linux-tests.log",
-        "log_sha256": "cfeea6403b70d1c2394795acdad5609548959d21fee6e4a356648e4227899105"
+        "log_sha256": "adc5c2aed2a0b05eaeb7a583bdd79e6057a841bd7859d5a4d5adb6849cd56eaa"
       }
     ],
     "tooling_tests": {
       "linux": 163,
       "windows": 163,
       "windows_skipped": 4,
-      "linux_log_sha256": "cfeea6403b70d1c2394795acdad5609548959d21fee6e4a356648e4227899105",
-      "windows_log_sha256": "7dd5136a86c79f483147cba27b2a9b4aa12223887a78d0076951eea7eb280391"
+      "linux_log_sha256": "adc5c2aed2a0b05eaeb7a583bdd79e6057a841bd7859d5a4d5adb6849cd56eaa",
+      "windows_log_sha256": "60f62f9fa614fcf2738da308c65306f000907f3e9727e3c358d2b3e05b0a59df"
     },
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "matches": true,
         "units": 903,
-        "report_sha256": "03159e4f9ad5c619831a4cf38bc0e9d6f843cd2963d4947578508153290d27cb"
+        "report_sha256": "300d27c412c8c21aaab3810dc97d3867cc67c2f9db34d694b48e7cf5d705bf0e"
       },
       "startup-comparison": {
         "matches": true,
         "units": 2,
-        "report_sha256": "311d90bbcf1b4fd062e54676e12394ca1fdc9c20e15a2819bad7e1c43a5ea97f"
+        "report_sha256": "9b69dcb7b6007380d4e33538f18db66fd50965852b8d723898dd6dadb0c99f2b"
       },
       "assembly-comparison": {
         "matches": true,
@@ -463,7 +463,7 @@
       "data-comparison": {
         "matches": true,
         "units": 139,
-        "report_sha256": "f176c3b8862ca972e1e1b278d18f3a16a3df7a3014dc29ade49c367f594d8686"
+        "report_sha256": "7b9402806e6261fe62e56f94b2d89f8a66210bbae75e832846ae5f5d36d24267"
       }
     },
     "rom_bytes": 8388608,
@@ -484,55 +484,59 @@
     "guarded_executions": {
       "renderer-rings-execution": {
         "cases": 640,
-        "report_sha256": "c53fd3bae0365e40024cc4f98ed936f359417d0c3437276cb4a7bf78fde18f48"
+        "report_sha256": "55cf0fa9506653a9e64321bd691a1fb32e79f348340c7d1df2c7c0d783da917d"
       },
       "renderer-reset-execution": {
         "cases": 350,
-        "report_sha256": "63037e5f1320a14e8365e4a3991a357d19176daf54d38a2a2f89afb481969df0"
+        "report_sha256": "6d3eb27bef54d5a8444d9fb4f14fc758d471953cf2b0e15f363f0685fa1e3b90"
       },
       "background-dispatch-execution": {
         "cases": 15000,
-        "report_sha256": "69b1daf0563aa5cdc8a4f26fd1ed8444227fb4dd710652fffa0769bd813d329f"
+        "report_sha256": "2b656dd85631cde43b28789e422e6c8622cdd71055d6ef3034655115c52dd1fe"
       },
       "background-tiles-execution": {
         "cases": 140,
-        "report_sha256": "896c71045c9c9be88ce8e1816b5cf3a9b87836c6e64234678500f8863a1d6089"
+        "report_sha256": "96580c66c00341159549b6b09ea7153e562aba237a23658057970c4950cfe762"
       },
       "palette-transition-execution": {
         "cases": 14520,
-        "report_sha256": "0761940de39a0a05eded9c611b8f252e3f920c42c64947fd226da64103888b36"
+        "report_sha256": "18ac379561c1d0b01141e78d84c98df3f91b8fcce11615445626a081a01ac125"
       },
       "palette-update-execution": {
         "cases": 909,
-        "report_sha256": "3e659267e30501dc169d3e037e1f2e9b606fb74cb6efd060b8eba78cbc6f9caf"
+        "report_sha256": "5a9ee68310f29404e8f2c579e58371b03e116922d1ffb567410910d597aebefd"
       },
       "object-projection-execution": {
         "cases": 364,
-        "report_sha256": "f94bf193360ae028aa22233519fd9ca4f45d1469f6ffdbb98033756213bde29f"
+        "report_sha256": "8c0d108acb732618240b45b3f58de6a9d4454ad02c43362d5f27eeb072f1abc0"
       },
       "palette-color-table-execution": {
         "cases": 1071,
-        "report_sha256": "ddad79ea8e5672d07be0908c1838120247936d461cd4b674b61905ce30210e2d"
+        "report_sha256": "2e977215f3a10d0a587fa8931fcb7e2ededcc6e1715ef3ea51c454c2af65ee6e"
       },
       "error-formatter-execution": {
         "cases": 3588,
-        "report_sha256": "2280064688ce1652f2dac3fff11adb61b02be6101690dc2e334e3202bc3366a9"
+        "report_sha256": "d32be45a5e74d74bc606034af3ba7779a76239e7eda510553c53c82dc076eae1"
       },
       "input-sequence-definition-execution": {
         "cases": 1176,
-        "report_sha256": "a172fc7e35a973c6d07cf97aedc2333c0e3a047f9a7350dc09456a5e1b6d7f8b"
+        "report_sha256": "087afad383702f0f451f1976af2a502460cc9caf778704c860224cd1157861e5"
       },
       "static-menu-execution": {
         "cases": 512,
-        "report_sha256": "0c146a581d870d76182b17cb35b0045bae6f59d4e5e088cd1e66bc1879a7aff3"
+        "report_sha256": "a31c02934b9f00820b347c8781fbff10026d9517d1612e57017a0488b01d3a26"
       },
       "menu-display-execution": {
         "cases": 338,
-        "report_sha256": "d8fbbca00b6ab725f919a3c6d7d67d9f5d32c2b0f3e7d8a79bf6b7e5279ec90f"
+        "report_sha256": "9fbe8ae12223c919a112c31378dfb824589f30ed82b2635cdcbf38a4c980bde2"
       },
       "control-setup-execution": {
         "cases": 1008,
-        "report_sha256": "8877b7618c9a99e999b1aa7e9205538e7f09ed4eb80b8d45cdbf1f2ece73ee40"
+        "report_sha256": "ac110c60982a51ae63ddfdee6f2e8fc7a12c0af790003854eb1cf75fcd15492b"
+      },
+      "platform-empty-execution": {
+        "cases": 826,
+        "report_sha256": "d43989b5b0142281dbca8e4a0eb19ea5c21387cdd528edd7bcf6ed2ed3d77e7e"
       }
     }
   },
@@ -544,7 +548,7 @@
     "include/palette.h": "44f7adde8e518fa5341c5e080372142d298426ce5e04f5bc97054ec5f43d1dee",
     "tools/check_palette_transitions.py": "f0b2fd85e5566529a245910493ed5437af7e21fc7929e50d6c2e213ef06d79d9",
     "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
-    "Makefile": "dac6f14a0b65ec39158391d1f0c40cfea0ba6c715f82453318940ab6c10799d1",
+    "Makefile": "8d0036916fb87dc758b2ca3f7cdb8a7f5ec56ec6abd9bba3c9849eefbda9bd91",
     "config/functions.json": "975a0dafce0bf9bc480f18781367e98eb3e644a144dace5a488ffef46f640256",
     "config/owned_sections.json": "66e7fb1c94b354b49af82782fa22f5587186d0619f740b2b6b7ce5457064f8fc",
     "config/runtime_symbols.ld": "2496751a007ab989cb90a94844bc054c67ef4fcb330c183adb02cac4ebe03cf0",
@@ -709,7 +713,7 @@
         "include/palette.h": "44f7adde8e518fa5341c5e080372142d298426ce5e04f5bc97054ec5f43d1dee",
         "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
         "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
-        "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
+        "include/platform_services.h": "79e5ecae44b4205ae8c042199221ad09a566f27b71e3cef03f3545d6d8f52547",
         "include/renderer_color_gradient_internal.h": "c0329280b4d2af9a5a3412c944049a061b310013b54823a238746617295a83f8",
         "include/renderer_color_wave_internal.h": "5f8810a4fc4618e98b754e0536d06a06695b0560655f613982b788e1b711a6c1",
         "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",

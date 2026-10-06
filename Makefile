@@ -8042,6 +8042,10 @@ RUNTIME_OBJECTS += build/us/menu_control_setup_text.o
 check-control-setup-records:
 	$(PYTHON) tools/check_control_setup_records.py
 
+.PHONY: check-platform-empty
+check-platform-empty:
+	$(PYTHON) tools/check_platform_empty.py
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

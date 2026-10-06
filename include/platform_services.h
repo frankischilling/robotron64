@@ -7,7 +7,8 @@ void func_8003BF64();
 void func_8003BF6C(void);
 void func_8003BF74(void);
 void func_8003BF7C(void);
-void func_8003BF84(void);
+/* Empty retail leaf: callers pass sound and consume the unchanged V0 word. */
+int func_8003BF84();
 void func_8003BF8C(void);
 void func_8003BF94(void);
 void func_8003BF9C(void);
