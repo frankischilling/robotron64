@@ -109,3 +109,7 @@ words. The 2,208-byte actor handler at `8002DDBC` remains private with 27.
 The 524-byte HUD submission routine at `800371FC` is also under study; its
 248-byte frame and one-player uninitialized argument require further recovery.
 These candidates receive no matching credit.
+
+The [actor animation progress research](actor-animation-progress.md) verifies
+the shared resource kind and duration fields and corrects the object
+visibility return type. Its complete handler and table remain excluded.

@@ -129,7 +129,7 @@
       "include/early_game_medium.h": "9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f",
       "include/early_game_medium_next.h": "0c7cf3adcd946c8c507adaad037451830ca89721a357ce9a2dbc306621e069ac",
       "include/early_game_more.h": "2bacab31a51464c37f7a7fbf493b2df514fe8d7f81a2943cddd4937c4827ad44",
-      "include/early_game_state.h": "f05333c37db6b5fdaf6fa0e058202eccbb221dbd167c8f2f8fd97630698fe26e",
+      "include/early_game_state.h": "6b2888941db2989ce8b108806bf153ad1f00e53a450a4b34df180a80c4d5f404",
       "include/early_input_internal.h": "c9f7f26eda442a1dc5d6000b4d2e7e74a4f663ee36d62ddfd2290bdb1d1a315b",
       "include/early_name_table.h": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
       "include/early_parameter_internal.h": "6d20b7dc53bb972abd920df102377c4dda62f6c68647a5eb09b61d9afabf1c20",
@@ -242,7 +242,7 @@
       "include/session_menu_internal.h": "0593514df146ea9df633c5ddf39c4400664771d76996341ceaecb3b32b667991",
       "include/session_setup_internal.h": "8d1a1ee1780f7d27285bffc33f9890733c6e3574da5ef7134cd73cec53d95ef4",
       "include/sound_bridge_internal.h": "f5de1a7e5b00eecbd808a99391a8fbf3e777e837dcde94ee08ed5df353f7db48",
-      "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
+      "include/text.h": "d954d557366f88590d863a335130d609cba06def33ad93145a8ff449394b6761",
       "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
       "src/game/renderer_surfaces/color_wave_storage.c": "cc9915a682c8b183121b6c9cdb9ae11142608b31201a871d660a5e3f1d931219",
       "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
@@ -263,9 +263,9 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 94.15,
+        "elapsed_seconds": 94.2,
         "log": ".local/renderer-color/color-tables-clean-build.log",
-        "log_sha256": "0bd41e9bab1f5920afdd7ba6a7e5c84a1d04878c44c688f74ebe559afb62c2cc"
+        "log_sha256": "ce01a085bcc8d0bed9e5eff0c5fa5987220357dcf14a55b3eea8784c2a7c322c"
       },
       {
         "command": [
@@ -274,28 +274,28 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 2.64,
+        "elapsed_seconds": 2.62,
         "log": ".local/renderer-color/color-tables-linux-tests.log",
-        "log_sha256": "1a0621dc78dbe367a78e74064e738eee617f0f26b6b0f712154a428f89d34451"
+        "log_sha256": "165e91cf75eaa32e4bd9945c0fc8187582f39b52961198406dfed0ff6174024d"
       }
     ],
     "tooling_tests": {
       "linux": 163,
       "windows": 163,
       "windows_skipped": 4,
-      "linux_log_sha256": "1a0621dc78dbe367a78e74064e738eee617f0f26b6b0f712154a428f89d34451",
-      "windows_log_sha256": "b7077b6b6d1865c2279d37fc5caf0ebf24c08dacf74229c64203e5c369e09a30"
+      "linux_log_sha256": "165e91cf75eaa32e4bd9945c0fc8187582f39b52961198406dfed0ff6174024d",
+      "windows_log_sha256": "2f5174f06b0ef76eef3e2b7cd93430c428ee0da7c24035c76e4231ce9869c1c0"
     },
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "matches": true,
         "units": 901,
-        "report_sha256": "8d76bdc533f90602f947432548be768c65074e5f3fc1511a6d4871c41c1f50c1"
+        "report_sha256": "273285ca26208dd41643931a9ac311bfe2a60ba0b949366b0d8493da0e637d2e"
       },
       "startup-comparison": {
         "matches": true,
         "units": 2,
-        "report_sha256": "5d542f229b822d76b5a4a7a8868cbe934625b419b6dd50b178f0317b5d1bf88b"
+        "report_sha256": "5d33c19f0b574f5b8ce405191e8d3c9e159de0d55abfb39a2133972bce6e1416"
       },
       "assembly-comparison": {
         "matches": true,
@@ -305,7 +305,7 @@
       "data-comparison": {
         "matches": true,
         "units": 125,
-        "report_sha256": "187406a057d08cd546f04800069b6a761c6ed67bd7c779b066bcbf5eb491c509"
+        "report_sha256": "f5625ce44a3664dd3e2fb42dc0de2e59f320be37f7c4bb4958f35f68680d8b6c"
       }
     },
     "rom_bytes": 8388608,
@@ -326,39 +326,39 @@
     "guarded_executions": {
       "renderer-rings-execution": {
         "cases": 640,
-        "report_sha256": "7efacf40c8ef1024912a00755620b7135fe61c19f6807a6884cec6933eec0efb"
+        "report_sha256": "4fc4217cbfe1d785787ccb2807b8e602b7a24d330113abc03355338f04fe559a"
       },
       "renderer-reset-execution": {
         "cases": 350,
-        "report_sha256": "2dec75306ea1615d7e973515bb930e2c5bea6e5003b67f61fa1cc9796cb6d348"
+        "report_sha256": "0aa86c11ce37747d9ebb98b487cb274f8443322ee68ae1ef0554b38db547b3a9"
       },
       "background-dispatch-execution": {
         "cases": 15000,
-        "report_sha256": "b3815b2c126ca523c8aeac7386adb5a130c52e2504c85ce1d3272d4142d8eb81"
+        "report_sha256": "afa2da6a7df9f49e84fb9f1933f71f868821c63b7a25dc8d2e2b4eae7cda836b"
       },
       "background-tiles-execution": {
         "cases": 140,
-        "report_sha256": "006d0c9088331ee94fbefbf7301a8376aa6e2ddb3cb5a99abc361a2d7134dca6"
+        "report_sha256": "7a94df2295c7b1ffea884548026f0288b6456210b74a16dd60cc08f403f79091"
       },
       "palette-transition-execution": {
         "cases": 14520,
-        "report_sha256": "831a6cb4772381fc35f48ef281c671cad392380828b068dc7418cfdae30c7537"
+        "report_sha256": "86f5692674e151bf454a49feb81e0dbe9efe14bb693a4a6d5264f3f6b4843fd1"
       },
       "palette-update-execution": {
         "cases": 909,
-        "report_sha256": "ac8ffc17504a27b664ce8ebc667a80298b74e6507829c176efb4e6b86055cac1"
+        "report_sha256": "5417a35f104d87dddee2724f7a9c48e814f2a59d72c7aab267cb5308b86d8fa1"
       },
       "object-projection-execution": {
         "cases": 364,
-        "report_sha256": "630cf7a5e411f153d4764f9efb9ea356ee538bb17957f7d67dea08c2a3a32a33"
+        "report_sha256": "9061c2c485c3702950d759514a40c0e4bbaf8e830d3d092ec3487016aa030775"
       },
       "palette-color-table-execution": {
         "cases": 1071,
-        "report_sha256": "7325730ef2e4a3a5dea45c6613c0c24ff5698fc3a3cae92724078337e3cea803"
+        "report_sha256": "469bebe82945faba7c974003cc864e757bbe5c7e8aaa170a38cf31f633b60723"
       },
       "error-formatter-execution": {
         "cases": 3588,
-        "report_sha256": "c7d84d7f45747728846bc506fb457eea5f256fd305ece46cb1aab61540ef6df5"
+        "report_sha256": "c9080ae975785aa069f46c483956192fa13cb8c0184f96feba54741e82c2382d"
       }
     }
   }

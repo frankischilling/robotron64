@@ -12,9 +12,12 @@ typedef struct EarlyGamePosition {
 } EarlyGamePosition;
 
 typedef struct EarlyGameActorResource {
-    unsigned char unknown00[12];
+    unsigned char unknown00[2];
+    unsigned char kind02;
+    unsigned char unknown03[9];
     int scale0C;
-    unsigned char unknown10[0x44];
+    short duration10;
+    unsigned char unknown12[0x42];
     EarlyGameResourceCallback callback54;
 } EarlyGameActorResource;
 
@@ -83,5 +86,6 @@ void func_80015554(EarlyGameActor *actor);
 int func_80015614(EarlyGameActor *first, EarlyGameActor *second,
                   int third, int fourth);
 int func_80005560(EarlyGameActor *actor);
+void func_80032A00(EarlyGameActor *actor, int initialize);
 
 #endif

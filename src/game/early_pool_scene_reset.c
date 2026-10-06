@@ -9,7 +9,7 @@ int func_80039EA0(int first, int second);
 void func_80039FCC(int x, int y, int z);
 void func_80039F10(float x, float y, float z);
 void func_80022050(int value);
-void func_80039E5C(int object, int value);
+int func_80039E5C(int object, int value);
 int func_80037408(int value);
 
 void func_8000D4F8(void)
