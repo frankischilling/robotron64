@@ -1,0 +1,26 @@
+name: Robotron 64 verified mesh command interpreter
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: renderer_mesh_commands
+  base_path: ../../.local/mesh-command-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: renderer_mesh_commands
+    type: code
+    start: 0x46608
+    vram: 0x80045A08
+    subsegments:
+      - [0x46608, asm, renderer_mesh_commands]
+  - [0x46B40, bin, after_renderer_mesh_commands]
+  - name: renderer_mesh_commands_switch
+    type: code
+    start: 0x95DDC
+    vram: 0x800951DC
+    subsegments:
+      - [0x95DDC, rodata, renderer_mesh_commands_switch]
+  - [0x95E20, bin, after_renderer_mesh_commands_switch]
+  - [0x800000]

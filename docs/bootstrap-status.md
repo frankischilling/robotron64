@@ -2,6 +2,16 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
+Current verified totals are 1,422 matching C functions / 306,456 instruction
+bytes, twenty-nine assembly functions / 4,372 bytes, 35,375 initialized bytes
+and 521,095 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
+The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
+generated switch table; [its evidence](renderer-mesh-commands.md) covers both
+independent reassemblies and 1,080 guarded command streams with seven mutations.
+There remain 143,728 declared fallback CPU bytes in 188 spans and 164 unclassified
+bytes. A complete function/executable denominator is unknown; full source recovery
+remains incomplete. Earlier checkpoints below retain their historical counts.
+
 Completed locally:
 
 - Created the public repository and bootstrap branch.
@@ -127,7 +137,7 @@ The fatal formatter remains excluded. See
 The [input-sequence definition](input-sequence-definition.md) adds 284 complete
 C instruction bytes with 1,176 guarded cases and four detected mutations. Its
 three record aliases add no storage ownership. Its complete diagnostic format
-section adds 32 initialized bytes. Current totals are 1,420 C functions /
+section adds 32 initialized bytes. That input checkpoint reached 1,420 C functions /
 303,952 bytes, 34,015 initialized bytes and 521,095 BSS bytes.
 The candidate CPU range retains 146,232 fallback bytes in 189 spans, plus
 164 unclassified bytes; some unresolved spans may be padding or data.

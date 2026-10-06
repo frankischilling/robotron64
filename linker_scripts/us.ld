@@ -644,7 +644,7 @@ SECTIONS
     .renderer_material_reset 0x80045514 : AT(0x46114) SUBALIGN(4) { build/us/renderer_material_reset.o(.text) }
     .renderer_mesh_submit 0x80045534 : AT(0x46134) SUBALIGN(4) { build/us/renderer_mesh_submit.o(.text) }
     .renderer_mesh_positions 0x80045934 : AT(0x46534) SUBALIGN(4) { build/us/renderer_mesh_positions.o(.text) }
-    .cpu_after_renderer_mesh_positions 0x80045A08 : AT(0x46608) { build/us/fallback.o(.rom_cpu_after_renderer_mesh_positions) }
+    .renderer_mesh_commands 0x80045A08 : AT(0x46608) SUBALIGN(4) { build/us/renderer_mesh_commands.o(.text) }
     .renderer_vertex_copy 0x80045F40 : AT(0x46B40) SUBALIGN(4) { build/us/renderer_vertex_copy.o(.text) }
     .renderer_texture_load 0x800462DC : AT(0x46EDC) SUBALIGN(4) { build/us/renderer_texture_load.o(.text) }
     .graphics_display_list 0x800464F4 : AT(0x470F4) SUBALIGN(4) { build/us/graphics_display_list.o(.text) }
@@ -1435,7 +1435,7 @@ SECTIONS
     .renderer_polygon_messages 0x80095100 : AT(0x95D00) SUBALIGN(4) { build/us/renderer_polygon_messages.o(.rodata) }
     .renderer_mesh_positions_strings 0x800951A0 : AT(0x95DA0) SUBALIGN(4) { build/us/renderer_mesh_positions.o(.rodata) }
     .graphics_resource_strings 0x800951C8 : AT(0x95DC8) SUBALIGN(4) { build/us/graphics_resource.o(.rodata) }
-    .data_after_graphics_resource_strings 0x91005A3C : AT(0x95DDC) { build/us/fallback.o(.rom_data_after_graphics_resource_strings) }
+    .renderer_mesh_commands_switch 0x800951DC : AT(0x95DDC) SUBALIGN(4) { build/us/renderer_mesh_commands.o(.rodata) }
     .graphics_pool_strings 0x80095220 : AT(0x95E20) SUBALIGN(4) { build/us/graphics_pool.o(.rodata) }
     .graphics_mode_dispatch_table 0x80095300 : AT(0x95F00) SUBALIGN(4) { build/us/graphics_mode_dispatch.o(.rodata) }
     .renderer_matrix_transform_strings 0x80095360 : AT(0x95F60) SUBALIGN(4) { build/us/renderer_matrix_transform.o(.rodata) }
@@ -1897,7 +1897,7 @@ ASSERT(SIZEOF(.renderer_vertex_attributes_strings) == 0xf0, "renderer_vertex_att
 ASSERT(SIZEOF(.renderer_vertex_positions_strings) == 0x50, "renderer_vertex_positions_strings size changed")
 ASSERT(SIZEOF(.renderer_mesh_positions_strings) == 0x28, "renderer_mesh_positions_strings size changed")
 ASSERT(SIZEOF(.graphics_resource_strings) == 0x14, "graphics_resource_strings size changed")
-ASSERT(SIZEOF(.data_after_graphics_resource_strings) == 0x44, "data_after_graphics_resource_strings size changed")
+ASSERT(SIZEOF(.renderer_mesh_commands_switch) == 0x44, "renderer_mesh_commands_switch size changed")
 ASSERT(SIZEOF(.graphics_pool_strings) == 0xe0, "graphics_pool_strings size changed")
 ASSERT(SIZEOF(.graphics_mode_dispatch_table) == 0x60, "graphics_mode_dispatch_table size changed")
 ASSERT(SIZEOF(.frame_projection_rodata) == 0xc, "frame projection rodata size changed")
@@ -2016,7 +2016,7 @@ ASSERT(SIZEOF(.renderer_material_untextured) == 0xa0, "renderer_material_untextu
 ASSERT(SIZEOF(.renderer_vertex_positions) == 0x288, "renderer_vertex_positions size changed")
 ASSERT(SIZEOF(.renderer_material_reset) == 0x20, "renderer_material_reset size changed")
 ASSERT(SIZEOF(.renderer_mesh_positions) == 0xd4, "renderer_mesh_positions size changed")
-ASSERT(SIZEOF(.cpu_after_renderer_mesh_positions) == 0x538, "cpu_after_renderer_mesh_positions size changed")
+ASSERT(SIZEOF(.renderer_mesh_commands) == 0x538, "renderer_mesh_commands size changed")
 ASSERT(SIZEOF(.renderer_vertex_copy) == 0x39c, "renderer_vertex_copy size changed")
 ASSERT(SIZEOF(.renderer_texture_load) == 0x218, "renderer_texture_load size changed")
 ASSERT(SIZEOF(.graphics_display_list) == 0x48, "graphics_display_list size changed")

@@ -57,6 +57,8 @@ void func_80045214(int *first, int *second, int *third, int *fourth);
 
 void func_80045534(RendererMeshPrefix *mesh, RendererPosition *positions);
 
+int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination);
+
 void func_80045F40(int first, int count, int destination);
 void func_800460D8(int first, int count, int destination, RendererNormal *normals);
 

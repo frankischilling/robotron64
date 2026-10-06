@@ -1,69 +1,43 @@
 {
-  "scope": "1168 complete C instruction bytes and 32 initialized bytes; zero new BSS ownership.",
-  "previous_accepted_head": "568796e6300b288ed8758ae73b3bf1616b7184e1",
-  "source_instruction_bytes": 1168,
-  "source_initialized_bytes": 32,
+  "scope": "1336 complete C instruction bytes and 68 complete compiler-generated switch-table bytes; zero new BSS ownership.",
+  "previous_accepted_head": "bad3505b8287ede57c977ac1400d04fc38380762",
+  "source": "src/game/renderer_primitives/mesh_commands.c",
+  "source_instruction_bytes": 1336,
+  "source_initialized_bytes": 68,
   "source_bss_bytes": 0,
-  "sources": [
-    "src/game/save_menus/display/submit.c",
-    "src/game/save_menus/display/choices.c",
-    "src/game/save_menus/display/text.c",
-    "src/game/save_menus/display/never.c"
-  ],
-  "range": {
-    "vram_start": "0x8002741C",
-    "vram_end": "0x800278AC",
-    "rom_start": "0x2801C",
-    "rom_end": "0x284AC",
-    "live_bytes": 1168,
-    "raw_text_bytes": 1168,
-    "frame_bytes": 248,
-    "generated_tables": false
+  "function_ownership": {
+    "name": "func_80045A08",
+    "rom": 288264,
+    "vram": 2147768840,
+    "size": 1336,
+    "source": "src/game/renderer_primitives/mesh_commands.c",
+    "object": "build/us/renderer_mesh_commands.o",
+    "section": ".renderer_mesh_commands",
+    "section_vram": 2147768840,
+    "evidence": "docs/renderer-mesh-commands.md"
   },
-  "initialized_ownership": [
-    {
-      "source": "src/game/save_menus/display/choices.c",
-      "object": "build/us/menu_display_choices.o",
-      "input_section": ".data",
-      "section": ".menu_display_choices",
-      "vram": 2147967480,
-      "rom": 486904,
-      "size": 16,
-      "symbols": {
-        "D_800761F8": 0
-      },
-      "evidence": "docs/menu-display.md"
-    },
-    {
-      "source": "src/game/save_menus/display/text.c",
-      "object": "build/us/menu_display_text.o",
-      "input_section": ".data",
-      "section": ".menu_display_text",
-      "vram": 2148084744,
-      "rom": 604168,
-      "size": 8,
-      "symbols": {
-        "D_80092C08": 0,
-        "D_80092C0C": 4
-      },
-      "evidence": "docs/menu-display.md"
-    },
-    {
-      "source": "src/game/save_menus/display/never.c",
-      "object": "build/us/menu_display_never.o",
-      "input_section": ".data",
-      "section": ".menu_display_never",
-      "vram": 2148088008,
-      "rom": 607432,
-      "size": 8,
-      "symbols": {
-        "D_800938C8": 0
-      },
-      "evidence": "docs/menu-display.md"
-    }
-  ],
+  "table_ownership": {
+    "source": "src/game/renderer_primitives/mesh_commands.c",
+    "object": "build/us/renderer_mesh_commands.o",
+    "input_section": ".rodata",
+    "section": ".renderer_mesh_commands_switch",
+    "vram": 2148094428,
+    "rom": 613852,
+    "size": 68,
+    "symbols": {},
+    "evidence": "docs/renderer-mesh-commands.md"
+  },
+  "raw_sizes": {
+    "live_text": 1336,
+    "raw_text": 1344,
+    "checked_zero_text_alignment": 8,
+    "live_table": 68,
+    "raw_table": 80,
+    "checked_zero_table_alignment": 12,
+    "frame": 104
+  },
   "compiler_comparison": {
-    "source": "src/game/save_menus/display/submit.c",
+    "source": "src/game/renderer_primitives/mesh_commands.c",
     "compiler_profile": {
       "name": "game",
       "version": "5.3",
@@ -82,23 +56,23 @@
       "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
       "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
     },
-    "expected_size": 1168,
-    "actual_size": 1168,
+    "expected_size": 1336,
+    "actual_size": 1336,
     "matches": true,
     "different_words": []
   },
-  "fresh_workbench_comparison": {
+  "fresh_match": {
     "blocks": [
       {
         "artifacts": {
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/candidate.ld": "e84ff355f54217e75793fc57fc1eb0f560a2329c0a56a52c02972270cd4ff7d9",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/menu_display.bin": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/menu_display.elf": "815c2572965b2a3037424b0777d3cb0dfb0f93bb50377034fa456d59b8ae1e90",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/menu_display.o": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/menu_display.raw.o": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a"
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/e9243aa1c59d713693d98a9ab212a2b3cec75d9255b7470bfd1f093dd220c783/mesh_commands/candidate.ld": "de335297e26cc13e95df2848bc1eb92287b5038b899abb246ec8133949e31326",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/e9243aa1c59d713693d98a9ab212a2b3cec75d9255b7470bfd1f093dd220c783/mesh_commands/mesh_commands.bin": "b8deee44539665104f3a577af2a4a9b3b7e263ac155914c6c062ed5bf33f583d",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/e9243aa1c59d713693d98a9ab212a2b3cec75d9255b7470bfd1f093dd220c783/mesh_commands/mesh_commands.elf": "e644777ec1fb916029ecbd1b6445ad8ffbae5cc88b46fdff5399f4f73cec9341",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/e9243aa1c59d713693d98a9ab212a2b3cec75d9255b7470bfd1f093dd220c783/mesh_commands/mesh_commands.o": "31edad69f3ffdda1b145612305f489a8440c279efc65369b967f4b091bbad84b",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/e9243aa1c59d713693d98a9ab212a2b3cec75d9255b7470bfd1f093dd220c783/mesh_commands/mesh_commands.raw.o": "9b9fd2d3cf6b3a5700eebd0fd5634846499231db096a6967108764706449eb5d"
         },
         "cached": false,
-        "directory": "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display",
+        "directory": "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/e9243aa1c59d713693d98a9ab212a2b3cec75d9255b7470bfd1f093dd220c783/mesh_commands",
         "identity": {
           "compiler_identity": {
             "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
@@ -316,7 +290,7 @@
             "include/static_menu_internal.h": "dc3ba1bf5f36927bd6e49af40f9d1101975ce39c0fc4f35b43753201060e5203",
             "include/text.h": "d954d557366f88590d863a335130d609cba06def33ad93145a8ff449394b6761",
             "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-            "src/game/save_menus/display/submit.c": "00a68c224d8eaa6d90efa4ac57d5e902ca396df6e8d23cf9dcc6e5b97230c985",
+            "src/game/renderer_primitives/mesh_commands.c": "01cb26fdf2d5688797f9e6c52e00aa533961952b3838ab2797280635013d2d9b",
             "tools/analyze.py": "f701d370cb7dff44c7a8df80ca59bfdd9d5be2404a996b1ab320d0ab061b57d7",
             "tools/audit_publication.py": "73e6ba362649a7b4b4ce3c9da9ea5755c21147b432a8d4b0d80094a5ab10b92c",
             "tools/check_actor_bonus_child.py": "c9ee7cff6afdccca3cc4551ac815c9fad9f7f0fb391a9e0e22870ff0cb86ae6d",
@@ -399,19 +373,19 @@
             "tools/verify.py": "4538e30a5f5b91aceb832c21c6d7880e93c9b354324649b903e503e4c4fc5773"
           },
           "record": {
-            "name": "menu_display",
-            "rom": 163868,
-            "size": 1168,
-            "source": "src/game/save_menus/display/submit.c",
-            "vram": 2147644444
+            "name": "mesh_commands",
+            "rom": 288264,
+            "size": 1336,
+            "source": "src/game/renderer_primitives/mesh_commands.c",
+            "vram": 2147768840
           },
           "repo": "/root/robotron64-validation/palette-transition-20261005",
           "runner_sha256": "3dd74f465893a535361e4a0ac14cfeabbeb6467c8ee82f3d0a7b606a3047f9ae",
           "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd"
         },
-        "key": "9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936",
+        "key": "e9243aa1c59d713693d98a9ab212a2b3cec75d9255b7470bfd1f093dd220c783",
         "result": {
-          "actual_size": 1168,
+          "actual_size": 1336,
           "compiler_profile": {
             "flags": [
               "-O2",
@@ -425,9 +399,9 @@
             "version": "5.3"
           },
           "different_words": [],
-          "expected_size": 1168,
+          "expected_size": 1336,
           "matches": true,
-          "source": "src/game/save_menus/display/submit.c",
+          "source": "src/game/renderer_primitives/mesh_commands.c",
           "toolchain_identity": {
             "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
             "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
@@ -440,1227 +414,364 @@
     ],
     "matches": true
   },
-  "raw_objects": {
-    "src/game/save_menus/display/submit.c": {
-      "raw_allocated_bytes": 1168,
-      "owned_bytes": 1168,
-      "alignment_trimmed": 0,
-      "symbol_offsets": {
-        "func_8002741C": 0
-      },
-      "no_generated_table_or_extra_live_sections": true,
-      "object_sha256": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a"
-    },
-    "src/game/save_menus/display/choices.c": {
-      "raw_allocated_bytes": 16,
-      "owned_bytes": 16,
-      "alignment_trimmed": 0,
-      "symbol_offsets": {
-        "D_800761F8": 0
-      },
-      "no_generated_table_or_extra_live_sections": true,
-      "object_sha256": "6275b4b44a131bbd40480b1c737c96cf46ce0c274971fdce446663bdee844a36"
-    },
-    "src/game/save_menus/display/text.c": {
-      "raw_allocated_bytes": 16,
-      "owned_bytes": 8,
-      "alignment_trimmed": 8,
-      "symbol_offsets": {
-        "D_80092C08": 0,
-        "D_80092C0C": 4
-      },
-      "no_generated_table_or_extra_live_sections": true,
-      "object_sha256": "5f11abc82d2404628ad9d80ef6af253fccc52e4fdab489966140642fc222ba70"
-    },
-    "src/game/save_menus/display/never.c": {
-      "raw_allocated_bytes": 16,
-      "owned_bytes": 8,
-      "alignment_trimmed": 8,
-      "symbol_offsets": {
-        "D_800938C8": 0
-      },
-      "no_generated_table_or_extra_live_sections": true,
-      "object_sha256": "a085d3c5dba1f8cf2d6c3dfde73a7422c989ca1577b3308ea2edb9ab3b5d34a9"
-    }
-  },
-  "verified_compiler_relocations": {
-    "src/game/save_menus/display/submit.c": [
-      {
-        "offset": 8,
-        "type": "R_MIPS_HI16",
-        "symbol": "D_800AEE98",
-        "symbol_address": "0x800AEE98",
-        "retail_equal": true,
-        "addend": 0,
-        "paired_low_offset": 12,
-        "resolved_address": "0x800AEE98"
-      },
-      {
-        "offset": 12,
-        "type": "R_MIPS_LO16",
-        "symbol": "D_800AEE98",
-        "symbol_address": "0x800AEE98",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x800AEE98"
-      },
-      {
-        "offset": 72,
-        "type": "R_MIPS_26",
-        "symbol": "func_80000518",
-        "symbol_address": "0x80000518",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80000518"
-      },
-      {
-        "offset": 104,
-        "type": "R_MIPS_26",
-        "symbol": "func_800011AC",
-        "symbol_address": "0x800011AC",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x800011AC"
-      },
-      {
-        "offset": 112,
-        "type": "R_MIPS_HI16",
-        "symbol": "D_800761F4",
-        "symbol_address": "0x800761F4",
-        "retail_equal": true,
-        "addend": 0,
-        "paired_low_offset": 116,
-        "resolved_address": "0x800761F4"
-      },
-      {
-        "offset": 116,
-        "type": "R_MIPS_LO16",
-        "symbol": "D_800761F4",
-        "symbol_address": "0x800761F4",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x800761F4"
-      },
-      {
-        "offset": 272,
-        "type": "R_MIPS_26",
-        "symbol": "func_8000177C",
-        "symbol_address": "0x8000177C",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8000177C"
-      },
-      {
-        "offset": 284,
-        "type": "R_MIPS_HI16",
-        "symbol": "D_8009EF94",
-        "symbol_address": "0x8009EF94",
-        "retail_equal": true,
-        "addend": 0,
-        "paired_low_offset": 292,
-        "resolved_address": "0x8009EF94"
-      },
-      {
-        "offset": 292,
-        "type": "R_MIPS_LO16",
-        "symbol": "D_8009EF94",
-        "symbol_address": "0x8009EF94",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8009EF94"
-      },
-      {
-        "offset": 356,
-        "type": "R_MIPS_26",
-        "symbol": "func_80000518",
-        "symbol_address": "0x80000518",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80000518"
-      },
-      {
-        "offset": 388,
-        "type": "R_MIPS_26",
-        "symbol": "func_800011AC",
-        "symbol_address": "0x800011AC",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x800011AC"
-      },
-      {
-        "offset": 408,
-        "type": "R_MIPS_26",
-        "symbol": "func_80000518",
-        "symbol_address": "0x80000518",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80000518"
-      },
-      {
-        "offset": 440,
-        "type": "R_MIPS_26",
-        "symbol": "func_800011AC",
-        "symbol_address": "0x800011AC",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x800011AC"
-      },
-      {
-        "offset": 480,
-        "type": "R_MIPS_26",
-        "symbol": "func_8004CDE8",
-        "symbol_address": "0x8004CDE8",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8004CDE8"
-      },
-      {
-        "offset": 548,
-        "type": "R_MIPS_26",
-        "symbol": "func_80000E74",
-        "symbol_address": "0x80000E74",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80000E74"
-      },
-      {
-        "offset": 572,
-        "type": "R_MIPS_26",
-        "symbol": "func_80000E74",
-        "symbol_address": "0x80000E74",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80000E74"
-      },
-      {
-        "offset": 596,
-        "type": "R_MIPS_26",
-        "symbol": "func_80000B7C",
-        "symbol_address": "0x80000B7C",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80000B7C"
-      },
-      {
-        "offset": 628,
-        "type": "R_MIPS_26",
-        "symbol": "func_8003B4FC",
-        "symbol_address": "0x8003B4FC",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8003B4FC"
-      },
-      {
-        "offset": 640,
-        "type": "R_MIPS_HI16",
-        "symbol": "D_800761F8",
-        "symbol_address": "0x800761F8",
-        "retail_equal": true,
-        "addend": 0,
-        "paired_low_offset": 664,
-        "resolved_address": "0x800761F8"
-      },
-      {
-        "offset": 664,
-        "type": "R_MIPS_LO16",
-        "symbol": "D_800761F8",
-        "symbol_address": "0x800761F8",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x800761F8"
-      },
-      {
-        "offset": 668,
-        "type": "R_MIPS_26",
-        "symbol": "func_80001270",
-        "symbol_address": "0x80001270",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80001270"
-      },
-      {
-        "offset": 736,
-        "type": "R_MIPS_HI16",
-        "symbol": "D_800938C8",
-        "symbol_address": "0x800938C8",
-        "retail_equal": true,
-        "addend": 0,
-        "paired_low_offset": 740,
-        "resolved_address": "0x800938C8"
-      },
-      {
-        "offset": 740,
-        "type": "R_MIPS_LO16",
-        "symbol": "D_800938C8",
-        "symbol_address": "0x800938C8",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x800938C8"
-      },
-      {
-        "offset": 744,
-        "type": "R_MIPS_26",
-        "symbol": "func_8003B6E4",
-        "symbol_address": "0x8003B6E4",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8003B6E4"
-      },
-      {
-        "offset": 768,
-        "type": "R_MIPS_26",
-        "symbol": "func_8003B928",
-        "symbol_address": "0x8003B928",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8003B928"
-      },
-      {
-        "offset": 776,
-        "type": "R_MIPS_26",
-        "symbol": "func_8003B4FC",
-        "symbol_address": "0x8003B4FC",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8003B4FC"
-      },
-      {
-        "offset": 816,
-        "type": "R_MIPS_26",
-        "symbol": "func_8003B4FC",
-        "symbol_address": "0x8003B4FC",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8003B4FC"
-      },
-      {
-        "offset": 840,
-        "type": "R_MIPS_26",
-        "symbol": "func_8003B4FC",
-        "symbol_address": "0x8003B4FC",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8003B4FC"
-      },
-      {
-        "offset": 856,
-        "type": "R_MIPS_26",
-        "symbol": "func_80001270",
-        "symbol_address": "0x80001270",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80001270"
-      },
-      {
-        "offset": 876,
-        "type": "R_MIPS_26",
-        "symbol": "func_8003B4FC",
-        "symbol_address": "0x8003B4FC",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8003B4FC"
-      },
-      {
-        "offset": 912,
-        "type": "R_MIPS_26",
-        "symbol": "func_8003BCC4",
-        "symbol_address": "0x8003BCC4",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8003BCC4"
-      },
-      {
-        "offset": 920,
-        "type": "R_MIPS_26",
-        "symbol": "func_80000518",
-        "symbol_address": "0x80000518",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80000518"
-      },
-      {
-        "offset": 936,
-        "type": "R_MIPS_26",
-        "symbol": "func_80001270",
-        "symbol_address": "0x80001270",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80001270"
-      },
-      {
-        "offset": 948,
-        "type": "R_MIPS_26",
-        "symbol": "func_80000E74",
-        "symbol_address": "0x80000E74",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80000E74"
-      },
-      {
-        "offset": 1100,
-        "type": "R_MIPS_26",
-        "symbol": "func_8000177C",
-        "symbol_address": "0x8000177C",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x8000177C"
-      }
-    ],
-    "src/game/save_menus/display/choices.c": [
-      {
-        "offset": 0,
-        "type": "R_MIPS_32",
-        "symbol": "D_80092C08",
-        "symbol_address": "0x80092C08",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80092C08"
-      },
-      {
-        "offset": 8,
-        "type": "R_MIPS_32",
-        "symbol": "D_80092C0C",
-        "symbol_address": "0x80092C0C",
-        "retail_equal": true,
-        "addend": 0,
-        "resolved_address": "0x80092C0C"
-      }
-    ],
-    "src/game/save_menus/display/text.c": [],
-    "src/game/save_menus/display/never.c": []
-  },
   "independent_reference_reassembly": [
     {
-      "section": "menu_display",
       "tool": "spim",
-      "bytes": 1168,
-      "raw_bytes": 1168,
-      "alignment_trimmed": 0,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [
-        "D_800761F4",
-        "D_800761F8",
-        "D_800938C8",
-        "D_8009EF94",
-        "D_800AEE98",
-        "func_80000518",
-        "func_80000B7C",
-        "func_80000E74",
-        "func_800011AC",
-        "func_80001270",
-        "func_8000177C",
-        "func_8003B4FC",
-        "func_8003B6E4",
-        "func_8003B928",
-        "func_8003BCC4",
-        "func_8004CDE8"
-      ],
-      "sha256": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
-      "object_sha256": "442e7f08e5b5b19105e671f0da5aee9678a38cb24c6dd79b7a891c9efcdbf8dd",
-      "linked_elf_sha256": "26e050f0e2972e6554d44fc01ffa9c6f88ff96253dbdf9db335151d74bf03504"
+      "complete_code_bytes": 1336,
+      "complete_table_bytes": 68,
+      "raw_sizes": {
+        ".text": 1344,
+        ".rodata": 80
+      },
+      "code_sha256": "b8deee44539665104f3a577af2a4a9b3b7e263ac155914c6c062ed5bf33f583d",
+      "table_sha256": "59c60f0b19bea7fbcce93dfc0a5938a39d1ad05966f036e0126e62907b5bb43a",
+      "retail_equal": true
     },
     {
-      "section": "menu_display",
       "tool": "splat",
-      "bytes": 1168,
-      "raw_bytes": 1168,
-      "alignment_trimmed": 0,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [
-        "D_800761F4",
-        "D_800761F8",
-        "D_800938C8",
-        "D_8009EF94",
-        "D_800AEE98",
-        "func_80000518",
-        "func_80000B7C",
-        "func_80000E74",
-        "func_800011AC",
-        "func_80001270",
-        "func_8000177C",
-        "func_8003B4FC",
-        "func_8003B6E4",
-        "func_8003B928",
-        "func_8003BCC4",
-        "func_8004CDE8"
-      ],
-      "sha256": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
-      "object_sha256": "27988384f3a40eef5ba30e144876007cdaedf5f47851b79f0c70a2e9665f4034",
-      "linked_elf_sha256": "303102b15c80e29e52ec2356ba1f0dac1b97744f21c20c6f713530f6f31e253d"
-    },
-    {
-      "section": "menu_display_choices",
-      "tool": "spim",
-      "bytes": 16,
-      "raw_bytes": 16,
-      "alignment_trimmed": 0,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "f5ef8d0e2aa35ed049cd734dfd24c2f4fdbbb0784699c981a730fc0058a78b75",
-      "object_sha256": "b2d791918a81abd62b743f63fad0ee912ed916f4bc39560a2dae942d22055fd8",
-      "linked_elf_sha256": "d7ce8e8bfa944da1a8e07f5eccbc5112502f8cc154b0fac96e94eddc1affc74e"
-    },
-    {
-      "section": "menu_display_choices",
-      "tool": "splat",
-      "bytes": 16,
-      "raw_bytes": 16,
-      "alignment_trimmed": 0,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [
-        "D_80092C08",
-        "D_80092C0C"
-      ],
-      "sha256": "f5ef8d0e2aa35ed049cd734dfd24c2f4fdbbb0784699c981a730fc0058a78b75",
-      "object_sha256": "32cc0b4c3e25fac89ec6903ca3073fcf06c70ecef20c8d2a1f9b50b93f5c1920",
-      "linked_elf_sha256": "46ea80932f8e738c88ebad87ee1e7f8b1d94928857051881af8229c661e4e384"
-    },
-    {
-      "section": "menu_display_text",
-      "tool": "spim",
-      "bytes": 8,
-      "raw_bytes": 16,
-      "alignment_trimmed": 8,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "df7aa71963e07aac662cfe99f9f599be7d72b065af88e72e21c6b853285fa235",
-      "object_sha256": "0c843dfcf61829fc4fd93d4baf2f4b2d0a57f4757226f1d8e3805ec3f9c53f68",
-      "linked_elf_sha256": "5068e201b63d8983f0f166c1b81e399dde192a2c09ef53e6305834a9a08b1d9e"
-    },
-    {
-      "section": "menu_display_text",
-      "tool": "splat",
-      "bytes": 8,
-      "raw_bytes": 16,
-      "alignment_trimmed": 8,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "df7aa71963e07aac662cfe99f9f599be7d72b065af88e72e21c6b853285fa235",
-      "object_sha256": "a727018da1f5538571c3ed069fc5cb0f0562bd0d8f1c7063996be7d5e39ab52c",
-      "linked_elf_sha256": "e5e138d4893ba6e0962c698dd7c8b53f2fbfad6a81683be2e9290a5271a624b7"
-    },
-    {
-      "section": "menu_display_never",
-      "tool": "spim",
-      "bytes": 8,
-      "raw_bytes": 16,
-      "alignment_trimmed": 8,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12",
-      "object_sha256": "91f50671349f05348b90f3a2434b1558075582d72fe7bfbf3368317bb7bf326b",
-      "linked_elf_sha256": "e90cd968442d60991cbe363f5bb1cbb7d476e828537977179a3c5f6afa2fa58c"
-    },
-    {
-      "section": "menu_display_never",
-      "tool": "splat",
-      "bytes": 8,
-      "raw_bytes": 16,
-      "alignment_trimmed": 8,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12",
-      "object_sha256": "647cb30be3264492be9dfc40baa4212d5f1c8d88e06a08959eac363be269a471",
-      "linked_elf_sha256": "6a228451fe1ea0a960f25e307a02c2d81fea6217c8b475124593058e3fc31b18"
+      "complete_code_bytes": 1336,
+      "complete_table_bytes": 68,
+      "raw_sizes": {
+        ".text": 1344,
+        ".rodata": 68
+      },
+      "code_sha256": "b8deee44539665104f3a577af2a4a9b3b7e263ac155914c6c062ed5bf33f583d",
+      "table_sha256": "59c60f0b19bea7fbcce93dfc0a5938a39d1ad05966f036e0126e62907b5bb43a",
+      "retail_equal": true
     }
   ],
-  "objdiff": [
+  "verified_switch_relocations": [
     {
-      "section": "menu_display",
-      "tool": "spim",
-      "bytes": 1168,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "cc0239437aacf4637c2c9194cdd071600e7c0cf07b34e7bf79d5cad8dff3e7a8"
+      "opcode": "0x7000",
+      "offset": 0,
+      "type": "R_MIPS_32",
+      "target": "0x80045f0c",
+      "text_symbol_offset": 0,
+      "addend": 1284
     },
     {
-      "section": "menu_display",
-      "tool": "splat",
-      "bytes": 1168,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "1f8061d6a40a88d7e3bfbb70ce733229d84145080977cebcf4906320fe3f31ce"
+      "opcode": "0x7001",
+      "offset": 4,
+      "type": "R_MIPS_32",
+      "target": "0x80045aa4",
+      "text_symbol_offset": 0,
+      "addend": 156
     },
     {
-      "section": "menu_display_choices",
-      "tool": "spim",
-      "bytes": 16,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "465658e9ebddf7eae286687c7758e53840c4861f28017b92b40f4bec033e5865"
+      "opcode": "0x7002",
+      "offset": 8,
+      "type": "R_MIPS_32",
+      "target": "0x80045af8",
+      "text_symbol_offset": 0,
+      "addend": 240
     },
     {
-      "section": "menu_display_choices",
-      "tool": "splat",
-      "bytes": 16,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "f11ea3030967ca31934a298c470759f246979d8fa7b60ad355889b1e67398e7b"
+      "opcode": "0x7003",
+      "offset": 12,
+      "type": "R_MIPS_32",
+      "target": "0x80045be8",
+      "text_symbol_offset": 0,
+      "addend": 480
     },
     {
-      "section": "menu_display_text",
-      "tool": "spim",
-      "bytes": 8,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "6a67417feff3bc7b53e91cffa45fd72e72f49c35569eb83cebdf483c8449451b"
+      "opcode": "0x7004",
+      "offset": 16,
+      "type": "R_MIPS_32",
+      "target": "0x80045cc8",
+      "text_symbol_offset": 0,
+      "addend": 704
     },
     {
-      "section": "menu_display_text",
-      "tool": "splat",
-      "bytes": 8,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "625573acaa138bd09dfd7d92603482ace0380792fed169113d02f1d6057f4670"
+      "opcode": "0x7005",
+      "offset": 20,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
     },
     {
-      "section": "menu_display_never",
-      "tool": "spim",
-      "bytes": 8,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "94fdff50b87ce2dfc5a3acd5f8de131d45b1d8c166ec25f159c24ea85fe3a5ad"
+      "opcode": "0x7006",
+      "offset": 24,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
     },
     {
-      "section": "menu_display_never",
-      "tool": "splat",
-      "bytes": 8,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "04ee32ea8ac8b336958e2e59c9f1b1bf721a9140e795784c111c19d55bde1a7a"
+      "opcode": "0x7007",
+      "offset": 28,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x7008",
+      "offset": 32,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x7009",
+      "offset": 36,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x700a",
+      "offset": 40,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x700b",
+      "offset": 44,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x700c",
+      "offset": 48,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x700d",
+      "offset": 52,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x700e",
+      "offset": 56,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x700f",
+      "offset": 60,
+      "type": "R_MIPS_32",
+      "target": "0x80045a70",
+      "text_symbol_offset": 0,
+      "addend": 104
+    },
+    {
+      "opcode": "0x7010",
+      "offset": 64,
+      "type": "R_MIPS_32",
+      "target": "0x80045d58",
+      "text_symbol_offset": 0,
+      "addend": 848
     }
   ],
-  "objdiff_view_note": "Complete linked retail-equal bytes are preserved. Only ELF section addresses and section-defined symbol values are normalized for the relocatable comparison reader; no relocations remain.",
+  "objdiff": {
+    "comparisons": [
+      {
+        "tool": "spim",
+        "function_bytes": 1336,
+        "table_bytes": 68,
+        "function_match_percent": 100,
+        "whole_code_match_percent": 100,
+        "whole_table_match_percent": 100,
+        "all_relocations_resolved": true,
+        "report_sha256": "e6b042301e3a735309038f03acd69c9b31c65f32e071e82848d8f16a841bd42f"
+      },
+      {
+        "tool": "splat",
+        "function_bytes": 1336,
+        "table_bytes": 68,
+        "function_match_percent": 100,
+        "whole_code_match_percent": 100,
+        "whole_table_match_percent": 100,
+        "all_relocations_resolved": true,
+        "report_sha256": "e6b042301e3a735309038f03acd69c9b31c65f32e071e82848d8f16a841bd42f"
+      }
+    ],
+    "allocated_bytes_unchanged": true,
+    "note": "Linked ELFs first match every retail code and table byte. Views change only the reference output section name and ELF address metadata to section-relative form; all relocations are already resolved. A view-only object symbol at the independently verified start of the anonymous compiler table pairs it with the reference table. This annotation changes no allocated bytes or public ownership symbols."
+  },
   "asm_differ": {
     "score": 0,
-    "report_sha256": "e9007ac26959c9fc3ee73a43a498fb78ef1b283626ad85ec88ba04c04b34ec89"
+    "report_sha256": "3deeffba22a059bf9a03e9b00c13b2555764119bc9504959dab0cd3b274d3726"
   },
-  "ido_layout_probe": {
-    "source_owned": false,
-    "choice_size": 8,
-    "choice_alignment": 4,
-    "navigation_size": 100,
-    "draw_x_offset": 68,
-    "draw_y_offset": 76,
-    "long_size": 4,
-    "array_sizes": [
-      16,
-      4,
-      4,
-      8
+  "execution": {
+    "source": "src/game/renderer_primitives/mesh_commands.c",
+    "source_sha256": "01cb26fdf2d5688797f9e6c52e00aa533961952b3838ab2797280635013d2d9b",
+    "source_owned": true,
+    "complete_code_different_words": 0,
+    "complete_table_different_words": 0,
+    "live_bytes": 1336,
+    "raw_text_bytes": 1344,
+    "raw_table_bytes": 80,
+    "checked_zero_text_padding_bytes": 8,
+    "checked_zero_table_padding_bytes": 12,
+    "frame_bytes": 104,
+    "comparison": {
+      "source": "src/game/renderer_primitives/mesh_commands.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 1336,
+      "actual_size": 1336,
+      "matches": true,
+      "different_words": []
+    },
+    "cases": 1080,
+    "executions": 2160,
+    "trace_sha256": "d7b754ab3a42d57f3e752401ac5ac014a46e30dfeb36ee0d3958f6c27897b754",
+    "mutations": [
+      {
+        "name": "switch-bound",
+        "detected": true,
+        "offset": "0x74",
+        "failure": "AssertionError: ('Image mismatch', (0, 8, 3, 0, 5, 0), '0x800cdbc0')"
+      },
+      {
+        "name": "copy-cursor-store",
+        "detected": true,
+        "offset": "0xec",
+        "failure": "AssertionError: ((0, 8, 3, 0, 4, 0), [2147770176, 2, 0, 8], [[2147770176, 1, 4294967294, 8], [2147770176, 2, 0, 6], [2147770176, 3, 1, 6], [2147770176, 4, 32, 7]])"
+      },
+      {
+        "name": "first-triangle-rotation",
+        "detected": true,
+        "offset": "0x224",
+        "failure": "AssertionError: ('Image mismatch', (0, 8, 3, 0, 6, 0), '0x80203ff0')"
+      },
+      {
+        "name": "lighting-half",
+        "detected": true,
+        "offset": "0x448",
+        "failure": "AssertionError: ('Image mismatch', (1, 8, 3, 0, 8, 0), '0x80203ff0')"
+      },
+      {
+        "name": "return-load-cursor",
+        "detected": true,
+        "offset": "0x508",
+        "failure": "AssertionError: ((0, 8, 3, 0, 0, 0), [], [])"
+      },
+      {
+        "name": "stop-table-target",
+        "detected": true,
+        "failure": "AssertionError: ('Memory escaped', '0x201080', 2, '0x80045a70')"
+      },
+      {
+        "name": "real-vertex-position-store",
+        "detected": true,
+        "address": "0x80045fc8",
+        "failure": "AssertionError: ('Image mismatch', (0, 8, 3, 0, 4, 0), '0x800cdbc0')"
+      }
     ],
-    "object_sha256": "85161123d1472a2388c032716a999dab7fbbd98a9efdc623d981ef23acc2d9b3"
+    "checker_sha256": "3d6e42131411f08e13776e8c27123919a9b1273128eba2010d915f547b662b8e",
+    "retail_bytes": 1336,
+    "table_bytes": 68,
+    "support_code_bytes": 924,
+    "support_comparison": {
+      "source": "src/game/renderer_vertex_copy.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 924,
+      "actual_size": 924,
+      "matches": true,
+      "different_words": []
+    },
+    "abi_stubs": 0,
+    "unicorn_version": "2.1.1",
+    "capstone_version": "5.0.9",
+    "limits": "Finite bounded command streams cover unknown opcodes, stop, independent copy/load cursors, signed nonpositive counts, 31/32/33/64/65 batches, rotated triangles, quads, lighting on/off, special/repeated/masked colors, RGB halving, counter wrap and vertex truncation. Both real fresh matched copy/color/normal functions execute. Unterminated or invalid streams, arbitrary aliasing and actual rendering are unproved."
   },
   "ghidra": {
     "program": "robotron64.elf",
     "saved": true,
-    "function": {
-      "name": "func_8002741C",
-      "address": "8002741c",
-      "signature": "void func_8002741C(void)",
-      "entry_point": "8002741c",
-      "body_start": "8002741c",
-      "body_end": "800278ab"
-    },
-    "callers": {
-      "references": [
-        {
-          "from_address": "80023dd8",
-          "type": "UNCONDITIONAL_CALL",
-          "from_function": "func_80022D24"
-        },
-        {
-          "from_address": "800241b0",
-          "type": "UNCONDITIONAL_CALL",
-          "from_function": "func_80022D24"
-        }
-      ],
-      "count": 2,
-      "offset": 0,
-      "limit": 100,
-      "total": 2
-    },
-    "navigation_layout": {
-      "name": "SaveMenuNavigationStateInternal",
-      "size": 100,
-      "alignment": 4,
-      "fields": [
-        {
-          "offset": 0,
-          "size": 4,
-          "type": "int",
-          "name": "timestamp00"
-        },
-        {
-          "offset": 4,
-          "size": 4,
-          "type": "SaveMenuNodeInternal *",
-          "name": "menu04"
-        },
-        {
-          "offset": 8,
-          "size": 4,
-          "type": "SaveMenuNodeInternal *",
-          "name": "previous08"
-        },
-        {
-          "offset": 12,
-          "size": 4,
-          "type": "SaveMenuNodeInternal *",
-          "name": "menu0C"
-        },
-        {
-          "offset": 16,
-          "size": 4,
-          "type": "int",
-          "name": "value10"
-        },
-        {
-          "offset": 20,
-          "size": 8,
-          "type": "uchar[8]",
-          "name": "unknown14"
-        },
-        {
-          "offset": 28,
-          "size": 4,
-          "type": "SaveMenuActorInternal *",
-          "name": "previewActor1C"
-        },
-        {
-          "offset": 32,
-          "size": 4,
-          "type": "SaveMenuActorInternal *",
-          "name": "actor20"
-        },
-        {
-          "offset": 36,
-          "size": 8,
-          "type": "uchar[8]",
-          "name": "unknown24"
-        },
-        {
-          "offset": 44,
-          "size": 4,
-          "type": "float",
-          "name": "cameraX2C"
-        },
-        {
-          "offset": 48,
-          "size": 4,
-          "type": "float",
-          "name": "cameraY30"
-        },
-        {
-          "offset": 52,
-          "size": 4,
-          "type": "float",
-          "name": "cameraZ34"
-        },
-        {
-          "offset": 56,
-          "size": 4,
-          "type": "int",
-          "name": "cameraAngleX38"
-        },
-        {
-          "offset": 60,
-          "size": 4,
-          "type": "int",
-          "name": "cameraAngleY3C"
-        },
-        {
-          "offset": 64,
-          "size": 4,
-          "type": "int",
-          "name": "cameraAngleZ40"
-        },
-        {
-          "offset": 68,
-          "size": 4,
-          "type": "int",
-          "name": "drawX44"
-        },
-        {
-          "offset": 72,
-          "size": 4,
-          "type": "int",
-          "name": "previewY48"
-        },
-        {
-          "offset": 76,
-          "size": 4,
-          "type": "int",
-          "name": "drawY4C"
-        },
-        {
-          "offset": 80,
-          "size": 4,
-          "type": "SaveMenuNodeInternal *",
-          "name": "selected50"
-        },
-        {
-          "offset": 84,
-          "size": 4,
-          "type": "int",
-          "name": "transition54"
-        },
-        {
-          "offset": 88,
-          "size": 4,
-          "type": "int",
-          "name": "restoreCamera58"
-        },
-        {
-          "offset": 92,
-          "size": 4,
-          "type": "int",
-          "name": "releasePreview5C"
-        },
-        {
-          "offset": 96,
-          "size": 4,
-          "type": "_func_2 *",
-          "name": "callback60"
-        }
-      ]
-    },
-    "choice_layout": {
-      "name": "MenuDisplayChoice",
-      "size": 8,
-      "alignment": 4,
-      "fields": [
-        {
-          "offset": 0,
-          "size": 4,
-          "type": "uchar *",
-          "name": "text"
-        },
-        {
-          "offset": 4,
-          "size": 4,
-          "type": "int",
-          "name": "value04"
-        }
-      ]
-    },
-    "draw_signature": "void func_8000177C(int slot, int x, int z, int y, int pitch, int yaw, int roll, int scale, int first, int second, int third, int enabled, int state, int limit, int value)",
-    "retail_memory_sha256": {
-      ".text": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
-      ".menu_display_choices": "f5ef8d0e2aa35ed049cd734dfd24c2f4fdbbb0784699c981a730fc0058a78b75",
-      ".menu_display_text": "df7aa71963e07aac662cfe99f9f599be7d72b065af88e72e21c6b853285fa235",
-      ".menu_display_never": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12"
-    },
-    "snapshot_sha256": "65bbf2a06b068048a057883255f036f4cb1f639472e17f1c7f21c1377f531d04",
-    "note": "Navigation storage keeps its existing node view and the source casts the active page to the established options-page view. Ghidra decompiler local array declarations are inferred rather than original source evidence.",
-    "type_import": {
-      "status": "success",
-      "parse_succeeded": true,
-      "types_added": 5,
-      "types_after": 944,
-      "error": "",
-      "messages": ""
-    },
-    "type_applications": [
+    "complete_body_bytes": 1336,
+    "complete_table_bytes": 68,
+    "functions": [
       {
-        "result": {
-          "status": "success",
-          "address": "800761f8",
-          "applied": [
-            "type",
-            "array_length=2",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800761F8' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_800761F8",
-          "strict_mode": "off",
-          "type_name": "MenuDisplayChoice",
-          "array_length": 2,
-          "address": "800761F8",
-          "plate_comment": "Two verified on/off display choices. Complete 16-byte initialized range owned by src/game/save_menus/display/choices.c; each word04 is 68."
-        }
+        "address": "0x80045a08",
+        "complete_bytes": 1336,
+        "signature": "int func_80045A08(short * commands, RendererMeshPrefix * mesh, int destination)",
+        "source": "src/game/renderer_primitives/mesh_commands.c",
+        "source_sha256": "01cb26fdf2d5688797f9e6c52e00aa533961952b3838ab2797280635013d2d9b",
+        "retail_sha256": "b8deee44539665104f3a577af2a4a9b3b7e263ac155914c6c062ed5bf33f583d"
       },
       {
-        "result": {
-          "status": "success",
-          "address": "80092c08",
-          "applied": [
-            "type",
-            "array_length=4",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80092C08' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80092C08",
-          "strict_mode": "off",
-          "type_name": "uchar",
-          "array_length": 4,
-          "address": "80092C08",
-          "plate_comment": "Verified off label and terminator. Four initialized bytes owned by src/game/save_menus/display/text.c."
-        }
+        "address": "0x80045f40",
+        "complete_bytes": 408,
+        "signature": "void func_80045F40(int first, int count, int destination)",
+        "source": "src/game/renderer_vertex_copy.c",
+        "source_sha256": "923a8cc5d0d04d545ddfc5c330dc00d7ab6d4fd4332c700e31370ed57b4e6e2c",
+        "retail_sha256": "629f2ce52890505a13662e317774037208b673acfdc70c0ad13ff6c1adabab99"
       },
       {
-        "result": {
-          "status": "success",
-          "address": "80092c0c",
-          "applied": [
-            "type",
-            "array_length=4",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80092C0C' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80092C0C",
-          "strict_mode": "off",
-          "type_name": "uchar",
-          "array_length": 4,
-          "address": "80092C0C",
-          "plate_comment": "Verified on label and terminator. Four initialized bytes including one alignment zero owned by src/game/save_menus/display/text.c."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "800938c8",
-          "applied": [
-            "type",
-            "array_length=8",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800938C8' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_800938C8",
-          "strict_mode": "off",
-          "type_name": "uchar",
-          "array_length": 8,
-          "address": "800938C8",
-          "plate_comment": "Verified never suffix and terminator. Eight initialized bytes including two alignment zeros owned by src/game/save_menus/display/never.c."
-        }
+        "address": "0x800460d8",
+        "complete_bytes": 516,
+        "signature": "void func_800460D8(int first, int count, int destination, RendererNormal * normals)",
+        "source": "src/game/renderer_vertex_copy.c",
+        "source_sha256": "923a8cc5d0d04d545ddfc5c330dc00d7ab6d4fd4332c700e31370ed57b4e6e2c",
+        "retail_sha256": "354a511a43d867a20719c42491af8de3b24dbed559cc5cafd350624666cb27cf"
       }
     ],
-    "navigation_application": {
-      "status": "success",
-      "address": "800aee98",
-      "applied": [
-        "type",
-        "name=already_set",
-        "plate_comment"
-      ],
-      "warnings": [
-        "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800AEE98' must start with 'g_' per project convention."
-      ]
-    },
-    "interior_aliases_preserved": {
-      "success": true,
-      "labels_created": 0,
-      "labels_skipped": 2,
-      "labels_failed": 0
-    }
+    "table_sha256": "59c60f0b19bea7fbcce93dfc0a5938a39d1ad05966f036e0126e62907b5bb43a",
+    "snapshot_sha256": "c1d952133cb526f03b8b1ed752957537b77b443dc3af7969848b73d597b424cb",
+    "previous_body_bytes": 156,
+    "computed_jump": "0x80045A9C",
+    "note": "Function body follows all verified computed targets. No executable instruction was changed in the analysis database."
   },
-  "execution": {
-    "matches": true,
-    "cases": 338,
-    "executions": 676,
-    "trace_sha256": "f20b228564b98f283b10770fecb08d90196d49cb9dd6307b6edcddc2d753a070",
-    "source_instruction_bytes_added": 1168,
-    "initialized_bytes_added": 32,
-    "bss_bytes_added": 0,
-    "checker_sha256": "3a8fe93508b6701bd8a6e61e60430d60edc3f7708f633765d886e03dff43f145",
-    "unicorn_version": "2.1.1",
-    "comparisons": {
-      "game_memory": {
-        "source": "src/game/game_memory.c",
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        },
-        "expected_size": 628,
-        "actual_size": 628,
-        "matches": true,
-        "different_words": []
-      },
-      "game_number_format": {
-        "source": "src/game/game_number_format.c",
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        },
-        "expected_size": 644,
-        "actual_size": 644,
-        "matches": true,
-        "different_words": []
-      },
-      "fixed_geometry_setup": {
-        "source": "src/game/fixed_geometry_setup.c",
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        },
-        "expected_size": 1508,
-        "actual_size": 1508,
-        "matches": true,
-        "different_words": []
-      },
-      "menu_display": {
-        "source": "src/game/save_menus/display/submit.c",
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        },
-        "expected_size": 1168,
-        "actual_size": 1168,
-        "matches": true,
-        "different_words": []
-      }
-    },
-    "data_comparisons": {
-      "src/game/save_menus/display/choices.c": {
-        "source": "src/game/save_menus/display/choices.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/display/choices.c",
-              "object": "build/us/menu_display_choices.o",
-              "input_section": ".data",
-              "section": ".menu_display_choices",
-              "vram": 2147967480,
-              "rom": 486904,
-              "size": 16,
-              "symbols": {
-                "D_800761F8": 0
-              },
-              "evidence": "docs/menu-display.md"
-            },
-            "bytes_sha256": "f5ef8d0e2aa35ed049cd734dfd24c2f4fdbbb0784699c981a730fc0058a78b75"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/save_menus/display/text.c": {
-        "source": "src/game/save_menus/display/text.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/display/text.c",
-              "object": "build/us/menu_display_text.o",
-              "input_section": ".data",
-              "section": ".menu_display_text",
-              "vram": 2148084744,
-              "rom": 604168,
-              "size": 8,
-              "symbols": {
-                "D_80092C08": 0,
-                "D_80092C0C": 4
-              },
-              "evidence": "docs/menu-display.md"
-            },
-            "bytes_sha256": "df7aa71963e07aac662cfe99f9f599be7d72b065af88e72e21c6b853285fa235"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/save_menus/display/never.c": {
-        "source": "src/game/save_menus/display/never.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/display/never.c",
-              "object": "build/us/menu_display_never.o",
-              "input_section": ".data",
-              "section": ".menu_display_never",
-              "vram": 2148088008,
-              "rom": 607432,
-              "size": 8,
-              "symbols": {
-                "D_800938C8": 0
-              },
-              "evidence": "docs/menu-display.md"
-            },
-            "bytes_sha256": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/formatting/digits.c": {
-        "source": "src/game/formatting/digits.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/formatting/digits.c",
-              "object": "build/us/game_number_digits.o",
-              "input_section": ".rodata",
-              "section": ".game_number_digits",
-              "vram": 2147990300,
-              "rom": 509724,
-              "size": 20,
-              "symbols": {
-                "D_8007BB1C": 0
-              },
-              "static_symbols": {},
-              "evidence": "docs/palette-color-tables.md"
-            },
-            "bytes_sha256": "f0ba6a2825921e27a550f8797e9d3e3d2ce03d79dc7434b7a3ce4fa5077bd88a"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      }
-    },
-    "mutations_detected": [
-      "0x800761f8",
-      "0x80092c0c",
-      "0x800938c8"
-    ],
-    "limits": [
-      "Text conversion, choice decoding, handle allocation, text flags and drawing use O32 boundary stubs.",
-      "String length, string copy, decimal formatting and integer absolute value execute complete freshly matching source blocks.",
-      "Dictionary selections stay inside the two-record fixture; numeric inputs avoid INT_MIN formatting.",
-      "The proof covers integer callee-saved registers, SP, GP, bounded memory and code access; it does not claim full-game rendering or page activation."
-    ]
+  "research": {
+    "permuter_workers": 2,
+    "seconds_limit": 120,
+    "stack_difference_checking": true,
+    "reviewed_outputs": 264,
+    "screen_cases": 30,
+    "selected_full_cases": 1080,
+    "final_source": "Readable canonical source with distinct copy operand and an addressable copy cursor; every local is used.",
+    "setup_sha256": "ce4a56635d6542beb8c2b0073cbee411b3a981a307d9c9e47cb66659e646dc8a",
+    "review_sha256": "edd905be5c6a50fd47f01715546d45ad80848acfbd4fcd520537a6197194c6db"
   },
   "checks": {
     "clean_extraction_and_build": true,
@@ -2006,24 +1117,26 @@
     }
   ],
   "private_artifacts_sha256": {
-    "reference-proof.json": "88db5bb55670f332622fb887bfcfb9cf02ab6129e68ccd90a33b2bab7b40b6e0",
-    "context.c": "6c1ddbbdf68b13ca2205f6d75176f44b3039bc39653d55a9584ecdf381b665db",
-    "m2c.c": "76bbcbc5a8d766fdc5c78b0627c9c8e4b9c41b4573477aad77ac4ee9d5e095d1",
-    "layout-probe.c": "0e3764dc72b80f9ccc368961ea529e5ddcacaa678be05cbf2efa68dd70979d18",
-    "layout-probe.o": "85161123d1472a2388c032716a999dab7fbbd98a9efdc623d981ef23acc2d9b3",
-    "layout-probe.json": "5267e82ebfae039568b75bbae20b6dfe5997531c316c6a67af1cec9715a90e8d",
-    "match.json": "be43564c47ebf4d4ff6fa97b91b622d01390dc0fc9bbca8e187592c0e7003e32",
-    "asm-differ.txt": "e9007ac26959c9fc3ee73a43a498fb78ef1b283626ad85ec88ba04c04b34ec89"
+    "reference-proof.json": "19cb8b5a6ffd60470c6aa78a9e49d5d3812547e4a56a66270794f2f3824b8f20",
+    "match.json": "546508e0653b9b8e186de3179241390a04e6ce27117fff2355d23d8eec48542f",
+    "linked-objdiff-proof.json": "8544fb8f598d8f3002689b20cd3cc022869a43e189cc464532674a8c39cd7e02",
+    "objdiff-spim.json": "cb9b7f5de08a02160c1c22f185e0ac3aad122a25883ff3536ff2a447250a1d66",
+    "objdiff-splat.json": "cb9b7f5de08a02160c1c22f185e0ac3aad122a25883ff3536ff2a447250a1d66",
+    "objdiff-linked-spim.json": "e6b042301e3a735309038f03acd69c9b31c65f32e071e82848d8f16a841bd42f",
+    "objdiff-linked-splat.json": "e6b042301e3a735309038f03acd69c9b31c65f32e071e82848d8f16a841bd42f",
+    "asm-differ.txt": "3deeffba22a059bf9a03e9b00c13b2555764119bc9504959dab0cd3b274d3726",
+    "context.c": "edf1334f01e70a59679af8af6e19ea3f6713101613aeb69844743eb29ef7191e",
+    "m2c.c": "0843ae8afe8c7b95241e5bfdec24d94b2033c6fe518a5ccf695eb52ca98878ea"
   },
   "inputs_sha256": {
     "Makefile": "0f139a58e5bc9b2c480c8bb90811ec1b82d7ffe38aacbe0ff1ef1eabeb5f2fae",
-    "config/analysis/menu_display.yaml": "8a9b68670c3d55dd34a43a42063b62bfebd51ac2ab70e251d5a731cc32fbf866",
+    "config/analysis/renderer_mesh_commands.yaml": "7c87894add935d4b18a2cf75ca9f3378b81073db8325dae03c33cd85b1257835",
     "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
     "config/owned_sections.json": "3a84720685a81cb9f328adf680b4d8af0d964c6e42d6aa8815bcfacf0c9a9781",
     "config/runtime_symbols.ld": "145fdccec89dba00b104c9649ab2b4cd4278cae40ba3a541c7a503e13fbf1c61",
     "config/startup_symbols.ld": "d75e47cb0a27c33361d6f41aacef3d6c88d5c470d6cc288d9c984274285c08fb",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
-    "docs/menu-display.md": "78eb0a2ae2fa387fd5bb076eaa4f610f77924f33b4999bd4759210a9a44906d9",
+    "docs/renderer-mesh-commands.md": "7c8162ec6c5079dd5532cf4e3c99efc33e62a920f8a6b8f9cc5b0ec9a733399f",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
     "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
     "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
@@ -2205,29 +1318,19 @@
     "include/text.h": "d954d557366f88590d863a335130d609cba06def33ad93145a8ff449394b6761",
     "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
     "linker_scripts/us.ld": "ebe393db8eb8eaaa14981e653da66f4b4f9c515c5df65079b4e52d9cbd71ac4c",
-    "src/game/fixed_geometry_setup.c": "e2e921573c9af970d82a0dd5f2131fb4026ce8d5a24f28db2489e52799095263",
-    "src/game/formatting/digits.c": "a25a85fc53aa5595473f65eea2724d9173a612725301708a36b2c40366287df7",
-    "src/game/game_memory.c": "d046cce69151ba911777c757ad9462c3bc5e608831e1426f4a67d9cff788c0c7",
-    "src/game/game_number_format.c": "4b129c5a1389e1587be0fc777f3c3e3d4bc222f8bff8b91cdd27971baa5f8e92",
-    "src/game/save_menus/display/choices.c": "cbba43d723d9483582278f460e3da62ceb8f2db9eb3ab736ba3c6b88d8b713b8",
-    "src/game/save_menus/display/never.c": "bb48a3b434b8ea0d84b2d41dd47750f07e294eaccbb13ffc70f5a7902fb8c0d8",
-    "src/game/save_menus/display/submit.c": "00a68c224d8eaa6d90efa4ac57d5e902ca396df6e8d23cf9dcc6e5b97230c985",
-    "src/game/save_menus/display/text.c": "15578ca6b75c3f911812a93a2211e573cef4ef5da396584ad0c8b74e2fd29b02",
-    "tools/check_menu_display.py": "3a8fe93508b6701bd8a6e61e60430d60edc3f7708f633765d886e03dff43f145",
-    "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
-    "tools/compare_runtime.py": "f7eab2ad6813a4dd155417713b48b0c6ff157c3b5b4d6d892618010897662146",
+    "src/game/renderer_primitives/mesh_commands.c": "01cb26fdf2d5688797f9e6c52e00aa533961952b3838ab2797280635013d2d9b",
+    "src/game/renderer_vertex_copy.c": "923a8cc5d0d04d545ddfc5c330dc00d7ab6d4fd4332c700e31370ed57b4e6e2c",
+    "tools/check_actor_boundary_boss.py": "8b6c75bf58815fafc26f202d2793b79fc8c5a98bf3425527dc5fe9b7176860a8",
+    "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
+    "tools/check_mesh_commands.py": "3d6e42131411f08e13776e8c27123919a9b1273128eba2010d915f547b662b8e",
     "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
     "tools/extract.py": "eb9efb91bf730f105403e577bd6ebcbc348fd72e5f2fa3fd737cd0b63b7fd43b",
     "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
   },
   "limits": [
-    "Text conversion, choice decoding, handle allocation, text flags and drawing use O32 boundary stubs.",
-    "String length, string copy, decimal formatting and integer absolute value execute complete freshly matching source blocks.",
-    "Dictionary selections stay inside the two-record fixture; numeric inputs avoid INT_MIN formatting.",
-    "The proof covers integer callee-saved registers, SP, GP, bounded memory and code access; it does not claim full-game rendering or page activation.",
-    "The second choice-record word is initialized to 68; its meaning is unresolved.",
-    "The 100-byte local workspace is consistent with the complete retail frame and observed use; its original declaration is not independently recoverable.",
-    "The guarded fixtures contain one linked label and do not establish multi-label gameplay rendering.",
+    "Finite bounded command streams cover unknown opcodes, stop, independent copy/load cursors, signed nonpositive counts, 31/32/33/64/65 batches, rotated triangles, quads, lighting on/off, special/repeated/masked colors, RGB halving, counter wrap and vertex truncation. Both real fresh matched copy/color/normal functions execute. Unterminated or invalid streams, arbitrary aliasing and actual rendering are unproved.",
+    "The pointer to the copy cursor is a plausible matching C representation; the original source declaration is unknown.",
+    "View-only objdiff table annotations establish comparison pairing and do not introduce public source symbols or storage.",
     "Whole-ROM equality includes extracted fallback code and assets; the game remains incompletely decompiled."
   ]
 }

@@ -388,6 +388,7 @@ MATCHING_BLOCKS = (
     ("renderer_vertex_positions", "src/game/renderer_vertex_positions.c", 0x80044270, 0x800444F8),
     ("renderer_material_reset", "src/game/renderer_material_reset.c", 0x80045514, 0x80045534),
     ("renderer_mesh_positions", "src/game/renderer_mesh_positions.c", 0x80045934, 0x80045A08),
+    ("renderer_mesh_commands", "src/game/renderer_primitives/mesh_commands.c", 0x80045A08, 0x80045F40),
     ("renderer_vertex_copy", "src/game/renderer_vertex_copy.c", 0x80045F40, 0x800462DC),
     ("renderer_texture_load", "src/game/renderer_texture_load.c", 0x800462DC, 0x800464F4),
     ("graphics_display_list", "src/game/graphics_display_list.c", 0x800464F4, 0x8004653C),
@@ -929,7 +930,6 @@ CANDIDATE_BLOCKS = (
     ("actor_history_trail", "src/game/actor_history/trail.c", 0x8004E364, 0x8004E7D4),
     ("heap_initialize", "src/game/heap/initialize.c", 0x8004DE8C, 0x8004DED8),
     ("renderer_resource_loader", "src/game/renderer_resources/load.c", 0x8004BD00, 0x8004C088),
-    ("renderer_mesh_commands", "src/game/renderer_primitives/mesh_commands.c", 0x80045A08, 0x80045F40),
     ("renderer_diagnostic_line", "src/game/renderer_primitives/diagnostic_line.c", 0x800453D8, 0x80045514),
     ("renderer_expanded_quad", "src/game/renderer_primitives/expanded_quad.c", 0x800447D0, 0x80044B18),
 

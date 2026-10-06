@@ -15986,5 +15986,16 @@
     "section": ".menu_display",
     "section_vram": 2147644444,
     "evidence": "docs/menu-display.md"
+  },
+  {
+    "name": "func_80045A08",
+    "rom": 288264,
+    "vram": 2147768840,
+    "size": 1336,
+    "source": "src/game/renderer_primitives/mesh_commands.c",
+    "object": "build/us/renderer_mesh_commands.o",
+    "section": ".renderer_mesh_commands",
+    "section_vram": 2147768840,
+    "evidence": "docs/renderer-mesh-commands.md"
   }
 ]

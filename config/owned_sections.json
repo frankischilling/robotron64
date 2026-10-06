@@ -4322,5 +4322,16 @@
       "D_80093828": 0
     },
     "evidence": "docs/pak-confirmation-records.md"
+  },
+  {
+    "source": "src/game/renderer_primitives/mesh_commands.c",
+    "object": "build/us/renderer_mesh_commands.o",
+    "input_section": ".rodata",
+    "section": ".renderer_mesh_commands_switch",
+    "vram": 2148094428,
+    "rom": 613852,
+    "size": 68,
+    "symbols": {},
+    "evidence": "docs/renderer-mesh-commands.md"
   }
 ]

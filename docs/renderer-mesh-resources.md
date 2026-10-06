@@ -103,23 +103,19 @@ credit.
 
 ## Remaining polygon candidates
 
-The expanded quad and diagnostic line remain excluded candidates. The
-command-stream candidate preserves its switch dispatch, separate copy and
-load cursors, lighting branch, palette updates, polygon calls, and returned
-vertex count. Its generated switch table is still unowned. Private fixed
-table placement was useful for instruction research, but the public
-comparison uses the repository's actual linker inputs.
+The expanded quad and diagnostic line remain excluded candidates. The mesh
+command interpreter now owns all 1,336 instruction bytes and its complete
+68-byte generated switch table. See [mesh command interpreter](renderer-mesh-commands.md)
+for the current public source, independent reassemblies and guarded execution.
+
+The following comparisons retain the historical PR 66 checkpoint. Current
+resource-loader differences are described above; these rows add no ownership.
 
 | Candidate | Retail bytes | Compiled bytes | Differing words |
 | --- | ---: | ---: | ---: |
 | Expanded quad `func_800447D0` | 840 | 840 | 167 |
 | Diagnostic line `func_800453D8` | 316 | 316 | 57 |
-| Mesh commands `func_80045A08` | 1,336 | 1,360 | 300 |
 | Resource loader `func_8004BD00` | 904 | 904 | 16 |
-
-The command candidate's raw table section occupies 80 bytes. Its first
-seventeen entries cover the retail table's 68 bytes, with five differing
-entries. Neither those entries nor the section padding receive data credit.
 
 The adjacent functions and data are checked again after integrating the
 mesh and diagnostic definitions. Full comparison results, hashes, and
