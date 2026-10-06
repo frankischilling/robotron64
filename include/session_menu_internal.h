@@ -1,3 +1,4 @@
+#include "control_setup_internal.h"
 #include "static_menu_internal.h"
 #ifndef ROBOTRON_SESSION_MENU_INTERNAL_H
 #define ROBOTRON_SESSION_MENU_INTERNAL_H
@@ -37,7 +38,6 @@ extern int D_800AEE90;
 extern int D_800AEE94;
 extern int *D_80076FC8;
 extern unsigned char D_80077054[];
-extern unsigned char D_800771E8[];
 extern unsigned char D_800773C4[];
 extern unsigned char D_80093F90[];
 

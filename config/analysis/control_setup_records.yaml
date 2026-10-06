@@ -1,0 +1,38 @@
+name: Robotron 64 verified control setup records
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: control_setup_records
+  base_path: ../../.local/control-setup-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: menu_control_setup_choices
+    type: code
+    start: 0x77C88
+    vram: 0x80077088
+    subsegments:
+      - [0x77C88, data, menu_control_setup_choices]
+  - name: menu_control_setup_labels
+    type: code
+    start: 0x77CA8
+    vram: 0x800770A8
+    subsegments:
+      - [0x77CA8, data, menu_control_setup_labels]
+  - name: menu_control_setup_page
+    type: code
+    start: 0x77DE8
+    vram: 0x800771E8
+    subsegments:
+      - [0x77DE8, data, menu_control_setup_page]
+  - [0x77E1C, bin, after_menu_control_setup_page]
+  - name: menu_control_setup_text
+    type: code
+    start: 0x93F98
+    vram: 0x80093398
+    subsegments:
+      - [0x93F98, rodata, menu_control_setup_text]
+  - [0x94050, bin, after_menu_control_setup_text]
+  - [0x800000]

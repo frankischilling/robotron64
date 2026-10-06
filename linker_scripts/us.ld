@@ -1215,7 +1215,11 @@ SECTIONS
     .early_input_fixed_data_data 0x80073A48 : AT(0x74648) SUBALIGN(4) { build/us/early_input_fixed_data.o(.data) }
     .menu_display_choices_before 0x80073a88 : AT(0x74688) { build/us/fallback.o(.rom_menu_display_choices_before) }
     .menu_display_choices 0x800761F8 : AT(0x76DF8) SUBALIGN(4) { build/us/menu_display_choices.o(.data) }
-    .menu_display_choices_after 0x80076208 : AT(0x76e08) { build/us/fallback.o(.rom_menu_display_choices_after) }
+    .control_setup_fallback_76e08_77c88 0x80076208 : AT(0x76e08) { build/us/fallback.o(.rom_control_setup_fallback_76e08_77c88) }
+    .menu_control_setup_choices 0x80077088 : AT(0x77c88) SUBALIGN(4) { build/us/menu_control_setup_choices.o(.data) }
+    .menu_control_setup_labels 0x800770a8 : AT(0x77ca8) SUBALIGN(4) { build/us/menu_control_setup_labels.o(.data) }
+    .menu_control_setup_page 0x800771e8 : AT(0x77de8) SUBALIGN(4) { build/us/menu_control_setup_page.o(.data) }
+    .control_setup_fallback_77e1c_77ea0 0x8007721c : AT(0x77e1c) { build/us/fallback.o(.rom_control_setup_fallback_77e1c_77ea0) }
     .menu_static_confirmation_labels 0x800772a0 : AT(0x77ea0) SUBALIGN(4) { build/us/menu_static_confirmation_labels.o(.data) }
     .menu_static_confirmation_page 0x800772f0 : AT(0x77ef0) SUBALIGN(4) { build/us/menu_static_confirmation_page.o(.data) }
     .menu_static_fallback_77f24_78054 0x80077324 : AT(0x77f24) { build/us/fallback.o(.rom_menu_static_fallback_77f24_78054) }
@@ -1376,7 +1380,9 @@ SECTIONS
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
     .menu_display_text_before 0x80092ac4 : AT(0x936c4) { build/us/fallback.o(.rom_menu_display_text_before) }
     .menu_display_text 0x80092C08 : AT(0x93808) SUBALIGN(4) { build/us/menu_display_text.o(.data) }
-    .menu_display_text_after 0x80092c10 : AT(0x93810) { build/us/fallback.o(.rom_menu_display_text_after) }
+    .control_setup_fallback_93810_93f98 0x80092c10 : AT(0x93810) { build/us/fallback.o(.rom_control_setup_fallback_93810_93f98) }
+    .menu_control_setup_text 0x80093398 : AT(0x93f98) SUBALIGN(4) { build/us/menu_control_setup_text.o(.rodata) }
+    .control_setup_fallback_94050_9407c 0x80093450 : AT(0x94050) { build/us/fallback.o(.rom_control_setup_fallback_94050_9407c) }
     .menu_static_confirmation_text 0x8009347c : AT(0x9407c) SUBALIGN(4) { build/us/menu_static_confirmation_text.o(.rodata) }
     .menu_static_fallback_9408c_940f0 0x8009348c : AT(0x9408c) { build/us/fallback.o(.rom_menu_static_fallback_9408c_940f0) }
     .menu_static_pause_text 0x800934f0 : AT(0x940f0) SUBALIGN(4) { build/us/menu_static_pause_text.o(.rodata) }
@@ -3252,10 +3258,17 @@ ASSERT(SIZEOF(.menu_static_pause_text) == 0x50, "menu_static_pause_text size cha
 ASSERT(SIZEOF(.menu_display_before) == 0x910, "menu_display_before size changed")
 ASSERT(SIZEOF(.menu_display) == 0x490, "menu_display size changed")
 ASSERT(SIZEOF(.menu_display_choices_before) == 0x2770, "menu_display_choices_before size changed")
-ASSERT(SIZEOF(.menu_display_choices_after) == 0x1098, "menu_display_choices_after size changed")
+ASSERT(SIZEOF(.control_setup_fallback_76e08_77c88) == 0xe80, "control_setup_fallback_76e08_77c88 size changed")
+ASSERT(SIZEOF(.control_setup_fallback_77e1c_77ea0) == 0x84, "control_setup_fallback_77e1c_77ea0 size changed")
 ASSERT(SIZEOF(.menu_display_choices) == 0x10, "menu_display_choices size changed")
 ASSERT(SIZEOF(.menu_display_text_before) == 0x144, "menu_display_text_before size changed")
-ASSERT(SIZEOF(.menu_display_text_after) == 0x86c, "menu_display_text_after size changed")
+ASSERT(SIZEOF(.control_setup_fallback_93810_93f98) == 0x788, "control_setup_fallback_93810_93f98 size changed")
+ASSERT(SIZEOF(.control_setup_fallback_94050_9407c) == 0x2c, "control_setup_fallback_94050_9407c size changed")
 ASSERT(SIZEOF(.menu_display_text) == 0x8, "menu_display_text size changed")
 ASSERT(SIZEOF(.menu_display_never_after) == 0x3c, "menu_display_never_after size changed")
 ASSERT(SIZEOF(.menu_display_never) == 0x8, "menu_display_never size changed")
+
+ASSERT(SIZEOF(.menu_control_setup_choices) == 0x20, "menu_control_setup_choices size changed")
+ASSERT(SIZEOF(.menu_control_setup_labels) == 0x140, "menu_control_setup_labels size changed")
+ASSERT(SIZEOF(.menu_control_setup_page) == 0x34, "menu_control_setup_page size changed")
+ASSERT(SIZEOF(.menu_control_setup_text) == 0xb8, "menu_control_setup_text size changed")

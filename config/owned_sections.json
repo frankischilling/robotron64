@@ -4192,5 +4192,69 @@
       "D_800938C8": 0
     },
     "evidence": "docs/menu-display.md"
+  },
+  {
+    "source": "src/game/save_menus/control_setup/choices.c",
+    "object": "build/us/menu_control_setup_choices.o",
+    "input_section": ".data",
+    "section": ".menu_control_setup_choices",
+    "vram": 2147971208,
+    "rom": 490632,
+    "size": 32,
+    "symbols": {
+      "D_80077088": 0
+    },
+    "evidence": "docs/control-setup-records.md"
+  },
+  {
+    "source": "src/game/save_menus/control_setup/labels.c",
+    "object": "build/us/menu_control_setup_labels.o",
+    "input_section": ".data",
+    "section": ".menu_control_setup_labels",
+    "vram": 2147971240,
+    "rom": 490664,
+    "size": 320,
+    "symbols": {
+      "D_800770A8": 0
+    },
+    "evidence": "docs/control-setup-records.md"
+  },
+  {
+    "source": "src/game/save_menus/control_setup/page.c",
+    "object": "build/us/menu_control_setup_page.o",
+    "input_section": ".data",
+    "section": ".menu_control_setup_page",
+    "vram": 2147971560,
+    "rom": 490984,
+    "size": 52,
+    "symbols": {
+      "D_800771E8": 0
+    },
+    "evidence": "docs/control-setup-records.md"
+  },
+  {
+    "source": "src/game/save_menus/control_setup/text.c",
+    "object": "build/us/menu_control_setup_text.o",
+    "input_section": ".rodata",
+    "section": ".menu_control_setup_text",
+    "vram": 2148086680,
+    "rom": 606104,
+    "size": 184,
+    "symbols": {
+      "D_80093398": 0,
+      "D_800933A0": 8,
+      "D_800933A8": 16,
+      "D_800933B0": 24,
+      "D_800933B8": 32,
+      "D_800933C4": 44,
+      "D_800933D0": 56,
+      "D_800933E8": 80,
+      "D_800933FC": 100,
+      "D_80093408": 112,
+      "D_80093420": 136,
+      "D_80093434": 156,
+      "D_80093440": 168
+    },
+    "evidence": "docs/control-setup-records.md"
   }
 ]
