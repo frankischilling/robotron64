@@ -3974,5 +3974,41 @@
       "D_8007CCB0": 0
     },
     "evidence": "docs/renderer-background-dispatch.md"
+  },
+  {
+    "source": "src/game/renderer_setup/depth_blend_origin.c",
+    "object": "build/us/renderer_depth_blend_origin.o",
+    "input_section": ".data",
+    "section": ".renderer_depth_blend_origin",
+    "vram": 2147993012,
+    "rom": 512436,
+    "size": 8,
+    "symbols": {
+      "D_8007C5B4": 0,
+      "D_8007C5B8": 4
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-material-presets.md"
+  },
+  {
+    "source": "src/game/renderer_setup/material_presets.c",
+    "object": "build/us/renderer_material_presets.o",
+    "input_section": ".rodata",
+    "section": ".renderer_material_presets",
+    "vram": 2147993024,
+    "rom": 512448,
+    "size": 432,
+    "symbols": {
+      "D_8007C5C0": 0,
+      "D_8007C5F0": 48,
+      "D_8007C628": 104,
+      "D_8007C660": 160,
+      "D_8007C698": 216,
+      "D_8007C6D0": 272,
+      "D_8007C700": 320,
+      "D_8007C738": 376
+    },
+    "static_symbols": {},
+    "evidence": "docs/renderer-material-presets.md"
   }
 ]

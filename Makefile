@@ -7849,6 +7849,23 @@ RUNTIME_OBJECTS += build/us/renderer_rotating_rings.o
 check-renderer-rotating-rings:
 	$(PYTHON) tools/check_renderer_rotating_rings.py
 
+
+build/us/renderer_depth_blend_origin.o: src/game/renderer_setup/depth_blend_origin.c include/model_geometry_internal.h include/renderer_primitives_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_depth_blend_origin.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_depth_blend_origin.raw.o $@ .data 0x8
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_depth_blend_origin.o
+
+build/us/renderer_material_presets.o: src/game/renderer_setup/material_presets.c include/renderer_setup_internal.h include/frame.h include/sdk_camera.h include/sdk_math.h include/sdk_matrix.h include/sdk_float_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_material_presets.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_material_presets.raw.o $@ .rodata 0x1b0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_material_presets.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

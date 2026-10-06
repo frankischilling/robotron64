@@ -1233,7 +1233,11 @@ SECTIONS
     .actor_direction_table 0x8007C338 : AT(0x7CF38) SUBALIGN(4) { build/us/actor_direction_table.o(.data) }
     .actor_direction_fallback_7d03c_7d148 0x8007C43C : AT(0x7D03C) { build/us/fallback.o(.rom_actor_direction_fallback_7d03c_7d148) }
     .renderer_diagnostic_hierarchy_pool 0x8007C548 : AT(0x7D148) SUBALIGN(4) { build/us/renderer_diagnostic_hierarchy_pool.o(.data) }
-    .renderer_setup_fallback_7d150_7d670 0x8007C550 : AT(0x7D150) { build/us/fallback.o(.rom_renderer_setup_fallback_7d150_7d670) }
+    .renderer_setup_before_depth_blend_origin 0x8007C550 : AT(0x7D150) { build/us/fallback.o(.rom_renderer_setup_before_depth_blend_origin) }
+    .renderer_depth_blend_origin 0x8007C5B4 : AT(0x7D1B4) SUBALIGN(4) { build/us/renderer_depth_blend_origin.o(.data) }
+    .renderer_setup_after_depth_blend_origin 0x8007C5BC : AT(0x7D1BC) { build/us/fallback.o(.rom_renderer_setup_after_depth_blend_origin) }
+    .renderer_material_presets 0x8007C5C0 : AT(0x7D1C0) SUBALIGN(8) { build/us/renderer_material_presets.o(.rodata) }
+    .renderer_setup_after_material_presets 0x8007C770 : AT(0x7D370) { build/us/fallback.o(.rom_renderer_setup_after_material_presets) }
     .renderer_grid_commands 0x8007CA70 : AT(0x7D670) SUBALIGN(4) { build/us/renderer_grid_commands.o(.rodata) }
     .renderer_setup_viewport 0x8007CAC8 : AT(0x7D6C8) SUBALIGN(4) { build/us/renderer_setup_viewport.o(.rodata) }
     .renderer_setup_fallback_7d6d8_7d700 0x8007CAD8 : AT(0x7D6D8) { build/us/fallback.o(.rom_renderer_setup_fallback_7d6d8_7d700) }
@@ -3039,7 +3043,11 @@ ASSERT(SIZEOF(.projection_diagnostic_fallback_7e4f4_7e504) == 0x10, "projection_
 ASSERT(SIZEOF(.renderer_projection_light_state) == 0x8, "renderer_projection_light_state size changed")
 ASSERT(SIZEOF(.projection_diagnostic_fallback_7e50c_7e510) == 0x4, "projection_diagnostic_fallback_7e50c_7e510 size changed")
 ASSERT(SIZEOF(.renderer_projection_normalization) == 0x2, "renderer_projection_normalization size changed")
-ASSERT(SIZEOF(.renderer_setup_fallback_7d150_7d670) == 0x520, "renderer_setup_fallback_7d150_7d670 size changed")
+ASSERT(SIZEOF(.renderer_setup_before_depth_blend_origin) == 0x64, "renderer_setup_before_depth_blend_origin size changed")
+ASSERT(SIZEOF(.renderer_setup_after_depth_blend_origin) == 0x4, "renderer_setup_after_depth_blend_origin size changed")
+ASSERT(SIZEOF(.renderer_setup_after_material_presets) == 0x300, "renderer_setup_after_material_presets size changed")
+ASSERT(SIZEOF(.renderer_depth_blend_origin) == 8, "renderer_depth_blend_origin size changed")
+ASSERT(SIZEOF(.renderer_material_presets) == 432, "renderer_material_presets size changed")
 ASSERT(SIZEOF(.renderer_grid_commands) == 0x58, "renderer_grid_commands size changed")
 ASSERT(SIZEOF(.renderer_setup_viewport) == 0x10, "renderer_setup_viewport size changed")
 ASSERT(SIZEOF(.renderer_setup_fallback_7d6d8_7d700) == 0x28, "renderer_setup_fallback_7d6d8_7d700 size changed")

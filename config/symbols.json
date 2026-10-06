@@ -359,5 +359,65 @@
     "rom": "0x42cb0",
     "vram": "0x800420B0",
     "status": "matching C; see docs/renderer-material-reset.md"
+  },
+  {
+    "name": "D_8007C5B4",
+    "rom": "0x7d1b4",
+    "vram": "0x8007c5b4",
+    "status": "source-owned initialized int; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C5B8",
+    "rom": "0x7d1b8",
+    "vram": "0x8007c5b8",
+    "status": "source-owned initialized int; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C5C0",
+    "rom": "0x7d1c0",
+    "vram": "0x8007c5c0",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C5F0",
+    "rom": "0x7d1f0",
+    "vram": "0x8007c5f0",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C628",
+    "rom": "0x7d228",
+    "vram": "0x8007c628",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C660",
+    "rom": "0x7d260",
+    "vram": "0x8007c660",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C698",
+    "rom": "0x7d298",
+    "vram": "0x8007c698",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C6D0",
+    "rom": "0x7d2d0",
+    "vram": "0x8007c6d0",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C700",
+    "rom": "0x7d300",
+    "vram": "0x8007c700",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C738",
+    "rom": "0x7d338",
+    "vram": "0x8007c738",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
   }
 ]

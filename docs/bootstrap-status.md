@@ -106,3 +106,12 @@ pointing beyond each four-vertex group. This checkpoint verifies 1,419 C
 functions / 303,668 bytes and the entire target ROM. There remain 146,516
 fallback CPU bytes in 190 spans and 164 unclassified bytes. See
 [Rotating ring renderer](renderer-rotating-rings.md) for the range and limits.
+
+The renderer state checkpoint also owns two initialized depth-blend target
+words and eight complete material display lists: 440 additional data bytes.
+Pinned IDO output and independent spimdisasm/splat reassembly agree on each
+range. Initialized source data now totals 31,907 bytes. C instruction totals
+remain 1,419 functions / 303,668 bytes; the inverse camera matrix, depth-blend
+routine and animated RGB grid remain nonmatching candidates. See
+[Renderer material presets](renderer-material-presets.md) for boundaries and
+caller/RSP limits.

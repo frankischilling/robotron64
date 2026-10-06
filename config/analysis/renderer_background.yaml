@@ -1,4 +1,4 @@
-name: Robotron 64 verified background dispatch and material reset ranges
+name: Robotron 64 verified renderer instructions and initialized state
 sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
 options:
   basename: renderer_background
@@ -30,6 +30,20 @@ segments:
     subsegments:
       - [0x42CB0, asm, renderer_material_cache_reset]
   - [0x43430, bin, after_material_reset]
+  - name: renderer_depth_blend_origin
+    type: code
+    start: 0x7D1B4
+    vram: 0x8007C5B4
+    subsegments:
+      - [0x7D1B4, data, renderer_depth_blend_origin]
+  - [0x7D1BC, bin, after_depth_blend_origin]
+  - name: renderer_material_presets
+    type: code
+    start: 0x7D1C0
+    vram: 0x8007C5C0
+    subsegments:
+      - [0x7D1C0, rodata, renderer_material_presets]
+  - [0x7D370, bin, after_material_presets]
   - name: background_color_mode
     type: code
     start: 0x7D8B0

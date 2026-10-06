@@ -61,7 +61,7 @@
     },
     "inputs_sha256": {
       "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
-      "config/owned_sections.json": "cb179d815d7ab55d03cd332c57085ac8e8cfbcc8ae51878194db771fb3eeea44",
+      "config/owned_sections.json": "44a1a45095fad2919a301f64b7bddd87812bb4d15d9e5c97563199479b59adfb",
       "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
       "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
@@ -178,7 +178,7 @@
       "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
       "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
       "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
-      "include/renderer_setup_internal.h": "c3d0fe94d35e4f0231423db7f44c0e9f2796727d89d9a16b4f0b47fae3f51142",
+      "include/renderer_setup_internal.h": "913851e6e45ccfceb7325a210291b6b2ef5f858225cbc60ea01622dfe74a0505",
       "include/renderer_surfaces_internal.h": "bd86ed1e67d674163faff2aaf050bc6d31dc37ef6cfc16f645d348e76f086fe7",
       "include/renderer_texture_cache.h": "c575de43f39051b977175a24ba6514e512da3ca24bf3c12c324179a1dd324ad8",
       "include/renderer_texture_index.h": "fb156fa0de759919adfbfd5b972b160be40db4514598a665ce23356d6ccd129c",
@@ -291,7 +291,7 @@
     },
     "inputs_sha256": {
       "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
-      "config/owned_sections.json": "cb179d815d7ab55d03cd332c57085ac8e8cfbcc8ae51878194db771fb3eeea44",
+      "config/owned_sections.json": "44a1a45095fad2919a301f64b7bddd87812bb4d15d9e5c97563199479b59adfb",
       "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
       "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
@@ -408,7 +408,7 @@
       "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
       "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
       "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
-      "include/renderer_setup_internal.h": "c3d0fe94d35e4f0231423db7f44c0e9f2796727d89d9a16b4f0b47fae3f51142",
+      "include/renderer_setup_internal.h": "913851e6e45ccfceb7325a210291b6b2ef5f858225cbc60ea01622dfe74a0505",
       "include/renderer_surfaces_internal.h": "bd86ed1e67d674163faff2aaf050bc6d31dc37ef6cfc16f645d348e76f086fe7",
       "include/renderer_texture_cache.h": "c575de43f39051b977175a24ba6514e512da3ca24bf3c12c324179a1dd324ad8",
       "include/renderer_texture_index.h": "fb156fa0de759919adfbfd5b972b160be40db4514598a665ce23356d6ccd129c",
@@ -531,12 +531,12 @@
       "runtime-comparison": {
         "units": 901,
         "matches": true,
-        "report_sha256": "764d26b2bb0a875214a865c2ea86673b349d4892430452a0597d4fc53590d761"
+        "report_sha256": "2458e589b0f5c5401a2ef2762ed1aa501217ba7d0eed559ed72e0180b38bbeaa"
       },
       "startup-comparison": {
         "units": 2,
         "matches": true,
-        "report_sha256": "22f7de37abf57f1e4b50726175d4ba6625af56fd955d88adcaab7e54960c07b9"
+        "report_sha256": "d71268c45003bde1010c566c17770e0377c29dbb9f30352a6a58523b5d0b7245"
       },
       "assembly-comparison": {
         "units": 18,
@@ -544,9 +544,9 @@
         "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
       },
       "data-comparison": {
-        "units": 120,
+        "units": 122,
         "matches": true,
-        "report_sha256": "cad47f94e18c247b510be0e95004aabcc7af0949c89e0b0a004f5bdc4cb23b24"
+        "report_sha256": "145ddc1482f60dbf36e06615b70db13a622cb3d4da89885ea131150ea10d18cf"
       }
     },
     "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
@@ -555,7 +555,7 @@
       "matched_c_bytes": 303668,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
-      "source_owned_initialized_bytes": 31467,
+      "source_owned_initialized_bytes": 31907,
       "source_owned_bss_bytes": 521095
     },
     "windows_tests": {
@@ -567,7 +567,8 @@
       "bytes": 146516,
       "spans": 190,
       "unclassified_bytes": 164
-    }
+    },
+    "clean_build_log_sha256": "c6167e889aba5ac4be219bd8b8e3b4b181d17c741bbd0862b9e0afbeb6503083"
   },
   "ghidra": {
     "program": "robotron64.elf",
@@ -605,7 +606,7 @@
         "sha256": "433ebf5bc03dffa38536673207a21281612cef5faa9bc7a4d5b9be2fdb12cf1a"
       }
     ],
-    "spec_sha256": "4392c06a1c8c5556406e9fa18d57f4d89e9beff60bc1388d3041a5a2349ca3d4",
+    "spec_sha256": "4718ec7a31de5b0620b5b4bcfcd5b46f81d230f6fd5d2ca4632841ddcd7b262f",
     "reference_object_sha256": "4b97687a954413dc9e02baaf247a8fa9f1e660c56998369f5d5cebf3bc64c672"
   },
   "execution_checker_sha256": {
