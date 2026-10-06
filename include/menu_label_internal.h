@@ -8,6 +8,8 @@
 
 /* Preserve the two callback argument types supplied by the existing callers. */
 typedef union MenuLabelCallback {
+    /* C89 initializers store either callback without changing its prototype. */
+    void (*entry)();
     void (*select)(int *);
     void (*cancel)(int);
 } MenuLabelCallback;

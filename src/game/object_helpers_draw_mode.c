@@ -1,3 +1,4 @@
+#include "../../include/static_menu_internal.h"
 #include "../../include/object_draw.h"
 #include "../../include/renderer_object_glyph_internal.h"
 #include "../../include/menu_label_internal.h"
@@ -5,9 +6,7 @@
 
 /* Packed colors use the same big-endian byte layout as the palette. */
 extern void *D_800AEE9C;
-extern unsigned char D_8007751C[];
 extern unsigned char D_800773C4[];
-extern unsigned char D_800772F0[];
 extern unsigned char D_80077BCC[];
 extern unsigned char D_80077B70[];
 extern unsigned char D_80076BD8[];

@@ -4067,5 +4067,90 @@
     },
     "static_symbols": {},
     "evidence": "docs/input-sequence-definition.md"
+  },
+  {
+    "source": "src/game/save_menus/static_confirmation/labels.c",
+    "object": "build/us/menu_static_confirmation_labels.o",
+    "input_section": ".data",
+    "section": ".menu_static_confirmation_labels",
+    "vram": 2147971744,
+    "rom": 491168,
+    "size": 80,
+    "symbols": {
+      "D_800772A0": 0
+    },
+    "evidence": "docs/static-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/static_pause/labels.c",
+    "object": "build/us/menu_static_pause_labels.o",
+    "input_section": ".data",
+    "section": ".menu_static_pause_labels",
+    "vram": 2147972180,
+    "rom": 491604,
+    "size": 200,
+    "symbols": {
+      "D_80077454": 0
+    },
+    "evidence": "docs/static-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/static_confirmation/page.c",
+    "object": "build/us/menu_static_confirmation_page.o",
+    "input_section": ".data",
+    "section": ".menu_static_confirmation_page",
+    "vram": 2147971824,
+    "rom": 491248,
+    "size": 52,
+    "symbols": {
+      "D_800772F0": 0
+    },
+    "evidence": "docs/static-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/static_pause/page.c",
+    "object": "build/us/menu_static_pause_page.o",
+    "input_section": ".data",
+    "section": ".menu_static_pause_page",
+    "vram": 2147972380,
+    "rom": 491804,
+    "size": 52,
+    "symbols": {
+      "D_8007751C": 0
+    },
+    "evidence": "docs/static-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/static_confirmation/text.c",
+    "object": "build/us/menu_static_confirmation_text.o",
+    "input_section": ".rodata",
+    "section": ".menu_static_confirmation_text",
+    "vram": 2148086908,
+    "rom": 606332,
+    "size": 16,
+    "symbols": {
+      "D_8009347C": 0,
+      "D_80093480": 4,
+      "D_80093484": 8
+    },
+    "evidence": "docs/static-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/static_pause/text.c",
+    "object": "build/us/menu_static_pause_text.o",
+    "input_section": ".rodata",
+    "section": ".menu_static_pause_text",
+    "vram": 2148087024,
+    "rom": 606448,
+    "size": 80,
+    "symbols": {
+      "D_800934F0": 0,
+      "D_80093508": 24,
+      "D_80093510": 32,
+      "D_8009351C": 44,
+      "D_80093528": 56,
+      "D_80093534": 68
+    },
+    "evidence": "docs/static-menu-records.md"
   }
 ]

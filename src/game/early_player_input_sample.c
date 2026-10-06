@@ -1,7 +1,7 @@
+#include "../../include/static_menu_internal.h"
 #include "../../include/early_input_internal.h"
 
 extern void *D_800AEE9C;
-extern unsigned char D_8007751C[];
 extern unsigned char D_800773C4[];
 
 void func_8001A1F0(GameSessionState *session)

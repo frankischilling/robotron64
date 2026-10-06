@@ -1,3 +1,4 @@
+#include "static_menu_internal.h"
 #ifndef ROBOTRON_SAVE_MENU_NAV_INTERNAL_H
 #define ROBOTRON_SAVE_MENU_NAV_INTERNAL_H
 
@@ -75,8 +76,6 @@ extern unsigned char D_80076D70[];
 extern unsigned char D_80076F18[];
 extern unsigned char *D_80076FBC;
 extern unsigned char D_80077A8C[];
-extern unsigned char D_800772F0[];
-extern unsigned char D_8007751C[];
 extern unsigned char D_80092BF4[];
 extern TextGlyphResource D_800B2218;
 extern float D_FLT_800938D0;
