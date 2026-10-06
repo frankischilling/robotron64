@@ -327,7 +327,8 @@ SECTIONS
     .save_menu_pak_result 0x8002674C : AT(0x2734C) SUBALIGN(4) { build/us/save_menu_pak_result.o(.text) }
     .pak_menu_directory 0x800267BC : AT(0x273BC) SUBALIGN(4) { build/us/pak_menu_directory.o(.text) }
     .save_menu_pak_page_select 0x80026A10 : AT(0x27610) SUBALIGN(4) { build/us/save_menu_pak_page_select.o(.text) }
-    .endgame_2770c_284ac 0x80026B0C : AT(0x2770C) { build/us/fallback.o(.rom_endgame_2770c_284ac) }
+    .menu_display_before 0x80026b0c : AT(0x2770c) { build/us/fallback.o(.rom_menu_display_before) }
+    .menu_display 0x8002741C : AT(0x2801C) SUBALIGN(4) { build/us/menu_display.o(.text) }
     .menu_transition_start 0x800278AC : AT(0x284AC) SUBALIGN(4) { build/us/menu_transition_start.o(.text) }
     .menu_label_assign 0x80027940 : AT(0x28540) SUBALIGN(4) { build/us/menu_label_assign.o(.text) }
     .endgame_28608_28610 0x80027A08 : AT(0x28608) { build/us/fallback.o(.rom_endgame_28608_28610) }
@@ -1212,7 +1213,9 @@ SECTIONS
     .actor_collision_pickup_order 0x800739BC : AT(0x745BC) SUBALIGN(4) { build/us/actor_collision_pickup_order.o(.data) }
     .collision_fallback_745c8_74648 0x800739C8 : AT(0x745C8) { build/us/fallback.o(.rom_collision_fallback_745c8_74648) }
     .early_input_fixed_data_data 0x80073A48 : AT(0x74648) SUBALIGN(4) { build/us/early_input_fixed_data.o(.data) }
-    .menu_static_fallback_74688_77ea0 0x80073a88 : AT(0x74688) { build/us/fallback.o(.rom_menu_static_fallback_74688_77ea0) }
+    .menu_display_choices_before 0x80073a88 : AT(0x74688) { build/us/fallback.o(.rom_menu_display_choices_before) }
+    .menu_display_choices 0x800761F8 : AT(0x76DF8) SUBALIGN(4) { build/us/menu_display_choices.o(.data) }
+    .menu_display_choices_after 0x80076208 : AT(0x76e08) { build/us/fallback.o(.rom_menu_display_choices_after) }
     .menu_static_confirmation_labels 0x800772a0 : AT(0x77ea0) SUBALIGN(4) { build/us/menu_static_confirmation_labels.o(.data) }
     .menu_static_confirmation_page 0x800772f0 : AT(0x77ef0) SUBALIGN(4) { build/us/menu_static_confirmation_page.o(.data) }
     .menu_static_fallback_77f24_78054 0x80077324 : AT(0x77f24) { build/us/fallback.o(.rom_menu_static_fallback_77f24_78054) }
@@ -1371,13 +1374,16 @@ SECTIONS
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
     .endgame_data_92560_93698 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_93698) }
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
-    .menu_static_fallback_936c4_9407c 0x80092ac4 : AT(0x936c4) { build/us/fallback.o(.rom_menu_static_fallback_936c4_9407c) }
+    .menu_display_text_before 0x80092ac4 : AT(0x936c4) { build/us/fallback.o(.rom_menu_display_text_before) }
+    .menu_display_text 0x80092C08 : AT(0x93808) SUBALIGN(4) { build/us/menu_display_text.o(.data) }
+    .menu_display_text_after 0x80092c10 : AT(0x93810) { build/us/fallback.o(.rom_menu_display_text_after) }
     .menu_static_confirmation_text 0x8009347c : AT(0x9407c) SUBALIGN(4) { build/us/menu_static_confirmation_text.o(.rodata) }
     .menu_static_fallback_9408c_940f0 0x8009348c : AT(0x9408c) { build/us/fallback.o(.rom_menu_static_fallback_9408c_940f0) }
     .menu_static_pause_text 0x800934f0 : AT(0x940f0) SUBALIGN(4) { build/us/menu_static_pause_text.o(.rodata) }
     .menu_static_fallback_94140_94438 0x80093540 : AT(0x94140) { build/us/fallback.o(.rom_menu_static_fallback_94140_94438) }
     .pak_directory_strings 0x80093838 : AT(0x94438) SUBALIGN(4) { build/us/pak_directory_strings.o(.data) }
-    .endgame_data_936c4_9450c_after_pak 0x800938C8 : AT(0x944C8) { build/us/fallback.o(.rom_endgame_data_936c4_9450c_after_pak) }
+    .menu_display_never 0x800938C8 : AT(0x944C8) SUBALIGN(4) { build/us/menu_display_never.o(.data) }
+    .menu_display_never_after 0x800938d0 : AT(0x944d0) { build/us/fallback.o(.rom_menu_display_never_after) }
     .actor_pool_allocate_strings 0x8009390C : AT(0x9450C) SUBALIGN(4) { build/us/actor_pool_allocate.o(.rodata) }
     .actor_human_diagnostic 0x8009396C : AT(0x9456C) SUBALIGN(4) { build/us/actor_human_diagnostic.o(.data) }
     .actor_behavior_diagnostic 0x80093988 : AT(0x94588) SUBALIGN(4) { build/us/actor_behavior_diagnostic.o(.data) }
@@ -2714,7 +2720,6 @@ ASSERT(SIZEOF(.fixed_matrix_rsp) == 0x144, "fixed_matrix_rsp size changed")
 ASSERT(SIZEOF(.object_history_write) == 0x148, "object_history_write size changed")
 ASSERT(SIZEOF(.object_history_write_rodata) == 0x4, "object_history_write_rodata size changed")
 ASSERT(SIZEOF(.pak_menu_directory) == 0x254, "pak_menu_directory size changed")
-ASSERT(SIZEOF(.endgame_2770c_284ac) == 0xda0, "endgame_2770c_284ac size changed")
 ASSERT(SIZEOF(.endgame_48d64_48d70) == 0xc, "endgame_48d64_48d70 size changed")
 D_8007C970 = 0x8007C970;
 D_8013823C = 0x8013823C;
@@ -2907,10 +2912,8 @@ D_8013D958 = 0x8013D958;
 ASSERT(SIZEOF(.actor_pool_allocate) == 0x314, "actor_pool_allocate size changed")
 ASSERT(SIZEOF(.actor_pool_allocate_strings) == 0x60, "actor_pool_allocate_strings size changed")
 ASSERT(SIZEOF(.endgame_292e8_29c20) == 0x938, "endgame_292e8_29c20 size changed")
-ASSERT(SIZEOF(.menu_static_fallback_936c4_9407c) == 0x9b8, "menu_static_fallback_936c4_9407c size changed")
 ASSERT(SIZEOF(.menu_static_fallback_9408c_940f0) == 0x64, "menu_static_fallback_9408c_940f0 size changed")
 ASSERT(SIZEOF(.menu_static_fallback_94140_94438) == 0x2f8, "menu_static_fallback_94140_94438 size changed")
-ASSERT(SIZEOF(.endgame_data_936c4_9450c_after_pak) == 0x44, "endgame_data_936c4_9450c_after_pak size changed")
 ASSERT(SIZEOF(.actor_pool_allocate_bss) == 0x60E0, "actor pool size changed")
 D_800A4620 = 0x800A4620;
 D_800759EC = 0x800759EC;
@@ -2984,7 +2987,6 @@ ASSERT(SIZEOF(.diagnostic_fallback_8d738_8df60) == 0x828, "diagnostic_fallback_8
 ASSERT(SIZEOF(.renderer_diagnostic_asset_lengths) == 0xc, "renderer_diagnostic_asset_lengths size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_78db8_78de4) == 0x2c, "diagnostic_fallback_78db8_78de4 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_instance_pool) == 0x8, "renderer_diagnostic_instance_pool size changed")
-ASSERT(SIZEOF(.menu_static_fallback_74688_77ea0) == 0x3818, "menu_static_fallback_74688_77ea0 size changed")
 ASSERT(SIZEOF(.menu_static_fallback_77f24_78054) == 0x130, "menu_static_fallback_77f24_78054 size changed")
 ASSERT(SIZEOF(.menu_static_fallback_78150_78694) == 0x544, "menu_static_fallback_78150_78694 size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_74688_786a0_after_pak) == 0x8, "diagnostic_fallback_74688_786a0_after_pak size changed")
@@ -3247,3 +3249,13 @@ ASSERT(SIZEOF(.menu_static_confirmation_page) == 0x34, "menu_static_confirmation
 ASSERT(SIZEOF(.menu_static_pause_page) == 0x34, "menu_static_pause_page size changed")
 ASSERT(SIZEOF(.menu_static_confirmation_text) == 0x10, "menu_static_confirmation_text size changed")
 ASSERT(SIZEOF(.menu_static_pause_text) == 0x50, "menu_static_pause_text size changed")
+ASSERT(SIZEOF(.menu_display_before) == 0x910, "menu_display_before size changed")
+ASSERT(SIZEOF(.menu_display) == 0x490, "menu_display size changed")
+ASSERT(SIZEOF(.menu_display_choices_before) == 0x2770, "menu_display_choices_before size changed")
+ASSERT(SIZEOF(.menu_display_choices_after) == 0x1098, "menu_display_choices_after size changed")
+ASSERT(SIZEOF(.menu_display_choices) == 0x10, "menu_display_choices size changed")
+ASSERT(SIZEOF(.menu_display_text_before) == 0x144, "menu_display_text_before size changed")
+ASSERT(SIZEOF(.menu_display_text_after) == 0x86c, "menu_display_text_after size changed")
+ASSERT(SIZEOF(.menu_display_text) == 0x8, "menu_display_text size changed")
+ASSERT(SIZEOF(.menu_display_never_after) == 0x3c, "menu_display_never_after size changed")
+ASSERT(SIZEOF(.menu_display_never) == 0x8, "menu_display_never size changed")

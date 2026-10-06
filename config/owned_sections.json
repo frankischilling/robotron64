@@ -4152,5 +4152,45 @@
       "D_80093534": 68
     },
     "evidence": "docs/static-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/display/choices.c",
+    "object": "build/us/menu_display_choices.o",
+    "input_section": ".data",
+    "section": ".menu_display_choices",
+    "vram": 2147967480,
+    "rom": 486904,
+    "size": 16,
+    "symbols": {
+      "D_800761F8": 0
+    },
+    "evidence": "docs/menu-display.md"
+  },
+  {
+    "source": "src/game/save_menus/display/text.c",
+    "object": "build/us/menu_display_text.o",
+    "input_section": ".data",
+    "section": ".menu_display_text",
+    "vram": 2148084744,
+    "rom": 604168,
+    "size": 8,
+    "symbols": {
+      "D_80092C08": 0,
+      "D_80092C0C": 4
+    },
+    "evidence": "docs/menu-display.md"
+  },
+  {
+    "source": "src/game/save_menus/display/never.c",
+    "object": "build/us/menu_display_never.o",
+    "input_section": ".data",
+    "section": ".menu_display_never",
+    "vram": 2148088008,
+    "rom": 607432,
+    "size": 8,
+    "symbols": {
+      "D_800938C8": 0
+    },
+    "evidence": "docs/menu-display.md"
   }
 ]

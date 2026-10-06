@@ -1,24 +1,69 @@
 {
-  "scope": "284 complete C instruction bytes and 32 complete initialized diagnostic bytes; zero new BSS ownership.",
-  "previous_accepted_head": "e835d79f2dc2d53f84ddf214452a244254268ced",
-  "source_instruction_bytes": 284,
+  "scope": "1168 complete C instruction bytes and 32 initialized bytes; zero new BSS ownership.",
+  "previous_accepted_head": "568796e6300b288ed8758ae73b3bf1616b7184e1",
+  "source_instruction_bytes": 1168,
   "source_initialized_bytes": 32,
   "source_bss_bytes": 0,
-  "source": "src/game/input_sequences/define.c",
-  "initialized_source": "src/game/input_sequences/limit_message.c",
+  "sources": [
+    "src/game/save_menus/display/submit.c",
+    "src/game/save_menus/display/choices.c",
+    "src/game/save_menus/display/text.c",
+    "src/game/save_menus/display/never.c"
+  ],
   "range": {
-    "vram_start": "0x8001BE2C",
-    "vram_end": "0x8001BF48",
-    "rom_start": "0x1CA2C",
-    "rom_end": "0x1CB48",
-    "live_bytes": 284,
-    "raw_text_bytes": 288,
-    "compiler_alignment_bytes_trimmed": 4,
-    "stack_frame_bytes": 64,
+    "vram_start": "0x8002741C",
+    "vram_end": "0x800278AC",
+    "rom_start": "0x2801C",
+    "rom_end": "0x284AC",
+    "live_bytes": 1168,
+    "raw_text_bytes": 1168,
+    "frame_bytes": 248,
     "generated_tables": false
   },
+  "initialized_ownership": [
+    {
+      "source": "src/game/save_menus/display/choices.c",
+      "object": "build/us/menu_display_choices.o",
+      "input_section": ".data",
+      "section": ".menu_display_choices",
+      "vram": 2147967480,
+      "rom": 486904,
+      "size": 16,
+      "symbols": {
+        "D_800761F8": 0
+      },
+      "evidence": "docs/menu-display.md"
+    },
+    {
+      "source": "src/game/save_menus/display/text.c",
+      "object": "build/us/menu_display_text.o",
+      "input_section": ".data",
+      "section": ".menu_display_text",
+      "vram": 2148084744,
+      "rom": 604168,
+      "size": 8,
+      "symbols": {
+        "D_80092C08": 0,
+        "D_80092C0C": 4
+      },
+      "evidence": "docs/menu-display.md"
+    },
+    {
+      "source": "src/game/save_menus/display/never.c",
+      "object": "build/us/menu_display_never.o",
+      "input_section": ".data",
+      "section": ".menu_display_never",
+      "vram": 2148088008,
+      "rom": 607432,
+      "size": 8,
+      "symbols": {
+        "D_800938C8": 0
+      },
+      "evidence": "docs/menu-display.md"
+    }
+  ],
   "compiler_comparison": {
-    "source": "src/game/input_sequences/define.c",
+    "source": "src/game/save_menus/display/submit.c",
     "compiler_profile": {
       "name": "game",
       "version": "5.3",
@@ -37,23 +82,23 @@
       "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
       "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
     },
-    "expected_size": 284,
-    "actual_size": 284,
+    "expected_size": 1168,
+    "actual_size": 1168,
     "matches": true,
     "different_words": []
   },
-  "fresh_match": {
+  "fresh_workbench_comparison": {
     "blocks": [
       {
         "artifacts": {
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/6cf268a84993d93faa6d4e7ed15d31b133d9845c71dc386088039a7b42a24c2c/input_sequence_definition/candidate.ld": "a2bb30fcd29a1e15b8a4d62c56e00c0ecca6b3fa584341b99ce4a5415509b8d3",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/6cf268a84993d93faa6d4e7ed15d31b133d9845c71dc386088039a7b42a24c2c/input_sequence_definition/input_sequence_definition.bin": "acc2fd57100fe0792e6489bfdf73e86786a5f413396a1ec7849df4c7ca8b0f9b",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/6cf268a84993d93faa6d4e7ed15d31b133d9845c71dc386088039a7b42a24c2c/input_sequence_definition/input_sequence_definition.elf": "3cbb18733a9638417c17a7c1ba32d6e03eea985128b237f745c10445d9c1f09b",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/6cf268a84993d93faa6d4e7ed15d31b133d9845c71dc386088039a7b42a24c2c/input_sequence_definition/input_sequence_definition.o": "613e573f3387c0478cafa6d8e481ac391048106a14830c61019267a1d194c175",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/6cf268a84993d93faa6d4e7ed15d31b133d9845c71dc386088039a7b42a24c2c/input_sequence_definition/input_sequence_definition.raw.o": "b4cfc1f56e43b11f346c381eefe5b9625db864852872bd6dad0a369cc645e35f"
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/727520e42ab3e9bbbcd3ca3a0829a6cee8a6b182b90e3b1b19dba89574bd56d6/menu_display/candidate.ld": "e84ff355f54217e75793fc57fc1eb0f560a2329c0a56a52c02972270cd4ff7d9",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/727520e42ab3e9bbbcd3ca3a0829a6cee8a6b182b90e3b1b19dba89574bd56d6/menu_display/menu_display.bin": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/727520e42ab3e9bbbcd3ca3a0829a6cee8a6b182b90e3b1b19dba89574bd56d6/menu_display/menu_display.elf": "815c2572965b2a3037424b0777d3cb0dfb0f93bb50377034fa456d59b8ae1e90",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/727520e42ab3e9bbbcd3ca3a0829a6cee8a6b182b90e3b1b19dba89574bd56d6/menu_display/menu_display.o": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/727520e42ab3e9bbbcd3ca3a0829a6cee8a6b182b90e3b1b19dba89574bd56d6/menu_display/menu_display.raw.o": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a"
         },
         "cached": false,
-        "directory": "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/6cf268a84993d93faa6d4e7ed15d31b133d9845c71dc386088039a7b42a24c2c/input_sequence_definition",
+        "directory": "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/727520e42ab3e9bbbcd3ca3a0829a6cee8a6b182b90e3b1b19dba89574bd56d6/menu_display",
         "identity": {
           "compiler_identity": {
             "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
@@ -266,7 +311,7 @@
             "include/static_menu_internal.h": "dc3ba1bf5f36927bd6e49af40f9d1101975ce39c0fc4f35b43753201060e5203",
             "include/text.h": "d954d557366f88590d863a335130d609cba06def33ad93145a8ff449394b6761",
             "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-            "src/game/input_sequences/define.c": "692a6bec4a8413e1c74e6d04b31dbe88333ec0e0e82fd84c8643ec642fdfe48a",
+            "src/game/save_menus/display/submit.c": "00a68c224d8eaa6d90efa4ac57d5e902ca396df6e8d23cf9dcc6e5b97230c985",
             "tools/analyze.py": "f701d370cb7dff44c7a8df80ca59bfdd9d5be2404a996b1ab320d0ab061b57d7",
             "tools/audit_publication.py": "73e6ba362649a7b4b4ce3c9da9ea5755c21147b432a8d4b0d80094a5ab10b92c",
             "tools/check_actor_bonus_child.py": "c9ee7cff6afdccca3cc4551ac815c9fad9f7f0fb391a9e0e22870ff0cb86ae6d",
@@ -345,19 +390,19 @@
             "tools/verify.py": "4538e30a5f5b91aceb832c21c6d7880e93c9b354324649b903e503e4c4fc5773"
           },
           "record": {
-            "name": "input_sequence_definition",
-            "rom": 117292,
-            "size": 284,
-            "source": "src/game/input_sequences/define.c",
-            "vram": 2147597868
+            "name": "menu_display",
+            "rom": 163868,
+            "size": 1168,
+            "source": "src/game/save_menus/display/submit.c",
+            "vram": 2147644444
           },
           "repo": "/root/robotron64-validation/palette-transition-20261005",
           "runner_sha256": "3dd74f465893a535361e4a0ac14cfeabbeb6467c8ee82f3d0a7b606a3047f9ae",
           "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd"
         },
-        "key": "6cf268a84993d93faa6d4e7ed15d31b133d9845c71dc386088039a7b42a24c2c",
+        "key": "727520e42ab3e9bbbcd3ca3a0829a6cee8a6b182b90e3b1b19dba89574bd56d6",
         "result": {
-          "actual_size": 284,
+          "actual_size": 1168,
           "compiler_profile": {
             "flags": [
               "-O2",
@@ -371,9 +416,9 @@
             "version": "5.3"
           },
           "different_words": [],
-          "expected_size": 284,
+          "expected_size": 1168,
           "matches": true,
-          "source": "src/game/input_sequences/define.c",
+          "source": "src/game/save_menus/display/submit.c",
           "toolchain_identity": {
             "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
             "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
@@ -386,621 +431,1227 @@
     ],
     "matches": true
   },
-  "independent_instruction_reassembly": [
-    {
-      "tool": "spim",
-      "function_bytes": 284,
-      "raw_text_bytes": 288,
-      "alignment_bytes_trimmed": 4,
-      "retail_equal": true,
-      "sha256": "acc2fd57100fe0792e6489bfdf73e86786a5f413396a1ec7849df4c7ca8b0f9b",
-      "object_sha256": "ac7d1f7ff0ecccf25830f2bfc20bd0154bc9ece834ba70c23ff105833199f3be",
-      "undefined_symbols": [
-        "D_80073A48",
-        "D_80073A78",
-        "D_80073A80",
-        "D_800903C8",
-        "D_8009E588",
-        "D_8009E590",
-        "D_8009EE08",
-        "D_8009EE24",
-        "D_8009EF58",
-        "D_8009EF74",
-        "func_8001C0D0"
-      ]
-    },
-    {
-      "tool": "splat",
-      "function_bytes": 284,
-      "raw_text_bytes": 288,
-      "alignment_bytes_trimmed": 4,
-      "retail_equal": true,
-      "sha256": "acc2fd57100fe0792e6489bfdf73e86786a5f413396a1ec7849df4c7ca8b0f9b",
-      "object_sha256": "90d1ca454ccca217569c4d3f3710c79dcc253a51b423afe78b76f9cd4ff0aa03",
-      "undefined_symbols": [
-        "D_80073A48",
-        "D_80073A78",
-        "D_80073A80",
-        "D_800903C8",
-        "D_8009E588",
-        "D_8009E590",
-        "D_8009EE08",
-        "D_8009EE24",
-        "D_8009EF58",
-        "D_8009EF74",
-        "func_8001C0D0"
-      ]
-    }
-  ],
-  "independent_message_reassembly": [
-    {
-      "section": "input_sequence_limit_message",
-      "tool": "spim",
-      "bytes": 32,
-      "raw_bytes": 32,
+  "raw_objects": {
+    "src/game/save_menus/display/submit.c": {
+      "raw_allocated_bytes": 1168,
+      "owned_bytes": 1168,
       "alignment_trimmed": 0,
-      "retail_equal": true,
-      "sha256": "f109d479374541603a1a71deeb7586848096db3b4f86572ce22b7754c92f9276"
+      "symbol_offsets": {
+        "func_8002741C": 0
+      },
+      "no_generated_table_or_extra_live_sections": true,
+      "object_sha256": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a"
     },
-    {
-      "section": "input_sequence_limit_message",
-      "tool": "splat",
-      "bytes": 32,
-      "raw_bytes": 32,
+    "src/game/save_menus/display/choices.c": {
+      "raw_allocated_bytes": 16,
+      "owned_bytes": 16,
       "alignment_trimmed": 0,
-      "retail_equal": true,
-      "sha256": "f109d479374541603a1a71deeb7586848096db3b4f86572ce22b7754c92f9276"
+      "symbol_offsets": {
+        "D_800761F8": 0
+      },
+      "no_generated_table_or_extra_live_sections": true,
+      "object_sha256": "6275b4b44a131bbd40480b1c737c96cf46ce0c274971fdce446663bdee844a36"
+    },
+    "src/game/save_menus/display/text.c": {
+      "raw_allocated_bytes": 16,
+      "owned_bytes": 8,
+      "alignment_trimmed": 8,
+      "symbol_offsets": {
+        "D_80092C08": 0,
+        "D_80092C0C": 4
+      },
+      "no_generated_table_or_extra_live_sections": true,
+      "object_sha256": "5f11abc82d2404628ad9d80ef6af253fccc52e4fdab489966140642fc222ba70"
+    },
+    "src/game/save_menus/display/never.c": {
+      "raw_allocated_bytes": 16,
+      "owned_bytes": 8,
+      "alignment_trimmed": 8,
+      "symbol_offsets": {
+        "D_800938C8": 0
+      },
+      "no_generated_table_or_extra_live_sections": true,
+      "object_sha256": "a085d3c5dba1f8cf2d6c3dfde73a7422c989ca1577b3308ea2edb9ab3b5d34a9"
     }
-  ],
-  "objdiff": {
-    "whole_function_and_text_percent": 100,
-    "text_bytes": 284,
-    "message_section_percent": 100,
-    "message_section_bytes": 32,
-    "function_report_sha256": "f7822107ae449c9579cf8e9b86b3d6695b46b68f248215c58b9e933a5c0a0c6c",
-    "message_report_sha256": "f085dddedad01df8aa5b937e0d20654020473499f1e389fe9232253793fc537b"
   },
-  "asm_differ": {
-    "score": 0,
-    "report_sha256": "45292956d74624a42d03e14e9fe562e4838a102c348d50fc0e74db7750b1b992"
-  },
-  "message": {
-    "address": "0x800903C8",
-    "rom": "0x90FC8",
-    "array_bytes": 31,
-    "elf_symbol_size": 0,
-    "initialized_section_bytes": 32,
-    "alignment_bytes_retained": 1,
-    "bytes_sha256": "f109d479374541603a1a71deeb7586848096db3b4f86572ce22b7754c92f9276",
-    "generated_executable_content": false
-  },
-  "record_layout": {
-    "name": "EarlyInputSequence",
-    "size": 28,
-    "alignment": 4,
-    "fields": [
-      {
-        "offset": 0,
-        "size": 4,
-        "type": "int",
-        "name": "unknown00"
-      },
-      {
-        "offset": 4,
-        "size": 4,
-        "type": "int",
-        "name": "unknown04"
-      },
+  "verified_compiler_relocations": {
+    "src/game/save_menus/display/submit.c": [
       {
         "offset": 8,
-        "size": 4,
-        "type": "int",
-        "name": "unknown08"
+        "type": "R_MIPS_HI16",
+        "symbol": "D_800AEE98",
+        "symbol_address": "0x800AEE98",
+        "retail_equal": true,
+        "addend": 0,
+        "paired_low_offset": 12,
+        "resolved_address": "0x800AEE98"
       },
       {
         "offset": 12,
-        "size": 4,
-        "type": "int",
-        "name": "unknown0C"
+        "type": "R_MIPS_LO16",
+        "symbol": "D_800AEE98",
+        "symbol_address": "0x800AEE98",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x800AEE98"
       },
       {
-        "offset": 16,
-        "size": 4,
-        "type": "int",
-        "name": "unknown10"
+        "offset": 72,
+        "type": "R_MIPS_26",
+        "symbol": "func_80000518",
+        "symbol_address": "0x80000518",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80000518"
       },
       {
-        "offset": 20,
-        "size": 4,
-        "type": "int",
-        "name": "length"
+        "offset": 104,
+        "type": "R_MIPS_26",
+        "symbol": "func_800011AC",
+        "symbol_address": "0x800011AC",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x800011AC"
       },
       {
-        "offset": 24,
-        "size": 4,
-        "type": "short *",
-        "name": "buttons"
+        "offset": 112,
+        "type": "R_MIPS_HI16",
+        "symbol": "D_800761F4",
+        "symbol_address": "0x800761F4",
+        "retail_equal": true,
+        "addend": 0,
+        "paired_low_offset": 116,
+        "resolved_address": "0x800761F4"
+      },
+      {
+        "offset": 116,
+        "type": "R_MIPS_LO16",
+        "symbol": "D_800761F4",
+        "symbol_address": "0x800761F4",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x800761F4"
+      },
+      {
+        "offset": 272,
+        "type": "R_MIPS_26",
+        "symbol": "func_8000177C",
+        "symbol_address": "0x8000177C",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8000177C"
+      },
+      {
+        "offset": 284,
+        "type": "R_MIPS_HI16",
+        "symbol": "D_8009EF94",
+        "symbol_address": "0x8009EF94",
+        "retail_equal": true,
+        "addend": 0,
+        "paired_low_offset": 292,
+        "resolved_address": "0x8009EF94"
+      },
+      {
+        "offset": 292,
+        "type": "R_MIPS_LO16",
+        "symbol": "D_8009EF94",
+        "symbol_address": "0x8009EF94",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8009EF94"
+      },
+      {
+        "offset": 356,
+        "type": "R_MIPS_26",
+        "symbol": "func_80000518",
+        "symbol_address": "0x80000518",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80000518"
+      },
+      {
+        "offset": 388,
+        "type": "R_MIPS_26",
+        "symbol": "func_800011AC",
+        "symbol_address": "0x800011AC",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x800011AC"
+      },
+      {
+        "offset": 408,
+        "type": "R_MIPS_26",
+        "symbol": "func_80000518",
+        "symbol_address": "0x80000518",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80000518"
+      },
+      {
+        "offset": 440,
+        "type": "R_MIPS_26",
+        "symbol": "func_800011AC",
+        "symbol_address": "0x800011AC",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x800011AC"
+      },
+      {
+        "offset": 480,
+        "type": "R_MIPS_26",
+        "symbol": "func_8004CDE8",
+        "symbol_address": "0x8004CDE8",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8004CDE8"
+      },
+      {
+        "offset": 548,
+        "type": "R_MIPS_26",
+        "symbol": "func_80000E74",
+        "symbol_address": "0x80000E74",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80000E74"
+      },
+      {
+        "offset": 572,
+        "type": "R_MIPS_26",
+        "symbol": "func_80000E74",
+        "symbol_address": "0x80000E74",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80000E74"
+      },
+      {
+        "offset": 596,
+        "type": "R_MIPS_26",
+        "symbol": "func_80000B7C",
+        "symbol_address": "0x80000B7C",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80000B7C"
+      },
+      {
+        "offset": 628,
+        "type": "R_MIPS_26",
+        "symbol": "func_8003B4FC",
+        "symbol_address": "0x8003B4FC",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8003B4FC"
+      },
+      {
+        "offset": 640,
+        "type": "R_MIPS_HI16",
+        "symbol": "D_800761F8",
+        "symbol_address": "0x800761F8",
+        "retail_equal": true,
+        "addend": 0,
+        "paired_low_offset": 664,
+        "resolved_address": "0x800761F8"
+      },
+      {
+        "offset": 664,
+        "type": "R_MIPS_LO16",
+        "symbol": "D_800761F8",
+        "symbol_address": "0x800761F8",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x800761F8"
+      },
+      {
+        "offset": 668,
+        "type": "R_MIPS_26",
+        "symbol": "func_80001270",
+        "symbol_address": "0x80001270",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80001270"
+      },
+      {
+        "offset": 736,
+        "type": "R_MIPS_HI16",
+        "symbol": "D_800938C8",
+        "symbol_address": "0x800938C8",
+        "retail_equal": true,
+        "addend": 0,
+        "paired_low_offset": 740,
+        "resolved_address": "0x800938C8"
+      },
+      {
+        "offset": 740,
+        "type": "R_MIPS_LO16",
+        "symbol": "D_800938C8",
+        "symbol_address": "0x800938C8",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x800938C8"
+      },
+      {
+        "offset": 744,
+        "type": "R_MIPS_26",
+        "symbol": "func_8003B6E4",
+        "symbol_address": "0x8003B6E4",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8003B6E4"
+      },
+      {
+        "offset": 768,
+        "type": "R_MIPS_26",
+        "symbol": "func_8003B928",
+        "symbol_address": "0x8003B928",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8003B928"
+      },
+      {
+        "offset": 776,
+        "type": "R_MIPS_26",
+        "symbol": "func_8003B4FC",
+        "symbol_address": "0x8003B4FC",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8003B4FC"
+      },
+      {
+        "offset": 816,
+        "type": "R_MIPS_26",
+        "symbol": "func_8003B4FC",
+        "symbol_address": "0x8003B4FC",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8003B4FC"
+      },
+      {
+        "offset": 840,
+        "type": "R_MIPS_26",
+        "symbol": "func_8003B4FC",
+        "symbol_address": "0x8003B4FC",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8003B4FC"
+      },
+      {
+        "offset": 856,
+        "type": "R_MIPS_26",
+        "symbol": "func_80001270",
+        "symbol_address": "0x80001270",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80001270"
+      },
+      {
+        "offset": 876,
+        "type": "R_MIPS_26",
+        "symbol": "func_8003B4FC",
+        "symbol_address": "0x8003B4FC",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8003B4FC"
+      },
+      {
+        "offset": 912,
+        "type": "R_MIPS_26",
+        "symbol": "func_8003BCC4",
+        "symbol_address": "0x8003BCC4",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8003BCC4"
+      },
+      {
+        "offset": 920,
+        "type": "R_MIPS_26",
+        "symbol": "func_80000518",
+        "symbol_address": "0x80000518",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80000518"
+      },
+      {
+        "offset": 936,
+        "type": "R_MIPS_26",
+        "symbol": "func_80001270",
+        "symbol_address": "0x80001270",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80001270"
+      },
+      {
+        "offset": 948,
+        "type": "R_MIPS_26",
+        "symbol": "func_80000E74",
+        "symbol_address": "0x80000E74",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80000E74"
+      },
+      {
+        "offset": 1100,
+        "type": "R_MIPS_26",
+        "symbol": "func_8000177C",
+        "symbol_address": "0x8000177C",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x8000177C"
       }
-    ]
-  },
-  "ido_record_layout_probe": {
-    "size": 28,
-    "alignment": 4,
-    "field_offsets": [
-      0,
-      4,
-      8,
-      12,
-      16,
-      20,
-      24
     ],
-    "diagnostic_array_bytes": 31,
-    "object_sha256": "27b8a54750c249f8cf754defe3116bee9627cd72a091f124287b95c348ba341e",
-    "probe_source_sha256": "2b9aa775ec5cbb79fdcf8225705b37273ecea2bbfd708080f24a3ae557eb0d59",
-    "source_owned": false
+    "src/game/save_menus/display/choices.c": [
+      {
+        "offset": 0,
+        "type": "R_MIPS_32",
+        "symbol": "D_80092C08",
+        "symbol_address": "0x80092C08",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80092C08"
+      },
+      {
+        "offset": 8,
+        "type": "R_MIPS_32",
+        "symbol": "D_80092C0C",
+        "symbol_address": "0x80092C0C",
+        "retail_equal": true,
+        "addend": 0,
+        "resolved_address": "0x80092C0C"
+      }
+    ],
+    "src/game/save_menus/display/text.c": [],
+    "src/game/save_menus/display/never.c": []
   },
-  "aliases": {
-    "D_8009EE24": {
-      "base": "D_8009EE08",
-      "index": 1,
-      "stride": 28
+  "independent_reference_reassembly": [
+    {
+      "section": "menu_display",
+      "tool": "spim",
+      "bytes": 1168,
+      "raw_bytes": 1168,
+      "alignment_trimmed": 0,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [
+        "D_800761F4",
+        "D_800761F8",
+        "D_800938C8",
+        "D_8009EF94",
+        "D_800AEE98",
+        "func_80000518",
+        "func_80000B7C",
+        "func_80000E74",
+        "func_800011AC",
+        "func_80001270",
+        "func_8000177C",
+        "func_8003B4FC",
+        "func_8003B6E4",
+        "func_8003B928",
+        "func_8003BCC4",
+        "func_8004CDE8"
+      ],
+      "sha256": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
+      "object_sha256": "442e7f08e5b5b19105e671f0da5aee9678a38cb24c6dd79b7a891c9efcdbf8dd",
+      "linked_elf_sha256": "26e050f0e2972e6554d44fc01ffa9c6f88ff96253dbdf9db335151d74bf03504"
     },
-    "D_8009EF58": {
-      "base": "D_8009EE08",
-      "index": 12,
-      "stride": 28
+    {
+      "section": "menu_display",
+      "tool": "splat",
+      "bytes": 1168,
+      "raw_bytes": 1168,
+      "alignment_trimmed": 0,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [
+        "D_800761F4",
+        "D_800761F8",
+        "D_800938C8",
+        "D_8009EF94",
+        "D_800AEE98",
+        "func_80000518",
+        "func_80000B7C",
+        "func_80000E74",
+        "func_800011AC",
+        "func_80001270",
+        "func_8000177C",
+        "func_8003B4FC",
+        "func_8003B6E4",
+        "func_8003B928",
+        "func_8003BCC4",
+        "func_8004CDE8"
+      ],
+      "sha256": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
+      "object_sha256": "27988384f3a40eef5ba30e144876007cdaedf5f47851b79f0c70a2e9665f4034",
+      "linked_elf_sha256": "303102b15c80e29e52ec2356ba1f0dac1b97744f21c20c6f713530f6f31e253d"
     },
-    "D_8009EF74": {
-      "base": "D_8009EE08",
-      "index": 13,
-      "stride": 28
+    {
+      "section": "menu_display_choices",
+      "tool": "spim",
+      "bytes": 16,
+      "raw_bytes": 16,
+      "alignment_trimmed": 0,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "f5ef8d0e2aa35ed049cd734dfd24c2f4fdbbb0784699c981a730fc0058a78b75",
+      "object_sha256": "b2d791918a81abd62b743f63fad0ee912ed916f4bc39560a2dae942d22055fd8",
+      "linked_elf_sha256": "d7ce8e8bfa944da1a8e07f5eccbc5112502f8cc154b0fac96e94eddc1affc74e"
+    },
+    {
+      "section": "menu_display_choices",
+      "tool": "splat",
+      "bytes": 16,
+      "raw_bytes": 16,
+      "alignment_trimmed": 0,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [
+        "D_80092C08",
+        "D_80092C0C"
+      ],
+      "sha256": "f5ef8d0e2aa35ed049cd734dfd24c2f4fdbbb0784699c981a730fc0058a78b75",
+      "object_sha256": "32cc0b4c3e25fac89ec6903ca3073fcf06c70ecef20c8d2a1f9b50b93f5c1920",
+      "linked_elf_sha256": "46ea80932f8e738c88ebad87ee1e7f8b1d94928857051881af8229c661e4e384"
+    },
+    {
+      "section": "menu_display_text",
+      "tool": "spim",
+      "bytes": 8,
+      "raw_bytes": 16,
+      "alignment_trimmed": 8,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "df7aa71963e07aac662cfe99f9f599be7d72b065af88e72e21c6b853285fa235",
+      "object_sha256": "0c843dfcf61829fc4fd93d4baf2f4b2d0a57f4757226f1d8e3805ec3f9c53f68",
+      "linked_elf_sha256": "5068e201b63d8983f0f166c1b81e399dde192a2c09ef53e6305834a9a08b1d9e"
+    },
+    {
+      "section": "menu_display_text",
+      "tool": "splat",
+      "bytes": 8,
+      "raw_bytes": 16,
+      "alignment_trimmed": 8,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "df7aa71963e07aac662cfe99f9f599be7d72b065af88e72e21c6b853285fa235",
+      "object_sha256": "a727018da1f5538571c3ed069fc5cb0f0562bd0d8f1c7063996be7d5e39ab52c",
+      "linked_elf_sha256": "e5e138d4893ba6e0962c698dd7c8b53f2fbfad6a81683be2e9290a5271a624b7"
+    },
+    {
+      "section": "menu_display_never",
+      "tool": "spim",
+      "bytes": 8,
+      "raw_bytes": 16,
+      "alignment_trimmed": 8,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12",
+      "object_sha256": "91f50671349f05348b90f3a2434b1558075582d72fe7bfbf3368317bb7bf326b",
+      "linked_elf_sha256": "e90cd968442d60991cbe363f5bb1cbb7d476e828537977179a3c5f6afa2fa58c"
+    },
+    {
+      "section": "menu_display_never",
+      "tool": "splat",
+      "bytes": 8,
+      "raw_bytes": 16,
+      "alignment_trimmed": 8,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12",
+      "object_sha256": "647cb30be3264492be9dfc40baa4212d5f1c8d88e06a08959eac363be269a471",
+      "linked_elf_sha256": "6a228451fe1ea0a960f25e307a02c2d81fea6217c8b475124593058e3fc31b18"
     }
+  ],
+  "objdiff": [
+    {
+      "section": "menu_display",
+      "tool": "spim",
+      "bytes": 1168,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "cc0239437aacf4637c2c9194cdd071600e7c0cf07b34e7bf79d5cad8dff3e7a8"
+    },
+    {
+      "section": "menu_display",
+      "tool": "splat",
+      "bytes": 1168,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "1f8061d6a40a88d7e3bfbb70ce733229d84145080977cebcf4906320fe3f31ce"
+    },
+    {
+      "section": "menu_display_choices",
+      "tool": "spim",
+      "bytes": 16,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "465658e9ebddf7eae286687c7758e53840c4861f28017b92b40f4bec033e5865"
+    },
+    {
+      "section": "menu_display_choices",
+      "tool": "splat",
+      "bytes": 16,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "f11ea3030967ca31934a298c470759f246979d8fa7b60ad355889b1e67398e7b"
+    },
+    {
+      "section": "menu_display_text",
+      "tool": "spim",
+      "bytes": 8,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "6a67417feff3bc7b53e91cffa45fd72e72f49c35569eb83cebdf483c8449451b"
+    },
+    {
+      "section": "menu_display_text",
+      "tool": "splat",
+      "bytes": 8,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "625573acaa138bd09dfd7d92603482ace0380792fed169113d02f1d6057f4670"
+    },
+    {
+      "section": "menu_display_never",
+      "tool": "spim",
+      "bytes": 8,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "94fdff50b87ce2dfc5a3acd5f8de131d45b1d8c166ec25f159c24ea85fe3a5ad"
+    },
+    {
+      "section": "menu_display_never",
+      "tool": "splat",
+      "bytes": 8,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "04ee32ea8ac8b336958e2e59c9f1b1bf721a9140e795784c111c19d55bde1a7a"
+    }
+  ],
+  "objdiff_view_note": "Complete linked retail-equal bytes are preserved. Only ELF section addresses and section-defined symbol values are normalized for the relocatable comparison reader; no relocations remain.",
+  "asm_differ": {
+    "score": 0,
+    "report_sha256": "e9007ac26959c9fc3ee73a43a498fb78ef1b283626ad85ec88ba04c04b34ec89"
   },
-  "execution": {
-    "matches": true,
-    "cases": 1176,
-    "mutations": [
-      {
-        "address": "0x8001be80",
-        "original": "29810190",
-        "replacement": "29810191",
-        "detected": "('Diagnostic trace', (2, 100, 300, -1, 0), [], [([2148074440, 100, 300, 400], '95badf04a02468cef013579bb147258dc0369cf00000012c8009e658', '00000064')])"
-      },
-      {
-        "address": "0x8001bebc",
-        "original": "8ca5e588",
-        "replacement": "00000000",
-        "detected": "('Independent memory oracle', '0x8009e578', (2, 100, 300, -1, 1))"
-      },
-      {
-        "address": "0x8001bee0",
-        "original": "ac2ee588",
-        "replacement": "00000000",
-        "detected": "('Independent memory oracle', '0x8009e578', (1, 0, 5, -1, 0))"
-      },
-      {
-        "address": "0x8001bee8",
-        "original": "24180018",
-        "replacement": "24180019",
-        "detected": "('Independent memory oracle', '0x8009edf8', (1, 0, 5, -1, 0))"
-      }
+  "ido_layout_probe": {
+    "source_owned": false,
+    "choice_size": 8,
+    "choice_alignment": 4,
+    "navigation_size": 100,
+    "draw_x_offset": 68,
+    "draw_y_offset": 76,
+    "long_size": 4,
+    "array_sizes": [
+      16,
+      4,
+      4,
+      8
     ],
-    "trace_sha256": "ba9d9f04244f038aa05952ae47c7faaf58f30dcbf1ef5a0fd799d379b71e9c73",
-    "compiled_sha256": "acc2fd57100fe0792e6489bfdf73e86786a5f413396a1ec7849df4c7ca8b0f9b",
-    "retail_sha256": "acc2fd57100fe0792e6489bfdf73e86786a5f413396a1ec7849df4c7ca8b0f9b",
-    "raw_text_bytes": 288,
-    "live_instruction_bytes": 284,
-    "comparison": {
-      "source": "src/game/input_sequences/define.c",
-      "compiler_profile": {
-        "name": "game",
-        "version": "5.3",
-        "flags": [
-          "-O2",
-          "-G",
-          "0",
-          "-non_shared",
-          "-mips1",
-          "-32"
-        ]
-      },
-      "toolchain_identity": {
-        "version": "5.3",
-        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-      },
-      "expected_size": 284,
-      "actual_size": 284,
-      "matches": true,
-      "different_words": []
-    },
-    "owned_data": {
-      "src/game/early_input_cursor_data.c": {
-        "source": "src/game/early_input_cursor_data.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/early_input_cursor_data.c",
-              "object": "build/us/early_input_cursor_data.o",
-              "input_section": ".bss",
-              "section": ".early_input_cursor_data_bss",
-              "vram": 2148132232,
-              "rom": null,
-              "size": 4,
-              "symbols": {
-                "D_8009E588": 0
-              },
-              "evidence": "docs/input-stream-storage.md"
-            },
-            "bytes_sha256": null
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/early_input_button_data.c": {
-        "source": "src/game/early_input_button_data.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/early_input_button_data.c",
-              "object": "build/us/early_input_button_data.o",
-              "input_section": ".bss",
-              "section": ".early_input_button_data_bss",
-              "vram": 2148132240,
-              "rom": null,
-              "size": 800,
-              "symbols": {
-                "D_8009E590": 0
-              },
-              "evidence": "docs/input-stream-storage.md"
-            },
-            "bytes_sha256": null
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/early_input_sequence_data.c": {
-        "source": "src/game/early_input_sequence_data.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/early_input_sequence_data.c",
-              "object": "build/us/early_input_sequence_data.o",
-              "input_section": ".bss",
-              "section": ".early_input_sequence_data_bss",
-              "vram": 2148134408,
-              "rom": null,
-              "size": 392,
-              "symbols": {
-                "D_8009EE08": 0
-              },
-              "evidence": "docs/input-stream-storage.md"
-            },
-            "bytes_sha256": null
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/early_input_fixed_data.c": {
-        "source": "src/game/early_input_fixed_data.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/early_input_fixed_data.c",
-              "object": "build/us/early_input_fixed_data.o",
-              "input_section": ".data",
-              "section": ".early_input_fixed_data_data",
-              "vram": 2147957320,
-              "rom": 476744,
-              "size": 64,
-              "symbols": {
-                "D_80073A48": 0,
-                "D_80073A78": 48,
-                "D_80073A80": 56
-              },
-              "evidence": "docs/input-stream-storage.md"
-            },
-            "bytes_sha256": "8b740cb730824bf16adf368d4385ea95d90679436034160ee8317d5073903635"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/input_sequences/limit_message.c": {
-        "source": "src/game/input_sequences/limit_message.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/input_sequences/limit_message.c",
-              "object": "build/us/input_sequence_limit_message.o",
-              "input_section": ".rodata",
-              "section": ".input_sequence_limit_message",
-              "vram": 2148074440,
-              "rom": 593864,
-              "size": 32,
-              "symbols": {
-                "D_800903C8": 0
-              },
-              "static_symbols": {},
-              "evidence": "docs/input-sequence-definition.md"
-            },
-            "bytes_sha256": "f109d479374541603a1a71deeb7586848096db3b4f86572ce22b7754c92f9276"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      }
-    },
-    "limits": [
-      "Valid indices 0 through 13; invalid indices and inaccessible pointers are excluded.",
-      "Diagnostic formatter is an ABI-clobbering stub that returns synthetically; its formatting and fatal reporter are not executed.",
-      "Callback cursor and length changes characterize reloads after that synthetic return.",
-      "Integer overflow cases characterize retail and pinned IDO instructions, not portable ISO C arithmetic.",
-      "Out-of-array button pointers are never dereferenced here; extreme cursor cases characterize word arithmetic, not portable C pointer formation.",
-      "Command words through offset 0x1C are exercised, including destination aliasing; full script-record extent is not inferred.",
-      "Whole fixture buffers, stack canaries, bounded reads/writes/code, GP, SP and saved integer registers are checked."
-    ]
+    "object_sha256": "85161123d1472a2388c032716a999dab7fbbd98a9efdc623d981ef23acc2d9b3"
   },
   "ghidra": {
     "program": "robotron64.elf",
     "saved": true,
-    "prototype": "void func_8001BE2C(int * command)",
-    "incoming_reference": {
+    "function": {
+      "name": "func_8002741C",
+      "address": "8002741c",
+      "signature": "void func_8002741C(void)",
+      "entry_point": "8002741c",
+      "body_start": "8002741c",
+      "body_end": "800278ab"
+    },
+    "callers": {
       "references": [
         {
-          "from_address": "0000159c",
-          "type": "DATA"
+          "from_address": "80023dd8",
+          "type": "UNCONDITIONAL_CALL",
+          "from_function": "func_80022D24"
+        },
+        {
+          "from_address": "800241b0",
+          "type": "UNCONDITIONAL_CALL",
+          "from_function": "func_80022D24"
         }
       ],
-      "count": 1,
+      "count": 2,
       "offset": 0,
       "limit": 100,
-      "total": 1
+      "total": 2
     },
-    "bss_analysis_mappings": [
-      {
-        "address": "0x8009E588",
-        "global": {
-          "status": "success",
-          "address": "8009e588",
-          "applied": [
-            "type",
-            "name=already_set",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8009E588' must start with 'g_' per project convention."
-          ]
-        },
-        "block": {
-          "success": true,
-          "name": "input_sequence_cursor",
-          "start": "8009e588",
-          "end": "8009e58b",
+    "navigation_layout": {
+      "name": "SaveMenuNavigationStateInternal",
+      "size": 100,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
           "size": 4,
-          "permissions": "rw-",
-          "volatile": false,
-          "initialized": false,
-          "overlay": false,
-          "address_space": "ram",
-          "bytes_written": 0,
-          "padded_bytes": 4,
-          "fill_byte": 0,
-          "message": "Memory block 'input_sequence_cursor' created at 8009e588"
-        }
-      },
-      {
-        "address": "0x8009E590",
-        "global": {
-          "status": "success",
-          "address": "8009e590",
-          "applied": [
-            "type",
-            "array_length=400",
-            "name=already_set",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8009E590' must start with 'g_' per project convention."
-          ]
+          "type": "int",
+          "name": "timestamp00"
         },
-        "block": {
-          "success": true,
-          "name": "input_sequence_buttons",
-          "start": "8009e590",
-          "end": "8009e8af",
-          "size": 800,
-          "permissions": "rw-",
-          "volatile": false,
-          "initialized": false,
-          "overlay": false,
-          "address_space": "ram",
-          "bytes_written": 0,
-          "padded_bytes": 800,
-          "fill_byte": 0,
-          "message": "Memory block 'input_sequence_buttons' created at 8009e590"
+        {
+          "offset": 4,
+          "size": 4,
+          "type": "SaveMenuNodeInternal *",
+          "name": "menu04"
+        },
+        {
+          "offset": 8,
+          "size": 4,
+          "type": "SaveMenuNodeInternal *",
+          "name": "previous08"
+        },
+        {
+          "offset": 12,
+          "size": 4,
+          "type": "SaveMenuNodeInternal *",
+          "name": "menu0C"
+        },
+        {
+          "offset": 16,
+          "size": 4,
+          "type": "int",
+          "name": "value10"
+        },
+        {
+          "offset": 20,
+          "size": 8,
+          "type": "uchar[8]",
+          "name": "unknown14"
+        },
+        {
+          "offset": 28,
+          "size": 4,
+          "type": "SaveMenuActorInternal *",
+          "name": "previewActor1C"
+        },
+        {
+          "offset": 32,
+          "size": 4,
+          "type": "SaveMenuActorInternal *",
+          "name": "actor20"
+        },
+        {
+          "offset": 36,
+          "size": 8,
+          "type": "uchar[8]",
+          "name": "unknown24"
+        },
+        {
+          "offset": 44,
+          "size": 4,
+          "type": "float",
+          "name": "cameraX2C"
+        },
+        {
+          "offset": 48,
+          "size": 4,
+          "type": "float",
+          "name": "cameraY30"
+        },
+        {
+          "offset": 52,
+          "size": 4,
+          "type": "float",
+          "name": "cameraZ34"
+        },
+        {
+          "offset": 56,
+          "size": 4,
+          "type": "int",
+          "name": "cameraAngleX38"
+        },
+        {
+          "offset": 60,
+          "size": 4,
+          "type": "int",
+          "name": "cameraAngleY3C"
+        },
+        {
+          "offset": 64,
+          "size": 4,
+          "type": "int",
+          "name": "cameraAngleZ40"
+        },
+        {
+          "offset": 68,
+          "size": 4,
+          "type": "int",
+          "name": "drawX44"
+        },
+        {
+          "offset": 72,
+          "size": 4,
+          "type": "int",
+          "name": "previewY48"
+        },
+        {
+          "offset": 76,
+          "size": 4,
+          "type": "int",
+          "name": "drawY4C"
+        },
+        {
+          "offset": 80,
+          "size": 4,
+          "type": "SaveMenuNodeInternal *",
+          "name": "selected50"
+        },
+        {
+          "offset": 84,
+          "size": 4,
+          "type": "int",
+          "name": "transition54"
+        },
+        {
+          "offset": 88,
+          "size": 4,
+          "type": "int",
+          "name": "restoreCamera58"
+        },
+        {
+          "offset": 92,
+          "size": 4,
+          "type": "int",
+          "name": "releasePreview5C"
+        },
+        {
+          "offset": 96,
+          "size": 4,
+          "type": "_func_2 *",
+          "name": "callback60"
         }
-      },
+      ]
+    },
+    "choice_layout": {
+      "name": "MenuDisplayChoice",
+      "size": 8,
+      "alignment": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 4,
+          "type": "uchar *",
+          "name": "text"
+        },
+        {
+          "offset": 4,
+          "size": 4,
+          "type": "int",
+          "name": "value04"
+        }
+      ]
+    },
+    "draw_signature": "void func_8000177C(int slot, int x, int z, int y, int pitch, int yaw, int roll, int scale, int first, int second, int third, int enabled, int state, int limit, int value)",
+    "retail_memory_sha256": {
+      ".text": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
+      ".menu_display_choices": "f5ef8d0e2aa35ed049cd734dfd24c2f4fdbbb0784699c981a730fc0058a78b75",
+      ".menu_display_text": "df7aa71963e07aac662cfe99f9f599be7d72b065af88e72e21c6b853285fa235",
+      ".menu_display_never": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12"
+    },
+    "snapshot_sha256": "65bbf2a06b068048a057883255f036f4cb1f639472e17f1c7f21c1377f531d04",
+    "note": "Navigation storage keeps its existing node view and the source casts the active page to the established options-page view. Ghidra decompiler local array declarations are inferred rather than original source evidence.",
+    "type_import": {
+      "status": "success",
+      "parse_succeeded": true,
+      "types_added": 5,
+      "types_after": 944,
+      "error": "",
+      "messages": ""
+    },
+    "type_applications": [
       {
-        "address": "0x8009EE08",
-        "global": {
+        "result": {
           "status": "success",
-          "address": "8009ee08",
+          "address": "800761f8",
           "applied": [
             "type",
-            "array_length=14",
+            "array_length=2",
             "name",
             "plate_comment"
           ],
           "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8009EE08' must start with 'g_' per project convention."
+            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800761F8' must start with 'g_' per project convention."
           ]
         },
-        "block": {
-          "success": true,
-          "name": "input_sequences",
-          "start": "8009ee08",
-          "end": "8009ef8f",
-          "size": 392,
-          "permissions": "rw-",
-          "volatile": false,
-          "initialized": false,
-          "overlay": false,
-          "address_space": "ram",
-          "bytes_written": 0,
-          "padded_bytes": 392,
-          "fill_byte": 0,
-          "message": "Memory block 'input_sequences' created at 8009ee08"
+        "request": {
+          "name": "D_800761F8",
+          "strict_mode": "off",
+          "type_name": "MenuDisplayChoice",
+          "array_length": 2,
+          "address": "800761F8",
+          "plate_comment": "Two verified on/off display choices. Complete 16-byte initialized range owned by src/game/save_menus/display/choices.c; each word04 is 68."
+        }
+      },
+      {
+        "result": {
+          "status": "success",
+          "address": "80092c08",
+          "applied": [
+            "type",
+            "array_length=4",
+            "name",
+            "plate_comment"
+          ],
+          "warnings": [
+            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80092C08' must start with 'g_' per project convention."
+          ]
+        },
+        "request": {
+          "name": "D_80092C08",
+          "strict_mode": "off",
+          "type_name": "uchar",
+          "array_length": 4,
+          "address": "80092C08",
+          "plate_comment": "Verified off label and terminator. Four initialized bytes owned by src/game/save_menus/display/text.c."
+        }
+      },
+      {
+        "result": {
+          "status": "success",
+          "address": "80092c0c",
+          "applied": [
+            "type",
+            "array_length=4",
+            "name",
+            "plate_comment"
+          ],
+          "warnings": [
+            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80092C0C' must start with 'g_' per project convention."
+          ]
+        },
+        "request": {
+          "name": "D_80092C0C",
+          "strict_mode": "off",
+          "type_name": "uchar",
+          "array_length": 4,
+          "address": "80092C0C",
+          "plate_comment": "Verified on label and terminator. Four initialized bytes including one alignment zero owned by src/game/save_menus/display/text.c."
+        }
+      },
+      {
+        "result": {
+          "status": "success",
+          "address": "800938c8",
+          "applied": [
+            "type",
+            "array_length=8",
+            "name",
+            "plate_comment"
+          ],
+          "warnings": [
+            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800938C8' must start with 'g_' per project convention."
+          ]
+        },
+        "request": {
+          "name": "D_800938C8",
+          "strict_mode": "off",
+          "type_name": "uchar",
+          "array_length": 8,
+          "address": "800938C8",
+          "plate_comment": "Verified never suffix and terminator. Eight initialized bytes including two alignment zeros owned by src/game/save_menus/display/never.c."
         }
       }
     ],
-    "aliases": [
-      {
-        "address": "0x8009EE24",
-        "alias": {
-          "status": "success",
-          "address": "8009ee24",
-          "applied": [
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8009EE24' must start with 'g_' per project convention."
-          ]
-        }
-      },
-      {
-        "address": "0x8009EF58",
-        "alias": {
-          "status": "success",
-          "address": "8009ef58",
-          "applied": [
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8009EF58' must start with 'g_' per project convention."
-          ]
-        }
-      },
-      {
-        "address": "0x8009EF74",
-        "alias": {
-          "status": "success",
-          "address": "8009ef74",
-          "applied": [
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8009EF74' must start with 'g_' per project convention."
-          ]
-        }
-      }
-    ],
-    "snapshot_sha256": "ed3c7f123073e0357412eea769bf3910f3fce15a2f81d40b945ac4ccf3d70743",
-    "message_memory_sha256": "f109d479374541603a1a71deeb7586848096db3b4f86572ce22b7754c92f9276",
-    "note": "Canonical C type imported with natural four-byte alignment. Source-owned BSS extents mapped as uninitialized non-executable analysis blocks; live values are not inferred."
+    "navigation_application": {
+      "status": "success",
+      "address": "800aee98",
+      "applied": [
+        "type",
+        "name=already_set",
+        "plate_comment"
+      ],
+      "warnings": [
+        "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800AEE98' must start with 'g_' per project convention."
+      ]
+    },
+    "interior_aliases_preserved": {
+      "success": true,
+      "labels_created": 0,
+      "labels_skipped": 2,
+      "labels_failed": 0
+    }
   },
-  "private_artifacts_sha256": {
-    "context.c": "bf4687289ddfc865ff0fd19f400066e32b7168265206248753448781d18fcb8c",
-    "m2c.c": "c40fbb991cb884b2489ce225b7b440bc9646d9436b32630e9ac798238d8c9e3b",
-    "layout-probe.c": "2b9aa775ec5cbb79fdcf8225705b37273ecea2bbfd708080f24a3ae557eb0d59",
-    "layout-probe.o": "27b8a54750c249f8cf754defe3116bee9627cd72a091f124287b95c348ba341e",
-    "reference-proof.json": "f365a616afa9738c65cb61e3380f2cdc69c15fb0e2cba97cd410dcfbf90d1a6d",
-    "match.json": "b4efc071a0ba7ed52938ce789256a40ce9fe316ec4ec1652d7fbf4127fcd7d52",
-    "objdiff-report.json": "f7822107ae449c9579cf8e9b86b3d6695b46b68f248215c58b9e933a5c0a0c6c",
-    "asm-differ.txt": "45292956d74624a42d03e14e9fe562e4838a102c348d50fc0e74db7750b1b992"
+  "execution": {
+    "matches": true,
+    "cases": 338,
+    "executions": 676,
+    "trace_sha256": "f20b228564b98f283b10770fecb08d90196d49cb9dd6307b6edcddc2d753a070",
+    "source_instruction_bytes_added": 1168,
+    "initialized_bytes_added": 32,
+    "bss_bytes_added": 0,
+    "checker_sha256": "3a8fe93508b6701bd8a6e61e60430d60edc3f7708f633765d886e03dff43f145",
+    "unicorn_version": "2.1.1",
+    "comparisons": {
+      "game_memory": {
+        "source": "src/game/game_memory.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 628,
+        "actual_size": 628,
+        "matches": true,
+        "different_words": []
+      },
+      "game_number_format": {
+        "source": "src/game/game_number_format.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 644,
+        "actual_size": 644,
+        "matches": true,
+        "different_words": []
+      },
+      "fixed_geometry_setup": {
+        "source": "src/game/fixed_geometry_setup.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 1508,
+        "actual_size": 1508,
+        "matches": true,
+        "different_words": []
+      },
+      "menu_display": {
+        "source": "src/game/save_menus/display/submit.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 1168,
+        "actual_size": 1168,
+        "matches": true,
+        "different_words": []
+      }
+    },
+    "data_comparisons": {
+      "src/game/save_menus/display/choices.c": {
+        "source": "src/game/save_menus/display/choices.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/display/choices.c",
+              "object": "build/us/menu_display_choices.o",
+              "input_section": ".data",
+              "section": ".menu_display_choices",
+              "vram": 2147967480,
+              "rom": 486904,
+              "size": 16,
+              "symbols": {
+                "D_800761F8": 0
+              },
+              "evidence": "docs/menu-display.md"
+            },
+            "bytes_sha256": "f5ef8d0e2aa35ed049cd734dfd24c2f4fdbbb0784699c981a730fc0058a78b75"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/display/text.c": {
+        "source": "src/game/save_menus/display/text.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/display/text.c",
+              "object": "build/us/menu_display_text.o",
+              "input_section": ".data",
+              "section": ".menu_display_text",
+              "vram": 2148084744,
+              "rom": 604168,
+              "size": 8,
+              "symbols": {
+                "D_80092C08": 0,
+                "D_80092C0C": 4
+              },
+              "evidence": "docs/menu-display.md"
+            },
+            "bytes_sha256": "df7aa71963e07aac662cfe99f9f599be7d72b065af88e72e21c6b853285fa235"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/display/never.c": {
+        "source": "src/game/save_menus/display/never.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/display/never.c",
+              "object": "build/us/menu_display_never.o",
+              "input_section": ".data",
+              "section": ".menu_display_never",
+              "vram": 2148088008,
+              "rom": 607432,
+              "size": 8,
+              "symbols": {
+                "D_800938C8": 0
+              },
+              "evidence": "docs/menu-display.md"
+            },
+            "bytes_sha256": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/formatting/digits.c": {
+        "source": "src/game/formatting/digits.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/formatting/digits.c",
+              "object": "build/us/game_number_digits.o",
+              "input_section": ".rodata",
+              "section": ".game_number_digits",
+              "vram": 2147990300,
+              "rom": 509724,
+              "size": 20,
+              "symbols": {
+                "D_8007BB1C": 0
+              },
+              "static_symbols": {},
+              "evidence": "docs/palette-color-tables.md"
+            },
+            "bytes_sha256": "f0ba6a2825921e27a550f8797e9d3e3d2ce03d79dc7434b7a3ce4fa5077bd88a"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      }
+    },
+    "mutations_detected": [
+      "0x800761f8",
+      "0x80092c0c",
+      "0x800938c8"
+    ],
+    "limits": [
+      "Text conversion, choice decoding, handle allocation, text flags and drawing use O32 boundary stubs.",
+      "String length, string copy, decimal formatting and integer absolute value execute complete freshly matching source blocks.",
+      "Dictionary selections stay inside the two-record fixture; numeric inputs avoid INT_MIN formatting.",
+      "The proof covers integer callee-saved registers, SP, GP, bounded memory and code access; it does not claim full-game rendering or page activation."
+    ]
   },
   "checks": {
     "clean_extraction_and_build": true,
@@ -1126,18 +1777,188 @@
       }
     }
   },
+  "validation_steps": [
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/compare_runtime.py",
+        "-j2"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 209.62,
+      "log": ".local/renderer-color/color-table-validation/01-compare_runtime.log",
+      "log_sha256": "3c2a80aaf9febd19555f585e3d89e5a054c6dacb18b784f815c008a21127e195"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/compare_startup.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.97,
+      "log": ".local/renderer-color/color-table-validation/02-compare_startup.log",
+      "log_sha256": "553fabe2dc9bba0ec445da25b9840cb0b1f1635f60d81cd2666863d9ae0843a7"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/compare_assembly.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 13.23,
+      "log": ".local/renderer-color/color-table-validation/03-compare_assembly.log",
+      "log_sha256": "def044745f32df2c9058eb992899bb3623de07b2c2b4df4740bdfd5763cfaa25"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/compare_data.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 10.42,
+      "log": ".local/renderer-color/color-table-validation/04-compare_data.log",
+      "log_sha256": "f958cd506b7f075562de4f2fdae94c2e251ec700150cc33cc5b5a432eabcb0d7"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_renderer_rotating_rings.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 48.44,
+      "log": ".local/renderer-color/color-table-validation/05-check_renderer_rotating_rings.log",
+      "log_sha256": "27410627bc74433584c415e397ffc570c808f4e3f6a4d315d9dc9a0f925231dc"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_renderer_material_reset.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 17.85,
+      "log": ".local/renderer-color/color-table-validation/06-check_renderer_material_reset.log",
+      "log_sha256": "bf246e23f5886c764f640eac1e0ed5e092817450ce8da6bd37624dd7c2514022"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_background_dispatch.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 201.45,
+      "log": ".local/renderer-color/color-table-validation/07-check_background_dispatch.log",
+      "log_sha256": "32736e4bdf64ac3ad9eb08fb838c2e332cb4c7fcd38151c1190f46f82c10de87"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_background_tiles.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 3.21,
+      "log": ".local/renderer-color/color-table-validation/08-check_background_tiles.log",
+      "log_sha256": "12f6fc11df8e85f2e4875e0a714f42e07c72bd879b7ac5b6a27f3a77c850d5d8"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_palette_transitions.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 107.1,
+      "log": ".local/renderer-color/color-table-validation/09-check_palette_transitions.log",
+      "log_sha256": "bfbf5ef2828a170da85a965aefdcfcd6beb14027ad049cd5fa60f7c077d4feeb"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_palette_update.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 35.84,
+      "log": ".local/renderer-color/color-table-validation/10-check_palette_update.log",
+      "log_sha256": "fa1e21392431287a469ed8d04d082244b3e17c52975672226855d6cfcf5488ee"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_object_projection.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 16.52,
+      "log": ".local/renderer-color/color-table-validation/11-check_object_projection.log",
+      "log_sha256": "c5fc540165643a1bb836bc147ba5a1d865f5631fcba4351fafbe2349f6f4154a"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_palette_color_tables.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 8.48,
+      "log": ".local/renderer-color/color-table-validation/12-check_palette_color_tables.log",
+      "log_sha256": "111d85c40f26880386723af885844fd769617d035c8628109eddcb4e98272f19"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_error_formatters.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 33.04,
+      "log": ".local/renderer-color/color-table-validation/13-check_error_formatters.log",
+      "log_sha256": "30bb8d42dcd2149dd7ef67d76763765e950514e88068d6f14e7bb30804cf3310"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_input_sequence_definition.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 8.36,
+      "log": ".local/renderer-color/color-table-validation/14-check_input_sequence_definition.log",
+      "log_sha256": "e549517cda2d871ca80f1b7d334aca51f2f5829b405227a93dda7981798eab9c"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_static_menu_records.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 5.92,
+      "log": ".local/renderer-color/color-table-validation/15-check_static_menu_records.log",
+      "log_sha256": "bcf37f88a086d1bb49403e8b0612c5e618fcfd88e51e994aa951c2438c414077"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_menu_display.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 7.61,
+      "log": ".local/renderer-color/color-table-validation/16-check_menu_display.log",
+      "log_sha256": "b8174cfc6f7cfa8b0e48de1e7413b4f0fc771d966bb6e3f3d9f3ddfb95de2db8"
+    }
+  ],
+  "private_artifacts_sha256": {
+    "reference-proof.json": "88db5bb55670f332622fb887bfcfb9cf02ab6129e68ccd90a33b2bab7b40b6e0",
+    "context.c": "4b44efbeff095e1c1a1c2ca9147e50cf601685cd658deef53e3269d7c2c95697",
+    "m2c.c": "76bbcbc5a8d766fdc5c78b0627c9c8e4b9c41b4573477aad77ac4ee9d5e095d1",
+    "layout-probe.c": "0e3764dc72b80f9ccc368961ea529e5ddcacaa678be05cbf2efa68dd70979d18",
+    "layout-probe.o": "85161123d1472a2388c032716a999dab7fbbd98a9efdc623d981ef23acc2d9b3",
+    "layout-probe.json": "5267e82ebfae039568b75bbae20b6dfe5997531c316c6a67af1cec9715a90e8d",
+    "match.json": "00ea2a62f4f7a474ce936788dc62f6155dec6c710c9d814b3966d23e9a8161c6",
+    "asm-differ.txt": "e9007ac26959c9fc3ee73a43a498fb78ef1b283626ad85ec88ba04c04b34ec89"
+  },
   "inputs_sha256": {
     "Makefile": "87ce9c2426a2759fe706439b6e9eb873089151bdba1d3ef70528cdbd3b77914b",
-    "config/analysis/input_sequence_definition.yaml": "7aa0a2c01628ca895768b3fdfc5ef4c41f349d3ec308dd210101956022749103",
+    "config/analysis/menu_display.yaml": "8a9b68670c3d55dd34a43a42063b62bfebd51ac2ab70e251d5a731cc32fbf866",
     "config/functions.json": "975a0dafce0bf9bc480f18781367e98eb3e644a144dace5a488ffef46f640256",
     "config/owned_sections.json": "23865052395f3ba66dad90f30fc12d5d213223b1108d2e85cd842d805edbb8dc",
     "config/runtime_symbols.ld": "6351a77322207a0c1acaa8c0b8adc96025b931cc10e45f447a08db0e2eb94d82",
     "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
-    "docs/early-input-sequences.md": "59dd69ecc1621b392110c64b273602ba799a620c81c259f7511237dbeb89e853",
-    "docs/input-sequence-definition.md": "6b4621a8776bab71c80fa8dc9bcc811986d9f6db0c8792355580032682262751",
-    "docs/input-stream-storage-provenance.json": "2ec9a221de106f1018457630a65b6403d12d90fea0d3874ecbf9ca594f163895",
-    "docs/input-stream-storage.md": "d10a12afc917286f49ecf1cec65d8498236cf7ab061513c58cd67f6e573bc817",
+    "docs/menu-display.md": "78eb0a2ae2fa387fd5bb076eaa4f610f77924f33b4999bd4759210a9a44906d9",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
     "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
     "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
@@ -1317,33 +2138,29 @@
     "include/text.h": "d954d557366f88590d863a335130d609cba06def33ad93145a8ff449394b6761",
     "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
     "linker_scripts/us.ld": "930a03078b3362b3ea5bcf683d219f5f338479a49f7dd888d549e2b99f88d798",
-    "src/game/early_input_button_data.c": "55aa1f9451bdd1d5fac49221720305211d040aaa832c72492e9a4a912593cafb",
-    "src/game/early_input_cursor_data.c": "67105853ea8f8489fc9f19f5f05eff0845b4504b427a9d99dcb6647d5d583390",
-    "src/game/early_input_fixed_data.c": "26d02713ad950b3a61039437c41d3f5f436173aacdb67dff763fb4f0e9e89807",
-    "src/game/early_input_sequence_data.c": "35b5f38f37b552d9e1c7595238215b75e59342acf53654f3eacd5eb4c1e798f3",
-    "src/game/input_sequences/define.c": "692a6bec4a8413e1c74e6d04b31dbe88333ec0e0e82fd84c8643ec642fdfe48a",
-    "src/game/input_sequences/limit_message.c": "b0b795061090a4d09a504b777c8b7438388f5ff420b6eb1f51d5d5ecdff64707",
-    "tools/check_actor_boundary_boss.py": "8b6c75bf58815fafc26f202d2793b79fc8c5a98bf3425527dc5fe9b7176860a8",
-    "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
-    "tools/check_input_sequence_definition.py": "36213c568634c6276ce301e453e1d51321d4a2681250f16242ef133e407ae5c9",
+    "src/game/fixed_geometry_setup.c": "e2e921573c9af970d82a0dd5f2131fb4026ce8d5a24f28db2489e52799095263",
+    "src/game/formatting/digits.c": "a25a85fc53aa5595473f65eea2724d9173a612725301708a36b2c40366287df7",
+    "src/game/game_memory.c": "d046cce69151ba911777c757ad9462c3bc5e608831e1426f4a67d9cff788c0c7",
+    "src/game/game_number_format.c": "4b129c5a1389e1587be0fc777f3c3e3d4bc222f8bff8b91cdd27971baa5f8e92",
+    "src/game/save_menus/display/choices.c": "cbba43d723d9483582278f460e3da62ceb8f2db9eb3ab736ba3c6b88d8b713b8",
+    "src/game/save_menus/display/never.c": "bb48a3b434b8ea0d84b2d41dd47750f07e294eaccbb13ffc70f5a7902fb8c0d8",
+    "src/game/save_menus/display/submit.c": "00a68c224d8eaa6d90efa4ac57d5e902ca396df6e8d23cf9dcc6e5b97230c985",
+    "src/game/save_menus/display/text.c": "15578ca6b75c3f911812a93a2211e573cef4ef5da396584ad0c8b74e2fd29b02",
+    "tools/check_menu_display.py": "3a8fe93508b6701bd8a6e61e60430d60edc3f7708f633765d886e03dff43f145",
     "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
     "tools/compare_runtime.py": "6bc64de7b71c4ca0f2a51491d42174bd02622f7a2dab465a005df78bfc9a53ba",
-    "tools/compare_startup.py": "175fd810a17671292f1372f1dced333b1f1ab4dbaaa4131d6a70516fa9614c6f",
     "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
     "tools/extract.py": "9ad5674dd897d46c500eebe8ac4e2491887d7e40a2cb766ea9fa41dc11e28043",
     "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
   },
   "limits": [
-    "Valid indices 0 through 13; invalid indices and inaccessible pointers are excluded.",
-    "Diagnostic formatter is an ABI-clobbering stub that returns synthetically; its formatting and fatal reporter are not executed.",
-    "Callback cursor and length changes characterize reloads after that synthetic return.",
-    "Integer overflow cases characterize retail and pinned IDO instructions, not portable ISO C arithmetic.",
-    "Out-of-array button pointers are never dereferenced here; extreme cursor cases characterize word arithmetic, not portable C pointer formation.",
-    "Command words through offset 0x1C are exercised, including destination aliasing; full script-record extent is not inferred.",
-    "Whole fixture buffers, stack canaries, bounded reads/writes/code, GP, SP and saved integer registers are checked.",
-    "A data reference at 0000159C does not establish a runtime caller.",
-    "The command readable prefix is 32 bytes; complete script record extent remains unknown.",
-    "Aliases and the previously owned sequence/cursor/button data add no storage ownership.",
+    "Text conversion, choice decoding, handle allocation, text flags and drawing use O32 boundary stubs.",
+    "String length, string copy, decimal formatting and integer absolute value execute complete freshly matching source blocks.",
+    "Dictionary selections stay inside the two-record fixture; numeric inputs avoid INT_MIN formatting.",
+    "The proof covers integer callee-saved registers, SP, GP, bounded memory and code access; it does not claim full-game rendering or page activation.",
+    "The second choice-record word is initialized to 68; its meaning is unresolved.",
+    "The 100-byte local workspace is consistent with the complete retail frame and observed use; its original declaration is not independently recoverable.",
+    "The guarded fixtures contain one linked label and do not establish multi-label gameplay rendering.",
     "Whole-ROM equality includes extracted fallback code and assets; the game remains incompletely decompiled."
   ]
 }

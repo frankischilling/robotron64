@@ -63,8 +63,8 @@
       "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
     },
     "inputs_sha256": {
-      "config/functions.json": "aaf84d7fd6a1226ef9ff98eafab08ce606aa7a63134dd4ff3e90e2aff0b9ef6f",
-      "config/owned_sections.json": "c48b4cf8ecd14902bf883b95eafd6f35d22be5f852222705ce6571deb70c92d8",
+      "config/functions.json": "975a0dafce0bf9bc480f18781367e98eb3e644a144dace5a488ffef46f640256",
+      "config/owned_sections.json": "23865052395f3ba66dad90f30fc12d5d213223b1108d2e85cd842d805edbb8dc",
       "config/runtime_symbols.ld": "6351a77322207a0c1acaa8c0b8adc96025b931cc10e45f447a08db0e2eb94d82",
       "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
@@ -151,6 +151,7 @@
       "include/graphics_state_internal.h": "c73e90215dd25f41b9208eafb1744ad7856b2127d1818553de211f6a707ec7ba",
       "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
       "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
+      "include/menu_display_internal.h": "55f0f5832ee3af7887c244c85bb3bf004233d1d24d822fd4903689703ed310c0",
       "include/menu_label_internal.h": "3bcee2e6fdc3ae46eac2ab9ea135f68c6871a618ba61fa067704c600975afef6",
       "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
       "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
@@ -193,7 +194,7 @@
       "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
       "include/save_menu_internal.h": "8c69cc8b3497726b45c9262956cd2c1a87a4afca68d5f09d312168e4ee6dacd2",
       "include/save_menu_legacy_internal.h": "562ec136abc21ac588af6ff91b00e8facc0d38fc8f3dc9a8686a1763ead715ef",
-      "include/save_menu_nav_internal.h": "f61d8d3067a8477b1edd23e71e6d1e1c860a359d3b1b41a95ff395ab9f7b3c83",
+      "include/save_menu_nav_internal.h": "b0e96be0011dd63ad4bef1f54c8f5d5765324d30c7f80ead8688d9862aaea2a3",
       "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
       "include/scene_action_internal.h": "540d754daa04b693d7cbe5f06e240bffe571188966171b9f3add64bdeb6fb089",
       "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
@@ -264,9 +265,9 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 91.4,
+        "elapsed_seconds": 91.37,
         "log": ".local/renderer-color/color-tables-clean-build.log",
-        "log_sha256": "bb79477c768a0f4bdefbd9bc07501faae01ef69ac11c82751a7c7fdde92ed871"
+        "log_sha256": "676551d8d6811e9b40d720c4ca00802f80a4fcb4c5c97dc96d15a4f306eac9c2"
       },
       {
         "command": [
@@ -275,28 +276,28 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 2.54,
+        "elapsed_seconds": 2.69,
         "log": ".local/renderer-color/color-tables-linux-tests.log",
-        "log_sha256": "ff72a399ad858c2be5f8a3552ea6df004ca9972998f5ce0b08bd314fdb46e983"
+        "log_sha256": "37eccc19d997cbaf0f518e20b77b5c010abbd2c13116232bf2d82c4d8ae7fc34"
       }
     ],
     "tooling_tests": {
       "linux": 163,
       "windows": 163,
       "windows_skipped": 4,
-      "linux_log_sha256": "ff72a399ad858c2be5f8a3552ea6df004ca9972998f5ce0b08bd314fdb46e983",
-      "windows_log_sha256": "e3e56bb0fa2f9202415aa76163ec84abc5f15471aecf6edd42f0424aea82e2b1"
+      "linux_log_sha256": "37eccc19d997cbaf0f518e20b77b5c010abbd2c13116232bf2d82c4d8ae7fc34",
+      "windows_log_sha256": "a8813d63b971d57002c8ef47f40f5dc78f4135fda86dc7cced45867914d2f76b"
     },
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "matches": true,
-        "units": 902,
-        "report_sha256": "131ddc4293410384d15d9b68d6d61ffb9563a7d995fc305c69fc9dc7f3c81e0f"
+        "units": 903,
+        "report_sha256": "8ed0fe11f1a79ec8932c8d726a3431a104c7f4a343f518d2df847df6d8630651"
       },
       "startup-comparison": {
         "matches": true,
         "units": 2,
-        "report_sha256": "22cfe991bb6eaa717b8f76c64ddb8325da519df1551e3bf8b60604ea57a615be"
+        "report_sha256": "553fabe2dc9bba0ec445da25b9840cb0b1f1635f60d81cd2666863d9ae0843a7"
       },
       "assembly-comparison": {
         "matches": true,
@@ -305,69 +306,73 @@
       },
       "data-comparison": {
         "matches": true,
-        "units": 132,
-        "report_sha256": "7dccf1147a285f3980d5b2198419ea0fc0f2ba89c54258d85b40167d79f1dbf6"
+        "units": 135,
+        "report_sha256": "e0cb732bdc080df93a5486249a191dbcf28ef53590c83012ba5986f3b01bcaef"
       }
     },
     "rom_bytes": 8388608,
     "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
     "progress": {
-      "matched_c_functions": 1420,
-      "matched_c_bytes": 303952,
+      "matched_c_functions": 1421,
+      "matched_c_bytes": 305120,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
-      "source_owned_initialized_bytes": 34495,
+      "source_owned_initialized_bytes": 34527,
       "source_owned_bss_bytes": 521095
     },
     "remaining_cpu": {
-      "bytes": 146232,
+      "bytes": 145064,
       "spans": 189,
       "unclassified_bytes": 164
     },
     "guarded_executions": {
       "renderer-rings-execution": {
         "cases": 640,
-        "report_sha256": "9780d602b103ec4215e8fe4ae826f8afd2e8e14a00831beed0864739196304e0"
+        "report_sha256": "4e7e1915ee705e03fee90604f26da3df03f86ac3d825c42661fcd0eb954d8f61"
       },
       "renderer-reset-execution": {
         "cases": 350,
-        "report_sha256": "be29d07eab552627aaecafbf69c43181608eed8b13cdfe67ea1d63bd8028fb38"
+        "report_sha256": "7fc6476e64ed91bc690363cc12b7149f6f2fe41e3d467ec3ef11613ab288d53b"
       },
       "background-dispatch-execution": {
         "cases": 15000,
-        "report_sha256": "85956db041c3c46357e92985677b80d9a4a56cb5332cad45d059946cc355db60"
+        "report_sha256": "8e73f0c88f3731ff6aed08ff5b96a1711f45667bd85772c21ad352a2dfab4409"
       },
       "background-tiles-execution": {
         "cases": 140,
-        "report_sha256": "cec47cce46ffb726e24a598b73e1e3e0fbae38ca630d17071a2c53317b67d2da"
+        "report_sha256": "ee2a230de86387339331bb767a90ded2d4f5cf5bf47547689125547a67ae7acf"
       },
       "palette-transition-execution": {
         "cases": 14520,
-        "report_sha256": "2ae3d90fa1808d2b8a87b45ec856eeb8915d68bd267d34bbfbc3cdbda906adfa"
+        "report_sha256": "fc0f20254c4f049ded95c53f504d6dd1c87b718779a55a14936be6571e8212de"
       },
       "palette-update-execution": {
         "cases": 909,
-        "report_sha256": "8aab595332301a38bba8f79e88980ff737338ed0eb586e9988aef246b755f03c"
+        "report_sha256": "ae6f706b6529c849f7d53bd6bd9001345780d1481371ee6e0a23abea9ac846c2"
       },
       "object-projection-execution": {
         "cases": 364,
-        "report_sha256": "5eeca2ba669333bba716e81f10345f784cc471d3da4b21e7fbf905cb235ea1e3"
+        "report_sha256": "10abca053106344e1607cb42505fb0b6deaed84232e1c37b502d73d20bddb595"
       },
       "palette-color-table-execution": {
         "cases": 1071,
-        "report_sha256": "982eefd6e0672d236ab2043f846db75dda8accc08ae67307b163dbdf99ca6827"
+        "report_sha256": "b9b35c36b9cd22bfb9b222746a737fb8dc70a8e72f90a4ffccc8a4bd32921017"
       },
       "error-formatter-execution": {
         "cases": 3588,
-        "report_sha256": "642bb68f1da45e5a0bf0304301d3fc62eac455b81eb3d7c60ceffcddc24de462"
+        "report_sha256": "78dff991bf881d2e65bf20a3c2736e30f656d8ccf0d9578d39ae83ec27c7e3a8"
       },
       "input-sequence-definition-execution": {
         "cases": 1176,
-        "report_sha256": "98eac3c45cc16c41afd4c11a93e882481f3e13ae8f24643a38459d61b4e90644"
+        "report_sha256": "008c6f0ff3531dd82b49a02ce89a9be0ff4b0870c1c104050a4a2af424ae19a7"
       },
       "static-menu-execution": {
         "cases": 512,
-        "report_sha256": "15f5f327a1623aa440675b40a5951609d6f54e6d8d75f18fdcf3b636c9650540"
+        "report_sha256": "2a542c4d9304a54f2af788e53676c11ad380d08469ad7fee8ac3afda673c502d"
+      },
+      "menu-display-execution": {
+        "cases": 338,
+        "report_sha256": "34875e836808c57282e99d1dc35d6294068c8321e34f3c5b5a893f02e9a7cff4"
       }
     }
   }

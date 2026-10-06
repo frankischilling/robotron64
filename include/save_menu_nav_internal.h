@@ -53,9 +53,9 @@ typedef struct SaveMenuNavigationStateInternal {
     int cameraAngleX38;
     int cameraAngleY3C;
     int cameraAngleZ40;
-    unsigned char unknown44[4];
+    int drawX44;
     int previewY48;
-    unsigned char unknown4C[4];
+    int drawY4C;
     SaveMenuNodeInternal *selected50;
     int transition54;
     int restoreCamera58;

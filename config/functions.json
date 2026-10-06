@@ -15975,5 +15975,16 @@
     "section": ".early_input_sequence_define",
     "section_vram": 2147597868,
     "evidence": "docs/input-sequence-definition.md"
+  },
+  {
+    "name": "func_8002741C",
+    "rom": 163868,
+    "vram": 2147644444,
+    "size": 1168,
+    "source": "src/game/save_menus/display/submit.c",
+    "object": "build/us/menu_display.o",
+    "section": ".menu_display",
+    "section_vram": 2147644444,
+    "evidence": "docs/menu-display.md"
   }
 ]

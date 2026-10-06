@@ -7973,6 +7973,38 @@ RUNTIME_OBJECTS += build/us/menu_static_pause_text.o
 check-static-menu-records:
 	$(PYTHON) tools/check_static_menu_records.py
 
+build/us/menu_display.o: src/game/save_menus/display/submit.c include/actor.h include/destination_format.h include/game_memory.h include/menu_display_internal.h include/menu_label_internal.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/save_menu_nav_internal.h include/scene_definition.h include/static_menu_internal.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_display.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/menu_display.raw.o $@ .text 1168
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_display.o
+
+build/us/menu_display_choices.o: src/game/save_menus/display/choices.c include/actor.h include/destination_format.h include/game_memory.h include/menu_display_internal.h include/menu_label_internal.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/save_menu_nav_internal.h include/scene_definition.h include/static_menu_internal.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_display_choices.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_display_choices.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_display_choices.o
+
+build/us/menu_display_text.o: src/game/save_menus/display/text.c include/actor.h include/destination_format.h include/game_memory.h include/menu_display_internal.h include/menu_label_internal.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/save_menu_nav_internal.h include/scene_definition.h include/static_menu_internal.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_display_text.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_display_text.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_display_text.o
+
+build/us/menu_display_never.o: src/game/save_menus/display/never.c include/actor.h include/destination_format.h include/game_memory.h include/menu_display_internal.h include/menu_label_internal.h include/object.h include/object_helpers.h include/pak_file.h include/save_game.h include/save_menu_nav_internal.h include/scene_definition.h include/static_menu_internal.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_display_never.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_display_never.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_display_never.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8002,3 +8034,7 @@ analyze:
 
 clean:
 	$(PYTHON) -c 'import shutil; shutil.rmtree("build", ignore_errors=True)'
+
+.PHONY: check-menu-display
+check-menu-display:
+	$(PYTHON) tools/check_menu_display.py
