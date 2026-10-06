@@ -1,13 +1,19 @@
 {
-  "scope": "Complete 1912-byte renderer material cache reset; eight alignment bytes independently verified and excluded from recovered totals.",
+  "scope": "Complete 568-byte rotating ring renderer, including retail packet pointer behavior.",
+  "function": "func_80040968",
+  "source": "src/game/renderer_surfaces/rotating_rings.c",
   "retail_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "vram_start": "0x800420B0",
-  "vram_end": "0x80042828",
-  "rom_start": "0x42CB0",
-  "rom_end": "0x43428",
+  "vram_start": "0x80040968",
+  "vram_end": "0x80040BA0",
+  "rom_start": "0x41568",
+  "rom_end": "0x417A0",
+  "instruction_bytes": 568,
+  "raw_text_bytes": 576,
+  "compiler_alignment_bytes_trimmed": 8,
   "generated_data_bytes": 0,
+  "stack_frame": 128,
   "compiler_comparison": {
-    "source": "src/game/renderer_resources/material_reset.c",
+    "source": "src/game/renderer_surfaces/rotating_rings.c",
     "compiler_profile": {
       "name": "game",
       "version": "5.3",
@@ -208,145 +214,198 @@
       "include/sound_bridge_internal.h": "f5de1a7e5b00eecbd808a99391a8fbf3e777e837dcde94ee08ed5df353f7db48",
       "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
       "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-      "src/game/renderer_resources/material_reset.c": "4b82cc1548804a4e02e436bd393fdcec2a52512a565d11ef6a48dd4b2b29af94",
+      "src/game/renderer_surfaces/rotating_rings.c": "61962825eb589d82bfd962d50d28b238b6916dd01339337200ac00f020fb918d",
       "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
       "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
     },
-    "expected_size": 1920,
-    "actual_size": 1920,
+    "expected_size": 568,
+    "actual_size": 568,
     "matches": true,
     "different_words": []
   },
   "reference_reassembly": [
     {
       "tool": "spim",
-      "bytes": 1920,
-      "function_bytes": 1912,
-      "alignment_bytes": 8,
+      "function_bytes": 568,
+      "raw_text_bytes": 576,
+      "alignment_bytes_trimmed": 8,
       "retail_equal": true,
-      "sha256": "0b3db9ee7358b0cac8efecc6cdcb86ccf67b4d133a86fd24d370578ca540dce8",
-      "object_sha256": "520edd9d3756610ec0179dfd13fed8aa6de7844296bcb62eb7f2b2cbcd18f821",
+      "sha256": "b170a3d3991e1d408215979c5689a1a99391e82a8b6b2defb668ffcac2c5c77b",
+      "object_sha256": "a3b2785ccf62c7573a78c55420e7a9c9f487b176ed8aead6ae36fb7ebb537d9b",
       "undefined_symbols": [
-        "D_80078274",
-        "D_8007A1B4",
-        "D_8009AFD9",
-        "D_8009B031",
-        "D_8009B089",
-        "D_8009B0E1",
-        "D_8009F560",
-        "D_800AC999",
-        "D_800ACAAD",
-        "D_800ACFB9",
-        "D_800AD011",
-        "D_800AD069",
-        "D_800AD0C1",
-        "D_800AF2C1",
-        "D_800AF329",
-        "D_800AF391",
-        "D_800B1BE8",
-        "D_800BEF60",
-        "D_800BF2C0",
-        "D_80126B74",
-        "D_80126B78",
-        "D_80126B80",
-        "func_8004BC8C"
+        "D_800CD2B4",
+        "D_800CDBD0",
+        "D_80123AE4",
+        "D_80138254",
+        "func_8000A21C",
+        "func_80047048",
+        "func_80047094",
+        "func_8004729C",
+        "func_8004DB60",
+        "func_8004DB88"
       ]
     },
     {
       "tool": "splat",
-      "bytes": 1920,
-      "function_bytes": 1912,
-      "alignment_bytes": 8,
+      "function_bytes": 568,
+      "raw_text_bytes": 576,
+      "alignment_bytes_trimmed": 8,
       "retail_equal": true,
-      "sha256": "0b3db9ee7358b0cac8efecc6cdcb86ccf67b4d133a86fd24d370578ca540dce8",
-      "object_sha256": "cbaf4d89ccb51ac228198c88ac7782f7833482032029c476488f5b0d7cbdc721",
+      "sha256": "b170a3d3991e1d408215979c5689a1a99391e82a8b6b2defb668ffcac2c5c77b",
+      "object_sha256": "f7639f08c8572f031919c589fc7b2cc07c9d12b04a1af22f315d4b5103d59dfa",
       "undefined_symbols": [
-        "D_80078274",
-        "D_8007A1B4",
-        "D_8009AFD9",
-        "D_8009B031",
-        "D_8009B089",
-        "D_8009B0E1",
-        "D_8009F560",
-        "D_800AC999",
-        "D_800ACAAD",
-        "D_800ACFB9",
-        "D_800AD011",
-        "D_800AD069",
-        "D_800AD0C1",
-        "D_800AF2C1",
-        "D_800AF329",
-        "D_800AF391",
-        "D_800B1BE8",
-        "D_800BEF60",
-        "D_800BF2C0",
-        "D_80126B74",
-        "D_80126B78",
-        "D_80126B80",
-        "func_8004BC8C"
+        "D_800CD2B4",
+        "D_800CDBD0",
+        "D_80123AE4",
+        "D_80138254",
+        "func_8000A21C",
+        "func_80047048",
+        "func_80047094",
+        "func_8004729C",
+        "func_8004DB60",
+        "func_8004DB88"
       ]
     }
   ],
+  "relocation_report_sha256": "d9bff47d16b92c0a1146031ca808807f701c30e5e64e50280f168ddc95d10681",
+  "relocations_resolved_by_complete_linked_comparison": true,
   "objdiff": {
     "function_match_percent": 100,
     "text_match_percent": 100,
-    "report_sha256": "e897838da71f423e1a5d64493e75f04a5fdbfc6d80760f1ae8626451383b2965"
+    "report_sha256": "8853b990d76f6c53c0147577768ca1c2d000558731afe0a2445c1ae2b88bca04"
   },
   "asm_differ": {
     "score": 0,
-    "report_sha256": "f9575b98cc5f96d27de1e2c39fa365996543df8e587172fb3c6e1f3d0167b340"
+    "report_sha256": "1e6182a587a0f71b2566d647988162ca470a68a910048aa18b46067401a258f5"
   },
   "matching_workbench": {
     "fresh": true,
     "matches": true,
-    "complete_bytes": 1920,
-    "report_sha256": "292f2dbe9b9552a1bcd205d4327b203beb3b8c216e31d833843e18bfcadb9d15"
+    "complete_bytes": 568,
+    "report_sha256": "066ba5c9c6d49f497bb03ab02dfc40ad5620fd9cae91781cb358e79eee15ca41"
   },
   "execution": {
-    "instruction_matches": true,
-    "execution_cases": 350,
-    "distinct_kind_addresses": 68,
-    "trace_sha256": "caa8c93880cc7c8422f5b978de924ae83c7bed38e03190fad9a2cc897b65b656",
-    "mutants": [
+    "status": "Complete 568-byte source instruction match and guarded CPU execution",
+    "cases": 640,
+    "mutations": [
       {
-        "name": "default flag value",
-        "detected": true,
-        "reason": "('Independent state oracle', '0x80078264', 0)"
+        "original": "24134b0a",
+        "replacement": "24134b0b",
+        "detected": "('Independent memory oracle', '0x800ce450', (1, 174823885, 137, 18))"
       },
       {
-        "name": "loop destination shift",
-        "detected": true,
-        "reason": "('Write guard', '0x80078278', 4)"
+        "original": "26100010",
+        "replacement": "26100020",
+        "detected": "('Write guard', '0x800ce760', 2, (1, 174823885, 137, 18))"
       },
       {
-        "name": "resource flag value",
-        "detected": true,
-        "reason": "('Independent state oracle', '0x80078264', 0)"
+        "original": "252af830",
+        "replacement": "252af831",
+        "detected": "('Write guard', '0x800ce760', 2, (1, 174823885, 137, 18))"
       }
     ],
-    "limits": [
-      "All 1912 instruction bytes match; eight verified alignment bytes are excluded from recovered instruction totals.",
-      "Deterministic initialized records are not an end-to-end gameplay snapshot.",
-      "Complete freshly matched cache and resource reset callees execute without stubs."
-    ]
+    "trace_sha256": "c2f5b1ec75c1d61d2521da6ba01da42bad4f57e6f904d915a58adb996cc1d74b",
+    "compiled_sha256": "b170a3d3991e1d408215979c5689a1a99391e82a8b6b2defb668ffcac2c5c77b",
+    "retail_sha256": "b170a3d3991e1d408215979c5689a1a99391e82a8b6b2defb668ffcac2c5c77b",
+    "raw_text_bytes": 576,
+    "limits": "CPU-side packet and memory proof; RSP rendering is not executed. Valid allocator indices and direct -1 return exercised; diagnostic formatter branches are excluded and escaped calls fail."
   },
   "support_comparisons": {
-    "renderer_cache_flags_clear": {
-      "source": "src/game/renderer_cache_flags_clear.c",
+    "graphics_mode_dispatch": {
+      "source": "src/game/graphics_mode_dispatch.c",
       "matches": true,
-      "bytes": 116
+      "complete_bytes": 540
     },
-    "actor_resource_reset": {
-      "source": "src/game/actor_resource_reset.c",
+    "graphics_modes": {
+      "source": "src/game/graphics_modes.c",
       "matches": true,
-      "bytes": 400
+      "complete_bytes": 1572
+    },
+    "graphics_pool": {
+      "source": "src/game/graphics_pool.c",
+      "matches": true,
+      "complete_bytes": 420
+    },
+    "fixed_math": {
+      "source": "src/game/fixed_math.c",
+      "matches": true,
+      "complete_bytes": 308
+    },
+    "short_sine": {
+      "source": "src/sdk/short_sine.c",
+      "matches": true,
+      "complete_bytes": 112
+    },
+    "short_cosine": {
+      "source": "src/sdk/short_cosine.c",
+      "matches": true,
+      "complete_bytes": 48
+    },
+    "random_between": {
+      "source": "src/game/random_between.c",
+      "matches": true,
+      "complete_bytes": 196
+    },
+    "runtime_random": {
+      "source": "src/game/runtime_random.c",
+      "matches": true,
+      "complete_bytes": 32
+    },
+    "gu_random": {
+      "source": "src/sdk/gu_random.c",
+      "matches": true,
+      "complete_bytes": 44
     }
   },
-  "execution_checker_sha256": "27a4ec45b6fe32ffe37b6bf445c7797b207ed901bb1dbf25bbab40f506e40075",
+  "execution_checker_sha256": "5ca271e6f68d94a381e54151b6902902026acff01519946e520c21d4c47b1cdc",
   "unicorn": "2.1.1",
+  "ghidra": {
+    "program": "robotron64.elf",
+    "prototype": "void func_80040968(void)",
+    "body_bytes": 568,
+    "clock_type": "RendererColorWaveState",
+    "clock_layout": {
+      "name": "RendererColorWaveState",
+      "size": 260,
+      "alignment": 1,
+      "fields": [
+        {
+          "offset": 0,
+          "size": 4,
+          "type": "int",
+          "name": "nTime"
+        },
+        {
+          "offset": 4,
+          "size": 256,
+          "type": "RendererColorWave[16]",
+          "name": "aWaves"
+        }
+      ]
+    },
+    "runtime_caller_established": false,
+    "reported_data_reference": "0x00004F94"
+  },
+  "splat_spec": {
+    "source": "config/analysis/renderer_background.yaml",
+    "sha256": "67e993a7933ed53d8d694a582f14b6111fb4f806abacaba00b2729615281b8da",
+    "splat_version": "0.50.0",
+    "spimdisasm_version": "1.42.4"
+  },
+  "inputs_sha256": {
+    "Makefile": "90d4e620577afc4a019ed9b968236c8dd9e216c26bcba25f90a721690139f4c4",
+    "linker_scripts/us.ld": "d4300ec3420fa4035eca5411650dc55d0223978b090c1d58d1bdd21f86a7f0b4",
+    "tools/extract.py": "52e338b70fc0a076b5c150c54c2461dbb49bfcc6e3d77cb0a95e54326c3079a8",
+    "tools/check_renderer_rotating_rings.py": "5ca271e6f68d94a381e54151b6902902026acff01519946e520c21d4c47b1cdc",
+    "config/analysis/renderer_background.yaml": "67e993a7933ed53d8d694a582f14b6111fb4f806abacaba00b2729615281b8da"
+  },
   "checks": {
     "clean_extraction_and_build": true,
     "tooling_tests": 163,
+    "windows_tests": {
+      "tests": 163,
+      "skipped": 4
+    },
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "units": 901,
@@ -378,30 +437,18 @@
       "source_owned_initialized_bytes": 31467,
       "source_owned_bss_bytes": 521095
     },
-    "canonical_input_comparisons": true,
-    "windows_tests": {
-      "tests": 163,
-      "skipped": 4
-    },
     "remaining_cpu": {
       "bytes": 146516,
       "spans": 190,
       "unclassified_bytes": 164
-    }
+    },
+    "canonical_input_comparisons": true
   },
-  "ghidra": {
-    "program": "robotron64.elf",
-    "prototype": "void func_800420B0(void)",
-    "imported_type": "RendererMaterialSlotView",
-    "callers": [
-      "func_8002824C",
-      "func_800470F4"
-    ]
-  },
-  "splat_spec": {
-    "source": "config/analysis/renderer_background.yaml",
-    "sha256": "4392c06a1c8c5556406e9fa18d57f4d89e9beff60bc1388d3041a5a2349ca3d4",
-    "splat_version": "0.50.0",
-    "spimdisasm_version": "1.42.4"
-  }
+  "limits": [
+    "CPU memory and packet proof does not execute the RSP or establish visual rendering correctness.",
+    "The vertex-load packets retain the retail pointer past each group, including the final unwritten group.",
+    "Allocator diagnostic formatting paths are outside the cases; an attempted unmatched callee fails the code guard.",
+    "The original local names and a runtime caller are not established.",
+    "Whole-ROM equality includes remaining fallback code and assets."
+  ]
 }

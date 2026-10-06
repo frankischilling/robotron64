@@ -7836,6 +7836,19 @@ build/us/palette_transition_update.o: src/game/palette_effects/transition_update
 
 RUNTIME_OBJECTS += build/us/palette_transition_update.o
 
+
+build/us/renderer_rotating_rings.o: src/game/renderer_surfaces/rotating_rings.c include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_rotating_rings.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/renderer_rotating_rings.raw.o $@ .text 0x238
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_rotating_rings.o
+
+.PHONY: check-renderer-rotating-rings
+check-renderer-rotating-rings:
+	$(PYTHON) tools/check_renderer_rotating_rings.py
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

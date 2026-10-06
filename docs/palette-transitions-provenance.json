@@ -111,7 +111,7 @@
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
       "inputs_sha256": {
-        "config/functions.json": "a4648da70084d1e911428b44b58458e3dd4b992482972a90aa58336f209995ed",
+        "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
         "config/owned_sections.json": "cb179d815d7ab55d03cd332c57085ac8e8cfbcc8ae51878194db771fb3eeea44",
         "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
         "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
@@ -215,7 +215,7 @@
         "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
         "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
         "include/renderer_color_gradient_internal.h": "c0329280b4d2af9a5a3412c944049a061b310013b54823a238746617295a83f8",
-        "include/renderer_color_wave_internal.h": "17767b081b1665f1c098c80ec219a37fe18eaa3597d62cd4d35d49d976daf9bb",
+        "include/renderer_color_wave_internal.h": "5f8810a4fc4618e98b754e0536d06a06695b0560655f613982b788e1b711a6c1",
         "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
         "include/renderer_diagnostic_internal.h": "86f0d8c8ec7fc912c4df140d08a5b955a4b3076f917a27307552c1183f6343e3",
         "include/renderer_draw_state_internal.h": "f3b8b2160e59663a7b648042fe654b30a9f400e4c2aae15d7279c7ffaf96d5d1",
@@ -410,14 +410,14 @@
     "tooling_tests": 163,
     "fresh_independent_comparisons": {
       "runtime-comparison": {
-        "units": 900,
+        "units": 901,
         "matches": true,
-        "report_sha256": "392955ebfb71ff1927377b0125f20dc063c313f341f84a32b1a7d4e677377f51"
+        "report_sha256": "764d26b2bb0a875214a865c2ea86673b349d4892430452a0597d4fc53590d761"
       },
       "startup-comparison": {
         "units": 2,
         "matches": true,
-        "report_sha256": "9c31eabc93cc93e60e2828d95933e51d4379718d8f07aeff84a017317dc54e4e"
+        "report_sha256": "22f7de37abf57f1e4b50726175d4ba6625af56fd955d88adcaab7e54960c07b9"
       },
       "assembly-comparison": {
         "units": 18,
@@ -427,12 +427,12 @@
       "data-comparison": {
         "units": 120,
         "matches": true,
-        "report_sha256": "426a9336acfbc94a6bef12ae38ddf729b863e459f6875fa325aad97c2971d85c"
+        "report_sha256": "cad47f94e18c247b510be0e95004aabcc7af0949c89e0b0a004f5bdc4cb23b24"
       }
     },
     "progress": {
-      "matched_c_functions": 1418,
-      "matched_c_bytes": 303100,
+      "matched_c_functions": 1419,
+      "matched_c_bytes": 303668,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
       "source_owned_initialized_bytes": 31467,
@@ -444,7 +444,12 @@
       "skipped": 4
     },
     "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-    "canonical_input_comparisons": true
+    "canonical_input_comparisons": true,
+    "remaining_cpu": {
+      "bytes": 146516,
+      "spans": 190,
+      "unclassified_bytes": 164
+    }
   },
   "inputs_sha256": {
     "src/game/palette_effects/transition_allocate.c": "097ad3cf6f83be83bd83d8a292209e1e32d2696586090859399879dcc8de25b2",
@@ -454,13 +459,13 @@
     "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
     "tools/check_palette_transitions.py": "f0b2fd85e5566529a245910493ed5437af7e21fc7929e50d6c2e213ef06d79d9",
     "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
-    "Makefile": "38bda1a2333f03eda81ce02b7b3a29e08a21063378bbb447d87cd1bbd4051321",
-    "config/functions.json": "a4648da70084d1e911428b44b58458e3dd4b992482972a90aa58336f209995ed",
+    "Makefile": "90d4e620577afc4a019ed9b968236c8dd9e216c26bcba25f90a721690139f4c4",
+    "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
     "config/owned_sections.json": "cb179d815d7ab55d03cd332c57085ac8e8cfbcc8ae51878194db771fb3eeea44",
     "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
     "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
-    "linker_scripts/us.ld": "eeafbdeff3620252b1f22090236abc7950fb14ee3158f95c1597750d34d8f76b",
-    "tools/extract.py": "73fe7e6212379904c9cf690fc879edfdd2f1c451a14508eef2bba29e760a0205",
+    "linker_scripts/us.ld": "d4300ec3420fa4035eca5411650dc55d0223978b090c1d58d1bdd21f86a7f0b4",
+    "tools/extract.py": "52e338b70fc0a076b5c150c54c2461dbb49bfcc6e3d77cb0a95e54326c3079a8",
     "src/game/palette_effects/transition_update.c": "f888f25025e3eab8e4341ecc6d24d989361faa4c8c56e2cb310603c34b71f718",
     "tools/check_palette_update.py": "da3c79f7b91e06bae225acf80cef2f6fefa5e8dbf1697edc0046cc9e7c61b991",
     "config/analysis/palette_transitions.yaml": "8e2ca857a32bc094cd328ad279f09e254264712030658ef87e6dc532da3d6aee"
@@ -515,7 +520,7 @@
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
       "inputs_sha256": {
-        "config/functions.json": "a4648da70084d1e911428b44b58458e3dd4b992482972a90aa58336f209995ed",
+        "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
         "config/owned_sections.json": "cb179d815d7ab55d03cd332c57085ac8e8cfbcc8ae51878194db771fb3eeea44",
         "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
         "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
@@ -619,7 +624,7 @@
         "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
         "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
         "include/renderer_color_gradient_internal.h": "c0329280b4d2af9a5a3412c944049a061b310013b54823a238746617295a83f8",
-        "include/renderer_color_wave_internal.h": "17767b081b1665f1c098c80ec219a37fe18eaa3597d62cd4d35d49d976daf9bb",
+        "include/renderer_color_wave_internal.h": "5f8810a4fc4618e98b754e0536d06a06695b0560655f613982b788e1b711a6c1",
         "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
         "include/renderer_diagnostic_internal.h": "86f0d8c8ec7fc912c4df140d08a5b955a4b3076f917a27307552c1183f6343e3",
         "include/renderer_draw_state_internal.h": "f3b8b2160e59663a7b648042fe654b30a9f400e4c2aae15d7279c7ffaf96d5d1",

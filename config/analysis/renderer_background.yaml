@@ -16,6 +16,13 @@ segments:
     subsegments:
       - [0x40CD0, asm, background_dispatch]
   - [0x410F4, bin, after_dispatch]
+  - name: renderer_rotating_rings
+    type: code
+    start: 0x41568
+    vram: 0x80040968
+    subsegments:
+      - [0x41568, asm, renderer_rotating_rings]
+  - [0x417A0, bin, after_rotating_rings]
   - name: renderer_material_cache_reset
     type: code
     start: 0x42CB0

@@ -15953,5 +15953,16 @@
     "section": ".palette_transition_update",
     "section_vram": 2147688140,
     "evidence": "docs/palette-transitions.md"
+  },
+  {
+    "name": "func_80040968",
+    "rom": 267624,
+    "vram": 2147748200,
+    "size": 568,
+    "source": "src/game/renderer_surfaces/rotating_rings.c",
+    "object": "build/us/renderer_rotating_rings.o",
+    "section": ".renderer_rotating_rings",
+    "section_vram": 2147748200,
+    "evidence": "docs/renderer-rotating-rings.md"
   }
 ]

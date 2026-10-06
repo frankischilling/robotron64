@@ -75,7 +75,7 @@ REGIONS = (
     ("endgame_40080_4022c", 0x40080, 0x4022c),
     ("endgame_409c4_40c0c", 0x409c4, 0x40c0c),
     ("cpu_after_model_vertices_scatter", 0x40cc4, 0x40cd0),
-    ("endgame_41568_41b5c", 0x41568, 0x41b5c),
+    ("cpu_after_renderer_rotating_rings", 0x417a0, 0x41b5c),
     ("endgame_420c4_42cb0", 0x420c4, 0x42cb0),
     ("cpu_after_renderer_material_reset", 0x43428, 0x43430),
     ("endgame_434c0_43c70", 0x434c0, 0x43c70),

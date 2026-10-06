@@ -98,3 +98,11 @@ See [reference study](reference-study.md) and [credits](../CREDITS.md) for the i
 [Text record evidence](text-records.md) recovers the 30-record pool and matching allocation/release routines.
 
 [Text option evidence](text-options.md) covers four additional functions and the second compiled switch table.
+
+The rotating-ring renderer now owns its complete 568-byte instruction range.
+Its fresh spimdisasm/splat references, pinned IDO output, and 640 guarded CPU
+cases agree; three deliberate mutations fail. The source preserves packets
+pointing beyond each four-vertex group. This checkpoint verifies 1,419 C
+functions / 303,668 bytes and the entire target ROM. There remain 146,516
+fallback CPU bytes in 190 spans and 164 unclassified bytes. See
+[Rotating ring renderer](renderer-rotating-rings.md) for the range and limits.
