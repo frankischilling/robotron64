@@ -1,3 +1,4 @@
+#include "../../include/pak_confirmation_internal.h"
 #include "../../include/static_menu_internal.h"
 #include "../../include/object_draw.h"
 #include "../../include/renderer_object_glyph_internal.h"
@@ -10,7 +11,6 @@ extern unsigned char D_800773C4[];
 extern unsigned char D_80077BCC[];
 extern unsigned char D_80077B70[];
 extern unsigned char D_80076BD8[];
-extern unsigned char D_8007726C[];
 extern unsigned char D_80076B70[];
 extern unsigned char D_80076BA4[];
 extern unsigned char D_80076B14[];

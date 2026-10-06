@@ -1,0 +1,45 @@
+name: Robotron 64 verified Pak confirmation records
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: pak_confirmation_records
+  base_path: ../../.local/pak-confirmation-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: menu_pak_confirmation_labels
+    type: code
+    start: 0x77E1C
+    vram: 0x8007721C
+    subsegments:
+      - [0x77E1C, data, menu_pak_confirmation_labels]
+  - name: menu_pak_confirmation_page
+    type: code
+    start: 0x77E6C
+    vram: 0x8007726C
+    subsegments:
+      - [0x77E6C, data, menu_pak_confirmation_page]
+  - [0x77EA0, bin, after_menu_pak_confirmation_page]
+  - name: menu_pak_confirmation_text
+    type: code
+    start: 0x94050
+    vram: 0x80093450
+    subsegments:
+      - [0x94050, rodata, menu_pak_confirmation_text]
+  - name: menu_pak_confirmation_title
+    type: code
+    start: 0x94060
+    vram: 0x80093460
+    subsegments:
+      - [0x94060, data, menu_pak_confirmation_title]
+  - [0x9407C, bin, after_menu_pak_confirmation_title]
+  - name: menu_pak_confirmation_format
+    type: code
+    start: 0x94428
+    vram: 0x80093828
+    subsegments:
+      - [0x94428, rodata, menu_pak_confirmation_format]
+  - [0x94438, bin, after_menu_pak_confirmation_format]
+  - [0x800000]

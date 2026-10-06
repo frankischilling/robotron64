@@ -4256,5 +4256,71 @@
       "D_80093440": 168
     },
     "evidence": "docs/control-setup-records.md"
+  },
+  {
+    "source": "src/game/save_menus/pak_confirmation/labels.c",
+    "object": "build/us/menu_pak_confirmation_labels.o",
+    "input_section": ".data",
+    "section": ".menu_pak_confirmation_labels",
+    "vram": 2147971612,
+    "rom": 491036,
+    "size": 80,
+    "symbols": {
+      "D_8007721C": 0
+    },
+    "evidence": "docs/pak-confirmation-records.md"
+  },
+  {
+    "source": "src/game/save_menus/pak_confirmation/page.c",
+    "object": "build/us/menu_pak_confirmation_page.o",
+    "input_section": ".data",
+    "section": ".menu_pak_confirmation_page",
+    "vram": 2147971692,
+    "rom": 491116,
+    "size": 52,
+    "symbols": {
+      "D_8007726C": 0
+    },
+    "evidence": "docs/pak-confirmation-records.md"
+  },
+  {
+    "source": "src/game/save_menus/pak_confirmation/text.c",
+    "object": "build/us/menu_pak_confirmation_text.o",
+    "input_section": ".rodata",
+    "section": ".menu_pak_confirmation_text",
+    "vram": 2148086864,
+    "rom": 606288,
+    "size": 16,
+    "symbols": {
+      "D_80093450": 0,
+      "D_80093458": 8
+    },
+    "evidence": "docs/pak-confirmation-records.md"
+  },
+  {
+    "source": "src/game/save_menus/pak_confirmation/title.c",
+    "object": "build/us/menu_pak_confirmation_title.o",
+    "input_section": ".data",
+    "section": ".menu_pak_confirmation_title",
+    "vram": 2148086880,
+    "rom": 606304,
+    "size": 28,
+    "symbols": {
+      "D_80093460": 0
+    },
+    "evidence": "docs/pak-confirmation-records.md"
+  },
+  {
+    "source": "src/game/save_menus/pak_confirmation/format.c",
+    "object": "build/us/menu_pak_confirmation_format.o",
+    "input_section": ".rodata",
+    "section": ".menu_pak_confirmation_format",
+    "vram": 2148087848,
+    "rom": 607272,
+    "size": 16,
+    "symbols": {
+      "D_80093828": 0
+    },
+    "evidence": "docs/pak-confirmation-records.md"
   }
 ]

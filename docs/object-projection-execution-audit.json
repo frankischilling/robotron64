@@ -47,9 +47,9 @@
     },
     "inputs_sha256": {
       "config/functions.json": "975a0dafce0bf9bc480f18781367e98eb3e644a144dace5a488ffef46f640256",
-      "config/owned_sections.json": "66e7fb1c94b354b49af82782fa22f5587186d0619f740b2b6b7ce5457064f8fc",
-      "config/runtime_symbols.ld": "2496751a007ab989cb90a94844bc054c67ef4fcb330c183adb02cac4ebe03cf0",
-      "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
+      "config/owned_sections.json": "ffddb626b029045cc9281dcbc19182402d8d2b6e74291f035218d4f62017b871",
+      "config/runtime_symbols.ld": "145fdccec89dba00b104c9649ab2b4cd4278cae40ba3a541c7a503e13fbf1c61",
+      "config/startup_symbols.ld": "d75e47cb0a27c33361d6f41aacef3d6c88d5c470d6cc288d9c984274285c08fb",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
       "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
       "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -136,7 +136,7 @@
       "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
       "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
       "include/menu_display_internal.h": "55f0f5832ee3af7887c244c85bb3bf004233d1d24d822fd4903689703ed310c0",
-      "include/menu_label_internal.h": "3bcee2e6fdc3ae46eac2ab9ea135f68c6871a618ba61fa067704c600975afef6",
+      "include/menu_label_internal.h": "77e2aa108998ca9f3ae4dfa3c7e1613ebd04957b02a0f0da6a2d5366613943f5",
       "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
       "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
       "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
@@ -146,6 +146,7 @@
       "include/object_history_internal.h": "061ce164bcd66256d4626d6d63bd377f97b3683f7d839c16c086752c6ee423f2",
       "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
       "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
+      "include/pak_confirmation_internal.h": "a942364108af183f0bd5a7aad8657b4793baa5fb75306243a84c52c7d9308a9f",
       "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
       "include/palette.h": "44f7adde8e518fa5341c5e080372142d298426ce5e04f5bc97054ec5f43d1dee",
       "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
@@ -667,9 +668,9 @@
     },
     "inputs_sha256": {
       "config/functions.json": "975a0dafce0bf9bc480f18781367e98eb3e644a144dace5a488ffef46f640256",
-      "config/owned_sections.json": "66e7fb1c94b354b49af82782fa22f5587186d0619f740b2b6b7ce5457064f8fc",
-      "config/runtime_symbols.ld": "2496751a007ab989cb90a94844bc054c67ef4fcb330c183adb02cac4ebe03cf0",
-      "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
+      "config/owned_sections.json": "ffddb626b029045cc9281dcbc19182402d8d2b6e74291f035218d4f62017b871",
+      "config/runtime_symbols.ld": "145fdccec89dba00b104c9649ab2b4cd4278cae40ba3a541c7a503e13fbf1c61",
+      "config/startup_symbols.ld": "d75e47cb0a27c33361d6f41aacef3d6c88d5c470d6cc288d9c984274285c08fb",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
       "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
       "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -756,7 +757,7 @@
       "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
       "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
       "include/menu_display_internal.h": "55f0f5832ee3af7887c244c85bb3bf004233d1d24d822fd4903689703ed310c0",
-      "include/menu_label_internal.h": "3bcee2e6fdc3ae46eac2ab9ea135f68c6871a618ba61fa067704c600975afef6",
+      "include/menu_label_internal.h": "77e2aa108998ca9f3ae4dfa3c7e1613ebd04957b02a0f0da6a2d5366613943f5",
       "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
       "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
       "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
@@ -766,6 +767,7 @@
       "include/object_history_internal.h": "061ce164bcd66256d4626d6d63bd377f97b3683f7d839c16c086752c6ee423f2",
       "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
       "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
+      "include/pak_confirmation_internal.h": "a942364108af183f0bd5a7aad8657b4793baa5fb75306243a84c52c7d9308a9f",
       "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
       "include/palette.h": "44f7adde8e518fa5341c5e080372142d298426ce5e04f5bc97054ec5f43d1dee",
       "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
@@ -891,9 +893,9 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 89.36,
+        "elapsed_seconds": 83.78,
         "log": ".local/renderer-color/color-tables-clean-build.log",
-        "log_sha256": "ed8b3449e985ee710c61a7c83905e87c01c299cc48e09c6e9d4f705b9005f050"
+        "log_sha256": "4f6aef0ea565abfb5b8b6f0b3e627b42c73f9895b65f69ef63510bc813b71d4b"
       },
       {
         "command": [
@@ -902,28 +904,28 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 2.34,
+        "elapsed_seconds": 2.38,
         "log": ".local/renderer-color/color-tables-linux-tests.log",
-        "log_sha256": "adc5c2aed2a0b05eaeb7a583bdd79e6057a841bd7859d5a4d5adb6849cd56eaa"
+        "log_sha256": "10399f804ec90c0c308edde2e74fc8f0bbc6ba0c6fa664bb173fed7d541419a0"
       }
     ],
     "tooling_tests": {
       "linux": 163,
       "windows": 163,
       "windows_skipped": 4,
-      "linux_log_sha256": "adc5c2aed2a0b05eaeb7a583bdd79e6057a841bd7859d5a4d5adb6849cd56eaa",
-      "windows_log_sha256": "60f62f9fa614fcf2738da308c65306f000907f3e9727e3c358d2b3e05b0a59df"
+      "linux_log_sha256": "10399f804ec90c0c308edde2e74fc8f0bbc6ba0c6fa664bb173fed7d541419a0",
+      "windows_log_sha256": "ae9140b5dcd90ecc86419eae73c9fd9b76cf572d0a5fbb1ef16697785e7eb640"
     },
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "matches": true,
         "units": 903,
-        "report_sha256": "300d27c412c8c21aaab3810dc97d3867cc67c2f9db34d694b48e7cf5d705bf0e"
+        "report_sha256": "4882c501a0f663272e8bf906a5a34ec5ac7b685b42a23a110b632e05b29f8334"
       },
       "startup-comparison": {
         "matches": true,
         "units": 2,
-        "report_sha256": "9b69dcb7b6007380d4e33538f18db66fd50965852b8d723898dd6dadb0c99f2b"
+        "report_sha256": "f62f70871a2c4bbcd1fbabd8de089c5f7475bcae95be6fe8d3e9644f9b9c95e7"
       },
       "assembly-comparison": {
         "matches": true,
@@ -932,8 +934,8 @@
       },
       "data-comparison": {
         "matches": true,
-        "units": 139,
-        "report_sha256": "7b9402806e6261fe62e56f94b2d89f8a66210bbae75e832846ae5f5d36d24267"
+        "units": 144,
+        "report_sha256": "0ca66894d9b2702e3b45b8fe66dca380ba881560b3f923859e0fcc87ace040d0"
       }
     },
     "rom_bytes": 8388608,
@@ -943,7 +945,7 @@
       "matched_c_bytes": 305120,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
-      "source_owned_initialized_bytes": 35115,
+      "source_owned_initialized_bytes": 35307,
       "source_owned_bss_bytes": 521095
     },
     "remaining_cpu": {
@@ -954,59 +956,63 @@
     "guarded_executions": {
       "renderer-rings-execution": {
         "cases": 640,
-        "report_sha256": "55cf0fa9506653a9e64321bd691a1fb32e79f348340c7d1df2c7c0d783da917d"
+        "report_sha256": "6921c2ad0c99b836b76725ebb6e00bde4a1085a6589364f3b73826f53e9a8643"
       },
       "renderer-reset-execution": {
         "cases": 350,
-        "report_sha256": "6d3eb27bef54d5a8444d9fb4f14fc758d471953cf2b0e15f363f0685fa1e3b90"
+        "report_sha256": "34e5168024b8f1f225c29e03b9711295cde751e8ffc4dd15ab166bafd51cc83c"
       },
       "background-dispatch-execution": {
         "cases": 15000,
-        "report_sha256": "2b656dd85631cde43b28789e422e6c8622cdd71055d6ef3034655115c52dd1fe"
+        "report_sha256": "9697361238ff483ca97b501169ae514721d69f3ef5ec7da3d0d37111a8a400c6"
       },
       "background-tiles-execution": {
         "cases": 140,
-        "report_sha256": "96580c66c00341159549b6b09ea7153e562aba237a23658057970c4950cfe762"
+        "report_sha256": "da565669bb855dd97a5421731abe5e028128a5572f8bb86a737e41875419a7ca"
       },
       "palette-transition-execution": {
         "cases": 14520,
-        "report_sha256": "18ac379561c1d0b01141e78d84c98df3f91b8fcce11615445626a081a01ac125"
+        "report_sha256": "309ecfe70f770ec7906a963edc844b01e1ec9f5a3593a060df50f9bc78135588"
       },
       "palette-update-execution": {
         "cases": 909,
-        "report_sha256": "5a9ee68310f29404e8f2c579e58371b03e116922d1ffb567410910d597aebefd"
+        "report_sha256": "0707c40e0cf41b89ed80b537ebcefc0b9800d4988c774a30bb0317f89d86a30f"
       },
       "object-projection-execution": {
         "cases": 364,
-        "report_sha256": "8c0d108acb732618240b45b3f58de6a9d4454ad02c43362d5f27eeb072f1abc0"
+        "report_sha256": "55c71850a4bffc12a4682ac0d95c3bf1dff5922f7092068de172772efdbab7c3"
       },
       "palette-color-table-execution": {
         "cases": 1071,
-        "report_sha256": "2e977215f3a10d0a587fa8931fcb7e2ededcc6e1715ef3ea51c454c2af65ee6e"
+        "report_sha256": "fe8a04dcc42ba5d7c7dc6fb63c9a539495a28cb86297a9f0e54f3339836b3449"
       },
       "error-formatter-execution": {
         "cases": 3588,
-        "report_sha256": "d32be45a5e74d74bc606034af3ba7779a76239e7eda510553c53c82dc076eae1"
+        "report_sha256": "a45d815b0d956d0b82bef82021defa5aadde267d37c9a1f05a8c26e1c3a6d7b4"
       },
       "input-sequence-definition-execution": {
         "cases": 1176,
-        "report_sha256": "087afad383702f0f451f1976af2a502460cc9caf778704c860224cd1157861e5"
+        "report_sha256": "fef1ce86b6f15c524eae6604376f76cdfd1cdf3f830384cd6f67da48bc64aff3"
       },
       "static-menu-execution": {
         "cases": 512,
-        "report_sha256": "a31c02934b9f00820b347c8781fbff10026d9517d1612e57017a0488b01d3a26"
+        "report_sha256": "9086e17ade934c609d2da65fe19d9c9176affb1591917cfce70bc6cb1db40717"
       },
       "menu-display-execution": {
         "cases": 338,
-        "report_sha256": "9fbe8ae12223c919a112c31378dfb824589f30ed82b2635cdcbf38a4c980bde2"
+        "report_sha256": "f377e4001a63ad741ea7f5f8825435bbbfd5fb6f55f8976e9b03291bc812e5a1"
       },
       "control-setup-execution": {
         "cases": 1008,
-        "report_sha256": "ac110c60982a51ae63ddfdee6f2e8fc7a12c0af790003854eb1cf75fcd15492b"
+        "report_sha256": "64169a8edc8cd9636faf29a4827e82c69b264216d34de68896440438b67d5905"
       },
       "platform-empty-execution": {
         "cases": 826,
-        "report_sha256": "d43989b5b0142281dbca8e4a0eb19ea5c21387cdd528edd7bcf6ed2ed3d77e7e"
+        "report_sha256": "671d4400e864f3cbfcf82924f397fd4c7a662d2f727f7090582d6dfc57f43b97"
+      },
+      "pak-confirmation-execution": {
+        "cases": 507,
+        "report_sha256": "6d05c0c072ec917e83c3109918e7ab54cead95c1a6a2baec7b2dcd67a23e522a"
       }
     },
     "note": "Excluded candidate; current canonical inputs and full clean build verified. ROM includes fallback."

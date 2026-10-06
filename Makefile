@@ -452,7 +452,7 @@ build/us/object_helpers_draw.o: src/game/object_helpers_draw.c include/object.h 
 	$(PYTHON) tools/trim_padding.py build/us/object_helpers_draw.raw.o $@ .text 0x284
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/object_helpers_draw_mode.o: src/game/object_helpers_draw_mode.c include/object.h include/object_draw.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/fixed_math.h include/frame.h include/renderer_draw_state_internal.h include/renderer_object_glyph_internal.h include/sdk_matrix.h include/destination_format.h include/menu_label_internal.h include/pak_file.h include/save_game.h include/scene_definition.h include/palette.h include/static_menu_internal.h
+build/us/object_helpers_draw_mode.o: src/game/object_helpers_draw_mode.c include/object.h include/object_draw.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/fixed_math.h include/frame.h include/renderer_draw_state_internal.h include/renderer_object_glyph_internal.h include/sdk_matrix.h include/destination_format.h include/menu_label_internal.h include/pak_file.h include/save_game.h include/scene_definition.h include/palette.h include/static_menu_internal.h $(wildcard include/*.h)
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_helpers_draw_mode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/object_helpers_draw_mode.raw.o $@ .text 0x138
@@ -2470,7 +2470,7 @@ build/us/save_menu_pak_reset.o: src/game/save_menu_pak_reset.c include/destinati
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_reset.raw.o $@ .text 0x54
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/save_menu_pak_refresh.o: src/game/save_menu_pak_refresh.c include/destination_format.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/menu_label_internal.h include/static_menu_internal.h
+build/us/save_menu_pak_refresh.o: src/game/save_menu_pak_refresh.c include/destination_format.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/menu_label_internal.h include/static_menu_internal.h $(wildcard include/*.h)
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_pak_refresh.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_refresh.raw.o $@ .text 0x48
@@ -5662,7 +5662,7 @@ RUNTIME_OBJECTS += \
     build/us/audio_backend_patch_trigger.o \
     build/us/actor_dynamic_point_append.o
 
-build/us/save_menu_pak_name_select.o: src/game/save_menu_pak_name_select.c include/controller_pak_menu_internal.h include/destination_format.h include/controller_input.h include/controller_services.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/menu_label_internal.h include/static_menu_internal.h
+build/us/save_menu_pak_name_select.o: src/game/save_menu_pak_name_select.c include/controller_pak_menu_internal.h include/destination_format.h include/controller_input.h include/controller_services.h include/pak_file.h include/save_game.h include/save_menu_legacy_internal.h include/scene_definition.h include/scheduler.h include/sdk_controller.h include/sdk_pfs.h include/sdk_pfs_internal.h include/sdk_si.h include/sdk_time.h include/sdk_timers.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/menu_label_internal.h include/static_menu_internal.h $(wildcard include/*.h)
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_menu_pak_name_select.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_name_select.raw.o $@ .text 0x90
@@ -8045,6 +8045,51 @@ check-control-setup-records:
 .PHONY: check-platform-empty
 check-platform-empty:
 	$(PYTHON) tools/check_platform_empty.py
+
+
+build/us/menu_pak_confirmation_labels.o: src/game/save_menus/pak_confirmation/labels.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_pak_confirmation_labels.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_pak_confirmation_labels.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_pak_confirmation_labels.o
+
+build/us/menu_pak_confirmation_page.o: src/game/save_menus/pak_confirmation/page.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_pak_confirmation_page.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_pak_confirmation_page.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_pak_confirmation_page.o
+
+build/us/menu_pak_confirmation_text.o: src/game/save_menus/pak_confirmation/text.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_pak_confirmation_text.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_pak_confirmation_text.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_pak_confirmation_text.o
+
+build/us/menu_pak_confirmation_title.o: src/game/save_menus/pak_confirmation/title.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_pak_confirmation_title.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_pak_confirmation_title.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_pak_confirmation_title.o
+
+build/us/menu_pak_confirmation_format.o: src/game/save_menus/pak_confirmation/format.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_pak_confirmation_format.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_pak_confirmation_format.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/menu_pak_confirmation_format.o
+
+.PHONY: check-pak-confirmation-records
+check-pak-confirmation-records:
+	$(PYTHON) tools/check_pak_confirmation_records.py
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
