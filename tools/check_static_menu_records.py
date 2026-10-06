@@ -25,17 +25,18 @@ DATA = tuple('src/game/save_menus/static_' + kind + '/' + leaf + '.c'
              for kind in ('confirmation', 'pause') for leaf in ('labels', 'page', 'text'))
 SUPPORT = ('save_menu_nav_cleanup', 'save_menu_nav_preview_release', 'menu_transition_start')
 PAGES = ((0x800772F0, 0x800772A0, 2), (0x8007751C, 0x80077454, 5))
+RECORD_RANGES = ((0x800772A0, 132), (0x80077454, 252),
+                 (0x8009347C, 16), (0x800934F0, 80))
 
 
-def run(code, image, retail, case):
+def run(code, image, retail, case, pages=PAGES, record_ranges=RECORD_RANGES):
     page_index, transition, restore, release, preview, actor, mask = case
-    page, labels, count = PAGES[page_index]
+    page, labels, count = pages[page_index]
     uc, write, execute, read, finish_call = environment(code, [])
     fixtures = {}
     def seed(address, value):
         fixtures[address] = bytearray(value)
-    for base, size in ((0x800772A0, 132), (0x80077454, 252),
-                       (0x8009347C, 16), (0x800934F0, 80)):
+    for base, size in record_ranges:
         offset = base - 0x80000000 + 0xC00
         seed(base - 16, b'\xA5' * 16 + retail[offset:offset + size] + b'\xB6' * 16)
     seed(NAV - 16, b'\xC7' * 132)

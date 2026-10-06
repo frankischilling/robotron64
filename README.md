@@ -156,6 +156,12 @@ initializer and owns its seventeen records and page, totaling 728 bytes of BSS.
 Its MIPS checker verifies count limits, callback storage, string-length calls,
 the existing callers and subsequent label updates.
 
+[Load, main and audio menu records](docs/front-menu-records.md) reconstruct
+832 initialized bytes across twelve labels, three complete pages and fifteen
+strings. Full data comparisons and 1,578 guarded cases verify traversal,
+display, cleanup and the three audio callbacks. Menu activation and the
+main page's deferred timeout flow remain outside that execution proof.
+
 [Object-attached font glyph](docs/renderer-object-glyph.md) completes the
 1,024-byte body and 176-byte frame. Its MIPS checker verifies both allocation
 paths and the matching object callback. The provisional C return interface

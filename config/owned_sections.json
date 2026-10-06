@@ -4333,5 +4333,110 @@
     "size": 68,
     "symbols": {},
     "evidence": "docs/renderer-mesh-commands.md"
+  },
+  {
+    "source": "src/game/save_menus/front_pages/load_labels.c",
+    "object": "build/us/menu_front_load_labels.o",
+    "input_section": ".data",
+    "section": ".menu_front_load_labels",
+    "vram": 2147970256,
+    "rom": 489680,
+    "size": 160,
+    "symbols": {
+      "D_80076CD0": 0
+    },
+    "evidence": "docs/front-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/front_pages/load_page.c",
+    "object": "build/us/menu_front_load_page.o",
+    "input_section": ".data",
+    "section": ".menu_front_load_page",
+    "vram": 2147970416,
+    "rom": 489840,
+    "size": 52,
+    "symbols": {
+      "D_80076D70": 0
+    },
+    "evidence": "docs/front-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/front_pages/main_labels.c",
+    "object": "build/us/menu_front_main_labels.o",
+    "input_section": ".data",
+    "section": ".menu_front_main_labels",
+    "vram": 2147970468,
+    "rom": 489892,
+    "size": 160,
+    "symbols": {
+      "D_80076DA4": 0
+    },
+    "evidence": "docs/front-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/front_pages/main_page.c",
+    "object": "build/us/menu_front_main_page.o",
+    "input_section": ".data",
+    "section": ".menu_front_main_page",
+    "vram": 2147970628,
+    "rom": 490052,
+    "size": 52,
+    "symbols": {
+      "D_80076E44": 0
+    },
+    "evidence": "docs/front-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/front_pages/audio_labels.c",
+    "object": "build/us/menu_front_audio_labels.o",
+    "input_section": ".data",
+    "section": ".menu_front_audio_labels",
+    "vram": 2147970680,
+    "rom": 490104,
+    "size": 160,
+    "symbols": {
+      "D_80076E78": 0
+    },
+    "evidence": "docs/front-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/front_pages/audio_page.c",
+    "object": "build/us/menu_front_audio_page.o",
+    "input_section": ".data",
+    "section": ".menu_front_audio_page",
+    "vram": 2147970840,
+    "rom": 490264,
+    "size": 52,
+    "symbols": {
+      "D_80076F18": 0
+    },
+    "evidence": "docs/front-menu-records.md"
+  },
+  {
+    "source": "src/game/save_menus/front_pages/text.c",
+    "object": "build/us/menu_front_text.o",
+    "input_section": ".rodata",
+    "section": ".menu_front_text",
+    "vram": 2148086356,
+    "rom": 605780,
+    "size": 196,
+    "symbols": {
+      "D_80093254": 0,
+      "D_80093260": 12,
+      "D_80093274": 32,
+      "D_80093280": 44,
+      "D_80093290": 60,
+      "D_80093294": 64,
+      "D_8009329C": 72,
+      "D_800932A8": 84,
+      "D_800932B8": 100,
+      "D_800932C8": 116,
+      "D_800932CC": 120,
+      "D_800932D4": 128,
+      "D_800932E8": 148,
+      "D_800932F8": 164,
+      "D_80093308": 180
+    },
+    "evidence": "docs/front-menu-records.md"
   }
 ]

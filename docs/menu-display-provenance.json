@@ -91,14 +91,14 @@
     "blocks": [
       {
         "artifacts": {
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/candidate.ld": "e84ff355f54217e75793fc57fc1eb0f560a2329c0a56a52c02972270cd4ff7d9",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/menu_display.bin": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/menu_display.elf": "815c2572965b2a3037424b0777d3cb0dfb0f93bb50377034fa456d59b8ae1e90",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/menu_display.o": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a",
-          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display/menu_display.raw.o": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a"
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/b857004418b3af6b41f854518ce85dc1c0d91a6298b83ffc0a2e169f8e0217a1/menu_display/candidate.ld": "e84ff355f54217e75793fc57fc1eb0f560a2329c0a56a52c02972270cd4ff7d9",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/b857004418b3af6b41f854518ce85dc1c0d91a6298b83ffc0a2e169f8e0217a1/menu_display/menu_display.bin": "7bfc4976553da24ca1c89b9da8fbf17a50f64c5398064976422c05011a228510",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/b857004418b3af6b41f854518ce85dc1c0d91a6298b83ffc0a2e169f8e0217a1/menu_display/menu_display.elf": "815c2572965b2a3037424b0777d3cb0dfb0f93bb50377034fa456d59b8ae1e90",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/b857004418b3af6b41f854518ce85dc1c0d91a6298b83ffc0a2e169f8e0217a1/menu_display/menu_display.o": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a",
+          "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/b857004418b3af6b41f854518ce85dc1c0d91a6298b83ffc0a2e169f8e0217a1/menu_display/menu_display.raw.o": "202cd25627107234f1addf94a99676b359aba972d6b1eb831ab22ee5e077083a"
         },
         "cached": false,
-        "directory": "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936/menu_display",
+        "directory": "/root/robotron64-validation/palette-transition-20261005/build/matching-workbench/b857004418b3af6b41f854518ce85dc1c0d91a6298b83ffc0a2e169f8e0217a1/menu_display",
         "identity": {
           "compiler_identity": {
             "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
@@ -121,6 +121,7 @@
           "inputs": {
             "config/analysis.json": "34df6b6c783ac5b9a85394671e48e7029092922e6feb5fe7720f68a336752fc5",
             "config/analysis/control_setup_records.yaml": "3ba7d8f40340b842ca97b339a6da48bb941a2f2c8284402dcb926be19a09d68c",
+            "config/analysis/front_menu_records.yaml": "f3526f05d89b9ac62e6bb0655e3e502069c01dce32638f224e30e22e2a164032",
             "config/analysis/input_sequence_definition.yaml": "7aa0a2c01628ca895768b3fdfc5ef4c41f349d3ec308dd210101956022749103",
             "config/analysis/menu_display.yaml": "8a9b68670c3d55dd34a43a42063b62bfebd51ac2ab70e251d5a731cc32fbf866",
             "config/analysis/pak_confirmation_records.yaml": "1877c629f7558aecc18c02a0c1a34484da94f71d43b1b44fe201ee5112ff1cfc",
@@ -130,8 +131,8 @@
             "config/analysis/renderer_mesh_commands.yaml": "7c87894add935d4b18a2cf75ca9f3378b81073db8325dae03c33cd85b1257835",
             "config/analysis/static_menu_records.yaml": "9bafb16b0351ed7211a7355726dfb1dcfe8bddd87683a4bfa95ca474bc4e1bf4",
             "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-            "config/owned_sections.json": "3a84720685a81cb9f328adf680b4d8af0d964c6e42d6aa8815bcfacf0c9a9781",
-            "config/runtime_symbols.ld": "145fdccec89dba00b104c9649ab2b4cd4278cae40ba3a541c7a503e13fbf1c61",
+            "config/owned_sections.json": "e575de5d76b91db81b091ad7bfed2f6e24fc32ac71b76c8965cd5cf1d8e09460",
+            "config/runtime_symbols.ld": "a0d7d342a42eaf20d91aff6844511c24099e91e2cdaa0668d71ccde7ca098667",
             "config/startup_symbols.ld": "d75e47cb0a27c33361d6f41aacef3d6c88d5c470d6cc288d9c984274285c08fb",
             "config/symbols.json": "410539b78f5d0341ca475568c886d4e58f54c7ec91557750ea5858b445ff9c1b",
             "config/target.json": "47630e37ddd2c453429b1cccdd582dd541c1f6323c66879d8b5ac83e30f78da9",
@@ -214,6 +215,7 @@
             "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
             "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
             "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
+            "include/front_menu_internal.h": "e64938d27b8d092ff1eddd05a81cf8854b5b9b0ba837b2f8682874cd6f0c6c32",
             "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
             "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
             "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
@@ -262,11 +264,11 @@
             "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
             "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
             "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
-            "include/save_menu_internal.h": "8c69cc8b3497726b45c9262956cd2c1a87a4afca68d5f09d312168e4ee6dacd2",
-            "include/save_menu_legacy_internal.h": "562ec136abc21ac588af6ff91b00e8facc0d38fc8f3dc9a8686a1763ead715ef",
-            "include/save_menu_nav_internal.h": "b0e96be0011dd63ad4bef1f54c8f5d5765324d30c7f80ead8688d9862aaea2a3",
+            "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
+            "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
+            "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
             "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
-            "include/scene_action_internal.h": "540d754daa04b693d7cbe5f06e240bffe571188966171b9f3add64bdeb6fb089",
+            "include/scene_action_internal.h": "22cba49e71e3f8298604d359b89bae923957cd0cbe5d4ca898270f081ecdae00",
             "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
             "include/scene_background_internal.h": "c2199191e33f34eeda432ebbcf504c3bd944fc7634be42510f87550e4a9e9c10",
             "include/scene_commands_internal.h": "a21b97d1d652b686d51f894b0611b494421f9fa57563aaa2a8ff101cb6032efb",
@@ -351,6 +353,7 @@
             "tools/check_controller_polling.py": "d8758f50a705368a36790f3e2ea917eef9dca9b74ea01c0280048b863f8d60e0",
             "tools/check_error_formatters.py": "24f7da5f737d81310293d4a7545d2bf1d4cee8cbd6849ad98c279f9fabc99c0d",
             "tools/check_framebuffer_strip.py": "e9a2eed3bd5d23d1573e79495e6a3bcde130efef7083d1ea72ccc1701b749d32",
+            "tools/check_front_menu_records.py": "f6dda022cd5f951f2ec3992cad8ecf3eaebe958b22cf0a06c77b9f8a5f776adb",
             "tools/check_input_sequence_definition.py": "36213c568634c6276ce301e453e1d51321d4a2681250f16242ef133e407ae5c9",
             "tools/check_menu_display.py": "3a8fe93508b6701bd8a6e61e60430d60edc3f7708f633765d886e03dff43f145",
             "tools/check_menu_options.py": "c0ed783acfe6fafcb5e3420ccc7ddd7cfdad2cb5a241703ca858c775d5d605e0",
@@ -372,7 +375,7 @@
             "tools/check_renderer_supplied_matrix.py": "1320461c85642aef9956221ce389977aae4589fb65caff9d376a18c0b18d4b5a",
             "tools/check_renderer_surfaces.py": "1a87344a16bea1f1cfca3f35cadf6bb8021396f4d37b16345d7b4eec33486376",
             "tools/check_scene_actions.py": "0976243ce7356943205467147a79f0fdc8815ab3cf7f2f78c20133d09400ea70",
-            "tools/check_static_menu_records.py": "d380bed291c05dd66bae38491ed034f57eb0e3698fe79ba2cbcd9ba573df05dd",
+            "tools/check_static_menu_records.py": "72545fca589f67fee691f8b0393f4649d18ea36e91229cd510db7db1be881ee0",
             "tools/check_tracked.py": "236824da391564cdf34ab82773fa695aee7862553346521698f6016c648f4131",
             "tools/compare_assembly.py": "1e37659738d87bae375b52ac5ded9b96c4ff5100427603a2e323420e35d4a197",
             "tools/compare_compilers.py": "d5c745f8b1a396a97032008362cb717c49424bfeb72ef469379529c8e4a161fb",
@@ -381,7 +384,7 @@
             "tools/compare_startup.py": "175fd810a17671292f1372f1dced333b1f1ab4dbaaa4131d6a70516fa9614c6f",
             "tools/compare_text_replacement.py": "9d703fb6e976c445bbb447b98823e9edf15dcad76cbd2b8cec4a066a0ce834e5",
             "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
-            "tools/extract.py": "eb9efb91bf730f105403e577bd6ebcbc348fd72e5f2fa3fd737cd0b63b7fd43b",
+            "tools/extract.py": "cf7269e63f440d0ada54d12690ce37d9115278155f038d8b98a76b9d135c3581",
             "tools/generate_interrupt_tables.py": "899bc5a7d918c6febd70ee8be0b20596021def867ded6dbb49713443c19a19b7",
             "tools/generate_short_sine_table.py": "353fae0041dbcb692ebdaaca39a7b0917db699bd5ef05a6f45a91156ae0754bc",
             "tools/generate_video_modes.py": "e1edd8cd545ede38d7949169ed20ee1ed65df5d1b179828e8fdcafc925a4cb65",
@@ -409,7 +412,7 @@
           "runner_sha256": "3dd74f465893a535361e4a0ac14cfeabbeb6467c8ee82f3d0a7b606a3047f9ae",
           "target_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd"
         },
-        "key": "9e1ca66f4d2ec30fe56faab606788c24bdb95975de039022ea540784a1e4f936",
+        "key": "b857004418b3af6b41f854518ce85dc1c0d91a6298b83ffc0a2e169f8e0217a1",
         "result": {
           "actual_size": 1168,
           "compiler_profile": {
@@ -1668,46 +1671,44 @@
       {
         "command": [
           "make",
-          "-j4",
-          "verify",
-          "progress",
-          "remaining",
-          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+          "clean"
         ],
         "returncode": 0,
-        "elapsed_seconds": 92.55,
-        "log": ".local/renderer-color/mesh-command-clean-build.log",
-        "log_sha256": "2300269ae76a10c47958ac592efd141ca31b1bd03efb64c0a7537f0d7bd8af08"
+        "elapsed_seconds": 0.13,
+        "log": ".local/renderer-color/front-menu-clean.log",
+        "log_sha256": "93d8484aabed9a7199033736ceb44118f3b83ff0770af4cadd225c174193f4cb"
       },
       {
         "command": [
           "make",
-          "test",
+          "-j2",
+          "verify",
+          "progress",
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 2.5,
-        "log": ".local/renderer-color/mesh-command-linux-tests.log",
-        "log_sha256": "81cb71b9773f5a3bd5198095b4d2f928cc6f82c324b6d4eba3d0388c6ea0d949"
+        "elapsed_seconds": 138.84,
+        "log": ".local/renderer-color/front-menu-build.log",
+        "log_sha256": "a1e37c9a3913178440b20fc07e3063385b020f77887c260613c79fcfa8a2906d"
       }
     ],
     "tooling_tests": {
       "linux": 163,
       "windows": 163,
       "windows_skipped": 4,
-      "linux_log_sha256": "81cb71b9773f5a3bd5198095b4d2f928cc6f82c324b6d4eba3d0388c6ea0d949",
-      "windows_log_sha256": "8be1d1db69e4344937ff34b6aec264c3c0edcb72f850e647ca189452ab172435"
+      "linux_log_sha256": "835e3e0581fc363a13793132a4582d445e56fe00ec143f2be1c8b2417f32aac3",
+      "windows_log_sha256": "ba7e346de68174b0e59048fc8c1af8bb8d64e14860634debc3e03f2bbd7b0d5f"
     },
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "matches": true,
         "units": 904,
-        "report_sha256": "d683cb637a92dbaeb390f43064478b27b9037cee63e2d3dbd7a5f849e868cd6a"
+        "report_sha256": "d5ce3123e282ddff672a86e2d781ec294b1ef7918875b45df2c29a43a07fba11"
       },
       "startup-comparison": {
         "matches": true,
         "units": 2,
-        "report_sha256": "00851f170be84075d21586c95f232a6c5c6b121379ad56270fd39bd39ee720d5"
+        "report_sha256": "c363f3476434a31a776854b3b6439d0a3e8945f96e6c1dc53e13732e98456a98"
       },
       "assembly-comparison": {
         "matches": true,
@@ -1716,8 +1717,8 @@
       },
       "data-comparison": {
         "matches": true,
-        "units": 144,
-        "report_sha256": "3efbfcc19162e1da23319b86d6ddd2898b96a0b356ef618b2a27b4c4e879c1e1"
+        "units": 151,
+        "report_sha256": "9059cdfba54be120dfb742a2372b8212cde624e605f43c45f6ed79cfe4683260"
       }
     },
     "rom_bytes": 8388608,
@@ -1727,7 +1728,7 @@
       "matched_c_bytes": 306456,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
-      "source_owned_initialized_bytes": 35375,
+      "source_owned_initialized_bytes": 36207,
       "source_owned_bss_bytes": 521095
     },
     "remaining_cpu": {
@@ -1738,67 +1739,71 @@
     "guarded_executions": {
       "renderer-rings-execution": {
         "cases": 640,
-        "report_sha256": "8bacdd6218ebb921a416c09b1f9ccd5813a0bff62c66abfcd47b574956ce4703"
+        "report_sha256": "b89be9c2399d60ea17167991e20a99f3c058f6a1177943a1ccefdeb1e0814b88"
       },
       "renderer-reset-execution": {
         "cases": 350,
-        "report_sha256": "a8d1dbcd17f7335290f3d1319a84b28e73f609a7125b29faffbd6b3e12e9a5f7"
+        "report_sha256": "98f8ef7774378076af6e8130d82ec6d42604346ded5b564aae967773ce2f2114"
       },
       "background-dispatch-execution": {
         "cases": 15000,
-        "report_sha256": "8b62dc40f8c3ca90040ce6f21c8d8109ab4864e8ab728c7d8f124b0ba3f5a4f6"
+        "report_sha256": "0d68abc3f15fe49293a22cc8fa74e0581b2d9ece8a864de9145ca8ead67f6767"
       },
       "background-tiles-execution": {
         "cases": 140,
-        "report_sha256": "4ddde137170fe10ed2403f9ba56e717cd7f8ca332dc22926ec9418e19bbbf09d"
+        "report_sha256": "dca2402bc317fa2e13b505acf5917359f73cc7e20d8fd6f1251f7ad4e7fed94f"
       },
       "palette-transition-execution": {
         "cases": 14520,
-        "report_sha256": "1b04517cbe5bd99a50d0914d611c2f4a912ab8e9cfe19d1c9ec34225ba614332"
+        "report_sha256": "12ae52f49b63505c07681545e477b2334e5bdbeed6d783c5860aad682207c8ae"
       },
       "palette-update-execution": {
         "cases": 909,
-        "report_sha256": "aca2502e53fa1c57c00cf1ccebc88a16c71e4c4148b07d36ec4893193dccd372"
+        "report_sha256": "6f3bf30ec0ab213ccdf5227ad87ee416e35d6a5e643f63779248f0ced128e5bf"
       },
       "object-projection-execution": {
         "cases": 364,
-        "report_sha256": "25dc5c10288df5c1d99f52f95fed5768f49df34199f9e8ee29e1f2ec5cb5ab36"
+        "report_sha256": "bcc024a547d7b11478bd69bd109ad39ebe02ce083467edca107ac28eaac65d14"
       },
       "palette-color-table-execution": {
         "cases": 1071,
-        "report_sha256": "54a6585cff3654b35dcff0dd90ae738fb98dcb9377a670298b3a83b9202a747b"
+        "report_sha256": "d227fd9725b967d9542a3e67f6cd9db730d7a196034ad92de92b958d59672b2b"
       },
       "error-formatter-execution": {
         "cases": 3588,
-        "report_sha256": "6f914763be0338845091a42c3d462e69be1fdcc3bf384d40c89ab7220153bafe"
+        "report_sha256": "f9f11c45941f3da00a28541b54046f1050709605005249c02ee1c53131d00287"
       },
       "input-sequence-definition-execution": {
         "cases": 1176,
-        "report_sha256": "69b1c461675e6529a0f00b18d34fcf4e88b73ce5939c679c8fc250d26ac38a13"
+        "report_sha256": "edb485c3e73029e1d0d7f6827d5aba1b1b13b05f954a055dd986a2176addd2a9"
       },
       "static-menu-execution": {
         "cases": 512,
-        "report_sha256": "f768cd00d8f52877d4ebe55a13588f1d4ce0e2a618e4bb79ab6d8d9fa727b9ea"
+        "report_sha256": "24b86714ae29d69891fff7d7b94e0d3be57e74469e1a5331cf897fc8ea7c5baf"
       },
       "menu-display-execution": {
         "cases": 338,
-        "report_sha256": "68530612932ef1a2a53184bf248e02f141cca7155a03c406ab8d6f5b8003853c"
+        "report_sha256": "118ba0bee98ad712dc289f779d97f5df49644344b9c8551f54cfc78f3d796c05"
       },
       "control-setup-execution": {
         "cases": 1008,
-        "report_sha256": "fff16e8aed92bf79bba48a97bba48d9f54ac37d5031bdda110fddda9bce2a2e1"
+        "report_sha256": "77feabf6aa7b9dfccb3e240f2ba580fbc3e41a77e8002cf0266c91f4f3a89ff3"
       },
       "platform-empty-execution": {
         "cases": 826,
-        "report_sha256": "0ca70237f7b5507a1a55b0c0d3dc3bb03f76d7dcd2046f63516c98aaa74bfddb"
+        "report_sha256": "a24b0df48d5f8d80bd4b8ff03844d61b7a363e17d91da4662b73f99100fa0c58"
       },
       "pak-confirmation-execution": {
         "cases": 507,
-        "report_sha256": "91a6861b12df5408fe295629686d46e21f4fd635284241d0acf968021fd7c8e7"
+        "report_sha256": "f22aa3d3047a88de729e7e3cbb2b14a07c923c84c8a8e840c9b095cb405568cf"
       },
       "mesh-command-execution": {
         "cases": 1080,
-        "report_sha256": "005765e9f604cbeead02d974ff69c12628cdee69357fc92a7eb4ab0963d44382"
+        "report_sha256": "6a15014780be8bc93fa1db1251dfe70553235b873c32ddf6e6325322faeab5f4"
+      },
+      "front-menu-execution": {
+        "cases": 1578,
+        "report_sha256": "448e7570c1c8021c5ca2bcaac0fe27f441576610ed0ab38bf5969366f9e09121"
       }
     }
   },
@@ -1810,9 +1815,9 @@
         "-j2"
       ],
       "returncode": 0,
-      "elapsed_seconds": 196.09,
-      "log": ".local/renderer-color/mesh-command-validation/01-compare_runtime.log",
-      "log_sha256": "be2903ba18163a7623dc209b878ea6630e3c2ccfcf86a4e83686925630db0349"
+      "elapsed_seconds": 178.84,
+      "log": ".local/renderer-color/front-menu-validation/01-compare_runtime.log",
+      "log_sha256": "3322b74738f4b566323955dd3232b2f6e90e0052f58639fa69a970f6daa222cc"
     },
     {
       "command": [
@@ -1820,9 +1825,9 @@
         "tools/compare_startup.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 1.05,
-      "log": ".local/renderer-color/mesh-command-validation/02-compare_startup.log",
-      "log_sha256": "00851f170be84075d21586c95f232a6c5c6b121379ad56270fd39bd39ee720d5"
+      "elapsed_seconds": 0.9,
+      "log": ".local/renderer-color/front-menu-validation/02-compare_startup.log",
+      "log_sha256": "c363f3476434a31a776854b3b6439d0a3e8945f96e6c1dc53e13732e98456a98"
     },
     {
       "command": [
@@ -1830,8 +1835,8 @@
         "tools/compare_assembly.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 12.89,
-      "log": ".local/renderer-color/mesh-command-validation/03-compare_assembly.log",
+      "elapsed_seconds": 11.16,
+      "log": ".local/renderer-color/front-menu-validation/03-compare_assembly.log",
       "log_sha256": "def044745f32df2c9058eb992899bb3623de07b2c2b4df4740bdfd5763cfaa25"
     },
     {
@@ -1840,9 +1845,9 @@
         "tools/compare_data.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 10.37,
-      "log": ".local/renderer-color/mesh-command-validation/04-compare_data.log",
-      "log_sha256": "515488bdf126a07f648694ad48ac4fe970efc9a4b010257b7179488009a73e36"
+      "elapsed_seconds": 8.11,
+      "log": ".local/renderer-color/front-menu-validation/04-compare_data.log",
+      "log_sha256": "d2c7c852c478cf4c79ca00251c947e82d8b491e58b86849693a8fa40ed00e217"
     },
     {
       "command": [
@@ -1850,8 +1855,8 @@
         "tools/check_renderer_rotating_rings.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 44.65,
-      "log": ".local/renderer-color/mesh-command-validation/05-check_renderer_rotating_rings.log",
+      "elapsed_seconds": 43.84,
+      "log": ".local/renderer-color/front-menu-validation/05-check_renderer_rotating_rings.log",
       "log_sha256": "27410627bc74433584c415e397ffc570c808f4e3f6a4d315d9dc9a0f925231dc"
     },
     {
@@ -1860,8 +1865,8 @@
         "tools/check_renderer_material_reset.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 16.82,
-      "log": ".local/renderer-color/mesh-command-validation/06-check_renderer_material_reset.log",
+      "elapsed_seconds": 17.45,
+      "log": ".local/renderer-color/front-menu-validation/06-check_renderer_material_reset.log",
       "log_sha256": "bf246e23f5886c764f640eac1e0ed5e092817450ce8da6bd37624dd7c2514022"
     },
     {
@@ -1870,8 +1875,8 @@
         "tools/check_background_dispatch.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 184.14,
-      "log": ".local/renderer-color/mesh-command-validation/07-check_background_dispatch.log",
+      "elapsed_seconds": 186.07,
+      "log": ".local/renderer-color/front-menu-validation/07-check_background_dispatch.log",
       "log_sha256": "32736e4bdf64ac3ad9eb08fb838c2e332cb4c7fcd38151c1190f46f82c10de87"
     },
     {
@@ -1880,8 +1885,8 @@
         "tools/check_background_tiles.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 2.96,
-      "log": ".local/renderer-color/mesh-command-validation/08-check_background_tiles.log",
+      "elapsed_seconds": 2.81,
+      "log": ".local/renderer-color/front-menu-validation/08-check_background_tiles.log",
       "log_sha256": "12f6fc11df8e85f2e4875e0a714f42e07c72bd879b7ac5b6a27f3a77c850d5d8"
     },
     {
@@ -1890,8 +1895,8 @@
         "tools/check_palette_transitions.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 104.39,
-      "log": ".local/renderer-color/mesh-command-validation/09-check_palette_transitions.log",
+      "elapsed_seconds": 102.5,
+      "log": ".local/renderer-color/front-menu-validation/09-check_palette_transitions.log",
       "log_sha256": "bfbf5ef2828a170da85a965aefdcfcd6beb14027ad049cd5fa60f7c077d4feeb"
     },
     {
@@ -1900,8 +1905,8 @@
         "tools/check_palette_update.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 34.03,
-      "log": ".local/renderer-color/mesh-command-validation/10-check_palette_update.log",
+      "elapsed_seconds": 31.28,
+      "log": ".local/renderer-color/front-menu-validation/10-check_palette_update.log",
       "log_sha256": "fa1e21392431287a469ed8d04d082244b3e17c52975672226855d6cfcf5488ee"
     },
     {
@@ -1910,8 +1915,8 @@
         "tools/check_object_projection.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 15.63,
-      "log": ".local/renderer-color/mesh-command-validation/11-check_object_projection.log",
+      "elapsed_seconds": 14.34,
+      "log": ".local/renderer-color/front-menu-validation/11-check_object_projection.log",
       "log_sha256": "c5fc540165643a1bb836bc147ba5a1d865f5631fcba4351fafbe2349f6f4154a"
     },
     {
@@ -1920,8 +1925,8 @@
         "tools/check_palette_color_tables.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 7.81,
-      "log": ".local/renderer-color/mesh-command-validation/12-check_palette_color_tables.log",
+      "elapsed_seconds": 7.13,
+      "log": ".local/renderer-color/front-menu-validation/12-check_palette_color_tables.log",
       "log_sha256": "111d85c40f26880386723af885844fd769617d035c8628109eddcb4e98272f19"
     },
     {
@@ -1930,8 +1935,8 @@
         "tools/check_error_formatters.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 31.36,
-      "log": ".local/renderer-color/mesh-command-validation/13-check_error_formatters.log",
+      "elapsed_seconds": 27.82,
+      "log": ".local/renderer-color/front-menu-validation/13-check_error_formatters.log",
       "log_sha256": "30bb8d42dcd2149dd7ef67d76763765e950514e88068d6f14e7bb30804cf3310"
     },
     {
@@ -1940,8 +1945,8 @@
         "tools/check_input_sequence_definition.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 8.13,
-      "log": ".local/renderer-color/mesh-command-validation/14-check_input_sequence_definition.log",
+      "elapsed_seconds": 7.14,
+      "log": ".local/renderer-color/front-menu-validation/14-check_input_sequence_definition.log",
       "log_sha256": "e549517cda2d871ca80f1b7d334aca51f2f5829b405227a93dda7981798eab9c"
     },
     {
@@ -1950,8 +1955,8 @@
         "tools/check_static_menu_records.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 5.51,
-      "log": ".local/renderer-color/mesh-command-validation/15-check_static_menu_records.log",
+      "elapsed_seconds": 4.62,
+      "log": ".local/renderer-color/front-menu-validation/15-check_static_menu_records.log",
       "log_sha256": "bcf37f88a086d1bb49403e8b0612c5e618fcfd88e51e994aa951c2438c414077"
     },
     {
@@ -1960,8 +1965,8 @@
         "tools/check_menu_display.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 7.47,
-      "log": ".local/renderer-color/mesh-command-validation/16-check_menu_display.log",
+      "elapsed_seconds": 6.28,
+      "log": ".local/renderer-color/front-menu-validation/16-check_menu_display.log",
       "log_sha256": "b8174cfc6f7cfa8b0e48de1e7413b4f0fc771d966bb6e3f3d9f3ddfb95de2db8"
     },
     {
@@ -1970,8 +1975,8 @@
         "tools/check_control_setup_records.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 27.69,
-      "log": ".local/renderer-color/mesh-command-validation/17-check_control_setup_records.log",
+      "elapsed_seconds": 25.94,
+      "log": ".local/renderer-color/front-menu-validation/17-check_control_setup_records.log",
       "log_sha256": "dd25b9242322a36c5b300e5c7417f07c71ab6bfbfffefb0d9f46e458af1a1d2d"
     },
     {
@@ -1980,8 +1985,8 @@
         "tools/check_platform_empty.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 4.9,
-      "log": ".local/renderer-color/mesh-command-validation/18-check_platform_empty.log",
+      "elapsed_seconds": 5.38,
+      "log": ".local/renderer-color/front-menu-validation/18-check_platform_empty.log",
       "log_sha256": "8f408217199bcb348936121a23d98dff6dda2b72cf64f0f5fcdc04f615b93a85"
     },
     {
@@ -1990,8 +1995,8 @@
         "tools/check_pak_confirmation_records.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 9.62,
-      "log": ".local/renderer-color/mesh-command-validation/19-check_pak_confirmation_records.log",
+      "elapsed_seconds": 9.64,
+      "log": ".local/renderer-color/front-menu-validation/19-check_pak_confirmation_records.log",
       "log_sha256": "abff4d4ec45039bd85f57f685e6a45e91c15a789ba33ea1aa8bbc493e5ff5b8d"
     },
     {
@@ -2000,9 +2005,19 @@
         "tools/check_mesh_commands.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 17.03,
-      "log": ".local/renderer-color/mesh-command-validation/20-check_mesh_commands.log",
+      "elapsed_seconds": 16.94,
+      "log": ".local/renderer-color/front-menu-validation/20-check_mesh_commands.log",
       "log_sha256": "9dce7f6efe147c78ca814c337d2b232e823eb809dbdd3f4858f357756d352c9c"
+    },
+    {
+      "command": [
+        "/root/robotron64-tools/.venv/bin/python",
+        "tools/check_front_menu_records.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 20.81,
+      "log": ".local/renderer-color/front-menu-validation/21-check_front_menu_records.log",
+      "log_sha256": "d3bd57d8993ee74dc7be46a33eba3bda9ab868201546bb608cfa7ee3e070e25b"
     }
   ],
   "private_artifacts_sha256": {
@@ -2012,15 +2027,15 @@
     "layout-probe.c": "0e3764dc72b80f9ccc368961ea529e5ddcacaa678be05cbf2efa68dd70979d18",
     "layout-probe.o": "85161123d1472a2388c032716a999dab7fbbd98a9efdc623d981ef23acc2d9b3",
     "layout-probe.json": "5267e82ebfae039568b75bbae20b6dfe5997531c316c6a67af1cec9715a90e8d",
-    "match.json": "be43564c47ebf4d4ff6fa97b91b622d01390dc0fc9bbca8e187592c0e7003e32",
+    "match.json": "8878e24434d91aff79f63dbb7d20fbd086ce49d91a4f92e351f0df40707ef82e",
     "asm-differ.txt": "e9007ac26959c9fc3ee73a43a498fb78ef1b283626ad85ec88ba04c04b34ec89"
   },
   "inputs_sha256": {
-    "Makefile": "0f139a58e5bc9b2c480c8bb90811ec1b82d7ffe38aacbe0ff1ef1eabeb5f2fae",
+    "Makefile": "9a5c8e05d18503ec67bc7043385acf2ed6133ff053c93f51d3b2c8c548440eb9",
     "config/analysis/menu_display.yaml": "8a9b68670c3d55dd34a43a42063b62bfebd51ac2ab70e251d5a731cc32fbf866",
     "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-    "config/owned_sections.json": "3a84720685a81cb9f328adf680b4d8af0d964c6e42d6aa8815bcfacf0c9a9781",
-    "config/runtime_symbols.ld": "145fdccec89dba00b104c9649ab2b4cd4278cae40ba3a541c7a503e13fbf1c61",
+    "config/owned_sections.json": "e575de5d76b91db81b091ad7bfed2f6e24fc32ac71b76c8965cd5cf1d8e09460",
+    "config/runtime_symbols.ld": "a0d7d342a42eaf20d91aff6844511c24099e91e2cdaa0668d71ccde7ca098667",
     "config/startup_symbols.ld": "d75e47cb0a27c33361d6f41aacef3d6c88d5c470d6cc288d9c984274285c08fb",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "docs/menu-display.md": "78eb0a2ae2fa387fd5bb076eaa4f610f77924f33b4999bd4759210a9a44906d9",
@@ -2102,6 +2117,7 @@
     "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
     "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
     "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
+    "include/front_menu_internal.h": "e64938d27b8d092ff1eddd05a81cf8854b5b9b0ba837b2f8682874cd6f0c6c32",
     "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
     "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
     "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
@@ -2150,11 +2166,11 @@
     "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
     "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
     "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
-    "include/save_menu_internal.h": "8c69cc8b3497726b45c9262956cd2c1a87a4afca68d5f09d312168e4ee6dacd2",
-    "include/save_menu_legacy_internal.h": "562ec136abc21ac588af6ff91b00e8facc0d38fc8f3dc9a8686a1763ead715ef",
-    "include/save_menu_nav_internal.h": "b0e96be0011dd63ad4bef1f54c8f5d5765324d30c7f80ead8688d9862aaea2a3",
+    "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
+    "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
+    "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
     "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
-    "include/scene_action_internal.h": "540d754daa04b693d7cbe5f06e240bffe571188966171b9f3add64bdeb6fb089",
+    "include/scene_action_internal.h": "22cba49e71e3f8298604d359b89bae923957cd0cbe5d4ca898270f081ecdae00",
     "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
     "include/scene_background_internal.h": "c2199191e33f34eeda432ebbcf504c3bd944fc7634be42510f87550e4a9e9c10",
     "include/scene_commands_internal.h": "a21b97d1d652b686d51f894b0611b494421f9fa57563aaa2a8ff101cb6032efb",
@@ -2204,7 +2220,7 @@
     "include/static_menu_internal.h": "dc3ba1bf5f36927bd6e49af40f9d1101975ce39c0fc4f35b43753201060e5203",
     "include/text.h": "d954d557366f88590d863a335130d609cba06def33ad93145a8ff449394b6761",
     "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-    "linker_scripts/us.ld": "ebe393db8eb8eaaa14981e653da66f4b4f9c515c5df65079b4e52d9cbd71ac4c",
+    "linker_scripts/us.ld": "97bb11c82bf3554ba3172ad525ae998711e54c9b170131e0d5198c03790c5036",
     "src/game/fixed_geometry_setup.c": "e2e921573c9af970d82a0dd5f2131fb4026ce8d5a24f28db2489e52799095263",
     "src/game/formatting/digits.c": "a25a85fc53aa5595473f65eea2724d9173a612725301708a36b2c40366287df7",
     "src/game/game_memory.c": "d046cce69151ba911777c757ad9462c3bc5e608831e1426f4a67d9cff788c0c7",
@@ -2217,7 +2233,7 @@
     "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
     "tools/compare_runtime.py": "f7eab2ad6813a4dd155417713b48b0c6ff157c3b5b4d6d892618010897662146",
     "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
-    "tools/extract.py": "eb9efb91bf730f105403e577bd6ebcbc348fd72e5f2fa3fd737cd0b63b7fd43b",
+    "tools/extract.py": "cf7269e63f440d0ada54d12690ce37d9115278155f038d8b98a76b9d135c3581",
     "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
   },
   "limits": [

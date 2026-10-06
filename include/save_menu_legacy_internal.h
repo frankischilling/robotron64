@@ -1,3 +1,4 @@
+#include "front_menu_internal.h"
 #include "static_menu_internal.h"
 #ifndef ROBOTRON_SAVE_MENU_LEGACY_INTERNAL_H
 #define ROBOTRON_SAVE_MENU_LEGACY_INTERNAL_H
@@ -15,8 +16,6 @@ extern unsigned char D_80076230[];
 extern unsigned char D_8007628C[];
 extern unsigned char D_800762E8[];
 extern unsigned char D_8007683C[];
-extern unsigned char D_80076D70[];
-extern unsigned char D_80076E44[];
 extern unsigned char D_80092BD0[];
 extern unsigned char D_80092BD8[];
 extern unsigned char D_80092BDC[];

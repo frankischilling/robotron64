@@ -1,3 +1,4 @@
+#include "front_menu_internal.h"
 #include "static_menu_internal.h"
 #ifndef ROBOTRON_SAVE_MENU_NAV_INTERNAL_H
 #define ROBOTRON_SAVE_MENU_NAV_INTERNAL_H
@@ -72,8 +73,6 @@ extern SaveMenuNavigationStateInternal D_800AEE98;
 extern int D_800AEEB4;
 extern int D_800761F0;
 extern int D_800761F4;
-extern unsigned char D_80076D70[];
-extern unsigned char D_80076F18[];
 extern unsigned char *D_80076FBC;
 extern unsigned char D_80077A8C[];
 extern unsigned char D_80092BF4[];

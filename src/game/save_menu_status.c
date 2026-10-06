@@ -14,7 +14,6 @@ extern unsigned char D_80076C34[];
 extern unsigned char D_80076C68[];
 extern unsigned char D_80076C9C[];
 extern unsigned char D_80076BD8[];
-extern unsigned char D_80076D70[];
 extern unsigned char D_80094034[];
 extern unsigned char D_80094040[];
 

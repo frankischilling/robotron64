@@ -1,124 +1,145 @@
 {
-  "scope": "480 complete initialized bytes in six C data units; zero new CPU instruction or BSS ownership.",
-  "previous_accepted_head": "ec860a3c64faa6314caed496046eebce76ed8f53",
+  "scope": "832 complete initialized bytes in seven C units; zero new instruction or BSS ownership.",
+  "previous_accepted_head": "a8de50aa1db8a479a16f34518e83dd16f5a2d699",
   "source_instruction_bytes": 0,
-  "source_initialized_bytes": 480,
+  "source_initialized_bytes": 832,
   "source_bss_bytes": 0,
   "sources": [
-    "src/game/save_menus/static_confirmation/labels.c",
-    "src/game/save_menus/static_confirmation/page.c",
-    "src/game/save_menus/static_pause/labels.c",
-    "src/game/save_menus/static_pause/page.c",
-    "src/game/save_menus/static_confirmation/text.c",
-    "src/game/save_menus/static_pause/text.c"
+    "src/game/save_menus/front_pages/load_labels.c",
+    "src/game/save_menus/front_pages/load_page.c",
+    "src/game/save_menus/front_pages/main_labels.c",
+    "src/game/save_menus/front_pages/main_page.c",
+    "src/game/save_menus/front_pages/audio_labels.c",
+    "src/game/save_menus/front_pages/audio_page.c",
+    "src/game/save_menus/front_pages/text.c"
   ],
   "ownership": [
     {
-      "source": "src/game/save_menus/static_confirmation/labels.c",
-      "object": "build/us/menu_static_confirmation_labels.o",
+      "source": "src/game/save_menus/front_pages/load_labels.c",
+      "object": "build/us/menu_front_load_labels.o",
       "input_section": ".data",
-      "section": ".menu_static_confirmation_labels",
-      "vram": 2147971744,
-      "rom": 491168,
-      "size": 80,
+      "section": ".menu_front_load_labels",
+      "vram": 2147970256,
+      "rom": 489680,
+      "size": 160,
       "symbols": {
-        "D_800772A0": 0
+        "D_80076CD0": 0
       },
-      "evidence": "docs/static-menu-records.md"
+      "evidence": "docs/front-menu-records.md"
     },
     {
-      "source": "src/game/save_menus/static_confirmation/page.c",
-      "object": "build/us/menu_static_confirmation_page.o",
+      "source": "src/game/save_menus/front_pages/load_page.c",
+      "object": "build/us/menu_front_load_page.o",
       "input_section": ".data",
-      "section": ".menu_static_confirmation_page",
-      "vram": 2147971824,
-      "rom": 491248,
+      "section": ".menu_front_load_page",
+      "vram": 2147970416,
+      "rom": 489840,
       "size": 52,
       "symbols": {
-        "D_800772F0": 0
+        "D_80076D70": 0
       },
-      "evidence": "docs/static-menu-records.md"
+      "evidence": "docs/front-menu-records.md"
     },
     {
-      "source": "src/game/save_menus/static_pause/labels.c",
-      "object": "build/us/menu_static_pause_labels.o",
+      "source": "src/game/save_menus/front_pages/main_labels.c",
+      "object": "build/us/menu_front_main_labels.o",
       "input_section": ".data",
-      "section": ".menu_static_pause_labels",
-      "vram": 2147972180,
-      "rom": 491604,
-      "size": 200,
+      "section": ".menu_front_main_labels",
+      "vram": 2147970468,
+      "rom": 489892,
+      "size": 160,
       "symbols": {
-        "D_80077454": 0
+        "D_80076DA4": 0
       },
-      "evidence": "docs/static-menu-records.md"
+      "evidence": "docs/front-menu-records.md"
     },
     {
-      "source": "src/game/save_menus/static_pause/page.c",
-      "object": "build/us/menu_static_pause_page.o",
+      "source": "src/game/save_menus/front_pages/main_page.c",
+      "object": "build/us/menu_front_main_page.o",
       "input_section": ".data",
-      "section": ".menu_static_pause_page",
-      "vram": 2147972380,
-      "rom": 491804,
+      "section": ".menu_front_main_page",
+      "vram": 2147970628,
+      "rom": 490052,
       "size": 52,
       "symbols": {
-        "D_8007751C": 0
+        "D_80076E44": 0
       },
-      "evidence": "docs/static-menu-records.md"
+      "evidence": "docs/front-menu-records.md"
     },
     {
-      "source": "src/game/save_menus/static_confirmation/text.c",
-      "object": "build/us/menu_static_confirmation_text.o",
-      "input_section": ".rodata",
-      "section": ".menu_static_confirmation_text",
-      "vram": 2148086908,
-      "rom": 606332,
-      "size": 16,
+      "source": "src/game/save_menus/front_pages/audio_labels.c",
+      "object": "build/us/menu_front_audio_labels.o",
+      "input_section": ".data",
+      "section": ".menu_front_audio_labels",
+      "vram": 2147970680,
+      "rom": 490104,
+      "size": 160,
       "symbols": {
-        "D_8009347C": 0,
-        "D_80093480": 4,
-        "D_80093484": 8
+        "D_80076E78": 0
       },
-      "evidence": "docs/static-menu-records.md"
+      "evidence": "docs/front-menu-records.md"
     },
     {
-      "source": "src/game/save_menus/static_pause/text.c",
-      "object": "build/us/menu_static_pause_text.o",
-      "input_section": ".rodata",
-      "section": ".menu_static_pause_text",
-      "vram": 2148087024,
-      "rom": 606448,
-      "size": 80,
+      "source": "src/game/save_menus/front_pages/audio_page.c",
+      "object": "build/us/menu_front_audio_page.o",
+      "input_section": ".data",
+      "section": ".menu_front_audio_page",
+      "vram": 2147970840,
+      "rom": 490264,
+      "size": 52,
       "symbols": {
-        "D_800934F0": 0,
-        "D_80093508": 24,
-        "D_80093510": 32,
-        "D_8009351C": 44,
-        "D_80093528": 56,
-        "D_80093534": 68
+        "D_80076F18": 0
       },
-      "evidence": "docs/static-menu-records.md"
+      "evidence": "docs/front-menu-records.md"
+    },
+    {
+      "source": "src/game/save_menus/front_pages/text.c",
+      "object": "build/us/menu_front_text.o",
+      "input_section": ".rodata",
+      "section": ".menu_front_text",
+      "vram": 2148086356,
+      "rom": 605780,
+      "size": 196,
+      "symbols": {
+        "D_80093254": 0,
+        "D_80093260": 12,
+        "D_80093274": 32,
+        "D_80093280": 44,
+        "D_80093290": 60,
+        "D_80093294": 64,
+        "D_8009329C": 72,
+        "D_800932A8": 84,
+        "D_800932B8": 100,
+        "D_800932C8": 116,
+        "D_800932CC": 120,
+        "D_800932D4": 128,
+        "D_800932E8": 148,
+        "D_800932F8": 164,
+        "D_80093308": 180
+      },
+      "evidence": "docs/front-menu-records.md"
     }
   ],
   "compiler_comparisons": {
-    "src/game/save_menus/static_confirmation/labels.c": {
-      "source": "src/game/save_menus/static_confirmation/labels.c",
+    "src/game/save_menus/front_pages/load_labels.c": {
+      "source": "src/game/save_menus/front_pages/load_labels.c",
       "matches": true,
       "sections": [
         {
           "ownership": {
-            "source": "src/game/save_menus/static_confirmation/labels.c",
-            "object": "build/us/menu_static_confirmation_labels.o",
+            "source": "src/game/save_menus/front_pages/load_labels.c",
+            "object": "build/us/menu_front_load_labels.o",
             "input_section": ".data",
-            "section": ".menu_static_confirmation_labels",
-            "vram": 2147971744,
-            "rom": 491168,
-            "size": 80,
+            "section": ".menu_front_load_labels",
+            "vram": 2147970256,
+            "rom": 489680,
+            "size": 160,
             "symbols": {
-              "D_800772A0": 0
+              "D_80076CD0": 0
             },
-            "evidence": "docs/static-menu-records.md"
+            "evidence": "docs/front-menu-records.md"
           },
-          "bytes_sha256": "88fac1640d48b847d569aab4ead734c74826053ff8aedd5d094525adf4a2f1ff"
+          "bytes_sha256": "38e7f710370cfd392536322a3e7699a2a8f04767115b720aaee7899a3263d324"
         }
       ],
       "compiler_profile": {
@@ -140,25 +161,25 @@
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       }
     },
-    "src/game/save_menus/static_confirmation/page.c": {
-      "source": "src/game/save_menus/static_confirmation/page.c",
+    "src/game/save_menus/front_pages/load_page.c": {
+      "source": "src/game/save_menus/front_pages/load_page.c",
       "matches": true,
       "sections": [
         {
           "ownership": {
-            "source": "src/game/save_menus/static_confirmation/page.c",
-            "object": "build/us/menu_static_confirmation_page.o",
+            "source": "src/game/save_menus/front_pages/load_page.c",
+            "object": "build/us/menu_front_load_page.o",
             "input_section": ".data",
-            "section": ".menu_static_confirmation_page",
-            "vram": 2147971824,
-            "rom": 491248,
+            "section": ".menu_front_load_page",
+            "vram": 2147970416,
+            "rom": 489840,
             "size": 52,
             "symbols": {
-              "D_800772F0": 0
+              "D_80076D70": 0
             },
-            "evidence": "docs/static-menu-records.md"
+            "evidence": "docs/front-menu-records.md"
           },
-          "bytes_sha256": "bf1a506bfdf9c4428f766aebb9d628b3a4c852fff45857414058adecdf441136"
+          "bytes_sha256": "41eab3c9899959a318df01c6b49950f3a8c1458d4d2a6476b48411f3ece0c6df"
         }
       ],
       "compiler_profile": {
@@ -180,67 +201,25 @@
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       }
     },
-    "src/game/save_menus/static_confirmation/text.c": {
-      "source": "src/game/save_menus/static_confirmation/text.c",
+    "src/game/save_menus/front_pages/main_labels.c": {
+      "source": "src/game/save_menus/front_pages/main_labels.c",
       "matches": true,
       "sections": [
         {
           "ownership": {
-            "source": "src/game/save_menus/static_confirmation/text.c",
-            "object": "build/us/menu_static_confirmation_text.o",
-            "input_section": ".rodata",
-            "section": ".menu_static_confirmation_text",
-            "vram": 2148086908,
-            "rom": 606332,
-            "size": 16,
-            "symbols": {
-              "D_8009347C": 0,
-              "D_80093480": 4,
-              "D_80093484": 8
-            },
-            "evidence": "docs/static-menu-records.md"
-          },
-          "bytes_sha256": "942f747e5881dbf171f8ea59a41a13d5b1641622502fe94402118714c16ca0b8"
-        }
-      ],
-      "compiler_profile": {
-        "name": "game",
-        "version": "5.3",
-        "flags": [
-          "-O2",
-          "-G",
-          "0",
-          "-non_shared",
-          "-mips1",
-          "-32"
-        ]
-      },
-      "toolchain_identity": {
-        "version": "5.3",
-        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-      }
-    },
-    "src/game/save_menus/static_pause/labels.c": {
-      "source": "src/game/save_menus/static_pause/labels.c",
-      "matches": true,
-      "sections": [
-        {
-          "ownership": {
-            "source": "src/game/save_menus/static_pause/labels.c",
-            "object": "build/us/menu_static_pause_labels.o",
+            "source": "src/game/save_menus/front_pages/main_labels.c",
+            "object": "build/us/menu_front_main_labels.o",
             "input_section": ".data",
-            "section": ".menu_static_pause_labels",
-            "vram": 2147972180,
-            "rom": 491604,
-            "size": 200,
+            "section": ".menu_front_main_labels",
+            "vram": 2147970468,
+            "rom": 489892,
+            "size": 160,
             "symbols": {
-              "D_80077454": 0
+              "D_80076DA4": 0
             },
-            "evidence": "docs/static-menu-records.md"
+            "evidence": "docs/front-menu-records.md"
           },
-          "bytes_sha256": "7e7f3014b25dbc01326102ea99de73254843c3ec2362750de12fe403813f71f5"
+          "bytes_sha256": "88ee0f0f7cda8507350a2464625bb0c5d7ce3acf91ab8efecf2362ce935263f4"
         }
       ],
       "compiler_profile": {
@@ -262,25 +241,25 @@
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       }
     },
-    "src/game/save_menus/static_pause/page.c": {
-      "source": "src/game/save_menus/static_pause/page.c",
+    "src/game/save_menus/front_pages/main_page.c": {
+      "source": "src/game/save_menus/front_pages/main_page.c",
       "matches": true,
       "sections": [
         {
           "ownership": {
-            "source": "src/game/save_menus/static_pause/page.c",
-            "object": "build/us/menu_static_pause_page.o",
+            "source": "src/game/save_menus/front_pages/main_page.c",
+            "object": "build/us/menu_front_main_page.o",
             "input_section": ".data",
-            "section": ".menu_static_pause_page",
-            "vram": 2147972380,
-            "rom": 491804,
+            "section": ".menu_front_main_page",
+            "vram": 2147970628,
+            "rom": 490052,
             "size": 52,
             "symbols": {
-              "D_8007751C": 0
+              "D_80076E44": 0
             },
-            "evidence": "docs/static-menu-records.md"
+            "evidence": "docs/front-menu-records.md"
           },
-          "bytes_sha256": "44fe5c7449829cd12d4bfec1cbf243fbe855647963aeccc11ce93950558739d6"
+          "bytes_sha256": "3f66ad93ce7948304af886760420abaa6597788d479a1eb54654241b0fae829b"
         }
       ],
       "compiler_profile": {
@@ -302,30 +281,200 @@
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       }
     },
-    "src/game/save_menus/static_pause/text.c": {
-      "source": "src/game/save_menus/static_pause/text.c",
+    "src/game/save_menus/front_pages/audio_labels.c": {
+      "source": "src/game/save_menus/front_pages/audio_labels.c",
       "matches": true,
       "sections": [
         {
           "ownership": {
-            "source": "src/game/save_menus/static_pause/text.c",
-            "object": "build/us/menu_static_pause_text.o",
-            "input_section": ".rodata",
-            "section": ".menu_static_pause_text",
-            "vram": 2148087024,
-            "rom": 606448,
-            "size": 80,
+            "source": "src/game/save_menus/front_pages/audio_labels.c",
+            "object": "build/us/menu_front_audio_labels.o",
+            "input_section": ".data",
+            "section": ".menu_front_audio_labels",
+            "vram": 2147970680,
+            "rom": 490104,
+            "size": 160,
             "symbols": {
-              "D_800934F0": 0,
-              "D_80093508": 24,
-              "D_80093510": 32,
-              "D_8009351C": 44,
-              "D_80093528": 56,
-              "D_80093534": 68
+              "D_80076E78": 0
             },
-            "evidence": "docs/static-menu-records.md"
+            "evidence": "docs/front-menu-records.md"
           },
-          "bytes_sha256": "3bb694ab7c512c9cf369c3dadddf5eed59c0de3510008d04ac54507673eded7b"
+          "bytes_sha256": "e3bbd7ce0af80b35a3b983422d6ee5db18636a5b9e45ae34b6d60e5ebc1fcb01"
+        }
+      ],
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      }
+    },
+    "src/game/save_menus/front_pages/audio_page.c": {
+      "source": "src/game/save_menus/front_pages/audio_page.c",
+      "matches": true,
+      "sections": [
+        {
+          "ownership": {
+            "source": "src/game/save_menus/front_pages/audio_page.c",
+            "object": "build/us/menu_front_audio_page.o",
+            "input_section": ".data",
+            "section": ".menu_front_audio_page",
+            "vram": 2147970840,
+            "rom": 490264,
+            "size": 52,
+            "symbols": {
+              "D_80076F18": 0
+            },
+            "evidence": "docs/front-menu-records.md"
+          },
+          "bytes_sha256": "b59b9ff57f1d624632923ba731fb51c1030348e3594b6a029442795b3e582087"
+        }
+      ],
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      }
+    },
+    "src/game/save_menus/front_pages/text.c": {
+      "source": "src/game/save_menus/front_pages/text.c",
+      "matches": true,
+      "sections": [
+        {
+          "ownership": {
+            "source": "src/game/save_menus/front_pages/text.c",
+            "object": "build/us/menu_front_text.o",
+            "input_section": ".rodata",
+            "section": ".menu_front_text",
+            "vram": 2148086356,
+            "rom": 605780,
+            "size": 196,
+            "symbols": {
+              "D_80093254": 0,
+              "D_80093260": 12,
+              "D_80093274": 32,
+              "D_80093280": 44,
+              "D_80093290": 60,
+              "D_80093294": 64,
+              "D_8009329C": 72,
+              "D_800932A8": 84,
+              "D_800932B8": 100,
+              "D_800932C8": 116,
+              "D_800932CC": 120,
+              "D_800932D4": 128,
+              "D_800932E8": 148,
+              "D_800932F8": 164,
+              "D_80093308": 180
+            },
+            "evidence": "docs/front-menu-records.md"
+          },
+          "bytes_sha256": "31f186d17178a2c6c96b8a2db576b1b332479d7b0279f22340e83648906024d5"
+        }
+      ],
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      }
+    },
+    "src/game/formatting/digits.c": {
+      "source": "src/game/formatting/digits.c",
+      "matches": true,
+      "sections": [
+        {
+          "ownership": {
+            "source": "src/game/formatting/digits.c",
+            "object": "build/us/game_number_digits.o",
+            "input_section": ".rodata",
+            "section": ".game_number_digits",
+            "vram": 2147990300,
+            "rom": 509724,
+            "size": 20,
+            "symbols": {
+              "D_8007BB1C": 0
+            },
+            "static_symbols": {},
+            "evidence": "docs/palette-color-tables.md"
+          },
+          "bytes_sha256": "f0ba6a2825921e27a550f8797e9d3e3d2ce03d79dc7434b7a3ce4fa5077bd88a"
+        }
+      ],
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      }
+    },
+    "src/game/save_menus/display/never.c": {
+      "source": "src/game/save_menus/display/never.c",
+      "matches": true,
+      "sections": [
+        {
+          "ownership": {
+            "source": "src/game/save_menus/display/never.c",
+            "object": "build/us/menu_display_never.o",
+            "input_section": ".data",
+            "section": ".menu_display_never",
+            "vram": 2148088008,
+            "rom": 607432,
+            "size": 8,
+            "symbols": {
+              "D_800938C8": 0
+            },
+            "evidence": "docs/menu-display.md"
+          },
+          "bytes_sha256": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12"
         }
       ],
       "compiler_profile": {
@@ -349,977 +498,774 @@
     }
   },
   "raw_objects": {
-    "src/game/save_menus/static_confirmation/labels.c": {
-      "raw_allocated_bytes": 80,
-      "owned_bytes": 80,
+    "src/game/save_menus/front_pages/load_labels.c": {
+      "raw_allocated_bytes": 160,
+      "owned_bytes": 160,
       "alignment_trimmed": 0,
       "no_executable_content": true,
+      "no_bss_content": true,
       "symbol_offsets": {
-        "D_800772A0": 0
+        "D_80076CD0": 0
       }
     },
-    "src/game/save_menus/static_confirmation/page.c": {
+    "src/game/save_menus/front_pages/load_page.c": {
       "raw_allocated_bytes": 64,
       "owned_bytes": 52,
       "alignment_trimmed": 12,
       "no_executable_content": true,
+      "no_bss_content": true,
       "symbol_offsets": {
-        "D_800772F0": 0
+        "D_80076D70": 0
       }
     },
-    "src/game/save_menus/static_pause/labels.c": {
+    "src/game/save_menus/front_pages/main_labels.c": {
+      "raw_allocated_bytes": 160,
+      "owned_bytes": 160,
+      "alignment_trimmed": 0,
+      "no_executable_content": true,
+      "no_bss_content": true,
+      "symbol_offsets": {
+        "D_80076DA4": 0
+      }
+    },
+    "src/game/save_menus/front_pages/main_page.c": {
+      "raw_allocated_bytes": 64,
+      "owned_bytes": 52,
+      "alignment_trimmed": 12,
+      "no_executable_content": true,
+      "no_bss_content": true,
+      "symbol_offsets": {
+        "D_80076E44": 0
+      }
+    },
+    "src/game/save_menus/front_pages/audio_labels.c": {
+      "raw_allocated_bytes": 160,
+      "owned_bytes": 160,
+      "alignment_trimmed": 0,
+      "no_executable_content": true,
+      "no_bss_content": true,
+      "symbol_offsets": {
+        "D_80076E78": 0
+      }
+    },
+    "src/game/save_menus/front_pages/audio_page.c": {
+      "raw_allocated_bytes": 64,
+      "owned_bytes": 52,
+      "alignment_trimmed": 12,
+      "no_executable_content": true,
+      "no_bss_content": true,
+      "symbol_offsets": {
+        "D_80076F18": 0
+      }
+    },
+    "src/game/save_menus/front_pages/text.c": {
       "raw_allocated_bytes": 208,
-      "owned_bytes": 200,
-      "alignment_trimmed": 8,
-      "no_executable_content": true,
-      "symbol_offsets": {
-        "D_80077454": 0
-      }
-    },
-    "src/game/save_menus/static_pause/page.c": {
-      "raw_allocated_bytes": 64,
-      "owned_bytes": 52,
+      "owned_bytes": 196,
       "alignment_trimmed": 12,
       "no_executable_content": true,
+      "no_bss_content": true,
       "symbol_offsets": {
-        "D_8007751C": 0
-      }
-    },
-    "src/game/save_menus/static_confirmation/text.c": {
-      "raw_allocated_bytes": 16,
-      "owned_bytes": 16,
-      "alignment_trimmed": 0,
-      "no_executable_content": true,
-      "symbol_offsets": {
-        "D_8009347C": 0,
-        "D_80093480": 4,
-        "D_80093484": 8
-      }
-    },
-    "src/game/save_menus/static_pause/text.c": {
-      "raw_allocated_bytes": 80,
-      "owned_bytes": 80,
-      "alignment_trimmed": 0,
-      "no_executable_content": true,
-      "symbol_offsets": {
-        "D_800934F0": 0,
-        "D_80093508": 24,
-        "D_80093510": 32,
-        "D_8009351C": 44,
-        "D_80093528": 56,
-        "D_80093534": 68
+        "D_80093254": 0,
+        "D_80093260": 12,
+        "D_80093274": 32,
+        "D_80093280": 44,
+        "D_80093290": 60,
+        "D_80093294": 64,
+        "D_8009329C": 72,
+        "D_800932A8": 84,
+        "D_800932B8": 100,
+        "D_800932C8": 116,
+        "D_800932CC": 120,
+        "D_800932D4": 128,
+        "D_800932E8": 148,
+        "D_800932F8": 164,
+        "D_80093308": 180
       }
     }
   },
   "verified_compiler_pointer_relocations": {
-    "src/game/save_menus/static_confirmation/labels.c": [
+    "src/game/save_menus/front_pages/load_labels.c": [
       {
         "offset": 4,
         "type": "R_MIPS_32",
-        "symbol": "func_8002FC9C",
+        "symbol": "func_80025BBC",
         "addend": 0,
-        "resolved_address": "0x8002FC9C",
+        "resolved_address": "0x80025BBC",
         "retail_equal": true
       },
       {
         "offset": 8,
         "type": "R_MIPS_32",
-        "symbol": "D_8009347C",
+        "symbol": "D_80093254",
         "addend": 0,
-        "resolved_address": "0x8009347C",
+        "resolved_address": "0x80093254",
         "retail_equal": true
       },
       {
         "offset": 44,
         "type": "R_MIPS_32",
-        "symbol": "func_8002FB54",
+        "symbol": "func_80026A10",
         "addend": 0,
-        "resolved_address": "0x8002FB54",
+        "resolved_address": "0x80026A10",
         "retail_equal": true
       },
       {
         "offset": 48,
         "type": "R_MIPS_32",
-        "symbol": "D_80093480",
+        "symbol": "D_80093260",
         "addend": 0,
-        "resolved_address": "0x80093480",
+        "resolved_address": "0x80093260",
         "retail_equal": true
       },
       {
         "offset": 64,
         "type": "R_MIPS_32",
-        "symbol": "D_800772A0",
+        "symbol": "D_80076CD0",
         "addend": 0,
-        "resolved_address": "0x800772A0",
-        "retail_equal": true
-      }
-    ],
-    "src/game/save_menus/static_confirmation/page.c": [
-      {
-        "offset": 0,
-        "type": "R_MIPS_32",
-        "symbol": "D_80093484",
-        "addend": 0,
-        "resolved_address": "0x80093484",
-        "retail_equal": true
-      },
-      {
-        "offset": 32,
-        "type": "R_MIPS_32",
-        "symbol": "D_800772A0",
-        "addend": 40,
-        "resolved_address": "0x800772C8",
-        "retail_equal": true
-      }
-    ],
-    "src/game/save_menus/static_pause/labels.c": [
-      {
-        "offset": 8,
-        "type": "R_MIPS_32",
-        "symbol": "D_800934F0",
-        "addend": 0,
-        "resolved_address": "0x800934F0",
-        "retail_equal": true
-      },
-      {
-        "offset": 44,
-        "type": "R_MIPS_32",
-        "symbol": "func_8002FC70",
-        "addend": 0,
-        "resolved_address": "0x8002FC70",
-        "retail_equal": true
-      },
-      {
-        "offset": 48,
-        "type": "R_MIPS_32",
-        "symbol": "D_80093508",
-        "addend": 0,
-        "resolved_address": "0x80093508",
-        "retail_equal": true
-      },
-      {
-        "offset": 64,
-        "type": "R_MIPS_32",
-        "symbol": "D_80077454",
-        "addend": 0,
-        "resolved_address": "0x80077454",
+        "resolved_address": "0x80076CD0",
         "retail_equal": true
       },
       {
         "offset": 84,
         "type": "R_MIPS_32",
-        "symbol": "func_8002FC08",
+        "symbol": "func_80030A80",
         "addend": 0,
-        "resolved_address": "0x8002FC08",
+        "resolved_address": "0x80030A80",
         "retail_equal": true
       },
       {
         "offset": 88,
         "type": "R_MIPS_32",
-        "symbol": "D_80093510",
+        "symbol": "D_80093274",
         "addend": 0,
-        "resolved_address": "0x80093510",
+        "resolved_address": "0x80093274",
         "retail_equal": true
       },
       {
         "offset": 104,
         "type": "R_MIPS_32",
-        "symbol": "D_80077454",
+        "symbol": "D_80076CD0",
         "addend": 40,
-        "resolved_address": "0x8007747C",
+        "resolved_address": "0x80076CF8",
         "retail_equal": true
       },
       {
         "offset": 124,
         "type": "R_MIPS_32",
-        "symbol": "func_80030C3C",
+        "symbol": "func_80025B44",
         "addend": 0,
-        "resolved_address": "0x80030C3C",
+        "resolved_address": "0x80025B44",
         "retail_equal": true
       },
       {
         "offset": 128,
         "type": "R_MIPS_32",
-        "symbol": "D_8009351C",
+        "symbol": "D_80093280",
         "addend": 0,
-        "resolved_address": "0x8009351C",
+        "resolved_address": "0x80093280",
         "retail_equal": true
       },
       {
         "offset": 144,
         "type": "R_MIPS_32",
-        "symbol": "D_80077454",
+        "symbol": "D_80076CD0",
         "addend": 80,
-        "resolved_address": "0x800774A4",
-        "retail_equal": true
-      },
-      {
-        "offset": 164,
-        "type": "R_MIPS_32",
-        "symbol": "func_8002FB54",
-        "addend": 0,
-        "resolved_address": "0x8002FB54",
-        "retail_equal": true
-      },
-      {
-        "offset": 168,
-        "type": "R_MIPS_32",
-        "symbol": "D_80093528",
-        "addend": 0,
-        "resolved_address": "0x80093528",
-        "retail_equal": true
-      },
-      {
-        "offset": 184,
-        "type": "R_MIPS_32",
-        "symbol": "D_80077454",
-        "addend": 120,
-        "resolved_address": "0x800774CC",
+        "resolved_address": "0x80076D20",
         "retail_equal": true
       }
     ],
-    "src/game/save_menus/static_pause/page.c": [
+    "src/game/save_menus/front_pages/load_page.c": [
       {
         "offset": 0,
         "type": "R_MIPS_32",
-        "symbol": "D_80093534",
+        "symbol": "D_80093290",
         "addend": 0,
-        "resolved_address": "0x80093534",
+        "resolved_address": "0x80093290",
         "retail_equal": true
       },
       {
         "offset": 32,
         "type": "R_MIPS_32",
-        "symbol": "D_80077454",
-        "addend": 160,
-        "resolved_address": "0x800774F4",
+        "symbol": "D_80076CD0",
+        "addend": 120,
+        "resolved_address": "0x80076D48",
         "retail_equal": true
       }
     ],
-    "src/game/save_menus/static_confirmation/text.c": [],
-    "src/game/save_menus/static_pause/text.c": []
+    "src/game/save_menus/front_pages/main_labels.c": [
+      {
+        "offset": 4,
+        "type": "R_MIPS_32",
+        "symbol": "func_8002FAE0",
+        "addend": 0,
+        "resolved_address": "0x8002FAE0",
+        "retail_equal": true
+      },
+      {
+        "offset": 8,
+        "type": "R_MIPS_32",
+        "symbol": "D_80093294",
+        "addend": 0,
+        "resolved_address": "0x80093294",
+        "retail_equal": true
+      },
+      {
+        "offset": 44,
+        "type": "R_MIPS_32",
+        "symbol": "func_80025CD0",
+        "addend": 0,
+        "resolved_address": "0x80025CD0",
+        "retail_equal": true
+      },
+      {
+        "offset": 48,
+        "type": "R_MIPS_32",
+        "symbol": "D_8009329C",
+        "addend": 0,
+        "resolved_address": "0x8009329C",
+        "retail_equal": true
+      },
+      {
+        "offset": 64,
+        "type": "R_MIPS_32",
+        "symbol": "D_80076DA4",
+        "addend": 0,
+        "resolved_address": "0x80076DA4",
+        "retail_equal": true
+      },
+      {
+        "offset": 84,
+        "type": "R_MIPS_32",
+        "symbol": "func_8002FA34",
+        "addend": 0,
+        "resolved_address": "0x8002FA34",
+        "retail_equal": true
+      },
+      {
+        "offset": 88,
+        "type": "R_MIPS_32",
+        "symbol": "D_800932A8",
+        "addend": 0,
+        "resolved_address": "0x800932A8",
+        "retail_equal": true
+      },
+      {
+        "offset": 104,
+        "type": "R_MIPS_32",
+        "symbol": "D_80076DA4",
+        "addend": 40,
+        "resolved_address": "0x80076DCC",
+        "retail_equal": true
+      },
+      {
+        "offset": 124,
+        "type": "R_MIPS_32",
+        "symbol": "func_8002F930",
+        "addend": 0,
+        "resolved_address": "0x8002F930",
+        "retail_equal": true
+      },
+      {
+        "offset": 128,
+        "type": "R_MIPS_32",
+        "symbol": "D_800932B8",
+        "addend": 0,
+        "resolved_address": "0x800932B8",
+        "retail_equal": true
+      },
+      {
+        "offset": 144,
+        "type": "R_MIPS_32",
+        "symbol": "D_80076DA4",
+        "addend": 80,
+        "resolved_address": "0x80076DF4",
+        "retail_equal": true
+      }
+    ],
+    "src/game/save_menus/front_pages/main_page.c": [
+      {
+        "offset": 0,
+        "type": "R_MIPS_32",
+        "symbol": "D_800932C8",
+        "addend": 0,
+        "resolved_address": "0x800932C8",
+        "retail_equal": true
+      },
+      {
+        "offset": 32,
+        "type": "R_MIPS_32",
+        "symbol": "D_80076DA4",
+        "addend": 120,
+        "resolved_address": "0x80076E1C",
+        "retail_equal": true
+      },
+      {
+        "offset": 48,
+        "type": "R_MIPS_32",
+        "symbol": "func_8002F8A4",
+        "addend": 0,
+        "resolved_address": "0x8002F8A4",
+        "retail_equal": true
+      }
+    ],
+    "src/game/save_menus/front_pages/audio_labels.c": [
+      {
+        "offset": 4,
+        "type": "R_MIPS_32",
+        "symbol": "func_8002FAE0",
+        "addend": 0,
+        "resolved_address": "0x8002FAE0",
+        "retail_equal": true
+      },
+      {
+        "offset": 8,
+        "type": "R_MIPS_32",
+        "symbol": "D_800932CC",
+        "addend": 0,
+        "resolved_address": "0x800932CC",
+        "retail_equal": true
+      },
+      {
+        "offset": 44,
+        "type": "R_MIPS_32",
+        "symbol": "func_80030EAC",
+        "addend": 0,
+        "resolved_address": "0x80030EAC",
+        "retail_equal": true
+      },
+      {
+        "offset": 48,
+        "type": "R_MIPS_32",
+        "symbol": "D_800932D4",
+        "addend": 0,
+        "resolved_address": "0x800932D4",
+        "retail_equal": true
+      },
+      {
+        "offset": 60,
+        "type": "R_MIPS_32",
+        "symbol": "D_800AD2F8",
+        "addend": 4,
+        "resolved_address": "0x800AD2FC",
+        "retail_equal": true
+      },
+      {
+        "offset": 64,
+        "type": "R_MIPS_32",
+        "symbol": "D_80076E78",
+        "addend": 0,
+        "resolved_address": "0x80076E78",
+        "retail_equal": true
+      },
+      {
+        "offset": 84,
+        "type": "R_MIPS_32",
+        "symbol": "func_80030F50",
+        "addend": 0,
+        "resolved_address": "0x80030F50",
+        "retail_equal": true
+      },
+      {
+        "offset": 88,
+        "type": "R_MIPS_32",
+        "symbol": "D_800932E8",
+        "addend": 0,
+        "resolved_address": "0x800932E8",
+        "retail_equal": true
+      },
+      {
+        "offset": 100,
+        "type": "R_MIPS_32",
+        "symbol": "D_800AD314",
+        "addend": 0,
+        "resolved_address": "0x800AD314",
+        "retail_equal": true
+      },
+      {
+        "offset": 104,
+        "type": "R_MIPS_32",
+        "symbol": "D_80076E78",
+        "addend": 40,
+        "resolved_address": "0x80076EA0",
+        "retail_equal": true
+      },
+      {
+        "offset": 124,
+        "type": "R_MIPS_32",
+        "symbol": "func_80030F94",
+        "addend": 0,
+        "resolved_address": "0x80030F94",
+        "retail_equal": true
+      },
+      {
+        "offset": 128,
+        "type": "R_MIPS_32",
+        "symbol": "D_800932F8",
+        "addend": 0,
+        "resolved_address": "0x800932F8",
+        "retail_equal": true
+      },
+      {
+        "offset": 140,
+        "type": "R_MIPS_32",
+        "symbol": "D_800AD310",
+        "addend": 0,
+        "resolved_address": "0x800AD310",
+        "retail_equal": true
+      },
+      {
+        "offset": 144,
+        "type": "R_MIPS_32",
+        "symbol": "D_80076E78",
+        "addend": 80,
+        "resolved_address": "0x80076EC8",
+        "retail_equal": true
+      }
+    ],
+    "src/game/save_menus/front_pages/audio_page.c": [
+      {
+        "offset": 0,
+        "type": "R_MIPS_32",
+        "symbol": "D_80093308",
+        "addend": 0,
+        "resolved_address": "0x80093308",
+        "retail_equal": true
+      },
+      {
+        "offset": 32,
+        "type": "R_MIPS_32",
+        "symbol": "D_80076E78",
+        "addend": 120,
+        "resolved_address": "0x80076EF0",
+        "retail_equal": true
+      }
+    ],
+    "src/game/save_menus/front_pages/text.c": []
   },
   "independent_reference_reassembly": [
     {
-      "section": "menu_static_confirmation_labels",
+      "section": "menu_front_load_labels",
       "tool": "spim",
-      "bytes": 80,
-      "raw_bytes": 80,
+      "bytes": 160,
+      "raw_bytes": 160,
       "alignment_trimmed": 0,
       "retail_equal": true,
       "undefined_symbols_resolved": [],
-      "sha256": "88fac1640d48b847d569aab4ead734c74826053ff8aedd5d094525adf4a2f1ff",
-      "object_sha256": "1a3769456ad7d78a8ece082d347a80a1f80090648f53b861c97ac8a1540f7596",
-      "linked_elf_sha256": "8f498d07da295da02aec8b80205c217fc46f4aadaa30ffd9df0ad4a64d359ef9"
+      "sha256": "38e7f710370cfd392536322a3e7699a2a8f04767115b720aaee7899a3263d324",
+      "object_sha256": "358b951579dec872e5c4461ca7e1ce9621d6f011e3e6d9d524bc59067e3ef39e",
+      "linked_elf_sha256": "282716287196499d621bd81ac23be03bb5742c0bb1823a1302cd971b460b0b0d"
     },
     {
-      "section": "menu_static_confirmation_labels",
+      "section": "menu_front_load_labels",
       "tool": "splat",
-      "bytes": 80,
-      "raw_bytes": 80,
+      "bytes": 160,
+      "raw_bytes": 160,
       "alignment_trimmed": 0,
       "retail_equal": true,
       "undefined_symbols_resolved": [
-        "D_8009347C",
-        "D_80093480"
+        "D_80093254",
+        "D_80093260",
+        "D_80093274",
+        "D_80093280"
       ],
-      "sha256": "88fac1640d48b847d569aab4ead734c74826053ff8aedd5d094525adf4a2f1ff",
-      "object_sha256": "564d16c20a8efef290ed236d9ff4df027a62ae456e45bae6816ffed82ccdc1d3",
-      "linked_elf_sha256": "88a160e1eef86b1d8fddce8dc4c82cf2a65b98f234871d43cee94cf480c82d8c"
+      "sha256": "38e7f710370cfd392536322a3e7699a2a8f04767115b720aaee7899a3263d324",
+      "object_sha256": "dd302649ca39f8515c7d72610e8f5706c24fdcfcdb9cc9337ec862171cae7057",
+      "linked_elf_sha256": "c297d2d635f825f80c87ecbddfd7c6545c394ab7826de0f20593808d424780e4"
     },
     {
-      "section": "menu_static_confirmation_page",
+      "section": "menu_front_load_page",
       "tool": "spim",
       "bytes": 52,
       "raw_bytes": 64,
       "alignment_trimmed": 12,
       "retail_equal": true,
       "undefined_symbols_resolved": [],
-      "sha256": "bf1a506bfdf9c4428f766aebb9d628b3a4c852fff45857414058adecdf441136",
-      "object_sha256": "14ed89e95eac6f32d63f9b9f41f47ff80bd43dab2bcee382a56ac7a3504b7454",
-      "linked_elf_sha256": "3690fb4964d3196d60650855a4087447dfa44fde08c81913fd3e81e066dacc05"
+      "sha256": "41eab3c9899959a318df01c6b49950f3a8c1458d4d2a6476b48411f3ece0c6df",
+      "object_sha256": "4f79cd811a9dd209bc3e909373794a8283cb5fcf6f1863d6c844e59ce58d213d",
+      "linked_elf_sha256": "a99c70ee26723b87e55c92f9cc44ac06e2f1424f6bfa397b5d24612894027d8c"
     },
     {
-      "section": "menu_static_confirmation_page",
+      "section": "menu_front_load_page",
       "tool": "splat",
       "bytes": 52,
       "raw_bytes": 64,
       "alignment_trimmed": 12,
       "retail_equal": true,
       "undefined_symbols_resolved": [
-        "D_80093484"
+        "D_80093290"
       ],
-      "sha256": "bf1a506bfdf9c4428f766aebb9d628b3a4c852fff45857414058adecdf441136",
-      "object_sha256": "26b9b2d70e6d407fe98a0a8e176d3630ad4486ab005fb873a591592f188488e2",
-      "linked_elf_sha256": "a547e274e82b027f2371d78d2c18de013f5883a24327d7e0452bc400aa84e9c0"
+      "sha256": "41eab3c9899959a318df01c6b49950f3a8c1458d4d2a6476b48411f3ece0c6df",
+      "object_sha256": "ca9ec5b2e8355fc92b4b9de31521735b651f0f7e09301f9c4efb8d96cb18a43a",
+      "linked_elf_sha256": "74be3fc1f51bd70d52d280bbdf6db36c122e6301e5a59dbb51edf0ce82572db4"
     },
     {
-      "section": "menu_static_pause_labels",
+      "section": "menu_front_main_labels",
       "tool": "spim",
-      "bytes": 200,
+      "bytes": 160,
+      "raw_bytes": 160,
+      "alignment_trimmed": 0,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "88ee0f0f7cda8507350a2464625bb0c5d7ce3acf91ab8efecf2362ce935263f4",
+      "object_sha256": "3172b5c4a36a4ee61c59fd0a068cbf6902d4b686129c5fe54180f5bc65a2c78a",
+      "linked_elf_sha256": "e0a3c486219db4e38654f08ee1b676b339e88b1590d8642fcf21eafedcfad519"
+    },
+    {
+      "section": "menu_front_main_labels",
+      "tool": "splat",
+      "bytes": 160,
+      "raw_bytes": 160,
+      "alignment_trimmed": 0,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [
+        "D_80093294",
+        "D_8009329C",
+        "D_800932A8",
+        "D_800932B8"
+      ],
+      "sha256": "88ee0f0f7cda8507350a2464625bb0c5d7ce3acf91ab8efecf2362ce935263f4",
+      "object_sha256": "7c27b7920bfbd73cbc28828309bb1444868b643e4dbbfc0fb304ef51728bdeeb",
+      "linked_elf_sha256": "8549f326426a8c6b90ae5ce496cf76ef60a2da74bc593097b3f58e03dbb81782"
+    },
+    {
+      "section": "menu_front_main_page",
+      "tool": "spim",
+      "bytes": 52,
+      "raw_bytes": 64,
+      "alignment_trimmed": 12,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "3f66ad93ce7948304af886760420abaa6597788d479a1eb54654241b0fae829b",
+      "object_sha256": "60186ac62d8d8b16fe390069ce54878eef93d2261b514bfb8aece5a38d801894",
+      "linked_elf_sha256": "f124d388cfeaba0fef106320f0e365b79aafc9f569549d43650ed647a74d3497"
+    },
+    {
+      "section": "menu_front_main_page",
+      "tool": "splat",
+      "bytes": 52,
+      "raw_bytes": 64,
+      "alignment_trimmed": 12,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [
+        "D_800932C8"
+      ],
+      "sha256": "3f66ad93ce7948304af886760420abaa6597788d479a1eb54654241b0fae829b",
+      "object_sha256": "83aeded57a937b26a71c479374adae335b0ac154e5628ff9786db3ecf80f2d84",
+      "linked_elf_sha256": "97857e1915069cef717c1f878641b7a82fe537165b950002f5f7f06909b61ae0"
+    },
+    {
+      "section": "menu_front_audio_labels",
+      "tool": "spim",
+      "bytes": 160,
+      "raw_bytes": 160,
+      "alignment_trimmed": 0,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "e3bbd7ce0af80b35a3b983422d6ee5db18636a5b9e45ae34b6d60e5ebc1fcb01",
+      "object_sha256": "178b52d1ac669691e43d6c8f7ee4d32cd8ec85f7dbde95df665e9ae5f0b32d88",
+      "linked_elf_sha256": "ef60db000ddbe9cd60344be2983ed94fe9d1c437dcab9620f83ed2224e6035f2"
+    },
+    {
+      "section": "menu_front_audio_labels",
+      "tool": "splat",
+      "bytes": 160,
+      "raw_bytes": 160,
+      "alignment_trimmed": 0,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [
+        "D_800932CC",
+        "D_800932D4",
+        "D_800932E8",
+        "D_800932F8"
+      ],
+      "sha256": "e3bbd7ce0af80b35a3b983422d6ee5db18636a5b9e45ae34b6d60e5ebc1fcb01",
+      "object_sha256": "2088b74acc643516a8696ce7a0687dd85becd56b2b3ce3c5158b3e5e0f083a45",
+      "linked_elf_sha256": "ba788716f76932cf8cf6f838cf0c594ae2acc4c87561e52f5938af09b74d4347"
+    },
+    {
+      "section": "menu_front_audio_page",
+      "tool": "spim",
+      "bytes": 52,
+      "raw_bytes": 64,
+      "alignment_trimmed": 12,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [],
+      "sha256": "b59b9ff57f1d624632923ba731fb51c1030348e3594b6a029442795b3e582087",
+      "object_sha256": "e7a8efc090d5739c6f3895bfad1e43a920b4225b23de45839cab467fce7051e9",
+      "linked_elf_sha256": "1643a577c2318cba4323b8dc12ef5ef6d9683ed74d70b9a3a939ea23b38e49f3"
+    },
+    {
+      "section": "menu_front_audio_page",
+      "tool": "splat",
+      "bytes": 52,
+      "raw_bytes": 64,
+      "alignment_trimmed": 12,
+      "retail_equal": true,
+      "undefined_symbols_resolved": [
+        "D_80093308"
+      ],
+      "sha256": "b59b9ff57f1d624632923ba731fb51c1030348e3594b6a029442795b3e582087",
+      "object_sha256": "a1b033be328e6bbcbe2c3a7e0b59987c345d88c33d93d85c664bc46f3c1ef44a",
+      "linked_elf_sha256": "217ec609a40ed0b02a6bfb03a685568a7ec6e319379a26cb39858e67de227514"
+    },
+    {
+      "section": "menu_front_text",
+      "tool": "spim",
+      "bytes": 196,
       "raw_bytes": 208,
-      "alignment_trimmed": 8,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "7e7f3014b25dbc01326102ea99de73254843c3ec2362750de12fe403813f71f5",
-      "object_sha256": "b636a1e894934b2bdc4516bc46a7599af159c5b83889f31fe7c282671a0dca0b",
-      "linked_elf_sha256": "91f44344985f5e8bbd8583aacca459f13685268e731fed4217b9ef62a390a9e4"
-    },
-    {
-      "section": "menu_static_pause_labels",
-      "tool": "splat",
-      "bytes": 200,
-      "raw_bytes": 208,
-      "alignment_trimmed": 8,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [
-        "D_800934F0",
-        "D_80093508",
-        "D_80093510",
-        "D_8009351C",
-        "D_80093528"
-      ],
-      "sha256": "7e7f3014b25dbc01326102ea99de73254843c3ec2362750de12fe403813f71f5",
-      "object_sha256": "446bf5bb9dbe09a91dc894d1cb258aa589844eee123d45e1e071cedd0452700c",
-      "linked_elf_sha256": "1bf59e876e81222f4e0f007c02fcff1c5b151341fffa7b2e1adea51d66c300a9"
-    },
-    {
-      "section": "menu_static_pause_page",
-      "tool": "spim",
-      "bytes": 52,
-      "raw_bytes": 64,
       "alignment_trimmed": 12,
       "retail_equal": true,
       "undefined_symbols_resolved": [],
-      "sha256": "44fe5c7449829cd12d4bfec1cbf243fbe855647963aeccc11ce93950558739d6",
-      "object_sha256": "ad4313f533ce47898756c8c3f035234676256d5ec658211ea74316a0ba68dbe8",
-      "linked_elf_sha256": "b2b885ba4a387689994d639679638cf171b9f9b3491a5880f164c006473de585"
+      "sha256": "31f186d17178a2c6c96b8a2db576b1b332479d7b0279f22340e83648906024d5",
+      "object_sha256": "66c926eb575ef8857f2f661a3cef82b6cf9fe926b8a2fc7184f851513efe014e",
+      "linked_elf_sha256": "64cdfc925ee7f5f7190552b0fd486b3c22bb473a2e6ed6477a6b0166731ed818"
     },
     {
-      "section": "menu_static_pause_page",
+      "section": "menu_front_text",
       "tool": "splat",
-      "bytes": 52,
-      "raw_bytes": 64,
-      "alignment_trimmed": 12,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [
-        "D_80093534"
-      ],
-      "sha256": "44fe5c7449829cd12d4bfec1cbf243fbe855647963aeccc11ce93950558739d6",
-      "object_sha256": "03eed98d35c817526565fe99444d6a63d7c9481cad82eae630e5919ed371245b",
-      "linked_elf_sha256": "2fcc41bca7b4a1c9717ba4517643fc9ecc6b67d52316b6331a27288855f7d72d"
-    },
-    {
-      "section": "menu_static_confirmation_text",
-      "tool": "spim",
-      "bytes": 16,
-      "raw_bytes": 16,
+      "bytes": 196,
+      "raw_bytes": 196,
       "alignment_trimmed": 0,
       "retail_equal": true,
       "undefined_symbols_resolved": [],
-      "sha256": "942f747e5881dbf171f8ea59a41a13d5b1641622502fe94402118714c16ca0b8",
-      "object_sha256": "efc9dc3582b2a27dfd74a8691e836d482157bf870d4e5940fa0d580a93ef6379",
-      "linked_elf_sha256": "7aa538135c8d8d33904644229699df577e1981db883e58349e7b277e8918c595"
-    },
-    {
-      "section": "menu_static_confirmation_text",
-      "tool": "splat",
-      "bytes": 16,
-      "raw_bytes": 16,
-      "alignment_trimmed": 0,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "942f747e5881dbf171f8ea59a41a13d5b1641622502fe94402118714c16ca0b8",
-      "object_sha256": "68ae4fc69fce337f132053a2ba377958dfede79e13b37aee5129cfb35fd29048",
-      "linked_elf_sha256": "114826371915c277f4dcd8d64b0254b1df7f4986d46e87c2d11e055685b472ff"
-    },
-    {
-      "section": "menu_static_pause_text",
-      "tool": "spim",
-      "bytes": 80,
-      "raw_bytes": 80,
-      "alignment_trimmed": 0,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "3bb694ab7c512c9cf369c3dadddf5eed59c0de3510008d04ac54507673eded7b",
-      "object_sha256": "b9b4ba59c3d65b5d96a821d54755e215ed3c0aaa313333d618167b423d8fdb08",
-      "linked_elf_sha256": "784422eddc30d76568f4ce07d7516d01d4fa211895e0874a08308774f86217cb"
-    },
-    {
-      "section": "menu_static_pause_text",
-      "tool": "splat",
-      "bytes": 80,
-      "raw_bytes": 80,
-      "alignment_trimmed": 0,
-      "retail_equal": true,
-      "undefined_symbols_resolved": [],
-      "sha256": "3bb694ab7c512c9cf369c3dadddf5eed59c0de3510008d04ac54507673eded7b",
-      "object_sha256": "5ddd87a5facab3f6b94407da3e3fc3dec86c9e7903eec1982f39ebdf1177e4e9",
-      "linked_elf_sha256": "789cd817250fcf2b5d577a8d59df90adcc59fc7ebbe2ef633757fd9a0ccd7f5c"
+      "sha256": "31f186d17178a2c6c96b8a2db576b1b332479d7b0279f22340e83648906024d5",
+      "object_sha256": "ae7caf2ede9c5cc4fbb48c598ea7c6613521771ad7cf71ac118fe5443fbb8882",
+      "linked_elf_sha256": "8dbab2ac6fac48f7b53125c1978aaa30f8a5351cf859895b3367e2039b67d7c4"
     }
   ],
   "objdiff": [
     {
-      "section": "menu_static_confirmation_labels",
+      "section": "menu_front_load_labels",
       "tool": "spim",
-      "bytes": 80,
+      "bytes": 160,
       "whole_section_match_percent": 100,
       "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "33a17e75ac5951f619ecf76d3920cca12c3bc7d8d2aab20cc3c03099cb033f3c"
+      "report_sha256": "810cfad720b75d317ddab590338777586d2ec90f7bb4ef7e3f148fbe0db6c000"
     },
     {
-      "section": "menu_static_confirmation_labels",
+      "section": "menu_front_load_labels",
       "tool": "splat",
-      "bytes": 80,
+      "bytes": 160,
       "whole_section_match_percent": 100,
       "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "5fe61da57805c87b8114df40da420bde13bef08db34d0d95935146aa261e5d9b"
+      "report_sha256": "da371195220e850a5282b7182675a17a1b449feb235bc10e6fec27f2dceeabc8"
     },
     {
-      "section": "menu_static_confirmation_page",
-      "tool": "spim",
-      "bytes": 52,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "072822ecb55f872d83fd01c20098d05e75fba3412a773a0e792bf28ce7d31085"
-    },
-    {
-      "section": "menu_static_confirmation_page",
-      "tool": "splat",
-      "bytes": 52,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "4b2598e31c84056de14a22dd97e145612af9ecf68e2e9c122f1f712d7472e77c"
-    },
-    {
-      "section": "menu_static_pause_labels",
-      "tool": "spim",
-      "bytes": 200,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "50cdf449ec255e2713922d9422544f32ffb67437cd43ad67e2f8fa8adcd0ef2d"
-    },
-    {
-      "section": "menu_static_pause_labels",
-      "tool": "splat",
-      "bytes": 200,
-      "whole_section_match_percent": 100,
-      "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "5564b62f9a7a7cfd35259c0c89936b538d65db5731d77b5603556a68e88feb25"
-    },
-    {
-      "section": "menu_static_pause_page",
+      "section": "menu_front_load_page",
       "tool": "spim",
       "bytes": 52,
       "whole_section_match_percent": 100,
       "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "dc9b1553aee0d74fc180bedb9b962099d47a88d0ea3c1d14e6dd850974ef21a8"
+      "report_sha256": "88b13191c2ec66fdccf682f50ebe83db9257d5635a268805743406429dbdc7d1"
     },
     {
-      "section": "menu_static_pause_page",
+      "section": "menu_front_load_page",
       "tool": "splat",
       "bytes": 52,
       "whole_section_match_percent": 100,
       "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "f8c060e6b39935f852eedc33a193bb724d13ddb695ab99a961bb723480171dae"
+      "report_sha256": "0bedc27f63b04d3c95c58460e3dcbd58b165fe9ea19652bd7e03bd61a831cde2"
     },
     {
-      "section": "menu_static_confirmation_text",
+      "section": "menu_front_main_labels",
       "tool": "spim",
-      "bytes": 16,
+      "bytes": 160,
       "whole_section_match_percent": 100,
       "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "c9575e8dc2852012c6881acfe6ba655541c11fde94f1408c369078169e0ff487"
+      "report_sha256": "ac2dba5d495cb351a4a40b044ab9b3a5e056e72c28897aec636b226574092569"
     },
     {
-      "section": "menu_static_confirmation_text",
+      "section": "menu_front_main_labels",
       "tool": "splat",
-      "bytes": 16,
+      "bytes": 160,
       "whole_section_match_percent": 100,
       "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "74ab7c74b10eec3b7b7aa67b3a4ed4a2c01162dc655c3a7f59f1ba9653e957de"
+      "report_sha256": "9920b816854baac7048262568b8445909e4b94ac5fec823828bec365c9c07a2d"
     },
     {
-      "section": "menu_static_pause_text",
+      "section": "menu_front_main_page",
       "tool": "spim",
-      "bytes": 80,
+      "bytes": 52,
       "whole_section_match_percent": 100,
       "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "6acef4ccfaec5fc3a112fe91635ce734641a83594e5186bea2c7d0e683b1a7e3"
+      "report_sha256": "f79d93be4fc98d3480566ed2e76f5c8fa41e55155e8b7bab44ca284da417e6ed"
     },
     {
-      "section": "menu_static_pause_text",
+      "section": "menu_front_main_page",
       "tool": "splat",
-      "bytes": 80,
+      "bytes": 52,
       "whole_section_match_percent": 100,
       "all_relocations_resolved_before_comparison": true,
-      "report_sha256": "3e9ef4735a79960c465bda7a47de4a4dfe76cdaaeb0c24453ceda42d4524d3f0"
+      "report_sha256": "6aead08b31720f8394513d1eb1aca36da357f449eaf0e70be726720e1eab9ee4"
+    },
+    {
+      "section": "menu_front_audio_labels",
+      "tool": "spim",
+      "bytes": 160,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "297aea648545e36bb635903221c510a5aefac209c93c6c52bc86f611ab89f6f5"
+    },
+    {
+      "section": "menu_front_audio_labels",
+      "tool": "splat",
+      "bytes": 160,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "b3f7e127c9651c3c59b58aafc81839f78939a27b9cd75e0413b561cce0f82378"
+    },
+    {
+      "section": "menu_front_audio_page",
+      "tool": "spim",
+      "bytes": 52,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "a6393c4837d55bd2882c6c6927530c4716c561df349678a15ec61c80c07cb8e1"
+    },
+    {
+      "section": "menu_front_audio_page",
+      "tool": "splat",
+      "bytes": 52,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "282a1415b975826a382c51be1ebdb871328401dfb7633dc253b7844123c45e0f"
+    },
+    {
+      "section": "menu_front_text",
+      "tool": "spim",
+      "bytes": 196,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "f3ae1a7073a9f0180c33125d833952a887768831f7e824d61177dfaa7c5d51e0"
+    },
+    {
+      "section": "menu_front_text",
+      "tool": "splat",
+      "bytes": 196,
+      "whole_section_match_percent": 100,
+      "all_relocations_resolved_before_comparison": true,
+      "report_sha256": "d3c5cde120156094cfff5e13d36243b1e359d8db2295685e4daee35791c99d4f"
     }
   ],
-  "objdiff_view_note": "Each independently linked ELF first matches the complete retail range. Objdiff views preserve every allocated data byte and have no remaining relocations; ELF section addresses and section-defined symbol values alone are normalized to section-relative relocatable metadata for the reader.",
-  "record_layouts": {
-    "/get_struct_layout?struct_name=MenuStaticPage": {
-      "name": "MenuStaticPage",
-      "size": 52,
-      "alignment": 4,
-      "fields": [
-        {
-          "offset": 0,
-          "size": 48,
-          "type": "MenuOptionsPage",
-          "name": "page"
-        },
-        {
-          "offset": 48,
-          "size": 4,
-          "type": "_func_4 *",
-          "name": "timeout30"
-        }
-      ]
-    },
-    "/get_struct_layout?struct_name=MenuOptionsPage": {
-      "name": "MenuOptionsPage",
-      "size": 48,
-      "alignment": 4,
-      "fields": [
-        {
-          "offset": 0,
-          "size": 4,
-          "type": "uchar *",
-          "name": "title00"
-        },
-        {
-          "offset": 4,
-          "size": 4,
-          "type": "int",
-          "name": "textSlot04"
-        },
-        {
-          "offset": 8,
-          "size": 4,
-          "type": "int",
-          "name": "value08"
-        },
-        {
-          "offset": 12,
-          "size": 4,
-          "type": "int",
-          "name": "width0C"
-        },
-        {
-          "offset": 16,
-          "size": 4,
-          "type": "int",
-          "name": "value10"
-        },
-        {
-          "offset": 20,
-          "size": 4,
-          "type": "int",
-          "name": "selection14"
-        },
-        {
-          "offset": 24,
-          "size": 4,
-          "type": "int",
-          "name": "value18"
-        },
-        {
-          "offset": 28,
-          "size": 4,
-          "type": "int",
-          "name": "value1C"
-        },
-        {
-          "offset": 32,
-          "size": 4,
-          "type": "MenuLabelRecord *",
-          "name": "child20"
-        },
-        {
-          "offset": 36,
-          "size": 4,
-          "type": "int",
-          "name": "sound24"
-        },
-        {
-          "offset": 40,
-          "size": 4,
-          "type": "int",
-          "name": "mode28"
-        },
-        {
-          "offset": 44,
-          "size": 4,
-          "type": "int",
-          "name": "preview2C"
-        }
-      ]
-    },
-    "/get_struct_layout?struct_name=MenuLabelRecord": {
-      "name": "MenuLabelRecord",
-      "size": 40,
-      "alignment": 4,
-      "fields": [
-        {
-          "offset": 0,
-          "size": 4,
-          "type": "uint",
-          "name": "flags00"
-        },
-        {
-          "offset": 4,
-          "size": 4,
-          "type": "MenuLabelCallback",
-          "name": "callback04"
-        },
-        {
-          "offset": 8,
-          "size": 4,
-          "type": "uchar *",
-          "name": "label08"
-        },
-        {
-          "offset": 12,
-          "size": 4,
-          "type": "uchar *",
-          "name": "label0C"
-        },
-        {
-          "offset": 16,
-          "size": 4,
-          "type": "int",
-          "name": "textSlot10"
-        },
-        {
-          "offset": 20,
-          "size": 4,
-          "type": "int *",
-          "name": "selection14"
-        },
-        {
-          "offset": 24,
-          "size": 4,
-          "type": "MenuLabelRecord *",
-          "name": "next18"
-        },
-        {
-          "offset": 28,
-          "size": 4,
-          "type": "int",
-          "name": "spacing1C"
-        },
-        {
-          "offset": 32,
-          "size": 4,
-          "type": "int",
-          "name": "value20"
-        },
-        {
-          "offset": 36,
-          "size": 4,
-          "type": "int",
-          "name": "sound24"
-        }
-      ]
-    },
-    "/get_type_size?type_name=MenuLabelCallback": {
-      "type_name": "MenuLabelCallback",
-      "size": 4,
-      "alignment": 4,
-      "path": "/MenuLabelCallback"
-    }
-  },
-  "ido_layout_probe": {
-    "source_owned": false,
-    "page_size": 52,
-    "initializer_view_size": 48,
-    "label_size": 40,
-    "callback_union_size": 4,
-    "timeout_offset": 48,
-    "page_offset": 0,
-    "child_offset": 32,
-    "page_alignment": 4,
-    "label_alignment": 4,
-    "array_sizes": [
-      80,
-      200,
-      52,
-      52,
-      4,
-      3,
-      7,
-      23,
-      8,
-      10,
-      10,
-      9,
-      12
-    ],
-    "object_sha256": "33aef1924bdd2fea0b87f0f254a00e04a3bd5081386d2fc2285c268aaf46e56f"
-  },
+  "objdiff_view_note": "Independently linked references first match every retail byte. Objdiff views preserve all allocated bytes and contain no unresolved relocations; only ELF addresses and section-defined symbols become section-relative metadata.",
   "execution": {
     "matches": true,
-    "cases": 512,
-    "executions": 1024,
-    "initialized_bytes": 480,
+    "initialized_bytes_added": 832,
     "source_instruction_bytes_added": 0,
+    "bss_bytes_added": 0,
+    "cleanup_cases": 768,
+    "display_cases": 540,
+    "audio_cases": 270,
+    "cases": 1578,
+    "executions": 3156,
     "mutations_detected": [
       "page_child",
-      "label_callback",
-      "page_timeout",
-      "label_text"
+      "audio_selection",
+      "audio_callback",
+      "timeout_callback",
+      "audio_title"
     ],
-    "trace_sha256": "aadfbb66d050f1ffe006800c6387f9c3b2bbd9d6c3f8febf501cd592a12a2dec",
-    "data_comparisons": {
-      "src/game/save_menus/static_confirmation/labels.c": {
-        "source": "src/game/save_menus/static_confirmation/labels.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/static_confirmation/labels.c",
-              "object": "build/us/menu_static_confirmation_labels.o",
-              "input_section": ".data",
-              "section": ".menu_static_confirmation_labels",
-              "vram": 2147971744,
-              "rom": 491168,
-              "size": 80,
-              "symbols": {
-                "D_800772A0": 0
-              },
-              "evidence": "docs/static-menu-records.md"
-            },
-            "bytes_sha256": "88fac1640d48b847d569aab4ead734c74826053ff8aedd5d094525adf4a2f1ff"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/save_menus/static_confirmation/page.c": {
-        "source": "src/game/save_menus/static_confirmation/page.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/static_confirmation/page.c",
-              "object": "build/us/menu_static_confirmation_page.o",
-              "input_section": ".data",
-              "section": ".menu_static_confirmation_page",
-              "vram": 2147971824,
-              "rom": 491248,
-              "size": 52,
-              "symbols": {
-                "D_800772F0": 0
-              },
-              "evidence": "docs/static-menu-records.md"
-            },
-            "bytes_sha256": "bf1a506bfdf9c4428f766aebb9d628b3a4c852fff45857414058adecdf441136"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/save_menus/static_confirmation/text.c": {
-        "source": "src/game/save_menus/static_confirmation/text.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/static_confirmation/text.c",
-              "object": "build/us/menu_static_confirmation_text.o",
-              "input_section": ".rodata",
-              "section": ".menu_static_confirmation_text",
-              "vram": 2148086908,
-              "rom": 606332,
-              "size": 16,
-              "symbols": {
-                "D_8009347C": 0,
-                "D_80093480": 4,
-                "D_80093484": 8
-              },
-              "evidence": "docs/static-menu-records.md"
-            },
-            "bytes_sha256": "942f747e5881dbf171f8ea59a41a13d5b1641622502fe94402118714c16ca0b8"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/save_menus/static_pause/labels.c": {
-        "source": "src/game/save_menus/static_pause/labels.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/static_pause/labels.c",
-              "object": "build/us/menu_static_pause_labels.o",
-              "input_section": ".data",
-              "section": ".menu_static_pause_labels",
-              "vram": 2147972180,
-              "rom": 491604,
-              "size": 200,
-              "symbols": {
-                "D_80077454": 0
-              },
-              "evidence": "docs/static-menu-records.md"
-            },
-            "bytes_sha256": "7e7f3014b25dbc01326102ea99de73254843c3ec2362750de12fe403813f71f5"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/save_menus/static_pause/page.c": {
-        "source": "src/game/save_menus/static_pause/page.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/static_pause/page.c",
-              "object": "build/us/menu_static_pause_page.o",
-              "input_section": ".data",
-              "section": ".menu_static_pause_page",
-              "vram": 2147972380,
-              "rom": 491804,
-              "size": 52,
-              "symbols": {
-                "D_8007751C": 0
-              },
-              "evidence": "docs/static-menu-records.md"
-            },
-            "bytes_sha256": "44fe5c7449829cd12d4bfec1cbf243fbe855647963aeccc11ce93950558739d6"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      },
-      "src/game/save_menus/static_pause/text.c": {
-        "source": "src/game/save_menus/static_pause/text.c",
-        "matches": true,
-        "sections": [
-          {
-            "ownership": {
-              "source": "src/game/save_menus/static_pause/text.c",
-              "object": "build/us/menu_static_pause_text.o",
-              "input_section": ".rodata",
-              "section": ".menu_static_pause_text",
-              "vram": 2148087024,
-              "rom": 606448,
-              "size": 80,
-              "symbols": {
-                "D_800934F0": 0,
-                "D_80093508": 24,
-                "D_80093510": 32,
-                "D_8009351C": 44,
-                "D_80093528": 56,
-                "D_80093534": 68
-              },
-              "evidence": "docs/static-menu-records.md"
-            },
-            "bytes_sha256": "3bb694ab7c512c9cf369c3dadddf5eed59c0de3510008d04ac54507673eded7b"
-          }
-        ],
-        "compiler_profile": {
-          "name": "game",
-          "version": "5.3",
-          "flags": [
-            "-O2",
-            "-G",
-            "0",
-            "-non_shared",
-            "-mips1",
-            "-32"
-          ]
-        },
-        "toolchain_identity": {
-          "version": "5.3",
-          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-        }
-      }
-    },
+    "trace_sha256": "5d84b68d82e89cd921d289621bbc53cf741a47447c976eefe76ba25038ef5235",
     "support_comparisons": {
       "save_menu_nav_preview_release": {
         "source": "src/game/save_menu_nav_preview_release.c",
@@ -1371,6 +1317,181 @@
         "matches": true,
         "different_words": []
       },
+      "save_menu_audio_index": {
+        "source": "src/game/save_menu_audio_index.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 116,
+        "actual_size": 116,
+        "matches": true,
+        "different_words": []
+      },
+      "save_menu_audio_apply": {
+        "source": "src/game/save_menu_audio_apply.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 68,
+        "actual_size": 68,
+        "matches": true,
+        "different_words": []
+      },
+      "save_menu_audio_secondary": {
+        "source": "src/game/save_menu_audio_secondary.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 36,
+        "actual_size": 36,
+        "matches": true,
+        "different_words": []
+      },
+      "game_memory": {
+        "source": "src/game/game_memory.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 628,
+        "actual_size": 628,
+        "matches": true,
+        "different_words": []
+      },
+      "game_number_format": {
+        "source": "src/game/game_number_format.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 644,
+        "actual_size": 644,
+        "matches": true,
+        "different_words": []
+      },
+      "fixed_geometry_setup": {
+        "source": "src/game/fixed_geometry_setup.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 1508,
+        "actual_size": 1508,
+        "matches": true,
+        "different_words": []
+      },
+      "menu_display": {
+        "source": "src/game/save_menus/display/submit.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        },
+        "expected_size": 1168,
+        "actual_size": 1168,
+        "matches": true,
+        "different_words": []
+      },
       "menu_transition_start": {
         "source": "src/game/menu_transition_start.c",
         "compiler_profile": {
@@ -1397,352 +1518,512 @@
         "different_words": []
       }
     },
-    "unicorn": "2.1.1",
+    "data_comparisons": {
+      "src/game/save_menus/front_pages/load_labels.c": {
+        "source": "src/game/save_menus/front_pages/load_labels.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/front_pages/load_labels.c",
+              "object": "build/us/menu_front_load_labels.o",
+              "input_section": ".data",
+              "section": ".menu_front_load_labels",
+              "vram": 2147970256,
+              "rom": 489680,
+              "size": 160,
+              "symbols": {
+                "D_80076CD0": 0
+              },
+              "evidence": "docs/front-menu-records.md"
+            },
+            "bytes_sha256": "38e7f710370cfd392536322a3e7699a2a8f04767115b720aaee7899a3263d324"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/front_pages/load_page.c": {
+        "source": "src/game/save_menus/front_pages/load_page.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/front_pages/load_page.c",
+              "object": "build/us/menu_front_load_page.o",
+              "input_section": ".data",
+              "section": ".menu_front_load_page",
+              "vram": 2147970416,
+              "rom": 489840,
+              "size": 52,
+              "symbols": {
+                "D_80076D70": 0
+              },
+              "evidence": "docs/front-menu-records.md"
+            },
+            "bytes_sha256": "41eab3c9899959a318df01c6b49950f3a8c1458d4d2a6476b48411f3ece0c6df"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/front_pages/main_labels.c": {
+        "source": "src/game/save_menus/front_pages/main_labels.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/front_pages/main_labels.c",
+              "object": "build/us/menu_front_main_labels.o",
+              "input_section": ".data",
+              "section": ".menu_front_main_labels",
+              "vram": 2147970468,
+              "rom": 489892,
+              "size": 160,
+              "symbols": {
+                "D_80076DA4": 0
+              },
+              "evidence": "docs/front-menu-records.md"
+            },
+            "bytes_sha256": "88ee0f0f7cda8507350a2464625bb0c5d7ce3acf91ab8efecf2362ce935263f4"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/front_pages/main_page.c": {
+        "source": "src/game/save_menus/front_pages/main_page.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/front_pages/main_page.c",
+              "object": "build/us/menu_front_main_page.o",
+              "input_section": ".data",
+              "section": ".menu_front_main_page",
+              "vram": 2147970628,
+              "rom": 490052,
+              "size": 52,
+              "symbols": {
+                "D_80076E44": 0
+              },
+              "evidence": "docs/front-menu-records.md"
+            },
+            "bytes_sha256": "3f66ad93ce7948304af886760420abaa6597788d479a1eb54654241b0fae829b"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/front_pages/audio_labels.c": {
+        "source": "src/game/save_menus/front_pages/audio_labels.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/front_pages/audio_labels.c",
+              "object": "build/us/menu_front_audio_labels.o",
+              "input_section": ".data",
+              "section": ".menu_front_audio_labels",
+              "vram": 2147970680,
+              "rom": 490104,
+              "size": 160,
+              "symbols": {
+                "D_80076E78": 0
+              },
+              "evidence": "docs/front-menu-records.md"
+            },
+            "bytes_sha256": "e3bbd7ce0af80b35a3b983422d6ee5db18636a5b9e45ae34b6d60e5ebc1fcb01"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/front_pages/audio_page.c": {
+        "source": "src/game/save_menus/front_pages/audio_page.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/front_pages/audio_page.c",
+              "object": "build/us/menu_front_audio_page.o",
+              "input_section": ".data",
+              "section": ".menu_front_audio_page",
+              "vram": 2147970840,
+              "rom": 490264,
+              "size": 52,
+              "symbols": {
+                "D_80076F18": 0
+              },
+              "evidence": "docs/front-menu-records.md"
+            },
+            "bytes_sha256": "b59b9ff57f1d624632923ba731fb51c1030348e3594b6a029442795b3e582087"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/front_pages/text.c": {
+        "source": "src/game/save_menus/front_pages/text.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/front_pages/text.c",
+              "object": "build/us/menu_front_text.o",
+              "input_section": ".rodata",
+              "section": ".menu_front_text",
+              "vram": 2148086356,
+              "rom": 605780,
+              "size": 196,
+              "symbols": {
+                "D_80093254": 0,
+                "D_80093260": 12,
+                "D_80093274": 32,
+                "D_80093280": 44,
+                "D_80093290": 60,
+                "D_80093294": 64,
+                "D_8009329C": 72,
+                "D_800932A8": 84,
+                "D_800932B8": 100,
+                "D_800932C8": 116,
+                "D_800932CC": 120,
+                "D_800932D4": 128,
+                "D_800932E8": 148,
+                "D_800932F8": 164,
+                "D_80093308": 180
+              },
+              "evidence": "docs/front-menu-records.md"
+            },
+            "bytes_sha256": "31f186d17178a2c6c96b8a2db576b1b332479d7b0279f22340e83648906024d5"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/formatting/digits.c": {
+        "source": "src/game/formatting/digits.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/formatting/digits.c",
+              "object": "build/us/game_number_digits.o",
+              "input_section": ".rodata",
+              "section": ".game_number_digits",
+              "vram": 2147990300,
+              "rom": 509724,
+              "size": 20,
+              "symbols": {
+                "D_8007BB1C": 0
+              },
+              "static_symbols": {},
+              "evidence": "docs/palette-color-tables.md"
+            },
+            "bytes_sha256": "f0ba6a2825921e27a550f8797e9d3e3d2ce03d79dc7434b7a3ce4fa5077bd88a"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      },
+      "src/game/save_menus/display/never.c": {
+        "source": "src/game/save_menus/display/never.c",
+        "matches": true,
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/save_menus/display/never.c",
+              "object": "build/us/menu_display_never.o",
+              "input_section": ".data",
+              "section": ".menu_display_never",
+              "vram": 2148088008,
+              "rom": 607432,
+              "size": 8,
+              "symbols": {
+                "D_800938C8": 0
+              },
+              "evidence": "docs/menu-display.md"
+            },
+            "bytes_sha256": "4081d17b8aab7b60c00bab2e82728b51dc50cb13cdfd0ca900ba54b8725b6d12"
+          }
+        ],
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "toolchain_identity": {
+          "version": "5.3",
+          "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+          "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+          "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+        }
+      }
+    },
+    "checker_sha256": "f6dda022cd5f951f2ec3992cad8ecf3eaebe958b22cf0a06c77b9f8a5f776adb",
+    "cleanup_checker_sha256": "72545fca589f67fee691f8b0393f4649d18ea36e91229cd510db7db1be881ee0",
+    "unicorn_version": "2.1.1",
     "limits": [
-      "Only existing matching cleanup, preview release and immediate transition execute.",
-      "Text release and camera submission use ABI-clobbering stubs; camera O32 float arguments are captured by a MIPS shim.",
-      "The unprototyped callback entry stores addresses without invoking them.",
-      "Page activation, callback invocation, rendering and gameplay are unverified.",
-      "The dynamically constructed page timeout-word extent is not established."
+      "Text services, rendering, RNG, audio hardware and camera submission use O32 boundary stubs.",
+      "Complete matching display, string/number helpers, cleanup and all three audio callbacks execute.",
+      "The timeout callback word is compared but its deferred control flow is not executed.",
+      "Activation, general menu control, other label callbacks and full-game rendering remain unverified."
+    ]
+  },
+  "ido_layout_probe": {
+    "source_owned": false,
+    "values": [
+      40,
+      52,
+      4,
+      4,
+      4,
+      20,
+      24,
+      32,
+      48,
+      160,
+      52,
+      160,
+      52,
+      160,
+      52,
+      4
     ],
-    "checker_sha256": "72545fca589f67fee691f8b0393f4649d18ea36e91229cd510db7db1be881ee0"
+    "object_sha256": "73e9d3a7d41d8c5a294dd6d8159131b7d41b6b9e297f5b825578858af482f737"
   },
   "ghidra": {
     "program": "robotron64.elf",
     "saved": true,
-    "type_applications": [
-      {
-        "request": {
-          "name": "D_800772A0",
-          "array_length": 2,
-          "address": "0x800772A0",
-          "plate_comment": "Static confirmation label records in reverse traversal order. Source: two complete 40-byte records in docs/static-menu-records.md.",
-          "type_name": "MenuLabelRecord",
-          "strict_mode": "off",
-          "allow_evict": false
-        },
-        "result": {
-          "status": "success",
-          "address": "800772a0",
-          "applied": [
-            "type",
-            "array_length=2",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800772A0' must start with 'g_' per project convention."
-          ]
-        }
-      },
-      {
-        "interior_symbol_reason": "The auto-named pointer at 8007745C is the proven label08 field of the first 40-byte record, not separate storage. Its address label is restored after applying the full verified array.",
-        "preserved_field_alias": {
-          "status": "success",
-          "message": "Created label 'PTR_s_\\\\password_01234567890_8007745c' at address 0x8007745C",
-          "warnings": [
-            "Label 'PTR_s_\\\\password_01234567890_8007745c' is not snake_case. Expected format: loop_process_items, err_null_pointer"
-          ]
-        },
-        "result": {
-          "status": "success",
-          "address": "80077454",
-          "applied": [
-            "type",
-            "array_length=5",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80077454' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80077454",
-          "array_length": 5,
-          "address": "0x80077454",
-          "plate_comment": "Static pause menu label records in reverse traversal order. Source: five complete 40-byte records in docs/static-menu-records.md.",
-          "type_name": "MenuLabelRecord",
-          "strict_mode": "off",
-          "allow_evict": true
-        }
-      },
-      {
-        "request": {
-          "name": "D_800772F0",
-          "array_length": 1,
-          "address": "0x800772F0",
-          "plate_comment": "Static confirmation page including its null timeout callback. Layout: 52 bytes, timeout at offset 0x30. Source: docs/static-menu-records.md.",
-          "type_name": "MenuStaticPage",
-          "strict_mode": "off",
-          "allow_evict": false
-        },
-        "result": {
-          "status": "success",
-          "address": "800772f0",
-          "applied": [
-            "type",
-            "array_length=1",
-            "name=already_set",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800772F0' must start with 'g_' per project convention."
-          ]
-        }
-      },
-      {
-        "request": {
-          "name": "D_8007751C",
-          "array_length": 1,
-          "address": "0x8007751C",
-          "plate_comment": "Static pause page including its null timeout callback. Layout: 52 bytes, timeout at offset 0x30. Source: docs/static-menu-records.md.",
-          "type_name": "MenuStaticPage",
-          "strict_mode": "off",
-          "allow_evict": false
-        },
-        "result": {
-          "status": "success",
-          "address": "8007751c",
-          "applied": [
-            "type",
-            "array_length=1",
-            "name=already_set",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8007751C' must start with 'g_' per project convention."
-          ]
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "8009347c",
-          "applied": [
-            "type",
-            "array_length=4",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8009347C' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_8009347C",
-          "array_length": 4,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x8009347C",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "80093480",
-          "applied": [
-            "type",
-            "array_length=3",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80093480' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80093480",
-          "array_length": 3,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x80093480",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "80093484",
-          "applied": [
-            "type",
-            "array_length=7",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80093484' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80093484",
-          "array_length": 7,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x80093484",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "800934f0",
-          "applied": [
-            "type",
-            "array_length=23",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_800934F0' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_800934F0",
-          "array_length": 23,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x800934F0",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "80093508",
-          "applied": [
-            "type",
-            "array_length=8",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80093508' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80093508",
-          "array_length": 8,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x80093508",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "80093510",
-          "applied": [
-            "type",
-            "array_length=10",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80093510' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80093510",
-          "array_length": 10,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x80093510",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "8009351c",
-          "applied": [
-            "type",
-            "array_length=10",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_8009351C' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_8009351C",
-          "array_length": 10,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x8009351C",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "80093528",
-          "applied": [
-            "type",
-            "array_length=9",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80093528' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80093528",
-          "array_length": 9,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x80093528",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      },
-      {
-        "result": {
-          "status": "success",
-          "address": "80093534",
-          "applied": [
-            "type",
-            "array_length=12",
-            "name",
-            "plate_comment"
-          ],
-          "warnings": [
-            "Strict naming enforcement disabled: would have rejected name_quality/missing_g_prefix - Global 'D_80093534' must start with 'g_' per project convention."
-          ]
-        },
-        "request": {
-          "name": "D_80093534",
-          "array_length": 12,
-          "allow_evict": false,
-          "type_name": "unsigned char",
-          "address": "0x80093534",
-          "strict_mode": "off",
-          "plate_comment": "Static menu text bytes including the terminating null. Source: complete array bounds verified in include/static_menu_internal.h and docs/static-menu-records.md."
-        }
-      }
-    ],
-    "interior_field_label_preserved": true,
-    "snapshot_sha256": "5fb4cbb40ae9ad7671276659a8341fbae2b39d714c3404fbd7c4dd1cc42bee46",
+    "snapshot_sha256": "8cae7345d83ab41684f67275bae3342343ea05a53cff9b2d338ffc9af6344f50",
     "retail_memory_sha256": {
-      ".menu_static_confirmation_labels": "88fac1640d48b847d569aab4ead734c74826053ff8aedd5d094525adf4a2f1ff",
-      ".menu_static_confirmation_page": "bf1a506bfdf9c4428f766aebb9d628b3a4c852fff45857414058adecdf441136",
-      ".menu_static_pause_labels": "7e7f3014b25dbc01326102ea99de73254843c3ec2362750de12fe403813f71f5",
-      ".menu_static_pause_page": "44fe5c7449829cd12d4bfec1cbf243fbe855647963aeccc11ce93950558739d6",
-      ".menu_static_confirmation_text": "942f747e5881dbf171f8ea59a41a13d5b1641622502fe94402118714c16ca0b8",
-      ".menu_static_pause_text": "3bb694ab7c512c9cf369c3dadddf5eed59c0de3510008d04ac54507673eded7b"
+      ".menu_front_load_labels": "38e7f710370cfd392536322a3e7699a2a8f04767115b720aaee7899a3263d324",
+      ".menu_front_load_page": "41eab3c9899959a318df01c6b49950f3a8c1458d4d2a6476b48411f3ece0c6df",
+      ".menu_front_main_labels": "88ee0f0f7cda8507350a2464625bb0c5d7ce3acf91ab8efecf2362ce935263f4",
+      ".menu_front_main_page": "3f66ad93ce7948304af886760420abaa6597788d479a1eb54654241b0fae829b",
+      ".menu_front_audio_labels": "e3bbd7ce0af80b35a3b983422d6ee5db18636a5b9e45ae34b6d60e5ebc1fcb01",
+      ".menu_front_audio_page": "b59b9ff57f1d624632923ba731fb51c1030348e3594b6a029442795b3e582087",
+      ".menu_front_text": "31f186d17178a2c6c96b8a2db576b1b332479d7b0279f22340e83648906024d5"
     },
-    "timeout_consumer": "80026B0C reads and invokes the callback at page offset 0x30; both recovered static pages initialize that word to null."
+    "label_array_type": "MenuLabelRecord[4]",
+    "page_array_type": "MenuStaticPage[1]",
+    "interior_field_alias": {
+      "symbol": "D_80076EC0",
+      "array": "D_80076E78",
+      "record": 1,
+      "field": "value20",
+      "offset": 72,
+      "separate_storage": false
+    },
+    "callback_interfaces": {
+      "void func_80025BBC(int unused);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x80025BBC",
+        "address": "0x80025BBC",
+        "prototype": "void func_80025BBC(int unused)"
+      },
+      "void func_80025B44(int unused);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x80025B44",
+        "address": "0x80025B44",
+        "prototype": "void func_80025B44(int unused)"
+      },
+      "void func_80025CD0(int unused);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x80025CD0",
+        "address": "0x80025CD0",
+        "prototype": "void func_80025CD0(int unused)"
+      },
+      "void func_80026A10(int value);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x80026A10",
+        "address": "0x80026A10",
+        "prototype": "void func_80026A10(int value)"
+      },
+      "void func_80030A80(int unused);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x80030A80",
+        "address": "0x80030A80",
+        "prototype": "void func_80030A80(int unused)"
+      },
+      "void func_8002FAE0(int *selection);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x8002FAE0",
+        "address": "0x8002FAE0",
+        "prototype": "void func_8002FAE0(int *selection)"
+      },
+      "void func_8002FA34(int *selection);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x8002FA34",
+        "address": "0x8002FA34",
+        "prototype": "void func_8002FA34(int *selection)"
+      },
+      "void func_8002F930(int *selection);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x8002F930",
+        "address": "0x8002F930",
+        "prototype": "void func_8002F930(int *selection)"
+      },
+      "void func_8002F8A4(void);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x8002F8A4",
+        "address": "0x8002F8A4",
+        "prototype": "void func_8002F8A4(void)"
+      },
+      "void func_80030EAC(int *selection);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x80030EAC",
+        "address": "0x80030EAC",
+        "prototype": "void func_80030EAC(int *selection)"
+      },
+      "void func_80030F50(int *selection);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x80030F50",
+        "address": "0x80030F50",
+        "prototype": "void func_80030F50(int *selection)"
+      },
+      "void func_80030F94(int *selection);": {
+        "status": "success",
+        "message": "Successfully set prototype for function at 0x80030F94",
+        "address": "0x80030F94",
+        "prototype": "void func_80030F94(int *selection)"
+      }
+    }
   },
   "checks": {
     "clean_extraction_and_build": true,
@@ -2100,21 +2381,22 @@
     }
   ],
   "private_artifacts_sha256": {
-    "reference-proof.json": "e3bde29c75599aa619bbc6963588d1c1c728174994af49a0b285bbc5070cb95e",
-    "layout-probe.c": "72733b843d137e7ec6e15f31060df875a13168a54f6592bc5fc40b293e72f2b0",
-    "layout-probe.o": "33aef1924bdd2fea0b87f0f254a00e04a3bd5081386d2fc2285c268aaf46e56f",
-    "layout-probe.json": "f14d540db46278cf60b43ed2a21ea1fb0fae0b24b32adde2774a0570b037d3b5"
+    "reference-proof.json": "ae82d9719ca8e18c8930b8481a500420d4fad5a42f61570959deba84ce89bbec",
+    "context.c": "e7fc8413a56e06da3659c667cea669003979ab844f82770ba6a20ef6ad495de0",
+    "layout-probe.c": "31e4992ac9fdf9bf8fb9f0bb2c9cb01a11133092aeb0a3b8dba78c3df2ac4804",
+    "layout-probe.o": "73e9d3a7d41d8c5a294dd6d8159131b7d41b6b9e297f5b825578858af482f737",
+    "layout-probe.json": "e46881d91f20dee1333aa1e350b9d66dd998bc378e0104268befba5406f428b6"
   },
   "inputs_sha256": {
     "Makefile": "9a5c8e05d18503ec67bc7043385acf2ed6133ff053c93f51d3b2c8c548440eb9",
-    "config/analysis/static_menu_records.yaml": "9bafb16b0351ed7211a7355726dfb1dcfe8bddd87683a4bfa95ca474bc4e1bf4",
+    "README.md": "3dadfaed92a7bd386a76218c4961993bac3b52028a631ada45974950ff840af0",
+    "config/analysis/front_menu_records.yaml": "f3526f05d89b9ac62e6bb0655e3e502069c01dce32638f224e30e22e2a164032",
     "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
     "config/owned_sections.json": "e575de5d76b91db81b091ad7bfed2f6e24fc32ac71b76c8965cd5cf1d8e09460",
     "config/runtime_symbols.ld": "a0d7d342a42eaf20d91aff6844511c24099e91e2cdaa0668d71ccde7ca098667",
     "config/startup_symbols.ld": "d75e47cb0a27c33361d6f41aacef3d6c88d5c470d6cc288d9c984274285c08fb",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
-    "docs/save-menu-options.md": "63f719b0d0b0207ff821a96091c0ef1cdca029d13d01a820d976f829ec916d80",
-    "docs/static-menu-records.md": "df4a9009fc6b61c1536ee18e628ec5ae0b160514de975ef56711f3e608950c12",
+    "docs/front-menu-records.md": "c3f90005d36e433dc2855b69fc9dadd6e3109b2774001cc65e62fef205254f4a",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
     "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
     "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
@@ -2297,15 +2579,27 @@
     "include/text.h": "d954d557366f88590d863a335130d609cba06def33ad93145a8ff449394b6761",
     "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
     "linker_scripts/us.ld": "97bb11c82bf3554ba3172ad525ae998711e54c9b170131e0d5198c03790c5036",
+    "src/game/fixed_geometry_setup.c": "e2e921573c9af970d82a0dd5f2131fb4026ce8d5a24f28db2489e52799095263",
+    "src/game/formatting/digits.c": "a25a85fc53aa5595473f65eea2724d9173a612725301708a36b2c40366287df7",
+    "src/game/game_memory.c": "d046cce69151ba911777c757ad9462c3bc5e608831e1426f4a67d9cff788c0c7",
+    "src/game/game_number_format.c": "4b129c5a1389e1587be0fc777f3c3e3d4bc222f8bff8b91cdd27971baa5f8e92",
     "src/game/menu_transition_start.c": "c2ac89a143c126b502a8258dff62ddaea8f8ef41bdfa5dd73c1364f19af74f06",
+    "src/game/save_menu_audio_apply.c": "c449837adc465966cb9d0bb68cdf09233b04d8ebd400726892d17a79fbdca595",
+    "src/game/save_menu_audio_index.c": "eba63b07f275b40b447655bba21e7332c17d329e34f6d1403363093a0678eeb6",
+    "src/game/save_menu_audio_secondary.c": "d25f8d9f405ef638bc840a7a548ce0306d8eb33709dc46b9e2bf1d8a6b83ae40",
     "src/game/save_menu_nav_cleanup.c": "ace14edaed91d54601535e399d73e6e1e58db75a5d83714e4416a45a925247e5",
     "src/game/save_menu_nav_preview_release.c": "8860f6dd0c22061e628acf6b1d6f5421a94d9c477ff3cbd51517f90828c82fa2",
-    "src/game/save_menus/static_confirmation/labels.c": "b4ee680732c9a80795d71038eb1afdb7b875e0afc91ee351f083b4102fe92320",
-    "src/game/save_menus/static_confirmation/page.c": "af79fef64acc70ac681edeb11b59a8046e48ecf5343bca3be84eab5844293d62",
-    "src/game/save_menus/static_confirmation/text.c": "cbcd3330ad0d54fa272cb11c65f3d70976baa258c828e6fd6ae8359c2e6c2d06",
-    "src/game/save_menus/static_pause/labels.c": "fd0617959e87c5a56c0b3f2a3c59e505579fc684aa4f2152f28aed7411bd87bc",
-    "src/game/save_menus/static_pause/page.c": "4ce32b4c2456aa25098c6f86387ed01da80d7707c5ce905d786989419d114733",
-    "src/game/save_menus/static_pause/text.c": "bf0541241c791d631ffc9b4cde574484573e5abe6e035add30b2f4c44247095d",
+    "src/game/save_menu_status.c": "091e0682253f0185380b2e012fa9f89a4b6273ab5d19f0286f8d7cfa377506ad",
+    "src/game/save_menus/display/never.c": "bb48a3b434b8ea0d84b2d41dd47750f07e294eaccbb13ffc70f5a7902fb8c0d8",
+    "src/game/save_menus/display/submit.c": "00a68c224d8eaa6d90efa4ac57d5e902ca396df6e8d23cf9dcc6e5b97230c985",
+    "src/game/save_menus/front_pages/audio_labels.c": "74b74df1d4836e894b859bc8d8ff2e8f502b3a50f480ba1fcfa7c1cf84780f9c",
+    "src/game/save_menus/front_pages/audio_page.c": "6bd2267f5b204b83899c2ff15072b6aa0ea82757ec19439b73126db2ac444f12",
+    "src/game/save_menus/front_pages/load_labels.c": "558767878ca6c21a6b9d7b2f2fb88f4234173c7d3330e71fb750a5644e3d285f",
+    "src/game/save_menus/front_pages/load_page.c": "a224aed385d1f0c3649afeb275f5dec35216279f6d09b9443bfd36bfba0dda56",
+    "src/game/save_menus/front_pages/main_labels.c": "ecc7d959c256c8d55235eb4ed78fa654ca504d10e543bc63ace295aeae5f1ec1",
+    "src/game/save_menus/front_pages/main_page.c": "08f0b22c13eed5da543b2668e1dfa959d1eec85e4aa5751dc41f34ecb28d17d6",
+    "src/game/save_menus/front_pages/text.c": "8f70aee4aa3361fe268a5bded684525217aaae412722e6b87f60ca352242b430",
+    "tools/check_front_menu_records.py": "f6dda022cd5f951f2ec3992cad8ecf3eaebe958b22cf0a06c77b9f8a5f776adb",
     "tools/check_static_menu_records.py": "72545fca589f67fee691f8b0393f4649d18ea36e91229cd510db7db1be881ee0",
     "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
     "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
@@ -2313,13 +2607,10 @@
     "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
   },
   "limits": [
-    "Only existing matching cleanup, preview release and immediate transition execute.",
-    "Text release and camera submission use ABI-clobbering stubs; camera O32 float arguments are captured by a MIPS shim.",
-    "The unprototyped callback entry stores addresses without invoking them.",
-    "Page activation, callback invocation, rendering and gameplay are unverified.",
-    "The dynamically constructed page timeout-word extent is not established.",
-    "The 616-byte activation procedure at 80026178 remains excluded; no new instructions are credited.",
-    "The layout probe receives no storage ownership.",
+    "Text services, rendering, RNG, audio hardware and camera submission use O32 boundary stubs.",
+    "Complete matching display, string/number helpers, cleanup and all three audio callbacks execute.",
+    "The timeout callback word is compared but its deferred control flow is not executed.",
+    "Activation, general menu control, other label callbacks and full-game rendering remain unverified.",
     "Whole-ROM equality includes extracted fallback code and assets; the game remains incompletely decompiled."
   ]
 }
