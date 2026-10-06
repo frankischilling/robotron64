@@ -466,7 +466,7 @@ SECTIONS
     .palette_transition_allocate 0x80031B28 : AT(0x32728) SUBALIGN(4) { build/us/palette_transition_allocate.o(.text) }
     .palette_transition_reset 0x80031C10 : AT(0x32810) SUBALIGN(4) { build/us/palette_transition_reset.o(.text) }
     .palette_transition_range 0x80031C44 : AT(0x32844) SUBALIGN(4) { build/us/palette_transition_range.o(.text) }
-    .cpu_after_palette_transition_range 0x80031ECC : AT(0x32ACC) { build/us/fallback.o(.rom_cpu_after_palette_transition_range) }
+    .palette_transition_update 0x80031ECC : AT(0x32ACC) SUBALIGN(4) { build/us/palette_transition_update.o(.text) }
     .palette_commands 0x8003237C : AT(0x32F7C) SUBALIGN(4) { build/us/palette_commands.o(.text) }
     .cpu_after_palette_commands 0x80032534 : AT(0x33134) { build/us/fallback.o(.rom_cpu_after_palette_commands) }
     .command_enable 0x80032540 : AT(0x33140) SUBALIGN(4) { build/us/command_enable.o(.text) }
@@ -1799,7 +1799,6 @@ ASSERT(SIZEOF(.scene_palette_load) == 0x68, "scene_palette_load size changed")
 ASSERT(SIZEOF(.palette_fade_controls) == 0x148, "palette_fade_controls size changed")
 ASSERT(SIZEOF(.palette_transition_reset) == 0x34, "palette_transition_reset size changed")
 ASSERT(SIZEOF(.palette_transition_range) == 0x288, "palette_transition_range size changed")
-ASSERT(SIZEOF(.cpu_after_palette_transition_range) == 0x4b0, "cpu_after_palette_transition_range size changed")
 ASSERT(SIZEOF(.palette_commands) == 0x1b8, "palette_commands size changed")
 ASSERT(SIZEOF(.cpu_after_palette_commands) == 0xc, "cpu_after_palette_commands size changed")
 ASSERT(SIZEOF(.command_enable) == 0x10, "command_enable size changed")
@@ -3197,3 +3196,5 @@ ASSERT(SIZEOF(.renderer_color_wave_storage) == 260, "renderer_color_wave_storage
 ASSERT(SIZEOF(.renderer_background_dispatch) == 0x424, "renderer_background_dispatch size changed")
 ASSERT(SIZEOF(.renderer_background_dispatch_table) == 0x2C, "renderer_background_dispatch_table size changed")
 ASSERT(SIZEOF(.renderer_background_color_mode) == 4, "renderer_background_color_mode size changed")
+
+ASSERT(SIZEOF(.palette_transition_update) == 0x4b0, "palette_transition_update size changed")

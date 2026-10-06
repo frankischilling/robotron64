@@ -64,10 +64,8 @@ source/header/compiler hashes are retained under `build/sdk-options`.
 
 ## Transition allocation and update
 
-The [transition allocator](palette-transitions.md) now matches its complete
-232-byte range and owns that code in the build. The per-frame transition
-update remains extracted fallback while its candidate instruction ordering is
-unresolved. The target
+The [transition allocator and updater](palette-transitions.md) now match their
+complete 232-byte and 1,200-byte ranges and own that code in the build. The target
 supports four update paths: interpolation, two arithmetic palette-index
 cycles, and a cycle through an index table. It restores or blends the original
 color when a range is released. Position arithmetic includes the original
@@ -77,7 +75,7 @@ The update routine marks changed colors and uploads each changed entry's
 contiguous suffix. It does not skip the remaining entries of a suffix after
 uploading it. The fade update computes a local 256-color buffer without a
 palette-upload call in its target body. These observed behaviors are preserved
-in the recovered source and remaining update candidate. The fade update's
+in the recovered source. The fade update's
 complete `0x800316AC..0x80031B28` range is already source-owned.
 
 Original candidates, full target-function boundaries, callers, and later

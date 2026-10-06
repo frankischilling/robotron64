@@ -27,10 +27,10 @@
       "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
     },
     "inputs_sha256": {
-      "config/functions.json": "bcfcf504465629384d9a07057778f9f1c107cc33e216c7a04bc6e4cef444d50a",
+      "config/functions.json": "a4648da70084d1e911428b44b58458e3dd4b992482972a90aa58336f209995ed",
       "config/owned_sections.json": "cb179d815d7ab55d03cd332c57085ac8e8cfbcc8ae51878194db771fb3eeea44",
-      "config/runtime_symbols.ld": "5164cbc41fba6d6c939af61753191d3c75281cc0053b8a89e95fdeee34277d66",
-      "config/startup_symbols.ld": "d6e3b894b7f030e4675b049a9d8a6b0101c531463bbcbd8fa84d9fd8eac7c87a",
+      "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
+      "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
       "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
       "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -349,14 +349,14 @@
     "tooling_tests": 163,
     "fresh_independent_comparisons": {
       "runtime-comparison": {
-        "units": 899,
+        "units": 900,
         "matches": true,
-        "report_sha256": "473256dd0d4e2db356c1000a2cc42af28f38234d28468ebffb4275c92d4d2c8d"
+        "report_sha256": "392955ebfb71ff1927377b0125f20dc063c313f341f84a32b1a7d4e677377f51"
       },
       "startup-comparison": {
         "units": 2,
         "matches": true,
-        "report_sha256": "857e3c717b0f6b9a7f9d8088efd3c72839d744789a655115eeddf67c55f28a45"
+        "report_sha256": "9c31eabc93cc93e60e2828d95933e51d4379718d8f07aeff84a017317dc54e4e"
       },
       "assembly-comparison": {
         "units": 18,
@@ -366,19 +366,23 @@
       "data-comparison": {
         "units": 120,
         "matches": true,
-        "report_sha256": "272d93a6ea963060df9e66ad388b569213a0561607b5116d8df59d593b0f9113"
+        "report_sha256": "426a9336acfbc94a6bef12ae38ddf729b863e459f6875fa325aad97c2971d85c"
       }
     },
     "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
     "progress": {
-      "matched_c_functions": 1417,
-      "matched_c_bytes": 301900,
+      "matched_c_functions": 1418,
+      "matched_c_bytes": 303100,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
       "source_owned_initialized_bytes": 31467,
       "source_owned_bss_bytes": 521095
     },
-    "canonical_input_comparisons": true
+    "canonical_input_comparisons": true,
+    "windows_tests": {
+      "tests": 163,
+      "skipped": 4
+    }
   },
   "ghidra": {
     "program": "robotron64.elf",

@@ -15942,5 +15942,16 @@
     "section": ".renderer_material_cache_reset",
     "section_vram": 2147754160,
     "evidence": "docs/renderer-material-reset.md"
+  },
+  {
+    "name": "func_80031ECC",
+    "rom": 207564,
+    "vram": 2147688140,
+    "size": 1200,
+    "source": "src/game/palette_effects/transition_update.c",
+    "object": "build/us/palette_transition_update.o",
+    "section": ".palette_transition_update",
+    "section_vram": 2147688140,
+    "evidence": "docs/palette-transitions.md"
   }
 ]

@@ -7828,6 +7828,14 @@ build/us/renderer_material_cache_reset.o: src/game/renderer_resources/material_r
 
 RUNTIME_OBJECTS += build/us/renderer_material_cache_reset.o
 
+build/us/palette_transition_update.o: src/game/palette_effects/transition_update.c include/palette.h include/palette_effects.h include/game_memory.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/palette_transition_update.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/palette_transition_update.raw.o $@ .text 0x4b0
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/palette_transition_update.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

@@ -20,20 +20,22 @@ have complete comparisons covering 832 bytes. Their 6,316 guarded cases check
 connection masks, signed sticks, button edges and SDK call boundaries. The
 existing button halfwords retain their addresses as private static storage.
 
-The [palette transition allocator](palette-transitions.md) has a complete
-232-byte C comparison. Its first-free-record selection, bitfield narrowing,
+The [palette transition allocator and updater](palette-transitions.md) have
+complete 232-byte and 1,200-byte C comparisons. Allocation, bitfield narrowing,
 RGB inputs, and four-byte base-color snapshot preserve the existing pool layout.
 The related command storage adds 15,648 bytes of checked BSS ownership for
 source colors, configurations, ranges, and counters.
 The seven-entry transition index table adds 28 initialized control-data bytes;
 the adjacent palette resource remains extracted.
-The per-frame transition update remains excluded pending instruction matching.
+The updater preserves signed cycling/interpolation, position reflection and
+wrapping, IDO argument evaluation order, lighting calls, and overlapping uploads.
 
 The [renderer color wave state](renderer-color-wave.md) adds 260 bytes of
 checked BSS ownership for its time accumulator and sixteen wave records.
 An aggregate preserves the array's four-byte offset without IDO inserting
-padding. The related color grids and material reset still use fallback;
-their close instruction comparisons do not add recovered function bytes.
+padding. The [material cache reset](renderer-material-reset.md) also matches
+its complete 1,912-byte function. The related animated color grids still use
+fallback; their close instruction comparisons do not add recovered function bytes.
 
 The [random spawn-position chooser](actor-spawn-position.md) has a complete
 696-byte C comparison. Its signed arithmetic, axis constraints, per-actor

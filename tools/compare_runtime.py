@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("palette_transition_update", "src/game/palette_effects/transition_update.c", 0x80031ECC, 0x8003237C),
     ("renderer_background_dispatch", "src/game/renderer_surfaces/background_dispatch.c", 0x800400D0, 0x800404F4),
     ("renderer_material_cache_reset", "src/game/renderer_resources/material_reset.c", 0x800420B0, 0x80042828),
     ("palette_transition_allocate", "src/game/palette_effects/transition_allocate.c", 0x80031B28, 0x80031C10),
