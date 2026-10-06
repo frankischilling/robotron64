@@ -107,7 +107,7 @@
     "paired_executions": 37312,
     "trace_sha256": "6b1eb5697b32714f1d432fd37ed29b8d57625b7857c19e1ebbcaff549493df1f",
     "checker_sha256": "913f59275b43e00062b45989def982da6e9f6502c3f149d0daca2505a34c944d",
-    "oracle_sha256": "fad2bcc56944d44c8a8f6090e688a66a7b89d282065e57061c5a3237e8bb9fa8",
+    "oracle_sha256": "d3e2f1a0fce225005b78ca17d7c77976c7e45ca2d20b96aeb9a7471466540955",
     "support_source_units": [
       "actor_group_rotate",
       "object_recovery_fixed_trig",
@@ -118,6 +118,7 @@
       "object_recovery_angle_table",
       "fixed_geometry_setup"
     ],
+    "unmutated_control_cases": 5,
     "mutations": [
       {
         "mutation": "crossing_equality",
@@ -125,12 +126,12 @@
           "case": [
             2,
             0,
+            2,
             0,
-            14,
             0,
             0
           ],
-          "reason": "('Path instruction bounds', '0x8000e7e0')"
+          "reason": "('Independent actor path state/call oracle', (2, 0, 2, 0, 0, 0), {'actor': 'a5a5a5a5a5a5a5a50ea8a5a50011a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a580211000a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5"
         },
         "source_sha256": "4160ee91f8f19afa4b8b732863470fdc0e679c909737629b81d2b4eee207c838"
       },
@@ -145,7 +146,7 @@
             0,
             0
           ],
-          "reason": "('Path instruction bounds', '0x8000e7e0')"
+          "reason": "('Independent actor path state/call oracle', (2, 0, 0, 14, 0, 0), {'actor': 'a5a5a5a5a5a5a5a50ea8a5a50011a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a580211000a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a"
         },
         "source_sha256": "8a470421c1d201ae6ae931c30cdbece8399a374bae35b6485a8d107b23cb2cde"
       },
@@ -160,7 +161,7 @@
             0,
             0
           ],
-          "reason": "('Path instruction bounds', '0x8000e7e0')"
+          "reason": "('Independent actor path state/call oracle', (2, 0, 0, 14, 0, 0), {'actor': 'a5a5a5a5a5a5a5a50ea8a5a50011a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a580211000a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a"
         },
         "source_sha256": "b30058c88268a8d3a4314c4b79d39ec1521f41a9a328b847b2e7a5c7052ae137"
       },
@@ -170,12 +171,12 @@
           "case": [
             2,
             0,
-            0,
+            1,
             14,
             0,
             0
           ],
-          "reason": "('Path instruction bounds', '0x8000e7e0')"
+          "reason": "boundary argument/guard assertion"
         },
         "source_sha256": "04e9bc65bc4024f8097d48dee0e1c7b52566a0ab9a2a3b1c2d09eb743d466fbb"
       },
@@ -190,7 +191,7 @@
             0,
             0
           ],
-          "reason": "('Path instruction bounds', '0x8000e7e0')"
+          "reason": "('Independent actor path state/call oracle', (2, 0, 0, 14, 0, 0), {'actor': 'a5a5a5a5a5a5a5a50ea8a5a50011a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a580211000a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a"
         },
         "source_sha256": "2f9be6679cbc14f76a0fb105240b168de2dc90cc29e929ef4d2b8b3ec19e24bd"
       }
