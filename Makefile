@@ -7898,6 +7898,28 @@ build/us/renderer_fatal_message.o: src/game/renderer_diagnostics/fatal_message.c
 
 RUNTIME_OBJECTS += build/us/renderer_fatal_message.o
 
+build/us/early_input_sequence_define.o: src/game/input_sequences/define.c include/controller_input.h include/destination_format.h include/early_input_internal.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_input_sequence_define.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/early_input_sequence_define.raw.o $@ .text 0x11C
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/early_input_sequence_define.o
+
+.PHONY: check-input-sequence-definition
+check-input-sequence-definition:
+	$(PYTHON) tools/check_input_sequence_definition.py
+
+
+build/us/input_sequence_limit_message.o: src/game/input_sequences/limit_message.c include/controller_input.h include/destination_format.h include/early_input_internal.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/input_sequence_limit_message.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/input_sequence_limit_message.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/input_sequence_limit_message.o
+
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 

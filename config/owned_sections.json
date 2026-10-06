@@ -4053,5 +4053,19 @@
     },
     "static_symbols": {},
     "evidence": "docs/palette-color-tables.md"
+  },
+  {
+    "source": "src/game/input_sequences/limit_message.c",
+    "object": "build/us/input_sequence_limit_message.o",
+    "input_section": ".rodata",
+    "section": ".input_sequence_limit_message",
+    "vram": 2148074440,
+    "rom": 593864,
+    "size": 32,
+    "symbols": {
+      "D_800903C8": 0
+    },
+    "static_symbols": {},
+    "evidence": "docs/input-sequence-definition.md"
   }
 ]

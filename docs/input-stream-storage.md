@@ -34,12 +34,12 @@ The reset routine clears all fourteen progress/timer pairs. The file loader
 copies `0x320` bytes into the button pool and clears its cursor. The sequence
 definition procedure's target checks the pool against 400 halfwords and
 selects three fixed sequences at record indexes 1, 13, and 12. That procedure
-is published as `src/game/early_input_sequence_define.c` and registered in the
-excluded candidate comparisons. It preserves the command fields, pool-limit
-diagnostic, cursor advance, and fixed-sequence overrides. Its target supplies
-the fixed lengths and addresses; compiler differences remain outside matching
-progress. The current candidate compiles to 284 bytes with 69 differing
-words, including a 56-byte frame where the target uses 64 bytes.
+now matches all 284 instruction bytes in `src/game/input_sequences/define.c`,
+including the target's 64-byte frame. It preserves the command fields,
+pool-limit diagnostic, cursor advance and fixed-sequence overrides.
+[Definition evidence](input-sequence-definition.md) records the complete
+independent references and 1,176 guarded executions. The three fixed-record
+names alias the existing array and add no initialized or BSS storage bytes.
 
 | Source definition | Address | Owned bytes | Storage |
 | --- | --- | ---: | --- |

@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,419 matching C functions covering 303,668 bytes, twenty-nine assembly functions covering 4,372 bytes, 33,983 bytes of source-owned initialized data, and 521,095 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,420 matching C functions covering 303,952 bytes, twenty-nine assembly functions covering 4,372 bytes, 34,015 bytes of source-owned initialized data, and 521,095 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,12 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Input-sequence definition](docs/input-sequence-definition.md) recovers the
+complete 284-byte handler. Its 1,176 guarded cases check all fourteen records,
+command/destination aliasing and the diagnostic boundary; four mutations fail.
+The three fixed record names alias existing source-owned storage; its complete
+32-byte diagnostic format section is now source-defined.
 
 [Collision-kind response](docs/actor-collision-kind-response.md) recovers the complete
 716-byte handler and its 144-byte dispatch table. Its checker verifies 3,871
@@ -445,7 +451,7 @@ model transforms. The shared history pool owns 24 flags and 4,608 BSS bytes.
 
 [Graphics task production](docs/graphics-tasks.md) covers the shared task record, both microcode choices, completion waits, and RDP setup commands. [Frame helpers](docs/frame-runtime.md) cover palette state, elapsed-time sampling, and fixed-point transforms.
 
-Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame, object-update, record-copy, inverse-camera, and input-sequence definition sources and exits nonzero while they differ. Candidate spans must not overlap recovered functions. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
+Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame, object-update, record-copy, inverse-camera, and renderer sources and exits nonzero while they differ. Candidate spans must not overlap recovered functions. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
 
 `python3 tools/compare_runtime.py --jobs 4` runs four independent source
 compilations concurrently. Each uses a separate output directory and the same

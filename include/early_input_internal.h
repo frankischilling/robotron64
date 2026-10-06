@@ -46,12 +46,15 @@ extern int D_8009E588;
 extern short D_8009E590[400];
 extern EarlyPlayerCounters D_8009E9E0;
 extern EarlyInputSequence D_8009EE08[14];
+extern EarlyInputSequence D_8009EE24, D_8009EF58, D_8009EF74;
+extern const unsigned char D_800903C8[31];
 extern int D_80097648;
 extern int D_8009764C;
 extern unsigned int D_8009EF9C;
 
 int func_8001BFB0(EarlyPlayerInputState *state);
 void func_8001BF48(int *state);
+void func_8001BE2C(int *command);
 void func_8001A1F0(GameSessionState *session);
 
 #endif

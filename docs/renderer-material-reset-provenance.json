@@ -27,9 +27,9 @@
       "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
     },
     "inputs_sha256": {
-      "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
-      "config/owned_sections.json": "fdb7f0bdf23c5ad3650d534810777207ec4ef1a6002262d459399ceaf2f2bb2b",
-      "config/runtime_symbols.ld": "3fb52b452045084d22913dea6436514bd1a9dedc352e04b689e1ddd73312f766",
+      "config/functions.json": "aaf84d7fd6a1226ef9ff98eafab08ce606aa7a63134dd4ff3e90e2aff0b9ef6f",
+      "config/owned_sections.json": "182fd04816291d087c867179dc379e0db8b835f9537e05d63226454532802ef6",
+      "config/runtime_symbols.ld": "df1f42f1ef970f96d7b6b84e71c10cdf5558592b150a14ab8eee633aa5fb6319",
       "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
       "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -94,7 +94,7 @@
       "include/early_game_medium_next.h": "0c7cf3adcd946c8c507adaad037451830ca89721a357ce9a2dbc306621e069ac",
       "include/early_game_more.h": "2bacab31a51464c37f7a7fbf493b2df514fe8d7f81a2943cddd4937c4827ad44",
       "include/early_game_state.h": "6b2888941db2989ce8b108806bf153ad1f00e53a450a4b34df180a80c4d5f404",
-      "include/early_input_internal.h": "c9f7f26eda442a1dc5d6000b4d2e7e74a4f663ee36d62ddfd2290bdb1d1a315b",
+      "include/early_input_internal.h": "9050f26e7eea020dda382a34a3ba21bd4c7e274fcb9be601e35acfa801d66ad7",
       "include/early_name_table.h": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
       "include/early_parameter_internal.h": "6d20b7dc53bb972abd920df102377c4dda62f6c68647a5eb09b61d9afabf1c20",
       "include/early_pool_tick.h": "50122670755bbdd5704eff40f5fcdc32293e07a9f217898d1b1524d067dfa927",
@@ -357,9 +357,9 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 94.2,
+        "elapsed_seconds": 91.39,
         "log": ".local/renderer-color/color-tables-clean-build.log",
-        "log_sha256": "ce01a085bcc8d0bed9e5eff0c5fa5987220357dcf14a55b3eea8784c2a7c322c"
+        "log_sha256": "6b3b52eefaab7ae005626492fabb600ef1bfc83debda6e9fc3f83cd3ab214949"
       },
       {
         "command": [
@@ -368,28 +368,28 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "elapsed_seconds": 2.62,
+        "elapsed_seconds": 2.6,
         "log": ".local/renderer-color/color-tables-linux-tests.log",
-        "log_sha256": "165e91cf75eaa32e4bd9945c0fc8187582f39b52961198406dfed0ff6174024d"
+        "log_sha256": "4ddefadc5716c9cdd4daa1986e81bedf9c0d9f86eeb8fe43a6593008c05ff8ad"
       }
     ],
     "tooling_tests": {
       "linux": 163,
       "windows": 163,
       "windows_skipped": 4,
-      "linux_log_sha256": "165e91cf75eaa32e4bd9945c0fc8187582f39b52961198406dfed0ff6174024d",
-      "windows_log_sha256": "2f5174f06b0ef76eef3e2b7cd93430c428ee0da7c24035c76e4231ce9869c1c0"
+      "linux_log_sha256": "4ddefadc5716c9cdd4daa1986e81bedf9c0d9f86eeb8fe43a6593008c05ff8ad",
+      "windows_log_sha256": "4c6087ae7800080615872c073f1436d7f659c1d759caeddbf29e58e412cb157b"
     },
     "fresh_independent_comparisons": {
       "runtime-comparison": {
         "matches": true,
-        "units": 901,
-        "report_sha256": "273285ca26208dd41643931a9ac311bfe2a60ba0b949366b0d8493da0e637d2e"
+        "units": 902,
+        "report_sha256": "3b785aa41117442861c45fe2844a6942f312e0a7ff2419c3dbf44d3325f42d49"
       },
       "startup-comparison": {
         "matches": true,
         "units": 2,
-        "report_sha256": "5d33c19f0b574f5b8ce405191e8d3c9e159de0d55abfb39a2133972bce6e1416"
+        "report_sha256": "0f0366565caf5d4b452d0d03ca30f4b8c62c8b3414543fc34eaf26a28649a004"
       },
       "assembly-comparison": {
         "matches": true,
@@ -398,61 +398,65 @@
       },
       "data-comparison": {
         "matches": true,
-        "units": 125,
-        "report_sha256": "f5625ce44a3664dd3e2fb42dc0de2e59f320be37f7c4bb4958f35f68680d8b6c"
+        "units": 126,
+        "report_sha256": "60bd8250d06d876306fff8762a43715ef8e9084addad41cd1bc5b2c4875d4fb5"
       }
     },
     "rom_bytes": 8388608,
     "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
     "progress": {
-      "matched_c_functions": 1419,
-      "matched_c_bytes": 303668,
+      "matched_c_functions": 1420,
+      "matched_c_bytes": 303952,
       "matched_assembly_functions": 29,
       "matched_assembly_bytes": 4372,
-      "source_owned_initialized_bytes": 33983,
+      "source_owned_initialized_bytes": 34015,
       "source_owned_bss_bytes": 521095
     },
     "remaining_cpu": {
-      "bytes": 146516,
-      "spans": 190,
+      "bytes": 146232,
+      "spans": 189,
       "unclassified_bytes": 164
     },
     "guarded_executions": {
       "renderer-rings-execution": {
         "cases": 640,
-        "report_sha256": "4fc4217cbfe1d785787ccb2807b8e602b7a24d330113abc03355338f04fe559a"
+        "report_sha256": "4d90d5998e4bab8db913a2a1fea48d3e9c2107e5b0834de0ff3a8b2228df752c"
       },
       "renderer-reset-execution": {
         "cases": 350,
-        "report_sha256": "0aa86c11ce37747d9ebb98b487cb274f8443322ee68ae1ef0554b38db547b3a9"
+        "report_sha256": "f3fdb49d20ea89cf745669d731c9551005ad546a1c55eb82361cf4ca837d4dd4"
       },
       "background-dispatch-execution": {
         "cases": 15000,
-        "report_sha256": "afa2da6a7df9f49e84fb9f1933f71f868821c63b7a25dc8d2e2b4eae7cda836b"
+        "report_sha256": "0d3c0f5d89b59e48eae3822a408f0e2a0c627662d18ab2a88bf901611324fbc9"
       },
       "background-tiles-execution": {
         "cases": 140,
-        "report_sha256": "7a94df2295c7b1ffea884548026f0288b6456210b74a16dd60cc08f403f79091"
+        "report_sha256": "2c44a1c78cf63e9ece9111b88ff5adf7297fb081af7de92c1c60eab30bd50906"
       },
       "palette-transition-execution": {
         "cases": 14520,
-        "report_sha256": "86f5692674e151bf454a49feb81e0dbe9efe14bb693a4a6d5264f3f6b4843fd1"
+        "report_sha256": "706ed23e63c7a1ea56ca3f893f5c7a2dcff9fbac3c5e0f7d88fdc53c5d47e9a7"
       },
       "palette-update-execution": {
         "cases": 909,
-        "report_sha256": "5417a35f104d87dddee2724f7a9c48e814f2a59d72c7aab267cb5308b86d8fa1"
+        "report_sha256": "a059726d5459472e814642908881b89f6dd47658e1435eba04bf13b5fe31e919"
       },
       "object-projection-execution": {
         "cases": 364,
-        "report_sha256": "9061c2c485c3702950d759514a40c0e4bbaf8e830d3d092ec3487016aa030775"
+        "report_sha256": "64d5fd632660ab86c2363640df5e6a1d995c0da027d7a1dbe8f84b711a17b702"
       },
       "palette-color-table-execution": {
         "cases": 1071,
-        "report_sha256": "469bebe82945faba7c974003cc864e757bbe5c7e8aaa170a38cf31f633b60723"
+        "report_sha256": "8e95d87a11dd80a0f597f37f304bfa6e88332b48b0459512fe846f98b070a3c4"
       },
       "error-formatter-execution": {
         "cases": 3588,
-        "report_sha256": "c9080ae975785aa069f46c483956192fa13cb8c0184f96feba54741e82c2382d"
+        "report_sha256": "0793c372d3d6f50bb54c4ee7d98f72165a06548ec5e54d61a743416abca5e28c"
+      },
+      "input-sequence-definition-execution": {
+        "cases": 1176,
+        "report_sha256": "ffb072f7def1e3742fcc9273694eff1e78bb8639f28000e64b1c5018cd7766d4"
       }
     }
   },

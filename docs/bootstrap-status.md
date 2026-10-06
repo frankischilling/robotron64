@@ -123,3 +123,11 @@ data now totals 33,983 bytes; instruction and BSS totals are unchanged. All
 helpers read the freshly compiled alphabet in the diagnostic formatter checker.
 The fatal formatter remains excluded. See
 [Palette color tables and formatting constants](palette-color-tables.md).
+
+The [input-sequence definition](input-sequence-definition.md) adds 284 complete
+C instruction bytes with 1,176 guarded cases and four detected mutations. Its
+three record aliases add no storage ownership. Its complete diagnostic format
+section adds 32 initialized bytes. Current totals are 1,420 C functions /
+303,952 bytes, 34,015 initialized bytes and 521,095 BSS bytes.
+The candidate CPU range retains 146,232 fallback bytes in 189 spans, plus
+164 unclassified bytes; some unresolved spans may be padding or data.

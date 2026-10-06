@@ -229,7 +229,7 @@ SECTIONS
     .early_name_mask_lookup 0x8001BBAC : AT(0x1C7AC) SUBALIGN(4) { build/us/early_name_mask_lookup.o(.text) }
     .early_value_lookup 0x8001BC38 : AT(0x1C838) SUBALIGN(4) { build/us/early_value_lookup.o(.text) }
     .early_name_mask_parse 0x8001BD24 : AT(0x1C924) SUBALIGN(4) { build/us/early_name_mask_parse.o(.text) }
-    .endgame_1ca2c_1cb48 0x8001BE2C : AT(0x1CA2C) { build/us/fallback.o(.rom_endgame_1ca2c_1cb48) }
+    .early_input_sequence_define 0x8001BE2C : AT(0x1CA2C) SUBALIGN(4) { build/us/early_input_sequence_define.o(.text) }
     .early_player_counter_reset 0x8001BF48 : AT(0x1CB48) SUBALIGN(4) { build/us/early_player_counter_reset.o(.text) }
     .early_player_sequence 0x8001BFB0 : AT(0x1CBB0) SUBALIGN(4) { build/us/early_player_sequence.o(.text) }
     .early_player_sequence_tail 0x8001C0C8 : AT(0x1CCC8) { build/us/fallback.o(.rom_early_player_sequence_tail) }
@@ -1357,7 +1357,8 @@ SECTIONS
     .actor_collision_retire_switch 0x800902D4 : AT(0x90ED4) SUBALIGN(4) { build/us/actor_collision_retire.o(.rodata) }
     .collision_fallback_90f64_90f70 0x80090364 : AT(0x90F64) { build/us/fallback.o(.rom_collision_fallback_90f64_90f70) }
     .name_table_lookup_data 0x80090370 : AT(0x90F70) SUBALIGN(4) { build/us/name_table_lookup.o(.data) }
-    .scene_action_fallback_90f96_90fe8 0x80090396 : AT(0x90F96) { build/us/fallback.o(.rom_scene_action_fallback_90f96_90fe8) }
+    .scene_action_fallback_90f96_90fc8 0x80090396 : AT(0x90F96) { build/us/fallback.o(.rom_scene_action_fallback_90f96_90fc8) }
+    .input_sequence_limit_message 0x800903C8 : AT(0x90FC8) SUBALIGN(4) { build/us/input_sequence_limit_message.o(.rodata) }
     .scene_action_table 0x800903E8 : AT(0x90FE8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.rodata) }
     .error_formatted_table 0x80090460 : AT(0x91060) SUBALIGN(4) { build/us/error_formatted.o(.rodata) }
     .error_fallback_910a8_92558 0x800904A8 : AT(0x910A8) { build/us/fallback.o(.rom_error_fallback_910a8_92558) }
@@ -2488,7 +2489,7 @@ ASSERT(SIZEOF(.os_invalidate_cache_all) == 0x30, "os_invalidate_cache_all size c
 ASSERT(SIZEOF(.os_map_debug_tlb) == 0x60, "os_map_debug_tlb size changed")
 ASSERT(SIZEOF(.square_root) == 0x10, "square_root size changed")
 ASSERT(SIZEOF(.endgame_1b148_1b9a0) == 0x858, "endgame_1b148_1b9a0 size changed")
-ASSERT(SIZEOF(.endgame_1ca2c_1cb48) == 0x11c, "endgame_1ca2c_1cb48 size changed")
+ASSERT(SIZEOF(.early_input_sequence_define) == 0x11c, "early_input_sequence_define size changed")
 ASSERT(SIZEOF(.early_player_sequence) == 0x118, "early_player_sequence size changed")
 ASSERT(SIZEOF(.early_player_sequence_tail) == 0x8, "early_player_sequence_tail size changed")
 ASSERT(SIZEOF(.error_fatal_format) == 0x1f4, "error_fatal_format size changed")
@@ -3132,7 +3133,8 @@ ASSERT(SIZEOF(.menu_options_define) == 0x1d8, "menu_options_define size changed"
 ASSERT(SIZEOF(.menu_options_records) == 0x2a8, "menu_options_records BSS size changed")
 ASSERT(SIZEOF(.menu_options_page) == 0x30, "menu_options_page BSS size changed")
 ASSERT(SIZEOF(.scene_action_dispatch) == 0x2d4, "scene_action_dispatch size changed")
-ASSERT(SIZEOF(.scene_action_fallback_90f96_90fe8) == 0x52, "scene_action_fallback_90f96_90fe8 size changed")
+ASSERT(SIZEOF(.scene_action_fallback_90f96_90fc8) == 0x32, "scene_action_fallback_90f96_90fc8 size changed")
+ASSERT(SIZEOF(.input_sequence_limit_message) == 0x20, "input_sequence_limit_message size changed")
 ASSERT(SIZEOF(.scene_action_table) == 0x38, "scene_action_table size changed")
 ASSERT(SIZEOF(.error_fallback_910a8_92558) == 0x14b0, "error_fallback_910a8_92558 size changed")
 ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")
@@ -3220,3 +3222,7 @@ ASSERT(SIZEOF(.renderer_background_dispatch_table) == 0x2C, "renderer_background
 ASSERT(SIZEOF(.renderer_background_color_mode) == 4, "renderer_background_color_mode size changed")
 
 ASSERT(SIZEOF(.palette_transition_update) == 0x4b0, "palette_transition_update size changed")
+
+ASSERT(D_8009EE24 == D_8009EE08 + 1 * 0x1C, "fixed input sequence 1 alias changed")
+ASSERT(D_8009EF58 == D_8009EE08 + 12 * 0x1C, "fixed input sequence 12 alias changed")
+ASSERT(D_8009EF74 == D_8009EE08 + 13 * 0x1C, "fixed input sequence 13 alias changed")

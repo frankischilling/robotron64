@@ -939,3 +939,8 @@ func_8000B5AC = 0x8000B5AC;
 func_80040BA0 = 0x80040BA0;
 func_80041B24 = 0x80041B24;
 D_8009F560 = 0x8009F560;
+
+/* Aliases into the existing source-owned 14-record input sequence array. */
+D_8009EE24 = 0x8009EE24;
+D_8009EF58 = 0x8009EF58;
+D_8009EF74 = 0x8009EF74;

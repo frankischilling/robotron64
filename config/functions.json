@@ -15964,5 +15964,16 @@
     "section": ".renderer_rotating_rings",
     "section_vram": 2147748200,
     "evidence": "docs/renderer-rotating-rings.md"
+  },
+  {
+    "name": "func_8001BE2C",
+    "rom": 117292,
+    "vram": 2147597868,
+    "size": 284,
+    "source": "src/game/input_sequences/define.c",
+    "object": "build/us/early_input_sequence_define.o",
+    "section": ".early_input_sequence_define",
+    "section_vram": 2147597868,
+    "evidence": "docs/input-sequence-definition.md"
   }
 ]
