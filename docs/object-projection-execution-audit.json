@@ -47,8 +47,8 @@
     },
     "inputs_sha256": {
       "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
-      "config/owned_sections.json": "44a1a45095fad2919a301f64b7bddd87812bb4d15d9e5c97563199479b59adfb",
-      "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
+      "config/owned_sections.json": "fdb7f0bdf23c5ad3650d534810777207ec4ef1a6002262d459399ceaf2f2bb2b",
+      "config/runtime_symbols.ld": "3fb52b452045084d22913dea6436514bd1a9dedc352e04b689e1ddd73312f766",
       "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
       "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -103,7 +103,7 @@
       "include/controller_legacy.h": "9e84295ea876b78cdba28b17d4a0059eb4fe1080953a64e8af9d2ea494dbf62e",
       "include/controller_pak_menu_internal.h": "8918c882b3b69f079e1d478a8fd7b60439317705ddfb4d4b26b255988cf8c789",
       "include/controller_services.h": "9f383df4164ff1a705c0c5bd9936c21a2df2c781af9f80ea8c369f64dc2498a1",
-      "include/debug_output.h": "ba12435a24f3162d1015f7960f38420e2f34ea16e02c6adb679706cc263a329d",
+      "include/debug_output.h": "60e95db1559457da440a9b62eb5f2d6fcb71aeeecac386981bf99670a2697e59",
       "include/debug_text_internal.h": "0c1a2fc419e668e7421311cc98fd3d1200ca037e4c9c64074e0b020fbf2048cf",
       "include/destination_format.h": "d4384f14dfd1a3122d4347e371f4d8d6f8c9bcb7a625947759ed7c0b3361f65f",
       "include/early_bonus_internal.h": "a70ef7b2147da30ba1ebdbb16001f5750d26d54b7455eb571f5f590382f0634f",
@@ -128,10 +128,10 @@
       "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
       "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
       "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
-      "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
+      "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
       "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
       "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
-      "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
+      "include/graphics_state_internal.h": "c73e90215dd25f41b9208eafb1744ad7856b2127d1818553de211f6a707ec7ba",
       "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
       "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
       "include/menu_label_internal.h": "dc60421b0ef2ebee8b68e0a151543a447982e3a0f24704537936fc530c468811",
@@ -145,7 +145,7 @@
       "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
       "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
       "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
-      "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
+      "include/palette.h": "44f7adde8e518fa5341c5e080372142d298426ce5e04f5bc97054ec5f43d1dee",
       "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
       "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
       "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
@@ -160,7 +160,7 @@
       "include/renderer_object_glyph_internal.h": "6bbf74e29517f4c519088cd29242c6226ed6927e7b1f996c2d318842e8c5d83c",
       "include/renderer_peak_metrics.h": "bc55ddea66e92f5e40909ea6713c3cedec1cff1b4a0f2d656f07bb786d990567",
       "include/renderer_polygon_messages.h": "59761780941783b420d2a8a75c1252dacf77efa14b22ebe683cee5208462259a",
-      "include/renderer_primitives_internal.h": "8ac70e9b97c8abfa87a1b0e54b0bb33add0ad2c941c7da140415b000b82f12dc",
+      "include/renderer_primitives_internal.h": "dfba847dc6c90883003d230ea4f38d97db4171fe473ecada0f448fadb72c37cb",
       "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
       "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
       "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
@@ -664,8 +664,8 @@
     },
     "inputs_sha256": {
       "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
-      "config/owned_sections.json": "44a1a45095fad2919a301f64b7bddd87812bb4d15d9e5c97563199479b59adfb",
-      "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
+      "config/owned_sections.json": "fdb7f0bdf23c5ad3650d534810777207ec4ef1a6002262d459399ceaf2f2bb2b",
+      "config/runtime_symbols.ld": "3fb52b452045084d22913dea6436514bd1a9dedc352e04b689e1ddd73312f766",
       "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
       "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
       "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -720,7 +720,7 @@
       "include/controller_legacy.h": "9e84295ea876b78cdba28b17d4a0059eb4fe1080953a64e8af9d2ea494dbf62e",
       "include/controller_pak_menu_internal.h": "8918c882b3b69f079e1d478a8fd7b60439317705ddfb4d4b26b255988cf8c789",
       "include/controller_services.h": "9f383df4164ff1a705c0c5bd9936c21a2df2c781af9f80ea8c369f64dc2498a1",
-      "include/debug_output.h": "ba12435a24f3162d1015f7960f38420e2f34ea16e02c6adb679706cc263a329d",
+      "include/debug_output.h": "60e95db1559457da440a9b62eb5f2d6fcb71aeeecac386981bf99670a2697e59",
       "include/debug_text_internal.h": "0c1a2fc419e668e7421311cc98fd3d1200ca037e4c9c64074e0b020fbf2048cf",
       "include/destination_format.h": "d4384f14dfd1a3122d4347e371f4d8d6f8c9bcb7a625947759ed7c0b3361f65f",
       "include/early_bonus_internal.h": "a70ef7b2147da30ba1ebdbb16001f5750d26d54b7455eb571f5f590382f0634f",
@@ -745,10 +745,10 @@
       "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
       "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
       "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
-      "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
+      "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
       "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
       "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
-      "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
+      "include/graphics_state_internal.h": "c73e90215dd25f41b9208eafb1744ad7856b2127d1818553de211f6a707ec7ba",
       "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
       "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
       "include/menu_label_internal.h": "dc60421b0ef2ebee8b68e0a151543a447982e3a0f24704537936fc530c468811",
@@ -762,7 +762,7 @@
       "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
       "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
       "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
-      "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
+      "include/palette.h": "44f7adde8e518fa5341c5e080372142d298426ce5e04f5bc97054ec5f43d1dee",
       "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
       "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
       "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
@@ -777,7 +777,7 @@
       "include/renderer_object_glyph_internal.h": "6bbf74e29517f4c519088cd29242c6226ed6927e7b1f996c2d318842e8c5d83c",
       "include/renderer_peak_metrics.h": "bc55ddea66e92f5e40909ea6713c3cedec1cff1b4a0f2d656f07bb786d990567",
       "include/renderer_polygon_messages.h": "59761780941783b420d2a8a75c1252dacf77efa14b22ebe683cee5208462259a",
-      "include/renderer_primitives_internal.h": "8ac70e9b97c8abfa87a1b0e54b0bb33add0ad2c941c7da140415b000b82f12dc",
+      "include/renderer_primitives_internal.h": "dfba847dc6c90883003d230ea4f38d97db4171fe473ecada0f448fadb72c37cb",
       "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
       "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
       "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
@@ -872,6 +872,119 @@
     "No callee stubs. The loader executes retail fallback, not recovered C.",
     "This audit adds no source-owned instructions or data; visual gameplay remains unproved."
   ],
+  "validation": {
+    "clean_extraction_and_build": true,
+    "build": [
+      {
+        "command": [
+          "make",
+          "-j4",
+          "verify",
+          "progress",
+          "remaining",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 94.15,
+        "log": ".local/renderer-color/color-tables-clean-build.log",
+        "log_sha256": "0bd41e9bab1f5920afdd7ba6a7e5c84a1d04878c44c688f74ebe559afb62c2cc"
+      },
+      {
+        "command": [
+          "make",
+          "test",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 2.64,
+        "log": ".local/renderer-color/color-tables-linux-tests.log",
+        "log_sha256": "1a0621dc78dbe367a78e74064e738eee617f0f26b6b0f712154a428f89d34451"
+      }
+    ],
+    "tooling_tests": {
+      "linux": 163,
+      "windows": 163,
+      "windows_skipped": 4,
+      "linux_log_sha256": "1a0621dc78dbe367a78e74064e738eee617f0f26b6b0f712154a428f89d34451",
+      "windows_log_sha256": "b7077b6b6d1865c2279d37fc5caf0ebf24c08dacf74229c64203e5c369e09a30"
+    },
+    "fresh_independent_comparisons": {
+      "runtime-comparison": {
+        "matches": true,
+        "units": 901,
+        "report_sha256": "8d76bdc533f90602f947432548be768c65074e5f3fc1511a6d4871c41c1f50c1"
+      },
+      "startup-comparison": {
+        "matches": true,
+        "units": 2,
+        "report_sha256": "5d542f229b822d76b5a4a7a8868cbe934625b419b6dd50b178f0317b5d1bf88b"
+      },
+      "assembly-comparison": {
+        "matches": true,
+        "units": 18,
+        "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data-comparison": {
+        "matches": true,
+        "units": 125,
+        "report_sha256": "187406a057d08cd546f04800069b6a761c6ed67bd7c779b066bcbf5eb491c509"
+      }
+    },
+    "rom_bytes": 8388608,
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "progress": {
+      "matched_c_functions": 1419,
+      "matched_c_bytes": 303668,
+      "matched_assembly_functions": 29,
+      "matched_assembly_bytes": 4372,
+      "source_owned_initialized_bytes": 33983,
+      "source_owned_bss_bytes": 521095
+    },
+    "remaining_cpu": {
+      "bytes": 146516,
+      "spans": 190,
+      "unclassified_bytes": 164
+    },
+    "guarded_executions": {
+      "renderer-rings-execution": {
+        "cases": 640,
+        "report_sha256": "7efacf40c8ef1024912a00755620b7135fe61c19f6807a6884cec6933eec0efb"
+      },
+      "renderer-reset-execution": {
+        "cases": 350,
+        "report_sha256": "2dec75306ea1615d7e973515bb930e2c5bea6e5003b67f61fa1cc9796cb6d348"
+      },
+      "background-dispatch-execution": {
+        "cases": 15000,
+        "report_sha256": "b3815b2c126ca523c8aeac7386adb5a130c52e2504c85ce1d3272d4142d8eb81"
+      },
+      "background-tiles-execution": {
+        "cases": 140,
+        "report_sha256": "006d0c9088331ee94fbefbf7301a8376aa6e2ddb3cb5a99abc361a2d7134dca6"
+      },
+      "palette-transition-execution": {
+        "cases": 14520,
+        "report_sha256": "831a6cb4772381fc35f48ef281c671cad392380828b068dc7418cfdae30c7537"
+      },
+      "palette-update-execution": {
+        "cases": 909,
+        "report_sha256": "ac8ffc17504a27b664ce8ebc667a80298b74e6507829c176efb4e6b86055cac1"
+      },
+      "object-projection-execution": {
+        "cases": 364,
+        "report_sha256": "630cf7a5e411f153d4764f9efb9ea356ee538bb17957f7d67dea08c2a3a32a33"
+      },
+      "palette-color-table-execution": {
+        "cases": 1071,
+        "report_sha256": "7325730ef2e4a3a5dea45c6613c0c24ff5698fc3a3cae92724078337e3cea803"
+      },
+      "error-formatter-execution": {
+        "cases": 3588,
+        "report_sha256": "c7d84d7f45747728846bc506fb457eea5f256fd305ece46cb1aab61540ef6df5"
+      }
+    },
+    "note": "Excluded candidate; current canonical inputs and full clean build verified. ROM includes fallback."
+  },
   "independent_reference": {
     "tool": "spimdisasm 1.42.4 and MIPS binutils",
     "instruction_bytes": 376,
@@ -879,18 +992,6 @@
     "assembler_alignment_bytes_trimmed": 8,
     "reassembled_sha256": "748b3e66128caf4dfb7fa9a82a384fcdf65846cb440178ad13a0817c03c633d6",
     "generated_assembly_sha256": "5f3aa774e615a5385e900a58dcb4018a926774b66e322fa4a7b7187b9aa8730f"
-  },
-  "validation": {
-    "linux_tests": 163,
-    "windows_tests": 163,
-    "windows_skips": 4,
-    "rom_bytes": 8388608,
-    "rom_equal": true,
-    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-    "note": "Current rebuild and unchanged accepted source inputs. ROM includes extracted fallback.",
-    "build_log_sha256": "7d08ab4edb6bced8527174d4ec3f72c8cd6834f19a4302c572680f7bba597142",
-    "linux_test_log_sha256": "12a93dd471608c189cf26cc643db9b728470b4d84b2a01aeb36edb52f018a5d6",
-    "windows_test_log_sha256": "83d3505f68f068f5367d027f19930b9bfd19743ee4c2a8033b1dc48b990c2cc9"
   },
   "ghidra": {
     "program": "robotron64.elf",

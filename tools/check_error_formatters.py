@@ -276,8 +276,14 @@ def main():
     sections, _ = elf_sections_and_symbols(ROOT / 'build/data-comparison' /
         Path(messages).with_suffix('') / 'compiled.elf')
     support.append((0x80090420, sections['.error_messages']['bytes']))
-    assert target[0x7C71C:0x7C72C] == DIGITS
-    support.append((0x8007BB1C, DIGITS))
+    digits = 'src/game/formatting/digits.c'
+    digits_report = compare_unit(digits, source_sections(digits), target, layout)
+    assert digits_report['matches']
+    sections, _ = elf_sections_and_symbols(ROOT / 'build/data-comparison' /
+        Path(digits).with_suffix('') / 'compiled.elf')
+    alphabet = sections['.game_number_digits']['bytes']
+    assert len(alphabet) == 20 and alphabet == DIGITS + b'\0' * 4
+    support.append((0x8007BB1C, alphabet))
     digest, count = hashlib.sha256(), 0
     for name in FORMATTERS:
         _, _, start, end = next(record for record in records if record[0] == name)
@@ -291,15 +297,17 @@ def main():
                 print('Compared', count, 'formatter cases.', flush=True)
     report = dict(matches=True, cases=count, trace_sha256=digest.hexdigest(),
                   comparisons=comparisons, data_comparison=data_report,
+                  digits_data_comparison=digits_report,
                   emulator=dict(package='unicorn', version=version('unicorn')),
                   checker_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                   limits=['All three formatter ranges and the buffered formatter dispatch table completely match.',
                           'Output and the fatal reporter use ABI-clobbering stubs; the fatal reporter returns synthetically.',
                           'Only valid strings and output shorter than 500 bytes are exercised; overflowing buffers and dangling percent specifiers are omitted.',
                           'INT_MIN decimal conversion is omitted; hexadecimal covers all listed 32-bit boundaries.',
-                          'The standard hexadecimal alphabet is checked against retail but is not credited as source-owned data.',
+                          'The complete source-owned hexadecimal alphabet is freshly compiled, matched and executed by the numeric helpers.',
                           'Stack bounds, output byte writes, integer and floating-point callee-saved registers, GP, input buffers and stacked arguments are checked.',
                           'For each fatal/warning execution, all 532 bytes between the saved registers and message buffer remain untouched; their original purpose is unknown.'])
+    layout.verify()
     output = ROOT / 'build/error-formatter-execution/report.json'
     output.write_text(json.dumps(report, indent=2) + '\n')
     print('Passed bounded formatter execution:', count, output, flush=True)

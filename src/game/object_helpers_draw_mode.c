@@ -1,8 +1,9 @@
 #include "../../include/object_draw.h"
 #include "../../include/renderer_object_glyph_internal.h"
 #include "../../include/menu_label_internal.h"
+#include "../../include/palette.h"
 
-extern unsigned char D_8007BF34[][4];
+/* Packed colors use the same big-endian byte layout as the palette. */
 extern void *D_800AEE9C;
 extern unsigned char D_8007751C[];
 extern unsigned char D_800773C4[];
@@ -25,8 +26,8 @@ int func_8003A778(unsigned int force, ObjectRecord *object)
     int index = object->unknown0C[5];
     int value;
 
-    func_80049DF4(D_8007BF34[index][0], D_8007BF34[index][1],
-                  D_8007BF34[index][2]);
+    func_80049DF4(((unsigned char *)&D_8007BF34[index])[0], ((unsigned char *)&D_8007BF34[index])[1],
+                  ((unsigned char *)&D_8007BF34[index])[2]);
     value = object->unknown0C[4];
     if (D_800AEE9C == D_8007751C ||
         D_800AEE9C == D_800773C4 ||

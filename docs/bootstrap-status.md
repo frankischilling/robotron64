@@ -110,8 +110,16 @@ fallback CPU bytes in 190 spans and 164 unclassified bytes. See
 The renderer state checkpoint also owns two initialized depth-blend target
 words and eight complete material display lists: 440 additional data bytes.
 Pinned IDO output and independent spimdisasm/splat reassembly agree on each
-range. Initialized source data now totals 31,907 bytes. C instruction totals
+range. That checkpoint brought initialized source data to 31,907 bytes. C instruction totals
 remain 1,419 functions / 303,668 bytes; the inverse camera matrix, depth-blend
 routine and animated RGB grid remain nonmatching candidates. See
 [Renderer material presets](renderer-material-presets.md) for boundaries and
 caller/RSP limits.
+
+The two separate initialized 256-color tables, numeric conversion alphabet,
+and fatal formatter output template add 2,076 data bytes. Initialized source
+data now totals 33,983 bytes; instruction and BSS totals are unchanged. All
+256 palette/light indices are covered in 1,071 guarded executions, and numeric
+helpers read the freshly compiled alphabet in the diagnostic formatter checker.
+The fatal formatter remains excluded. See
+[Palette color tables and formatting constants](palette-color-tables.md).

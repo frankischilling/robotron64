@@ -44,10 +44,10 @@ void func_80045534(RendererMeshPrefix *mesh, RendererPosition *positions)
                 func_80043930(3, (short *)((unsigned char *)normals + entry->normals[3] * 8));
             } else {
                 func_80043D68(polygon);
-                func_80043AA0(first, D_8007BB34[(entry->colors[0] >> 24) & 0xFF]);
-                func_80043AA0(second, D_8007BB34[(entry->colors[1] >> 24) & 0xFF]);
-                func_80043AA0(third, D_8007BB34[(entry->colors[2] >> 24) & 0xFF]);
-                func_80043AA0(fourth, D_8007BB34[(entry->colors[3] >> 24) & 0xFF]);
+                func_80043AA0(first, *(unsigned int *)&D_8007BB34[(entry->colors[0] >> 24) & 0xFF]);
+                func_80043AA0(second, *(unsigned int *)&D_8007BB34[(entry->colors[1] >> 24) & 0xFF]);
+                func_80043AA0(third, *(unsigned int *)&D_8007BB34[(entry->colors[2] >> 24) & 0xFF]);
+                func_80043AA0(fourth, *(unsigned int *)&D_8007BB34[(entry->colors[3] >> 24) & 0xFF]);
             }
             if (entry->vertexCount == 3) {
                 RENDERER_TRIANGLE(first, second, third);

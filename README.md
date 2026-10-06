@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,419 matching C functions covering 303,668 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,907 bytes of source-owned initialized data, and 521,095 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,419 matching C functions covering 303,668 bytes, twenty-nine assembly functions covering 4,372 bytes, 33,983 bytes of source-owned initialized data, and 521,095 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -287,6 +287,12 @@ instruction bytes and remain excluded; the report now matches as described above
 adds the complete matching 1,176-byte Euler matrix submitter, 76 initialized
 bytes, and 36,096 BSS bytes for the matrix arena, RSP stack and yield buffer.
 The adjacent supplied-matrix routine remains an excluded C candidate.
+
+[Palette color tables and formatting constants](docs/palette-color-tables.md)
+owns two separate 256-color initialized arrays, the numeric conversion alphabet,
+and the fatal formatter's output template: 2,076 data bytes. All 256 palette and
+lighting indices execute matched code with the recovered tables; the fatal
+formatter's CPU candidate remains excluded.
 
 [Fan, prism, and image setup recovery](docs/render-submission-effects.md)
 adds 24 initialized bytes and twelve BSS bytes. Five full C candidates cover

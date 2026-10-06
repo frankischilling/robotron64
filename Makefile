@@ -4,10 +4,13 @@ CROSS := mips-linux-gnu-
 IDO := .local/toolchain/5.3/cc
 BASEROM ?= baseroms/us/baserom.z64
 
-.PHONY: all setup toolchain verify progress remaining clean test analysis-setup analyze resources compare-data
+.PHONY: all setup toolchain verify progress remaining clean test analysis-setup analyze resources compare-data check-palette-color-tables
 
 compare-data: toolchain
 	$(PYTHON) tools/compare_data.py
+
+check-palette-color-tables: toolchain
+	$(PYTHON) tools/check_palette_color_tables.py
 
 all: build/us/robotron64.z64
 
@@ -65,13 +68,13 @@ build/us/early_actor_tick.o: src/game/early_actor_tick.c include/actor.h include
 	$(PYTHON) tools/trim_padding.py build/us/early_actor_tick.raw.o $@ .text 0x38
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_render_color.o: src/game/early_render_color.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_render_color.o: src/game/early_render_color.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_color.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_render_color.raw.o $@ .text 0x1c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/early_render_presets.o: src/game/early_render_presets.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/early_render_effects_internal.h include/early_render_internal.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_render_presets.o: src/game/early_render_presets.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/early_render_effects_internal.h include/early_render_internal.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_presets.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_render_presets.raw.o $@ .text 0x70
@@ -449,7 +452,7 @@ build/us/object_helpers_draw.o: src/game/object_helpers_draw.c include/object.h 
 	$(PYTHON) tools/trim_padding.py build/us/object_helpers_draw.raw.o $@ .text 0x284
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/object_helpers_draw_mode.o: src/game/object_helpers_draw_mode.c include/object.h include/object_draw.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/fixed_math.h include/frame.h include/renderer_draw_state_internal.h include/renderer_object_glyph_internal.h include/sdk_matrix.h include/destination_format.h include/menu_label_internal.h include/pak_file.h include/save_game.h include/scene_definition.h
+build/us/object_helpers_draw_mode.o: src/game/object_helpers_draw_mode.c include/object.h include/object_draw.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/fixed_math.h include/frame.h include/renderer_draw_state_internal.h include/renderer_object_glyph_internal.h include/sdk_matrix.h include/destination_format.h include/menu_label_internal.h include/pak_file.h include/save_game.h include/scene_definition.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_helpers_draw_mode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/object_helpers_draw_mode.raw.o $@ .text 0x138
@@ -2265,113 +2268,113 @@ build/us/geometry_bridge_rotate.o: src/game/geometry_bridge_rotate.c include/fix
 	$(PYTHON) tools/trim_padding.py build/us/geometry_bridge_rotate.raw.o $@ .text 0xb4
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_vertex_attributes.o: src/game/renderer_vertex_attributes.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+build/us/renderer_vertex_attributes.o: src/game/renderer_vertex_attributes.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_vertex_attributes.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_vertex_attributes.raw.o build/us/renderer_vertex_attributes.text.o .text 0x438
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_vertex_attributes.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^) tools/owned_sections.py config/owned_sections.json tools/trim_padding.py
 
-build/us/renderer_material_texture.o: src/game/renderer_material_texture.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_material_texture.o: src/game/renderer_material_texture.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_material_texture.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_material_texture.raw.o $@ .text 0x118
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_material_light.o: src/game/renderer_material_light.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_material_light.o: src/game/renderer_material_light.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_material_light.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_material_light.raw.o $@ .text 0x6c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_material_combined.o: src/game/renderer_material_combined.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_material_combined.o: src/game/renderer_material_combined.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_material_combined.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_material_combined.raw.o $@ .text 0x290
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_light_select.o: src/game/renderer_light_select.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_light_select.o: src/game/renderer_light_select.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_light_select.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_light_select.raw.o $@ .text 0x54
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_material_untextured.o: src/game/renderer_material_untextured.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_material_untextured.o: src/game/renderer_material_untextured.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_material_untextured.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_material_untextured.raw.o $@ .text 0xa0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_material_reset.o: src/game/renderer_material_reset.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_material_reset.o: src/game/renderer_material_reset.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_material_reset.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_material_reset.raw.o $@ .text 0x20
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_vertex_copy.o: src/game/renderer_vertex_copy.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_vertex_copy.o: src/game/renderer_vertex_copy.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_vertex_copy.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_vertex_copy.raw.o $@ .text 0x39c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_texture_load.o: src/game/renderer_texture_load.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_texture_load.o: src/game/renderer_texture_load.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_texture_load.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_texture_load.raw.o $@ .text 0x218
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_display_list.o: src/game/graphics_display_list.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_display_list.o: src/game/graphics_display_list.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_display_list.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_display_list.raw.o $@ .text 0x48
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_resource.o: src/game/graphics_resource.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+build/us/graphics_resource.o: src/game/graphics_resource.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_resource.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_resource.raw.o build/us/graphics_resource.text.o .text 0x70
 	$(PYTHON) tools/owned_sections.py $< build/us/graphics_resource.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^) tools/owned_sections.py config/owned_sections.json tools/trim_padding.py
 
-build/us/graphics_modes.o: src/game/graphics_modes.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_modes.o: src/game/graphics_modes.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_modes.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_modes.raw.o $@ .text 0x624
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_lights.o: src/game/graphics_lights.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_lights.o: src/game/graphics_lights.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_lights.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_lights.raw.o $@ .text 0x258
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_pool.o: src/game/graphics_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+build/us/graphics_pool.o: src/game/graphics_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_pool.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_pool.raw.o build/us/graphics_pool.text.o .text 0x1a4
 	$(PYTHON) tools/owned_sections.py $< build/us/graphics_pool.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^) tools/owned_sections.py config/owned_sections.json tools/trim_padding.py
 
-build/us/graphics_pool_initialize.o: src/game/graphics_pool_initialize.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_pool_initialize.o: src/game/graphics_pool_initialize.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_pool_initialize.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_pool_initialize.raw.o $@ .text 0x88
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_frame_reset.o: src/game/graphics_frame_reset.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_frame_reset.o: src/game/graphics_frame_reset.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_frame_reset.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_frame_reset.raw.o $@ .text 0x120
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_mode_dispatch.o: src/game/graphics_mode_dispatch.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+build/us/graphics_mode_dispatch.o: src/game/graphics_mode_dispatch.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_mode_dispatch.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_mode_dispatch.raw.o build/us/graphics_mode_dispatch.text.o .text 0x21c
 	$(PYTHON) tools/owned_sections.py $< build/us/graphics_mode_dispatch.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^) tools/owned_sections.py config/owned_sections.json tools/trim_padding.py
 
-build/us/graphics_environment.o: src/game/graphics_environment.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_environment.o: src/game/graphics_environment.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_environment.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_environment.raw.o $@ .text 0xb0
@@ -2443,13 +2446,13 @@ build/us/save_menu_legacy_pages_tail.o: src/game/save_menu_legacy_pages_tail.c i
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_legacy_pages_tail.raw.o $@ .text 0x84
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/graphics_state_helpers.o: src/game/graphics_state_helpers.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/graphics_state_helpers.o: src/game/graphics_state_helpers.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/graphics_state_helpers.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/graphics_state_helpers.raw.o $@ .text 0x8c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_platform.o: src/game/renderer_platform.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_platform.o: src/game/renderer_platform.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_platform.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_platform.raw.o $@ .text 0x2d8
@@ -2618,14 +2621,14 @@ build/us/save_menu_continue_encode.o: src/game/save_menu_continue_encode.c inclu
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_continue_encode.raw.o $@ .text 0x170
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_vertex_positions.o: src/game/renderer_vertex_positions.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+build/us/renderer_vertex_positions.o: src/game/renderer_vertex_positions.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_vertex_positions.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_vertex_positions.raw.o build/us/renderer_vertex_positions.text.o .text 0x288
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_vertex_positions.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^) tools/owned_sections.py config/owned_sections.json tools/trim_padding.py
 
-build/us/renderer_mesh_positions.o: src/game/renderer_mesh_positions.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+build/us/renderer_mesh_positions.o: src/game/renderer_mesh_positions.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_mesh_positions.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_mesh_positions.raw.o build/us/renderer_mesh_positions.text.o .text 0xd4
@@ -2794,73 +2797,73 @@ build/us/resource_bridge_animation.o: src/game/resource_bridge_animation.c inclu
 	$(PYTHON) tools/trim_padding.py build/us/resource_bridge_animation.raw.o $@ .text 0xdc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_rotation.o: src/game/model_rotation.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_rotation.o: src/game/model_rotation.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_rotation.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_rotation.raw.o $@ .text 0x17c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_polygons_plain.o: src/game/model_polygons_plain.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_polygons_plain.o: src/game/model_polygons_plain.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_polygons_plain.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_polygons_plain.raw.o $@ .text 0x11c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_polygons_color.o: src/game/model_polygons_color.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_polygons_color.o: src/game/model_polygons_color.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_polygons_color.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_polygons_color.raw.o $@ .text 0x188
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_hierarchy_vertices.o: src/game/model_hierarchy_vertices.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_hierarchy_vertices.o: src/game/model_hierarchy_vertices.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_hierarchy_vertices.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_hierarchy_vertices.raw.o $@ .text 0x1ac
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_camera_identity.o: src/game/model_camera_identity.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_camera_identity.o: src/game/model_camera_identity.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_camera_identity.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_camera_identity.raw.o $@ .text 0x24
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_camera_rotation.o: src/game/model_camera_rotation.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_camera_rotation.o: src/game/model_camera_rotation.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_camera_rotation.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_camera_rotation.raw.o $@ .text 0x1a4
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_mesh_iteration.o: src/game/model_mesh_iteration.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_mesh_iteration.o: src/game/model_mesh_iteration.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_mesh_iteration.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_mesh_iteration.raw.o $@ .text 0x24
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_normals_blend.o: src/game/model_normals_blend.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_normals_blend.o: src/game/model_normals_blend.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_normals_blend.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_normals_blend.raw.o $@ .text 0x200
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_vertices_scatter.o: src/game/model_vertices_scatter.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_vertices_scatter.o: src/game/model_vertices_scatter.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_vertices_scatter.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_vertices_scatter.raw.o $@ .text 0xb8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_framebuffer_copy.o: src/game/model_framebuffer_copy.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_framebuffer_copy.o: src/game/model_framebuffer_copy.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_framebuffer_copy.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_framebuffer_copy.raw.o $@ .text 0x6c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_framebuffer_draw.o: src/game/model_framebuffer_draw.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_framebuffer_draw.o: src/game/model_framebuffer_draw.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_framebuffer_draw.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_framebuffer_draw.raw.o $@ .text 0x1c4
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/model_framebuffer_texture.o: src/game/model_framebuffer_texture.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_framebuffer_texture.o: src/game/model_framebuffer_texture.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_framebuffer_texture.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_framebuffer_texture.raw.o $@ .text 0xf4
@@ -4727,7 +4730,7 @@ build/us/frame_interval_set.o: src/game/frame_interval_set.c $(IDO) Makefile too
 	$(PYTHON) tools/trim_padding.py build/us/frame_interval_set.raw.o $@ .text 0x24
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_flag_set.o: src/game/renderer_flag_set.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_flag_set.o: src/game/renderer_flag_set.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_flag_set.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_flag_set.raw.o $@ .text 0xc
@@ -5343,7 +5346,7 @@ build/us/menu_transition_start.o: src/game/menu_transition_start.c include/desti
 	$(PYTHON) tools/owned_sections.py $< build/us/menu_transition_start.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_texture_file_cache.o: src/game/renderer_texture_file_cache.c include/controller_input.h include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_texture_cache.h include/rom_files.h tools/owned_sections.py config/owned_sections.json $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_texture_file_cache.o: src/game/renderer_texture_file_cache.c include/controller_input.h include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_texture_cache.h include/rom_files.h tools/owned_sections.py config/owned_sections.json $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_texture_file_cache.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_texture_file_cache.raw.o build/us/renderer_texture_file_cache.text.o .text 0x90
@@ -5420,19 +5423,19 @@ build/us/actor_relative_geometry.o: src/game/actor_relative_geometry.c include/a
 	$(PYTHON) tools/trim_padding.py build/us/actor_relative_geometry.raw.o $@ .text 0xa8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_quad_submit.o: src/game/renderer_quad_submit.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_quad_submit.o: src/game/renderer_quad_submit.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_quad_submit.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_quad_submit.raw.o $@ .text 0xf0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_texture_defaults.o: src/game/renderer_texture_defaults.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_texture_defaults.o: src/game/renderer_texture_defaults.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_texture_defaults.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_texture_defaults.raw.o $@ .text 0xdc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_metrics_update.o: src/game/renderer_metrics_update.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/resource_arena.h
+build/us/renderer_metrics_update.o: src/game/renderer_metrics_update.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_metrics_update.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_metrics_update.raw.o $@ .text 0xe4
@@ -5456,7 +5459,7 @@ build/us/actor_dynamic_parameter_append.o: src/game/actor_dynamic_parameter_appe
 	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_parameter_append.raw.o $@ .text 0xb8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_texture_index_draw.o: src/game/renderer_texture_index_draw.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_texture_index.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_texture_index_draw.o: src/game/renderer_texture_index_draw.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_texture_index.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_texture_index_draw.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_texture_index_draw.raw.o $@ .text 0xdc
@@ -5480,7 +5483,7 @@ RUNTIME_OBJECTS += \
     build/us/renderer_texture_index_draw.o \
     build/us/actor_behavior_counter_expire.o
 
-build/us/session_background_select.o: src/game/session_background_select.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_texture_cache.h include/rom_files.h include/scene_background_internal.h tools/owned_sections.py config/owned_sections.json $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/session_background_select.o: src/game/session_background_select.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_texture_cache.h include/rom_files.h include/scene_background_internal.h tools/owned_sections.py config/owned_sections.json $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/session_background_select.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/session_background_select.raw.o build/us/session_background_select.text.o .text 0xfc
@@ -5551,7 +5554,7 @@ build/us/save_menu_pak_page_select.o: src/game/save_menu_pak_page_select.c inclu
 	$(PYTHON) tools/trim_padding.py build/us/save_menu_pak_page_select.raw.o $@ .text 0xfc
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_tile_origin_mode.o: src/game/renderer_tile_origin_mode.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_tile_origin_mode.o: src/game/renderer_tile_origin_mode.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_tile_origin_mode.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_tile_origin_mode.raw.o $@ .text 0xcc
@@ -5850,7 +5853,7 @@ build/us/early_actor_follow_owner.o: src/game/early_actor_follow_owner.c include
 RUNTIME_OBJECTS += \
     build/us/early_actor_follow_owner.o
 
-build/us/renderer_status_text.o: src/game/renderer_status_text.c include/debug_output.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/renderer_debug_text.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
+build/us/renderer_status_text.o: src/game/renderer_status_text.c include/debug_output.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/renderer_debug_text.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_status_text.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_status_text.raw.o build/us/renderer_status_text.text.o .text 0x11c
@@ -5892,7 +5895,7 @@ build/us/controller_thread_state.o: src/game/controller_thread_state.c include/c
 
 RUNTIME_OBJECTS += build/us/controller_motor_state.o build/us/controller_thread_state.o
 
-build/us/renderer_textured_submit.o: src/game/renderer_textured_submit.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_textured_submit.o: src/game/renderer_textured_submit.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_textured_submit.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_textured_submit.raw.o build/us/renderer_textured_submit.text.o .text 0x448
@@ -5902,20 +5905,20 @@ build/us/renderer_textured_submit.o: src/game/renderer_textured_submit.c tools/o
 RUNTIME_OBJECTS += \
     build/us/renderer_textured_submit.o
 
-build/us/renderer_texture_squares.o: src/game/renderer_texture_squares.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_texture_squares.o: src/game/renderer_texture_squares.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_texture_squares.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_texture_squares.raw.o build/us/renderer_texture_squares.text.o .text 0x508
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_texture_squares.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_image_quad_ci.o: src/game/renderer_image_quad_ci.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_image_quad_ci.o: src/game/renderer_image_quad_ci.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_image_quad_ci.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_image_quad_ci.raw.o $@ .text 0x240
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/renderer_image_quad_rgba.o: src/game/renderer_image_quad_rgba.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_image_quad_rgba.o: src/game/renderer_image_quad_rgba.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_image_quad_rgba.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_image_quad_rgba.raw.o $@ .text 0x240
@@ -5926,7 +5929,7 @@ RUNTIME_OBJECTS += \
     build/us/renderer_image_quad_ci.o \
     build/us/renderer_image_quad_rgba.o
 
-build/us/renderer_expanded_triangle.o: src/game/renderer_expanded_triangle.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_expanded_triangle.o: src/game/renderer_expanded_triangle.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_expanded_triangle.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_expanded_triangle.raw.o build/us/renderer_expanded_triangle.text.o .text 0x2d8
@@ -5936,7 +5939,7 @@ build/us/renderer_expanded_triangle.o: src/game/renderer_expanded_triangle.c too
 RUNTIME_OBJECTS += \
     build/us/renderer_expanded_triangle.o
 
-build/us/renderer_camera_square.o: src/game/renderer_camera_square.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_camera_square.o: src/game/renderer_camera_square.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_camera_square.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_camera_square.raw.o $@ .text 0x150
@@ -5982,7 +5985,7 @@ build/us/movie_string_position_submit.o: src/game/movie_string_position_submit.c
 RUNTIME_OBJECTS += \
     build/us/movie_string_position_submit.o
 
-build/us/model_normal_polygon_dispatch.o: src/game/model_normal_polygon_dispatch.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_normal_polygon_dispatch.o: src/game/model_normal_polygon_dispatch.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_normal_polygon_dispatch.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_normal_polygon_dispatch.raw.o $@ .text 0x348
@@ -6063,7 +6066,7 @@ build/us/save_menu_continue_character.o: src/game/save_menu_continue_character.c
 RUNTIME_OBJECTS += \
     build/us/save_menu_continue_character.o
 
-build/us/object_history_render.o: src/game/object_history_render.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_history_internal.h include/object_recovery.h include/renderer_draw_state_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/object_history_render.o: src/game/object_history_render.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_history_internal.h include/object_recovery.h include/renderer_draw_state_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_history_render.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/object_history_render.raw.o $@ .text 0x1f8
@@ -6072,7 +6075,7 @@ build/us/object_history_render.o: src/game/object_history_render.c include/actor
 RUNTIME_OBJECTS += \
     build/us/object_history_render.o
 
-build/us/renderer_matrix_submit.o: src/game/renderer_matrix_submit.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_matrix_submit.o: src/game/renderer_matrix_submit.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_submit.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_matrix_submit.raw.o build/us/renderer_matrix_submit.text.o .text 0x298
@@ -6121,7 +6124,7 @@ build/us/collision_dispatch_initialize.o: src/game/collision_dispatch_initialize
 RUNTIME_OBJECTS += \
     build/us/collision_dispatch_initialize.o
 
-build/us/renderer_projection_highlight.o: src/game/renderer_projection_highlight.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object_recovery.h include/renderer_geometry_internal.h include/rom_files.h include/runtime_angle.h include/scalar_math.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/renderer_projection_internal.h
+build/us/renderer_projection_highlight.o: src/game/renderer_projection_highlight.c tools/owned_sections.py config/owned_sections.json include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object_recovery.h include/renderer_geometry_internal.h include/rom_files.h include/runtime_angle.h include/scalar_math.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/renderer_projection_internal.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_projection_highlight.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_projection_highlight.raw.o build/us/renderer_projection_highlight.text.o .text 0x2b8
@@ -6198,7 +6201,7 @@ build/us/actor_chain_reset.o: src/game/actor_chain_reset.c include/actor.h inclu
 
 RUNTIME_OBJECTS += build/us/actor_chain_reset.o
 
-build/us/model_hierarchy_transform.o: src/game/model_hierarchy_transform.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_hierarchy_transform.o: src/game/model_hierarchy_transform.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/model_hierarchy_transform.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/model_hierarchy_transform.raw.o $@ .text 0x16c
@@ -6363,7 +6366,7 @@ build/us/audio_timing_data.o: src/game/audio_timing_data.c include/audio_host_in
 
 RUNTIME_OBJECTS += build/us/audio_timing_data.o
 
-build/us/early_render_quad.o: src/game/early_render_quad.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/early_render_quad.o: src/game/early_render_quad.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_quad.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/early_render_quad.raw.o $@ .text 0x178
@@ -6371,7 +6374,7 @@ build/us/early_render_quad.o: src/game/early_render_quad.c include/debug_output.
 
 RUNTIME_OBJECTS += build/us/early_render_quad.o
 
-build/us/renderer_vertex_arena_data.o: src/game/renderer_vertex_arena_data.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/renderer_vertex_arena_data.o: src/game/renderer_vertex_arena_data.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_vertex_arena_data.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_vertex_arena_data.raw.o $@
@@ -6379,7 +6382,7 @@ build/us/renderer_vertex_arena_data.o: src/game/renderer_vertex_arena_data.c inc
 
 RUNTIME_OBJECTS += build/us/renderer_vertex_arena_data.o
 
-build/us/early_render_color_data.o: src/game/early_render_color_data.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/early_render_color_data.o: src/game/early_render_color_data.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_color_data.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/early_render_color_data.raw.o $@
@@ -6387,7 +6390,7 @@ build/us/early_render_color_data.o: src/game/early_render_color_data.c include/d
 
 RUNTIME_OBJECTS += build/us/early_render_color_data.o
 
-build/us/early_render_tube_data.o: src/game/early_render_tube_data.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/early_render_effects_internal.h include/early_render_internal.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/early_render_tube_data.o: src/game/early_render_tube_data.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/early_render_effects_internal.h include/early_render_internal.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_tube_data.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/early_render_tube_data.raw.o $@
@@ -6395,7 +6398,7 @@ build/us/early_render_tube_data.o: src/game/early_render_tube_data.c include/act
 
 RUNTIME_OBJECTS += build/us/early_render_tube_data.o
 
-build/us/early_render_coordinate_data.o: src/game/early_render_coordinate_data.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/early_render_effects_internal.h include/early_render_internal.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/early_render_coordinate_data.o: src/game/early_render_coordinate_data.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/early_render_effects_internal.h include/early_render_internal.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_coordinate_data.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/early_render_coordinate_data.raw.o $@
@@ -6403,7 +6406,7 @@ build/us/early_render_coordinate_data.o: src/game/early_render_coordinate_data.c
 
 RUNTIME_OBJECTS += build/us/early_render_coordinate_data.o
 
-build/us/renderer_image_placement_data.o: src/game/renderer_image_placement_data.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/renderer_image_placement_data.o: src/game/renderer_image_placement_data.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_image_placement_data.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_image_placement_data.raw.o $@
@@ -6443,7 +6446,7 @@ build/us/renderer_matrix_arena_data.o: src/game/renderer_matrix_arena_data.c inc
 
 RUNTIME_OBJECTS += build/us/renderer_matrix_arena_data.o
 
-build/us/renderer_matrix_cursor_data.o: src/game/renderer_matrix_cursor_data.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/renderer_matrix_cursor_data.o: src/game/renderer_matrix_cursor_data.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_cursor_data.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_matrix_cursor_data.raw.o $@
@@ -6451,7 +6454,7 @@ build/us/renderer_matrix_cursor_data.o: src/game/renderer_matrix_cursor_data.c i
 
 RUNTIME_OBJECTS += build/us/renderer_matrix_cursor_data.o
 
-build/us/renderer_matrix_transform.o: src/game/renderer_matrix_transform.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/renderer_matrix_transform.o: src/game/renderer_matrix_transform.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_transform.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_matrix_transform.raw.o build/us/renderer_matrix_transform.text.o .text 0x498
@@ -6460,7 +6463,7 @@ build/us/renderer_matrix_transform.o: src/game/renderer_matrix_transform.c inclu
 
 RUNTIME_OBJECTS += build/us/renderer_matrix_transform.o
 
-build/us/renderer_diagnostic_messages.o: src/game/renderer_diagnostics/messages.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_messages.o: src/game/renderer_diagnostics/messages.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_messages.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_messages.raw.o $@
@@ -6468,7 +6471,7 @@ build/us/renderer_diagnostic_messages.o: src/game/renderer_diagnostics/messages.
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_messages.o
 
-build/us/renderer_diagnostic_version.o: src/game/renderer_diagnostics/version.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_version.o: src/game/renderer_diagnostics/version.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_version.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_version.raw.o $@
@@ -6476,7 +6479,7 @@ build/us/renderer_diagnostic_version.o: src/game/renderer_diagnostics/version.c 
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_version.o
 
-build/us/renderer_diagnostic_frame_count.o: src/game/renderer_diagnostics/frame_count.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_frame_count.o: src/game/renderer_diagnostics/frame_count.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_frame_count.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_frame_count.raw.o $@
@@ -6484,7 +6487,7 @@ build/us/renderer_diagnostic_frame_count.o: src/game/renderer_diagnostics/frame_
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_frame_count.o
 
-build/us/renderer_diagnostic_asset_lengths.o: src/game/renderer_diagnostics/asset_lengths.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_asset_lengths.o: src/game/renderer_diagnostics/asset_lengths.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_asset_lengths.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_asset_lengths.raw.o $@
@@ -6492,7 +6495,7 @@ build/us/renderer_diagnostic_asset_lengths.o: src/game/renderer_diagnostics/asse
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_asset_lengths.o
 
-build/us/renderer_diagnostic_instance_pool.o: src/game/renderer_diagnostics/instance_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_instance_pool.o: src/game/renderer_diagnostics/instance_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_instance_pool.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_instance_pool.raw.o $@
@@ -6500,7 +6503,7 @@ build/us/renderer_diagnostic_instance_pool.o: src/game/renderer_diagnostics/inst
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_instance_pool.o
 
-build/us/renderer_diagnostic_object_pool.o: src/game/renderer_diagnostics/object_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_object_pool.o: src/game/renderer_diagnostics/object_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_object_pool.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_object_pool.raw.o $@
@@ -6508,7 +6511,7 @@ build/us/renderer_diagnostic_object_pool.o: src/game/renderer_diagnostics/object
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_object_pool.o
 
-build/us/renderer_diagnostic_movie_pool.o: src/game/renderer_diagnostics/movie_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_movie_pool.o: src/game/renderer_diagnostics/movie_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_movie_pool.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_movie_pool.raw.o $@
@@ -6516,7 +6519,7 @@ build/us/renderer_diagnostic_movie_pool.o: src/game/renderer_diagnostics/movie_p
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_movie_pool.o
 
-build/us/renderer_diagnostic_path_pool.o: src/game/renderer_diagnostics/path_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_path_pool.o: src/game/renderer_diagnostics/path_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_path_pool.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_path_pool.raw.o $@
@@ -6524,7 +6527,7 @@ build/us/renderer_diagnostic_path_pool.o: src/game/renderer_diagnostics/path_poo
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_path_pool.o
 
-build/us/renderer_diagnostic_vertex_pool.o: src/game/renderer_diagnostics/vertex_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_vertex_pool.o: src/game/renderer_diagnostics/vertex_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_vertex_pool.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_vertex_pool.raw.o $@
@@ -6532,7 +6535,7 @@ build/us/renderer_diagnostic_vertex_pool.o: src/game/renderer_diagnostics/vertex
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_vertex_pool.o
 
-build/us/renderer_diagnostic_matrix_pool.o: src/game/renderer_diagnostics/matrix_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_matrix_pool.o: src/game/renderer_diagnostics/matrix_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_matrix_pool.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_matrix_pool.raw.o $@
@@ -6540,7 +6543,7 @@ build/us/renderer_diagnostic_matrix_pool.o: src/game/renderer_diagnostics/matrix
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_matrix_pool.o
 
-build/us/renderer_diagnostic_hierarchy_pool.o: src/game/renderer_diagnostics/hierarchy_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_hierarchy_pool.o: src/game/renderer_diagnostics/hierarchy_pool.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_hierarchy_pool.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_hierarchy_pool.raw.o $@
@@ -6548,7 +6551,7 @@ build/us/renderer_diagnostic_hierarchy_pool.o: src/game/renderer_diagnostics/hie
 
 RUNTIME_OBJECTS += build/us/renderer_diagnostic_hierarchy_pool.o
 
-build/us/renderer_diagnostic_frame_metrics.o: src/game/renderer_diagnostics/frame_metrics.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h
+build/us/renderer_diagnostic_frame_metrics.o: src/game/renderer_diagnostics/frame_metrics.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/rom_files.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/resource_arena.h include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_frame_metrics.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_diagnostic_frame_metrics.raw.o $@
@@ -6654,7 +6657,7 @@ build/us/controller_access_message.o: src/game/controller/access_message.c inclu
 
 RUNTIME_OBJECTS += build/us/controller_access_message.o
 
-build/us/renderer_opaque_quad.o: src/game/renderer_primitives/opaque_quad.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_polygon_messages.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_opaque_quad.o: src/game/renderer_primitives/opaque_quad.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_polygon_messages.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_opaque_quad.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_opaque_quad.raw.o $@ .text 0x1c4
@@ -6662,7 +6665,7 @@ build/us/renderer_opaque_quad.o: src/game/renderer_primitives/opaque_quad.c incl
 
 RUNTIME_OBJECTS += build/us/renderer_opaque_quad.o
 
-build/us/renderer_alpha_quad.o: src/game/renderer_primitives/alpha_quad.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_polygon_messages.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_alpha_quad.o: src/game/renderer_primitives/alpha_quad.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_polygon_messages.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_alpha_quad.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_alpha_quad.raw.o $@ .text 0x1c4
@@ -6686,7 +6689,7 @@ build/us/renderer_polygon_messages.o: src/game/renderer_primitives/polygon_messa
 
 RUNTIME_OBJECTS += build/us/renderer_polygon_messages.o
 
-build/us/renderer_mesh_submit.o: src/game/renderer_primitives/mesh_submit.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_polygon_messages.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_mesh_submit.o: src/game/renderer_primitives/mesh_submit.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_polygon_messages.h include/renderer_primitives_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_mesh_submit.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_mesh_submit.raw.o $@ .text 0x400
@@ -6767,7 +6770,7 @@ build/us/heap_state.o: src/game/heap/state.c include/heap.h $(IDO) Makefile tool
 
 RUNTIME_OBJECTS += build/us/heap_state.o
 
-build/us/renderer_diagnostic_report.o: src/game/renderer_diagnostics/report.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/resource_arena.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_diagnostic_report.o: src/game/renderer_diagnostics/report.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_diagnostic_internal.h include/renderer_peak_metrics.h include/resource_arena.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_diagnostic_report.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_diagnostic_report.raw.o $@ .text 0x5c4
@@ -7153,7 +7156,7 @@ build/us/actor_child_counts.o: src/game/actor_groups/child_counts.c $(IDO) Makef
 
 RUNTIME_OBJECTS += build/us/actor_child_resources.o build/us/actor_child_counts.o
 
-build/us/actor_effect_draw.o: src/game/actor_effects/draw.c include/actor.h include/actor_behavior_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/debug_output.h include/early_game_state.h include/effect_draw_config_internal.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_texture_index.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_effect_draw.o: src/game/actor_effects/draw.c include/actor.h include/actor_behavior_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/debug_output.h include/early_game_state.h include/effect_draw_config_internal.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_texture_index.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_effect_draw.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/actor_effect_draw.raw.o $@ .text 0x2b4
@@ -7177,7 +7180,7 @@ build/us/object_slot_storage.o: src/game/object_storage/slots.c include/object_h
 
 RUNTIME_OBJECTS += build/us/object_slot_storage.o
 
-build/us/renderer_matrix_scale.o: src/game/renderer_matrix_scale.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_matrix_scale.o: src/game/renderer_matrix_scale.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_matrix_scale.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_matrix_scale.raw.o $@ .text 0x380
@@ -7193,7 +7196,7 @@ build/us/renderer_supplied_matrix_diagnostics.o: src/game/renderer_diagnostics/s
 
 RUNTIME_OBJECTS += build/us/renderer_supplied_matrix_diagnostics.o
 
-build/us/renderer_image_setup_ci.o: src/game/renderer_images/setup_ci.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_image_setup_ci.o: src/game/renderer_images/setup_ci.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_image_setup_ci.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_image_setup_ci.raw.o $@ .text 0xc0
@@ -7201,7 +7204,7 @@ build/us/renderer_image_setup_ci.o: src/game/renderer_images/setup_ci.c include/
 
 RUNTIME_OBJECTS += build/us/renderer_image_setup_ci.o
 
-build/us/renderer_image_setup_rgba.o: src/game/renderer_images/setup_rgba.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_image_setup_rgba.o: src/game/renderer_images/setup_rgba.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_image_setup_rgba.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_image_setup_rgba.raw.o $@ .text 0xf4
@@ -7209,7 +7212,7 @@ build/us/renderer_image_setup_rgba.o: src/game/renderer_images/setup_rgba.c incl
 
 RUNTIME_OBJECTS += build/us/renderer_image_setup_rgba.o
 
-build/us/renderer_object_glyph.o: src/game/renderer_text/object_glyph.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/renderer_object_glyph_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_object_glyph.o: src/game/renderer_text/object_glyph.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/renderer_object_glyph_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_object_glyph.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_object_glyph.raw.o $@ .text 0x400
@@ -7420,7 +7423,7 @@ build/us/audio_sequence_data_load.o: src/game/audio_sequence_data_load.c include
 
 RUNTIME_OBJECTS += build/us/audio_sequence_data_load.o
 
-build/us/model_framebuffer_strip.o: src/game/model_framebuffer_strip.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/model_framebuffer_strip.o: src/game/model_framebuffer_strip.c include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/model_geometry_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o $@ $<
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
@@ -7612,7 +7615,7 @@ RUNTIME_OBJECTS += build/us/pak_directory_strings.o
 
 
 # Boss update and retained aggregate initializers.
-build/us/boss_update.o: src/game/actor_groups/boss_update.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/actor_resource_5c_internal.h include/actor_resource_internal.h include/debug_output.h include/destination_format.h include/early_bonus_internal.h include/early_game_more.h include/early_game_state.h include/early_session_state.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_recovery.h include/pak_file.h include/rom_files.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/boss_update.o: src/game/actor_groups/boss_update.c include/actor.h include/actor_animation_state.h include/actor_behavior_internal.h include/actor_resource_5c_internal.h include/actor_resource_internal.h include/debug_output.h include/destination_format.h include/early_bonus_internal.h include/early_game_more.h include/early_game_state.h include/early_session_state.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_recovery.h include/pak_file.h include/rom_files.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/boss_update.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/boss_update.raw.o build/us/boss_update.text.o .text 0x29c
@@ -7739,27 +7742,27 @@ build/us/actor_collision_separation.o: src/game/collisions/separation.c include/
 
 RUNTIME_OBJECTS += build/us/actor_collision_separation.o
 
-build/us/renderer_color_gradient.o: src/game/renderer_surfaces/color_gradient.c include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_color_gradient.o: src/game/renderer_surfaces/color_gradient.c include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	@mkdir -p build/us
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_color_gradient.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_color_gradient.raw.o $@ .text 0x224
-	$(PYTHON) tools/provenance.py $< $@ include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h
+	$(PYTHON) tools/provenance.py $< $@ include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/palette.h
 
 RUNTIME_OBJECTS += build/us/renderer_color_gradient.o
 
-build/us/renderer_gradient_extents.o: src/game/renderer_surfaces/gradient_extents.c include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_gradient_extents.o: src/game/renderer_surfaces/gradient_extents.c include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	@mkdir -p build/us
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_gradient_extents.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_gradient_extents.raw.o $@ .data 0x8
-	$(PYTHON) tools/provenance.py $< $@ include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h
+	$(PYTHON) tools/provenance.py $< $@ include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/palette.h
 
 RUNTIME_OBJECTS += build/us/renderer_gradient_extents.o
 
-build/us/renderer_border_gradient.o: src/game/renderer_surfaces/border_gradient.c include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_border_gradient.o: src/game/renderer_surfaces/border_gradient.c include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	@mkdir -p build/us
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_border_gradient.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_border_gradient.raw.o $@ .text 0x344
-	$(PYTHON) tools/provenance.py $< $@ include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h
+	$(PYTHON) tools/provenance.py $< $@ include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/palette.h
 
 RUNTIME_OBJECTS += build/us/renderer_border_gradient.o
 
@@ -7795,11 +7798,11 @@ build/us/palette_transition_order.o: src/game/palette_effects/transition_order.c
 
 RUNTIME_OBJECTS += build/us/palette_transition_order.o
 
-build/us/renderer_color_wave_storage.o: src/game/renderer_surfaces/color_wave_storage.c include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/renderer_color_wave_storage.o: src/game/renderer_surfaces/color_wave_storage.c include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	@mkdir -p build/us
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_color_wave_storage.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_color_wave_storage.raw.o $@
-	$(PYTHON) tools/provenance.py $< $@ include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h
+	$(PYTHON) tools/provenance.py $< $@ include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/palette.h
 
 RUNTIME_OBJECTS += build/us/renderer_color_wave_storage.o
 
@@ -7820,7 +7823,7 @@ build/us/renderer_background_color_mode.o: src/game/renderer_surfaces/background
 
 RUNTIME_OBJECTS += build/us/renderer_background_color_mode.o
 
-build/us/renderer_material_cache_reset.o: src/game/renderer_resources/material_reset.c include/renderer_material_internal.h include/graphics_state_internal.h include/resource_bridge_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/object_runtime.h include/text.h include/object.h include/game_memory.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_material_cache_reset.o: src/game/renderer_resources/material_reset.c include/renderer_material_internal.h include/graphics_state_internal.h include/resource_bridge_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/object_runtime.h include/text.h include/object.h include/game_memory.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	@mkdir -p build/us
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_material_cache_reset.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_material_cache_reset.raw.o $@ .text 0x778
@@ -7837,7 +7840,7 @@ build/us/palette_transition_update.o: src/game/palette_effects/transition_update
 RUNTIME_OBJECTS += build/us/palette_transition_update.o
 
 
-build/us/renderer_rotating_rings.o: src/game/renderer_surfaces/rotating_rings.c include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_rotating_rings.o: src/game/renderer_surfaces/rotating_rings.c include/renderer_color_wave_internal.h include/renderer_color_gradient_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	@mkdir -p build/us
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_rotating_rings.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_rotating_rings.raw.o $@ .text 0x238
@@ -7854,7 +7857,7 @@ audit-object-projection:
 	$(PYTHON) tools/check_object_projection.py
 
 
-build/us/renderer_depth_blend_origin.o: src/game/renderer_setup/depth_blend_origin.c include/model_geometry_internal.h include/renderer_primitives_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/renderer_depth_blend_origin.o: src/game/renderer_setup/depth_blend_origin.c include/model_geometry_internal.h include/renderer_primitives_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	@mkdir -p build/us
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_depth_blend_origin.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/renderer_depth_blend_origin.raw.o $@ .data 0x8
@@ -7869,6 +7872,31 @@ build/us/renderer_material_presets.o: src/game/renderer_setup/material_presets.c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/renderer_material_presets.o
+
+
+build/us/palette_color_tables.o: src/game/palette_effects/color_tables.c include/palette.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/palette_color_tables.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/palette_color_tables.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/palette_color_tables.o
+
+build/us/game_number_digits.o: src/game/formatting/digits.c include/game_memory.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_number_digits.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/game_number_digits.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/game_number_digits.o
+
+build/us/renderer_fatal_message.o: src/game/renderer_diagnostics/fatal_message.c include/debug_output.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_fatal_message.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_fatal_message.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/renderer_fatal_message.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@

@@ -5,6 +5,7 @@
 #include "heap.h"
 #include "rom_files.h"
 #include "debug_output.h"
+#include "palette.h"
 
 /* The renderer uses the 16-byte, doubleword-aligned directional-light format. */
 typedef union GraphicsLight {
@@ -39,7 +40,6 @@ extern void *D_80123AEC;
 extern void *D_8013823C;
 extern FrameCommand D_8007D5E8[];
 extern FrameCommand D_8007C970[];
-extern int D_8007BF34[];
 extern GraphicsLight D_80123B28[];
 extern int D_8007D5D8;
 extern int D_8007D5DC;
