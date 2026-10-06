@@ -460,7 +460,7 @@
     "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
     "tools/check_palette_transitions.py": "f0b2fd85e5566529a245910493ed5437af7e21fc7929e50d6c2e213ef06d79d9",
     "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
-    "Makefile": "e59c677e10dd183993488c3fef3dcf0ce8af91ad63de027ad3fd7ed3f34d57ce",
+    "Makefile": "8f75905de1bffff2e5004fb005320dddbe6dd42456704c0ff9e51d2024a38166",
     "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
     "config/owned_sections.json": "44a1a45095fad2919a301f64b7bddd87812bb4d15d9e5c97563199479b59adfb",
     "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
@@ -896,5 +896,14 @@
       "Original local variable names and full gameplay are not established.",
       "Whole-ROM equality includes remaining extracted fallback code and assets."
     ]
+  },
+  "build_configuration_refresh": {
+    "reason": "Makefile adds only the excluded projection audit target. Accepted compiler recipes, source and headers are unchanged.",
+    "previous_makefile_sha256": "e59c677e10dd183993488c3fef3dcf0ce8af91ad63de027ad3fd7ed3f34d57ce",
+    "current_makefile_sha256": "8f75905de1bffff2e5004fb005320dddbe6dd42456704c0ff9e51d2024a38166",
+    "current_rebuild_rom_equal": true,
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "rebuild_log_sha256": "7d08ab4edb6bced8527174d4ec3f72c8cd6834f19a4302c572680f7bba597142",
+    "note": "Instruction comparisons and guarded execution results retain their existing verified inputs. This build-only refresh adds no source ownership."
   }
 }

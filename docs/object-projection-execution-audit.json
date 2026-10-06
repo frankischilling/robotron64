@@ -1,0 +1,908 @@
+{
+  "status": "Excluded candidate cache-hit execution audit; not source ownership.",
+  "instruction_matches": false,
+  "source_owned": false,
+  "retail_instruction_bytes": 376,
+  "candidate_live_bytes": 380,
+  "compiler_raw_bytes": 384,
+  "cases": 364,
+  "retail_sha256": "748b3e66128caf4dfb7fa9a82a384fcdf65846cb440178ad13a0817c03c633d6",
+  "candidate_sha256": "7d006b6ea6c426699d3f7212e134ef6e79ee77ddabf3550c60df586acc4aac7d",
+  "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "unicorn_version": "2.1.1",
+  "trace_sha256": "0a7af012495b179ada614c1dbd4f269270107686267b14eb5d4c4fb8770ed96f",
+  "mutations": [
+    {
+      "name": "footer source stride",
+      "detected": "('Independent memory oracle', '0x800c8910', (13, 3, 1, 512, 0, 137, 254, 0, 7))"
+    },
+    {
+      "name": "footer destination",
+      "detected": "('Write guard', '0x800c8ce0', 1, (13, 3, 1, 512, 0, 137, 254, 0, 7))"
+    },
+    {
+      "name": "ready and dirty flags",
+      "detected": "('Independent memory oracle', '0x8007a1a4', (13, 3, 1, 512, 0, 137, 254, 0, 7))"
+    }
+  ],
+  "comparison": {
+    "source": "src/game/object_runtime_projection.c",
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "inputs_sha256": {
+      "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
+      "config/owned_sections.json": "44a1a45095fad2919a301f64b7bddd87812bb4d15d9e5c97563199479b59adfb",
+      "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
+      "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
+      "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+      "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
+      "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
+      "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
+      "include/actor_behavior_internal.h": "a34cc98195a029e4003cc251f4e172d595214582a339404eb78449926fa99373",
+      "include/actor_behavior_more_internal.h": "f2e8d0c8db3ad33093105ea64d661f78457c6fbc55025c326732e6e391801f64",
+      "include/actor_behavior_next_internal.h": "bb0980b227ed20ff6e426199c5ba90c2cc5a5fbd8e3c8b20f951d12e7ff39a54",
+      "include/actor_brain_internal.h": "5a3bb4ac3303bf032876bff2c707a11b3a85115b369a252c586850df93de5e65",
+      "include/actor_collision_separation_internal.h": "c05e2a6b4ae519bf54839c21d3b3e8e893b209b443df207f6d583bd9170b29f2",
+      "include/actor_collision_services.h": "2867fb981693b306f90821778bfc4d6dcaf765f4a1b69b11793e5a294c2c81c5",
+      "include/actor_damage_internal.h": "edb7247ca2b57bcf51525086144bc6d453e9630e3fc9839608daf3a026920628",
+      "include/actor_duration_internal.h": "51b83fc836a67c71f352c2f234c06593d2f24a72bc45cb578c938874c5f14831",
+      "include/actor_dynamic_pool_internal.h": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
+      "include/actor_enforcer_internal.h": "26629c4bc9a0e6a4136e575bd3b864daf91876501c8f47b7807a9e2a403bd616",
+      "include/actor_history_internal.h": "d53cd9bfd7c00bbf88deee633adc97535d8d5c421c78686041d0adc355e3c79a",
+      "include/actor_hulk_internal.h": "224fbf4d7e357ebdcd2e22b0ddd65a0e0b6897ff6b2581507996e62de7d37862",
+      "include/actor_human_internal.h": "0f0d3c3a508b911ef825e73889494a2d051bea0c93772182ed5ba15cb3ee3849",
+      "include/actor_lifecycle_internal.h": "6d47f2191d380d2b1ace7773f9d07475f33d419d48c4786bfb266c0e380f7e26",
+      "include/actor_motion_internal.h": "c311a16b465c8dea95438a609a479007bd93e3493c6f547ae65e5f69cea50f57",
+      "include/actor_position_pairs.h": "5ee0f4c87fc1a42c72cb90b9b2b781a44dfbfb6c736af64e3bbcc2c90e4b45a9",
+      "include/actor_projectile_internal.h": "8baf67e69fe26649c1fe07531f0eec0ca97ba04075d6a871f4e65a93ae343228",
+      "include/actor_pursuit_internal.h": "ad11f70d7810ea6cffc7454ae1e3527a9cb4e8c96324fdb5949c30b6f095a443",
+      "include/actor_resource_5c_internal.h": "0b6f292c42691888a4ff24edff575f479ed8c19ed98d41484528ab8478db95ed",
+      "include/actor_resource_internal.h": "80172f5b62f25382b7b8ab862603abfbc8484bb1fe482baf971444b2baa873da",
+      "include/actor_setup_internal.h": "062e4d8cbec10220ed53e3883f8fa94ca0730dd4877f5004ec92077409a72541",
+      "include/actor_spawn_callback_internal.h": "8cf97711f0117dd13efe82c78f3856d6d6968d9ddacc005fe65830bccc53ac36",
+      "include/actor_spawn_internal.h": "f7479dbdb87ac6279fc0df86c496596a9170129e46f828783c67768c95c1ea38",
+      "include/actor_stride_internal.h": "ddb173f1de44bf907795c5199952f85d7520bfd11d48401b450864f9d52ebfae",
+      "include/audio_backend_internal.h": "4a595e592446870127a39c37bcf6794d38176884774d0b70201592d7b7213464",
+      "include/audio_bank_layout_internal.h": "2d44c9c36412dd253e9e6c90844c5bef7c5c9583597c76eba92123b0bc2f7706",
+      "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+      "include/audio_commands.h": "d34eacf0081a7745ae958c4484ea6d0a070859879dc7203d609e499976854d53",
+      "include/audio_config.h": "d4f8f3f9023b9e70d0cd25c449ae48486a2ddbb2574d0a95cec4487eb406b6a6",
+      "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+      "include/audio_engine_tables_internal.h": "f14080424d805420bdfd9702a8605d860182bd3485dbebe7757150cf966de153",
+      "include/audio_file_services_internal.h": "57053064c501d51bf2f77dc2a526e39c501f10090777bdea0fdf291713e18d85",
+      "include/audio_game.h": "f63a58f0375dd51938376df76002d52c21b2e8ef60c8e462b1fc327367922935",
+      "include/audio_host_internal.h": "6c98f4911f1f758707b7206765587460f4a4b0a42e2eab1c5654488c2810d23a",
+      "include/audio_io.h": "3c8b1897d96db51a8c7ad05cdcec2a00d79b17b3fa4dfbbb7ec7632171767c79",
+      "include/audio_loader_internal.h": "63dfc715f95606af52035bf28919055b6081f604d39be98c8e812a42aaed33fe",
+      "include/audio_patch_table_internal.h": "1037a705b754ea3e3b8db43789cb00de8897ae64d83df9b5194cd8e3ebe9bba6",
+      "include/audio_properties_internal.h": "fa039c5cd12725ebe4148d4a4b4e8605ae9605fb5d61b1bca0bfd9bc3a81738a",
+      "include/audio_property_pipeline_internal.h": "9bb38df465f8fe3a2ea60365f3ce7dde30e205a207d5f5e777e096abee6930f3",
+      "include/audio_runtime.h": "a2ca2aca620f461001805f464b0c599f8ce1dc64d21fee3b3c1457784744d25a",
+      "include/audio_sequence_internal.h": "efcecd311119771bb871df157d101657b863e3ae02aeea7e8f95e578c1e75324",
+      "include/audio_synthesis_internal.h": "367b5e5c178752fba67aaabbdba696e9f268e47c9e7d8ca135cdab73a4617672",
+      "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683",
+      "include/command_script.h": "cfa4ed9738ae5994ff59ab90864204f017dde3c007c860536f6c53be9b2575e6",
+      "include/compression_internal.h": "1ce6c80baf53e6a1bcb0b40ce2a7e2e03df81861b812587e772bf2d549558581",
+      "include/controller_input.h": "48fd3ecefa518b37c2eb1368933f7ccbaae21911d732b94503b1bda2732f8598",
+      "include/controller_legacy.h": "9e84295ea876b78cdba28b17d4a0059eb4fe1080953a64e8af9d2ea494dbf62e",
+      "include/controller_pak_menu_internal.h": "8918c882b3b69f079e1d478a8fd7b60439317705ddfb4d4b26b255988cf8c789",
+      "include/controller_services.h": "9f383df4164ff1a705c0c5bd9936c21a2df2c781af9f80ea8c369f64dc2498a1",
+      "include/debug_output.h": "ba12435a24f3162d1015f7960f38420e2f34ea16e02c6adb679706cc263a329d",
+      "include/debug_text_internal.h": "0c1a2fc419e668e7421311cc98fd3d1200ca037e4c9c64074e0b020fbf2048cf",
+      "include/destination_format.h": "d4384f14dfd1a3122d4347e371f4d8d6f8c9bcb7a625947759ed7c0b3361f65f",
+      "include/early_bonus_internal.h": "a70ef7b2147da30ba1ebdbb16001f5750d26d54b7455eb571f5f590382f0634f",
+      "include/early_collision_internal.h": "592b75d410d11f83b9e92970d027d3ba3999e11a48ff723c44b13ecf16df59bc",
+      "include/early_game_helpers.h": "23066df1efae4aada40178d589fa2823c8e37a2b2e1e87d694b5711a20aaeaa5",
+      "include/early_game_medium.h": "9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f",
+      "include/early_game_medium_next.h": "0c7cf3adcd946c8c507adaad037451830ca89721a357ce9a2dbc306621e069ac",
+      "include/early_game_more.h": "2bacab31a51464c37f7a7fbf493b2df514fe8d7f81a2943cddd4937c4827ad44",
+      "include/early_game_state.h": "f05333c37db6b5fdaf6fa0e058202eccbb221dbd167c8f2f8fd97630698fe26e",
+      "include/early_input_internal.h": "c9f7f26eda442a1dc5d6000b4d2e7e74a4f663ee36d62ddfd2290bdb1d1a315b",
+      "include/early_name_table.h": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
+      "include/early_parameter_internal.h": "6d20b7dc53bb972abd920df102377c4dda62f6c68647a5eb09b61d9afabf1c20",
+      "include/early_pool_tick.h": "50122670755bbdd5704eff40f5fcdc32293e07a9f217898d1b1524d067dfa927",
+      "include/early_render_effects_internal.h": "b8fa58169da2a04ce64c3917883be80ac98718207fe5cf54f54dc05ab1f173f0",
+      "include/early_render_internal.h": "d5d9b4598a5c2987f5fe075b2fd9afb29a2ca42b369b0ea4fe20764898d2e740",
+      "include/early_resource_state.h": "d5f560a8dba312fdd195194d3653b62c5e66d631dc669dc643017a0fb87b71f8",
+      "include/early_session_state.h": "937c976c64bafd92b3ad05ef64c3811d93c0fbbc06d391d930edd48eecd89cb2",
+      "include/effect_draw_config_internal.h": "a5c3634a270bdeaf4b1a4698b5b583f0e49b08d7e2528efb3ac57101f2eb82f3",
+      "include/error_formatters.h": "a07753b6fdc1ae7a113bb3e75767039be3173dc3601e611c931c1282423dd9b3",
+      "include/error_message_storage_internal.h": "9491823fd3960444c47030234e38eafb64df24ddd93b8ecf29420c8f47f44ae4",
+      "include/fixed_geometry.h": "530e2dc24043761f8b2b4db04e47a0e7fe30070d82cd036ba4e21e1af74f5055",
+      "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
+      "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
+      "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
+      "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
+      "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
+      "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
+      "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
+      "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
+      "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
+      "include/menu_label_internal.h": "dc60421b0ef2ebee8b68e0a151543a447982e3a0f24704537936fc530c468811",
+      "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
+      "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+      "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
+      "include/object_draw.h": "b7df01c47c10cb88f298aaa4cca24488b8ba64df4cde3f02d436ecee5ccf862c",
+      "include/object_helpers.h": "1ddd7a85251a44eeb84db02002b7a08d980e9293b68b7145bdf471eba85c3116",
+      "include/object_history.h": "d20ac506136b1802a1ea7945dce3556ebac35035aac89ecc5773ebd76f852ae2",
+      "include/object_history_internal.h": "061ce164bcd66256d4626d6d63bd377f97b3683f7d839c16c086752c6ee423f2",
+      "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
+      "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
+      "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
+      "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
+      "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
+      "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
+      "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
+      "include/renderer_color_gradient_internal.h": "c0329280b4d2af9a5a3412c944049a061b310013b54823a238746617295a83f8",
+      "include/renderer_color_wave_internal.h": "5f8810a4fc4618e98b754e0536d06a06695b0560655f613982b788e1b711a6c1",
+      "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
+      "include/renderer_diagnostic_internal.h": "86f0d8c8ec7fc912c4df140d08a5b955a4b3076f917a27307552c1183f6343e3",
+      "include/renderer_draw_state_internal.h": "f3b8b2160e59663a7b648042fe654b30a9f400e4c2aae15d7279c7ffaf96d5d1",
+      "include/renderer_geometry_internal.h": "c03a93b5dfba054db766d5ee2f8c5ba1417993a3385ec40ad1440a5fc2fced3c",
+      "include/renderer_image_setup_internal.h": "5c953b01bedc5b443dd9da0366db2e5d0e98943aed6af343ec89791045e0947d",
+      "include/renderer_material_internal.h": "8115c46b772ed860ad2ba878528bc4bceca6e60216f1d33ef4c5773a9918ad49",
+      "include/renderer_object_glyph_internal.h": "6bbf74e29517f4c519088cd29242c6226ed6927e7b1f996c2d318842e8c5d83c",
+      "include/renderer_peak_metrics.h": "bc55ddea66e92f5e40909ea6713c3cedec1cff1b4a0f2d656f07bb786d990567",
+      "include/renderer_polygon_messages.h": "59761780941783b420d2a8a75c1252dacf77efa14b22ebe683cee5208462259a",
+      "include/renderer_primitives_internal.h": "8ac70e9b97c8abfa87a1b0e54b0bb33add0ad2c941c7da140415b000b82f12dc",
+      "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
+      "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
+      "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
+      "include/renderer_setup_internal.h": "913851e6e45ccfceb7325a210291b6b2ef5f858225cbc60ea01622dfe74a0505",
+      "include/renderer_surfaces_internal.h": "bd86ed1e67d674163faff2aaf050bc6d31dc37ef6cfc16f645d348e76f086fe7",
+      "include/renderer_texture_cache.h": "c575de43f39051b977175a24ba6514e512da3ca24bf3c12c324179a1dd324ad8",
+      "include/renderer_texture_index.h": "fb156fa0de759919adfbfd5b972b160be40db4514598a665ce23356d6ccd129c",
+      "include/resource_arena.h": "3e00fe584eabac2d0a2ab54fd3ebda3033293f22ca430fdd44fa99b45f5d9972",
+      "include/resource_bridge_internal.h": "54c95d12346fa764488a64ccc0646631dbe9abe9a0f3e7b087e273c120eb7e08",
+      "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
+      "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
+      "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
+      "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+      "include/save_menu_internal.h": "8c69cc8b3497726b45c9262956cd2c1a87a4afca68d5f09d312168e4ee6dacd2",
+      "include/save_menu_legacy_internal.h": "bd050d7e63704fce5dab1f291d91197ce6c37f9eb813a9233d2b9381ef0d1726",
+      "include/save_menu_nav_internal.h": "b655041106cdb85aea6c26868c3446aa2eae3d8089a8235087d057bb89c5c73a",
+      "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
+      "include/scene_action_internal.h": "540d754daa04b693d7cbe5f06e240bffe571188966171b9f3add64bdeb6fb089",
+      "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
+      "include/scene_background_internal.h": "c2199191e33f34eeda432ebbcf504c3bd944fc7634be42510f87550e4a9e9c10",
+      "include/scene_commands_internal.h": "a21b97d1d652b686d51f894b0611b494421f9fa57563aaa2a8ff101cb6032efb",
+      "include/scene_counter_internal.h": "003940936d136fc9d45b0e42d59de4cec15b1a81b8919a802a69961ef7d8d819",
+      "include/scene_definition.h": "069a4d5c9f25a2bb5aeab76fe93f500495f1a5d21f9ea2056fece2640d04fb52",
+      "include/scene_player_runtime_internal.h": "a039e5cf7c309c1e36f960e78cdfc478e94e85825d431cc4d08f2fe74fec1fd5",
+      "include/scheduler.h": "17b5151851081813145e8ddbc1edc14f5508c5aabef31e16597451ad872eab7c",
+      "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+      "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+      "include/script_service_internal.h": "dbd1c1e75788351372596698cb05a80eb9698897a63a0e545555ad1783e25398",
+      "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+      "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+      "include/sdk_audio_decoder.h": "9b4b04b8f650377e63e6e0ccee0eb2c7bcdff77286dcd6949985a8aa290b72e4",
+      "include/sdk_audio_effect.h": "255cd3751e4df76c5adca95e4d49f29bcd49fb4666057fe07b6233749dd8f5a3",
+      "include/sdk_audio_envelope.h": "bb3d93f3848cf32f203f33d3c1f0dd3f4db31ca61a725c5577110be4bb227b77",
+      "include/sdk_audio_mix_commands.h": "81a9225e07bf4a1fa53b2aa64d1dafe134976588b6a174bebc7964a9b84b43aa",
+      "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a",
+      "include/sdk_audio_reverb.h": "5be4f6f37c9346bf2085f707ab2afc2862b9848f6f5893cd0769c055f43ac009",
+      "include/sdk_camera.h": "d227c229ceae6bf2c7e2682705cab751e60faa760cb70230fd6431dfdd7f6d15",
+      "include/sdk_controller.h": "248fc10e1aeb31d2e6b000bf6e478cc8094a412fbf5af7f6868e03d251c6b90c",
+      "include/sdk_device_manager.h": "faac5bafa8ae1587a0a177eb37323c3c0ff16c6822c7bc75a0bcfe2a41cb6900",
+      "include/sdk_events.h": "b5fc02d01795bf2fa1af4ce5a66c8dcdd81db38fe0c6696067ba47966fdefdbb",
+      "include/sdk_float_math.h": "16ab5392286945c018316e741102e1a35d03927f4f1ff5472a7eeb0b19d4510e",
+      "include/sdk_float_values.h": "274d1bb5a4df4fe66d13c8d15157321e096545ed5c25c93eb057a93bae0f2a16",
+      "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+      "include/sdk_math.h": "177c464c4fa2a4b6305415fc5e58bc205b5a47883d30c45ecaceb44e4256fa71",
+      "include/sdk_matrix.h": "d0a1e821bf9243ab3793d791c87924e507c9483d23f98f8914969eddf563c864",
+      "include/sdk_pfs.h": "0ba4f4c909d078eec17f80547866bdcb03327b904e0f641f684860054b4f89c9",
+      "include/sdk_pfs_internal.h": "3bf7486adb6db16cab11ffa7dd37d2f9a5ccd6a8920c281b9c12d45028f74390",
+      "include/sdk_pi_device.h": "e2ffc49fd3de308f2d0daf75a038f098dac0024c413e1fb77b7ca51e01018b44",
+      "include/sdk_pi_disk.h": "203c9449cf329958baec21c9b2669e1036d6514c191d3853ba6c2356ae3bc01e",
+      "include/sdk_pi_dma.h": "40d7b5755f20a5eab62933f09fe065061653d4e11ef001b7dd7acd9dd0a0632d",
+      "include/sdk_pi_transfer.h": "fe0c22783ee9a451956ee0dfc8457193dcdf9869b0d5ef5f7d0b88d2a61c8420",
+      "include/sdk_pi_word.h": "bd173c27d20848bb1b478b504e81b4c904c104f37bc1c9dec1e9bd118d2e63b9",
+      "include/sdk_rsp.h": "08a2b63a4d4490026a351cc62f776283466a4de2a7c5338551c34ecd53a69264",
+      "include/sdk_short_math.h": "19b800ee2bc1a36ace67534a97c988c202a9ebc113b251a219e3b16c60d432fd",
+      "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+      "include/sdk_sp_task.h": "c3fa6c6fcfdfaeabf65c587d3dd93529b815e3d1daf480c542b3fdd0e1f988a3",
+      "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488",
+      "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+      "include/sdk_timers.h": "1002e9c9f6126c5fe5a1ec619af273ea81e4db3d2d53de4b6de48e4ad27a676e",
+      "include/sdk_video_internal.h": "a266c0283417fb2f11355242ecd14b62112c484841b01ed16bc5f6f906c6148f",
+      "include/sdk_video_manager.h": "bf982a62f168ce834f7d12e76c9d8486e55e01cc75b0c7fa90c68c7baef6ecca",
+      "include/session_menu_internal.h": "0593514df146ea9df633c5ddf39c4400664771d76996341ceaecb3b32b667991",
+      "include/session_setup_internal.h": "8d1a1ee1780f7d27285bffc33f9890733c6e3574da5ef7134cd73cec53d95ef4",
+      "include/sound_bridge_internal.h": "f5de1a7e5b00eecbd808a99391a8fbf3e777e837dcde94ee08ed5df353f7db48",
+      "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
+      "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
+      "src/game/object_runtime_projection.c": "d12df3350ea7b85db8b352fc0b2c2db0968a1c3566a0ef9089c85f87dcc3f3e6",
+      "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
+      "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
+    },
+    "expected_size": 376,
+    "actual_size": 384,
+    "matches": false,
+    "different_words": [
+      {
+        "vram": "0x8003b2e0",
+        "expected": "8fac0040",
+        "actual": "8faf0040"
+      },
+      {
+        "vram": "0x8003b2ec",
+        "expected": "000c6900",
+        "actual": "000fc100"
+      },
+      {
+        "vram": "0x8003b2f0",
+        "expected": "012d4021",
+        "actual": "01384021"
+      },
+      {
+        "vram": "0x8003b2f4",
+        "expected": "8d041f54",
+        "actual": "8d101f54"
+      },
+      {
+        "vram": "0x8003b2f8",
+        "expected": "8fae0044",
+        "actual": "8faf0044"
+      },
+      {
+        "vram": "0x8003b2fc",
+        "expected": "3c0f800c",
+        "actual": "3c19800c"
+      },
+      {
+        "vram": "0x8003b300",
+        "expected": "008e0019",
+        "actual": "020f0019"
+      },
+      {
+        "vram": "0x8003b304",
+        "expected": "3c18800c",
+        "actual": "3c0a800c"
+      },
+      {
+        "vram": "0x8003b308",
+        "expected": "8f18ef64",
+        "actual": "8d4aef64"
+      },
+      {
+        "vram": "0x8003b30c",
+        "expected": "8defef6c",
+        "actual": "8f39ef6c"
+      },
+      {
+        "vram": "0x8003b310",
+        "expected": "3c05800d",
+        "actual": "8d0e1f50"
+      },
+      {
+        "vram": "0x8003b314",
+        "expected": "01f81823",
+        "actual": "032a1823"
+      },
+      {
+        "vram": "0x8003b318",
+        "expected": "30790fff",
+        "actual": "306b0fff"
+      },
+      {
+        "vram": "0x8003b31c",
+        "expected": "03201825",
+        "actual": "01601825"
+      },
+      {
+        "vram": "0x8003b320",
+        "expected": "04610003",
+        "actual": "8faa003c"
+      },
+      {
+        "vram": "0x8003b324",
+        "expected": "00035243",
+        "actual": "04610003"
+      },
+      {
+        "vram": "0x8003b328",
+        "expected": "246101ff",
+        "actual": "00036243"
+      },
+      {
+        "vram": "0x8003b32c",
+        "expected": "00015243",
+        "actual": "246101ff"
+      },
+      {
+        "vram": "0x8003b330",
+        "expected": "000a5880",
+        "actual": "00016243"
+      },
+      {
+        "vram": "0x8003b334",
+        "expected": "016a5821",
+        "actual": "000c6880"
+      },
+      {
+        "vram": "0x8003b338",
+        "expected": "8faa003c",
+        "actual": "000a5900"
+      },
+      {
+        "vram": "0x8003b33c",
+        "expected": "000b1840",
+        "actual": "0000c012"
+      },
+      {
+        "vram": "0x8003b340",
+        "expected": "000a5900",
+        "actual": "01ac6821"
+      },
+      {
+        "vram": "0x8003b344",
+        "expected": "00007812",
+        "actual": "012b1021"
+      },
+      {
+        "vram": "0x8003b348",
+        "expected": "012b1021",
+        "actual": "8c4c1f54"
+      },
+      {
+        "vram": "0x8003b34c",
+        "expected": "8c4c1f54",
+        "actual": "000d6840"
+      },
+      {
+        "vram": "0x8003b350",
+        "expected": "000fc0c0",
+        "actual": "018d0019"
+      },
+      {
+        "vram": "0x8003b354",
+        "expected": "01830019",
+        "actual": "0018c8c0"
+      },
+      {
+        "vram": "0x8003b358",
+        "expected": "8d191f50",
+        "actual": "8c581f50"
+      },
+      {
+        "vram": "0x8003b35c",
+        "expected": "8c4f1f50",
+        "actual": "3c05800d"
+      },
+      {
+        "vram": "0x8003b364",
+        "expected": "afa80020",
+        "actual": "afa80024"
+      },
+      {
+        "vram": "0x8003b368",
+        "expected": "03193021",
+        "actual": "02002025"
+      },
+      {
+        "vram": "0x8003b36c",
+        "expected": "00006812",
+        "actual": "01d93021"
+      },
+      {
+        "vram": "0x8003b370",
+        "expected": "000d70c0",
+        "actual": "00006812"
+      },
+      {
+        "vram": "0x8003b374",
+        "expected": "0c00fe06",
+        "actual": "000d78c0"
+      },
+      {
+        "vram": "0x8003b378",
+        "expected": "01cf3821",
+        "actual": "0c00fe06"
+      },
+      {
+        "vram": "0x8003b37c",
+        "expected": "8fa80020",
+        "actual": "01f83821"
+      },
+      {
+        "vram": "0x8003b380",
+        "expected": "3c05800d",
+        "actual": "8fa80024"
+      },
+      {
+        "vram": "0x8003b384",
+        "expected": "8d101f54",
+        "actual": "3c05800d"
+      },
+      {
+        "vram": "0x8003b388",
+        "expected": "8d181f58",
+        "actual": "8d101f54"
+      },
+      {
+        "vram": "0x8003b38c",
+        "expected": "8d021f50",
+        "actual": "8d0e1f58"
+      },
+      {
+        "vram": "0x8003b390",
+        "expected": "02180019",
+        "actual": "8d0b1f50"
+      },
+      {
+        "vram": "0x8003b394",
+        "expected": "24a58c10",
+        "actual": "01d00019"
+      },
+      {
+        "vram": "0x8003b398",
+        "expected": "3c098008",
+        "actual": "24a58c10"
+      },
+      {
+        "vram": "0x8003b39c",
+        "expected": "001058c0",
+        "actual": "3c098008"
+      },
+      {
+        "vram": "0x8003b3a0",
+        "expected": "25298274",
+        "actual": "001060c0"
+      },
+      {
+        "vram": "0x8003b3a4",
+        "expected": "00ab1821",
+        "actual": "25298274"
+      },
+      {
+        "vram": "0x8003b3a8",
+        "expected": "00002025",
+        "actual": "00ac1821"
+      },
+      {
+        "vram": "0x8003b3ac",
+        "expected": "24180001",
+        "actual": "00002025"
+      },
+      {
+        "vram": "0x8003b3b0",
+        "expected": "0000c812",
+        "actual": "240e0001"
+      },
+      {
+        "vram": "0x8003b3b4",
+        "expected": "001950c0",
+        "actual": "0000c812"
+      },
+      {
+        "vram": "0x8003b3b8",
+        "expected": "1a000010",
+        "actual": "001950c0"
+      },
+      {
+        "vram": "0x8003b3bc",
+        "expected": "004a1021",
+        "actual": "1a000010"
+      },
+      {
+        "vram": "0x8003b3c0",
+        "expected": "88410000",
+        "actual": "014b1021"
+      },
+      {
+        "vram": "0x8003b3c4",
+        "expected": "98410003",
+        "actual": "88410000"
+      },
+      {
+        "vram": "0x8003b3c8",
+        "expected": "24840001",
+        "actual": "98410003"
+      },
+      {
+        "vram": "0x8003b3cc",
+        "expected": "a8610000",
+        "actual": "24840001"
+      },
+      {
+        "vram": "0x8003b3d0",
+        "expected": "b8610003",
+        "actual": "a8610000"
+      },
+      {
+        "vram": "0x8003b3d4",
+        "expected": "884d0004",
+        "actual": "b8610003"
+      },
+      {
+        "vram": "0x8003b3d8",
+        "expected": "984d0007",
+        "actual": "884f0004"
+      },
+      {
+        "vram": "0x8003b3dc",
+        "expected": "24630008",
+        "actual": "984f0007"
+      },
+      {
+        "vram": "0x8003b3e0",
+        "expected": "a86dfffc",
+        "actual": "24630008"
+      },
+      {
+        "vram": "0x8003b3e4",
+        "expected": "b86dffff",
+        "actual": "a86ffffc"
+      },
+      {
+        "vram": "0x8003b3e8",
+        "expected": "8d0e1f54",
+        "actual": "b86fffff"
+      },
+      {
+        "vram": "0x8003b3ec",
+        "expected": "24420008",
+        "actual": "8d181f54"
+      },
+      {
+        "vram": "0x8003b3f0",
+        "expected": "008e082a",
+        "actual": "24420008"
+      },
+      {
+        "vram": "0x8003b3f4",
+        "expected": "1420fff2",
+        "actual": "0098082a"
+      },
+      {
+        "vram": "0x8003b3f8",
+        "expected": "00000000",
+        "actual": "1420fff2"
+      },
+      {
+        "vram": "0x8003b3fc",
+        "expected": "24020001",
+        "actual": "00000000"
+      },
+      {
+        "vram": "0x8003b400",
+        "expected": "ad252f30",
+        "actual": "24020001"
+      },
+      {
+        "vram": "0x8003b404",
+        "expected": "a1222f3c",
+        "actual": "ad252f30"
+      },
+      {
+        "vram": "0x8003b408",
+        "expected": "a1222f3d",
+        "actual": "a1222f3c"
+      },
+      {
+        "vram": "0x8003b40c",
+        "expected": "8d0f1f54",
+        "actual": "a1222f3d"
+      },
+      {
+        "vram": "0x8003b410",
+        "expected": "8fbf001c",
+        "actual": "ad2e2f38"
+      },
+      {
+        "vram": "0x8003b414",
+        "expected": "8fb00018",
+        "actual": "8d191f54"
+      },
+      {
+        "vram": "0x8003b418",
+        "expected": "ad382f38",
+        "actual": "8fbf001c"
+      },
+      {
+        "vram": "0x8003b41c",
+        "expected": "27bd0040",
+        "actual": "8fb00018"
+      },
+      {
+        "vram": "0x8003b420",
+        "expected": "03e00008",
+        "actual": "27bd0040"
+      },
+      {
+        "vram": "0x8003b424",
+        "expected": "ad2f2f34",
+        "actual": "03e00008"
+      },
+      {
+        "vram": "0x8003b428",
+        "expected": "",
+        "actual": "ad392f34"
+      },
+      {
+        "vram": "0x8003b42c",
+        "expected": "",
+        "actual": "00000000"
+      }
+    ]
+  },
+  "freshly_matched_support": {
+    "source": "src/game/model_normals_blend.c",
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "inputs_sha256": {
+      "config/functions.json": "1c78f3e87717ba865ca17948a598cf0867f536768cbdd91e3540ecb56dae57c9",
+      "config/owned_sections.json": "44a1a45095fad2919a301f64b7bddd87812bb4d15d9e5c97563199479b59adfb",
+      "config/runtime_symbols.ld": "7d58db4518b3a4bea6e25c9ef37fa1db4d62756faf6ee3f2e194eee6f219413a",
+      "config/startup_symbols.ld": "08aa054e2e44abb96e0f4d59e97b5934ca350dd5d66c6d95cb2c7b87d2265846",
+      "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+      "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
+      "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
+      "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
+      "include/actor_behavior_internal.h": "a34cc98195a029e4003cc251f4e172d595214582a339404eb78449926fa99373",
+      "include/actor_behavior_more_internal.h": "f2e8d0c8db3ad33093105ea64d661f78457c6fbc55025c326732e6e391801f64",
+      "include/actor_behavior_next_internal.h": "bb0980b227ed20ff6e426199c5ba90c2cc5a5fbd8e3c8b20f951d12e7ff39a54",
+      "include/actor_brain_internal.h": "5a3bb4ac3303bf032876bff2c707a11b3a85115b369a252c586850df93de5e65",
+      "include/actor_collision_separation_internal.h": "c05e2a6b4ae519bf54839c21d3b3e8e893b209b443df207f6d583bd9170b29f2",
+      "include/actor_collision_services.h": "2867fb981693b306f90821778bfc4d6dcaf765f4a1b69b11793e5a294c2c81c5",
+      "include/actor_damage_internal.h": "edb7247ca2b57bcf51525086144bc6d453e9630e3fc9839608daf3a026920628",
+      "include/actor_duration_internal.h": "51b83fc836a67c71f352c2f234c06593d2f24a72bc45cb578c938874c5f14831",
+      "include/actor_dynamic_pool_internal.h": "85b7d842d8d86c73cd793f61c5a50a7b67e49ecc64f2c2850c5b0030b15cab1c",
+      "include/actor_enforcer_internal.h": "26629c4bc9a0e6a4136e575bd3b864daf91876501c8f47b7807a9e2a403bd616",
+      "include/actor_history_internal.h": "d53cd9bfd7c00bbf88deee633adc97535d8d5c421c78686041d0adc355e3c79a",
+      "include/actor_hulk_internal.h": "224fbf4d7e357ebdcd2e22b0ddd65a0e0b6897ff6b2581507996e62de7d37862",
+      "include/actor_human_internal.h": "0f0d3c3a508b911ef825e73889494a2d051bea0c93772182ed5ba15cb3ee3849",
+      "include/actor_lifecycle_internal.h": "6d47f2191d380d2b1ace7773f9d07475f33d419d48c4786bfb266c0e380f7e26",
+      "include/actor_motion_internal.h": "c311a16b465c8dea95438a609a479007bd93e3493c6f547ae65e5f69cea50f57",
+      "include/actor_position_pairs.h": "5ee0f4c87fc1a42c72cb90b9b2b781a44dfbfb6c736af64e3bbcc2c90e4b45a9",
+      "include/actor_projectile_internal.h": "8baf67e69fe26649c1fe07531f0eec0ca97ba04075d6a871f4e65a93ae343228",
+      "include/actor_pursuit_internal.h": "ad11f70d7810ea6cffc7454ae1e3527a9cb4e8c96324fdb5949c30b6f095a443",
+      "include/actor_resource_5c_internal.h": "0b6f292c42691888a4ff24edff575f479ed8c19ed98d41484528ab8478db95ed",
+      "include/actor_resource_internal.h": "80172f5b62f25382b7b8ab862603abfbc8484bb1fe482baf971444b2baa873da",
+      "include/actor_setup_internal.h": "062e4d8cbec10220ed53e3883f8fa94ca0730dd4877f5004ec92077409a72541",
+      "include/actor_spawn_callback_internal.h": "8cf97711f0117dd13efe82c78f3856d6d6968d9ddacc005fe65830bccc53ac36",
+      "include/actor_spawn_internal.h": "f7479dbdb87ac6279fc0df86c496596a9170129e46f828783c67768c95c1ea38",
+      "include/actor_stride_internal.h": "ddb173f1de44bf907795c5199952f85d7520bfd11d48401b450864f9d52ebfae",
+      "include/audio_backend_internal.h": "4a595e592446870127a39c37bcf6794d38176884774d0b70201592d7b7213464",
+      "include/audio_bank_layout_internal.h": "2d44c9c36412dd253e9e6c90844c5bef7c5c9583597c76eba92123b0bc2f7706",
+      "include/audio_callbacks.h": "a5bd3eba535cb7e25caabe0b0aa90f1c37cb73c99f1a965441abd1aafcc3ef1f",
+      "include/audio_commands.h": "d34eacf0081a7745ae958c4484ea6d0a070859879dc7203d609e499976854d53",
+      "include/audio_config.h": "d4f8f3f9023b9e70d0cd25c449ae48486a2ddbb2574d0a95cec4487eb406b6a6",
+      "include/audio_control.h": "3a0bae49026956d0c85f87b29919cf03f35be845a35954503f9b737682c2d46e",
+      "include/audio_engine_tables_internal.h": "f14080424d805420bdfd9702a8605d860182bd3485dbebe7757150cf966de153",
+      "include/audio_file_services_internal.h": "57053064c501d51bf2f77dc2a526e39c501f10090777bdea0fdf291713e18d85",
+      "include/audio_game.h": "f63a58f0375dd51938376df76002d52c21b2e8ef60c8e462b1fc327367922935",
+      "include/audio_host_internal.h": "6c98f4911f1f758707b7206765587460f4a4b0a42e2eab1c5654488c2810d23a",
+      "include/audio_io.h": "3c8b1897d96db51a8c7ad05cdcec2a00d79b17b3fa4dfbbb7ec7632171767c79",
+      "include/audio_loader_internal.h": "63dfc715f95606af52035bf28919055b6081f604d39be98c8e812a42aaed33fe",
+      "include/audio_patch_table_internal.h": "1037a705b754ea3e3b8db43789cb00de8897ae64d83df9b5194cd8e3ebe9bba6",
+      "include/audio_properties_internal.h": "fa039c5cd12725ebe4148d4a4b4e8605ae9605fb5d61b1bca0bfd9bc3a81738a",
+      "include/audio_property_pipeline_internal.h": "9bb38df465f8fe3a2ea60365f3ce7dde30e205a207d5f5e777e096abee6930f3",
+      "include/audio_runtime.h": "a2ca2aca620f461001805f464b0c599f8ce1dc64d21fee3b3c1457784744d25a",
+      "include/audio_sequence_internal.h": "efcecd311119771bb871df157d101657b863e3ae02aeea7e8f95e578c1e75324",
+      "include/audio_synthesis_internal.h": "367b5e5c178752fba67aaabbdba696e9f268e47c9e7d8ca135cdab73a4617672",
+      "include/audio_voice_capture_internal.h": "04eb07eba8daf47d89ce88aa14f754d765c3b8d546f73c5058a6fb13ad25c683",
+      "include/command_script.h": "cfa4ed9738ae5994ff59ab90864204f017dde3c007c860536f6c53be9b2575e6",
+      "include/compression_internal.h": "1ce6c80baf53e6a1bcb0b40ce2a7e2e03df81861b812587e772bf2d549558581",
+      "include/controller_input.h": "48fd3ecefa518b37c2eb1368933f7ccbaae21911d732b94503b1bda2732f8598",
+      "include/controller_legacy.h": "9e84295ea876b78cdba28b17d4a0059eb4fe1080953a64e8af9d2ea494dbf62e",
+      "include/controller_pak_menu_internal.h": "8918c882b3b69f079e1d478a8fd7b60439317705ddfb4d4b26b255988cf8c789",
+      "include/controller_services.h": "9f383df4164ff1a705c0c5bd9936c21a2df2c781af9f80ea8c369f64dc2498a1",
+      "include/debug_output.h": "ba12435a24f3162d1015f7960f38420e2f34ea16e02c6adb679706cc263a329d",
+      "include/debug_text_internal.h": "0c1a2fc419e668e7421311cc98fd3d1200ca037e4c9c64074e0b020fbf2048cf",
+      "include/destination_format.h": "d4384f14dfd1a3122d4347e371f4d8d6f8c9bcb7a625947759ed7c0b3361f65f",
+      "include/early_bonus_internal.h": "a70ef7b2147da30ba1ebdbb16001f5750d26d54b7455eb571f5f590382f0634f",
+      "include/early_collision_internal.h": "592b75d410d11f83b9e92970d027d3ba3999e11a48ff723c44b13ecf16df59bc",
+      "include/early_game_helpers.h": "23066df1efae4aada40178d589fa2823c8e37a2b2e1e87d694b5711a20aaeaa5",
+      "include/early_game_medium.h": "9207f823423f8ee1ef960eb15b0ac4d2680e7c7366e7d453b64948b9c5c2166f",
+      "include/early_game_medium_next.h": "0c7cf3adcd946c8c507adaad037451830ca89721a357ce9a2dbc306621e069ac",
+      "include/early_game_more.h": "2bacab31a51464c37f7a7fbf493b2df514fe8d7f81a2943cddd4937c4827ad44",
+      "include/early_game_state.h": "f05333c37db6b5fdaf6fa0e058202eccbb221dbd167c8f2f8fd97630698fe26e",
+      "include/early_input_internal.h": "c9f7f26eda442a1dc5d6000b4d2e7e74a4f663ee36d62ddfd2290bdb1d1a315b",
+      "include/early_name_table.h": "eacafb64b03bc99d3146cb4b8fa1a4bffda91212da39381ec7411028541b0dd8",
+      "include/early_parameter_internal.h": "6d20b7dc53bb972abd920df102377c4dda62f6c68647a5eb09b61d9afabf1c20",
+      "include/early_pool_tick.h": "50122670755bbdd5704eff40f5fcdc32293e07a9f217898d1b1524d067dfa927",
+      "include/early_render_effects_internal.h": "b8fa58169da2a04ce64c3917883be80ac98718207fe5cf54f54dc05ab1f173f0",
+      "include/early_render_internal.h": "d5d9b4598a5c2987f5fe075b2fd9afb29a2ca42b369b0ea4fe20764898d2e740",
+      "include/early_resource_state.h": "d5f560a8dba312fdd195194d3653b62c5e66d631dc669dc643017a0fb87b71f8",
+      "include/early_session_state.h": "937c976c64bafd92b3ad05ef64c3811d93c0fbbc06d391d930edd48eecd89cb2",
+      "include/effect_draw_config_internal.h": "a5c3634a270bdeaf4b1a4698b5b583f0e49b08d7e2528efb3ac57101f2eb82f3",
+      "include/error_formatters.h": "a07753b6fdc1ae7a113bb3e75767039be3173dc3601e611c931c1282423dd9b3",
+      "include/error_message_storage_internal.h": "9491823fd3960444c47030234e38eafb64df24ddd93b8ecf29420c8f47f44ae4",
+      "include/fixed_geometry.h": "530e2dc24043761f8b2b4db04e47a0e7fe30070d82cd036ba4e21e1af74f5055",
+      "include/fixed_math.h": "151dea199f9ff9fd6170270023c640038e55876641c23369d00275b0012a7ce2",
+      "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
+      "include/frame_slot.h": "7b057a5ddebcd8e061ec1d1d3f03e786e26b74d8a63f3733866eaadaa878acc4",
+      "include/game_memory.h": "a7ab844c3753242ea123eae2ca76c2fc2d3a8570a2eb2f8233858c4dd05410bc",
+      "include/game_stdarg.h": "6181e57369790b0385c125ed8d2bb4913d256f4cf1119729e9edf8a4d13a2d1c",
+      "include/geometry_bridge_internal.h": "d8f920aaa698ca804a1f3c8a0cda22dc3bc32a4f03bf7c31884b06d002978d56",
+      "include/graphics_state_internal.h": "21a02b7dc52605a3d7166ceb5e56de9a76852ab48aeb65fa251033868ab42f39",
+      "include/graphics_tasks.h": "e77a503675294d8135388a0ed6ab2002b0df2201c3ab9d7df7ec815fbd4337cf",
+      "include/heap.h": "3d7366e5cd4354e57bfda38a99fb14d932bef974526facd8b167ddc7c5f8c668",
+      "include/menu_label_internal.h": "dc60421b0ef2ebee8b68e0a151543a447982e3a0f24704537936fc530c468811",
+      "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
+      "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+      "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
+      "include/object_draw.h": "b7df01c47c10cb88f298aaa4cca24488b8ba64df4cde3f02d436ecee5ccf862c",
+      "include/object_helpers.h": "1ddd7a85251a44eeb84db02002b7a08d980e9293b68b7145bdf471eba85c3116",
+      "include/object_history.h": "d20ac506136b1802a1ea7945dce3556ebac35035aac89ecc5773ebd76f852ae2",
+      "include/object_history_internal.h": "061ce164bcd66256d4626d6d63bd377f97b3683f7d839c16c086752c6ee423f2",
+      "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
+      "include/object_runtime.h": "3625d0f334f2ec15741dc31bb3158ea4e71c29c8bc92825feb79ddb5cd25ee12",
+      "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
+      "include/palette.h": "8db3925914de1425e2c6e4150cd9d1dd68047629b889c51f3d364e609c3424fa",
+      "include/palette_effects.h": "a9a0fe7f4b9e8e492db5348ae15db0ecd24bd780baba682ac36e45f82775fe0e",
+      "include/pi.h": "f2a9f5561e7f72b41e371df8b4084548508361be34015c8e95c29296f0539299",
+      "include/platform_services.h": "adb2fba5e91cd2beab9446cc95e6066cb1b83ba11f971b1c8734f68597594536",
+      "include/renderer_color_gradient_internal.h": "c0329280b4d2af9a5a3412c944049a061b310013b54823a238746617295a83f8",
+      "include/renderer_color_wave_internal.h": "5f8810a4fc4618e98b754e0536d06a06695b0560655f613982b788e1b711a6c1",
+      "include/renderer_debug_text.h": "8bf3f8566f7d7e765e8e97341ad2aae06a0bb34cbecdb768c2869d2a765f3126",
+      "include/renderer_diagnostic_internal.h": "86f0d8c8ec7fc912c4df140d08a5b955a4b3076f917a27307552c1183f6343e3",
+      "include/renderer_draw_state_internal.h": "f3b8b2160e59663a7b648042fe654b30a9f400e4c2aae15d7279c7ffaf96d5d1",
+      "include/renderer_geometry_internal.h": "c03a93b5dfba054db766d5ee2f8c5ba1417993a3385ec40ad1440a5fc2fced3c",
+      "include/renderer_image_setup_internal.h": "5c953b01bedc5b443dd9da0366db2e5d0e98943aed6af343ec89791045e0947d",
+      "include/renderer_material_internal.h": "8115c46b772ed860ad2ba878528bc4bceca6e60216f1d33ef4c5773a9918ad49",
+      "include/renderer_object_glyph_internal.h": "6bbf74e29517f4c519088cd29242c6226ed6927e7b1f996c2d318842e8c5d83c",
+      "include/renderer_peak_metrics.h": "bc55ddea66e92f5e40909ea6713c3cedec1cff1b4a0f2d656f07bb786d990567",
+      "include/renderer_polygon_messages.h": "59761780941783b420d2a8a75c1252dacf77efa14b22ebe683cee5208462259a",
+      "include/renderer_primitives_internal.h": "8ac70e9b97c8abfa87a1b0e54b0bb33add0ad2c941c7da140415b000b82f12dc",
+      "include/renderer_projection_internal.h": "ed35a59bf0a810fc38f79d9021b02346389a5eaacd7cd1eada0ec37c191db718",
+      "include/renderer_resource_loader.h": "a193bff668f95d8afdefc3dd8fd5f38eac14a928da30e57206f8aaf133e5f3bb",
+      "include/renderer_resource_storage.h": "eeba626cdf538b3f6f763ef495fbfaa74029bcde7e0524348204b5692212c955",
+      "include/renderer_setup_internal.h": "913851e6e45ccfceb7325a210291b6b2ef5f858225cbc60ea01622dfe74a0505",
+      "include/renderer_surfaces_internal.h": "bd86ed1e67d674163faff2aaf050bc6d31dc37ef6cfc16f645d348e76f086fe7",
+      "include/renderer_texture_cache.h": "c575de43f39051b977175a24ba6514e512da3ca24bf3c12c324179a1dd324ad8",
+      "include/renderer_texture_index.h": "fb156fa0de759919adfbfd5b972b160be40db4514598a665ce23356d6ccd129c",
+      "include/resource_arena.h": "3e00fe584eabac2d0a2ab54fd3ebda3033293f22ca430fdd44fa99b45f5d9972",
+      "include/resource_bridge_internal.h": "54c95d12346fa764488a64ccc0646631dbe9abe9a0f3e7b087e273c120eb7e08",
+      "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
+      "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
+      "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
+      "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+      "include/save_menu_internal.h": "8c69cc8b3497726b45c9262956cd2c1a87a4afca68d5f09d312168e4ee6dacd2",
+      "include/save_menu_legacy_internal.h": "bd050d7e63704fce5dab1f291d91197ce6c37f9eb813a9233d2b9381ef0d1726",
+      "include/save_menu_nav_internal.h": "b655041106cdb85aea6c26868c3446aa2eae3d8089a8235087d057bb89c5c73a",
+      "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
+      "include/scene_action_internal.h": "540d754daa04b693d7cbe5f06e240bffe571188966171b9f3add64bdeb6fb089",
+      "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
+      "include/scene_background_internal.h": "c2199191e33f34eeda432ebbcf504c3bd944fc7634be42510f87550e4a9e9c10",
+      "include/scene_commands_internal.h": "a21b97d1d652b686d51f894b0611b494421f9fa57563aaa2a8ff101cb6032efb",
+      "include/scene_counter_internal.h": "003940936d136fc9d45b0e42d59de4cec15b1a81b8919a802a69961ef7d8d819",
+      "include/scene_definition.h": "069a4d5c9f25a2bb5aeab76fe93f500495f1a5d21f9ea2056fece2640d04fb52",
+      "include/scene_player_runtime_internal.h": "a039e5cf7c309c1e36f960e78cdfc478e94e85825d431cc4d08f2fe74fec1fd5",
+      "include/scheduler.h": "17b5151851081813145e8ddbc1edc14f5508c5aabef31e16597451ad872eab7c",
+      "include/scheduler_runtime.h": "62d4af5254fca2d747d289b89c2f2a1ad1c2d44a5bd69823e037dddad620a393",
+      "include/scheduler_task.h": "e1ed40cf9dadffba19e8952ca642ef03a4b66d35915c6b5086a2600463599db0",
+      "include/script_service_internal.h": "dbd1c1e75788351372596698cb05a80eb9698897a63a0e545555ad1783e25398",
+      "include/sdk_audio.h": "f80178efe04e19a3045cbd8df508f123abf6729892ca19ed08a3282e98f61c0b",
+      "include/sdk_audio_commands.h": "bbfdb8cf32476b4b8fc1d7d88c7959b5f3e86da15cb97a55a8e64e25707fbbfb",
+      "include/sdk_audio_decoder.h": "9b4b04b8f650377e63e6e0ccee0eb2c7bcdff77286dcd6949985a8aa290b72e4",
+      "include/sdk_audio_effect.h": "255cd3751e4df76c5adca95e4d49f29bcd49fb4666057fe07b6233749dd8f5a3",
+      "include/sdk_audio_envelope.h": "bb3d93f3848cf32f203f33d3c1f0dd3f4db31ca61a725c5577110be4bb227b77",
+      "include/sdk_audio_mix_commands.h": "81a9225e07bf4a1fa53b2aa64d1dafe134976588b6a174bebc7964a9b84b43aa",
+      "include/sdk_audio_pipeline.h": "80dc3109f1e8eef4e8dd8ba67609973a80828e52e25032d816fcc49bd6e4e90a",
+      "include/sdk_audio_reverb.h": "5be4f6f37c9346bf2085f707ab2afc2862b9848f6f5893cd0769c055f43ac009",
+      "include/sdk_camera.h": "d227c229ceae6bf2c7e2682705cab751e60faa760cb70230fd6431dfdd7f6d15",
+      "include/sdk_controller.h": "248fc10e1aeb31d2e6b000bf6e478cc8094a412fbf5af7f6868e03d251c6b90c",
+      "include/sdk_device_manager.h": "faac5bafa8ae1587a0a177eb37323c3c0ff16c6822c7bc75a0bcfe2a41cb6900",
+      "include/sdk_events.h": "b5fc02d01795bf2fa1af4ce5a66c8dcdd81db38fe0c6696067ba47966fdefdbb",
+      "include/sdk_float_math.h": "16ab5392286945c018316e741102e1a35d03927f4f1ff5472a7eeb0b19d4510e",
+      "include/sdk_float_values.h": "274d1bb5a4df4fe66d13c8d15157321e096545ed5c25c93eb057a93bae0f2a16",
+      "include/sdk_io.h": "3ce7646dda3681c840895ef7e5dec6ca57b1834e620c860f146e899b08976c76",
+      "include/sdk_math.h": "177c464c4fa2a4b6305415fc5e58bc205b5a47883d30c45ecaceb44e4256fa71",
+      "include/sdk_matrix.h": "d0a1e821bf9243ab3793d791c87924e507c9483d23f98f8914969eddf563c864",
+      "include/sdk_pfs.h": "0ba4f4c909d078eec17f80547866bdcb03327b904e0f641f684860054b4f89c9",
+      "include/sdk_pfs_internal.h": "3bf7486adb6db16cab11ffa7dd37d2f9a5ccd6a8920c281b9c12d45028f74390",
+      "include/sdk_pi_device.h": "e2ffc49fd3de308f2d0daf75a038f098dac0024c413e1fb77b7ca51e01018b44",
+      "include/sdk_pi_disk.h": "203c9449cf329958baec21c9b2669e1036d6514c191d3853ba6c2356ae3bc01e",
+      "include/sdk_pi_dma.h": "40d7b5755f20a5eab62933f09fe065061653d4e11ef001b7dd7acd9dd0a0632d",
+      "include/sdk_pi_transfer.h": "fe0c22783ee9a451956ee0dfc8457193dcdf9869b0d5ef5f7d0b88d2a61c8420",
+      "include/sdk_pi_word.h": "bd173c27d20848bb1b478b504e81b4c904c104f37bc1c9dec1e9bd118d2e63b9",
+      "include/sdk_rsp.h": "08a2b63a4d4490026a351cc62f776283466a4de2a7c5338551c34ecd53a69264",
+      "include/sdk_short_math.h": "19b800ee2bc1a36ace67534a97c988c202a9ebc113b251a219e3b16c60d432fd",
+      "include/sdk_si.h": "62e3254e0054007d65bc3aacb4845c8bd78d9b62de0da61139803a3f0ae3bc22",
+      "include/sdk_sp_task.h": "c3fa6c6fcfdfaeabf65c587d3dd93529b815e3d1daf480c542b3fdd0e1f988a3",
+      "include/sdk_thread_internal.h": "4fd56075b2805387d3ae54cd08f671c844d2917f35e7af435c17e73abe761488",
+      "include/sdk_time.h": "d48cb13eca9b32c5101f450880e1dbef33209fdbe9492080a7f2013359214762",
+      "include/sdk_timers.h": "1002e9c9f6126c5fe5a1ec619af273ea81e4db3d2d53de4b6de48e4ad27a676e",
+      "include/sdk_video_internal.h": "a266c0283417fb2f11355242ecd14b62112c484841b01ed16bc5f6f906c6148f",
+      "include/sdk_video_manager.h": "bf982a62f168ce834f7d12e76c9d8486e55e01cc75b0c7fa90c68c7baef6ecca",
+      "include/session_menu_internal.h": "0593514df146ea9df633c5ddf39c4400664771d76996341ceaecb3b32b667991",
+      "include/session_setup_internal.h": "8d1a1ee1780f7d27285bffc33f9890733c6e3574da5ef7134cd73cec53d95ef4",
+      "include/sound_bridge_internal.h": "f5de1a7e5b00eecbd808a99391a8fbf3e777e837dcde94ee08ed5df353f7db48",
+      "include/text.h": "c05f7521fd922fa69c1afd3a83991bb58b022a56d8cc2cae489bb5d26d2fc290",
+      "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
+      "src/game/model_normals_blend.c": "ce283ddd8c06a1a817bf9d2496d5b5b8f962503a6caa7a52940e4a089ea0bd29",
+      "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
+      "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
+    },
+    "expected_size": 512,
+    "actual_size": 512,
+    "matches": true,
+    "different_words": []
+  },
+  "retail_loader": {
+    "instruction_bytes": 904,
+    "sha256": "d82adc2daa2cd1a02e4b0807b234e355796434798dbfb4028e9b1faaedbdec0b",
+    "source_owned": false
+  },
+  "audit_source_sha256": "56208c19e14cd5725d3489bc2ad14fe41d3cbdaf2e468fbafeb885d4a701e8fd",
+  "audit_inputs_sha256": {
+    "tools/check_object_projection.py": "56208c19e14cd5725d3489bc2ad14fe41d3cbdaf2e468fbafeb885d4a701e8fd",
+    "tools/check_actor_group_path.py": "590209f555821cb3c375eed0deb342702cdc7fc9defdfde8014c176a2a262fb3",
+    "tools/compare_runtime.py": "7f5565e87a6cd9d94d544e4f6cc787f4a71d93e73ac655f6d4294b1533fbc92c",
+    "tools/compare_startup.py": "175fd810a17671292f1372f1dced333b1f1ab4dbaaa4131d6a70516fa9614c6f",
+    "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
+    "tools/rom.py": "e0a61a3034aad22593a66275e77cc828765b83185291872325fc23ea3881a3e2"
+  },
+  "limits": [
+    "Loader cache hits only; file loading and miss paths are not covered.",
+    "No callee stubs. The loader executes retail fallback, not recovered C.",
+    "This audit adds no source-owned instructions or data; visual gameplay remains unproved."
+  ],
+  "independent_reference": {
+    "tool": "spimdisasm 1.42.4 and MIPS binutils",
+    "instruction_bytes": 376,
+    "retail_equal": true,
+    "assembler_alignment_bytes_trimmed": 8,
+    "reassembled_sha256": "748b3e66128caf4dfb7fa9a82a384fcdf65846cb440178ad13a0817c03c633d6",
+    "generated_assembly_sha256": "5f3aa774e615a5385e900a58dcb4018a926774b66e322fa4a7b7187b9aa8730f"
+  },
+  "validation": {
+    "linux_tests": 163,
+    "windows_tests": 163,
+    "windows_skips": 4,
+    "rom_bytes": 8388608,
+    "rom_equal": true,
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "note": "Current rebuild and unchanged accepted source inputs. ROM includes extracted fallback.",
+    "build_log_sha256": "7d08ab4edb6bced8527174d4ec3f72c8cd6834f19a4302c572680f7bba597142",
+    "linux_test_log_sha256": "12a93dd471608c189cf26cc643db9b728470b4d84b2a01aeb36edb52f018a5d6",
+    "windows_test_log_sha256": "83d3505f68f068f5367d027f19930b9bfd19743ee4c2a8033b1dc48b990c2cc9"
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "saved": true,
+    "canonical_types": {
+      "RendererModelCacheRecord": 20,
+      "RendererAnimationCacheRecord": 16,
+      "ObjectProjectionResourceArena": 14416,
+      "ObjectProjectionContext": 12
+    },
+    "candidate_signature": "void func_8003B2B0(int index, int frame)",
+    "context_pointer_global_retyped": false,
+    "note": "8009B168 lies outside current program memory. No cache arrays or neighbouring symbols were replaced."
+  }
+}

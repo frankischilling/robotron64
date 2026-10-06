@@ -38,9 +38,11 @@ stack frame. Every local is used by the recovered behavior.
 candidate in `src/game/renderer_resources/load.c`. It remains excluded
 from the matching manifest and ROM link. Its remaining instruction
 differences are tracked in [issue 65](https://github.com/frankischilling/robotron64/issues/65).
-The pinned IDO 5.3 game profile produces exactly 904 bytes with sixteen
-differing words. Those words concern the cache pointer's stack offset and
-pointer register allocation; the complete function still needs a match.
+The current pinned IDO 5.3 comparison produces exactly 904 live bytes with
+eleven differing words, all pointer register choices. The raw object also
+contains eight zero alignment bytes, checked separately against retail.
+The complete function still needs a match; the original PR 66 ledger below
+retains its historical sixteen-word comparison.
 
 The three signed arguments select a model, animation, and bitmap. A model
 of `-1` is skipped; animations are accepted from 0 through 254; negative

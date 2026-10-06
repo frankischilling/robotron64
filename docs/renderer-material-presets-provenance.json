@@ -720,7 +720,7 @@
     "spimdisasm_version": "1.42.4"
   },
   "inputs_sha256": {
-    "Makefile": "e59c677e10dd183993488c3fef3dcf0ce8af91ad63de027ad3fd7ed3f34d57ce",
+    "Makefile": "8f75905de1bffff2e5004fb005320dddbe6dd42456704c0ff9e51d2024a38166",
     "linker_scripts/us.ld": "afb2c20db6126e1cda1b1bf043f68bbcc8de13d02f9c66e7147468054be67fb8",
     "tools/extract.py": "83325a13481acc02e24d02c0d528091d91c41ea0c343b69d311dd67c548d979c",
     "config/owned_sections.json": "44a1a45095fad2919a301f64b7bddd87812bb4d15d9e5c97563199479b59adfb",
@@ -790,5 +790,14 @@
       "match_percent": 100,
       "report_sha256": "8e590de7b58f5fc5641cbfe689cc391de47b7669b2e6426877432ee66ff784ad"
     }
-  ]
+  ],
+  "build_configuration_refresh": {
+    "reason": "Makefile adds only the excluded projection audit target. Accepted compiler recipes, source and headers are unchanged.",
+    "previous_makefile_sha256": "e59c677e10dd183993488c3fef3dcf0ce8af91ad63de027ad3fd7ed3f34d57ce",
+    "current_makefile_sha256": "8f75905de1bffff2e5004fb005320dddbe6dd42456704c0ff9e51d2024a38166",
+    "current_rebuild_rom_equal": true,
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "rebuild_log_sha256": "7d08ab4edb6bced8527174d4ec3f72c8cd6834f19a4302c572680f7bba597142",
+    "note": "Instruction comparisons and guarded execution results retain their existing verified inputs. This build-only refresh adds no source ownership."
+  }
 }

@@ -7849,6 +7849,10 @@ RUNTIME_OBJECTS += build/us/renderer_rotating_rings.o
 check-renderer-rotating-rings:
 	$(PYTHON) tools/check_renderer_rotating_rings.py
 
+.PHONY: audit-object-projection
+audit-object-projection:
+	$(PYTHON) tools/check_object_projection.py
+
 
 build/us/renderer_depth_blend_origin.o: src/game/renderer_setup/depth_blend_origin.c include/model_geometry_internal.h include/renderer_primitives_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	@mkdir -p build/us
