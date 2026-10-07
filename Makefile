@@ -8192,6 +8192,51 @@ RUNTIME_OBJECTS += build/us/text_records.o build/us/text_width_lowercase.o build
 audit-text-storage:
 	$(PYTHON) tools/check_text_storage.py
 
+build/us/actor_resources_primary.o: src/game/actor_resources/primary.c include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_resources_primary.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_resources_primary.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_resources_enemies.o: src/game/actor_resources/enemies.c include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_resources_enemies.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_resources_enemies.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_resources_child_variants.o: src/game/actor_resources/child_variants.c include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_resources_child_variants.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_resources_child_variants.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_resources_secondary.o: src/game/actor_resources/secondary.c include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_resources_secondary.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_resources_secondary.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_resources_small.o: src/game/actor_resources/small.c include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_resources_small.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_resources_small.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_resources_player.o: src/game/actor_resources/player.c include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_resources_player.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_resources_player.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/actor_resources_early.o: src/game/actor_resources/early.c include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor.h include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_resources_early.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_resources_early.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_resources_primary.o build/us/actor_resources_enemies.o build/us/actor_resources_child_variants.o build/us/actor_resources_secondary.o build/us/actor_resources_small.o build/us/actor_resources_player.o build/us/actor_resources_early.o
+
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8225,3 +8270,7 @@ clean:
 .PHONY: check-menu-display
 check-menu-display:
 	$(PYTHON) tools/check_menu_display.py
+
+.PHONY: audit-actor-resource-storage
+audit-actor-resource-storage: toolchain
+	$(PYTHON) tools/check_actor_resource_storage.py

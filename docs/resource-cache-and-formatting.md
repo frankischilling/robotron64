@@ -120,8 +120,13 @@ the matching manifest and ROM link. This audit adds zero source-owned bytes.
 Loader miss paths, file loading and visual gameplay are outside its scope.
 Current compiler inputs and execution results are recorded in
 `object-projection-execution-audit.json`. Ghidra contains the canonical types,
-bounded functions, signatures and behavior notes; its current program lacks
-memory at the context-pointer BSS address, so that global was not retyped.
+bounded functions, signatures and behavior notes. The earlier audit left
+`D_8009B168` unmapped. The later [resource storage recovery](actor-resource-storage.md)
+maps that pointer word inside the complete `D_8009B138` record, at offset `0x30`.
+It aliases `animation.tracks[2]`; the projection view reads its pointed-to
+signed halfword at offset `0x0A`. The two views agree on the accessed bytes
+without establishing a broader meaning for that context. The alias adds no
+storage or matching instructions.
 
 ## Evidence
 

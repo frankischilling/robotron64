@@ -81,7 +81,7 @@ typedef char TextGlyphResourceMustBe88Bytes[sizeof(TextGlyphResource) == 0x58 ? 
 extern int D_80072B40[26];
 extern int D_80072BA8[10];
 extern TextRecord D_800B6FF8[30];
-extern TextGlyphResource D_800B1BE8[];
+extern TextGlyphResource D_800B1BE8[244];
 extern char D_8008F620[];
 extern void func_8001C0D0(char *format, ...);
 extern int func_80039E1C(int object, int value);

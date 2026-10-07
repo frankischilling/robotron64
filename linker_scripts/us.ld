@@ -53,7 +53,6 @@ __bss_size = 0x1003B0;
 __bss_end = __bss_start + __bss_size;
 __initial_stack_top = 0x8013A280;
 
-D_800B1BE8 = 0x800B1BE8;
 D_8008F620 = 0x8008F620;
 
 D_8008F64C = 0x8008F64C;
@@ -1610,6 +1609,13 @@ SECTIONS
     .scene_action_pickup_count 0x800BAE8C (NOLOAD) : SUBALIGN(4) { build/us/scene_action_pickup_count.o(.bss) }
     .early_boss_timestamps 0x80097354 (NOLOAD) : SUBALIGN(4) { build/us/early_boss_timestamps.o(.bss) }
     .text_records_bss 0x800B6FF8 (NOLOAD) : SUBALIGN(4) { build/us/text_records.o(.bss) }
+    .actor_resources_primary_bss 0x800B1BE8 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_primary.o(.bss) }
+    .actor_resources_enemies_bss 0x800AF1F0 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_enemies.o(.bss) }
+    .actor_resources_child_variants_bss 0x800ACE58 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_child_variants.o(.bss) }
+    .actor_resources_secondary_bss 0x8009AA00 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_secondary.o(.bss) }
+    .actor_resources_small_bss 0x8009AFD8 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_small.o(.bss) }
+    .actor_resources_player_bss 0x8009B138 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_player.o(.bss) }
+    .actor_resources_early_bss 0x8009EA18 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_early.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2789,7 +2795,6 @@ D_800761F4 = 0x800761F4;
 D_800BB128 = 0x800BB128;
 D_8007D8FC = 0x8007D8FC;
 D_800AD318 = 0x800AD318;
-D_8009EA18 = 0x8009EA18;
 D_8009EE04 = 0x8009EE04;
 ASSERT(SIZEOF(.save_menu_pak_name_select) == 0x90, "save_menu_pak_name_select size changed")
 ASSERT(SIZEOF(.early_signature_gate) == 0x94, "early_signature_gate size changed")
@@ -2822,7 +2827,6 @@ D_8009B190 = 0x8009B190;
 ASSERT(SIZEOF(.session_selection_lookup) == 0x8c, "session_selection_lookup size changed")
 ASSERT(SIZEOF(.early_angle_step) == 0x80, "early_angle_step size changed")
 D_800AA708 = 0x800AA708;
-D_800ACE58 = 0x800ACE58;
 ASSERT(SIZEOF(.scene_actor_mode_list) == 0x174, "scene_actor_mode_list size changed")
 ASSERT(SIZEOF(.actor_child_random_motion) == 0x17c, "actor_child_random_motion size changed")
 ASSERT(SIZEOF(.actor_collision_separate) == 0x154, "actor_collision_separate size changed")
@@ -2934,7 +2938,6 @@ ASSERT(SIZEOF(.pak_confirmation_fallback_94140_94428) == 0x2e8, "pak_confirmatio
 ASSERT(SIZEOF(.actor_pool_allocate_bss) == 0x60E0, "actor pool size changed")
 D_800A4620 = 0x800A4620;
 D_800759EC = 0x800759EC;
-D_800AF1F0 = 0x800AF1F0;
 ASSERT(SIZEOF(.endgame_cac0_d950) == 0xe90, "endgame_cac0_d950 size changed")
 ASSERT(SIZEOF(.early_relative_position) == 0xe4, "early_relative_position size changed")
 ASSERT(SIZEOF(.actor_contact_gate) == 0x278, "actor_contact_gate size changed")
@@ -3317,3 +3320,37 @@ ASSERT(D_80072B40 == ADDR(.text_width_lowercase), "lowercase widths symbol moved
 ASSERT(ADDR(.text_width_digits) == 0x80072BA8, "digit widths moved")
 ASSERT(SIZEOF(.text_width_digits) == 40, "digit widths size changed")
 ASSERT(D_80072BA8 == ADDR(.text_width_digits), "digit widths symbol moved")
+
+ASSERT(ADDR(.actor_resources_primary_bss) == 0x800B1BE8, "primary resource pool moved")
+ASSERT(SIZEOF(.actor_resources_primary_bss) == 0x53E0, "primary resource pool size changed")
+ASSERT(D_800B1BE8 == ADDR(.actor_resources_primary_bss), "primary resource pool symbol moved")
+ASSERT(ADDR(.actor_resources_enemies_bss) == 0x800AF1F0, "enemies resource pool moved")
+ASSERT(SIZEOF(.actor_resources_enemies_bss) == 0xEA0, "enemies resource pool size changed")
+ASSERT(D_800AF1F0 == ADDR(.actor_resources_enemies_bss), "enemies resource pool symbol moved")
+ASSERT(ADDR(.actor_resources_child_variants_bss) == 0x800ACE58, "child_variants resource pool moved")
+ASSERT(SIZEOF(.actor_resources_child_variants_bss) == 0x2C0, "child_variants resource pool size changed")
+ASSERT(D_800ACE58 == ADDR(.actor_resources_child_variants_bss), "child_variants resource pool symbol moved")
+ASSERT(ADDR(.actor_resources_secondary_bss) == 0x8009AA00, "secondary resource pool moved")
+ASSERT(SIZEOF(.actor_resources_secondary_bss) == 0x5C0, "secondary resource pool size changed")
+ASSERT(D_8009AA00 == ADDR(.actor_resources_secondary_bss), "secondary resource pool symbol moved")
+ASSERT(ADDR(.actor_resources_small_bss) == 0x8009AFD8, "small resource pool moved")
+ASSERT(SIZEOF(.actor_resources_small_bss) == 0x160, "small resource pool size changed")
+ASSERT(D_8009AFD8 == ADDR(.actor_resources_small_bss), "small resource pool symbol moved")
+ASSERT(ADDR(.actor_resources_player_bss) == 0x8009B138, "player resource pool moved")
+ASSERT(SIZEOF(.actor_resources_player_bss) == 0x58, "player resource pool size changed")
+ASSERT(D_8009B138 == ADDR(.actor_resources_player_bss), "player resource pool symbol moved")
+ASSERT(ADDR(.actor_resources_early_bss) == 0x8009EA18, "early resource pool moved")
+ASSERT(SIZEOF(.actor_resources_early_bss) == 0x1E0, "early resource pool size changed")
+ASSERT(D_8009EA18 == ADDR(.actor_resources_early_bss), "early resource pool symbol moved")
+D_800B1F58 = D_800B1BE8 + 10 * 0x58;
+ASSERT(D_800B1F58 == 0x800B1F58, "primary resource alias 10 moved")
+ASSERT(D_800B27F0 == 0x800B27F0, "primary resource alias 35 moved")
+D_800B3D40 = D_800B1BE8 + 97 * 0x58;
+ASSERT(D_800B3D40 == 0x800B3D40, "primary resource alias 97 moved")
+D_800B4630 = D_800B1BE8 + 123 * 0x58;
+ASSERT(D_800B4630 == 0x800B4630, "primary resource alias 123 moved")
+D_800B5658 = D_800B1BE8 + 170 * 0x58;
+ASSERT(D_800B5658 == 0x800B5658, "primary resource alias 170 moved")
+D_800B59C8 = D_800B1BE8 + 180 * 0x58;
+ASSERT(D_800B59C8 == 0x800B59C8, "primary resource alias 180 moved")
+ASSERT(D_800B5C30 == 0x800B5C30, "primary resource alias 187 moved")

@@ -29,9 +29,9 @@
   },
   "inputs_sha256": {
     "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-    "config/owned_sections.json": "857502c5578ad94b30c537c14335e6363a864739b297e74e61a74fe02caae2ce",
-    "config/runtime_symbols.ld": "a0d7d342a42eaf20d91aff6844511c24099e91e2cdaa0668d71ccde7ca098667",
-    "config/startup_symbols.ld": "d75e47cb0a27c33361d6f41aacef3d6c88d5c470d6cc288d9c984274285c08fb",
+    "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
+    "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
+    "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
     "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
@@ -44,7 +44,7 @@
     "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
     "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
     "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
-    "include/text.h": "64e92cc4affbec330f6f057a618e1ff1f2c33abd2f31ae181d3fc2bf2ea49a3b",
+    "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
     "src/game/actor_groups/bonus_child.c": "a0d0a011ba3ab453f2465578843daf6e37fe847236dcf7f02a54308d8f2cb4d3",
     "tools/check_actor_bonus_child.py": "c9ee7cff6afdccca3cc4551ac815c9fad9f7f0fb391a9e0e22870ff0cb86ae6d",
     "tools/check_actor_group_path.py": "913f59275b43e00062b45989def982da6e9f6502c3f149d0daca2505a34c944d",
@@ -156,7 +156,7 @@
       "package": "unicorn",
       "version": "2.1.1"
     },
-    "report_sha256": "9460a37afa4d70562a2d0a9352cadeba606d6689eb90b65d99ed689ff0b64107"
+    "report_sha256": "665b615204ba0d5f3b8073d2185d577a346f91a8d30e25ca2d6bc73275721eb0"
   },
   "tool_views": [
     {

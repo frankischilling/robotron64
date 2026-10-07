@@ -4477,5 +4477,96 @@
       "D_80072BA8": 0
     },
     "evidence": "docs/text-record-storage.md"
+  },
+  {
+    "source": "src/game/actor_resources/primary.c",
+    "object": "build/us/actor_resources_primary.o",
+    "input_section": ".bss",
+    "section": ".actor_resources_primary_bss",
+    "vram": 2148211688,
+    "rom": null,
+    "size": 21472,
+    "symbols": {
+      "D_800B1BE8": 0
+    },
+    "evidence": "docs/actor-resource-storage.md"
+  },
+  {
+    "source": "src/game/actor_resources/enemies.c",
+    "object": "build/us/actor_resources_enemies.o",
+    "input_section": ".bss",
+    "section": ".actor_resources_enemies_bss",
+    "vram": 2148200944,
+    "rom": null,
+    "size": 3744,
+    "symbols": {
+      "D_800AF1F0": 0
+    },
+    "evidence": "docs/actor-resource-storage.md"
+  },
+  {
+    "source": "src/game/actor_resources/child_variants.c",
+    "object": "build/us/actor_resources_child_variants.o",
+    "input_section": ".bss",
+    "section": ".actor_resources_child_variants_bss",
+    "vram": 2148191832,
+    "rom": null,
+    "size": 704,
+    "symbols": {
+      "D_800ACE58": 0
+    },
+    "evidence": "docs/actor-resource-storage.md"
+  },
+  {
+    "source": "src/game/actor_resources/secondary.c",
+    "object": "build/us/actor_resources_secondary.o",
+    "input_section": ".bss",
+    "section": ".actor_resources_secondary_bss",
+    "vram": 2148116992,
+    "rom": null,
+    "size": 1472,
+    "symbols": {
+      "D_8009AA00": 0
+    },
+    "evidence": "docs/actor-resource-storage.md"
+  },
+  {
+    "source": "src/game/actor_resources/small.c",
+    "object": "build/us/actor_resources_small.o",
+    "input_section": ".bss",
+    "section": ".actor_resources_small_bss",
+    "vram": 2148118488,
+    "rom": null,
+    "size": 352,
+    "symbols": {
+      "D_8009AFD8": 0
+    },
+    "evidence": "docs/actor-resource-storage.md"
+  },
+  {
+    "source": "src/game/actor_resources/player.c",
+    "object": "build/us/actor_resources_player.o",
+    "input_section": ".bss",
+    "section": ".actor_resources_player_bss",
+    "vram": 2148118840,
+    "rom": null,
+    "size": 88,
+    "symbols": {
+      "D_8009B138": 0
+    },
+    "evidence": "docs/actor-resource-storage.md"
+  },
+  {
+    "source": "src/game/actor_resources/early.c",
+    "object": "build/us/actor_resources_early.o",
+    "input_section": ".bss",
+    "section": ".actor_resources_early_bss",
+    "vram": 2148133400,
+    "rom": null,
+    "size": 480,
+    "symbols": {
+      "D_8009EA18": 0
+    },
+    "evidence": "docs/actor-resource-storage.md"
   }
 ]
