@@ -48,10 +48,10 @@ sizes, hashes and measured conclusions. Tool sources and N64 reference projects
 are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-study.md).
 No third-party game implementation or generated retail code is added here.
 
-Fresh acceptance checks cover all 905 runtime comparison units, two startup
+Fresh acceptance checks cover all 906 runtime comparison units, two startup
 units, eighteen assembly units and 179 data-only units. The clean build matches
-all 8,388,608 retail bytes. The checkpoint has 1,423 matching C functions /
-308,272 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized
+all 8,388,608 retail bytes. The checkpoint has 1,424 matching C functions /
+308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized
 data bytes and 870,293 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -86,6 +86,17 @@ positive controls. String helpers
 execute matching code; diagnostics, file services and scene submission use
 recorded integer ABI boundaries.
 
+[HUD state dispatch](game-hud-state.md) adds one complete matching C
+function / 524 instruction bytes, with no new data or BSS. Splat and spimdisasm
+independently reproduce the natural 131-instruction extent; fresh and cached
+workbench checks, asm-differ and objdiff agree. A bounded four-worker permuter
+search retained stack differences; the final readable source was independently
+compiled and guarded. Ghidra and IDO agree on 260 size, alignment, offset and
+width probes across six types and 124 ordinary fields. All 595 paired cases,
+eleven isolated source mutations and four bounds controls pass. The evidence
+preserves retail's uninitialized single-player secondary powers word and
+limits execution claims to the caller's fifteen-word ABI boundary.
+
 [Audio startup storage](audio-startup-storage.md) adds ten complete C-owned
 sections totaling 279,320 BSS bytes. Its 786 paired execution cases and eight
 rejected mutations cover startup, scheduler cycling, heap boundaries and
@@ -111,6 +122,6 @@ The object projection candidate at `8003B2B0` remains excluded. A separate
 400 suggestions. Independent compilation of the twenty lowest-scoring forms
 still found complete-function mismatches. Those scores add no matching credit.
 
-Full source recovery remains incomplete: 141,912 declared fallback CPU bytes
-in 187 spans and 164 unclassified bytes remain. The executable/function
+Full source recovery remains incomplete: 141,388 declared fallback CPU bytes
+in 186 spans and 164 unclassified bytes remain. The executable/function
 denominator is unknown, and these checks do not establish complete gameplay.

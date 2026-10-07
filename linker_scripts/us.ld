@@ -9,7 +9,7 @@ D_8009B0E0 = 0x8009B0E0;
 D_800B4B00 = 0x800B4B00;
 D_80097350 = 0x80097350;
 D_80073574 = 0x80073574;
-D_800AD1B8 = 0x800AD1B8;
+D_800AD1B8 = D_800AD138 + 0x80;
 func_80031ECC = 0x80031ECC;
 D_FLT_800C8DF8 = 0x800C8DF8;
 D_FLT_800C8DF4 = 0x800C8DF4;
@@ -507,7 +507,7 @@ SECTIONS
     .scene_parent_follow 0x80036ED8 : AT(0x37AD8) SUBALIGN(4) { build/us/scene_parent_follow.o(.text) }
     .scene_bonus_spawn 0x80037050 : AT(0x37C50) SUBALIGN(4) { build/us/scene_bonus_spawn.o(.text) }
     .scene_bucket_counter 0x80037144 : AT(0x37D44) SUBALIGN(4) { build/us/scene_bucket_counter.o(.text) }
-    .cpu_after_scene_bucket_counter 0x800371FC : AT(0x37DFC) { build/us/fallback.o(.rom_cpu_after_scene_bucket_counter) }
+    .game_hud_state 0x800371FC : AT(0x37DFC) SUBALIGN(4) { build/us/game_hud_state.o(.text) }
     .debug_context_set 0x80037408 : AT(0x38008) SUBALIGN(4) { build/us/debug_context_set.o(.text) }
     .cpu_after_debug_context_set 0x80037418 : AT(0x38018) { build/us/fallback.o(.rom_cpu_after_debug_context_set) }
     .debug_text_draw 0x80037420 : AT(0x38020) SUBALIGN(4) { build/us/debug_text_draw.o(.text) }
@@ -1895,7 +1895,8 @@ ASSERT(SIZEOF(.scene_actor_motion_reset) == 0x108, "scene_actor_motion_reset siz
 ASSERT(SIZEOF(.scene_service_noop) == 0x8, "scene_service_noop size changed")
 ASSERT(SIZEOF(.scene_parent_follow) == 0x178, "scene_parent_follow size changed")
 ASSERT(SIZEOF(.scene_bucket_counter) == 0xb8, "scene_bucket_counter size changed")
-ASSERT(SIZEOF(.cpu_after_scene_bucket_counter) == 0x20c, "cpu_after_scene_bucket_counter size changed")
+ASSERT(SIZEOF(.game_hud_state) == 0x20c, "game_hud_state size changed")
+ASSERT(func_800371FC == ADDR(.game_hud_state), "HUD state entry moved")
 ASSERT(SIZEOF(.debug_context_set) == 0x10, "debug_context_set size changed")
 ASSERT(SIZEOF(.cpu_after_debug_context_set) == 0x8, "cpu_after_debug_context_set size changed")
 ASSERT(SIZEOF(.debug_text_draw) == 0xa8, "debug_text_draw size changed")
@@ -2648,7 +2649,7 @@ ASSERT(SIZEOF(.early_animation_callback) == 0xfc, "early_animation_callback size
 ASSERT(SIZEOF(.early_session_animation) == 0x68, "early_session_animation size changed")
 ASSERT(SIZEOF(.early_reset_parameter) == 0x3c, "early_reset_parameter size changed")
 ASSERT(SIZEOF(.early_reset_parameter_data) == 0xc, "early_reset_parameter_data size changed")
-D_800AD1C8 = 0x800AD1C8;
+D_800AD1C8 = D_800AD138 + 0x90;
 D_800972C0 = 0x800972C0;
 D_800972C8 = 0x800972C8;
 D_80097318 = 0x80097318;

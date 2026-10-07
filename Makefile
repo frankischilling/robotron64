@@ -3086,7 +3086,8 @@ RUNTIME_OBJECTS += \
 
 RUNTIME_OBJECTS += \
     build/us/movie_start.o \
-    build/us/movie_update.o
+    build/us/movie_update.o \
+    build/us/game_hud_state.o
 
 RUNTIME_OBJECTS += \
     build/us/actor_pool_reset.o \
@@ -8417,3 +8418,13 @@ build/us/audio_startup_generation_mode.o: src/game/audio/startup/generation_mode
 .PHONY: audit-audio-startup-storage
 audit-audio-startup-storage: toolchain
 	$(PYTHON) tools/check_audio_startup_storage.py
+
+build/us/game_hud_state.o: src/game/game_hud_state.c include/actor.h include/actor_behavior_internal.h include/destination_format.h include/early_game_state.h include/game_hud_state.h include/game_memory.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_hud_state.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/game_hud_state.raw.o $@ .text 0x20c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: audit-game-hud-state
+audit-game-hud-state: toolchain
+	$(PYTHON) tools/check_game_hud_state.py

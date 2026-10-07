@@ -60,7 +60,6 @@ REGIONS = (
     ("endgame_34574_35d90", 0x34574, 0x35d90),
     ("cpu_after_sound_bridge_core", 0x36ce8, 0x36cf0),
     ("resource_cache_fallback_37268_37270", 0x37268, 0x37270),
-    ("cpu_after_scene_bucket_counter", 0x37dfc, 0x38008),
     ("cpu_after_debug_context_set", 0x38018, 0x38020),
     ("cpu_after_debug_text_draw", 0x380c8, 0x380d0),
     ("cpu_after_resource_string_load", 0x3916c, 0x39170),

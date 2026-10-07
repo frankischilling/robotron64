@@ -2,13 +2,13 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
-Current verified totals are 1,423 matching C functions / 308,272 instruction
+Current verified totals are 1,424 matching C functions / 308,796 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized bytes
 and 870,293 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
-There remain 141,912 declared fallback CPU bytes in 187 spans and 164 unclassified
+There remain 141,388 declared fallback CPU bytes in 186 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
 
@@ -17,7 +17,7 @@ BSS and both width tables add 144 initialized bytes. All thirty allocation slots
 exhaustion and the full reset pass 744 guarded cases per image; another 1,024
 cases check every byte-valued character. Five isolated source mutations are rejected. The
 [current matching-tool audit](matching-tools-current.md) independently compares
-905 runtime units, two startup units, eighteen assembly units and 179 data-only
+906 runtime units, two startup units, eighteen assembly units and 179 data-only
 units. The bonus-child candidate improves from six differing words to four and
 remains excluded from the matching build.
 
@@ -39,6 +39,17 @@ in three complete sections. All 630 paired cases and seven isolated mutation
 controls pass. The registry and offset resets cover every element; lookups
 preserve case folding, signed offsets and strict scene boundaries. Pinned IDO
 and Ghidra agree on twenty size, alignment and field checks across three types.
+
+[HUD state dispatch](game-hud-state.md) adds one complete matching C
+function / 524 instruction bytes, with no new data or BSS. Splat and spimdisasm
+independently reproduce the natural 131-instruction extent; fresh and cached
+workbench checks, asm-differ and objdiff agree. A bounded four-worker permuter
+search retained stack differences; the final readable source was independently
+compiled and guarded. Ghidra and IDO agree on 260 size, alignment, offset and
+width probes across six types and 124 ordinary fields. All 595 paired cases,
+eleven isolated source mutations and four bounds controls pass. The evidence
+preserves retail's uninitialized single-player secondary powers word and
+limits execution claims to the caller's fifteen-word ABI boundary.
 
 [Audio startup storage](audio-startup-storage.md) adds ten complete C-owned
 sections totaling 279,320 BSS bytes. Its 786 paired execution cases and eight

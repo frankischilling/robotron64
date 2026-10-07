@@ -16008,5 +16008,16 @@
     "section": ".movie_update",
     "section_vram": 2147503164,
     "evidence": "docs/movie-playback.md"
+  },
+  {
+    "name": "func_800371FC",
+    "rom": 228860,
+    "vram": 2147709436,
+    "size": 524,
+    "source": "src/game/game_hud_state.c",
+    "object": "build/us/game_hud_state.o",
+    "section": ".game_hud_state",
+    "section_vram": 2147709436,
+    "evidence": "docs/game-hud-state.md"
   }
 ]

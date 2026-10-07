@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("game_hud_state", "src/game/game_hud_state.c", 0x800371FC, 0x80037408),
     ("early_input_sequence_define", "src/game/input_sequences/define.c", 0x8001BE2C, 0x8001BF48),
     ("renderer_rotating_rings", "src/game/renderer_surfaces/rotating_rings.c", 0x80040968, 0x80040BA0),
     ("palette_transition_update", "src/game/palette_effects/transition_update.c", 0x80031ECC, 0x8003237C),

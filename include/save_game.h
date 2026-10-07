@@ -18,7 +18,11 @@ typedef struct SavedPlayerState {
     int value24;
     unsigned char unknown28[0xC];
     int field34;
-    unsigned char unknown38[0x68];
+    unsigned char unknown38[0x34];
+    int field6C;
+    int field70;
+    int field74;
+    unsigned char unknown78[0x28];
 } SavedPlayerState;
 
 typedef struct GamePlayerState {
