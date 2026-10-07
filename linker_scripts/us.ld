@@ -1624,6 +1624,16 @@ SECTIONS
     .script_storage_scenes_bss 0x800A42B0 (NOLOAD) : SUBALIGN(4) { build/us/script_storage_scenes.o(.bss) }
     .movie_storage_tracks_bss 0x800B00B8 (NOLOAD) : SUBALIGN(4) { build/us/movie_storage_tracks.o(.bss) }
     .movie_storage_configuration_bss 0x800B14B0 (NOLOAD) : SUBALIGN(4) { build/us/movie_storage_configuration.o(.bss) }
+    .audio_startup_temporary_allocation_bss 0x8014BE50 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_temporary_allocation.o(.bss) }
+    .audio_startup_task_records_bss 0x8014BE58 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_task_records.o(.bss) }
+    .audio_startup_scheduler_records_bss 0x8014BF78 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_scheduler_records.o(.bss) }
+    .audio_startup_synthesis_heap_bss 0x8014C080 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_synthesis_heap.o(.bss) }
+    .audio_startup_thread_stack_bss 0x8018DF30 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_thread_stack.o(.bss) }
+    .audio_startup_message_queues_bss 0x8018FF30 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_message_queues.o(.bss) }
+    .audio_startup_thread_state_bss 0x8018FFA0 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_thread_state.o(.bss) }
+    .audio_startup_bank_cursor_bss 0x80190150 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_bank_cursor.o(.bss) }
+    .audio_startup_heap_state_bss 0x80190158 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_heap_state.o(.bss) }
+    .audio_startup_generation_mode_bss 0x80190168 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_generation_mode.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -3396,3 +3406,47 @@ ASSERT(D_800B00B8 == ADDR(.movie_storage_tracks_bss) + 0x0, "D_800B00B8 movie st
 ASSERT(ADDR(.movie_storage_configuration_bss) == 0x800B14B0, "movie storage moved")
 ASSERT(SIZEOF(.movie_storage_configuration_bss) == 0x72C, "movie storage size changed")
 ASSERT(D_800B14B0 == ADDR(.movie_storage_configuration_bss) + 0x0, "D_800B14B0 movie storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_temporary_allocation_bss) == 0x8014BE50, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_temporary_allocation_bss) == 0x8, "audio startup storage size changed")
+ASSERT(D_8014BE50 == ADDR(.audio_startup_temporary_allocation_bss) + 0x0, "D_8014BE50 audio startup storage symbol moved")
+ASSERT(D_8014BE54 == ADDR(.audio_startup_temporary_allocation_bss) + 0x4, "D_8014BE54 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_task_records_bss) == 0x8014BE58, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_task_records_bss) == 0x120, "audio startup storage size changed")
+ASSERT(D_8014BE58 == ADDR(.audio_startup_task_records_bss) + 0x0, "D_8014BE58 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_scheduler_records_bss) == 0x8014BF78, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_scheduler_records_bss) == 0x108, "audio startup storage size changed")
+ASSERT(D_8014BF78 == ADDR(.audio_startup_scheduler_records_bss) + 0x0, "D_8014BF78 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_synthesis_heap_bss) == 0x8014C080, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_synthesis_heap_bss) == 0x41EB0, "audio startup storage size changed")
+ASSERT(D_8014C080 == ADDR(.audio_startup_synthesis_heap_bss) + 0x0, "D_8014C080 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_thread_stack_bss) == 0x8018DF30, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_thread_stack_bss) == 0x2000, "audio startup storage size changed")
+ASSERT(D_8018DF30 == ADDR(.audio_startup_thread_stack_bss) + 0x0, "D_8018DF30 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_message_queues_bss) == 0x8018FF30, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_message_queues_bss) == 0x70, "audio startup storage size changed")
+ASSERT(D_8018FF30 == ADDR(.audio_startup_message_queues_bss) + 0x0, "D_8018FF30 audio startup storage symbol moved")
+ASSERT(D_8018FF48 == ADDR(.audio_startup_message_queues_bss) + 0x18, "D_8018FF48 audio startup storage symbol moved")
+ASSERT(D_8018FF68 == ADDR(.audio_startup_message_queues_bss) + 0x38, "D_8018FF68 audio startup storage symbol moved")
+ASSERT(D_8018FF80 == ADDR(.audio_startup_message_queues_bss) + 0x50, "D_8018FF80 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_thread_state_bss) == 0x8018FFA0, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_thread_state_bss) == 0x1B0, "audio startup storage size changed")
+ASSERT(D_8018FFA0 == ADDR(.audio_startup_thread_state_bss) + 0x0, "D_8018FFA0 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_bank_cursor_bss) == 0x80190150, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_bank_cursor_bss) == 0x4, "audio startup storage size changed")
+ASSERT(D_80190150 == ADDR(.audio_startup_bank_cursor_bss) + 0x0, "D_80190150 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_heap_state_bss) == 0x80190158, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_heap_state_bss) == 0x10, "audio startup storage size changed")
+ASSERT(D_80190158 == ADDR(.audio_startup_heap_state_bss) + 0x0, "D_80190158 audio startup storage symbol moved")
+
+ASSERT(ADDR(.audio_startup_generation_mode_bss) == 0x80190168, "audio startup storage moved")
+ASSERT(SIZEOF(.audio_startup_generation_mode_bss) == 0x4, "audio startup storage size changed")
+ASSERT(D_80190168 == ADDR(.audio_startup_generation_mode_bss) + 0x0, "D_80190168 audio startup storage symbol moved")

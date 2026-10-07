@@ -4676,5 +4676,139 @@
       "D_800B14B0": 0
     },
     "evidence": "docs/movie-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/temporary_allocation.c",
+    "object": "build/us/audio_startup_temporary_allocation.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_temporary_allocation_bss",
+    "vram": 2148843088,
+    "rom": null,
+    "size": 8,
+    "symbols": {
+      "D_8014BE50": 0,
+      "D_8014BE54": 4
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/task_records.c",
+    "object": "build/us/audio_startup_task_records.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_task_records_bss",
+    "vram": 2148843096,
+    "rom": null,
+    "size": 288,
+    "symbols": {
+      "D_8014BE58": 0
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/scheduler_records.c",
+    "object": "build/us/audio_startup_scheduler_records.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_scheduler_records_bss",
+    "vram": 2148843384,
+    "rom": null,
+    "size": 264,
+    "symbols": {
+      "D_8014BF78": 0
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/synthesis_heap.c",
+    "object": "build/us/audio_startup_synthesis_heap.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_synthesis_heap_bss",
+    "vram": 2148843648,
+    "rom": null,
+    "size": 270000,
+    "symbols": {
+      "D_8014C080": 0
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/thread_stack.c",
+    "object": "build/us/audio_startup_thread_stack.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_thread_stack_bss",
+    "vram": 2149113648,
+    "rom": null,
+    "size": 8192,
+    "symbols": {
+      "D_8018DF30": 0
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/message_queues.c",
+    "object": "build/us/audio_startup_message_queues.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_message_queues_bss",
+    "vram": 2149121840,
+    "rom": null,
+    "size": 112,
+    "symbols": {
+      "D_8018FF30": 0,
+      "D_8018FF48": 24,
+      "D_8018FF68": 56,
+      "D_8018FF80": 80
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/thread_state.c",
+    "object": "build/us/audio_startup_thread_state.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_thread_state_bss",
+    "vram": 2149121952,
+    "rom": null,
+    "size": 432,
+    "symbols": {
+      "D_8018FFA0": 0
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/bank_cursor.c",
+    "object": "build/us/audio_startup_bank_cursor.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_bank_cursor_bss",
+    "vram": 2149122384,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_80190150": 0
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/heap_state.c",
+    "object": "build/us/audio_startup_heap_state.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_heap_state_bss",
+    "vram": 2149122392,
+    "rom": null,
+    "size": 16,
+    "symbols": {
+      "D_80190158": 0
+    },
+    "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/audio/startup/generation_mode.c",
+    "object": "build/us/audio_startup_generation_mode.o",
+    "input_section": ".bss",
+    "section": ".audio_startup_generation_mode_bss",
+    "vram": 2149122408,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_80190168": 0
+    },
+    "evidence": "docs/audio-startup-storage.md"
   }
 ]

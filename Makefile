@@ -8244,6 +8244,8 @@ RUNTIME_OBJECTS += build/us/script_storage_files.o build/us/script_storage_strin
 
 RUNTIME_OBJECTS += build/us/movie_storage_tracks.o build/us/movie_storage_configuration.o
 
+RUNTIME_OBJECTS += build/us/audio_startup_temporary_allocation.o build/us/audio_startup_task_records.o build/us/audio_startup_scheduler_records.o build/us/audio_startup_synthesis_heap.o build/us/audio_startup_thread_stack.o build/us/audio_startup_message_queues.o build/us/audio_startup_thread_state.o build/us/audio_startup_bank_cursor.o build/us/audio_startup_heap_state.o build/us/audio_startup_generation_mode.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8351,3 +8353,67 @@ build/us/movie_update.o: src/game/movie_update.c include/actor.h include/game_me
 .PHONY: audit-movie-playback
 audit-movie-playback: toolchain
 	$(PYTHON) tools/check_movie_playback.py --mutations
+
+build/us/audio_startup_temporary_allocation.o: src/game/audio/startup/temporary_allocation.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_temporary_allocation.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_temporary_allocation.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_task_records.o: src/game/audio/startup/task_records.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_task_records.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_task_records.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_scheduler_records.o: src/game/audio/startup/scheduler_records.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_scheduler_records.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_scheduler_records.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_synthesis_heap.o: src/game/audio/startup/synthesis_heap.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_synthesis_heap.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_synthesis_heap.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_thread_stack.o: src/game/audio/startup/thread_stack.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_thread_stack.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_thread_stack.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_message_queues.o: src/game/audio/startup/message_queues.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_message_queues.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_message_queues.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_thread_state.o: src/game/audio/startup/thread_state.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_thread_state.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_thread_state.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_bank_cursor.o: src/game/audio/startup/bank_cursor.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_bank_cursor.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_bank_cursor.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_heap_state.o: src/game/audio/startup/heap_state.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_heap_state.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_heap_state.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/audio_startup_generation_mode.o: src/game/audio/startup/generation_mode.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/audio_startup_generation_mode.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/audio_startup_generation_mode.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: audit-audio-startup-storage
+audit-audio-startup-storage: toolchain
+	$(PYTHON) tools/check_audio_startup_storage.py

@@ -49,10 +49,10 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 905 runtime comparison units, two startup
-units, eighteen assembly units and 169 data-only units. The clean build matches
+units, eighteen assembly units and 179 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,423 matching C functions /
 308,272 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized
-data bytes and 590,973 BSS bytes. The text pool contributes 8,040 BSS bytes and
+data bytes and 870,293 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
 reset and every byte-valued character, with five rejected mutations.
@@ -85,6 +85,11 @@ All 630 paired execution cases pass and seven isolated mutations fail after
 positive controls. String helpers
 execute matching code; diagnostics, file services and scene submission use
 recorded integer ABI boundaries.
+
+[Audio startup storage](audio-startup-storage.md) adds ten complete C-owned
+sections totaling 279,320 BSS bytes. Its 786 paired execution cases and eight
+rejected mutations cover startup, scheduler cycling, heap boundaries and
+generation-mode storage within the documented service limits.
 
 The [movie storage audit](movie-storage.md) adds 6,936 BSS bytes across the
 complete 25-track pool and movie configuration. Nine types and 73 ordinary
