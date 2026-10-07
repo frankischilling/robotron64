@@ -31,9 +31,9 @@ retail byte and emit the genuine 1,816-byte procedure size. Fresh and cached
 workbench comparisons pass. Asm-differ and objdiff retain their full reference
 views; raw symbol/relocation scores are separate from linked-byte acceptance.
 
-The guarded execution audit passes 1,341 retail/C pairs, or 2,682 update
+The guarded execution audit passes 2,241 retail/C pairs, or 4,482 update
 executions. Independent models check complete configurations, all adjacent
-guards, ten actor/resource/animation records, the 512-record object pool,
+guards, ten actor/resource/animation records, the 300-record object pool,
 mesh frame counts, saved-session state and fade globals. They also check
 every target write and the complete service trace. Execution and read/write
 bounds, stack guards, return, and saved O32 registers are enforced.
@@ -41,7 +41,12 @@ bounds, stack guards, return, and saved O32 registers are enforced.
 Cases cover every valid prop/string/indexed/color/callback count, all five
 camera-pair slots, null and idle props, both configuration locations, signed
 durations and times, mode/skip/fade combinations, repeat termination, callback
-thresholds and signed time steps. Movie status, integer absolute value, object
+thresholds and signed time steps. Every object index from zero through 299
+runs under all three guard patterns. The pool's 36,000-byte extent is checked
+against its source ownership. Additional controls accept index 299 and reject
+indices -1 and 300 on their first out-of-pool byte read in both images. The
+earlier 512-record fixture exceeded the retail pool and has been replaced.
+Movie status, integer absolute value, object
 frame-limit lookup and the retail no-op primary-frame setter execute as real,
 freshly compared procedures. Sound, camera/text submission, mesh loading,
 palette fading and callback bodies use recorded boundaries that clobber the

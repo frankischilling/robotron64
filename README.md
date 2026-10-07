@@ -67,7 +67,7 @@ alongside verified matching progress.
 
 [Movie update](docs/movie-playback.md) recovers the complete 1,816-byte
 procedure. Both independent references, fresh/cached workbench comparisons,
-1,341 guarded execution pairs and six isolated mutation controls pass.
+2,241 guarded execution pairs and six isolated mutation controls pass.
 
 [Input-sequence definition](docs/input-sequence-definition.md) recovers the
 complete 284-byte handler. Its 1,176 guarded cases check all fourteen records,

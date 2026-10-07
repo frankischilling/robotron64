@@ -97,7 +97,7 @@ load/free and diagnostics use recorded ABI boundaries.
 The [movie update](movie-playback.md) owns all 1,816 bytes of its procedure.
 Splat and spimdisasm reproduce every instruction and the genuine symbol extent.
 Fresh and cached workbench comparisons pass; asm-differ and objdiff retain
-their full reference views. All 1,341 guarded pairs and six isolated mutations
+their full reference views. All 2,241 guarded pairs and six isolated mutations
 pass, including exact writes and saved O32 state. Changed-size controls are
 linked separately from the adjacent status routine.
 

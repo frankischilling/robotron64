@@ -36,8 +36,9 @@
     "src/game/movie_update.c": "c37d264439e45cac3268bf574fb9835d23f4aa3779411b6b52e04b3e644bc808",
     "src/game/object_helpers_index_limit.c": "704a249fe03b6026132d24c2e6dd985909da8f3af0a9fc3d388140575e78a41a",
     "src/game/object_helpers_properties.c": "136aab3e3e91a9f7fa5337137d8229292aacabdc63c6be516edb2e93380186d5",
+    "src/game/object_storage/records.c": "d272bc6bcf6b590a5915fd5614871194b13826650d3e69c614371bc9f2ab42a8",
     "tools/check_actor_group_path.py": "913f59275b43e00062b45989def982da6e9f6502c3f149d0daca2505a34c944d",
-    "tools/check_movie_playback.py": "f22fa4856dd417f620cab9655c2d26d7b009599733388dc3dcb17e17f03e4a46",
+    "tools/check_movie_playback.py": "db6f5342df6bf9f98a62666e995a24963d980fb3ee88963690cc131510162d9f",
     "tools/check_movie_storage.py": "bd490d78c1ebd33bc15c99e863395c518e6173e7a227d426e3592ba9e208bf9b",
     "tools/compare_runtime.py": "1e84753d704f2b216883e914aaa750b3c41635abd3dd0e6d3f0a59893f3ca1aa",
     "tools/compare_startup.py": "175fd810a17671292f1372f1dced333b1f1ab4dbaaa4131d6a70516fa9614c6f",
@@ -1210,9 +1211,9 @@
     "basis": "Complete linked bytes determine acceptance; viewer scores are recorded separately."
   },
   "guarded_execution": {
-    "paired_cases": 1341,
-    "target_executions": 2682,
-    "cases_sha256": "7e0e3af669823daa9a233fd4b31fafed2003d811362b1db891704642f463859c",
+    "paired_cases": 2241,
+    "target_executions": 4482,
+    "cases_sha256": "294821e9d3bd8f673d3dd8908a36191cde53c5be855e93ee2670a6d936e55cc2",
     "mutations": [
       {
         "name": "default_duration",
@@ -1226,7 +1227,7 @@
         "control_passed": true,
         "mutation_rejected": true,
         "different_words": 242,
-        "reason": "('Call oracle', ('primary', 511, 1020), [('primary', 3, 1010), ('primary', 511, 1020)])"
+        "reason": "('Call oracle', ('primary', 299, 1020), [('primary', 3, 1010), ('primary', 299, 1020)])"
       },
       {
         "name": "last_string",
@@ -1255,6 +1256,34 @@
         "mutation_rejected": true,
         "different_words": 50,
         "reason": "('Complete guarded object', 'configuration', [('0x800b14da', 18, 17), ('0x800b14db', 87, 43)], {})"
+      }
+    ]
+  },
+  "object_storage": {
+    "source": "src/game/object_storage/records.c",
+    "source_sha256": "d272bc6bcf6b590a5915fd5614871194b13826650d3e69c614371bc9f2ab42a8",
+    "records": 300,
+    "stride": 120,
+    "bytes": 36000,
+    "every_valid_index_paired": true,
+    "bounds_controls": [
+      {
+        "invalid_index": -1,
+        "read_address": "0x800bf8ae",
+        "last_valid_index_control_passed": true,
+        "rejected_images": [
+          "retail",
+          "recovered"
+        ]
+      },
+      {
+        "invalid_index": 300,
+        "read_address": "0x800c85c6",
+        "last_valid_index_control_passed": true,
+        "rejected_images": [
+          "retail",
+          "recovered"
+        ]
       }
     ]
   },

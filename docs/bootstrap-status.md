@@ -47,7 +47,7 @@ The reset's full byte counts, all 25 track slots and three valid callback
 slots are preserved. No new instructions are credited.
 
 [Movie update](movie-playback.md) adds the complete 1,816-byte procedure.
-All 1,341 retail/C execution pairs and six isolated mutations pass. The audit
+All 2,241 retail/C execution pairs and six isolated mutations pass. The audit
 checks full objects, exact writes, service traces, bounds and saved O32 state.
 Both independent assembly references and fresh/cached workbench comparisons pass.
 

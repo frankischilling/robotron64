@@ -25,7 +25,7 @@ the accepted source and proof are in
 `src/game/movie_update.c` now reproduces all 1,816 bytes of `func_80004C3C`.
 Explicit default duration selection and the original combined color-event
 condition resolve the earlier register differences. Both independent assembly
-references, fresh and cached workbench comparisons, 1,341 guarded execution
+references, fresh and cached workbench comparisons, 2,241 guarded execution
 pairs and six isolated mutations pass. See [movie update](movie-playback.md).
 
 The earlier decomp-permuter run under `.local/recovery17-movie-update/perm_func_80004C3C/output-0-1` has a score of zero, but its source inserts an empty condition that reads `wholeFrame` before assignment. That source is deliberately rejected: the emitted bytes are useful compiler evidence, but the condition has no program meaning and cannot be used as recovered C.

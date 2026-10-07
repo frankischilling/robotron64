@@ -13,7 +13,7 @@ from check_actor_group_path import SENTINEL, machine, word
 from check_movie_storage import CALLER_SAVED, PRESERVED, pattern
 from compare_runtime import MATCHING_BLOCKS
 from compare_startup import compare_block, SymbolLayoutSnapshot, external_assignments
-from owned_sections import elf_sections_and_symbols
+from owned_sections import elf_sections_and_symbols, load_owned_sections
 from rom import ROOT, validate
 
 ENTRY, END = 0x80004C3C, 0x80005354
@@ -21,6 +21,8 @@ SOURCE = 'src/game/movie_update.c'
 CONFIG, POINTER, SESSION = 0x800B14B0, 0x800B14A8, 0x800AD138
 ACTORS, RESOURCES, ANIMATIONS = 0x80210010, 0x80220010, 0x80230010
 OBJECTS, MESHES, ALTERNATE = 0x800BF918, 0x8007A1CC, 0x80240010
+OBJECT_COUNT, OBJECT_STRIDE = 300, 120
+OBJECT_SOURCE = 'src/game/object_storage/records.c'
 FADE, TICK, CALLBACKS, STACK = 0x8009E570, 0x8009EF94, 0x802F0100, 0x80300000
 SUPPORT = ('movie_status', 'fixed_geometry_setup', 'object_helpers_index_limit', 'object_helpers_properties')
 
@@ -53,6 +55,11 @@ def prepare():
         reports[name] = report
     assert set(reports) == set(SUPPORT) | {'movie_update'}
     functions = {row['name']: row for row in json.loads((ROOT / 'config/functions.json').read_text())}
+    object_storage = [row for row in load_owned_sections() if row.get('symbols', {}).get('D_800BF918') == 0]
+    assert len(object_storage) == 1
+    assert (object_storage[0]['rom'] is None and object_storage[0]['vram'] == OBJECTS and
+            object_storage[0]['size'] == OBJECT_COUNT * OBJECT_STRIDE and
+            object_storage[0]['source'] == OBJECT_SOURCE), 'Object pool extent changed'
     for address, size in ((0x80005354, 248), (0x8004CEF0, 24),
                           (0x80039CD0, 124), (0x80039E0C, 16)):
         assert functions[f'func_{address:08X}']['size'] == size, 'Helper extent changed'
@@ -64,7 +71,7 @@ def prepare():
     return target, layout, original, compiled, reports, constants
 
 
-def run(code, constants, case, entry=ENTRY):
+def run(code, constants, case, entry=ENTRY, corrupt_object_index=None):
     for (a, blob), (other, other_blob) in itertools.combinations(code, 2):
         assert a + len(blob) <= other or other + len(other_blob) <= a, 'Overlapping executable images'
     seed = case.get('seed', 173)
@@ -85,7 +92,7 @@ def run(code, constants, case, entry=ENTRY):
     panel('actors', ACTORS, 10 * 124)
     panel('resources', RESOURCES, 10 * 88)
     panel('animations', ANIMATIONS, 10 * 16)
-    panel('objects', OBJECTS, 512 * 120)
+    panel('objects', OBJECTS, OBJECT_COUNT * OBJECT_STRIDE)
     panel('meshes', MESHES, 255 * 16)
     base = ALTERNATE if case.get('alternate', False) else CONFIG
 
@@ -127,6 +134,8 @@ def run(code, constants, case, entry=ENTRY):
     iw(TICK, tick)
     iw(0x8009EFA8, case.get('color_gate', 0))
     durations = (1, 0, 100, 4, 7, -4, 2, 3, 5, 9)
+    object_indices = case.get('object_indices', (0, 3, OBJECT_COUNT - 1))
+    assert len(object_indices) == 3 and all(0 <= index < OBJECT_COUNT for index in object_indices)
     actor_metadata = []
     for i in range(10):
         actor, resource, animation = ACTORS + i * 124, RESOURCES + i * 88, ANIMATIONS + i * 16
@@ -138,7 +147,7 @@ def run(code, constants, case, entry=ENTRY):
         for j in range(10):
             iw(base + 0x88 + i * 104 + j * 4, j * 2 - 2)
             iw(base + 0xB0 + i * 104 + j * 4, 1000 + i * 10 + j)
-        object_id = (0, 3, 511)[i % 3]
+        object_id = object_indices[i % 3]
         initial(actor + 0xC, object_id.to_bytes(2, 'big'))
         iw(actor + 0x14, flag | 0x100)
         iw(actor + 0x24, resource)
@@ -148,8 +157,8 @@ def run(code, constants, case, entry=ENTRY):
         loop = -1 if i % 2 else 0
         initial(animation + 0xC, (duration & 65535).to_bytes(2, 'big'))
         initial(animation + 0xA, (loop & 65535).to_bytes(2, 'big'))
-        mesh_id = 255 if object_id == 511 else object_id + 7
-        initial(OBJECTS + object_id * 120 + 14, bytes([mesh_id]))
+        mesh_id = 255 if object_id == OBJECT_COUNT - 1 else (object_id + 7) % 255
+        initial(OBJECTS + object_id * OBJECT_STRIDE + 14, bytes([mesh_id]))
         limit = (3, 0)[object_id == 3]
         if mesh_id != 255:
             iw(MESHES + mesh_id * 16, limit)
@@ -268,6 +277,9 @@ def run(code, constants, case, entry=ENTRY):
                 expected_trace.append(('callback', i, 0))
     for address, data in panels.values():
         write(address, bytes(data))
+    if corrupt_object_index is not None:
+        # A negative control corrupts the CPU input after the valid oracle is built.
+        write(ACTORS + 0xC, (corrupt_object_index & 0xFFFF).to_bytes(2, 'big'))
     lower, upper = STACK - 0x110, STACK + 32
     write(lower, bytes([0xD7]) * 16)
     write(upper, bytes([0xE9]) * 16)
@@ -404,12 +416,32 @@ def main(include_mutations=False):
             cases.append(dict(seed=seed, time=time, tick=tick, repeats=repeats))
         for strings, gate in itertools.product((4, 5, 6), (0, 1)):
             cases.append(dict(seed=seed, strings=strings, color_gate=gate, time=6144))
+        for object_index in range(OBJECT_COUNT):
+            cases.append(dict(seed=seed, props=1, strings=0, indexed=0, colors=0, callbacks=0,
+                              object_indices=(object_index, object_index, object_index)))
     proofs = []
     for case in cases:
         retail = run(original, constants, case)
         recovered = run(compiled, constants, case)
         assert retail == recovered, case
         proofs.append(recovered)
+    object_bounds = []
+    boundary_case = dict(props=1, strings=0, indexed=0, colors=0, callbacks=0,
+                         object_indices=(OBJECT_COUNT - 1,) * 3)
+    assert run(original, constants, boundary_case) == run(compiled, constants, boundary_case)
+    for invalid_index in (-1, OBJECT_COUNT):
+        address = OBJECTS + invalid_index * OBJECT_STRIDE + 14
+        rejected = []
+        for name, image in (('retail', original), ('recovered', compiled)):
+            try:
+                run(image, constants, boundary_case, corrupt_object_index=invalid_index)
+            except AssertionError as error:
+                assert error.args[0] == ('Memory bounds', hex(address), 1), ('Wrong bounds rejection', name, error)
+                rejected.append(name)
+            else:
+                raise AssertionError(('Out-of-pool object read accepted', name, invalid_index))
+        object_bounds.append({'invalid_index': invalid_index, 'read_address': hex(address),
+                              'last_valid_index_control_passed': True, 'rejected_images': rejected})
     mutations = []
     path = ROOT / SOURCE
     source = path.read_text()
@@ -442,6 +474,10 @@ def main(include_mutations=False):
     report = {'matches': True, 'paired_cases': len(cases), 'target_executions': len(cases) * 2,
               'cases_sha256': hashlib.sha256(json.dumps(proofs).encode()).hexdigest(),
               'comparisons': reports, 'mutations': mutations,
+              'object_storage': {'source': OBJECT_SOURCE, 'source_sha256': hashlib.sha256((ROOT / OBJECT_SOURCE).read_bytes()).hexdigest(),
+                                 'records': OBJECT_COUNT,
+                                 'stride': OBJECT_STRIDE, 'bytes': OBJECT_COUNT * OBJECT_STRIDE,
+                                 'every_valid_index_paired': True, 'bounds_controls': object_bounds},
               'limitations': ['Sound selection/events, camera/text submission, mesh loading, palette fade and callbacks use recorded clobbering integer ABI boundaries.',
                               'Movie status, integer absolute value, object frame limit and the retail no-op primary-frame setter execute as real freshly compared code.',
                               'Actor flags cleared before an uninitialized primary-frame read are invalid setup and excluded; movie-start sets bit 0x20 on each allocated prop.',
