@@ -65,6 +65,11 @@ alongside verified matching progress.
 
 ## Source and references
 
+[Scene resource selection](docs/scene-resource-selection.md) records the full
+1,032-byte excluded candidate, exact 24-byte dispatch table and canonical
+resource types. Its 1,683 paired cases, 17 mutation controls and 102 layout
+probes pass; 40 instruction words still differ.
+
 [Scene storage and arrivals](docs/scene-arrivals.md) owns the complete 3,348-byte
 scene record and 60 initialized diagnostic bytes. The excluded insertion
 candidate passes 3,713 paired cases and nine mutation controls, with 55

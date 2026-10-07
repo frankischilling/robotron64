@@ -70,4 +70,6 @@ void func_8001F87C(void);
 void func_8001FCE4(int replace, int category, int resourceIndex,
                   int trigger, int delay, unsigned int count, int x, int y);
 
+void func_80021C3C(int *output, int enabled);
+
 #endif

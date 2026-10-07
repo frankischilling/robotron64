@@ -12,6 +12,10 @@ There remain 141,388 declared fallback CPU bytes in 186 spans and 164 unclassifi
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
 
+[Scene resource selection](scene-resource-selection.md) passes 1,683 paired
+cases and 17 mutation controls. Its complete 1,032-byte candidate has the exact
+dispatch table but still differs in 40 instruction words and remains excluded.
+
 [Scene storage and arrival insertion](scene-arrivals.md) adds 3,348 BSS bytes
 and 60 initialized diagnostic bytes. All 3,713 paired cases and nine mutation
 controls pass; pinned IDO and Ghidra agree on 99 layout values across three

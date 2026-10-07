@@ -950,6 +950,7 @@ CANDIDATE_BLOCKS = (
     ("object_runtime_projection", "src/game/object_runtime_projection.c", 0x8003B2B0, 0x8003B428),
     ("frame_begin", "src/boot/frame_begin.c", 0x80048510, 0x800489F4),
     ("scene_arrival_insert", "src/game/scene_arrivals/insert.c", 0x8001FCE4, 0x80020134),
+    ("scene_resource_select", "src/game/scene_arrivals/select.c", 0x80021C3C, 0x80022044),
 )
 
 
@@ -976,8 +977,13 @@ def compare_blocks(records, target, family, layout, jobs=1):
 
     def compare_record(record):
         name, source, start, end = record
-        result = compare_block(name, source, start, start - 0x80000000 + 0xC00,
-                               end - 0x80000000 + 0xC00, target, family=family, layout=layout)
+        if name == "scene_resource_select":
+            # Its generated switch data is excluded together with the full function.
+            from check_scene_resource_selection import compare_candidate_block
+            result = compare_candidate_block(name, source, target, layout)
+        else:
+            result = compare_block(name, source, start, start - 0x80000000 + 0xC00,
+                                   end - 0x80000000 + 0xC00, target, family=family, layout=layout)
         return name, result
 
     blocks = {}

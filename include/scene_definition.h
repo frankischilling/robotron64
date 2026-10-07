@@ -49,10 +49,19 @@ typedef struct SceneDefinition {
     unsigned char unknownD0C[8];
 } SceneDefinition;
 
-typedef struct SceneResourceState {
+typedef struct SceneResourceWord00Fields {
     signed char flags00;
     unsigned char unknown01;
     short value02;
+} SceneResourceWord00Fields;
+
+typedef union SceneResourceWord00 {
+    int value;
+    SceneResourceWord00Fields fields;
+} SceneResourceWord00;
+
+typedef struct SceneResourceState {
+    SceneResourceWord00 word00;
     short value04;
     short unknown06;
     int unknown08;
@@ -63,6 +72,7 @@ typedef struct SceneResourceState {
 
 typedef char SceneArrivalMustBe12Bytes[sizeof(SceneArrival) == 0xC ? 1 : -1];
 typedef char SceneDefinitionMustBe3348Bytes[sizeof(SceneDefinition) == 0xD14 ? 1 : -1];
+typedef char SceneResourceWord00MustBe4Bytes[sizeof(SceneResourceWord00) == 4 ? 1 : -1];
 typedef char SceneResourceStateMustBe416Bytes[sizeof(SceneResourceState) == 0x1A0 ? 1 : -1];
 
 extern SceneDefinition D_800B9A78;

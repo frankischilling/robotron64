@@ -46,7 +46,9 @@ typedef struct ActorResource68Internal {
     unsigned char unknown12[6];
     short current18;
     short rate1A;
-    unsigned char unknown1C[0x44];
+    unsigned char unknown1C[0xC];
+    ActorAnimation *firstAnimation28;
+    unsigned char unknown2C[0x34];
     int updateTime60;
     int arrivalDelay;
 } ActorResource68Internal;

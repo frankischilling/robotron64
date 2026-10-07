@@ -8506,3 +8506,7 @@ build/us/scene_arrivals_diagnostics.o: src/game/scene_arrivals/diagnostics.c $(w
 .PHONY: audit-scene-arrivals
 audit-scene-arrivals: toolchain
 	$(PYTHON) tools/check_scene_arrivals.py
+
+.PHONY: audit-scene-resource-selection
+audit-scene-resource-selection: toolchain
+	$(PYTHON) tools/check_scene_resource_selection.py

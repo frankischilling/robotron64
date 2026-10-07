@@ -1,0 +1,1001 @@
+{
+  "checked": "2026-10-07T22:57:45.903645+00:00",
+  "matching_source_complete": false,
+  "accepted_delta": {
+    "matching_c_functions": 0,
+    "instruction_bytes": 0,
+    "initialized_bytes": 0,
+    "bss_bytes": 0
+  },
+  "progress": {
+    "matched_c_functions": 1424,
+    "matched_c_bytes": 308796,
+    "matched_assembly_functions": 29,
+    "matched_assembly_bytes": 4372,
+    "source_owned_initialized_bytes": 36775,
+    "source_owned_bss_bytes": 877717,
+    "whole_rom_matches": true
+  },
+  "inputs_sha256": {
+    "Makefile": "bc5db22ec51b892523f119317ccf99d767e4473d30670ae4d46648c091017368",
+    "config/functions.json": "da84e39ebc622291faffb46e4708d315df721b251d83fceff2be29cf0b2353c7",
+    "config/owned_sections.json": "37c158030b8229e3924b94330b9c5a0a2003ab62aaf031b8c074e22da04171d3",
+    "config/runtime_symbols.ld": "be6076ffae8996c97977bf914626d34ffb63c7ba4c5d94626d1e937dc460a0fc",
+    "config/startup_symbols.ld": "af29f0c9af1c17dc979e749e8861e9f38ef9beec0e693780aaa3b7fd1d1723af",
+    "include/scene_definition.h": "962ca67cba2b4483af4d1a5b1cf447e6d3d03855aa206799c6fd4cb30df82e2f",
+    "include/actor_resource_internal.h": "a30353f0e8133ade06bc95bc08e73d6e215f69fdc1b5ded01f8dae59f1cd1111",
+    "include/scene_commands_internal.h": "9846e31c769ee33774f976253c95580bb0e1b4e577a5df1872f109f7cff34ffd",
+    "src/game/scene_arrivals/select.c": "d075ffabde7f6112280fc6271e5c52d4b3648eca27813fd75a8c2a4fb62b5deb",
+    "tools/check_scene_resource_selection.py": "b26d6e4cdcc305178624d7c5d835812ccf1ac6151c4a239eb94a04a7d18dfffd",
+    "tools/compare_runtime.py": "effc5c47681e7ca4eef022f9475336418f7695b6a58660ee448f210369a41e64"
+  },
+  "independent_references": {
+    "splat": {
+      ".text": {
+        "size": 1044,
+        "sha256": "4fd08e61f98f7ea93fc6536c59ce06bda3c074f9948d22c8bd9f3f5ab8c6a411",
+        "matches": true
+      },
+      ".rodata": {
+        "size": 24,
+        "sha256": "43fced6389f4b3cc1c3d09262c87459057b246b8aacfc0262a51235779013500",
+        "matches": true
+      },
+      "live_function_size": 1032,
+      "text_alignment_size": 12,
+      "assembly_sha256": "e72ab4a198e0a6c6688f01afd1d72e76dd07355c8ec55b37c101d2e0868f2e05"
+    },
+    "spim": {
+      ".text": {
+        "size": 1044,
+        "sha256": "4fd08e61f98f7ea93fc6536c59ce06bda3c074f9948d22c8bd9f3f5ab8c6a411",
+        "matches": true
+      },
+      ".rodata": {
+        "size": 24,
+        "sha256": "43fced6389f4b3cc1c3d09262c87459057b246b8aacfc0262a51235779013500",
+        "matches": true
+      },
+      "live_function_size": 1032,
+      "text_alignment_size": 12,
+      "assembly_sha256": "6f88e1e0340aa43605923532df20fca55421c4f596d8ca730b019ac2f495ae93"
+    }
+  },
+  "independent_reference_recheck": {
+    "splat": {
+      "matches": true,
+      "live_size": 1032,
+      "alignment_size": 12,
+      "table_size": 24,
+      "elf_sha256": "b21a98350e11086ce599bc7fd85faf3f9d56b4bbce913d30a7759da603ec3f0b"
+    },
+    "spim": {
+      "matches": true,
+      "live_size": 1032,
+      "alignment_size": 12,
+      "table_size": 24,
+      "elf_sha256": "0db7a7b685e62b9b7739116770d627167253d95d3885547f056a18f3895c1df9"
+    }
+  },
+  "canonical_type_proof": {
+    "program": "robotron64.elf",
+    "parser": "Ghidra CParser",
+    "matches": true,
+    "size_offset_field_width_alignment_checks": 102,
+    "logical_probe_bytes": 408,
+    "probe_sha256": "c8a6955197bdc8c7dbb5b0bc5988878651575d5db7f786526e0ed98ccbdeacb4",
+    "types": {
+      "ActorResource68Internal": {
+        "type_name": "ActorResource68Internal",
+        "size": 104,
+        "alignment": 4,
+        "path": "/ActorResource68Internal"
+      },
+      "SceneResourceState": {
+        "type_name": "SceneResourceState",
+        "size": 416,
+        "alignment": 4,
+        "path": "/SceneResourceState"
+      },
+      "SceneResourceWord00": {
+        "type_name": "SceneResourceWord00",
+        "size": 4,
+        "alignment": 4,
+        "path": "/SceneResourceWord00"
+      },
+      "SceneResourceWord00Fields": {
+        "type_name": "SceneResourceWord00Fields",
+        "size": 4,
+        "alignment": 2,
+        "path": "/SceneResourceWord00Fields"
+      },
+      "ActorAnimation": {
+        "type_name": "ActorAnimation",
+        "size": 16,
+        "alignment": 2,
+        "path": "/ActorAnimation"
+      },
+      "SceneArrival": {
+        "type_name": "SceneArrival",
+        "size": 12,
+        "alignment": 2,
+        "path": "/SceneArrival"
+      },
+      "SceneDefinition": {
+        "type_name": "SceneDefinition",
+        "size": 3348,
+        "alignment": 4,
+        "path": "/SceneDefinition"
+      }
+    },
+    "fields": {
+      "ActorResource68Internal": {
+        "name": "ActorResource68Internal",
+        "size": 104,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 6,
+            "type": "uchar[6]",
+            "name": "unknown00"
+          },
+          {
+            "offset": 6,
+            "size": 2,
+            "type": "ActorResourceFlags",
+            "name": "flags06"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "type": "int",
+            "name": "speed"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "type": "uchar[4]",
+            "name": "unknown0C"
+          },
+          {
+            "offset": 16,
+            "size": 2,
+            "type": "short",
+            "name": "step10"
+          },
+          {
+            "offset": 18,
+            "size": 6,
+            "type": "uchar[6]",
+            "name": "unknown12"
+          },
+          {
+            "offset": 24,
+            "size": 2,
+            "type": "short",
+            "name": "current18"
+          },
+          {
+            "offset": 26,
+            "size": 2,
+            "type": "short",
+            "name": "rate1A"
+          },
+          {
+            "offset": 28,
+            "size": 12,
+            "type": "uchar[12]",
+            "name": "unknown1C"
+          },
+          {
+            "offset": 40,
+            "size": 4,
+            "type": "ActorAnimation *",
+            "name": "firstAnimation28"
+          },
+          {
+            "offset": 44,
+            "size": 52,
+            "type": "uchar[52]",
+            "name": "unknown2C"
+          },
+          {
+            "offset": 96,
+            "size": 4,
+            "type": "int",
+            "name": "updateTime60"
+          },
+          {
+            "offset": 100,
+            "size": 4,
+            "type": "int",
+            "name": "arrivalDelay"
+          }
+        ]
+      },
+      "ActorAnimation": {
+        "name": "ActorAnimation",
+        "size": 16,
+        "alignment": 2,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 2,
+            "type": "short",
+            "name": "objectIndex"
+          },
+          {
+            "offset": 2,
+            "size": 2,
+            "type": "short",
+            "name": "field02"
+          },
+          {
+            "offset": 4,
+            "size": 2,
+            "type": "short",
+            "name": "track"
+          },
+          {
+            "offset": 6,
+            "size": 2,
+            "type": "short",
+            "name": "frameIndex"
+          },
+          {
+            "offset": 8,
+            "size": 2,
+            "type": "short",
+            "name": "field08"
+          },
+          {
+            "offset": 10,
+            "size": 2,
+            "type": "short",
+            "name": "loopIndex"
+          },
+          {
+            "offset": 12,
+            "size": 2,
+            "type": "short",
+            "name": "frameDuration"
+          },
+          {
+            "offset": 14,
+            "size": 1,
+            "type": "uchar",
+            "name": "sound"
+          },
+          {
+            "offset": 15,
+            "size": 1,
+            "type": "uchar",
+            "name": "soundMode"
+          }
+        ]
+      },
+      "SceneResourceWord00Fields": {
+        "name": "SceneResourceWord00Fields",
+        "size": 4,
+        "alignment": 2,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 1,
+            "type": "char",
+            "name": "flags00"
+          },
+          {
+            "offset": 1,
+            "size": 1,
+            "type": "uchar",
+            "name": "unknown01"
+          },
+          {
+            "offset": 2,
+            "size": 2,
+            "type": "short",
+            "name": "value02"
+          }
+        ]
+      },
+      "SceneResourceState": {
+        "name": "SceneResourceState",
+        "size": 416,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 4,
+            "type": "SceneResourceWord00",
+            "name": "word00"
+          },
+          {
+            "offset": 4,
+            "size": 2,
+            "type": "short",
+            "name": "value04"
+          },
+          {
+            "offset": 6,
+            "size": 2,
+            "type": "short",
+            "name": "unknown06"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "type": "int",
+            "name": "unknown08"
+          },
+          {
+            "offset": 12,
+            "size": 4,
+            "type": "int",
+            "name": "unknown0C"
+          },
+          {
+            "offset": 16,
+            "size": 200,
+            "type": "int[50]",
+            "name": "resourceLimits"
+          },
+          {
+            "offset": 216,
+            "size": 200,
+            "type": "int[50]",
+            "name": "secondaryLimits"
+          }
+        ]
+      },
+      "SceneArrival": {
+        "name": "SceneArrival",
+        "size": 12,
+        "alignment": 2,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 1,
+            "type": "uchar",
+            "name": "trigger"
+          },
+          {
+            "offset": 1,
+            "size": 1,
+            "type": "uchar",
+            "name": "state"
+          },
+          {
+            "offset": 2,
+            "size": 1,
+            "type": "uchar",
+            "name": "resourceIndex"
+          },
+          {
+            "offset": 3,
+            "size": 1,
+            "type": "uchar",
+            "name": "category"
+          },
+          {
+            "offset": 4,
+            "size": 2,
+            "type": "short",
+            "name": "delay"
+          },
+          {
+            "offset": 6,
+            "size": 2,
+            "type": "short",
+            "name": "count"
+          },
+          {
+            "offset": 8,
+            "size": 2,
+            "type": "short",
+            "name": "x"
+          },
+          {
+            "offset": 10,
+            "size": 2,
+            "type": "short",
+            "name": "y"
+          }
+        ]
+      },
+      "SceneDefinition": {
+        "name": "SceneDefinition",
+        "size": 3348,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 60,
+            "type": "int[5][3]",
+            "name": "positions"
+          },
+          {
+            "offset": 60,
+            "size": 5,
+            "type": "uchar[5]",
+            "name": "positionEnabled"
+          },
+          {
+            "offset": 65,
+            "size": 3,
+            "type": "uchar[3]",
+            "name": "unknown41"
+          },
+          {
+            "offset": 68,
+            "size": 3072,
+            "type": "SceneArrival[256]",
+            "name": "arrivals"
+          },
+          {
+            "offset": 3140,
+            "size": 4,
+            "type": "int",
+            "name": "resourceC44"
+          },
+          {
+            "offset": 3144,
+            "size": 4,
+            "type": "int",
+            "name": "valueC48"
+          },
+          {
+            "offset": 3148,
+            "size": 4,
+            "type": "int",
+            "name": "valueC4C"
+          },
+          {
+            "offset": 3152,
+            "size": 4,
+            "type": "int",
+            "name": "unknownC50"
+          },
+          {
+            "offset": 3156,
+            "size": 100,
+            "type": "SceneTweakOverride[25]",
+            "name": "tweaks"
+          },
+          {
+            "offset": 3256,
+            "size": 8,
+            "type": "short[4]",
+            "name": "effectFirst"
+          },
+          {
+            "offset": 3264,
+            "size": 8,
+            "type": "short[4]",
+            "name": "effectSecond"
+          },
+          {
+            "offset": 3272,
+            "size": 4,
+            "type": "int",
+            "name": "arrivalCount"
+          },
+          {
+            "offset": 3276,
+            "size": 4,
+            "type": "int",
+            "name": "unknownCCC"
+          },
+          {
+            "offset": 3280,
+            "size": 4,
+            "type": "int",
+            "name": "valueCD0"
+          },
+          {
+            "offset": 3284,
+            "size": 4,
+            "type": "int",
+            "name": "resourceCD4"
+          },
+          {
+            "offset": 3288,
+            "size": 4,
+            "type": "int",
+            "name": "valueCD8"
+          },
+          {
+            "offset": 3292,
+            "size": 4,
+            "type": "int",
+            "name": "valueCDC"
+          },
+          {
+            "offset": 3296,
+            "size": 4,
+            "type": "int",
+            "name": "valueCE0"
+          },
+          {
+            "offset": 3300,
+            "size": 4,
+            "type": "int",
+            "name": "valueCE4"
+          },
+          {
+            "offset": 3304,
+            "size": 4,
+            "type": "int",
+            "name": "valueCE8"
+          },
+          {
+            "offset": 3308,
+            "size": 4,
+            "type": "int",
+            "name": "unknownCEC"
+          },
+          {
+            "offset": 3312,
+            "size": 4,
+            "type": "int",
+            "name": "valueCF0"
+          },
+          {
+            "offset": 3316,
+            "size": 4,
+            "type": "int",
+            "name": "enabledCF4"
+          },
+          {
+            "offset": 3320,
+            "size": 4,
+            "type": "int",
+            "name": "valueCF8"
+          },
+          {
+            "offset": 3324,
+            "size": 4,
+            "type": "int",
+            "name": "effectCount"
+          },
+          {
+            "offset": 3328,
+            "size": 4,
+            "type": "int",
+            "name": "tweakCount"
+          },
+          {
+            "offset": 3332,
+            "size": 4,
+            "type": "int",
+            "name": "flagsD04"
+          },
+          {
+            "offset": 3336,
+            "size": 4,
+            "type": "int",
+            "name": "flagD08"
+          },
+          {
+            "offset": 3340,
+            "size": 8,
+            "type": "uchar[8]",
+            "name": "unknownD0C"
+          }
+        ]
+      }
+    },
+    "unmapped_resource_globals_fabricated": false
+  },
+  "candidate": {
+    "source": "src/game/scene_arrivals/select.c",
+    "instruction_match": false,
+    "matching_source_claim": false,
+    "retail_size": 1032,
+    "candidate_size": 1032,
+    "different_words": 40,
+    "retail_frame": 1536,
+    "candidate_frame": 1544,
+    "text_sha256": "ffba9efb4a05102f614c5c07cb2aed72b55e93bdff5d3fba455062c67117b1e1",
+    "generated_dispatch": {
+      "vram": "0x80091A08",
+      "expected_size": 24,
+      "actual_size": 24,
+      "matches": true,
+      "different_words": []
+    },
+    "dispatch_sha256": "43fced6389f4b3cc1c3d09262c87459057b246b8aacfc0262a51235779013500",
+    "retail_alignment": {
+      "vram": "0x80022044",
+      "size": 12,
+      "bytes": "000000000000000000000000",
+      "included_in_function": false
+    },
+    "object_relocations": [
+      {
+        "section": ".text",
+        "offset": 52,
+        "type": 4,
+        "symbol": "func_8003B694"
+      },
+      {
+        "section": ".text",
+        "offset": 60,
+        "type": 5,
+        "symbol": "D_800B9A78"
+      },
+      {
+        "section": ".text",
+        "offset": 64,
+        "type": 6,
+        "symbol": "D_800B9A78"
+      },
+      {
+        "section": ".text",
+        "offset": 88,
+        "type": 5,
+        "symbol": "D_800B9A78"
+      },
+      {
+        "section": ".text",
+        "offset": 92,
+        "type": 6,
+        "symbol": "D_800B9A78"
+      },
+      {
+        "section": ".text",
+        "offset": 180,
+        "type": 5,
+        "symbol": ".rodata"
+      },
+      {
+        "section": ".text",
+        "offset": 188,
+        "type": 6,
+        "symbol": ".rodata"
+      },
+      {
+        "section": ".text",
+        "offset": 392,
+        "type": 5,
+        "symbol": "D_800AC998"
+      },
+      {
+        "section": ".text",
+        "offset": 400,
+        "type": 6,
+        "symbol": "D_800AC998"
+      },
+      {
+        "section": ".text",
+        "offset": 408,
+        "type": 4,
+        "symbol": "func_80021C14"
+      },
+      {
+        "section": ".text",
+        "offset": 416,
+        "type": 5,
+        "symbol": "D_800B8F78"
+      },
+      {
+        "section": ".text",
+        "offset": 420,
+        "type": 6,
+        "symbol": "D_800B8F78"
+      },
+      {
+        "section": ".text",
+        "offset": 436,
+        "type": 5,
+        "symbol": "D_800B14A4"
+      },
+      {
+        "section": ".text",
+        "offset": 520,
+        "type": 6,
+        "symbol": "D_800B14A4"
+      },
+      {
+        "section": ".text",
+        "offset": 564,
+        "type": 5,
+        "symbol": "D_800B00B0"
+      },
+      {
+        "section": ".text",
+        "offset": 568,
+        "type": 6,
+        "symbol": "D_800B00B0"
+      },
+      {
+        "section": ".text",
+        "offset": 616,
+        "type": 5,
+        "symbol": "D_800AF1F0"
+      },
+      {
+        "section": ".text",
+        "offset": 620,
+        "type": 6,
+        "symbol": "D_800AF1F0"
+      },
+      {
+        "section": ".text",
+        "offset": 676,
+        "type": 4,
+        "symbol": "func_8003941C"
+      },
+      {
+        "section": ".text",
+        "offset": 720,
+        "type": 4,
+        "symbol": "func_80021C14"
+      },
+      {
+        "section": ".text",
+        "offset": 776,
+        "type": 5,
+        "symbol": "D_800ACE58"
+      },
+      {
+        "section": ".text",
+        "offset": 780,
+        "type": 6,
+        "symbol": "D_800ACE58"
+      },
+      {
+        "section": ".text",
+        "offset": 804,
+        "type": 4,
+        "symbol": "func_8003941C"
+      },
+      {
+        "section": ".text",
+        "offset": 848,
+        "type": 4,
+        "symbol": "func_80021C14"
+      },
+      {
+        "section": ".text",
+        "offset": 900,
+        "type": 5,
+        "symbol": "D_8009F560"
+      },
+      {
+        "section": ".text",
+        "offset": 904,
+        "type": 6,
+        "symbol": "D_8009F560"
+      },
+      {
+        "section": ".text",
+        "offset": 928,
+        "type": 4,
+        "symbol": "func_8003941C"
+      },
+      {
+        "section": ".text",
+        "offset": 972,
+        "type": 4,
+        "symbol": "func_80021C14"
+      },
+      {
+        "section": ".rodata",
+        "offset": 0,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rodata",
+        "offset": 4,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rodata",
+        "offset": 8,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rodata",
+        "offset": 12,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rodata",
+        "offset": 16,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rodata",
+        "offset": 20,
+        "type": 2,
+        "symbol": ".text"
+      }
+    ]
+  },
+  "guarded_execution": {
+    "paired_cases": 1683,
+    "systematic_cases": 683,
+    "mixed_cases": 1000,
+    "case_corpus_sha256": "66d7b2fec956979fb53c5b60288de918fc6bae898b143588139b7ffebcdea904",
+    "outcomes_sha256": "c51fa89ba0fbbdf9e4b9c882bad1a040ef10673ef02964a38f43f288728fe31e",
+    "versions": {
+      "unicorn": "2.1.1",
+      "capstone": "5.0.9",
+      "pyelftools": "0.33"
+    },
+    "helpers": [
+      "game_memory",
+      "object_model_access",
+      "save_menu_conditional_copy"
+    ],
+    "rejected_mutations": [
+      {
+        "name": "destination-spill",
+        "rejected": true,
+        "reason": "helper writes argument spill rather than caller output",
+        "source_sha256": "fa5455cd74c663b089ee142e2682c0b83fd53f4b750535cef5a95a4c59499531",
+        "different_words": 252
+      },
+      {
+        "name": "disabled-default",
+        "rejected": true,
+        "reason": "('ordered helper calls', [], [])",
+        "source_sha256": "119cf1e587918c31cc6476c8c04d76cf5b3a0a3e20a4a7a7a49b1ba3c5c03900",
+        "different_words": 209
+      },
+      {
+        "name": "trigger-zero-sum",
+        "rejected": true,
+        "reason": "pre-transform totals",
+        "source_sha256": "fe59caed867f080231da61e0216cc86c609d5cf5218029feaa1fff7eb16f3d93",
+        "different_words": 223
+      },
+      {
+        "name": "trigger-two-delay",
+        "rejected": true,
+        "reason": "pre-transform totals",
+        "source_sha256": "c0a2ab6275a0efc4af34c3fff4047fed543f3edd376cbc6185c4e5002f97f840",
+        "different_words": 242
+      },
+      {
+        "name": "nonzero-state",
+        "rejected": true,
+        "reason": "pre-transform totals",
+        "source_sha256": "4fd438e1e4d15841e601abfc745b06bf867155bcb68697b7d6b89edb7014801b",
+        "different_words": 44
+      },
+      {
+        "name": "category-filter",
+        "rejected": true,
+        "reason": "pre-transform totals",
+        "source_sha256": "86f5f242e41ac7727d55b3406faf4780f43b91489a0882deaad8c07170b306fe",
+        "different_words": 242
+      },
+      {
+        "name": "full-word-status",
+        "rejected": true,
+        "reason": "full scene-status word read",
+        "source_sha256": "92b9d8cf533ee9a801a8e636dc7a5fbae5136838465c7376c0738571165209b1",
+        "different_words": 172
+      },
+      {
+        "name": "captured-factor",
+        "rejected": true,
+        "reason": "captured status and multipliers",
+        "source_sha256": "b63f7643ffdbf0a60508b967d0b9f65fa357df4d5143dd33f7e3b4ab163ba749",
+        "different_words": 162
+      },
+      {
+        "name": "row-one-offset",
+        "rejected": true,
+        "reason": "('ordered helper calls', [2148190616], [])",
+        "source_sha256": "e7d22cedef889a223b56ca75e0cd58677c58c20a2538e4a080003f8e91d3c956",
+        "different_words": 42
+      },
+      {
+        "name": "threshold-equality",
+        "rejected": true,
+        "reason": "('ordered helper calls', [2148190616], [0])",
+        "source_sha256": "3f6e89cc0351388b371206909a81cd170c93cc36da71545696c3fc4a889e8d34",
+        "different_words": 64
+      },
+      {
+        "name": "last-entry",
+        "rejected": true,
+        "reason": "('ordered helper calls', [2148190616], [])",
+        "source_sha256": "8531880a105f6bd37eda5db37d4728549873653a157acfc0e8013145b813d24b",
+        "different_words": 41
+      },
+      {
+        "name": "max-aggregation",
+        "rejected": true,
+        "reason": "pre-transform totals",
+        "source_sha256": "90d13c57922ceb6412223be0171408b49033aa0e68d8a7f848609299f2f3ea7d",
+        "different_words": 217
+      },
+      {
+        "name": "signed-delay",
+        "rejected": true,
+        "reason": "pre-transform totals",
+        "source_sha256": "73561d77fd416c942d0ee682bdbecfa0f2585de1225833e20a814d7010c84f1e",
+        "different_words": 41
+      },
+      {
+        "name": "row-alias",
+        "rejected": true,
+        "reason": "pre-transform totals",
+        "source_sha256": "455b26519ceee9fbbd572c793199a3953ba79abd2ee95ece7dc780dd7b613e81",
+        "different_words": 277
+      },
+      {
+        "name": "division-rounding",
+        "rejected": true,
+        "reason": "('selection call', '0x800af1f0', [2148190616])",
+        "source_sha256": "ec05414288db851e727f5f0488972da961b0cd70abde1ea14ae33a1bafc89aee",
+        "different_words": 123
+      },
+      {
+        "name": "integer-ABI",
+        "rejected": true,
+        "reason": "integer ABI preservation"
+      },
+      {
+        "name": "FPU-ABI",
+        "rejected": true,
+        "reason": "FPU ABI preservation"
+      }
+    ],
+    "checker_sha256": "b26d6e4cdcc305178624d7c5d835812ccf1ac6151c4a239eb94a04a7d18dfffd",
+    "audit_report_sha256": "4f0e0acab55f31080ee1ec43a6cbfbaa94d534d3d786df13849fbd8334200537"
+  },
+  "objdiff": {
+    "version": "3.8.2",
+    "target_size": 1032,
+    "candidate_size": 1032,
+    "match_percent": 99.02713,
+    "acceptance_evidence": false
+  },
+  "asm_differ": {
+    "report_sha256": "ae65519471ecc42cbc85de0562743aff11a18a9db2ebc22966590f89416045c2",
+    "acceptance_evidence": false
+  },
+  "permuter": {
+    "workers": 2,
+    "maximum_seconds": 240,
+    "iterations": 14037,
+    "stack_diffs": true,
+    "best_score": 281,
+    "zero_score_found": false,
+    "accepted_source": false,
+    "reason": "The best output adds an always-true empty condition, a redundant label and an extra alias; it is not retained as source."
+  },
+  "fresh_acceptance": {
+    "runtime_units": 906,
+    "startup_units": 2,
+    "assembly_units": 18,
+    "data_only_units": 188,
+    "excluded_nonmatching_units": 28,
+    "linux_tests": 163,
+    "windows_tests": 163,
+    "windows_skips": 4,
+    "fresh_workbench_support_units": 3,
+    "public_file_inventory": 1948,
+    "rom_bytes": 8388608,
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd"
+  },
+  "limits": [
+    "The function and generated dispatch table remain outside matching ownership and the ROM link.",
+    "Arrival reads stay inside the complete scene object and accumulation addresses stay inside its 360-word local table.",
+    "Guarded execution does not establish out-of-bounds behavior, display hardware or gameplay.",
+    "Some resource globals are outside the mapped segments of the existing Ghidra program.",
+    "Declared fallback remains 141388 CPU bytes across 186 spans with 164 unclassified bytes and an unknown full executable denominator.",
+    "Whole-ROM equality retains extracted fallback and is not full source completion."
+  ]
+}
