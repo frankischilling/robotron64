@@ -49,10 +49,10 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 906 runtime comparison units, two startup
-units, eighteen assembly units and 179 data-only units. The clean build matches
+units, eighteen assembly units and 180 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,424 matching C functions /
 308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized
-data bytes and 870,293 BSS bytes. The text pool contributes 8,040 BSS bytes and
+data bytes and 874,313 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
 reset and every byte-valued character, with five rejected mutations.
@@ -85,6 +85,12 @@ All 630 paired execution cases pass and seven isolated mutations fail after
 positive controls. String helpers
 execute matching code; diagnostics, file services and scene submission use
 recorded integer ABI boundaries.
+
+[Peak metrics storage](renderer-peak-metrics-storage.md) adds the complete 201-record array /
+4,020 BSS bytes. Its already matching reset and writer pass 1,210 paired
+cases, seven source mutations and 290 array-bound controls. The retail
+index-201 heap alias is preserved and checked in separate boundary cases.
+No new instructions or initialized bytes are credited.
 
 [HUD state dispatch](game-hud-state.md) adds one complete matching C
 function / 524 instruction bytes, with no new data or BSS. Splat and spimdisasm

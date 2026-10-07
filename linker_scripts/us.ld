@@ -1634,6 +1634,7 @@ SECTIONS
     .audio_startup_bank_cursor_bss 0x80190150 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_bank_cursor.o(.bss) }
     .audio_startup_heap_state_bss 0x80190158 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_heap_state.o(.bss) }
     .audio_startup_generation_mode_bss 0x80190168 (NOLOAD) : SUBALIGN(4) { build/us/audio_startup_generation_mode.o(.bss) }
+    .renderer_peak_metrics_bss 0x8013DC30 (NOLOAD) : SUBALIGN(4) { build/us/renderer_peak_metrics_storage.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2711,7 +2712,6 @@ D_8008FA0C = 0x8008FA0C;
 D_800C8DFC = 0x800C8DFC;
 D_8007BAC4 = 0x8007BAC4;
 D_80138250 = 0x80138250;
-D_8013DC30 = 0x8013DC30;
 ASSERT(SIZEOF(.actor_relative_geometry) == 0xa8, "actor_relative_geometry size changed")
 ASSERT(SIZEOF(.renderer_quad_submit) == 0xf0, "renderer_quad_submit size changed")
 ASSERT(SIZEOF(.renderer_texture_defaults) == 0xdc, "renderer_texture_defaults size changed")
@@ -3451,3 +3451,7 @@ ASSERT(D_80190158 == ADDR(.audio_startup_heap_state_bss) + 0x0, "D_80190158 audi
 ASSERT(ADDR(.audio_startup_generation_mode_bss) == 0x80190168, "audio startup storage moved")
 ASSERT(SIZEOF(.audio_startup_generation_mode_bss) == 0x4, "audio startup storage size changed")
 ASSERT(D_80190168 == ADDR(.audio_startup_generation_mode_bss) + 0x0, "D_80190168 audio startup storage symbol moved")
+
+ASSERT(ADDR(.renderer_peak_metrics_bss) == 0x8013DC30, "peak metrics storage moved")
+ASSERT(SIZEOF(.renderer_peak_metrics_bss) == 0xFB4, "peak metrics storage size changed")
+ASSERT(D_8013DC30 == ADDR(.renderer_peak_metrics_bss) + 0x0, "D_8013DC30 peak metrics storage symbol moved")

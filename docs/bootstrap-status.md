@@ -4,7 +4,7 @@ The target is the supplied USA ROM with header revision zero. `config/target.jso
 
 Current verified totals are 1,424 matching C functions / 308,796 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized bytes
-and 870,293 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
+and 874,313 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
@@ -17,7 +17,7 @@ BSS and both width tables add 144 initialized bytes. All thirty allocation slots
 exhaustion and the full reset pass 744 guarded cases per image; another 1,024
 cases check every byte-valued character. Five isolated source mutations are rejected. The
 [current matching-tool audit](matching-tools-current.md) independently compares
-906 runtime units, two startup units, eighteen assembly units and 179 data-only
+906 runtime units, two startup units, eighteen assembly units and 180 data-only
 units. The bonus-child candidate improves from six differing words to four and
 remains excluded from the matching build.
 
@@ -39,6 +39,12 @@ in three complete sections. All 630 paired cases and seven isolated mutation
 controls pass. The registry and offset resets cover every element; lookups
 preserve case folding, signed offsets and strict scene boundaries. Pinned IDO
 and Ghidra agree on twenty size, alignment and field checks across three types.
+
+[Peak metrics storage](renderer-peak-metrics-storage.md) adds the complete 201-record array /
+4,020 BSS bytes. Its already matching reset and writer pass 1,210 paired
+cases, seven source mutations and 290 array-bound controls. The retail
+index-201 heap alias is preserved and checked in separate boundary cases.
+No new instructions or initialized bytes are credited.
 
 [HUD state dispatch](game-hud-state.md) adds one complete matching C
 function / 524 instruction bytes, with no new data or BSS. Splat and spimdisasm

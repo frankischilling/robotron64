@@ -4810,5 +4810,18 @@
       "D_80190168": 0
     },
     "evidence": "docs/audio-startup-storage.md"
+  },
+  {
+    "source": "src/game/renderer_peak_metrics_storage.c",
+    "object": "build/us/renderer_peak_metrics_storage.o",
+    "input_section": ".bss",
+    "section": ".renderer_peak_metrics_bss",
+    "vram": 2148785200,
+    "rom": null,
+    "size": 4020,
+    "symbols": {
+      "D_8013DC30": 0
+    },
+    "evidence": "docs/renderer-peak-metrics-storage.md"
   }
 ]
