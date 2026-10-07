@@ -38,8 +38,11 @@ typedef char GraphicsFrameCountersMustBe32Bytes[sizeof(GraphicsFrameCounters) ==
 
 extern void *D_80123AEC;
 extern void *D_8013823C;
-extern FrameCommand D_8007D5E8[];
-extern FrameCommand D_8007C970[];
+extern FrameCommand D_8007D5E8[23];
+extern FrameCommand D_8007C970[16];
+/* Image bytes stay in extraction; setup packets hold their original addresses. */
+extern unsigned char D_8007C770[];
+extern unsigned char D_8007CDD8[];
 extern GraphicsLight D_80123B28[];
 extern int D_8007D5D8;
 extern int D_8007D5DC;

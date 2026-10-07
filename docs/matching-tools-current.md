@@ -49,10 +49,10 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 906 runtime comparison units, two startup
-units, eighteen assembly units and 182 data-only units. The clean build matches
+units, eighteen assembly units and 186 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,424 matching C functions /
-308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,387 initialized
-data bytes and 874,313 BSS bytes. The text pool contributes 8,040 BSS bytes and
+308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,715 initialized
+data bytes and 874,369 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
 reset and every byte-valued character, with five rejected mutations.
@@ -85,6 +85,12 @@ All 630 paired execution cases pass and seven isolated mutations fail after
 positive controls. String helpers
 execute matching code; diagnostics, file services and scene submission use
 recorded integer ABI boundaries.
+
+[Renderer setup storage](renderer-setup-storage.md) adds both complete default and tile setup lists,
+328 initialized bytes and 56 BSS bytes. Independent references, pointer
+relocations, pinned IDO layout probes and 2,265 guarded pairs verify the
+packet addresses, tile packing, mutable light directions and frame snapshots.
+Texture bytes remain extracted assets.
 
 [Object angle constants](object-angle-constants.md) add six complete scalars /
 36 initialized bytes, preserving the retail setter/getter value asymmetry.

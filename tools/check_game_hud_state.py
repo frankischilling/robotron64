@@ -255,7 +255,9 @@ def main(mutations=False):
     controls = []
     if mutations:
         base = (ROOT / SOURCE).read_text()
-        with tempfile.TemporaryDirectory(prefix='hud-controls-', dir=ROOT / '.local/tool-continuation') as temporary:
+        scratch = ROOT / '.local/tool-continuation'
+        scratch.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(prefix='hud-controls-', dir=scratch) as temporary:
             for name, (old, new, case) in MUTATIONS.items():
                 assert old in base, name
                 path = Path(temporary) / (name + '.c')

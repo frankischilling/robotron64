@@ -1256,6 +1256,7 @@ SECTIONS
     .renderer_setup_after_depth_blend_origin 0x8007C5BC : AT(0x7D1BC) { build/us/fallback.o(.rom_renderer_setup_after_depth_blend_origin) }
     .renderer_material_presets 0x8007C5C0 : AT(0x7D1C0) SUBALIGN(8) { build/us/renderer_material_presets.o(.rodata) }
     .renderer_setup_after_material_presets 0x8007C770 : AT(0x7D370) { build/us/fallback.o(.rom_renderer_setup_after_material_presets) }
+    .renderer_setup_after_tile_packets 0x8007C9F0 : AT(0x7D5F0) { build/us/fallback.o(.rom_renderer_setup_after_tile_packets) }
     .renderer_grid_commands 0x8007CA70 : AT(0x7D670) SUBALIGN(4) { build/us/renderer_grid_commands.o(.rodata) }
     .renderer_setup_viewport 0x8007CAC8 : AT(0x7D6C8) SUBALIGN(4) { build/us/renderer_setup_viewport.o(.rodata) }
     .renderer_setup_fallback_7d6d8_7d700 0x8007CAD8 : AT(0x7D6D8) { build/us/fallback.o(.rom_renderer_setup_fallback_7d6d8_7d700) }
@@ -1557,6 +1558,11 @@ SECTIONS
     .actor_pool_allocate_bss 0x800A4628 (NOLOAD) : SUBALIGN(4) { build/us/actor_pool_allocate.o(.bss) }
     .actor_history_points_bss 0x8013EC00 (NOLOAD) : SUBALIGN(4) { build/us/actor_history_data.o(.bss) }
     .audio_sequence_tick_bss 0x80192800 (NOLOAD) : SUBALIGN(4) { build/us/audio_sequence_tick.o(.bss) }
+    .graphics_setup_defaults 0x8007D5D8 : AT(0x7E1D8) SUBALIGN(4) { build/us/graphics_setup_defaults.o(.data) }
+    .graphics_setup_tile_packets 0x8007C970 : AT(0x7D570) SUBALIGN(4) { build/us/graphics_setup_tile_packets.o(.data) }
+    .graphics_setup_cache_bss 0x80123B00 (NOLOAD) : SUBALIGN(4) { build/us/graphics_setup_cache_state.o(.bss) }
+    .graphics_setup_arena_bss 0x80126B74 (NOLOAD) : SUBALIGN(4) { build/us/graphics_setup_arena_state.o(.bss) }
+
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -2763,7 +2769,6 @@ ASSERT(SIZEOF(.object_history_write) == 0x148, "object_history_write size change
 ASSERT(SIZEOF(.object_history_write_rodata) == 0x4, "object_history_write_rodata size changed")
 ASSERT(SIZEOF(.pak_menu_directory) == 0x254, "pak_menu_directory size changed")
 ASSERT(SIZEOF(.endgame_48d64_48d70) == 0xc, "endgame_48d64_48d70 size changed")
-D_8007C970 = 0x8007C970;
 D_8013823C = 0x8013823C;
 D_80138254 = 0x80138254;
 D_8013FE00 = 0x8013FE00;
@@ -3036,7 +3041,7 @@ ASSERT(SIZEOF(.renderer_diagnostic_path_pool) == 0x8, "renderer_diagnostic_path_
 ASSERT(SIZEOF(.diagnostic_fallback_7d994_7d9a0) == 0xc, "diagnostic_fallback_7d994_7d9a0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_vertex_pool) == 0x8, "renderer_diagnostic_vertex_pool size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_7d9a8_7d9b0) == 0x8, "diagnostic_fallback_7d9a8_7d9b0 size changed")
-ASSERT(SIZEOF(.diagnostic_fallback_7d9c0_7e2a0) == 0x8e0, "diagnostic_fallback_7d9c0_7e2a0 size changed")
+ASSERT(SIZEOF(.diagnostic_fallback_7d9c0_7e2a0) == 0x818, "diagnostic_fallback_7d9c0_7e2a0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_matrix_pool) == 0x8, "renderer_diagnostic_matrix_pool size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_hierarchy_pool) == 0x8, "renderer_diagnostic_hierarchy_pool size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_frame_metrics_bss) == 0x40, "renderer_diagnostic_frame_metrics BSS size changed")
@@ -3110,7 +3115,7 @@ ASSERT(SIZEOF(.projection_diagnostic_fallback_7e50c_7e510) == 0x4, "projection_d
 ASSERT(SIZEOF(.renderer_projection_normalization) == 0x2, "renderer_projection_normalization size changed")
 ASSERT(SIZEOF(.renderer_setup_before_depth_blend_origin) == 0x64, "renderer_setup_before_depth_blend_origin size changed")
 ASSERT(SIZEOF(.renderer_setup_after_depth_blend_origin) == 0x4, "renderer_setup_after_depth_blend_origin size changed")
-ASSERT(SIZEOF(.renderer_setup_after_material_presets) == 0x300, "renderer_setup_after_material_presets size changed")
+ASSERT(SIZEOF(.renderer_setup_after_material_presets) == 0x200, "renderer_setup_after_material_presets size changed")
 ASSERT(SIZEOF(.renderer_depth_blend_origin) == 8, "renderer_depth_blend_origin size changed")
 ASSERT(SIZEOF(.renderer_material_presets) == 432, "renderer_material_presets size changed")
 ASSERT(SIZEOF(.renderer_grid_commands) == 0x58, "renderer_grid_commands size changed")
@@ -3465,3 +3470,34 @@ ASSERT(SIZEOF(.object_angle_getter_constants) == 0x18, "object angle constant si
 ASSERT(D_DBL_80094C30 == ADDR(.object_angle_getter_constants) + 0x0, "D_DBL_80094C30 moved")
 ASSERT(D_DBL_80094C38 == ADDR(.object_angle_getter_constants) + 0x8, "D_DBL_80094C38 moved")
 ASSERT(D_DBL_80094C40 == ADDR(.object_angle_getter_constants) + 0x10, "D_DBL_80094C40 moved")
+
+ASSERT(SIZEOF(.renderer_setup_after_tile_packets) == 0x80, "tile packet trailing fallback changed")
+
+ASSERT(ADDR(.graphics_setup_defaults) == 0x8007D5D8, "graphics setup storage moved")
+ASSERT(SIZEOF(.graphics_setup_defaults) == 0xC8, "graphics setup storage size changed")
+ASSERT(D_8007D5D8 == ADDR(.graphics_setup_defaults) + 0x0, "D_8007D5D8 moved")
+ASSERT(D_8007D5DC == ADDR(.graphics_setup_defaults) + 0x4, "D_8007D5DC moved")
+ASSERT(D_8007D5E0 == ADDR(.graphics_setup_defaults) + 0x8, "D_8007D5E0 moved")
+ASSERT(D_8007D5E4 == ADDR(.graphics_setup_defaults) + 0xC, "D_8007D5E4 moved")
+ASSERT(D_8007D5E8 == ADDR(.graphics_setup_defaults) + 0x10, "D_8007D5E8 moved")
+ASSERT(ADDR(.graphics_setup_tile_packets) == 0x8007C970, "graphics setup storage moved")
+ASSERT(SIZEOF(.graphics_setup_tile_packets) == 0x80, "graphics setup storage size changed")
+ASSERT(D_8007C970 == ADDR(.graphics_setup_tile_packets) + 0x0, "D_8007C970 moved")
+ASSERT(ADDR(.graphics_setup_cache_bss) == 0x80123B00, "graphics setup storage moved")
+ASSERT(SIZEOF(.graphics_setup_cache_bss) == 0x24, "graphics setup storage size changed")
+ASSERT(D_80123B00 == ADDR(.graphics_setup_cache_bss) + 0x0, "D_80123B00 moved")
+ASSERT(D_80123B04 == ADDR(.graphics_setup_cache_bss) + 0x4, "D_80123B04 moved")
+ASSERT(D_80123B08 == ADDR(.graphics_setup_cache_bss) + 0x8, "D_80123B08 moved")
+ASSERT(D_80123B0C == ADDR(.graphics_setup_cache_bss) + 0xC, "D_80123B0C moved")
+ASSERT(D_80123B10 == ADDR(.graphics_setup_cache_bss) + 0x10, "D_80123B10 moved")
+ASSERT(D_80123B14 == ADDR(.graphics_setup_cache_bss) + 0x14, "D_80123B14 moved")
+ASSERT(D_80123B18 == ADDR(.graphics_setup_cache_bss) + 0x18, "D_80123B18 moved")
+ASSERT(D_80123B1C == ADDR(.graphics_setup_cache_bss) + 0x1C, "D_80123B1C moved")
+ASSERT(D_80123B20 == ADDR(.graphics_setup_cache_bss) + 0x20, "D_80123B20 moved")
+ASSERT(ADDR(.graphics_setup_arena_bss) == 0x80126B74, "graphics setup storage moved")
+ASSERT(SIZEOF(.graphics_setup_arena_bss) == 0x14, "graphics setup storage size changed")
+ASSERT(D_80126B74 == ADDR(.graphics_setup_arena_bss) + 0x0, "D_80126B74 moved")
+ASSERT(D_80126B78 == ADDR(.graphics_setup_arena_bss) + 0x4, "D_80126B78 moved")
+ASSERT(D_80126B7C == ADDR(.graphics_setup_arena_bss) + 0x8, "D_80126B7C moved")
+ASSERT(D_80126B80 == ADDR(.graphics_setup_arena_bss) + 0xC, "D_80126B80 moved")
+ASSERT(D_80126B84 == ADDR(.graphics_setup_arena_bss) + 0x10, "D_80126B84 moved")

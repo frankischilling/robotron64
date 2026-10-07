@@ -4853,5 +4853,73 @@
       "D_DBL_80094C40": 16
     },
     "evidence": "docs/object-angle-constants.md"
+  },
+  {
+    "source": "src/game/renderer_setup/defaults.c",
+    "object": "build/us/graphics_setup_defaults.o",
+    "input_section": ".data",
+    "section": ".graphics_setup_defaults",
+    "vram": 2147997144,
+    "rom": 516568,
+    "size": 200,
+    "symbols": {
+      "D_8007D5D8": 0,
+      "D_8007D5DC": 4,
+      "D_8007D5E0": 8,
+      "D_8007D5E4": 12,
+      "D_8007D5E8": 16
+    },
+    "evidence": "docs/renderer-setup-storage.md"
+  },
+  {
+    "source": "src/game/renderer_setup/tile_packets.c",
+    "object": "build/us/graphics_setup_tile_packets.o",
+    "input_section": ".data",
+    "section": ".graphics_setup_tile_packets",
+    "vram": 2147993968,
+    "rom": 513392,
+    "size": 128,
+    "symbols": {
+      "D_8007C970": 0
+    },
+    "evidence": "docs/renderer-setup-storage.md"
+  },
+  {
+    "source": "src/game/renderer_setup/cache_state.c",
+    "object": "build/us/graphics_setup_cache_state.o",
+    "input_section": ".bss",
+    "section": ".graphics_setup_cache_bss",
+    "vram": 2148678400,
+    "rom": null,
+    "size": 36,
+    "symbols": {
+      "D_80123B00": 0,
+      "D_80123B04": 4,
+      "D_80123B08": 8,
+      "D_80123B0C": 12,
+      "D_80123B10": 16,
+      "D_80123B14": 20,
+      "D_80123B18": 24,
+      "D_80123B1C": 28,
+      "D_80123B20": 32
+    },
+    "evidence": "docs/renderer-setup-storage.md"
+  },
+  {
+    "source": "src/game/renderer_setup/arena_state.c",
+    "object": "build/us/graphics_setup_arena_state.o",
+    "input_section": ".bss",
+    "section": ".graphics_setup_arena_bss",
+    "vram": 2148690804,
+    "rom": null,
+    "size": 20,
+    "symbols": {
+      "D_80126B74": 0,
+      "D_80126B78": 4,
+      "D_80126B7C": 8,
+      "D_80126B80": 12,
+      "D_80126B84": 16
+    },
+    "evidence": "docs/renderer-setup-storage.md"
   }
 ]
