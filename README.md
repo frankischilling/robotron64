@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,422 matching C functions covering 306,456 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,351 bytes of source-owned initialized data, and 584,037 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,422 matching C functions covering 306,456 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,351 bytes of source-owned initialized data, and 590,973 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -214,6 +214,11 @@ and menu refresh use recorded ABI boundaries.
 their two counters: 15,446 BSS bytes. Its checker passes 630 paired cases and
 rejects seven mutations. String helpers execute real matching code; diagnostics,
 file allocation/free and scene submission use recorded ABI boundaries.
+
+[Movie storage](docs/movie-storage.md) owns the complete 25-track pool and
+movie configuration: 6,936 BSS bytes. Its checker passes 687 paired cases and
+rejects five mutations. Byte-copy, clear and string helpers execute real
+matching code; resource load/free and diagnostics use recorded ABI boundaries.
 
 [Actor group setup](docs/actor-group-setup.md) recovers the complete 544-byte
 group constructor, its first-actor placement and later-actor parent links.

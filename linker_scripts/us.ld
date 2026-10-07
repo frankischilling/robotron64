@@ -1622,6 +1622,8 @@ SECTIONS
     .script_storage_files_bss 0x80097650 (NOLOAD) : SUBALIGN(4) { build/us/script_storage_files.o(.bss) }
     .script_storage_strings_bss 0x800A3AD8 (NOLOAD) : SUBALIGN(4) { build/us/script_storage_strings.o(.bss) }
     .script_storage_scenes_bss 0x800A42B0 (NOLOAD) : SUBALIGN(4) { build/us/script_storage_scenes.o(.bss) }
+    .movie_storage_tracks_bss 0x800B00B8 (NOLOAD) : SUBALIGN(4) { build/us/movie_storage_tracks.o(.bss) }
+    .movie_storage_configuration_bss 0x800B14B0 (NOLOAD) : SUBALIGN(4) { build/us/movie_storage_configuration.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -3385,3 +3387,11 @@ ASSERT(ADDR(.script_storage_scenes_bss) == 0x800A42B0, "script resource storage 
 ASSERT(SIZEOF(.script_storage_scenes_bss) == 0x284, "script resource storage size changed")
 ASSERT(D_800A42B0 == ADDR(.script_storage_scenes_bss) + 0x0, "D_800A42B0 script resource storage symbol moved")
 ASSERT(D_800A4530 == ADDR(.script_storage_scenes_bss) + 0x280, "D_800A4530 script resource storage symbol moved")
+
+ASSERT(ADDR(.movie_storage_tracks_bss) == 0x800B00B8, "movie storage moved")
+ASSERT(SIZEOF(.movie_storage_tracks_bss) == 0x13EC, "movie storage size changed")
+ASSERT(D_800B00B8 == ADDR(.movie_storage_tracks_bss) + 0x0, "D_800B00B8 movie storage symbol moved")
+
+ASSERT(ADDR(.movie_storage_configuration_bss) == 0x800B14B0, "movie storage moved")
+ASSERT(SIZEOF(.movie_storage_configuration_bss) == 0x72C, "movie storage size changed")
+ASSERT(D_800B14B0 == ADDR(.movie_storage_configuration_bss) + 0x0, "D_800B14B0 movie storage symbol moved")

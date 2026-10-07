@@ -52,7 +52,7 @@ Fresh acceptance checks cover all 904 runtime comparison units, two startup
 units, eighteen assembly units and 167 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,422 matching C functions /
 306,456 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized
-data bytes and 584,037 BSS bytes. The text pool contributes 8,040 BSS bytes and
+data bytes and 590,973 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
 reset and every byte-valued character, with five rejected mutations.
@@ -85,6 +85,14 @@ All 630 paired execution cases pass and seven isolated mutations fail after
 positive controls. String helpers
 execute matching code; diagnostics, file services and scene submission use
 recorded integer ABI boundaries.
+
+The [movie storage audit](movie-storage.md) adds 6,936 BSS bytes across the
+complete 25-track pool and movie configuration. Nine types and 73 ordinary
+fields agree with pinned IDO through 164 size, alignment and offset checks.
+The guarded audit runs reset, lookup, load, release and callback registration:
+687 paired cases pass and five isolated mutations fail after positive controls.
+Byte-copy, clear and string routines execute matching instructions. Resource
+load/free and diagnostics use recorded ABI boundaries.
 
 The object projection candidate at `8003B2B0` remains excluded. A separate
 600-second, two-worker permuter search retained stack differences and produced

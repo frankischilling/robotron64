@@ -50,10 +50,10 @@
     }
   ],
   "inputs_sha256": {
-    "Makefile": "4ab478058bd4f368d5f8b6fb18eb4f5a39cd2896213944e2df1cabcacf505bbf",
+    "Makefile": "7ae0bc940dfa27e8e92f60793d50da8861e8a25a114ad451a7016741487332e2",
     "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-    "config/owned_sections.json": "41f2f5d6a5a46b49cbdbf845f4c874d605b68bf12b18929739c88a00d03f2168",
-    "config/runtime_symbols.ld": "23ff4407ff4b961dd7b1cc01dc111f9408fec747d795e4d1f04c9cbe957a4b17",
+    "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
+    "config/runtime_symbols.ld": "ff275b6bb794d128ad3d7f358959e243306ded6d5a0a8d9bb6763ade076aa046",
     "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -73,7 +73,7 @@
     "include/script_service_internal.h": "dbd1c1e75788351372596698cb05a80eb9698897a63a0e545555ad1783e25398",
     "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
     "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-    "linker_scripts/us.ld": "7fcb8f6fdd6dfeae85f1ba33ec434d80ffbde6c7f1109f9503e773494d0b2e6a",
+    "linker_scripts/us.ld": "9e66808587304bc1de8d0eed9080c1d9ad66c6d490ab36db2dc856c1a7fec6fb",
     "src/game/game_character.c": "eb898e76347e0e5c577d19e06a3106844b7eb92d643837cc88064077bd9cee37",
     "src/game/game_memory.c": "d046cce69151ba911777c757ad9462c3bc5e608831e1426f4a67d9cff788c0c7",
     "src/game/game_string_case_compare.c": "a385de983bb1dba313ee58225c5596c933bee2c6a481b247a09b2a2c70615d8d",
@@ -763,8 +763,8 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "41f2f5d6a5a46b49cbdbf845f4c874d605b68bf12b18929739c88a00d03f2168",
-        "config/runtime_symbols.ld": "23ff4407ff4b961dd7b1cc01dc111f9408fec747d795e4d1f04c9cbe957a4b17",
+        "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
+        "config/runtime_symbols.ld": "ff275b6bb794d128ad3d7f358959e243306ded6d5a0a8d9bb6763ade076aa046",
         "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -996,8 +996,8 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "41f2f5d6a5a46b49cbdbf845f4c874d605b68bf12b18929739c88a00d03f2168",
-        "config/runtime_symbols.ld": "23ff4407ff4b961dd7b1cc01dc111f9408fec747d795e4d1f04c9cbe957a4b17",
+        "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
+        "config/runtime_symbols.ld": "ff275b6bb794d128ad3d7f358959e243306ded6d5a0a8d9bb6763ade076aa046",
         "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -1229,8 +1229,8 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "41f2f5d6a5a46b49cbdbf845f4c874d605b68bf12b18929739c88a00d03f2168",
-        "config/runtime_symbols.ld": "23ff4407ff4b961dd7b1cc01dc111f9408fec747d795e4d1f04c9cbe957a4b17",
+        "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
+        "config/runtime_symbols.ld": "ff275b6bb794d128ad3d7f358959e243306ded6d5a0a8d9bb6763ade076aa046",
         "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -1678,12 +1678,12 @@
       {
         "mode": "fresh",
         "units": 6,
-        "report_sha256": "3266ea158ba40c9ca8135e01a7fec82233810cb9edafe2470df305b7a8e293bf"
+        "report_sha256": "d95b48da367df898756c3d06981543bf0d3ccdf18e9c620edd375ea0e80e515e"
       },
       {
         "mode": "cached",
         "units": 6,
-        "report_sha256": "3caa9d4de6e33748b9fd86069f21b5c35cba8f007d09f17c6f1a77be4653a16a"
+        "report_sha256": "09c4606b630bd24acc05aca71fe13fc3d839b06250d4d3fff49b2941bb7d79af"
       },
       {
         "name": "script_files_reset",
@@ -1815,7 +1815,7 @@
   "guarded_execution": {
     "paired_cases": 630,
     "target_executions": 1260,
-    "report_sha256": "f0ac14af6e70db2eca8039ec2c9232ef679983cebe899a90ceec8eac7cb441d8",
+    "report_sha256": "c5e746d5e98a6186f0cf54c64d7f6c5c68658afbe77e6d4e1195e583134400c7",
     "versions": {
       "unicorn": "2.1.1",
       "capstone": "5.0.9",
@@ -1900,12 +1900,12 @@
       "runtime-comparison": {
         "units": 904,
         "matches": true,
-        "report_sha256": "6481a0dd177cc3fef44986ddadac630f7f1d1c488e357bbf9ecfc8c382904792"
+        "report_sha256": "248807b205bd1875cf2c0b176c8ad3d9cd977f558ee2eed4a2a9ee8889c4b075"
       },
       "startup-comparison": {
         "units": 2,
         "matches": true,
-        "report_sha256": "633b573db90dc95fe63176092eac39795d096df4254eb394646becf2833cf409"
+        "report_sha256": "050610e84c72cd4cab1ff37b6787ba4371d6b829956a70ebf047c4dc9c8bd682"
       },
       "assembly-comparison": {
         "units": 18,
@@ -1913,14 +1913,14 @@
         "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
       },
       "data-comparison": {
-        "units": 167,
+        "units": 169,
         "matches": true,
-        "report_sha256": "b7359558802d7d968499b41b0b94a19a257315484464eec4a6e9a6453d627849"
+        "report_sha256": "3ff725b28f0e4aa92b3b3055eeaad9398e27e7d03053d45f8a1d656d73fb1a72"
       }
     },
     "clean_rom_bytes": 8388608,
     "clean_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-    "source_owned_bss_bytes": 584037,
+    "source_owned_bss_bytes": 590973,
     "matched_c_functions": 1422,
     "matched_c_bytes": 306456,
     "source_owned_initialized_bytes": 36351,

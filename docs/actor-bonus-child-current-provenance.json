@@ -29,8 +29,8 @@
   },
   "inputs_sha256": {
     "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-    "config/owned_sections.json": "41f2f5d6a5a46b49cbdbf845f4c874d605b68bf12b18929739c88a00d03f2168",
-    "config/runtime_symbols.ld": "23ff4407ff4b961dd7b1cc01dc111f9408fec747d795e4d1f04c9cbe957a4b17",
+    "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
+    "config/runtime_symbols.ld": "ff275b6bb794d128ad3d7f358959e243306ded6d5a0a8d9bb6763ade076aa046",
     "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",

@@ -4650,5 +4650,31 @@
       "D_800A4530": 640
     },
     "evidence": "docs/script-resource-storage.md"
+  },
+  {
+    "source": "src/game/movie_storage/tracks.c",
+    "object": "build/us/movie_storage_tracks.o",
+    "input_section": ".bss",
+    "section": ".movie_storage_tracks_bss",
+    "vram": 2148204728,
+    "rom": null,
+    "size": 5100,
+    "symbols": {
+      "D_800B00B8": 0
+    },
+    "evidence": "docs/movie-storage.md"
+  },
+  {
+    "source": "src/game/movie_storage/configuration.c",
+    "object": "build/us/movie_storage_configuration.o",
+    "input_section": ".bss",
+    "section": ".movie_storage_configuration_bss",
+    "vram": 2148209840,
+    "rom": null,
+    "size": 1836,
+    "symbols": {
+      "D_800B14B0": 0
+    },
+    "evidence": "docs/movie-storage.md"
   }
 ]

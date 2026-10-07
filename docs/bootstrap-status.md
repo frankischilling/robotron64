@@ -4,7 +4,7 @@ The target is the supplied USA ROM with header revision zero. `config/target.jso
 
 Current verified totals are 1,422 matching C functions / 306,456 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized bytes
-and 584,037 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
+and 590,973 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
@@ -39,6 +39,12 @@ in three complete sections. All 630 paired cases and seven isolated mutation
 controls pass. The registry and offset resets cover every element; lookups
 preserve case folding, signed offsets and strict scene boundaries. Pinned IDO
 and Ghidra agree on twenty size, alignment and field checks across three types.
+
+[Movie storage](movie-storage.md) adds 6,936 BSS bytes in two complete sections.
+All 687 paired cases and five isolated mutation controls pass. IDO and Ghidra
+agree on 164 size, alignment and ordinary-field checks across nine types.
+The reset's full byte counts, all 25 track slots and three valid callback
+slots are preserved. No new instructions are credited.
 
 Completed locally:
 

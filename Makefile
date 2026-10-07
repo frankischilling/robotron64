@@ -8241,6 +8241,8 @@ RUNTIME_OBJECTS += build/us/save_storage_players.o build/us/save_storage_configu
 
 RUNTIME_OBJECTS += build/us/script_storage_files.o build/us/script_storage_strings.o build/us/script_storage_scenes.o
 
+RUNTIME_OBJECTS += build/us/movie_storage_tracks.o build/us/movie_storage_configuration.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8322,3 +8324,19 @@ build/us/script_storage_scenes.o: src/game/script_storage/scenes.c $(wildcard in
 .PHONY: audit-script-resource-storage
 audit-script-resource-storage: toolchain
 	$(PYTHON) tools/check_script_resource_storage.py
+
+build/us/movie_storage_tracks.o: src/game/movie_storage/tracks.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_storage_tracks.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_storage_tracks.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/movie_storage_configuration.o: src/game/movie_storage/configuration.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_storage_configuration.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_storage_configuration.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: audit-movie-storage
+audit-movie-storage: toolchain
+	$(PYTHON) tools/check_movie_storage.py
