@@ -7856,6 +7856,10 @@ check-renderer-rotating-rings:
 audit-object-projection:
 	$(PYTHON) tools/check_object_projection.py
 
+.PHONY: audit-inverse-camera
+audit-inverse-camera:
+	$(PYTHON) tools/check_inverse_camera.py
+
 
 build/us/renderer_depth_blend_origin.o: src/game/renderer_setup/depth_blend_origin.c include/model_geometry_internal.h include/renderer_primitives_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	@mkdir -p build/us

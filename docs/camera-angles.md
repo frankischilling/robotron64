@@ -62,7 +62,9 @@ arithmetic shifts by fifteen. Intermediate shifts are retained in the C
 expressions; they cannot be replaced by one final shift without changing
 rounding and overflow behavior.
 
-The candidate's register allocation and stack size still differ. Run
+The revised candidate reproduces the 104-byte frame but still differs in
+68 instruction words and emits 448 live bytes. Its independent CPU audit and
+remaining limits are recorded in [inverse camera matrix](renderer-inverse-camera.md). Run
 `python3 tools/compare_runtime.py --candidates` for the complete comparison;
 the command must fail while any candidate differs. Its instructions remain
 fallback and contribute no matching bytes. Matching the angle setters and
