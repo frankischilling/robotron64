@@ -53,13 +53,24 @@ project's [N64 reference study](reference-study.md), including SM64 and IDO.
 No reference game implementation was copied. Instruction mismatches remain
 outside matching progress, even when execution agrees for tested inputs.
 
+The revised path candidate represents its two endpoint temporaries with the
+existing `GeometryPoint` type and exits segment traversal with a `break`. These
+source forms reduce the complete comparison from 36 differing words to five.
+The point view has three signed words, occupies twelve bytes and aligns to four;
+a pinned IDO layout probe and the live Ghidra type agree on all field offsets
+and widths. The two stack objects are typed in Ghidra, and the parameter pointer
+remains typed after re-decompilation. Only X and Y participate in this callback;
+Z remains untouched. The earlier private 27-word candidate is retained as a
+research checkpoint, with no matching ownership.
+
 ## Validation and remaining differences
 
 The combined rotation object matches all 372 instruction bytes and is linked
 and counted as two recovered functions. The path object contains all 592
-instruction bytes and differs in 36 words, all register choices. Its 96-byte
-stack frame and all spill offsets now agree. It remains excluded from the ROM
-and matching source progress.
+instruction bytes and differs in five words, all the endpoint-load base register:
+retail uses V0 and the candidate uses V1. Its 96-byte stack frame and all spill
+offsets agree. The routine remains excluded from the ROM link and matching
+source progress.
 
 The bonus child object contains all 744 instruction bytes and differs in six
 words: stack size, the incoming index slot and the floating result register.
@@ -76,8 +87,8 @@ matched before execution. Completion and object-angle submission use stubs
 that record arguments and actor snapshots and clobber caller-saved registers.
 The check preserves the pool, parameter and actor Z coordinate and verifies
 the stack and saved registers. Each retail and candidate path run also checks
-a separate Python model of the complete actor image and call snapshots. Instruction, read and write bounds,
-outer canaries and GP preservation are checked. Five deliberate changes to
+a separate Python model of the complete actor image and call snapshots.
+Instruction, read and write bounds, outer canaries and GP preservation are checked. Five deliberate changes to
 segment equality, speed scaling, interpolation, completion arguments and
 movement clearing were detected. Invalid indices and zero distances are outside
 its scope; it does not prove full-game behavior or instruction matching.

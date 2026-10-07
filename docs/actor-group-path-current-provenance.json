@@ -1,6 +1,6 @@
 {
   "scope": "Excluded actor-group path candidate and independent execution model; no new code/data/BSS ownership.",
-  "previous_head": "a85a50afb646b1694a7cf8cffac93f2bebc82534",
+  "previous_head": "e8e7449053ee9c4542a90e6219443abb02319644",
   "owned_added": {
     "code": 0,
     "initialized_data": 0,
@@ -8,50 +8,19 @@
   },
   "candidate": {
     "source": "src/game/actor_groups/path.c",
-    "source_sha256": "815f7bd44ff7989bfe84818129c0cd63762df6601b5337000cbdd576b332f72d",
+    "source_sha256": "3d3b432b5f06aa04bdd8c75c85f7a4dc4889d7416cf8857452c9599f1d3a0a67",
     "vram": "0x8000E894",
     "rom": "0xF494",
     "live_bytes": 592,
     "frame_bytes": 96,
-    "previous_differing_words": 88,
-    "differing_words": 36,
+    "previous_differing_words": 36,
+    "differing_words": 5,
     "differing_addresses": [
-      "0x8000e8ac",
-      "0x8000e8b4",
-      "0x8000e8b8",
-      "0x8000e8e4",
-      "0x8000e8ec",
-      "0x8000e8f0",
-      "0x8000e8f4",
-      "0x8000e8fc",
-      "0x8000e908",
-      "0x8000e90c",
-      "0x8000e910",
-      "0x8000e914",
-      "0x8000e928",
-      "0x8000e930",
-      "0x8000e940",
-      "0x8000e944",
-      "0x8000e94c",
-      "0x8000e950",
-      "0x8000e95c",
-      "0x8000e97c",
-      "0x8000e980",
       "0x8000e988",
       "0x8000e98c",
       "0x8000e998",
       "0x8000e9a4",
-      "0x8000e9b0",
-      "0x8000e9c4",
-      "0x8000e9f8",
-      "0x8000ea00",
-      "0x8000ea4c",
-      "0x8000ea98",
-      "0x8000ea9c",
-      "0x8000eaa0",
-      "0x8000eaa4",
-      "0x8000eaa8",
-      "0x8000eab0"
+      "0x8000e9b0"
     ],
     "differences": "Register operands only; complete mnemonic/immediate stream, branch targets, stack offsets and frame agree.",
     "matches": false,
@@ -74,7 +43,7 @@
       "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
       "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
     },
-    "compiled_sha256": "7ad8394f5dcba186a66efa79b78657bd9de33c141f5523ed6989720ea050b6dd",
+    "compiled_sha256": "8bcf18dd78e9ae90ff044d279b42a75d9b41387d9e8ed8b1a2acba7bdadfe556",
     "retail_sha256": "76ddf614c413eb025a695b012ac134098b03762119d81b8ac6df9767652ed935"
   },
   "references": [
@@ -92,10 +61,10 @@
     }
   ],
   "viewers": {
-    "objdiff_percent": 98.51351,
+    "objdiff_percent": 99.83108,
     "limit": "Viewer scores are not complete byte equality.",
-    "asm_differ_sha256": "3824925e928188eff2b51f496c73b9fad9d87e7f6c12ddb65c3ff6be8d120e27",
-    "objdiff_report_sha256": "706dc22a332bf1a221f780e79cccd6f826fb091e2145fed10f15b173cb744eb3"
+    "asm_differ_sha256": "2be194364303d7ab1b8577737c85c0ccabb7eed3f8e788761704ac70ab458e16",
+    "objdiff_report_sha256": "4f6f87590ab9c8fe00912c74edb30affb3fd2111de42f40442a267e0979ae5e8"
   },
   "execution": {
     "counts": {
@@ -133,7 +102,7 @@
           ],
           "reason": "('Independent actor path state/call oracle', (2, 0, 2, 0, 0, 0), {'actor': 'a5a5a5a5a5a5a5a50ea8a5a50011a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a580211000a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5"
         },
-        "source_sha256": "4160ee91f8f19afa4b8b732863470fdc0e679c909737629b81d2b4eee207c838"
+        "source_sha256": "15b69f91ad09219189fbeeb9726cebbd067e32209042a674f38db0ee318327fc"
       },
       {
         "mutation": "step_scale",
@@ -148,7 +117,7 @@
           ],
           "reason": "('Independent actor path state/call oracle', (2, 0, 0, 14, 0, 0), {'actor': 'a5a5a5a5a5a5a5a50ea8a5a50011a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a580211000a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a"
         },
-        "source_sha256": "8a470421c1d201ae6ae931c30cdbece8399a374bae35b6485a8d107b23cb2cde"
+        "source_sha256": "a3cb10917f11955b374eb570378d936ef63092e5eb5cd1c06f859cf1757225f2"
       },
       {
         "mutation": "interpolation_origin",
@@ -163,7 +132,7 @@
           ],
           "reason": "('Independent actor path state/call oracle', (2, 0, 0, 14, 0, 0), {'actor': 'a5a5a5a5a5a5a5a50ea8a5a50011a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a580211000a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a"
         },
-        "source_sha256": "b30058c88268a8d3a4314c4b79d39ec1521f41a9a328b847b2e7a5c7052ae137"
+        "source_sha256": "2cf8ddb7de0b73a499d852f15c75151c91b0ad58035536664c141615a0ef0c1b"
       },
       {
         "mutation": "completion_mode",
@@ -178,7 +147,7 @@
           ],
           "reason": "boundary argument/guard assertion"
         },
-        "source_sha256": "04e9bc65bc4024f8097d48dee0e1c7b52566a0ab9a2a3b1c2d09eb743d466fbb"
+        "source_sha256": "5ab09b15ed2327bc9cbd2cae0ce27dfdaa860302e93dac34ee34ddaf502eb420"
       },
       {
         "mutation": "clear_z",
@@ -193,7 +162,7 @@
           ],
           "reason": "('Independent actor path state/call oracle', (2, 0, 0, 14, 0, 0), {'actor': 'a5a5a5a5a5a5a5a50ea8a5a50011a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a580211000a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a"
         },
-        "source_sha256": "2f9be6679cbc14f76a0fb105240b168de2dc90cc29e929ef4d2b8b3ec19e24bd"
+        "source_sha256": "a8d9d4fbb43c9de3e565efa29ce38f359bb4c2bd258d0659a094226af0bdbe7c"
       }
     ],
     "limits": [
@@ -437,6 +406,49 @@
       "probe_sha256": "569f30a8a7e0973f4a978fc0b6f48c1d240b0e4935dc0ec3c6654a3abc546c01",
       "object_sha256": "cb6a902a4d4fadc9d496e9335174b30558d26be70dd33713184d5c9ea6744e3c"
     },
+    "point_layout": {
+      "equal": true,
+      "source_sha256": "ca00ee7b5bc74f89a306d9139cd1f243db44e2998b00381f33a7f8c42c6dc419",
+      "object_sha256": "aff36ac65f292f3e868c87c144827399140803d6d80a3dc17dccd80035b568da",
+      "compiler_words": [
+        12,
+        4,
+        0,
+        4,
+        4,
+        4,
+        8,
+        4
+      ],
+      "ghidra": {
+        "name": "GeometryPoint",
+        "size": 12,
+        "alignment": 4,
+        "fields": [
+          {
+            "offset": 0,
+            "size": 4,
+            "type": "int",
+            "name": "x"
+          },
+          {
+            "offset": 4,
+            "size": 4,
+            "type": "int",
+            "name": "y"
+          },
+          {
+            "offset": 8,
+            "size": 4,
+            "type": "int",
+            "name": "z"
+          }
+        ]
+      },
+      "meaning": "Two signed XY endpoint words in the canonical 12-byte point view; the path and rotation helpers leave Z unused and untouched."
+    },
+    "point_locals_typed": true,
+    "typed_decompilation_sha256": "04958873eef7a5cdf42dc33025cddb01bfe395838e807cdbf3a84034da4a8697",
     "global_pointer_limit": "800AE4F4 is not mapped in the current Ghidra program, so its existing label was not retyped or replaced with invented memory."
   },
   "validation": {
@@ -475,8 +487,8 @@
           "-v"
         ],
         "returncode": 0,
-        "seconds": 0.85,
-        "log_sha256": "38924a7b973644bdfecb35fd044fc24262ab34ac144a737e19626176a68570a0"
+        "seconds": 1.05,
+        "log_sha256": "1d90456cce68f62cb621d316f612d893825a8056985b1b6ea957c1933d7da695"
       },
       {
         "command": [
@@ -485,8 +497,8 @@
           "-j2"
         ],
         "returncode": 0,
-        "seconds": 196.64,
-        "log_sha256": "dd9a63e03f5e69467d551f3002d279de339573c148c7b6fb65d22c86e3d1d44a"
+        "seconds": 193.77,
+        "log_sha256": "2d2046b7ccf95cb337ec4fb5db9509de88d552676f9447679458b355e1810d54"
       },
       {
         "command": [
@@ -494,7 +506,7 @@
           "tools/compare_startup.py"
         ],
         "returncode": 0,
-        "seconds": 0.92,
+        "seconds": 0.9,
         "log_sha256": "c363f3476434a31a776854b3b6439d0a3e8945f96e6c1dc53e13732e98456a98"
       },
       {
@@ -503,7 +515,7 @@
           "tools/compare_assembly.py"
         ],
         "returncode": 0,
-        "seconds": 12.29,
+        "seconds": 11.59,
         "log_sha256": "def044745f32df2c9058eb992899bb3623de07b2c2b4df4740bdfd5763cfaa25"
       },
       {
@@ -512,7 +524,7 @@
           "tools/compare_data.py"
         ],
         "returncode": 0,
-        "seconds": 8.69,
+        "seconds": 7.97,
         "log_sha256": "d2c7c852c478cf4c79ca00251c947e82d8b491e58b86849693a8fa40ed00e217"
       }
     ],
@@ -524,7 +536,7 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "seconds": 0.19,
+        "seconds": 0.17,
         "log_sha256": "f47c6b999205ff33e45c729d2df9b6dd7a1e99d64113d232a2dfdd30da5a9234"
       },
       {
@@ -535,8 +547,8 @@
           "PYTHON=/root/robotron64-tools/.venv/bin/python"
         ],
         "returncode": 0,
-        "seconds": 119.37,
-        "log_sha256": "e44b8a7d69201ef82602b4c1c8b2fc771f4d182898cc2a86d54798ad4a28f504"
+        "seconds": 118.02,
+        "log_sha256": "4c8fd8948c09cb7b2caea97f0702ac5cfc2f31375793bf6ceea739211dcdbabe"
       }
     ],
     "rom_bytes": 8388608,
@@ -730,7 +742,7 @@
     "include/static_menu_internal.h": "dc3ba1bf5f36927bd6e49af40f9d1101975ce39c0fc4f35b43753201060e5203",
     "include/text.h": "d954d557366f88590d863a335130d609cba06def33ad93145a8ff449394b6761",
     "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-    "src/game/actor_groups/path.c": "815f7bd44ff7989bfe84818129c0cd63762df6601b5337000cbdd576b332f72d",
+    "src/game/actor_groups/path.c": "3d3b432b5f06aa04bdd8c75c85f7a4dc4889d7416cf8857452c9599f1d3a0a67",
     "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
     "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
   }
