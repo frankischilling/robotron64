@@ -49,10 +49,10 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 904 runtime comparison units, two startup
-units, eighteen assembly units and 164 data-only units. The clean build matches
+units, eighteen assembly units and 167 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,422 matching C functions /
 306,456 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized
-data bytes and 568,591 BSS bytes. The text pool contributes 8,040 BSS bytes and
+data bytes and 584,037 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
 reset and every byte-valued character, with five rejected mutations.
@@ -73,6 +73,18 @@ comparisons, asm-differ and objdiff use four independently reassembled retail
 consumers. All 1,356 paired execution cases pass and six source mutations fail
 after their controls pass. File services, settings application and menu refresh
 are recorded ABI boundaries; byte copying executes real matching instructions.
+
+The [script storage audit](script-resource-storage.md) adds 15,446 BSS bytes
+across the complete file registry, signed string offsets and scene boundaries.
+Twenty IDO/Ghidra layout checks agree across three types. Seven retail ranges
+retain eleven distinct procedure extents and reproduce all 1,372 bytes through
+both independent disassemblers. Six complete source units pass fresh and cached
+workbench comparisons. Asm-differ and objdiff inspect the independent references;
+symbol and relocation scores do not replace the linked-byte comparisons.
+All 630 paired execution cases pass and seven isolated mutations fail after
+positive controls. String helpers
+execute matching code; diagnostics, file services and scene submission use
+recorded integer ABI boundaries.
 
 The object projection candidate at `8003B2B0` remains excluded. A separate
 600-second, two-worker permuter search retained stack differences and produced

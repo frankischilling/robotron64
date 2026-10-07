@@ -4609,5 +4609,46 @@
       "D_800AD318": 0
     },
     "evidence": "docs/save-state-storage.md"
+  },
+  {
+    "source": "src/game/script_storage/files.c",
+    "object": "build/us/script_storage_files.o",
+    "input_section": ".bss",
+    "section": ".script_storage_files_bss",
+    "vram": 2148103760,
+    "rom": null,
+    "size": 12800,
+    "symbols": {
+      "D_80097650": 0
+    },
+    "evidence": "docs/script-resource-storage.md"
+  },
+  {
+    "source": "src/game/script_storage/strings.c",
+    "object": "build/us/script_storage_strings.o",
+    "input_section": ".bss",
+    "section": ".script_storage_strings_bss",
+    "vram": 2148154072,
+    "rom": null,
+    "size": 2002,
+    "symbols": {
+      "D_800A3AD8": 0,
+      "D_800A42A8": 2000
+    },
+    "evidence": "docs/script-resource-storage.md"
+  },
+  {
+    "source": "src/game/script_storage/scenes.c",
+    "object": "build/us/script_storage_scenes.o",
+    "input_section": ".bss",
+    "section": ".script_storage_scenes_bss",
+    "vram": 2148156080,
+    "rom": null,
+    "size": 644,
+    "symbols": {
+      "D_800A42B0": 0,
+      "D_800A4530": 640
+    },
+    "evidence": "docs/script-resource-storage.md"
   }
 ]

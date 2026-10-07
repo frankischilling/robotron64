@@ -1,52 +1,52 @@
 {
-  "status": "Complete player, configuration/audio and save-image BSS is source-owned. No new instructions or initialized ROM bytes are claimed.",
+  "status": "Complete scripted-file, signed string-offset and scene-boundary BSS is source-owned. No new instructions or initialized ROM bytes are claimed.",
   "verified_date": "2026-10-07",
   "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-  "new_bss_bytes": 11144,
+  "new_bss_bytes": 15446,
   "new_matching_functions": 0,
   "new_instruction_bytes": 0,
   "new_initialized_rom_bytes": 0,
   "ownership": [
     {
-      "source": "src/game/save_storage/players.c",
-      "object": "build/us/save_storage_players.o",
+      "source": "src/game/script_storage/files.c",
+      "object": "build/us/script_storage_files.o",
       "input_section": ".bss",
-      "section": ".save_storage_players_bss",
-      "vram": 2148118928,
+      "section": ".script_storage_files_bss",
+      "vram": 2148103760,
       "rom": null,
-      "size": 7016,
+      "size": 12800,
       "symbols": {
-        "D_8009B190": 0
+        "D_80097650": 0
       },
-      "evidence": "docs/save-state-storage.md"
+      "evidence": "docs/script-resource-storage.md"
     },
     {
-      "source": "src/game/save_storage/configuration.c",
-      "object": "build/us/save_storage_configuration.o",
+      "source": "src/game/script_storage/strings.c",
+      "object": "build/us/script_storage_strings.o",
       "input_section": ".bss",
-      "section": ".save_storage_configuration_bss",
-      "vram": 2148193016,
+      "section": ".script_storage_strings_bss",
+      "vram": 2148154072,
       "rom": null,
-      "size": 32,
+      "size": 2002,
       "symbols": {
-        "D_800AD2F8": 0,
-        "D_800AD310": 24,
-        "D_800AD314": 28
+        "D_800A3AD8": 0,
+        "D_800A42A8": 2000
       },
-      "evidence": "docs/save-state-storage.md"
+      "evidence": "docs/script-resource-storage.md"
     },
     {
-      "source": "src/game/save_storage/image.c",
-      "object": "build/us/save_storage_image.o",
+      "source": "src/game/script_storage/scenes.c",
+      "object": "build/us/script_storage_scenes.o",
       "input_section": ".bss",
-      "section": ".save_storage_image_bss",
-      "vram": 2148193048,
+      "section": ".script_storage_scenes_bss",
+      "vram": 2148156080,
       "rom": null,
-      "size": 4096,
+      "size": 644,
       "symbols": {
-        "D_800AD318": 0
+        "D_800A42B0": 0,
+        "D_800A4530": 640
       },
-      "evidence": "docs/save-state-storage.md"
+      "evidence": "docs/script-resource-storage.md"
     }
   ],
   "inputs_sha256": {
@@ -56,25 +56,39 @@
     "config/runtime_symbols.ld": "23ff4407ff4b961dd7b1cc01dc111f9408fec747d795e4d1f04c9cbe957a4b17",
     "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
-    "include/audio_game.h": "f63a58f0375dd51938376df76002d52c21b2e8ef60c8e462b1fc327367922935",
+    "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
+    "include/actor_resource_5c_internal.h": "0b6f292c42691888a4ff24edff575f479ed8c19ed98d41484528ab8478db95ed",
+    "include/actor_resource_internal.h": "e07a99c4802190fae91795515d9873d5572e068efa219e2b8f1fc82a7bff1f1e",
+    "include/command_script.h": "cfa4ed9738ae5994ff59ab90864204f017dde3c007c860536f6c53be9b2575e6",
     "include/destination_format.h": "d4384f14dfd1a3122d4347e371f4d8d6f8c9bcb7a625947759ed7c0b3361f65f",
     "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
+    "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
     "include/pak_file.h": "e144767fa29add034dc5f18e70dfc509179de28a6f25b413bfbe2fb4cd155afc",
+    "include/platform_services.h": "79e5ecae44b4205ae8c042199221ad09a566f27b71e3cef03f3545d6d8f52547",
+    "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
     "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
+    "include/scene_audio.h": "b30e1baad8be4dd0cf373c011c75e079e02d26225b83c84c96fbeac415b477cf",
+    "include/scene_commands_internal.h": "a21b97d1d652b686d51f894b0611b494421f9fa57563aaa2a8ff101cb6032efb",
     "include/scene_definition.h": "069a4d5c9f25a2bb5aeab76fe93f500495f1a5d21f9ea2056fece2640d04fb52",
+    "include/script_service_internal.h": "dbd1c1e75788351372596698cb05a80eb9698897a63a0e545555ad1783e25398",
+    "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
+    "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
     "linker_scripts/us.ld": "7fcb8f6fdd6dfeae85f1ba33ec434d80ffbde6c7f1109f9503e773494d0b2e6a",
+    "src/game/game_character.c": "eb898e76347e0e5c577d19e06a3106844b7eb92d643837cc88064077bd9cee37",
     "src/game/game_memory.c": "d046cce69151ba911777c757ad9462c3bc5e608831e1426f4a67d9cff788c0c7",
-    "src/game/player_fields_clear.c": "e6aaa4f48bc83aa86e61b2a3f30830dcedcb2cfeaa335ffc75b7aa222f20a293",
-    "src/game/save_file_write.c": "e376af728aa64a40525f5873cc184be4bc39b675ac5cfff7980ea266ca9c5f10",
-    "src/game/save_options_capture.c": "28a86eaf5b41fdc474d0f1733af8c4d199bc182577cc3f8f19dd39f37fba217a",
-    "src/game/save_options_restore.c": "535fd32e324b963fe891924975a00a47b62fde90ed63fffaa6608bc012127bbf",
-    "src/game/save_slot_capture.c": "ae443870fe06b5f835f5092117331125bc37d66ab7d79705bebebe5ee684ba72",
-    "src/game/save_slot_restore.c": "c778695ca9f30b7e568cf6c57d42b1f8b2ecafb82625c6b35dec1530fed267fc",
-    "src/game/save_storage/configuration.c": "774001620c499de27c2a23989b1c05c7cb2cab6db4d8f26cf62c90aa98ecc2f8",
-    "src/game/save_storage/image.c": "f00bf219b72e10c33b1af189c188a13b9bd301d794add5901a0de6c852d016b9",
-    "src/game/save_storage/players.c": "342b8db8e2b6fb645a9b6a8f891a8c7c7a0d757c8aeb93168bb155f44c0d8304",
+    "src/game/game_string_case_compare.c": "a385de983bb1dba313ee58225c5596c933bee2c6a481b247a09b2a2c70615d8d",
+    "src/game/resource_string_reset.c": "4881da1c6a8a8fed5314090d50ffe086f4dd251af7c5bc7ef40c9e056bff9109",
+    "src/game/scene_file_select.c": "0ed4ac962aa8d715779dc6b4951c64a298310046f7ccacbbb8252d7ea3a28a18",
+    "src/game/script_service_cache_access.c": "7cb62e0e488a9d9832784809c7b61b5181ebe7807ae59b80d84141deba0d18cb",
+    "src/game/script_service_cache_reset.c": "62eaa169bfbe20e002a279724bfe6ff0dd32bd4bbec838717d4cbcc1e1b1a14f",
+    "src/game/script_service_commands.c": "586ce10bb876408bd5f2ed35d75a034c96e59641d83191dfcf6fd0868512dda0",
+    "src/game/script_service_files.c": "4caf644529987206f2b9a349307321f45df3d8f9cd84ad5f0101205e5c87e010",
+    "src/game/script_storage/files.c": "0b2eff3b32cc305f516696b98f890aac26d34975d1e8c8b97736f5e25c6d9280",
+    "src/game/script_storage/scenes.c": "9c692b2251953a7cf0b9e35878ece1c3d9ca0cbcfcaefbe55a4e78cb1ab3c17a",
+    "src/game/script_storage/strings.c": "68c041bd531e2e01c224484d9dc0e53418cdbf0b4b9e0a6620f18a1013f95937",
+    "src/game/string_resource.c": "41b16cfe34b03c54838858cfca395a7a4598bc9976b5ff1394aeaa538820f869",
     "tools/check_actor_group_path.py": "913f59275b43e00062b45989def982da6e9f6502c3f149d0daca2505a34c944d",
-    "tools/check_save_state_storage.py": "8821cd675feece6f079bbbd1d8e6d1d45a12b06f5dca8c4d4aa12a9a1da93780",
+    "tools/check_script_resource_storage.py": "a7ab4aefbd63661539f28bfb4464353211bdd1ebb8f79287ad3e4f4a42d27111",
     "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
     "tools/compare_runtime.py": "f7eab2ad6813a4dd155417713b48b0c6ff157c3b5b4d6d892618010897662146",
     "tools/compare_startup.py": "175fd810a17671292f1372f1dced333b1f1ab4dbaaa4131d6a70516fa9614c6f",
@@ -84,635 +98,647 @@
     "tools/rom.py": "e0a61a3034aad22593a66275e77cc828765b83185291872325fc23ea3881a3e2",
     "tools/toolchain.py": "83a91499cbef3c6f7319c8482e2decb06b3cad9a67ec398460ab4fae22b08c5b"
   },
+  "compiler_profile": {
+    "name": "game",
+    "version": "5.3",
+    "flags": [
+      "-O2",
+      "-G",
+      "0",
+      "-non_shared",
+      "-mips1",
+      "-32"
+    ]
+  },
+  "toolchain_identity": {
+    "version": "5.3",
+    "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+    "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+    "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+  },
   "layout_probe": {
     "matches": true,
-    "types": 8,
-    "ordinary_fields": 52,
-    "layouts": {
-      "GameSaveData": {
-        "name": "GameSaveData",
-        "size": 4096,
-        "alignment": 4,
-        "fields": [
-          {
-            "offset": 0,
-            "size": 20,
-            "type": "uchar[20]",
-            "name": "signature"
-          },
-          {
-            "offset": 20,
-            "size": 400,
-            "type": "uchar[400]",
-            "name": "configuration"
-          },
-          {
-            "offset": 420,
-            "size": 4,
-            "type": "uchar[4]",
-            "name": "unknown1A4"
-          },
-          {
-            "offset": 424,
-            "size": 32,
-            "type": "int[8]",
-            "name": "occupied"
-          },
-          {
-            "offset": 456,
-            "size": 3552,
-            "type": "SavedGameSlot[8]",
-            "name": "slots"
-          },
-          {
-            "offset": 4008,
-            "size": 40,
-            "type": "SavedOptions",
-            "name": "options"
-          },
-          {
-            "offset": 4048,
-            "size": 4,
-            "type": "uint",
-            "name": "checksum"
-          },
-          {
-            "offset": 4052,
-            "size": 44,
-            "type": "uchar[44]",
-            "name": "unknownFD4"
-          }
-        ]
+    "types": 3,
+    "field_layouts": 7,
+    "probes": [
+      {
+        "type": "ScriptedFile",
+        "property": "sizeof",
+        "field": null,
+        "ido": 128,
+        "ghidra": 128
       },
-      "SavedOptions": {
-        "name": "SavedOptions",
-        "size": 40,
-        "alignment": 4,
-        "fields": [
-          {
-            "offset": 0,
-            "size": 24,
-            "type": "uchar[24]",
-            "name": "configuration"
-          },
-          {
-            "offset": 24,
-            "size": 4,
-            "type": "int",
-            "name": "audio18"
-          },
-          {
-            "offset": 28,
-            "size": 4,
-            "type": "int",
-            "name": "audio1C"
-          },
-          {
-            "offset": 32,
-            "size": 8,
-            "type": "int[2]",
-            "name": "playerField34"
-          }
-        ]
+      {
+        "type": "ScriptedFile",
+        "property": "offset",
+        "field": "flags",
+        "ido": 0,
+        "ghidra": 0
       },
-      "SavedGameSlot": {
-        "name": "SavedGameSlot",
-        "size": 444,
-        "alignment": 4,
-        "fields": [
-          {
-            "offset": 0,
-            "size": 76,
-            "type": "SavedSessionState",
-            "name": "session"
-          },
-          {
-            "offset": 76,
-            "size": 320,
-            "type": "SavedPlayerState[2]",
-            "name": "players"
-          },
-          {
-            "offset": 396,
-            "size": 8,
-            "type": "int[2]",
-            "name": "playerLevels"
-          },
-          {
-            "offset": 404,
-            "size": 40,
-            "type": "SavedOptions",
-            "name": "options"
-          }
-        ]
+      {
+        "type": "ScriptedFile",
+        "property": "size",
+        "field": "flags",
+        "ido": 4,
+        "ghidra": 4
       },
-      "GamePlayerState": {
-        "name": "GamePlayerState",
-        "size": 3508,
-        "alignment": 4,
-        "fields": [
-          {
-            "offset": 0,
-            "size": 160,
-            "type": "SavedPlayerState",
-            "name": "saved"
-          },
-          {
-            "offset": 160,
-            "size": 3276,
-            "type": "uchar[3276]",
-            "name": "unknownA0"
-          },
-          {
-            "offset": 3436,
-            "size": 4,
-            "type": "int",
-            "name": "level"
-          },
-          {
-            "offset": 3440,
-            "size": 4,
-            "type": "int",
-            "name": "valueD70"
-          },
-          {
-            "offset": 3444,
-            "size": 64,
-            "type": "uchar[64]",
-            "name": "unknownD74"
-          }
-        ]
+      {
+        "type": "ScriptedFile",
+        "property": "offset",
+        "field": "size",
+        "ido": 4,
+        "ghidra": 4
       },
-      "SavedPlayerState": {
-        "name": "SavedPlayerState",
-        "size": 160,
-        "alignment": 4,
-        "fields": [
-          {
-            "offset": 0,
-            "size": 5,
-            "type": "uchar[5]",
-            "name": "unknown00"
-          },
-          {
-            "offset": 5,
-            "size": 1,
-            "type": "uchar",
-            "name": "selection05"
-          },
-          {
-            "offset": 6,
-            "size": 2,
-            "type": "uchar[2]",
-            "name": "unknown06"
-          },
-          {
-            "offset": 8,
-            "size": 4,
-            "type": "GameActor *",
-            "name": "actor08"
-          },
-          {
-            "offset": 12,
-            "size": 12,
-            "type": "uchar[12]",
-            "name": "unknown0C"
-          },
-          {
-            "offset": 24,
-            "size": 4,
-            "type": "int",
-            "name": "value18"
-          },
-          {
-            "offset": 28,
-            "size": 4,
-            "type": "int",
-            "name": "active"
-          },
-          {
-            "offset": 32,
-            "size": 4,
-            "type": "uchar[4]",
-            "name": "unknown20"
-          },
-          {
-            "offset": 36,
-            "size": 4,
-            "type": "int",
-            "name": "value24"
-          },
-          {
-            "offset": 40,
-            "size": 12,
-            "type": "uchar[12]",
-            "name": "unknown28"
-          },
-          {
-            "offset": 52,
-            "size": 4,
-            "type": "int",
-            "name": "field34"
-          },
-          {
-            "offset": 56,
-            "size": 104,
-            "type": "uchar[104]",
-            "name": "unknown38"
-          }
-        ]
+      {
+        "type": "ScriptedFile",
+        "property": "size",
+        "field": "size",
+        "ido": 4,
+        "ghidra": 4
       },
-      "SavedSessionState": {
-        "name": "SavedSessionState",
-        "size": 76,
-        "alignment": 4,
-        "fields": [
-          {
-            "offset": 0,
-            "size": 28,
-            "type": "uchar[28]",
-            "name": "unknown00"
-          },
-          {
-            "offset": 28,
-            "size": 4,
-            "type": "uint",
-            "name": "flags1C"
-          },
-          {
-            "offset": 32,
-            "size": 4,
-            "type": "uchar[4]",
-            "name": "unknown20"
-          },
-          {
-            "offset": 36,
-            "size": 4,
-            "type": "int",
-            "name": "selection"
-          },
-          {
-            "offset": 40,
-            "size": 4,
-            "type": "int",
-            "name": "level"
-          },
-          {
-            "offset": 44,
-            "size": 4,
-            "type": "int",
-            "name": "mode"
-          },
-          {
-            "offset": 48,
-            "size": 4,
-            "type": "int",
-            "name": "currentPlayer"
-          },
-          {
-            "offset": 52,
-            "size": 4,
-            "type": "int",
-            "name": "selection34"
-          },
-          {
-            "offset": 56,
-            "size": 8,
-            "type": "int[2]",
-            "name": "playerChoices38"
-          },
-          {
-            "offset": 64,
-            "size": 8,
-            "type": "uchar[8]",
-            "name": "unknown40"
-          },
-          {
-            "offset": 72,
-            "size": 4,
-            "type": "int",
-            "name": "extra48"
-          }
-        ]
+      {
+        "type": "ScriptedFile",
+        "property": "offset",
+        "field": "data",
+        "ido": 8,
+        "ghidra": 8
       },
-      "GameOptionConfiguration": {
-        "name": "GameOptionConfiguration",
-        "size": 24,
-        "alignment": 4,
-        "fields": [
-          {
-            "offset": 0,
-            "size": 4,
-            "type": "int",
-            "name": "field00"
-          },
-          {
-            "offset": 4,
-            "size": 4,
-            "type": "int",
-            "name": "field04"
-          },
-          {
-            "offset": 8,
-            "size": 4,
-            "type": "int",
-            "name": "field08"
-          },
-          {
-            "offset": 12,
-            "size": 4,
-            "type": "int",
-            "name": "field0C"
-          },
-          {
-            "offset": 16,
-            "size": 4,
-            "type": "int",
-            "name": "field10"
-          },
-          {
-            "offset": 20,
-            "size": 4,
-            "type": "int",
-            "name": "field14"
-          }
-        ]
+      {
+        "type": "ScriptedFile",
+        "property": "size",
+        "field": "data",
+        "ido": 4,
+        "ghidra": 4
       },
-      "GameSaveImage": {
-        "size": 4096,
-        "alignment": 4,
-        "name": "GameSaveImage",
-        "fields": [
-          {
-            "offset": 0,
-            "name": "data",
-            "size": 4096
-          },
-          {
-            "offset": 0,
-            "name": "words",
-            "size": 4096
-          }
-        ]
+      {
+        "type": "ScriptedFile",
+        "property": "offset",
+        "field": "name",
+        "ido": 12,
+        "ghidra": 12
+      },
+      {
+        "type": "ScriptedFile",
+        "property": "size",
+        "field": "name",
+        "ido": 14,
+        "ghidra": 14
+      },
+      {
+        "type": "ScriptedFile",
+        "property": "offset",
+        "field": "path",
+        "ido": 26,
+        "ghidra": 26
+      },
+      {
+        "type": "ScriptedFile",
+        "property": "size",
+        "field": "path",
+        "ido": 102,
+        "ghidra": 102
+      },
+      {
+        "type": "SceneFileBoundary",
+        "property": "sizeof",
+        "field": null,
+        "ido": 8,
+        "ghidra": 8
+      },
+      {
+        "type": "SceneFileBoundary",
+        "property": "offset",
+        "field": "startLevel",
+        "ido": 0,
+        "ghidra": 0
+      },
+      {
+        "type": "SceneFileBoundary",
+        "property": "size",
+        "field": "startLevel",
+        "ido": 4,
+        "ghidra": 4
+      },
+      {
+        "type": "SceneFileBoundary",
+        "property": "offset",
+        "field": "name",
+        "ido": 4,
+        "ghidra": 4
+      },
+      {
+        "type": "SceneFileBoundary",
+        "property": "size",
+        "field": "name",
+        "ido": 4,
+        "ghidra": 4
+      },
+      {
+        "type": "ScriptedFileFlags",
+        "property": "sizeof",
+        "field": null,
+        "ido": 4,
+        "ghidra": 4
+      },
+      {
+        "type": "ScriptedFile",
+        "property": "alignment",
+        "field": null,
+        "ido": 4,
+        "ghidra": 4
+      },
+      {
+        "type": "SceneFileBoundary",
+        "property": "alignment",
+        "field": null,
+        "ido": 4,
+        "ghidra": 4
+      },
+      {
+        "type": "ScriptedFileFlags",
+        "property": "alignment",
+        "field": null,
+        "ido": 4,
+        "ghidra": 4
       }
-    },
-    "profile": {
-      "name": "game",
-      "version": "5.3",
-      "flags": [
-        "-O2",
-        "-G",
-        "0",
-        "-non_shared",
-        "-mips1",
-        "-32"
-      ]
-    },
-    "toolchain_identity": {
-      "version": "5.3",
-      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
-      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
-      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
-    },
-    "source_sha256": "022cba99801698482b2d50a92d04ebd4c0724fe5103ddabb7fdd93f1a90574f3",
-    "object_sha256": "0ce3a1aac56b944454e4e47845df83ef1a5bde21414c6dce65615d1a270fe178",
-    "ghidra_snapshot_sha256": "fe9d2402311221784306bf4d9dfad9ea08fb9427bd6bd70e8a599807fbca75ec"
+    ],
+    "source_sha256": "bea6a6580a3f8df038aadd5aa47a3c1e23b472316bb91c790739b26c42b60b78",
+    "object_sha256": "5d481b4a9339caabb39c57567e9ff7bbe6d1529a1d7635dfc148960469aa9059",
+    "ghidra_layouts_sha256": "7b0e624a26822a54b25194e25bba4e529d8abe2be7bad4e29c4ec14dca42b072",
+    "ghidra_sizes_sha256": "93911858846f930feceafec661e74e0ade40399a4216fe7ccaa114a2228cefbe"
   },
-  "union_layout_basis": "The imported canonical C declaration establishes the two zero-offset union members; Ghidra independently reports its size and alignment. The IDO probe checks both member widths and offsets.",
+  "bitfield_basis": "Canonical signed one-bit declarations and retail byte masks establish registered/loaded bits. The layout probe checks union size/alignment and all seven ordinary fields.",
   "ghidra": {
     "program": "robotron64.elf",
     "new_blocks": [
       {
-        "block": {
-          "success": true,
-          "name": "robotron_live_players",
-          "start": "8009b190",
-          "end": "8009ccf7",
-          "size": 7016,
-          "permissions": "rw-",
-          "volatile": false,
-          "initialized": false,
-          "overlay": false,
-          "address_space": "ram",
-          "bytes_written": 0,
-          "padded_bytes": 7016,
-          "fill_byte": 0,
-          "message": "Memory block 'robotron_live_players' created at 8009b190"
-        },
-        "type": {
-          "status": "success",
-          "message": "Successfully applied data type 'GamePlayerState[2]' at 8009B190 (size: 7016 bytes)",
-          "type_name": "GamePlayerState[2]",
-          "address": "8009B190",
-          "size": 7016
-        }
+        "name": ".script_storage_files_bss",
+        "start": "80097650",
+        "end": "8009a84f",
+        "size": 12800,
+        "readable": true,
+        "writable": true,
+        "executable": false,
+        "initialized": false
       },
       {
-        "block": {
-          "success": true,
-          "name": "robotron_audio_settings",
-          "start": "800ad310",
-          "end": "800ad317",
-          "size": 8,
-          "permissions": "rw-",
-          "volatile": false,
-          "initialized": false,
-          "overlay": false,
-          "address_space": "ram",
-          "bytes_written": 0,
-          "padded_bytes": 8,
-          "fill_byte": 0,
-          "message": "Memory block 'robotron_audio_settings' created at 800ad310"
-        },
-        "type": {
-          "status": "success",
-          "message": "Successfully applied data type 'int[2]' at 800AD310 (size: 8 bytes)",
-          "type_name": "int[2]",
-          "address": "800AD310",
-          "size": 8
-        }
+        "name": ".script_storage_strings_bss",
+        "start": "800a3ad8",
+        "end": "800a42a9",
+        "size": 2002,
+        "readable": true,
+        "writable": true,
+        "executable": false,
+        "initialized": false
       },
       {
-        "block": {
-          "success": true,
-          "name": "robotron_save_image",
-          "start": "800ad318",
-          "end": "800ae317",
-          "size": 4096,
-          "permissions": "rw-",
-          "volatile": false,
-          "initialized": false,
-          "overlay": false,
-          "address_space": "ram",
-          "bytes_written": 0,
-          "padded_bytes": 4096,
-          "fill_byte": 0,
-          "message": "Memory block 'robotron_save_image' created at 800ad318"
-        },
-        "type": {
-          "status": "success",
-          "message": "Successfully applied data type 'GameSaveImage' at 800AD318 (size: 4096 bytes)",
-          "type_name": "GameSaveImage",
-          "address": "800AD318",
-          "size": 4096
-        }
+        "name": ".script_storage_scenes_bss",
+        "start": "800a42b0",
+        "end": "800a4533",
+        "size": 644,
+        "readable": true,
+        "writable": true,
+        "executable": false,
+        "initialized": false
       }
     ],
-    "existing_configuration_block_bytes": 24,
+    "globals": [
+      {
+        "label": "D_80097650",
+        "address": "80097650",
+        "type": "ScriptedFile[100]",
+        "size": 12800,
+        "block": ".script_storage_files_bss"
+      },
+      {
+        "label": "D_800A3AD8",
+        "address": "800a3ad8",
+        "type": "short[1000]",
+        "size": 2000,
+        "block": ".script_storage_strings_bss"
+      },
+      {
+        "label": "D_800A42A8",
+        "address": "800a42a8",
+        "type": "short",
+        "size": 2,
+        "block": ".script_storage_strings_bss"
+      },
+      {
+        "label": "D_800A42B0",
+        "address": "800a42b0",
+        "type": "SceneFileBoundary[80]",
+        "size": 640,
+        "block": ".script_storage_scenes_bss"
+      },
+      {
+        "label": "D_800A4530",
+        "address": "800a4530",
+        "type": "int",
+        "size": 4,
+        "block": ".script_storage_scenes_bss"
+      }
+    ],
     "cleared_existing_code_units": false,
+    "saved": true,
     "prototypes": [
       {
-        "status": "success",
-        "message": "Successfully set prototype for function at 0x8002fe00",
-        "address": "0x8002fe00",
-        "prototype": "void func_8002FE00(SavedOptions *options)"
+        "address": "0x8001C740",
+        "prototype": "void func_8001C740(void)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001c740",
+          "address": "0x8001c740",
+          "prototype": "void func_8001C740(void)"
+        }
       },
       {
-        "status": "success",
-        "message": "Successfully set prototype for function at 0x8002fe68",
-        "address": "0x8002fe68",
-        "prototype": "void func_8002FE68(SavedGameSlot *slot)"
+        "address": "0x8001C790",
+        "prototype": "int func_8001C790(unsigned char * path)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001c790",
+          "address": "0x8001c790",
+          "prototype": "int func_8001C790(unsigned char * path)"
+        }
       },
       {
-        "status": "success",
-        "message": "Successfully set prototype for function at 0x8002ff40",
-        "address": "0x8002ff40",
-        "prototype": "void func_8002FF40(SavedOptions *options)"
+        "address": "0x8001C8C4",
+        "prototype": "int func_8001C8C4(unsigned char * name)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001c8c4",
+          "address": "0x8001c8c4",
+          "prototype": "int func_8001C8C4(unsigned char * name)"
+        }
       },
       {
-        "status": "success",
-        "message": "Successfully set prototype for function at 0x8002ffc8",
-        "address": "0x8002ffc8",
-        "prototype": "void func_8002FFC8(SavedGameSlot *slot)"
+        "address": "0x8001C968",
+        "prototype": "void * func_8001C968(int handle)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001c968",
+          "address": "0x8001c968",
+          "prototype": "void * func_8001C968(int handle)"
+        }
       },
       {
-        "status": "success",
-        "message": "Successfully set prototype for function at 0x800301a4",
-        "address": "0x800301a4",
-        "prototype": "int func_800301A4(int reportErrors, int restoreOptions)"
+        "address": "0x8001C9FC",
+        "prototype": "void * func_8001C9FC(int handle)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001c9fc",
+          "address": "0x8001c9fc",
+          "prototype": "void * func_8001C9FC(int handle)"
+        }
       },
       {
-        "status": "success",
-        "message": "Successfully set prototype for function at 0x80030420",
-        "address": "0x80030420",
-        "prototype": "int func_80030420(int clearFailedSlot)"
+        "address": "0x8001CA78",
+        "prototype": "void func_8001CA78(int handle)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001ca78",
+          "address": "0x8001ca78",
+          "prototype": "void func_8001CA78(int handle)"
+        }
       },
       {
-        "status": "success",
-        "message": "Successfully set prototype for function at 0x80032d00",
-        "address": "0x80032d00",
-        "prototype": "void func_80032D00(void)"
+        "address": "0x8001CAF4",
+        "prototype": "void func_8001CAF4(int handle)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001caf4",
+          "address": "0x8001caf4",
+          "prototype": "void func_8001CAF4(int handle)"
+        }
+      },
+      {
+        "address": "0x8001CBE8",
+        "prototype": "void func_8001CBE8(int * command)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001cbe8",
+          "address": "0x8001cbe8",
+          "prototype": "void func_8001CBE8(int * command)"
+        }
+      },
+      {
+        "address": "0x8001F2D8",
+        "prototype": "int func_8001F2D8(int level)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x8001f2d8",
+          "address": "0x8001f2d8",
+          "prototype": "int func_8001F2D8(int level)"
+        }
+      },
+      {
+        "address": "0x80038390",
+        "prototype": "void func_80038390(void)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x80038390",
+          "address": "0x80038390",
+          "prototype": "void func_80038390(void)"
+        }
+      },
+      {
+        "address": "0x800383C4",
+        "prototype": "unsigned char * func_800383C4(int identifier)",
+        "result": {
+          "status": "success",
+          "message": "Successfully set prototype for function at 0x800383c4",
+          "address": "0x800383c4",
+          "prototype": "unsigned char * func_800383C4(int identifier)"
+        }
       }
     ],
-    "saved": true,
+    "plate_comments": [
+      {
+        "address": "8001C740",
+        "result": {
+          "status": "success",
+          "message": "Set plate comment at 8001C740"
+        }
+      },
+      {
+        "address": "8001C790",
+        "result": {
+          "status": "success",
+          "message": "Set plate comment at 8001C790"
+        }
+      },
+      {
+        "address": "8001CBE8",
+        "result": {
+          "status": "success",
+          "message": "Set plate comment at 8001CBE8"
+        }
+      },
+      {
+        "address": "8001F2D8",
+        "result": {
+          "status": "success",
+          "message": "Set plate comment at 8001F2D8"
+        }
+      },
+      {
+        "address": "80038390",
+        "result": {
+          "status": "success",
+          "message": "Set plate comment at 80038390"
+        }
+      },
+      {
+        "address": "800383C4",
+        "result": {
+          "status": "success",
+          "message": "Set plate comment at 800383C4"
+        }
+      }
+    ],
     "retail_instruction_ranges": [
       {
-        "vram": "0x8002fe68",
-        "bytes": 216,
-        "retail_sha256": "134a7a6ee5c999cb88b24d86b52677aab5ec00916d6946c1a31b48ddfe3edc39"
+        "name": "script_files_reset",
+        "vram": "0x8001c740",
+        "bytes": 80,
+        "retail_sha256": "8b84f0d97863cf0e165c31f742ae7196c587c43f8e4192211e13d36c56ba7709"
       },
       {
-        "vram": "0x8002ffc8",
-        "bytes": 140,
-        "retail_sha256": "c73556a8804a28662d294427a3406cc61b12c426220f88c588dbfdffa62b6338"
+        "name": "script_files_register",
+        "vram": "0x8001c790",
+        "bytes": 308,
+        "retail_sha256": "4b354a11f0a21612600ce5c52da6ad2ae974a25dac158b35e1073a025d545ecf"
       },
       {
-        "vram": "0x80030420",
-        "bytes": 472,
-        "retail_sha256": "09ebfa2dca0bd0fcd1e9b058a60efb98450aacb686c6896e187241c5e13ba381"
+        "name": "script_files_access",
+        "vram": "0x8001c8c4",
+        "bytes": 644,
+        "retail_sha256": "dcdae6141ddb6f290f58611d4adac0fe570e1b2c78c9d6ceea294ba6b70cf39c"
       },
       {
-        "vram": "0x80032d00",
-        "bytes": 40,
-        "retail_sha256": "cd984f579259e898a5f6b783482890019d87d41d925c7967ff84b5de19438341"
+        "name": "script_scene_append",
+        "vram": "0x8001cbe8",
+        "bytes": 116,
+        "retail_sha256": "e5dfda1327e853115c1608573d9b5e15a346acea376cc888f38354915437fa27"
+      },
+      {
+        "name": "script_scene_select",
+        "vram": "0x8001f2d8",
+        "bytes": 120,
+        "retail_sha256": "4937dd917ec3f9df74292b1192fc3d1a45d24fc4e8d1e51f9c7d7593a8725a5c"
+      },
+      {
+        "name": "script_offsets_reset",
+        "vram": "0x80038390",
+        "bytes": 52,
+        "retail_sha256": "211cba4883ce79fa92a2756e5434ac0ad442f1b02ebf9af18b0dbb0de89db2b5"
+      },
+      {
+        "name": "script_offset_lookup",
+        "vram": "0x800383c4",
+        "bytes": 52,
+        "retail_sha256": "0d3fafcb7575b36032c6e5026a2ff7c04ffda2ae17e995f3a14262194e6fe4cc"
       }
-    ],
-    "preserved_global_labels": [
-      "D_800AD314 @ 800ad314 [Label] (undefined) xrefs=7",
-      "D_8009B1C4 @ 8009b1c4 [Label] (undefined) xrefs=12",
-      "D_800AD2F8 @ 800ad2f8 [Label] (GameOptionConfiguration) xrefs=4",
-      "D_8009B190 @ 8009b190 [Label] (GamePlayerState[2]) xrefs=14",
-      "D_800AD310 @ 800ad310 [Label] (int[2]) xrefs=7",
-      "D_800AD318 @ 800ad318 [Label] (GameSaveImage) xrefs=8",
-      "D_8009BF78 @ 8009bf78 [Label] (undefined) xrefs=9"
     ]
   },
+  "complete_retail_procedures": [
+    {
+      "name": "func_8001C740",
+      "vram_start": "0x8001c740",
+      "vram_end_exclusive": "0x8001c790",
+      "bytes": 80,
+      "source": "src/game/script_service_cache_reset.c"
+    },
+    {
+      "name": "func_8001C790",
+      "vram_start": "0x8001c790",
+      "vram_end_exclusive": "0x8001c8c4",
+      "bytes": 308,
+      "source": "src/game/script_service_files.c"
+    },
+    {
+      "name": "func_8001C8C4",
+      "vram_start": "0x8001c8c4",
+      "vram_end_exclusive": "0x8001c968",
+      "bytes": 164,
+      "source": "src/game/script_service_cache_access.c"
+    },
+    {
+      "name": "func_8001C968",
+      "vram_start": "0x8001c968",
+      "vram_end_exclusive": "0x8001c9fc",
+      "bytes": 148,
+      "source": "src/game/script_service_cache_access.c"
+    },
+    {
+      "name": "func_8001C9FC",
+      "vram_start": "0x8001c9fc",
+      "vram_end_exclusive": "0x8001ca78",
+      "bytes": 124,
+      "source": "src/game/script_service_cache_access.c"
+    },
+    {
+      "name": "func_8001CA78",
+      "vram_start": "0x8001ca78",
+      "vram_end_exclusive": "0x8001caf4",
+      "bytes": 124,
+      "source": "src/game/script_service_cache_access.c"
+    },
+    {
+      "name": "func_8001CAF4",
+      "vram_start": "0x8001caf4",
+      "vram_end_exclusive": "0x8001cb48",
+      "bytes": 84,
+      "source": "src/game/script_service_cache_access.c"
+    },
+    {
+      "name": "func_8001CBE8",
+      "vram_start": "0x8001cbe8",
+      "vram_end_exclusive": "0x8001cc5c",
+      "bytes": 116,
+      "source": "src/game/script_service_commands.c"
+    },
+    {
+      "name": "func_8001F2D8",
+      "vram_start": "0x8001f2d8",
+      "vram_end_exclusive": "0x8001f350",
+      "bytes": 120,
+      "source": "src/game/scene_file_select.c"
+    },
+    {
+      "name": "func_80038390",
+      "vram_start": "0x80038390",
+      "vram_end_exclusive": "0x800383c4",
+      "bytes": 52,
+      "source": "src/game/resource_string_reset.c"
+    },
+    {
+      "name": "func_800383C4",
+      "vram_start": "0x800383c4",
+      "vram_end_exclusive": "0x800383f8",
+      "bytes": 52,
+      "source": "src/game/string_resource.c"
+    }
+  ],
   "independent_reassemblies": {
-    "save-slot-capture": [
+    "script_files_reset": [
       {
         "tool": "splat",
-        "bytes": 216,
+        "bytes": 80,
         "equal": true,
-        "sha256": "134a7a6ee5c999cb88b24d86b52677aab5ec00916d6946c1a31b48ddfe3edc39"
+        "sha256": "8b84f0d97863cf0e165c31f742ae7196c587c43f8e4192211e13d36c56ba7709"
       },
       {
         "tool": "spim",
-        "bytes": 216,
+        "bytes": 80,
         "equal": true,
-        "sha256": "134a7a6ee5c999cb88b24d86b52677aab5ec00916d6946c1a31b48ddfe3edc39"
+        "sha256": "8b84f0d97863cf0e165c31f742ae7196c587c43f8e4192211e13d36c56ba7709"
       }
     ],
-    "save-slot-restore": [
+    "script_files_register": [
       {
         "tool": "splat",
-        "bytes": 140,
+        "bytes": 308,
         "equal": true,
-        "sha256": "c73556a8804a28662d294427a3406cc61b12c426220f88c588dbfdffa62b6338"
+        "sha256": "4b354a11f0a21612600ce5c52da6ad2ae974a25dac158b35e1073a025d545ecf"
       },
       {
         "tool": "spim",
-        "bytes": 140,
+        "bytes": 308,
         "equal": true,
-        "sha256": "c73556a8804a28662d294427a3406cc61b12c426220f88c588dbfdffa62b6338"
+        "sha256": "4b354a11f0a21612600ce5c52da6ad2ae974a25dac158b35e1073a025d545ecf"
       }
     ],
-    "save-file-write": [
+    "script_files_access": [
       {
         "tool": "splat",
-        "bytes": 472,
+        "bytes": 644,
         "equal": true,
-        "sha256": "09ebfa2dca0bd0fcd1e9b058a60efb98450aacb686c6896e187241c5e13ba381"
+        "sha256": "dcdae6141ddb6f290f58611d4adac0fe570e1b2c78c9d6ceea294ba6b70cf39c"
       },
       {
         "tool": "spim",
-        "bytes": 472,
+        "bytes": 644,
         "equal": true,
-        "sha256": "09ebfa2dca0bd0fcd1e9b058a60efb98450aacb686c6896e187241c5e13ba381"
+        "sha256": "dcdae6141ddb6f290f58611d4adac0fe570e1b2c78c9d6ceea294ba6b70cf39c"
       }
     ],
-    "save-player-clear": [
+    "script_scene_append": [
       {
         "tool": "splat",
-        "bytes": 40,
+        "bytes": 116,
         "equal": true,
-        "sha256": "cd984f579259e898a5f6b783482890019d87d41d925c7967ff84b5de19438341"
+        "sha256": "e5dfda1327e853115c1608573d9b5e15a346acea376cc888f38354915437fa27"
       },
       {
         "tool": "spim",
-        "bytes": 40,
+        "bytes": 116,
         "equal": true,
-        "sha256": "cd984f579259e898a5f6b783482890019d87d41d925c7967ff84b5de19438341"
+        "sha256": "e5dfda1327e853115c1608573d9b5e15a346acea376cc888f38354915437fa27"
+      }
+    ],
+    "script_scene_select": [
+      {
+        "tool": "splat",
+        "bytes": 120,
+        "equal": true,
+        "sha256": "4937dd917ec3f9df74292b1192fc3d1a45d24fc4e8d1e51f9c7d7593a8725a5c"
+      },
+      {
+        "tool": "spim",
+        "bytes": 120,
+        "equal": true,
+        "sha256": "4937dd917ec3f9df74292b1192fc3d1a45d24fc4e8d1e51f9c7d7593a8725a5c"
+      }
+    ],
+    "script_offsets_reset": [
+      {
+        "tool": "splat",
+        "bytes": 52,
+        "equal": true,
+        "sha256": "211cba4883ce79fa92a2756e5434ac0ad442f1b02ebf9af18b0dbb0de89db2b5"
+      },
+      {
+        "tool": "spim",
+        "bytes": 52,
+        "equal": true,
+        "sha256": "211cba4883ce79fa92a2756e5434ac0ad442f1b02ebf9af18b0dbb0de89db2b5"
+      }
+    ],
+    "script_offset_lookup": [
+      {
+        "tool": "splat",
+        "bytes": 52,
+        "equal": true,
+        "sha256": "0d3fafcb7575b36032c6e5026a2ff7c04ffda2ae17e995f3a14262194e6fe4cc"
+      },
+      {
+        "tool": "spim",
+        "bytes": 52,
+        "equal": true,
+        "sha256": "0d3fafcb7575b36032c6e5026a2ff7c04ffda2ae17e995f3a14262194e6fe4cc"
       }
     ]
   },
   "independent_data_comparisons": {
-    "src/game/save_storage/players.c": {
-      "source": "src/game/save_storage/players.c",
+    "src/game/script_storage/files.c": {
+      "source": "src/game/script_storage/files.c",
       "matches": true,
       "sections": [
         {
           "ownership": {
-            "source": "src/game/save_storage/players.c",
-            "object": "build/us/save_storage_players.o",
+            "source": "src/game/script_storage/files.c",
+            "object": "build/us/script_storage_files.o",
             "input_section": ".bss",
-            "section": ".save_storage_players_bss",
-            "vram": 2148118928,
+            "section": ".script_storage_files_bss",
+            "vram": 2148103760,
             "rom": null,
-            "size": 7016,
+            "size": 12800,
             "symbols": {
-              "D_8009B190": 0
+              "D_80097650": 0
             },
-            "evidence": "docs/save-state-storage.md"
+            "evidence": "docs/script-resource-storage.md"
           },
           "bytes_sha256": null
         }
@@ -922,31 +948,30 @@
         "include/static_menu_internal.h": "dc3ba1bf5f36927bd6e49af40f9d1101975ce39c0fc4f35b43753201060e5203",
         "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-        "src/game/save_storage/players.c": "342b8db8e2b6fb645a9b6a8f891a8c7c7a0d757c8aeb93168bb155f44c0d8304",
+        "src/game/script_storage/files.c": "0b2eff3b32cc305f516696b98f890aac26d34975d1e8c8b97736f5e25c6d9280",
         "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
         "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4"
       }
     },
-    "src/game/save_storage/configuration.c": {
-      "source": "src/game/save_storage/configuration.c",
+    "src/game/script_storage/strings.c": {
+      "source": "src/game/script_storage/strings.c",
       "matches": true,
       "sections": [
         {
           "ownership": {
-            "source": "src/game/save_storage/configuration.c",
-            "object": "build/us/save_storage_configuration.o",
+            "source": "src/game/script_storage/strings.c",
+            "object": "build/us/script_storage_strings.o",
             "input_section": ".bss",
-            "section": ".save_storage_configuration_bss",
-            "vram": 2148193016,
+            "section": ".script_storage_strings_bss",
+            "vram": 2148154072,
             "rom": null,
-            "size": 32,
+            "size": 2002,
             "symbols": {
-              "D_800AD2F8": 0,
-              "D_800AD310": 24,
-              "D_800AD314": 28
+              "D_800A3AD8": 0,
+              "D_800A42A8": 2000
             },
-            "evidence": "docs/save-state-storage.md"
+            "evidence": "docs/script-resource-storage.md"
           },
           "bytes_sha256": null
         }
@@ -1156,29 +1181,30 @@
         "include/static_menu_internal.h": "dc3ba1bf5f36927bd6e49af40f9d1101975ce39c0fc4f35b43753201060e5203",
         "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-        "src/game/save_storage/configuration.c": "774001620c499de27c2a23989b1c05c7cb2cab6db4d8f26cf62c90aa98ecc2f8",
+        "src/game/script_storage/strings.c": "68c041bd531e2e01c224484d9dc0e53418cdbf0b4b9e0a6620f18a1013f95937",
         "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
         "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4"
       }
     },
-    "src/game/save_storage/image.c": {
-      "source": "src/game/save_storage/image.c",
+    "src/game/script_storage/scenes.c": {
+      "source": "src/game/script_storage/scenes.c",
       "matches": true,
       "sections": [
         {
           "ownership": {
-            "source": "src/game/save_storage/image.c",
-            "object": "build/us/save_storage_image.o",
+            "source": "src/game/script_storage/scenes.c",
+            "object": "build/us/script_storage_scenes.o",
             "input_section": ".bss",
-            "section": ".save_storage_image_bss",
-            "vram": 2148193048,
+            "section": ".script_storage_scenes_bss",
+            "vram": 2148156080,
             "rom": null,
-            "size": 4096,
+            "size": 644,
             "symbols": {
-              "D_800AD318": 0
+              "D_800A42B0": 0,
+              "D_800A4530": 640
             },
-            "evidence": "docs/save-state-storage.md"
+            "evidence": "docs/script-resource-storage.md"
           },
           "bytes_sha256": null
         }
@@ -1388,7 +1414,7 @@
         "include/static_menu_internal.h": "dc3ba1bf5f36927bd6e49af40f9d1101975ce39c0fc4f35b43753201060e5203",
         "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
         "include/tweak_internal.h": "591d2d064ee51402397ff44f26c266fef5f7ac604ef174448f6d571559e1ce77",
-        "src/game/save_storage/image.c": "f00bf219b72e10c33b1af189c188a13b9bd301d794add5901a0de6c852d016b9",
+        "src/game/script_storage/scenes.c": "9c692b2251953a7cf0b9e35878ece1c3d9ca0cbcfcaefbe55a4e78cb1ab3c17a",
         "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
         "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
         "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4"
@@ -1396,8 +1422,8 @@
     }
   },
   "complete_code_comparisons": {
-    "save_options_capture": {
-      "source": "src/game/save_options_capture.c",
+    "script_service_cache_reset": {
+      "source": "src/game/script_service_cache_reset.c",
       "compiler_profile": {
         "name": "game",
         "version": "5.3",
@@ -1416,13 +1442,13 @@
         "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
-      "expected_size": 104,
-      "actual_size": 104,
+      "expected_size": 80,
+      "actual_size": 80,
       "matches": true,
       "different_words": []
     },
-    "save_slot_capture": {
-      "source": "src/game/save_slot_capture.c",
+    "script_service_files": {
+      "source": "src/game/script_service_files.c",
       "compiler_profile": {
         "name": "game",
         "version": "5.3",
@@ -1441,13 +1467,13 @@
         "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
-      "expected_size": 216,
-      "actual_size": 216,
+      "expected_size": 308,
+      "actual_size": 308,
       "matches": true,
       "different_words": []
     },
-    "save_options_restore": {
-      "source": "src/game/save_options_restore.c",
+    "script_service_cache_access": {
+      "source": "src/game/script_service_cache_access.c",
       "compiler_profile": {
         "name": "game",
         "version": "5.3",
@@ -1466,13 +1492,13 @@
         "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
-      "expected_size": 136,
-      "actual_size": 136,
+      "expected_size": 644,
+      "actual_size": 644,
       "matches": true,
       "different_words": []
     },
-    "save_slot_restore": {
-      "source": "src/game/save_slot_restore.c",
+    "script_service_commands": {
+      "source": "src/game/script_service_commands.c",
       "compiler_profile": {
         "name": "game",
         "version": "5.3",
@@ -1491,13 +1517,13 @@
         "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
-      "expected_size": 140,
-      "actual_size": 140,
+      "expected_size": 580,
+      "actual_size": 580,
       "matches": true,
       "different_words": []
     },
-    "save_file_write": {
-      "source": "src/game/save_file_write.c",
+    "scene_file_select": {
+      "source": "src/game/scene_file_select.c",
       "compiler_profile": {
         "name": "game",
         "version": "5.3",
@@ -1516,8 +1542,58 @@
         "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
-      "expected_size": 472,
-      "actual_size": 472,
+      "expected_size": 120,
+      "actual_size": 120,
+      "matches": true,
+      "different_words": []
+    },
+    "resource_string_reset": {
+      "source": "src/game/resource_string_reset.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 52,
+      "actual_size": 52,
+      "matches": true,
+      "different_words": []
+    },
+    "string_resource": {
+      "source": "src/game/string_resource.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 52,
+      "actual_size": 52,
       "matches": true,
       "different_words": []
     },
@@ -1546,8 +1622,8 @@
       "matches": true,
       "different_words": []
     },
-    "player_fields_clear": {
-      "source": "src/game/player_fields_clear.c",
+    "game_string_case_compare": {
+      "source": "src/game/game_string_case_compare.c",
       "compiler_profile": {
         "name": "game",
         "version": "5.3",
@@ -1566,118 +1642,258 @@
         "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
-      "expected_size": 40,
-      "actual_size": 40,
+      "expected_size": 148,
+      "actual_size": 148,
+      "matches": true,
+      "different_words": []
+    },
+    "game_character": {
+      "source": "src/game/game_character.c",
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity": {
+        "version": "5.3",
+        "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+        "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+        "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+      },
+      "expected_size": 416,
+      "actual_size": 416,
       "matches": true,
       "different_words": []
     }
   },
-  "tool_views": [
-    {
-      "mode": "fresh",
-      "report_sha256": "0b5460530863462f3fa889f6af1506c2155fa7c126cbfd34f679acab3c9165ab"
-    },
-    {
-      "mode": "cached",
-      "report_sha256": "2cacc8aece555edfe11545c9f07eb7ca0b728422effb4b5ec9e2c3c1c643bb10"
-    },
-    {
-      "name": "save-slot-capture",
-      "bytes": 216,
-      "objdiff_sha256": "8153e379d0c8c975d257ddfee9c7f36bf7190a1e63e76fe8c653dfb357acc5a7",
-      "asm_differ_sha256": "0374c146c16a0c4f0a63f46c8c6d26c8f0fc9b5673b4d7e8eed6034e9bc41dc5"
-    },
-    {
-      "name": "save-slot-restore",
-      "bytes": 140,
-      "objdiff_sha256": "8b8286d9be9e58e28499b6f8ab08650a628821591ab33cccbbc0c8b94b2649a6",
-      "asm_differ_sha256": "33d07bae011f77f5e4b0daf9c71a10c1d838775a93424e9f10ab90f42a5036ed"
-    },
-    {
-      "name": "save-file-write",
-      "bytes": 472,
-      "objdiff_sha256": "ef16cc009b1b3cf01a8854054302c97dc4af4c9d1737f98220823d9f372b4d99",
-      "asm_differ_sha256": "a671981015992d6a1a67660e3d34e84d19e6d300d2145995a182ccd1c86dda16"
-    },
-    {
-      "name": "save-player-clear",
-      "bytes": 40,
-      "objdiff_sha256": "fe584ffdd5c399ef7d26e67ac778e45aecd7abe393576812daf8377e53ce9b78",
-      "asm_differ_sha256": "6d84da12f4f404ae73c1ad1355a5eb3d3b6a1a9149057817dbd90798c50bdb28"
-    }
-  ],
+  "tool_views": {
+    "reports": [
+      {
+        "mode": "fresh",
+        "units": 6,
+        "report_sha256": "3266ea158ba40c9ca8135e01a7fec82233810cb9edafe2470df305b7a8e293bf"
+      },
+      {
+        "mode": "cached",
+        "units": 6,
+        "report_sha256": "3caa9d4de6e33748b9fd86069f21b5c35cba8f007d09f17c6f1a77be4653a16a"
+      },
+      {
+        "name": "script_files_reset",
+        "bytes": 80,
+        "objdiff_sha256": "1f0e443064697939045f96ef2b700062f674d7a082e3d74ea7fe662179f700f4",
+        "asm_differ_sha256": "79034ce6b3754735a8d19be673255ff3f50e4f088c6bc4923a9bf26224944266"
+      },
+      {
+        "name": "script_files_register",
+        "bytes": 308,
+        "objdiff_sha256": "f1c6496f9de47f621a9e31688bf6122590052bc0b38e7b3fdc49ccc2b755153b",
+        "asm_differ_sha256": "7181752b886cea8910513b7671b17494a612820e986cff0681864173a0b83746"
+      },
+      {
+        "name": "script_files_access",
+        "bytes": 644,
+        "objdiff_sha256": "32d54ff9cdaff85b54a0b93715420b1b053bdad132405dbc60ccb12ad3dc48cb",
+        "asm_differ_sha256": "67c49e56a9146f75d193bfb8c13b20ce7cebf957acdee437c423fb6d8a33ab13"
+      },
+      {
+        "name": "script_scene_select",
+        "bytes": 120,
+        "objdiff_sha256": "0655db733fef3871b8886933c69f90786aade6cbfe26f08c122f333d57a29b0c",
+        "asm_differ_sha256": "1675ca33916f9d691e416a3e456d2451292e75c8ea2f06b59f75845cb1b6f8a3"
+      },
+      {
+        "name": "script_offsets_reset",
+        "bytes": 52,
+        "objdiff_sha256": "7b2ed91c6726c4d16f4b60fe4a3eea5e03eb8ccbab7baee5788e293a9beaf660",
+        "asm_differ_sha256": "1ceb22da2e0bd4303c6ebacdf03709805b18fc89451546565d0a5d6bec6f3ef9"
+      },
+      {
+        "name": "script_offset_lookup",
+        "bytes": 52,
+        "objdiff_sha256": "d2562da11eeedf38643b65823c525d9ef5e8d8d54bf9e498c73749bac6930126",
+        "asm_differ_sha256": "2fc7f44676e2b0d1848b95e133a1add56f9e25d22ba95e0e98b63821460b7d5b"
+      }
+    ],
+    "objdiff_object_scores": [
+      {
+        "name": "script_files_reset",
+        "text_match_percent": 99.5,
+        "procedure_scores": [
+          {
+            "name": "func_8001C740",
+            "bytes": 80,
+            "match_percent": 99.5
+          }
+        ]
+      },
+      {
+        "name": "script_files_register",
+        "text_match_percent": 99.87013,
+        "procedure_scores": [
+          {
+            "name": "func_8001C790",
+            "bytes": 308,
+            "match_percent": 99.87013
+          }
+        ]
+      },
+      {
+        "name": "script_files_access",
+        "text_match_percent": 100.0,
+        "procedure_scores": [
+          {
+            "name": "func_8001C8C4",
+            "bytes": 164,
+            "match_percent": 100.0
+          },
+          {
+            "name": "func_8001C968",
+            "bytes": 148,
+            "match_percent": 100.0
+          },
+          {
+            "name": "func_8001C9FC",
+            "bytes": 124,
+            "match_percent": 100.0
+          },
+          {
+            "name": "func_8001CA78",
+            "bytes": 124,
+            "match_percent": 100.0
+          },
+          {
+            "name": "func_8001CAF4",
+            "bytes": 84,
+            "match_percent": 100.0
+          }
+        ]
+      },
+      {
+        "name": "script_scene_select",
+        "text_match_percent": 99.666664,
+        "procedure_scores": [
+          {
+            "name": "func_8001F2D8",
+            "bytes": 120,
+            "match_percent": 99.666664
+          }
+        ]
+      },
+      {
+        "name": "script_offsets_reset",
+        "text_match_percent": 99.23077,
+        "procedure_scores": [
+          {
+            "name": "func_80038390",
+            "bytes": 52,
+            "match_percent": 99.23077
+          }
+        ]
+      },
+      {
+        "name": "script_offset_lookup",
+        "text_match_percent": 100.0,
+        "procedure_scores": [
+          {
+            "name": "func_800383C4",
+            "bytes": 52,
+            "match_percent": 100.0
+          }
+        ]
+      }
+    ],
+    "interpretation": "Reference symbol/relocation names can reduce object viewer scores. Acceptance uses exact complete linked bytes, not percentages."
+  },
   "guarded_execution": {
-    "paired_cases": 1356,
-    "target_executions": 2712,
-    "report_sha256": "61733ae729bf13b6af7e3f6c865ebb115422522301ed815d6519381c4d4a9dd6",
+    "paired_cases": 630,
+    "target_executions": 1260,
+    "report_sha256": "f0ac14af6e70db2eca8039ec2c9232ef679983cebe899a90ceec8eac7cb441d8",
     "versions": {
       "unicorn": "2.1.1",
       "capstone": "5.0.9",
       "pyelftools": "0.33"
     },
     "service_boundaries": {
-      "0x8001a2c4": 0,
-      "0x80051888": 1,
-      "0x80051854": 1,
-      "0x8004c378": 2,
-      "0x8004c3ac": 2,
-      "0x8004c5dc": 4,
-      "0x8004c648": 1,
-      "0x80030054": 0
+      "0x8001c0d0": null,
+      "0x8001c49c": null,
+      "0x8003c64c": 2,
+      "0x8003c698": 1,
+      "0x8001f2cc": 2
     },
     "mutations": [
       {
-        "name": "one_player",
+        "name": "reset_short",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 36,
+        "reason": "('Complete guarded object', 'reset', 'files', 173, 0, 0)"
+      },
+      {
+        "name": "offset_reset_short",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 24,
+        "reason": "('Complete guarded object', 'offset_reset', 'resources', 173, 0, 0)"
+      },
+      {
+        "name": "registration_loaded",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 30,
+        "reason": "('Complete guarded object', 'register', 'files', 173, 17, 0)"
+      },
+      {
+        "name": "load_size_pointer",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 118,
+        "reason": "('Service arguments and order', [2147731020, [2148116458, 2148116432]], [2147731020, [2148116458, 2148116436]])"
+      },
+      {
+        "name": "append_count",
         "control_passed": true,
         "mutation_rejected": true,
         "different_words": 1,
-        "reason": "('Complete guarded object', 'clear', 'players', 173, 0, 0)"
+        "reason": "('Complete guarded object', 'append', 'resources', 173, 79, 0)"
       },
       {
-        "name": "capture_full_player",
+        "name": "select_current",
         "control_passed": true,
         "mutation_rejected": true,
         "different_words": 1,
-        "reason": "('Call trace', [2147726624, [2148193580, 2148118928, 3508]], [[2147726624, [2148193580, 2148118928, 160]]])"
+        "reason": "('Service arguments and order', [2147611340, [2148138399, 2]], [2147611340, [2148138394, 2]])"
       },
       {
-        "name": "restore_saved_prefix",
+        "name": "unsigned_offset",
         "control_passed": true,
         "mutation_rejected": true,
         "different_words": 1,
-        "reason": "('Call trace', [2147726624, [2148118928, 2149646428, 160]], [[2147726624, [2148118928, 2149646428, 3508]]])"
-      },
-      {
-        "name": "configuration_short",
-        "control_passed": true,
-        "mutation_rejected": true,
-        "different_words": 1,
-        "reason": "('Call trace', [2147726624, [2148197056, 2148193016, 20]], [[2147726624, [2148197056, 2148193016, 24]]])"
-      },
-      {
-        "name": "checksum_extra_word",
-        "control_passed": true,
-        "mutation_rejected": true,
-        "different_words": 82,
-        "reason": "Complete write buffer and checksum"
-      },
-      {
-        "name": "write_short_image",
-        "control_passed": true,
-        "mutation_rejected": true,
-        "different_words": 1,
-        "reason": "('Call trace', [2147796444, [2148193048, 256, 15, 7]], [[2147796444, [2148193048, 256, 16, 7]]])"
+        "reason": "('Return value', 'lookup', 2148138047)"
       }
     ],
     "case_kinds": {
-      "clear": 3,
-      "options_capture": 3,
-      "options_restore": 3,
-      "slot_restore": 3,
-      "slot_capture": 48,
-      "write": 1296
+      "reset": 3,
+      "offset_reset": 3,
+      "register": 45,
+      "find": 96,
+      "load": 36,
+      "get": 36,
+      "release": 36,
+      "unregister": 36,
+      "append": 240,
+      "select": 72,
+      "lookup": 27
     },
-    "cases_sha256": "0f0135e964bf0775f78f391d3884ea345677d6cc595dce0957e80c6aaeaeda44"
+    "cases_sha256": "234f78eb4927882684129735e44ee2e814a5cb9ab67c13078d2c5fd5078f4d92",
+    "model": "Complete objects, adjacent gaps/guards, integer return and service traces, strict code/read/write bounds, exact reset access counts and saved O32 registers including GP, RA and SP."
   },
   "checkpoint": {
     "independent_comparisons": {
@@ -1710,13 +1926,18 @@
     "source_owned_initialized_bytes": 36351,
     "linux_passed_tests": 163,
     "windows_passed_tests": 159,
-    "windows_skipped_tests": 4
+    "windows_skipped_tests": 4,
+    "declared_fallback_cpu_bytes": 143728,
+    "fallback_spans": 188,
+    "unclassified_bytes": 164,
+    "complete_function_denominator_known": false
   },
   "limits": [
-    "File services, audio/configuration application and menu refresh use ABI stubs.",
-    "Save-file reading, callback effects, hardware and full gameplay are not executed.",
-    "Restore fixtures provide the complete retail read span beyond saved prefixes.",
-    "Other player views retain their historical N64 ABI and aliasing assumptions.",
+    "Diagnostic, platform file allocation/free and scene submission use recorded integer ABI stubs.",
+    "Registered filenames fit 14 bytes; paths fit 102 bytes; required pointers are valid.",
+    "Append fixtures cover all 80 valid entries; invalid counts and overflowing copies are not repaired.",
+    "External string data is a bounded synthetic fixture, not newly source-owned storage.",
+    "Hardware I/O, callback effects, script interpretation and complete gameplay are not executed.",
     "Whole-ROM equality includes extracted fallback code and assets; full source recovery remains incomplete."
   ]
 }

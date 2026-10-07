@@ -1619,6 +1619,9 @@ SECTIONS
     .save_storage_players_bss 0x8009B190 (NOLOAD) : SUBALIGN(4) { build/us/save_storage_players.o(.bss) }
     .save_storage_configuration_bss 0x800AD2F8 (NOLOAD) : SUBALIGN(4) { build/us/save_storage_configuration.o(.bss) }
     .save_storage_image_bss 0x800AD318 (NOLOAD) : SUBALIGN(4) { build/us/save_storage_image.o(.bss) }
+    .script_storage_files_bss 0x80097650 (NOLOAD) : SUBALIGN(4) { build/us/script_storage_files.o(.bss) }
+    .script_storage_strings_bss 0x800A3AD8 (NOLOAD) : SUBALIGN(4) { build/us/script_storage_strings.o(.bss) }
+    .script_storage_scenes_bss 0x800A42B0 (NOLOAD) : SUBALIGN(4) { build/us/script_storage_scenes.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -3368,3 +3371,17 @@ ASSERT(D_800AD314 == ADDR(.save_storage_configuration_bss) + 0x1C, "D_800AD314 s
 ASSERT(ADDR(.save_storage_image_bss) == 0x800AD318, "save storage moved")
 ASSERT(SIZEOF(.save_storage_image_bss) == 0x1000, "save storage size changed")
 ASSERT(D_800AD318 == ADDR(.save_storage_image_bss) + 0x0, "D_800AD318 save storage symbol moved")
+
+ASSERT(ADDR(.script_storage_files_bss) == 0x80097650, "script resource storage moved")
+ASSERT(SIZEOF(.script_storage_files_bss) == 0x3200, "script resource storage size changed")
+ASSERT(D_80097650 == ADDR(.script_storage_files_bss) + 0x0, "D_80097650 script resource storage symbol moved")
+
+ASSERT(ADDR(.script_storage_strings_bss) == 0x800A3AD8, "script resource storage moved")
+ASSERT(SIZEOF(.script_storage_strings_bss) == 0x7D2, "script resource storage size changed")
+ASSERT(D_800A3AD8 == ADDR(.script_storage_strings_bss) + 0x0, "D_800A3AD8 script resource storage symbol moved")
+ASSERT(D_800A42A8 == ADDR(.script_storage_strings_bss) + 0x7D0, "D_800A42A8 script resource storage symbol moved")
+
+ASSERT(ADDR(.script_storage_scenes_bss) == 0x800A42B0, "script resource storage moved")
+ASSERT(SIZEOF(.script_storage_scenes_bss) == 0x284, "script resource storage size changed")
+ASSERT(D_800A42B0 == ADDR(.script_storage_scenes_bss) + 0x0, "D_800A42B0 script resource storage symbol moved")
+ASSERT(D_800A4530 == ADDR(.script_storage_scenes_bss) + 0x280, "D_800A4530 script resource storage symbol moved")
