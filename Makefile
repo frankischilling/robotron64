@@ -8249,6 +8249,8 @@ RUNTIME_OBJECTS += build/us/audio_startup_temporary_allocation.o build/us/audio_
 
 RUNTIME_OBJECTS += build/us/renderer_peak_metrics_storage.o
 
+RUNTIME_OBJECTS += build/us/object_angle_setter_constants.o build/us/object_angle_getter_constants.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8440,3 +8442,19 @@ build/us/renderer_peak_metrics_storage.o: src/game/renderer_peak_metrics_storage
 .PHONY: audit-renderer-peak-metrics-storage
 audit-renderer-peak-metrics-storage: toolchain
 	$(PYTHON) tools/check_renderer_peak_metrics_storage.py
+
+build/us/object_angle_setter_constants.o: src/game/object_angle_setter_constants.c include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_angle_setter_constants.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/object_angle_setter_constants.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/object_angle_getter_constants.o: src/game/object_angle_getter_constants.c include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/object_angle_getter_constants.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/object_angle_getter_constants.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: audit-object-angle-constants
+audit-object-angle-constants: toolchain
+	$(PYTHON) tools/check_object_angle_constants.py

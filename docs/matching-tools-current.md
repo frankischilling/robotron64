@@ -49,9 +49,9 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 906 runtime comparison units, two startup
-units, eighteen assembly units and 180 data-only units. The clean build matches
+units, eighteen assembly units and 182 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,424 matching C functions /
-308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized
+308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,387 initialized
 data bytes and 874,313 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -85,6 +85,11 @@ All 630 paired execution cases pass and seven isolated mutations fail after
 positive controls. String helpers
 execute matching code; diagnostics, file services and scene submission use
 recorded integer ABI boundaries.
+
+[Object angle constants](object-angle-constants.md) add six complete scalars /
+36 initialized bytes, preserving the retail setter/getter value asymmetry.
+All 2,898 paired cases, six compiled-data mutations and ten address controls
+pass. No new instructions or BSS are credited.
 
 [Peak metrics storage](renderer-peak-metrics-storage.md) adds the complete 201-record array /
 4,020 BSS bytes. Its already matching reset and writer pass 1,210 paired

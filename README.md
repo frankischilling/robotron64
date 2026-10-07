@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,424 matching C functions covering 308,796 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,351 bytes of source-owned initialized data, and 874,313 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,424 matching C functions covering 308,796 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,387 bytes of source-owned initialized data, and 874,313 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -218,6 +218,11 @@ and menu refresh use recorded ABI boundaries.
 their two counters: 15,446 BSS bytes. Its checker passes 630 paired cases and
 rejects seven mutations. String helpers execute real matching code; diagnostics,
 file allocation/free and scene submission use recorded ABI boundaries.
+
+[Object angle constants](docs/object-angle-constants.md) add six complete scalars /
+36 initialized bytes, preserving the retail setter/getter value asymmetry.
+All 2,898 paired cases, six compiled-data mutations and ten address controls
+pass. No new instructions or BSS are credited.
 
 [Peak metrics storage](docs/renderer-peak-metrics-storage.md) adds the complete 201-record array /
 4,020 BSS bytes. Its already matching reset and writer pass 1,210 paired

@@ -63,13 +63,7 @@ D_8009EFA4 = 0x8009EFA4;
 func_80000F48 = 0x80000F48;
 
 
-D_FLT_80094C20 = 0x80094C20;
-D_FLT_80094C24 = 0x80094C24;
-D_FLT_80094C28 = 0x80094C28;
 
-D_DBL_80094C30 = 0x80094C30;
-D_DBL_80094C38 = 0x80094C38;
-D_DBL_80094C40 = 0x80094C40;
 
 SECTIONS
 {
@@ -1429,7 +1423,10 @@ SECTIONS
     .tweak_messages 0x80094350 : AT(0x94F50) SUBALIGN(4) { build/us/tweak_messages.o(.data) }
     .tweak_fallback_95038_957e0 0x80094438 : AT(0x95038) { build/us/fallback.o(.rom_tweak_fallback_95038_957e0) }
     .scene_frame_tick_constants 0x80094BE0 : AT(0x957E0) SUBALIGN(4) { build/us/scene_frame_tick.o(.rodata) }
-    .camera_fallback_957e8_95848 0x80094BE8 : AT(0x957E8) { build/us/fallback.o(.rom_camera_fallback_957e8_95848) }
+    .camera_fallback_957e8_95820 0x80094BE8 : AT(0x957E8) { build/us/fallback.o(.rom_camera_fallback_957e8_95820) }
+    .object_angle_setter_constants 0x80094C20 : AT(0x95820) SUBALIGN(4) { build/us/object_angle_setter_constants.o(.data) }
+    .camera_fallback_9582c_95830 0x80094C2C : AT(0x9582C) { build/us/fallback.o(.rom_camera_fallback_9582c_95830) }
+    .object_angle_getter_constants 0x80094C30 : AT(0x95830) SUBALIGN(4) { build/us/object_angle_getter_constants.o(.data) }
     .object_camera_angles_constant 0x80094C48 : AT(0x95848) SUBALIGN(4) { build/us/object_camera_angles.o(.rodata) }
     .object_camera_angles_alt_constant 0x80094C4C : AT(0x9584C) SUBALIGN(4) { build/us/object_camera_angles_alt.o(.rodata) }
     .model_file_relocate_strings 0x80094C50 : AT(0x95850) SUBALIGN(4) { build/us/model_file_relocate.o(.rodata) }
@@ -2971,7 +2968,8 @@ ASSERT(SIZEOF(.actor_history_points_bss) == 0x1200, "actor_history_points_bss si
 ASSERT(SIZEOF(.actor_history_tick) == 0x288, "actor_history_tick size changed")
 ASSERT(SIZEOF(.actor_history_tick_constant) == 0x4, "actor_history_tick_constant size changed")
 ASSERT(SIZEOF(.object_camera_angles) == 0xa4, "object_camera_angles size changed")
-ASSERT(SIZEOF(.camera_fallback_957e8_95848) == 0x60, "camera_fallback_957e8_95848 size changed")
+ASSERT(SIZEOF(.camera_fallback_957e8_95820) == 0x38, "camera_fallback_957e8_95820 size changed")
+ASSERT(SIZEOF(.camera_fallback_9582c_95830) == 0x4, "camera_fallback_9582c_95830 size changed")
 ASSERT(SIZEOF(.object_camera_angles_constant) == 0x4, "object_camera_angles_constant size changed")
 ASSERT(SIZEOF(.object_camera_angles_alt) == 0xa0, "object_camera_angles_alt size changed")
 ASSERT(SIZEOF(.object_camera_angles_alt_constant) == 0x4, "object_camera_angles_alt_constant size changed")
@@ -3455,3 +3453,15 @@ ASSERT(D_80190168 == ADDR(.audio_startup_generation_mode_bss) + 0x0, "D_80190168
 ASSERT(ADDR(.renderer_peak_metrics_bss) == 0x8013DC30, "peak metrics storage moved")
 ASSERT(SIZEOF(.renderer_peak_metrics_bss) == 0xFB4, "peak metrics storage size changed")
 ASSERT(D_8013DC30 == ADDR(.renderer_peak_metrics_bss) + 0x0, "D_8013DC30 peak metrics storage symbol moved")
+
+ASSERT(ADDR(.object_angle_setter_constants) == 0x80094C20, "object angle constants moved")
+ASSERT(SIZEOF(.object_angle_setter_constants) == 0xC, "object angle constant size changed")
+ASSERT(D_FLT_80094C20 == ADDR(.object_angle_setter_constants) + 0x0, "D_FLT_80094C20 moved")
+ASSERT(D_FLT_80094C24 == ADDR(.object_angle_setter_constants) + 0x4, "D_FLT_80094C24 moved")
+ASSERT(D_FLT_80094C28 == ADDR(.object_angle_setter_constants) + 0x8, "D_FLT_80094C28 moved")
+
+ASSERT(ADDR(.object_angle_getter_constants) == 0x80094C30, "object angle constants moved")
+ASSERT(SIZEOF(.object_angle_getter_constants) == 0x18, "object angle constant size changed")
+ASSERT(D_DBL_80094C30 == ADDR(.object_angle_getter_constants) + 0x0, "D_DBL_80094C30 moved")
+ASSERT(D_DBL_80094C38 == ADDR(.object_angle_getter_constants) + 0x8, "D_DBL_80094C38 moved")
+ASSERT(D_DBL_80094C40 == ADDR(.object_angle_getter_constants) + 0x10, "D_DBL_80094C40 moved")

@@ -3,7 +3,7 @@
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
 Current verified totals are 1,424 matching C functions / 308,796 instruction
-bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized bytes
+bytes, twenty-nine assembly functions / 4,372 bytes, 36,387 initialized bytes
 and 874,313 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
@@ -17,7 +17,7 @@ BSS and both width tables add 144 initialized bytes. All thirty allocation slots
 exhaustion and the full reset pass 744 guarded cases per image; another 1,024
 cases check every byte-valued character. Five isolated source mutations are rejected. The
 [current matching-tool audit](matching-tools-current.md) independently compares
-906 runtime units, two startup units, eighteen assembly units and 180 data-only
+906 runtime units, two startup units, eighteen assembly units and 182 data-only
 units. The bonus-child candidate improves from six differing words to four and
 remains excluded from the matching build.
 
@@ -39,6 +39,11 @@ in three complete sections. All 630 paired cases and seven isolated mutation
 controls pass. The registry and offset resets cover every element; lookups
 preserve case folding, signed offsets and strict scene boundaries. Pinned IDO
 and Ghidra agree on twenty size, alignment and field checks across three types.
+
+[Object angle constants](object-angle-constants.md) add six complete scalars /
+36 initialized bytes, preserving the retail setter/getter value asymmetry.
+All 2,898 paired cases, six compiled-data mutations and ten address controls
+pass. No new instructions or BSS are credited.
 
 [Peak metrics storage](renderer-peak-metrics-storage.md) adds the complete 201-record array /
 4,020 BSS bytes. Its already matching reset and writer pass 1,210 paired

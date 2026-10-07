@@ -4823,5 +4823,35 @@
       "D_8013DC30": 0
     },
     "evidence": "docs/renderer-peak-metrics-storage.md"
+  },
+  {
+    "source": "src/game/object_angle_setter_constants.c",
+    "object": "build/us/object_angle_setter_constants.o",
+    "input_section": ".data",
+    "section": ".object_angle_setter_constants",
+    "vram": 2148092960,
+    "rom": 612384,
+    "size": 12,
+    "symbols": {
+      "D_FLT_80094C20": 0,
+      "D_FLT_80094C24": 4,
+      "D_FLT_80094C28": 8
+    },
+    "evidence": "docs/object-angle-constants.md"
+  },
+  {
+    "source": "src/game/object_angle_getter_constants.c",
+    "object": "build/us/object_angle_getter_constants.o",
+    "input_section": ".data",
+    "section": ".object_angle_getter_constants",
+    "vram": 2148092976,
+    "rom": 612400,
+    "size": 24,
+    "symbols": {
+      "D_DBL_80094C30": 0,
+      "D_DBL_80094C38": 8,
+      "D_DBL_80094C40": 16
+    },
+    "evidence": "docs/object-angle-constants.md"
   }
 ]
