@@ -100,17 +100,19 @@ typedef struct SavedGameSlot {
     SavedOptions options;
 } SavedGameSlot;
 
+typedef struct GameSaveData {
+    unsigned char signature[0x14];
+    unsigned char configuration[0x190];
+    unsigned char unknown1A4[4];
+    int occupied[8];
+    SavedGameSlot slots[8];
+    SavedOptions options;
+    unsigned int checksum;
+    unsigned char unknownFD4[0x2C];
+} GameSaveData;
+
 typedef union GameSaveImage {
-    struct {
-        unsigned char signature[0x14];
-        unsigned char configuration[0x190];
-        unsigned char unknown1A4[4];
-        int occupied[8];
-        SavedGameSlot slots[8];
-        SavedOptions options;
-        unsigned int checksum;
-        unsigned char unknownFD4[0x2C];
-    } data;
+    GameSaveData data;
     unsigned int words[1024];
 } GameSaveImage;
 
@@ -122,6 +124,7 @@ typedef char SavedOptionsMustBe40Bytes[sizeof(SavedOptions) == 0x28 ? 1 : -1];
 typedef char GameOptionConfigurationMustBe24Bytes[
     sizeof(GameOptionConfiguration) == 0x18 ? 1 : -1];
 typedef char SavedGameSlotMustBe444Bytes[sizeof(SavedGameSlot) == 0x1BC ? 1 : -1];
+typedef char GameSaveDataMustBe4096Bytes[sizeof(GameSaveData) == 0x1000 ? 1 : -1];
 typedef char GameSaveImageMustBe4096Bytes[sizeof(GameSaveImage) == 0x1000 ? 1 : -1];
 
 extern GamePlayerState D_8009B190[2];

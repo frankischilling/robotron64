@@ -1616,6 +1616,9 @@ SECTIONS
     .actor_resources_small_bss 0x8009AFD8 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_small.o(.bss) }
     .actor_resources_player_bss 0x8009B138 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_player.o(.bss) }
     .actor_resources_early_bss 0x8009EA18 (NOLOAD) : SUBALIGN(4) { build/us/actor_resources_early.o(.bss) }
+    .save_storage_players_bss 0x8009B190 (NOLOAD) : SUBALIGN(4) { build/us/save_storage_players.o(.bss) }
+    .save_storage_configuration_bss 0x800AD2F8 (NOLOAD) : SUBALIGN(4) { build/us/save_storage_configuration.o(.bss) }
+    .save_storage_image_bss 0x800AD318 (NOLOAD) : SUBALIGN(4) { build/us/save_storage_image.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -2771,7 +2774,6 @@ D_80078274 = 0x80078274;
 D_8008D857 = 0x8008D857;
 D_80192810 = 0x80192810;
 D_80192818 = 0x80192818;
-D_800AD2F8 = 0x800AD2F8;
 ASSERT(SIZEOF(.audio_callback_add) == 0x100, "audio_callback_add size changed")
 ASSERT(SIZEOF(.audio_callback_remove) == 0x130, "audio_callback_remove size changed")
 ASSERT(SIZEOF(.audio_backend_voice_release) == 0x114, "audio_backend_voice_release size changed")
@@ -2794,7 +2796,6 @@ ASSERT(SIZEOF(.audio_backend_patch_trigger_bss) == 0x14, "audio_backend_patch_tr
 D_800761F4 = 0x800761F4;
 D_800BB128 = 0x800BB128;
 D_8007D8FC = 0x8007D8FC;
-D_800AD318 = 0x800AD318;
 D_8009EE04 = 0x8009EE04;
 ASSERT(SIZEOF(.save_menu_pak_name_select) == 0x90, "save_menu_pak_name_select size changed")
 ASSERT(SIZEOF(.early_signature_gate) == 0x94, "early_signature_gate size changed")
@@ -2823,7 +2824,6 @@ ASSERT(SIZEOF(.endgame_17f7c_1862c) == 0x6b0, "endgame_17f7c_1862c size changed"
 ASSERT(SIZEOF(.endgame_409c4_40c0c) == 0x248, "endgame_409c4_40c0c size changed")
 D_80073850 = 0x80073850;
 D_80073864 = 0x80073864;
-D_8009B190 = 0x8009B190;
 ASSERT(SIZEOF(.session_selection_lookup) == 0x8c, "session_selection_lookup size changed")
 ASSERT(SIZEOF(.early_angle_step) == 0x80, "early_angle_step size changed")
 D_800AA708 = 0x800AA708;
@@ -3354,3 +3354,17 @@ ASSERT(D_800B5658 == 0x800B5658, "primary resource alias 170 moved")
 D_800B59C8 = D_800B1BE8 + 180 * 0x58;
 ASSERT(D_800B59C8 == 0x800B59C8, "primary resource alias 180 moved")
 ASSERT(D_800B5C30 == 0x800B5C30, "primary resource alias 187 moved")
+
+ASSERT(ADDR(.save_storage_players_bss) == 0x8009B190, "save storage moved")
+ASSERT(SIZEOF(.save_storage_players_bss) == 0x1B68, "save storage size changed")
+ASSERT(D_8009B190 == ADDR(.save_storage_players_bss) + 0x0, "D_8009B190 save storage symbol moved")
+
+ASSERT(ADDR(.save_storage_configuration_bss) == 0x800AD2F8, "save storage moved")
+ASSERT(SIZEOF(.save_storage_configuration_bss) == 0x20, "save storage size changed")
+ASSERT(D_800AD2F8 == ADDR(.save_storage_configuration_bss) + 0x0, "D_800AD2F8 save storage symbol moved")
+ASSERT(D_800AD310 == ADDR(.save_storage_configuration_bss) + 0x18, "D_800AD310 save storage symbol moved")
+ASSERT(D_800AD314 == ADDR(.save_storage_configuration_bss) + 0x1C, "D_800AD314 save storage symbol moved")
+
+ASSERT(ADDR(.save_storage_image_bss) == 0x800AD318, "save storage moved")
+ASSERT(SIZEOF(.save_storage_image_bss) == 0x1000, "save storage size changed")
+ASSERT(D_800AD318 == ADDR(.save_storage_image_bss) + 0x0, "D_800AD318 save storage symbol moved")

@@ -1,6 +1,6 @@
 {
   "status": "Excluded candidate. All 744 retail instruction bytes are compared; four words still differ.",
-  "verified_date": "2026-10-06",
+  "verified_date": "2026-10-07",
   "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "source": "src/game/actor_groups/bonus_child.c",
   "function": "func_8000F030",
@@ -29,9 +29,9 @@
   },
   "inputs_sha256": {
     "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-    "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-    "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-    "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+    "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+    "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+    "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
     "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
@@ -156,7 +156,7 @@
       "package": "unicorn",
       "version": "2.1.1"
     },
-    "report_sha256": "665b615204ba0d5f3b8073d2185d577a346f91a8d30e25ca2d6bc73275721eb0"
+    "report_sha256": "3c5a4176655c507a8e86d5a1a9e420d1dc76dc88b79a6e710166b8e25ffa7d32"
   },
   "tool_views": [
     {

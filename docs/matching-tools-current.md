@@ -1,6 +1,6 @@
 # Matching-tool evidence
 
-The 2026-10-06 audit uses the current recovery sources in an isolated native
+The 2026-10-07 audit uses the current recovery sources in an isolated native
 WSL checkout and the pinned IDO 5.3 compiler. Tool installation, cached research,
 viewer scores and ROM equality each answer different questions. Source acceptance
 requires the complete independent code and data comparisons below.
@@ -49,10 +49,10 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 904 runtime comparison units, two startup
-units, eighteen assembly units and 161 data-only units. The clean build matches
+units, eighteen assembly units and 164 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,422 matching C functions /
 306,456 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized
-data bytes and 557,447 BSS bytes. The text pool contributes 8,040 BSS bytes and
+data bytes and 568,591 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
 reset and every byte-valued character, with five rejected mutations.
@@ -65,6 +65,19 @@ patterns and 960 already-loaded cases per image pass the independent byte,
 access-count and stack models, with six rejected mutations. The projection
 candidate remains excluded after 114 additional variants; its two stack-spill
 differences remain unresolved.
+
+The [save storage audit](save-state-storage.md) adds 11,144 BSS bytes across
+the complete two-player array, configuration/audio settings and save image.
+Eight layouts and 52 fields agree with pinned IDO. Fresh and cached workbench
+comparisons, asm-differ and objdiff use four independently reassembled retail
+consumers. All 1,356 paired execution cases pass and six source mutations fail
+after their controls pass. File services, settings application and menu refresh
+are recorded ABI boundaries; byte copying executes real matching instructions.
+
+The object projection candidate at `8003B2B0` remains excluded. A separate
+600-second, two-worker permuter search retained stack differences and produced
+400 suggestions. Independent compilation of the twenty lowest-scoring forms
+still found complete-function mismatches. Those scores add no matching credit.
 
 Full source recovery remains incomplete: 143,728 declared fallback CPU bytes
 in 188 spans and 164 unclassified bytes remain. The executable/function

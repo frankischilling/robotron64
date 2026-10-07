@@ -1,6 +1,6 @@
 {
   "status": "Seven complete resource pools are C-owned BSS. No new functions or initialized ROM bytes are claimed.",
-  "verified_date": "2026-10-06",
+  "verified_date": "2026-10-07",
   "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "new_bss_bytes": 28312,
   "already_owned_child_bytes_checked": 1012,
@@ -110,11 +110,11 @@
     "D_800B5C30": 187
   },
   "inputs_sha256": {
-    "Makefile": "bd2fb99652b3cc9a6bc0248f5941cdb908804d0ae4835f78dc01be9235568fec",
+    "Makefile": "757ea48cacbdb6553f1de1bc2227029df74a4f50fda6aec2410f36ca8eaf1ff4",
     "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-    "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-    "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-    "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+    "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+    "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+    "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
     "include/actor_resource_5c_internal.h": "0b6f292c42691888a4ff24edff575f479ed8c19ed98d41484528ab8478db95ed",
@@ -122,7 +122,7 @@
     "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
     "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
     "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
-    "linker_scripts/us.ld": "320e2e50d5ad5c87131d224705793f9207170eecaac385900940b8c083e4284a",
+    "linker_scripts/us.ld": "47df686e4bbb51225ce1d680a77ceb4b51d369952804cc41affd03c6aa152453",
     "src/game/actor_groups/child_resources.c": "c65294e00db310197eaad319d774495757c8b5a8ec6b1e9e02cc4ad8a9b27cc6",
     "src/game/actor_resource_load.c": "31f7a780fa82ee42e8742fb6ff4b498ad37604fc34d8ab6a0e82ef457bc5cfd0",
     "src/game/actor_resource_reset.c": "9b6391db788329fb68ecd919b103d7dea080716c38972dc52ffa0fe97394bbb2",
@@ -516,7 +516,7 @@
       "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
       "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
     },
-    "source_sha256": "b5931aeeb45ec4a023b97a130af23569e2d9d4120a3d7eda862c667df8701012",
+    "source_sha256": "e72fd8a53eef8a441fcd545e1b79aa562ff3df3fb82c4a874c8b02b4f7b8e696",
     "object_sha256": "2244c10225f2dc2872a367b97417c28d39b50cbc0e6bbb7294b7923ad7391287",
     "ghidra_snapshot_sha256": "4d5436379da0d3ff82f2a8b0fca892b884fcb910ec938a58be48d73a95e1a0b2"
   },
@@ -538,17 +538,7 @@
     "original_consumer_bytes": 1160,
     "original_consumer_bytes_sha256": "d41cece2d360b5306376a7c2ed2d35e0494d0c87337f0836c2fccc53e281847b",
     "loader_prototype": "int func_8001CF68(TextGlyphResource *resource, int loadGeometry)",
-    "saved": true,
-    "projection_pointer_alias": {
-      "symbol": "D_8009B168",
-      "parent_symbol": "D_8009B138",
-      "parent_offset": 48,
-      "parent_field_view": "animation.tracks[2]",
-      "context_read_offset": 10,
-      "context_read_size": 2,
-      "signed": true,
-      "additional_storage_bytes": 0
-    }
+    "saved": true
   },
   "independent_data_comparisons": {
     "src/game/actor_resources/primary.c": {
@@ -592,9 +582,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -722,7 +712,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -824,9 +814,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -954,7 +944,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -1056,9 +1046,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -1186,7 +1176,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -1288,9 +1278,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -1418,7 +1408,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -1520,9 +1510,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -1650,7 +1640,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -1752,9 +1742,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -1882,7 +1872,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -1984,9 +1974,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -2114,7 +2104,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -2216,9 +2206,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -2346,7 +2336,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -2431,9 +2421,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -2561,7 +2551,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -2647,9 +2637,9 @@
       },
       "inputs_sha256": {
         "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
-        "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
-        "config/runtime_symbols.ld": "dab1ad1171e7f250c3c7a67b30e5925d1aacdad2876973fe947ef8f5f3e405e0",
-        "config/startup_symbols.ld": "f4a8d8e5aa7c211f65f91f527912fd7213ebc2bc47dd6490a57775dfe1273092",
+        "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
+        "config/runtime_symbols.ld": "91bca408ef55d8ff825b882a6b1c205010336bb563422b41e04188ac42f1e336",
+        "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
         "include/actor_animation_state.h": "f988498e48613f01893861faa2f5154f787bf43291509f608c29e8ac71473f73",
@@ -2777,7 +2767,7 @@
         "include/resource_strings.h": "a0cf257c7671fe9f256bc78e7afa753e92e300ef0304c12c68ec5220b8d522ba",
         "include/rom_files.h": "2f26ca9db2f94d9acd692ad4888124ca2bc9d8d251168525a1c1f57c59f99ce2",
         "include/runtime_angle.h": "326982f477ac0b5e0598768495a474b2b78e6de81d4529a84980b40e07e37a02",
-        "include/save_game.h": "d313acf7de4f467ed92cbcfdae46a535432772fe02f7e296149ac0ce8de189c8",
+        "include/save_game.h": "a05ed38b4d9c688d6dd8eeddc2199615ebded52780def7cd51e984760b4dc744",
         "include/save_menu_internal.h": "d25d2d933a60aff1b3fc123777717864686c45d31114b73ed94b22be6eb85acf",
         "include/save_menu_legacy_internal.h": "b3690a5e568a00727752dea0f18b54672ed5e7f67ab293868d63a82f7468636b",
         "include/save_menu_nav_internal.h": "ee640b571cb9194fa1ece5533a9f954aab33a7df050fb5ce27cd23d7ca3bd60b",
@@ -2842,7 +2832,7 @@
       "different_words": []
     }
   },
-  "fresh_workbench_report_sha256": "0ba751650b1d5cdaac5a752b08600665c38bffa92d336e9d326e7200744a9476",
+  "fresh_workbench_report_sha256": "3415a53e9631f78fd4cc68b6bd00043c2c8814b971ec289b5621414d99a82896",
   "guarded_execution": {
     "unicorn": "2.1.1",
     "complete_pool_bytes_checked": 29324,
@@ -2896,18 +2886,18 @@
       }
     ]
   },
-  "guarded_execution_report_sha256": "0d7e159a9f6df8c218ab29edff44f353a13e64aee800fe1276046ce6ba997abb",
+  "guarded_execution_report_sha256": "4eb86bd85ee031ae07920ced96ffe347ccf9f4f9ae7841e4a299819765e51507",
   "checkpoint": {
     "independent_comparisons": {
       "runtime-comparison": {
         "units": 904,
         "matches": true,
-        "report_sha256": "40007696abd7b81b21b4febbde4810332a0e18778b1076c4d7dc69abcab9a9e5"
+        "report_sha256": "a29120d90672b1abf83974b2247a217c64a69c21768880fa881774cfaa133b25"
       },
       "startup-comparison": {
         "units": 2,
         "matches": true,
-        "report_sha256": "532687b55edb44a990e10fe9984ce4891e28851cfe27c8b4723d7a87f96c806b"
+        "report_sha256": "341ccb875c91de912554159dbebbf98de296a184f8d2b2cf0abc3c7f08f896d4"
       },
       "assembly-comparison": {
         "units": 18,
@@ -2915,14 +2905,14 @@
         "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
       },
       "data-comparison": {
-        "units": 161,
+        "units": 164,
         "matches": true,
-        "report_sha256": "8e9e05b21207131b9390f2d9be9eb0173771342be39539508c0cacf4faa99982"
+        "report_sha256": "6297c85f01893e62f09ecbbfc359ff9fb5eb27b3b583e465580bb0ae869be207"
       }
     },
     "clean_rom_bytes": 8388608,
     "clean_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
-    "source_owned_bss_bytes": 557447,
+    "source_owned_bss_bytes": 568591,
     "matched_c_functions": 1422,
     "matched_c_bytes": 306456,
     "source_owned_initialized_bytes": 36351,

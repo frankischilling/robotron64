@@ -4568,5 +4568,46 @@
       "D_8009EA18": 0
     },
     "evidence": "docs/actor-resource-storage.md"
+  },
+  {
+    "source": "src/game/save_storage/players.c",
+    "object": "build/us/save_storage_players.o",
+    "input_section": ".bss",
+    "section": ".save_storage_players_bss",
+    "vram": 2148118928,
+    "rom": null,
+    "size": 7016,
+    "symbols": {
+      "D_8009B190": 0
+    },
+    "evidence": "docs/save-state-storage.md"
+  },
+  {
+    "source": "src/game/save_storage/configuration.c",
+    "object": "build/us/save_storage_configuration.o",
+    "input_section": ".bss",
+    "section": ".save_storage_configuration_bss",
+    "vram": 2148193016,
+    "rom": null,
+    "size": 32,
+    "symbols": {
+      "D_800AD2F8": 0,
+      "D_800AD310": 24,
+      "D_800AD314": 28
+    },
+    "evidence": "docs/save-state-storage.md"
+  },
+  {
+    "source": "src/game/save_storage/image.c",
+    "object": "build/us/save_storage_image.o",
+    "input_section": ".bss",
+    "section": ".save_storage_image_bss",
+    "vram": 2148193048,
+    "rom": null,
+    "size": 4096,
+    "symbols": {
+      "D_800AD318": 0
+    },
+    "evidence": "docs/save-state-storage.md"
   }
 ]

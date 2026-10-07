@@ -8237,6 +8237,8 @@ build/us/actor_resources_early.o: src/game/actor_resources/early.c include/actor
 RUNTIME_OBJECTS += build/us/actor_resources_primary.o build/us/actor_resources_enemies.o build/us/actor_resources_child_variants.o build/us/actor_resources_secondary.o build/us/actor_resources_small.o build/us/actor_resources_player.o build/us/actor_resources_early.o
 
 
+RUNTIME_OBJECTS += build/us/save_storage_players.o build/us/save_storage_configuration.o build/us/save_storage_image.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8274,3 +8276,25 @@ check-menu-display:
 .PHONY: audit-actor-resource-storage
 audit-actor-resource-storage: toolchain
 	$(PYTHON) tools/check_actor_resource_storage.py
+
+build/us/save_storage_players.o: src/game/save_storage/players.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_storage_players.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/save_storage_players.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_storage_configuration.o: src/game/save_storage/configuration.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_storage_configuration.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/save_storage_configuration.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/save_storage_image.o: src/game/save_storage/image.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_storage_image.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/save_storage_image.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: audit-save-state-storage
+audit-save-state-storage: toolchain
+	$(PYTHON) tools/check_save_state_storage.py

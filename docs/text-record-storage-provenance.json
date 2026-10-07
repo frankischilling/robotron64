@@ -1,6 +1,6 @@
 {
   "status": "Complete text-record BSS and both character-width tables are source-owned. No new instruction bytes are claimed.",
-  "verified_date": "2026-10-06",
+  "verified_date": "2026-10-07",
   "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
   "ownership": {
     "source": "src/game/text_records.c",
@@ -16,13 +16,13 @@
     "linker_type": "NOLOAD"
   },
   "inputs_sha256": {
-    "Makefile": "bd2fb99652b3cc9a6bc0248f5941cdb908804d0ae4835f78dc01be9235568fec",
-    "config/owned_sections.json": "2bf795767b918bd46bc94dbfbcccc7e9b4bb31f484068713198c45996aa10e59",
+    "Makefile": "757ea48cacbdb6553f1de1bc2227029df74a4f50fda6aec2410f36ca8eaf1ff4",
+    "config/owned_sections.json": "108c6342655aaec8df9ab1ce538802a7fd454f0027c81205db4652bc59819510",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
     "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
     "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
-    "linker_scripts/us.ld": "320e2e50d5ad5c87131d224705793f9207170eecaac385900940b8c083e4284a",
+    "linker_scripts/us.ld": "47df686e4bbb51225ce1d680a77ceb4b51d369952804cc41affd03c6aa152453",
     "src/game/text.c": "515af6beda2080f8fc28c32b99475983ddd9b5481e999c3ffb5e3263dfca661f",
     "src/game/text_records.c": "745f369f35a93f060c0af3a8b021e188f082f31ca70aed95ea0c22e3b1a1a728",
     "src/game/text_widths/digits.c": "c58fe28acba7147470abe5863e5639ba319cc5a2270f8e2624fcb8a6ca8294ac",
@@ -213,7 +213,7 @@
       "package": "unicorn",
       "version": "2.1.1"
     },
-    "report_sha256": "4dee2169f65b6b0d14259b0689f2a0f95237dc9d82552175c0b1c2076b688780",
+    "report_sha256": "99dd3341201140dde36df9e3d61091a6b85ee965975c0db145efc0ee598b2d74",
     "cases_sha256": "3b0206c9ce7c4284ffe73810c81b166f09c522deca7600142e912ed3596d5f84",
     "width_cases_sha256": "fc1a3a5dd573b4ef5e6ab33a1da8461708b1a9561d6d3b5b6f5c96bd69caf8ba",
     "mutations": [
