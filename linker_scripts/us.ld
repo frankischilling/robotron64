@@ -1,3 +1,9 @@
+D_800BA740 = D_800B9A78 + 0xCC8;
+D_800BA748 = D_800B9A78 + 0xCD0;
+D_800BA74C = D_800B9A78 + 0xCD4;
+D_800BA764 = D_800B9A78 + 0xCEC;
+D_800BA778 = D_800B9A78 + 0xD00;
+D_800BA784 = D_800B9A78 + 0xD0C;
 D_8007356C = 0x8007356C;
 D_80076FF4 = 0x80076FF4;
 D_80076FB4 = 0x80076FB4;
@@ -1376,7 +1382,9 @@ SECTIONS
     .input_sequence_limit_message 0x800903C8 : AT(0x90FC8) SUBALIGN(4) { build/us/input_sequence_limit_message.o(.rodata) }
     .scene_action_table 0x800903E8 : AT(0x90FE8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.rodata) }
     .error_formatted_table 0x80090460 : AT(0x91060) SUBALIGN(4) { build/us/error_formatted.o(.rodata) }
-    .error_fallback_910a8_92558 0x800904A8 : AT(0x910A8) { build/us/fallback.o(.rom_error_fallback_910a8_92558) }
+    .error_fallback_910a8_923f8 0x800904A8 : AT(0x910A8) { build/us/fallback.o(.rom_error_fallback_910a8_923f8) }
+    .scene_arrivals_diagnostics 0x800917F8 : AT(0x923F8) SUBALIGN(4) { build/us/scene_arrivals_diagnostics.o(.data) }
+    .error_fallback_92434_92558 0x80091834 : AT(0x92434) { build/us/fallback.o(.rom_error_fallback_92434_92558) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
     .endgame_data_92560_93698 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_93698) }
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
@@ -1562,6 +1570,7 @@ SECTIONS
     .graphics_setup_tile_packets 0x8007C970 : AT(0x7D570) SUBALIGN(4) { build/us/graphics_setup_tile_packets.o(.data) }
     .graphics_setup_cache_bss 0x80123B00 (NOLOAD) : SUBALIGN(4) { build/us/graphics_setup_cache_state.o(.bss) }
     .graphics_setup_arena_bss 0x80126B74 (NOLOAD) : SUBALIGN(4) { build/us/graphics_setup_arena_state.o(.bss) }
+    .scene_arrivals_bss 0x800B9A78 (NOLOAD) : SUBALIGN(4) { build/us/scene_arrivals_storage.o(.bss) }
 
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
@@ -2708,7 +2717,6 @@ ASSERT(SIZEOF(.endgame_28608_28610) == 0x8, "endgame_28608_28610 size changed")
 ASSERT(SIZEOF(.endgame_34574_35d90) == 0x181c, "endgame_34574_35d90 size changed")
 ASSERT(SIZEOF(.endgame_4c190_4c7d0) == 0x640, "endgame_4c190_4c7d0 size changed")
 D_800AE4F8 = 0x800AE4F8;
-D_800BA74C = 0x800BA74C;
 D_8008F990 = 0x8008F990;
 D_8008F9F4 = 0x8008F9F4;
 D_8008FA0C = 0x8008FA0C;
@@ -3193,7 +3201,8 @@ ASSERT(SIZEOF(.scene_action_dispatch) == 0x2d4, "scene_action_dispatch size chan
 ASSERT(SIZEOF(.scene_action_fallback_90f96_90fc8) == 0x32, "scene_action_fallback_90f96_90fc8 size changed")
 ASSERT(SIZEOF(.input_sequence_limit_message) == 0x20, "input_sequence_limit_message size changed")
 ASSERT(SIZEOF(.scene_action_table) == 0x38, "scene_action_table size changed")
-ASSERT(SIZEOF(.error_fallback_910a8_92558) == 0x14b0, "error_fallback_910a8_92558 size changed")
+ASSERT(SIZEOF(.error_fallback_910a8_923f8) == 0x1350, "error_fallback_910a8_923f8 size changed")
+ASSERT(SIZEOF(.error_fallback_92434_92558) == 0x124, "error_fallback_92434_92558 size changed")
 ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")
 ASSERT(SIZEOF(.early_boss_create) == 0x304, "early_boss_create size changed")
 ASSERT(SIZEOF(.boss_fallback_90588_9078c) == 0x204, "boss_fallback_90588_9078c size changed")
@@ -3257,7 +3266,6 @@ ASSERT(SIZEOF(.pak_directory_count) == 0x4, "pak_directory_count size changed")
 ASSERT(SIZEOF(.pak_directory_buffers) == 0x288, "pak_directory_buffers size changed")
 ASSERT(SIZEOF(.pak_directory_strings) == 0x90, "pak_directory_strings size changed")
 D_800736A8 = 0x800736A8;
-D_800BA748 = 0x800BA748;
 
 ASSERT(SIZEOF(.controller_legacy_polled_buttons_bss) == 0x2, "controller legacy polled buttons BSS size changed")
 
@@ -3501,3 +3509,17 @@ ASSERT(D_80126B78 == ADDR(.graphics_setup_arena_bss) + 0x4, "D_80126B78 moved")
 ASSERT(D_80126B7C == ADDR(.graphics_setup_arena_bss) + 0x8, "D_80126B7C moved")
 ASSERT(D_80126B80 == ADDR(.graphics_setup_arena_bss) + 0xC, "D_80126B80 moved")
 ASSERT(D_80126B84 == ADDR(.graphics_setup_arena_bss) + 0x10, "D_80126B84 moved")
+
+ASSERT(ADDR(.scene_arrivals_bss) == 0x800B9A78, "scene definition moved")
+ASSERT(SIZEOF(.scene_arrivals_bss) == 0xD14, "scene definition size changed")
+ASSERT(D_800B9A78 == ADDR(.scene_arrivals_bss), "scene definition overridden")
+ASSERT(D_800BA740 == ADDR(.scene_arrivals_bss) + 0xCC8, "D_800BA740 field alias moved")
+ASSERT(D_800BA748 == ADDR(.scene_arrivals_bss) + 0xCD0, "D_800BA748 field alias moved")
+ASSERT(D_800BA74C == ADDR(.scene_arrivals_bss) + 0xCD4, "D_800BA74C field alias moved")
+ASSERT(D_800BA764 == ADDR(.scene_arrivals_bss) + 0xCEC, "D_800BA764 field alias moved")
+ASSERT(D_800BA778 == ADDR(.scene_arrivals_bss) + 0xD00, "D_800BA778 field alias moved")
+ASSERT(D_800BA784 == ADDR(.scene_arrivals_bss) + 0xD0C, "D_800BA784 field alias moved")
+ASSERT(ADDR(.scene_arrivals_diagnostics) == 0x800917F8, "arrival messages moved")
+ASSERT(SIZEOF(.scene_arrivals_diagnostics) == 0x3C, "arrival messages size changed")
+ASSERT(D_800917F8 == ADDR(.scene_arrivals_diagnostics), "arrival limit message overridden")
+ASSERT(D_80091814 == ADDR(.scene_arrivals_diagnostics) + 0x1C, "arrival capacity message overridden")

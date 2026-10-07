@@ -4921,5 +4921,32 @@
       "D_80126B84": 16
     },
     "evidence": "docs/renderer-setup-storage.md"
+  },
+  {
+    "source": "src/game/scene_arrivals/storage.c",
+    "object": "build/us/scene_arrivals_storage.o",
+    "input_section": ".bss",
+    "section": ".scene_arrivals_bss",
+    "vram": 2148244088,
+    "rom": null,
+    "size": 3348,
+    "symbols": {
+      "D_800B9A78": 0
+    },
+    "evidence": "docs/scene-arrivals.md"
+  },
+  {
+    "source": "src/game/scene_arrivals/diagnostics.c",
+    "object": "build/us/scene_arrivals_diagnostics.o",
+    "input_section": ".data",
+    "section": ".scene_arrivals_diagnostics",
+    "vram": 2148079608,
+    "rom": 599032,
+    "size": 60,
+    "symbols": {
+      "D_800917F8": 0,
+      "D_80091814": 28
+    },
+    "evidence": "docs/scene-arrivals.md"
   }
 ]

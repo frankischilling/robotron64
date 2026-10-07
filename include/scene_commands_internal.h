@@ -29,8 +29,8 @@ extern int D_8009EFB4;
 extern char D_8009176C[];
 extern char D_8009178C[];
 extern char D_800917A8[];
-extern char D_800917F8[];
-extern unsigned char D_80091814[];
+extern char D_800917F8[28];
+extern unsigned char D_80091814[32];
 
 unsigned char *func_800383C4(int identifier);
 void func_8002A808(GameActor *actor, int state);

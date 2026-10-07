@@ -3,8 +3,8 @@
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
 Current verified totals are 1,424 matching C functions / 308,796 instruction
-bytes, twenty-nine assembly functions / 4,372 bytes, 36,715 initialized bytes
-and 874,369 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
+bytes, twenty-nine assembly functions / 4,372 bytes, 36,775 initialized bytes
+and 877,717 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
@@ -12,12 +12,18 @@ There remain 141,388 declared fallback CPU bytes in 186 spans and 164 unclassifi
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
 
+[Scene storage and arrival insertion](scene-arrivals.md) adds 3,348 BSS bytes
+and 60 initialized diagnostic bytes. All 3,713 paired cases and nine mutation
+controls pass; pinned IDO and Ghidra agree on 99 layout values across three
+types. The insertion candidate remains excluded with 55 differing words and
+a 48-byte frame instead of the retail 56-byte frame. No code is credited.
+
 The [text record pool](text-record-storage.md) adds 8,040 bytes of source-owned
 BSS and both width tables add 144 initialized bytes. All thirty allocation slots,
 exhaustion and the full reset pass 744 guarded cases per image; another 1,024
 cases check every byte-valued character. Five isolated source mutations are rejected. The
 [current matching-tool audit](matching-tools-current.md) independently compares
-906 runtime units, two startup units, eighteen assembly units and 186 data-only
+906 runtime units, two startup units, eighteen assembly units and 188 data-only
 units. The bonus-child candidate improves from six differing words to four and
 remains excluded from the matching build.
 

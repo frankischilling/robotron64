@@ -8253,6 +8253,8 @@ RUNTIME_OBJECTS += build/us/object_angle_setter_constants.o build/us/object_angl
 
 RUNTIME_OBJECTS += build/us/graphics_setup_defaults.o build/us/graphics_setup_tile_packets.o build/us/graphics_setup_cache_state.o build/us/graphics_setup_arena_state.o
 
+RUNTIME_OBJECTS += build/us/scene_arrivals_storage.o build/us/scene_arrivals_diagnostics.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8488,3 +8490,19 @@ build/us/graphics_setup_arena_state.o: src/game/renderer_setup/arena_state.c $(w
 .PHONY: audit-graphics-setup-storage
 audit-graphics-setup-storage: toolchain
 	$(PYTHON) tools/check_graphics_setup_storage.py
+
+build/us/scene_arrivals_storage.o: src/game/scene_arrivals/storage.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_arrivals_storage.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/scene_arrivals_storage.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/scene_arrivals_diagnostics.o: src/game/scene_arrivals/diagnostics.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_arrivals_diagnostics.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/scene_arrivals_diagnostics.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: audit-scene-arrivals
+audit-scene-arrivals: toolchain
+	$(PYTHON) tools/check_scene_arrivals.py
