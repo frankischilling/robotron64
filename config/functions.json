@@ -15997,5 +15997,16 @@
     "section": ".renderer_mesh_commands",
     "section_vram": 2147768840,
     "evidence": "docs/renderer-mesh-commands.md"
+  },
+  {
+    "name": "func_80004C3C",
+    "rom": 22588,
+    "vram": 2147503164,
+    "size": 1816,
+    "source": "src/game/movie_update.c",
+    "object": "build/us/movie_update.o",
+    "section": ".movie_update",
+    "section_vram": 2147503164,
+    "evidence": "docs/movie-playback.md"
   }
 ]

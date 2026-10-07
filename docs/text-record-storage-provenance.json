@@ -16,13 +16,13 @@
     "linker_type": "NOLOAD"
   },
   "inputs_sha256": {
-    "Makefile": "7ae0bc940dfa27e8e92f60793d50da8861e8a25a114ad451a7016741487332e2",
+    "Makefile": "a4dbca00f2e22ece9c480a37a06642bfaa74dbaaa9cdf2116114348f1f17aef4",
     "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
     "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
     "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
-    "linker_scripts/us.ld": "9e66808587304bc1de8d0eed9080c1d9ad66c6d490ab36db2dc856c1a7fec6fb",
+    "linker_scripts/us.ld": "c3e2dcfcafd0e4858e91cc5f46891cf997cbab621923856872f2d6e5a705f964",
     "src/game/text.c": "515af6beda2080f8fc28c32b99475983ddd9b5481e999c3ffb5e3263dfca661f",
     "src/game/text_records.c": "745f369f35a93f060c0af3a8b021e188f082f31ca70aed95ea0c22e3b1a1a728",
     "src/game/text_widths/digits.c": "c58fe28acba7147470abe5863e5639ba319cc5a2270f8e2624fcb8a6ca8294ac",
@@ -31,7 +31,7 @@
     "tools/check_text_storage.py": "169e05ee43c5f491fcbbbf03e2e3350935829e0e0b55c2d5557585e9d3bd4cab",
     "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
     "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
-    "tools/extract.py": "a93f2f2fe4b721ab593e7aa85a152dc4e2fc5ce4b93e65cd6c4a4efc13ba9059",
+    "tools/extract.py": "26842a4e900bfffea22a1d66706774b3d3fe99147f1d0767af29a9d39843c01b",
     "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
   },
   "toolchain_identity": {
@@ -213,7 +213,7 @@
       "package": "unicorn",
       "version": "2.1.1"
     },
-    "report_sha256": "29accee233d1dfc7662b8dc6ed10acf082c01158b5d26823fef69202150da67b",
+    "report_sha256": "e831174796639a82497227c03e6a5b9a9243e402bbcaf57fdefbfba6dc5db0c0",
     "cases_sha256": "3b0206c9ce7c4284ffe73810c81b166f09c522deca7600142e912ed3596d5f84",
     "width_cases_sha256": "fc1a3a5dd573b4ef5e6ab33a1da8461708b1a9561d6d3b5b6f5c96bd69caf8ba",
     "mutations": [

@@ -152,6 +152,7 @@ void func_80003CF8(int index);
 void func_80003ECC(int frame, int index);
 void func_80004098(int frame, int index, float *position, int *pitch, int *yaw, int *roll);
 void func_8000440C(void (*handler)(int), int frame);
+void func_80004C3C(int eraseScreen);
 int func_80005354(void);
 void func_800044AC(unsigned char *filename);
 void func_800045E4(unsigned char *filename, int background, short red, short green, short blue);

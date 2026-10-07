@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,422 matching C functions covering 306,456 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,351 bytes of source-owned initialized data, and 590,973 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,423 matching C functions covering 308,272 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,351 bytes of source-owned initialized data, and 590,973 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -64,6 +64,10 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+[Movie update](docs/movie-playback.md) recovers the complete 1,816-byte
+procedure. Both independent references, fresh/cached workbench comparisons,
+1,341 guarded execution pairs and six isolated mutation controls pass.
 
 [Input-sequence definition](docs/input-sequence-definition.md) recovers the
 complete 284-byte handler. Its 1,176 guarded cases check all fourteen records,

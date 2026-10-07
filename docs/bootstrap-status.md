@@ -2,13 +2,13 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
-Current verified totals are 1,422 matching C functions / 306,456 instruction
+Current verified totals are 1,423 matching C functions / 308,272 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 36,351 initialized bytes
 and 590,973 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
-There remain 143,728 declared fallback CPU bytes in 188 spans and 164 unclassified
+There remain 141,912 declared fallback CPU bytes in 187 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
 
@@ -17,7 +17,7 @@ BSS and both width tables add 144 initialized bytes. All thirty allocation slots
 exhaustion and the full reset pass 744 guarded cases per image; another 1,024
 cases check every byte-valued character. Five isolated source mutations are rejected. The
 [current matching-tool audit](matching-tools-current.md) independently compares
-904 runtime units, two startup units, eighteen assembly units and 167 data-only
+905 runtime units, two startup units, eighteen assembly units and 169 data-only
 units. The bonus-child candidate improves from six differing words to four and
 remains excluded from the matching build.
 
@@ -45,6 +45,11 @@ All 687 paired cases and five isolated mutation controls pass. IDO and Ghidra
 agree on 164 size, alignment and ordinary-field checks across nine types.
 The reset's full byte counts, all 25 track slots and three valid callback
 slots are preserved. No new instructions are credited.
+
+[Movie update](movie-playback.md) adds the complete 1,816-byte procedure.
+All 1,341 retail/C execution pairs and six isolated mutations pass. The audit
+checks full objects, exact writes, service traces, bounds and saved O32 state.
+Both independent assembly references and fresh/cached workbench comparisons pass.
 
 Completed locally:
 

@@ -34,18 +34,18 @@
     }
   ],
   "inputs_sha256": {
-    "Makefile": "7ae0bc940dfa27e8e92f60793d50da8861e8a25a114ad451a7016741487332e2",
-    "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
+    "Makefile": "a4dbca00f2e22ece9c480a37a06642bfaa74dbaaa9cdf2116114348f1f17aef4",
+    "config/functions.json": "5502bc9f7487e6cd3eff32597e4daa29c918c8d9d4b70e0a383a201ea5c2201e",
     "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
-    "config/runtime_symbols.ld": "ff275b6bb794d128ad3d7f358959e243306ded6d5a0a8d9bb6763ade076aa046",
+    "config/runtime_symbols.ld": "c09742fd0aa965887fdcdca543117743eae01cb1dc3439a21b10ff0630631d00",
     "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
     "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
     "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
-    "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+    "include/movie.h": "62b87b8980aaaa2bd610f974900ef2a330c740d7866cd8b6cbcb182ec4516115",
     "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
     "include/palette.h": "44f7adde8e518fa5341c5e080372142d298426ce5e04f5bc97054ec5f43d1dee",
     "include/text.h": "7a1bd0f51623d889b3532c547328f652e8d1e71f505275931c5a777e8b170789",
-    "linker_scripts/us.ld": "9e66808587304bc1de8d0eed9080c1d9ad66c6d490ab36db2dc856c1a7fec6fb",
+    "linker_scripts/us.ld": "c3e2dcfcafd0e4858e91cc5f46891cf997cbab621923856872f2d6e5a705f964",
     "src/game/game_memory.c": "d046cce69151ba911777c757ad9462c3bc5e608831e1426f4a67d9cff788c0c7",
     "src/game/game_string_append.c": "a19e511dd0093e25eac71b578813d5a89762cf665c380bb93b014055e2422f58",
     "src/game/movie_callback.c": "afcd7920908057b44977363bc20a7f63b87fab5c0d293eaf8ab452b5ac407f5a",
@@ -56,7 +56,7 @@
     "tools/check_actor_group_path.py": "913f59275b43e00062b45989def982da6e9f6502c3f149d0daca2505a34c944d",
     "tools/check_movie_storage.py": "bd490d78c1ebd33bc15c99e863395c518e6173e7a227d426e3592ba9e208bf9b",
     "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
-    "tools/compare_runtime.py": "f7eab2ad6813a4dd155417713b48b0c6ff157c3b5b4d6d892618010897662146",
+    "tools/compare_runtime.py": "1e84753d704f2b216883e914aaa750b3c41635abd3dd0e6d3f0a59893f3ca1aa",
     "tools/compare_startup.py": "175fd810a17671292f1372f1dced333b1f1ab4dbaaa4131d6a70516fa9614c6f",
     "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
     "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
@@ -911,7 +911,7 @@
     "source_sha256": "ba6cbad2944821dde0516685555e69fb5f1b441d164021a1dab4a837b2ff5ba8",
     "object_sha256": "ad8691bfba78c2398d835a5c4b50db90c9908c544960a5717dd2a43308bbdbe7",
     "ghidra_layouts_sha256": "aed542d165c50e8303546e5d03992dcb0f4683fc1e04de483c79d57d6c75560f",
-    "header_sha256": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+    "header_sha256": "62b87b8980aaaa2bd610f974900ef2a330c740d7866cd8b6cbcb182ec4516115",
     "limits": [
       "Ordinary field layout, sizes and alignment are checked. The existing MovieProp bit-field semantics are not newly credited."
     ]
@@ -1259,9 +1259,9 @@
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
       "inputs_sha256": {
-        "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
+        "config/functions.json": "5502bc9f7487e6cd3eff32597e4daa29c918c8d9d4b70e0a383a201ea5c2201e",
         "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
-        "config/runtime_symbols.ld": "ff275b6bb794d128ad3d7f358959e243306ded6d5a0a8d9bb6763ade076aa046",
+        "config/runtime_symbols.ld": "c09742fd0aa965887fdcdca543117743eae01cb1dc3439a21b10ff0630631d00",
         "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -1352,7 +1352,7 @@
         "include/menu_display_internal.h": "55f0f5832ee3af7887c244c85bb3bf004233d1d24d822fd4903689703ed310c0",
         "include/menu_label_internal.h": "77e2aa108998ca9f3ae4dfa3c7e1613ebd04957b02a0f0da6a2d5366613943f5",
         "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
-        "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+        "include/movie.h": "62b87b8980aaaa2bd610f974900ef2a330c740d7866cd8b6cbcb182ec4516115",
         "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
         "include/object_draw.h": "b7df01c47c10cb88f298aaa4cca24488b8ba64df4cde3f02d436ecee5ccf862c",
         "include/object_helpers.h": "1ddd7a85251a44eeb84db02002b7a08d980e9293b68b7145bdf471eba85c3116",
@@ -1491,9 +1491,9 @@
         "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
       },
       "inputs_sha256": {
-        "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
+        "config/functions.json": "5502bc9f7487e6cd3eff32597e4daa29c918c8d9d4b70e0a383a201ea5c2201e",
         "config/owned_sections.json": "8c4303cc5847e952d48218f4ba83fecf2afaf465c75cfa969485d6b69c0d6c93",
-        "config/runtime_symbols.ld": "ff275b6bb794d128ad3d7f358959e243306ded6d5a0a8d9bb6763ade076aa046",
+        "config/runtime_symbols.ld": "c09742fd0aa965887fdcdca543117743eae01cb1dc3439a21b10ff0630631d00",
         "config/startup_symbols.ld": "652702e707e47597cae1cd47cf5c2fc491acb4ffc94fc6f7b7933724efc8d063",
         "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
         "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
@@ -1584,7 +1584,7 @@
         "include/menu_display_internal.h": "55f0f5832ee3af7887c244c85bb3bf004233d1d24d822fd4903689703ed310c0",
         "include/menu_label_internal.h": "77e2aa108998ca9f3ae4dfa3c7e1613ebd04957b02a0f0da6a2d5366613943f5",
         "include/model_geometry_internal.h": "0ed8ed9d6d601c703f26ca58ed0c4a28bcb63cda971bc6c916d96239d13e9b2a",
-        "include/movie.h": "43b112516ca4097626b4f486520a25cee966a02afeb9e795b0ce06756543bea1",
+        "include/movie.h": "62b87b8980aaaa2bd610f974900ef2a330c740d7866cd8b6cbcb182ec4516115",
         "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
         "include/object_draw.h": "b7df01c47c10cb88f298aaa4cca24488b8ba64df4cde3f02d436ecee5ccf862c",
         "include/object_helpers.h": "1ddd7a85251a44eeb84db02002b7a08d980e9293b68b7145bdf471eba85c3116",
@@ -1688,11 +1688,11 @@
     "reports": [
       {
         "mode": "fresh",
-        "report_sha256": "1c902bd1cfa23500527151f30db3fcaa286d146e1da483da6c054114fec8673a"
+        "report_sha256": "7ddb1ed5d74a545096099a88feb60f51e16d50f36b4142731805d66f87278321"
       },
       {
         "mode": "cached",
-        "report_sha256": "0516e724d15c45dc0f55b0d2cb82a445a683201fe033d78c3360545461a1a337"
+        "report_sha256": "3b781928d00356c27ae942527eaa8f826d80ed57aada0c4a0e73803111090cc3"
       },
       {
         "name": "movie_storage_reset",
@@ -1786,14 +1786,14 @@
   "checkpoint": {
     "independent_comparisons": {
       "runtime-comparison": {
-        "units": 904,
+        "units": 905,
         "matches": true,
-        "report_sha256": "248807b205bd1875cf2c0b176c8ad3d9cd977f558ee2eed4a2a9ee8889c4b075"
+        "report_sha256": "d740f43430524ae9fe8ea8a587ce25e711cd3710d04898c3905328d2d88a5f94"
       },
       "startup-comparison": {
         "units": 2,
         "matches": true,
-        "report_sha256": "050610e84c72cd4cab1ff37b6787ba4371d6b829956a70ebf047c4dc9c8bd682"
+        "report_sha256": "ad1b1553a556623e7b56a2aa333ae9cb556207f3b39795ce2f33e1892f584af3"
       },
       "assembly-comparison": {
         "units": 18,
@@ -1803,22 +1803,22 @@
       "data-comparison": {
         "units": 169,
         "matches": true,
-        "report_sha256": "3ff725b28f0e4aa92b3b3055eeaad9398e27e7d03053d45f8a1d656d73fb1a72"
+        "report_sha256": "7ca81b242d185ba5ab3f9855ff485b30f8a58d4c397ff6fb163b2ffdb7a5742d"
       }
     },
     "clean_rom_bytes": 8388608,
     "clean_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
     "source_owned_bss_bytes": 590973,
-    "matched_c_functions": 1422,
-    "matched_c_bytes": 306456,
+    "matched_c_functions": 1423,
+    "matched_c_bytes": 308272,
     "matched_assembly_functions": 29,
     "matched_assembly_bytes": 4372,
     "source_owned_initialized_bytes": 36351,
     "linux_passed_tests": 163,
     "windows_passed_tests": 159,
     "windows_skipped_tests": 4,
-    "declared_fallback_cpu_bytes": 143728,
-    "fallback_spans": 188,
+    "declared_fallback_cpu_bytes": 141912,
+    "fallback_spans": 187,
     "unclassified_bytes": 164,
     "complete_function_denominator_known": false
   },

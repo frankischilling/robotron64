@@ -83,6 +83,7 @@ MATCHING_BLOCKS = (
     ("movie_callback", "src/game/movie_callback.c", 0x8000440C, 0x800044AC),
     ("movie_prepare", "src/game/movie_prepare.c", 0x800044AC, 0x800045E4),
     ("movie_start", "src/game/movie_start.c", 0x800045E4, 0x80004C3C),
+    ("movie_update", "src/game/movie_update.c", 0x80004C3C, 0x80005354),
     ("movie_status", "src/game/movie_status.c", 0x80005354, 0x8000544C),
     ("movie_cleanup", "src/game/movie_cleanup.c", 0x8000544C, 0x80005560),
     ("early_actor_tick", "src/game/early_actor_tick.c", 0x80009F58, 0x80009F90),

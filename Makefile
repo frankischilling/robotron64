@@ -3085,7 +3085,8 @@ RUNTIME_OBJECTS += \
     build/us/palette_tint.o
 
 RUNTIME_OBJECTS += \
-    build/us/movie_start.o
+    build/us/movie_start.o \
+    build/us/movie_update.o
 
 RUNTIME_OBJECTS += \
     build/us/actor_pool_reset.o \
@@ -8340,3 +8341,13 @@ build/us/movie_storage_configuration.o: src/game/movie_storage/configuration.c $
 .PHONY: audit-movie-storage
 audit-movie-storage: toolchain
 	$(PYTHON) tools/check_movie_storage.py
+
+build/us/movie_update.o: src/game/movie_update.c include/actor.h include/game_memory.h include/movie.h include/object.h include/palette.h include/palette_effects.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_update.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/movie_update.raw.o $@ .text 0x718
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: audit-movie-playback
+audit-movie-playback: toolchain
+	$(PYTHON) tools/check_movie_playback.py --mutations

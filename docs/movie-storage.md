@@ -50,7 +50,7 @@ spimdisasm reassemble every byte; the complete three source units also pass
 fresh and cached workbench comparisons. Asm-differ and objdiff retain their
 reference views and raw symbol/relocation scores separately from acceptance.
 
-The fresh checkpoint passes 904 runtime, two startup, 18 assembly and 169
+The fresh checkpoint passes 905 runtime, two startup, 18 assembly and 169
 data-only comparisons. Linux passes all 163 tooling tests; Windows passes
 159 with four Linux-only skips. A build from an empty `build/us` reproduces
 all 8,388,608 retail ROM bytes. The SHA-256 is
@@ -63,8 +63,8 @@ Run `make audit-movie-storage PYTHON=python` for the storage audit, or
 
 Storage ownership does not establish full movie playback, frame interpolation,
 rendering or gameplay parity. The ROM build still includes extracted fallback
-code and assets. The remaining report declares 143,728 fallback CPU bytes in
-188 spans and 164 unclassified bytes; complete function boundaries and the
+code and assets. The remaining report declares 141,912 fallback CPU bytes in
+187 spans and 164 unclassified bytes; complete function boundaries and the
 executable-byte denominator remain unresolved.
 
 The recovery uses the original Robotron 64 ROM, Ghidra, pinned IDO, splat,

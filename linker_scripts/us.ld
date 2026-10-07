@@ -98,7 +98,7 @@ SECTIONS
     .movie_callback 0x8000440C : AT(0x500C) SUBALIGN(4) { build/us/movie_callback.o(.text) }
     .movie_prepare 0x800044AC : AT(0x50AC) SUBALIGN(4) { build/us/movie_prepare.o(.text) }
     .movie_start 0x800045E4 : AT(0x51E4) SUBALIGN(4) { build/us/movie_start.o(.text) }
-    .cpu_after_movie_start 0x80004C3C : AT(0x583C) { build/us/fallback.o(.rom_cpu_after_movie_start) }
+    .movie_update 0x80004C3C : AT(0x583C) SUBALIGN(4) { build/us/movie_update.o(.text) }
     .movie_status 0x80005354 : AT(0x5F54) SUBALIGN(4) { build/us/movie_status.o(.text) }
     .movie_cleanup 0x8000544C : AT(0x604C) SUBALIGN(4) { build/us/movie_cleanup.o(.text) }
     .actor_effect_draw 0x80005560 : AT(0x6160) SUBALIGN(4) { build/us/actor_effect_draw.o(.text) }
@@ -1643,7 +1643,8 @@ ASSERT(SIZEOF(.movie_actor) == 0x1b4, "movie_actor size changed")
 ASSERT(SIZEOF(.movie_callback) == 0xa0, "movie_callback size changed")
 ASSERT(SIZEOF(.movie_prepare) == 0x138, "movie_prepare size changed")
 ASSERT(SIZEOF(.movie_start) == 0x658, "movie_start size changed")
-ASSERT(SIZEOF(.cpu_after_movie_start) == 0x718, "cpu_after_movie_start size changed")
+ASSERT(SIZEOF(.movie_update) == 0x718, "movie_update size changed")
+ASSERT(func_80004C3C == ADDR(.movie_update), "movie update entry moved")
 ASSERT(SIZEOF(.movie_status) == 0xf8, "movie_status size changed")
 ASSERT(SIZEOF(.movie_cleanup) == 0x114, "movie_cleanup size changed")
 ASSERT(SIZEOF(.early_actor_tick) == 0x38, "early_actor_tick size changed")
