@@ -48,9 +48,6 @@ OUTPUT_FORMAT("elf32-tradbigmips")
 ENTRY(_start)
 INCLUDE config/startup_symbols.ld
 INCLUDE config/runtime_symbols.ld
-D_80072B40 = 0x80072B40;
-D_80072BA8 = 0x80072BA8;
-D_800B6FF8 = 0x800B6FF8;
 __bss_start = 0x80097290;
 __bss_size = 0x1003B0;
 __bss_end = __bss_start + __bss_size;
@@ -1195,7 +1192,10 @@ SECTIONS
     /* CPU-visible storage address. The RSP executes this at 0x04001000. */
     .rsp_boot 0x8006F440 : AT(0x70040) { build/us/fallback.o(.rom_rsp_boot) }
     /* Unmapped fallback uses a synthetic VMA, not a claim about RAM layout. */
-    .diagnostic_fallback_70110_737e0 0x8006F510 : AT(0x70110) { build/us/fallback.o(.rom_diagnostic_fallback_70110_737e0) }
+    .diagnostic_fallback_70110_73740 0x8006F510 : AT(0x70110) { build/us/fallback.o(.rom_diagnostic_fallback_70110_73740) }
+    .text_width_lowercase 0x80072B40 : AT(0x73740) SUBALIGN(4) { build/us/text_width_lowercase.o(.data) }
+    .text_width_digits 0x80072BA8 : AT(0x737A8) SUBALIGN(4) { build/us/text_width_digits.o(.data) }
+    .text_width_fallback_737d0_737e0 0x80072BD0 : AT(0x737D0) { build/us/fallback.o(.rom_text_width_fallback_737d0_737e0) }
     .renderer_diagnostic_path_pool 0x80072BE0 : AT(0x737E0) SUBALIGN(4) { build/us/renderer_diagnostic_path_pool.o(.data) }
     .renderer_diagnostic_movie_pool 0x80072BE8 : AT(0x737E8) SUBALIGN(4) { build/us/renderer_diagnostic_movie_pool.o(.data) }
     .effect_config_fallback_737f0_73800 0x80072BF0 : AT(0x737F0) { build/us/fallback.o(.rom_effect_config_fallback_737f0_73800) }
@@ -1609,6 +1609,7 @@ SECTIONS
     .menu_options_page 0x800AF1A8 (NOLOAD) : SUBALIGN(4) { build/us/menu_options_page.o(.bss) }
     .scene_action_pickup_count 0x800BAE8C (NOLOAD) : SUBALIGN(4) { build/us/scene_action_pickup_count.o(.bss) }
     .early_boss_timestamps 0x80097354 (NOLOAD) : SUBALIGN(4) { build/us/early_boss_timestamps.o(.bss) }
+    .text_records_bss 0x800B6FF8 (NOLOAD) : SUBALIGN(4) { build/us/text_records.o(.bss) }
     .unexpected 0 : { *(.text .data .rodata .bss .sdata .sbss COMMON) }
 }
 
@@ -3011,7 +3012,8 @@ ASSERT(SIZEOF(.palette_order_before) == 0x178, "palette_order_before size change
 ASSERT(SIZEOF(.palette_transition_order) == 0x1c, "palette_transition_order size changed")
 ASSERT(SIZEOF(.palette_order_after) == 0x514, "palette_order_after size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_movie_pool) == 0x8, "renderer_diagnostic_movie_pool size changed")
-ASSERT(SIZEOF(.diagnostic_fallback_70110_737e0) == 0x36d0, "diagnostic_fallback_70110_737e0 size changed")
+ASSERT(SIZEOF(.diagnostic_fallback_70110_73740) == 0x3630, "diagnostic_fallback_70110_73740 size changed")
+ASSERT(SIZEOF(.text_width_fallback_737d0_737e0) == 0x10, "text_width_fallback_737d0_737e0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_path_pool) == 0x8, "renderer_diagnostic_path_pool size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_7d994_7d9a0) == 0xc, "diagnostic_fallback_7d994_7d9a0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_vertex_pool) == 0x8, "renderer_diagnostic_vertex_pool size changed")
@@ -3306,3 +3308,12 @@ ASSERT(SIZEOF(.menu_front_audio_labels) == 160, "menu_front_audio_labels size ch
 ASSERT(SIZEOF(.menu_front_audio_page) == 52, "menu_front_audio_page size changed")
 
 ASSERT(SIZEOF(.menu_front_text) == 196, "menu_front_text size changed")
+ASSERT(ADDR(.text_records_bss) == 0x800B6FF8, "text record pool moved")
+ASSERT(SIZEOF(.text_records_bss) == 0x1F68, "text record pool size changed")
+ASSERT(D_800B6FF8 == ADDR(.text_records_bss), "text record pool symbol moved")
+ASSERT(ADDR(.text_width_lowercase) == 0x80072B40, "lowercase widths moved")
+ASSERT(SIZEOF(.text_width_lowercase) == 104, "lowercase widths size changed")
+ASSERT(D_80072B40 == ADDR(.text_width_lowercase), "lowercase widths symbol moved")
+ASSERT(ADDR(.text_width_digits) == 0x80072BA8, "digit widths moved")
+ASSERT(SIZEOF(.text_width_digits) == 40, "digit widths size changed")
+ASSERT(D_80072BA8 == ADDR(.text_width_digits), "digit widths symbol moved")

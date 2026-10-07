@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,422 matching C functions covering 306,456 bytes, twenty-nine assembly functions covering 4,372 bytes, 35,375 bytes of source-owned initialized data, and 521,095 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,422 matching C functions covering 306,456 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,351 bytes of source-owned initialized data, and 529,135 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -181,11 +181,20 @@ the complete 692-byte effect callback and owns 300 object records and 300
 slot-status integers as 37,200 bytes of runtime BSS. An optional MIPS checker
 verifies resource selection, fixed-matrix paths and display-list submissions.
 
-[Actor-group callbacks and child storage](docs/actor-group-path.md) reconstruct
-four excluded callbacks and own a 260-byte tangent table plus 1,056 bytes of
-runtime child resources and counts. Optional MIPS execution checkers compare
-rotations, overlapping buffers, path traversal and bonus child setup with
-retail instructions. The callbacks remain outside matching progress.
+[Actor-group callbacks and child storage](docs/actor-group-path.md) include two
+matching rotation helpers and retain excluded path and bonus-child candidates.
+They own a 260-byte tangent table plus 1,056 bytes of runtime child resources
+and counts. Optional MIPS execution checkers compare rotations, overlapping
+buffers, path traversal and bonus child setup with retail instructions. The
+bonus-child candidate now differs in four words and remains outside matching
+progress.
+
+[Text storage and character widths](docs/text-record-storage.md) owns thirty
+268-byte records as 8,040 bytes of BSS and both width tables as 144 initialized
+bytes. Its checker covers all allocation slots, exhaustion and the complete
+reset in 744 guarded cases per image, plus 1,024 character-width cases and five
+detected source mutations. [Matching-tool evidence](docs/matching-tools-current.md) records fresh
+and cached comparisons, independent retail reassemblies and unresolved candidates.
 
 [Actor group setup](docs/actor-group-setup.md) recovers the complete 544-byte
 group constructor, its first-actor placement and later-actor parent links.

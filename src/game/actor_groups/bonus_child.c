@@ -21,11 +21,10 @@ GameActor *func_8000F030(ActorBehaviorActorInternal *actor, int index, int kind)
         } else if (resource == (TextGlyphResource *)&D_800ACCD4) {
             ((EarlyGameActor *)child)->callback00 = func_80005560;
         } else {
-            float scale;
-
-            scale = (child->resource24->scale << 13) / 40960.0f;
-            func_800399E4(child->objectIndex,
-                         scale);
+            int object;
+            object = child->objectIndex;
+            func_800399E4(object,
+                (float)(child->resource24->scale << 13) / 40960.0f);
             func_80036ED0((int)child);
         }
         child->position[2] = -1000;

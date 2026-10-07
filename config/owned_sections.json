@@ -4438,5 +4438,44 @@
       "D_80093308": 180
     },
     "evidence": "docs/front-menu-records.md"
+  },
+  {
+    "source": "src/game/text_records.c",
+    "object": "build/us/text_records.o",
+    "input_section": ".bss",
+    "section": ".text_records_bss",
+    "vram": 2148233208,
+    "rom": null,
+    "size": 8040,
+    "symbols": {
+      "D_800B6FF8": 0
+    },
+    "evidence": "docs/text-record-storage.md"
+  },
+  {
+    "source": "src/game/text_widths/lowercase.c",
+    "object": "build/us/text_width_lowercase.o",
+    "input_section": ".data",
+    "section": ".text_width_lowercase",
+    "vram": 2147953472,
+    "rom": 472896,
+    "size": 104,
+    "symbols": {
+      "D_80072B40": 0
+    },
+    "evidence": "docs/text-record-storage.md"
+  },
+  {
+    "source": "src/game/text_widths/digits.c",
+    "object": "build/us/text_width_digits.o",
+    "input_section": ".data",
+    "section": ".text_width_digits",
+    "vram": 2147953576,
+    "rom": 473000,
+    "size": 40,
+    "symbols": {
+      "D_80072BA8": 0
+    },
+    "evidence": "docs/text-record-storage.md"
   }
 ]

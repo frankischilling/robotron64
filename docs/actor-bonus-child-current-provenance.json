@@ -1,0 +1,244 @@
+{
+  "status": "Excluded candidate. All 744 retail instruction bytes are compared; four words still differ.",
+  "verified_date": "2026-10-06",
+  "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "source": "src/game/actor_groups/bonus_child.c",
+  "function": "func_8000F030",
+  "vram_start": "0x8000F030",
+  "vram_end_exclusive": "0x8000F318",
+  "rom_start": "0xFC30",
+  "rom_end_exclusive": "0xFF18",
+  "instruction_bytes": 744,
+  "compiler_profile": {
+    "name": "game",
+    "version": "5.3",
+    "flags": [
+      "-O2",
+      "-G",
+      "0",
+      "-non_shared",
+      "-mips1",
+      "-32"
+    ]
+  },
+  "toolchain_identity": {
+    "version": "5.3",
+    "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+    "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+    "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+  },
+  "inputs_sha256": {
+    "config/functions.json": "9340227589b55642d8fe86988d5af011715ca310bca194ead70cf3cf908aac2d",
+    "config/owned_sections.json": "857502c5578ad94b30c537c14335e6363a864739b297e74e61a74fe02caae2ce",
+    "config/runtime_symbols.ld": "a0d7d342a42eaf20d91aff6844511c24099e91e2cdaa0668d71ccde7ca098667",
+    "config/startup_symbols.ld": "d75e47cb0a27c33361d6f41aacef3d6c88d5c470d6cc288d9c984274285c08fb",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "include/actor.h": "9cf90ac264d0d3ea819acd86bb27c693632429dc3cee21154d8a1e568817a061",
+    "include/actor_behavior_extra_internal.h": "ba529bce7a29f8b12ec83bff83f441e9b153ec9d26f1fb667df1f9675034a420",
+    "include/actor_behavior_internal.h": "a34cc98195a029e4003cc251f4e172d595214582a339404eb78449926fa99373",
+    "include/actor_behavior_more_internal.h": "f2e8d0c8db3ad33093105ea64d661f78457c6fbc55025c326732e6e391801f64",
+    "include/actor_spawn_callback_internal.h": "8cf97711f0117dd13efe82c78f3856d6d6968d9ddacc005fe65830bccc53ac36",
+    "include/early_game_helpers.h": "23066df1efae4aada40178d589fa2823c8e37a2b2e1e87d694b5711a20aaeaa5",
+    "include/early_game_state.h": "6b2888941db2989ce8b108806bf153ad1f00e53a450a4b34df180a80c4d5f404",
+    "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
+    "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
+    "include/object_recovery.h": "3f976859c9ea5a9e7be4d7a6dff85dfdb4b1747067989bbc838e31b82383be90",
+    "include/scalar_math.h": "3a131e6fcf494409236080dc64cc8ba6cbebde62fc1769d0661edf3343da3303",
+    "include/text.h": "64e92cc4affbec330f6f057a618e1ff1f2c33abd2f31ae181d3fc2bf2ea49a3b",
+    "src/game/actor_groups/bonus_child.c": "a0d0a011ba3ab453f2465578843daf6e37fe847236dcf7f02a54308d8f2cb4d3",
+    "tools/check_actor_bonus_child.py": "c9ee7cff6afdccca3cc4551ac815c9fad9f7f0fb391a9e0e22870ff0cb86ae6d",
+    "tools/check_actor_group_path.py": "913f59275b43e00062b45989def982da6e9f6502c3f149d0daca2505a34c944d",
+    "tools/compare_startup.py": "175fd810a17671292f1372f1dced333b1f1ab4dbaaa4131d6a70516fa9614c6f",
+    "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118"
+  },
+  "different_words": [
+    {
+      "vram": "0x8000f038",
+      "expected": "27bdffc8",
+      "actual": "27bdffc0"
+    },
+    {
+      "vram": "0x8000f04c",
+      "expected": "afa5003c",
+      "actual": "afa50044"
+    },
+    {
+      "vram": "0x8000f1b8",
+      "expected": "8fa8003c",
+      "actual": "8fa80044"
+    },
+    {
+      "vram": "0x8000f314",
+      "expected": "27bd0038",
+      "actual": "27bd0040"
+    }
+  ],
+  "remaining_difference": "64-byte candidate stack frame versus 56-byte retail frame; the incoming A1 home slot is eight bytes higher. Floating registers and spills agree.",
+  "independent_reassemblies": [
+    {
+      "tool": "splat",
+      "bytes": 744,
+      "equal": true,
+      "sha256": "8cea6ab0f590b209468e7416856ed2bf0c9ffbaba96debd0458d8b0fc56858d6"
+    },
+    {
+      "tool": "spim",
+      "bytes": 744,
+      "equal": true,
+      "sha256": "8cea6ab0f590b209468e7416856ed2bf0c9ffbaba96debd0458d8b0fc56858d6"
+    }
+  ],
+  "ghidra_retail_bytes_sha256": "8cea6ab0f590b209468e7416856ed2bf0c9ffbaba96debd0458d8b0fc56858d6",
+  "generated_table_bytes": 0,
+  "code_sha256": {
+    "actor_group_bonus_child": "089a1a513909ac4764187996cd4d2cd11c956ff5819b39932026105d8eb70670",
+    "object_recovery_fixed_trig": "811abc0dc7ef727d420ecdba51c1e7687e737e943bfb11e3dacc4b10cab06503",
+    "short_sine": "6c83aa80cf2f0ac3c748e69842aee63d6b0a3dc31b833965024d26b158e3a6e5",
+    "short_cosine": "542141090ead5585ea09e9d0c76a310cf375d6c652cd3efb70a6a1dc43deefda",
+    "object_recovery_angle_scale": "cfcce0f0fcbc29cc263f488be37e00628e91b5523facf4209de82e83be62332d",
+    "object_recovery_direction_angle": "e07b418b4cdd89b6f81b059065e0659dbd39244d46e00ec5e0c6b04734327a19",
+    "object_recovery_angle_table": "c43cc9486d1b5ae955f630f4253462055de807b108490cd9f0648802fd4c608c",
+    "fixed_geometry_setup": "c463849b0c966dd42d80d59dba5e162da61952c6d0ccb6f617d21e92d5d6a662",
+    "scene_service_noop": "aab9a3b4a314f107dee9217d6d10144c96feaf7d3f083e0f94c1ee0811c96054"
+  },
+  "fresh_support_comparisons": {
+    "object_recovery_fixed_trig": {
+      "source": "src/game/object_recovery_fixed_trig.c",
+      "instruction_bytes": 144,
+      "matches": true
+    },
+    "short_sine": {
+      "source": "src/sdk/short_sine.c",
+      "instruction_bytes": 112,
+      "matches": true
+    },
+    "short_cosine": {
+      "source": "src/sdk/short_cosine.c",
+      "instruction_bytes": 48,
+      "matches": true
+    },
+    "object_recovery_angle_scale": {
+      "source": "src/game/object_recovery_angle_scale.c",
+      "instruction_bytes": 36,
+      "matches": true
+    },
+    "object_recovery_direction_angle": {
+      "source": "src/game/object_recovery_direction_angle.c",
+      "instruction_bytes": 388,
+      "matches": true
+    },
+    "object_recovery_angle_table": {
+      "source": "src/game/object_recovery_angle_table.c",
+      "instruction_bytes": 148,
+      "matches": true
+    },
+    "fixed_geometry_setup": {
+      "source": "src/game/fixed_geometry_setup.c",
+      "instruction_bytes": 1508,
+      "matches": true
+    },
+    "scene_service_noop": {
+      "source": "src/game/scene_service_noop.c",
+      "instruction_bytes": 8,
+      "matches": true
+    }
+  },
+  "guarded_execution": {
+    "counts": {
+      "cases": 1668,
+      "allocation_failed": 810,
+      "draw_callback": 270,
+      "fixed_callback": 270,
+      "scaled": 318
+    },
+    "trace_sha256": "33a66e59dc91896e847d94ddd683a883c224def0563974e3c0c45af8da20a763",
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "report_sha256": "9460a37afa4d70562a2d0a9352cadeba606d6689eb90b65d99ed689ff0b64107"
+  },
+  "tool_views": [
+    {
+      "mode": "initial",
+      "exit_code": 1,
+      "report_sha256": "143c3d3eab76f350b571cd6cdc600c5fa589aee3f2129de16b98b1ce1c9ca79a",
+      "cached": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "mode": "cached",
+      "exit_code": 1,
+      "report_sha256": "0882dcb34ee5cf7daa02d062de49fea204eecf6dbdbf326037065ee136e97355",
+      "cached": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "mode": "fresh",
+      "exit_code": 1,
+      "report_sha256": "143c3d3eab76f350b571cd6cdc600c5fa589aee3f2129de16b98b1ce1c9ca79a",
+      "cached": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "tool": "asm-differ",
+      "block": "rotation",
+      "output_sha256": "a46e121b5231ce36b720402c45e33a07270008f1f8fa12091bfe080bf1721c07"
+    },
+    {
+      "tool": "asm-differ",
+      "block": "bonus",
+      "output_sha256": "f6efeb4ec62aae787253cdf2bcbb5bdb3c3e5b926a6594162e127fd4c4fef7a4"
+    },
+    {
+      "tool": "asm-differ",
+      "block": "path",
+      "output_sha256": "2be194364303d7ab1b8577737c85c0ccabb7eed3f8e788761704ac70ab458e16"
+    },
+    {
+      "tool": "objdiff",
+      "block": "rotation",
+      "family": "object",
+      "report_sha256": "4ccde85041c7445b5cd3d34daa4680195d609bf6bb0554b0c11af2094cae516c",
+      "exact_linked_different_words": 0
+    },
+    {
+      "tool": "objdiff",
+      "block": "rotation",
+      "family": "linked",
+      "report_sha256": "8db97e443937a436dc971fa8827b8f707e6eff2770eaa772c50ca078f8f424b4",
+      "exact_linked_different_words": 0
+    },
+    {
+      "tool": "objdiff",
+      "block": "bonus",
+      "family": "object",
+      "report_sha256": "a04df772d1892036c6e6e7ea3c6a53703d12b957e708d8f2399545135ae2a937",
+      "exact_linked_different_words": 4
+    },
+    {
+      "tool": "objdiff",
+      "block": "bonus",
+      "family": "linked",
+      "report_sha256": "482e06a0c43f1d04b7046c44945c642311badb76e8631705786ac38906dd546f",
+      "exact_linked_different_words": 4
+    }
+  ],
+  "limits": [
+    "Eight complete matching support units and two matching initialized tables execute compiled code.",
+    "Allocation, draw selection, RNG, scale submission, angle submission and mode submission use recorded ABI stubs.",
+    "The allocator boundary returns a prepared child or null; allocator, drawing and full-game behavior are not verified.",
+    "Stubs clobber caller-saved integer and float registers; actor, target, resource, session and child guards are checked.",
+    "Signed overflow characterizes only the pinned compiler and target; invalid kinds and allocation aliasing are not exercised.",
+    "Execution agreement does not establish instruction matching for the excluded bonus child function."
+  ]
+}

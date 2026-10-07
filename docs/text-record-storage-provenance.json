@@ -1,0 +1,305 @@
+{
+  "status": "Complete text-record BSS and both character-width tables are source-owned. No new instruction bytes are claimed.",
+  "verified_date": "2026-10-06",
+  "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "ownership": {
+    "source": "src/game/text_records.c",
+    "symbol": "D_800B6FF8",
+    "section": ".text_records_bss",
+    "vram_start": "0x800B6FF8",
+    "vram_end_exclusive": "0x800B8F60",
+    "record_count": 30,
+    "record_size": 268,
+    "bss_bytes": 8040,
+    "initialized_rom_bytes": 0,
+    "new_matching_functions": 0,
+    "linker_type": "NOLOAD"
+  },
+  "inputs_sha256": {
+    "Makefile": "2a90d5ae1622e050422253886975c0e1fa3078b1800159d3a50d78947d7e27aa",
+    "config/owned_sections.json": "857502c5578ad94b30c537c14335e6363a864739b297e74e61a74fe02caae2ce",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "include/game_memory.h": "bbeb5f5db02d29520af26d935a2b808a7f8648410d9ffcc87acf62671d5f1720",
+    "include/object.h": "c9c2cb3685d697b385b212caf59acfedbf0e970e8b1eae1d9786e898db8e8b3c",
+    "include/text.h": "64e92cc4affbec330f6f057a618e1ff1f2c33abd2f31ae181d3fc2bf2ea49a3b",
+    "linker_scripts/us.ld": "b398abc2ad99f7847a43eeaf13e41c2b22192ec7849a3861d592689ca0ae96cd",
+    "src/game/text.c": "515af6beda2080f8fc28c32b99475983ddd9b5481e999c3ffb5e3263dfca661f",
+    "src/game/text_records.c": "745f369f35a93f060c0af3a8b021e188f082f31ca70aed95ea0c22e3b1a1a728",
+    "src/game/text_widths/digits.c": "c58fe28acba7147470abe5863e5639ba319cc5a2270f8e2624fcb8a6ca8294ac",
+    "src/game/text_widths/lowercase.c": "d5595b98fa2d7e8038bb96ebcca3ed1d75584e944570f40c7fdaa4511fde961c",
+    "tools/check_actor_group_path.py": "913f59275b43e00062b45989def982da6e9f6502c3f149d0daca2505a34c944d",
+    "tools/check_text_storage.py": "169e05ee43c5f491fcbbbf03e2e3350935829e0e0b55c2d5557585e9d3bd4cab",
+    "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
+    "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
+    "tools/extract.py": "a93f2f2fe4b721ab593e7aa85a152dc4e2fc5ce4b93e65cd6c4a4efc13ba9059",
+    "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80"
+  },
+  "toolchain_identity": {
+    "version": "5.3",
+    "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+    "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+    "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+  },
+  "compiler_profile": {
+    "name": "game",
+    "version": "5.3",
+    "flags": [
+      "-O2",
+      "-G",
+      "0",
+      "-non_shared",
+      "-mips1",
+      "-32"
+    ]
+  },
+  "layout_probe": {
+    "record_size": 268,
+    "pool_size": 8040,
+    "alignment": 4,
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "fields": [
+      {
+        "name": "unk04",
+        "offset": 4,
+        "size": 4
+      },
+      {
+        "name": "mode",
+        "offset": 8,
+        "size": 4
+      },
+      {
+        "name": "value0C",
+        "offset": 12,
+        "size": 4
+      },
+      {
+        "name": "value10",
+        "offset": 16,
+        "size": 4
+      },
+      {
+        "name": "value14",
+        "offset": 20,
+        "size": 4
+      },
+      {
+        "name": "value18",
+        "offset": 24,
+        "size": 4
+      },
+      {
+        "name": "value1C",
+        "offset": 28,
+        "size": 4
+      },
+      {
+        "name": "objectIndex20",
+        "offset": 32,
+        "size": 4
+      },
+      {
+        "name": "text",
+        "offset": 36,
+        "size": 64
+      },
+      {
+        "name": "property64",
+        "offset": 100,
+        "size": 4
+      },
+      {
+        "name": "scale",
+        "offset": 104,
+        "size": 12
+      },
+      {
+        "name": "length",
+        "offset": 116,
+        "size": 4
+      },
+      {
+        "name": "objects",
+        "offset": 120,
+        "size": 120
+      },
+      {
+        "name": "unkF0",
+        "offset": 240,
+        "size": 4
+      },
+      {
+        "name": "valueF4",
+        "offset": 244,
+        "size": 12
+      },
+      {
+        "name": "sentinel",
+        "offset": 256,
+        "size": 12
+      }
+    ],
+    "bit_masks": {
+      "active": "0x80000000",
+      "flag30": "0x40000000",
+      "unkFlag": "0x20000000",
+      "options": "0x1FFFF800",
+      "unkBits": "0x000007FF"
+    },
+    "ghidra_type_agrees": true,
+    "probe_source_sha256": "c788202012f966445412841de3dffd7ae737986fd3990b73ce1afd0a2db19f84",
+    "header_sha256": "64e92cc4affbec330f6f057a618e1ff1f2c33abd2f31ae181d3fc2bf2ea49a3b"
+  },
+  "consumer_ranges": [
+    {
+      "name": "func_80000460",
+      "start": "0x80000460",
+      "end_exclusive": "0x80000518",
+      "bytes": 184
+    },
+    {
+      "name": "func_800005E0",
+      "start": "0x800005E0",
+      "end_exclusive": "0x8000060C",
+      "bytes": 44
+    },
+    {
+      "name": "func_80000918",
+      "start": "0x80000918",
+      "end_exclusive": "0x80000ACC",
+      "bytes": 436
+    }
+  ],
+  "complete_code_comparisons": {
+    "text": {
+      "source": "src/game/text.c",
+      "expected_size": 2808,
+      "actual_size": 2808,
+      "matches": true,
+      "different_words": 0
+    },
+    "game_memory": {
+      "source": "src/game/game_memory.c",
+      "expected_size": 628,
+      "actual_size": 628,
+      "matches": true,
+      "different_words": 0
+    }
+  },
+  "guarded_execution": {
+    "paired_allocation_reset_cases_per_image": 744,
+    "width_cases_per_image": 1024,
+    "allocation_reset_function_executions": 2976,
+    "executions_per_image": 2512,
+    "total_function_executions": 5024,
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "report_sha256": "af515f3f9d4ea5619019e75fda1502883be412b2e1209cd066fb240cc1542c87",
+    "cases_sha256": "3b0206c9ce7c4284ffe73810c81b166f09c522deca7600142e912ed3596d5f84",
+    "width_cases_sha256": "fc1a3a5dd573b4ef5e6ab33a1da8461708b1a9561d6d3b5b6f5c96bd69caf8ba",
+    "mutations": [
+      {
+        "name": "reset_short",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 1
+      },
+      {
+        "name": "reset_overrun",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 1
+      },
+      {
+        "name": "last_slot",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 1
+      },
+      {
+        "name": "active_flag",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 16
+      },
+      {
+        "name": "length_cap",
+        "control_passed": true,
+        "mutation_rejected": true,
+        "different_words": 2
+      }
+    ]
+  },
+  "width_table_comparisons": {
+    "src/game/text_widths/lowercase.c": {
+      "matches": true,
+      "sections": [
+        {
+          "ownership": {
+            "source": "src/game/text_widths/lowercase.c",
+            "object": "build/us/text_width_lowercase.o",
+            "input_section": ".data",
+            "section": ".text_width_lowercase",
+            "vram": 2147953472,
+            "rom": 472896,
+            "size": 104,
+            "symbols": {
+              "D_80072B40": 0
+            },
+            "evidence": "docs/text-record-storage.md"
+          },
+          "bytes_sha256": "db21d824b5245174194362ec4689dd14fe323bf00307140e5e14fe2cc679a672"
+        }
+      ]
+    },
+    "src/game/text_widths/digits.c": {
+      "matches": true,
+      "sections": [
+        {
+          "ownership": {
+            "source": "src/game/text_widths/digits.c",
+            "object": "build/us/text_width_digits.o",
+            "input_section": ".data",
+            "section": ".text_width_digits",
+            "vram": 2147953576,
+            "rom": 473000,
+            "size": 40,
+            "symbols": {
+              "D_80072BA8": 0
+            },
+            "evidence": "docs/text-record-storage.md"
+          },
+          "bytes_sha256": "78105ce1d1dd8d3fe5af3bb9a04a42a3418dad17db2f10260b3b5bf947d6e735"
+        }
+      ]
+    }
+  },
+  "ghidra_width_bytes_sha256": "783a58284ff961da5c7ed7392cc9d48ccb0b6c9b26148937f78b9b09d91bde3c",
+  "limits": [
+    "All thirty allocation slots, exhaustion and reset are checked against the complete independent array model.",
+    "Instruction, read and write bounds, pool/string/stack canaries, SP, GP and saved integer registers are checked.",
+    "Glyph creation and the exhaustion message use recorded, clobbering O32 boundaries; rendering is outside the proof.",
+    "Matching byte clear, string length and bounded string copy execute compiled instructions.",
+    "All 256 byte-valued characters and four enabled values are checked for the matching width routine; both complete width tables are independently compiled and compared.",
+    "BSS ownership contributes no ROM bytes, new functions or proof of complete gameplay."
+  ]
+}

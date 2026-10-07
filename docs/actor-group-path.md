@@ -72,9 +72,15 @@ retail uses V0 and the candidate uses V1. Its 96-byte stack frame and all spill
 offsets agree. The routine remains excluded from the ROM link and matching
 source progress.
 
-The bonus child object contains all 744 instruction bytes and differs in six
-words: stack size, the incoming index slot and the floating result register.
-It is not linked into the ROM or counted as matching C.
+The bonus child object contains all 744 instruction bytes and differs in four
+words. Capturing the consumed object index before the floating scale expression
+reproduces the retail floating registers and spills. The candidate still uses a
+64-byte stack frame rather than 56 bytes, so its incoming index home slot is
+eight bytes higher. The two stack adjustments and two accesses to that slot
+remain different. It is not linked into the ROM or counted as matching C.
+The [current candidate ledger](actor-bonus-child-current-provenance.json)
+records the full comparison, independent retail reassemblies and guarded
+execution. Earlier ledgers below retain their historical source hashes.
 
 The optional checker passes 8,512 rotation and 10,144 path cases: 1,728 complete
 the path and 8,416 interpolate a segment. It covers all 4,096 masked angles,

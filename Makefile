@@ -8168,6 +8168,30 @@ RUNTIME_OBJECTS += build/us/menu_front_text.o
 check-front-menu-records:
 	$(PYTHON) tools/check_front_menu_records.py
 
+build/us/text_records.o: src/game/text_records.c include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/text_records.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/text_records.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/text_width_lowercase.o: src/game/text_widths/lowercase.c include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/text_width_lowercase.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/text_width_lowercase.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/text_width_digits.o: src/game/text_widths/digits.c include/text.h include/game_memory.h include/object.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/text_width_digits.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/text_width_digits.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/text_records.o build/us/text_width_lowercase.o build/us/text_width_digits.o
+
+.PHONY: audit-text-storage
+audit-text-storage:
+	$(PYTHON) tools/check_text_storage.py
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
