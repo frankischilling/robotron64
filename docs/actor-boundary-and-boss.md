@@ -48,30 +48,23 @@ are established, and the selector retains its existing fallback ownership.
 Ghidra MCP verifies the layouts, the complete constructor listing, its
 prototype, the string, timestamp storage and references. The game-state
 caller has a call at `80020B74`. The following routine at `800107A0` reads and
-updates the first timestamp. These callers and the update routine retain
-their current fallback status.
+updates the first timestamp. The game-state caller remains excluded; the
+[update routine](boss-update.md) is now independently source owned.
 
-The actor-boundary clamp at `80018480..800186D8` is reconstructed separately in
-`src/game/actor_contacts/boundary.c`. Its full 600-byte body and 72-byte frame
-have two instruction differences:
-
-| Address | Retail | Candidate |
-| --- | --- | --- |
-| `80018590` | `afa20030` | `afa2002c` |
-| `80018594` | `8fa30030` | `8fa3002c` |
-
-These store and reload the first absolute-value result at stack offset `30`
-instead of `2C`. Every other word, including the division checks, agrees.
-This routine remains an excluded candidate: it has no manifest entry or
-linked source ownership and adds nothing to matching progress.
+The [complete actor-boundary clamp](actor-boundary-clamp.md) at
+`80018480..800186D8` now reproduces all 600 bytes and its 72-byte frame from
+`src/game/actor_contacts/boundary.c`. Five consumed integer locals and the final
+Y expression reproduce all stack homes and registers. Its source ownership,
+fresh complete references and guarded acceptance are recorded separately in
+[the current boundary ledger](actor-boundary-current-provenance.json).
 
 The boundary routine tests Y lower, Y upper, X lower and X upper in that
 order, using inclusive comparisons and the signed margin at actor offset `06`.
 Each clamp submits the updated position to the object helper. When the
 diagonal mode is enabled, it restricts the sum of absolute X and Y using
 fixed-point division, preserving the signs and setting the changed flag.
-Ghidra records two calls from the routine at `800190F8`. This caller remains
-unrecovered.
+Ghidra records two calls from the already matching
+[boundary dispatcher](actor-boundary-dispatch.md) at `800190F8`.
 
 The optional MIPS checker compares compiled and retail execution against
 independent guarded byte and call expectations. All 1,740 cases pass:
@@ -104,18 +97,21 @@ Run the checker with Unicorn installed:
 python3 tools/check_actor_boundary_boss.py
 ```
 
-The integrated ROM matches all 8,388,608 target bytes. Complete independent
+The following numbers describe the earlier constructor checkpoint preserved
+in [its historical ledger](actor-boundary-and-boss-provenance.json). Current
+acceptance and totals are recorded in the boundary ledger and bootstrap status.
+At that checkpoint, the integrated ROM matched all 8,388,608 target bytes. Complete independent
 comparisons pass for 857 runtime units, two startup units, eighteen assembly
 units and 96 data-only units. All 152 tooling tests pass.
 An isolated clean extraction and rebuild also reproduces the full ROM and
 passes all tooling tests with the same verified source and comparison inputs.
-[The provenance ledger](actor-boundary-and-boss-provenance.json) records current
+[The provenance ledger](actor-boundary-and-boss-provenance.json) records those historical
 inputs, compiler identity, ELF ownership, Ghidra evidence and execution limits.
 Raw objects contain twelve trailing zero bytes after the constructor, eight
 after the string, and eight alignment bytes after the timestamp definitions.
 Only verified compiler alignment is removed; no instructions or data are patched.
 
-Matching C now totals 1,374 functions and 264,372 instruction bytes.
+That checkpoint totaled 1,374 functions and 264,372 instruction bytes.
 Initialized ownership is 29,407 bytes and BSS ownership is 504,115 bytes.
 The provisional CPU inventory retains 185,824 fallback bytes in 213 ranges;
 its complete function and executable-byte denominators remain unknown.

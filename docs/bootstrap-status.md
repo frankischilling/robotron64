@@ -2,15 +2,20 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
-Current verified totals are 1,426 matching C functions / 310,132 instruction
+Current verified totals are 1,427 matching C functions / 310,732 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized bytes
 and 879,157 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
-There remain 140,052 declared fallback CPU bytes in 184 spans and 164 unclassified
+There remain 139,452 declared fallback CPU bytes in 185 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
+
+The [actor boundary clamp](actor-boundary-clamp.md) contributes one complete
+600-byte function with a verified 72-byte frame. Both independent reassemblies,
+972 guarded boundary pairs and five source mutation controls pass. It adds no
+initialized data or BSS.
 
 The [actor-group path callback](actor-group-path.md) now contributes one complete
 matching C function / 592 instruction bytes. Both independent retail references
@@ -49,7 +54,7 @@ BSS and both width tables add 144 initialized bytes. All thirty allocation slots
 exhaustion and the full reset pass 744 guarded cases per image; another 1,024
 cases check every byte-valued character. Five isolated source mutations are rejected. The
 [current matching-tool audit](matching-tools-current.md) independently compares
-908 runtime units, two startup units, eighteen assembly units and 193 data-only
+909 runtime units, two startup units, eighteen assembly units and 193 data-only
 units. The [bonus-child creator](actor-bonus-child.md) contributes one complete
 matching C function / 744 instruction bytes. Reusing the selected pointer and
 preserving declaration order reproduces its 56-byte frame and all stack homes;

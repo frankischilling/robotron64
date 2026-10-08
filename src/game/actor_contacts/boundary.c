@@ -9,7 +9,7 @@ int func_80018480(ActorBehaviorActorInternal *actor)
 {
     int changed = 0;
     int limit;
-    int ratio;
+    int value;
     int lower;
     int upper;
 
@@ -22,7 +22,8 @@ int func_80018480(ActorBehaviorActorInternal *actor)
     upper = 30000 - actor->unknown00[3];
     if (actor->position[1] >= upper) {
         actor->position[1] = upper;
-        func_800290B0(actor->objectIndex, actor->position);
+        value = actor->objectIndex;
+        func_800290B0(value, actor->position);
         changed = 1;
     }
     lower = actor->unknown00[3] - 30000;
@@ -41,16 +42,13 @@ int func_80018480(ActorBehaviorActorInternal *actor)
         limit = 42000 - actor->unknown00[3];
         if (func_8004CEF0(actor->position[0]) +
             func_8004CEF0(actor->position[1]) > limit) {
-            int *position = actor->position;
-
-            ratio = func_8004CEF0((actor->position[1] << 12) / actor->position[0]);
+            value = func_8004CEF0((actor->position[1] << 12) / actor->position[0]);
             changed = 1;
             actor->position[0] = BOUNDARY_SIGN(actor->position[0]) *
-                ((limit << 12) / (ratio + 4096));
-            ratio = func_8004CEF0(actor->position[0]);
-            actor->position[1] = BOUNDARY_SIGN(actor->position[1]) *
-                (limit - ratio);
-            func_800290B0(actor->objectIndex, position);
+                ((limit << 12) / (value + 4096));
+            actor->position[1] = (limit - func_8004CEF0(actor->position[0])) *
+                BOUNDARY_SIGN(actor->position[1]);
+            func_800290B0(actor->objectIndex, actor->position);
         }
     }
     return changed;

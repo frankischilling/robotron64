@@ -16041,5 +16041,16 @@
     "section": ".actor_group_bonus_child",
     "section_vram": 2147545136,
     "evidence": "docs/actor-bonus-child.md"
+  },
+  {
+    "name": "func_80018480",
+    "rom": 102528,
+    "vram": 2147583104,
+    "size": 600,
+    "source": "src/game/actor_contacts/boundary.c",
+    "object": "build/us/actor_boundary_clamp.o",
+    "section": ".actor_boundary_clamp",
+    "section_vram": 2147583104,
+    "evidence": "docs/actor-boundary-clamp.md"
   }
 ]

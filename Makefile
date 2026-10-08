@@ -7380,6 +7380,14 @@ build/us/actor_group_bonus_child.o: src/game/actor_groups/bonus_child.c include/
 
 RUNTIME_OBJECTS += build/us/actor_group_bonus_child.o
 
+build/us/actor_boundary_clamp.o: src/game/actor_contacts/boundary.c include/actor.h include/actor_behavior_internal.h include/actor_motion_internal.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_boundary_clamp.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_boundary_clamp.raw.o $@ .text 0x258
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/actor_boundary_clamp.o
+
 build/us/actor_group_path.o: src/game/actor_groups/path.c include/actor.h include/actor_behavior_internal.h include/actor_dynamic_pool_internal.h include/actor_resource_5c_internal.h include/actor_resource_internal.h include/actor_setup_internal.h include/destination_format.h include/early_game_more.h include/early_game_state.h include/early_parameter_internal.h include/fixed_geometry.h include/fixed_math.h include/game_memory.h include/geometry_bridge_internal.h include/object.h include/object_recovery.h include/pak_file.h include/save_game.h include/scalar_math.h include/scene_counter_internal.h include/scene_definition.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_group_path.raw.o $<

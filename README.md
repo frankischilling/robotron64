@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,426 matching C functions covering 310,132 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,875 bytes of source-owned initialized data, and 879,157 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,427 matching C functions covering 310,732 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,875 bytes of source-owned initialized data, and 879,157 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -168,8 +168,9 @@ position word supplied to allocation.
 
 [Boss creation and actor boundaries](docs/actor-boundary-and-boss.md) completes
 the 772-byte boss-part constructor, its 24-byte error string and eight timestamp
-BSS bytes. The MIPS checker verifies 1,740 cases; the boundary clamp remains
-excluded with two stack-spill differences.
+BSS bytes. The [complete boundary clamp](docs/actor-boundary-clamp.md) adds
+600 matching instruction bytes. The MIPS checker verifies 1,740 paired cases
+and rejects five boundary source mutations after positive controls.
 
 [Scene actions](docs/scene-actions.md) completes the 724-byte menu and pickup
 handler, its 56-byte generated switch table and four-byte pickup counter. Its

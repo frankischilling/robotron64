@@ -9,7 +9,7 @@ requires the complete independent code and data comparisons below.
 | --- | --- | --- |
 | Ghidra MCP | Existing `robotron64.elf` project | Inspected complete functions, callers, types, memory blocks and retail instructions; checked the verified path extent and preserved its actor/point types. |
 | m2c | `708d2d2cb2698f091a92492b328f73b24209f72d` | Generated IDO-context pseudocode for complete heap, bonus-child, path, loader and rotation references. |
-| asm-differ | `0dd09af8f8008f1f880327cf0aca3b26d2562ea2` | Compared complete rotation, path and bonus-child ranges, including stack offsets. |
+| asm-differ | `0dd09af8f8008f1f880327cf0aca3b26d2562ea2` | Compared complete rotation, path, bonus-child and boundary ranges, including stack offsets. |
 | decomp-permuter | `059609d4aec73eb0650726772954e1ad575825f8` | The earlier 600-second path/bonus search remained nonmatching. A new bounded two-worker path search retained stack differences and identified the interpolation block form; complete bytes were verified independently. |
 | splat | 0.50.0 | Split complete verified retail ranges and produced independent assembly references. |
 | spimdisasm | 1.42.4 | Independently disassembled those same ranges for reassembly and symbol-size checks. |
@@ -24,6 +24,7 @@ reproduces every byte in its verified range, including both rotation procedures:
 | `8000E720..8000E894` | 372 | Both rotation helpers match. |
 | `8000E894..8000EAE4` | 592 | Complete path callback matches all instructions. |
 | `8000F030..8000F318` | 744 | Complete bonus-child creator matches all instructions. |
+| `80018480..800186D8` | 600 | Complete boundary clamp matches all instructions. |
 | `8004BD00..8004C088` | 904 | Loader candidate differs in eleven words. |
 | `8004DE8C..8004DED8` | 76 | Published heap candidate differs in eighteen words; private source variants reached sixteen. |
 
@@ -40,16 +41,24 @@ workbench, asm-differ and objdiff checks cover its complete function. Scores
 and cache hits remain separate from natural sizes, complete bytes, initialized
 data, relocations and execution acceptance.
 
+The [boundary ledger](actor-boundary-current-provenance.json) records the
+complete 600-byte natural extent, both fresh independent reassemblies and
+972 guarded pairs. Five isolated source mutations are rejected after controls.
+Its five consumed locals and final Y expression preserve the 72-byte frame
+and every spill/register assignment under unchanged compiler flags. A bounded
+two-worker permuter search retained stack differences; removing the generated
+empty conditional and recompiling the readable source preserved the exact match.
+
 Private context, splits, disassembly, objects, viewer reports and experiments
 stay under ignored `.local`/`build` directories. The public ledgers contain
 sizes, hashes and measured conclusions. Tool sources and N64 reference projects
 are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-study.md).
 No third-party game implementation or generated retail code is added here.
 
-Fresh acceptance checks cover all 908 runtime comparison units, two startup
+Fresh acceptance checks cover all 909 runtime comparison units, two startup
 units, eighteen assembly units and 193 data-only units. The clean build matches
-all 8,388,608 retail bytes. The checkpoint has 1,426 matching C functions /
-310,132 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized
+all 8,388,608 retail bytes. The checkpoint has 1,427 matching C functions /
+310,732 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized
 data bytes and 879,157 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -137,8 +146,8 @@ The object projection candidate at `8003B2B0` remains excluded. A separate
 400 suggestions. Independent compilation of the twenty lowest-scoring forms
 still found complete-function mismatches. Those scores add no matching credit.
 
-Full source recovery remains incomplete: 140,052 declared fallback CPU bytes
-in 184 spans and 164 unclassified bytes remain. The executable/function
+Full source recovery remains incomplete: 139,452 declared fallback CPU bytes
+in 185 spans and 164 unclassified bytes remain. The executable/function
 denominator is unknown, and these checks do not establish complete gameplay.
 
 [Scene resource setup](scene-resource-setup.md) now has a complete public
