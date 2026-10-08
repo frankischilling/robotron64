@@ -1,6 +1,6 @@
 #include "../../include/save_game.h"
 
-extern unsigned char *D_800BA7A8[];
+#include "../../include/game_initializer_internal.h"
 
 unsigned char *func_80021B20(int level)
 {

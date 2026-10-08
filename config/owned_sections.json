@@ -4233,31 +4233,6 @@
     "evidence": "docs/control-setup-records.md"
   },
   {
-    "source": "src/game/save_menus/control_setup/text.c",
-    "object": "build/us/menu_control_setup_text.o",
-    "input_section": ".rodata",
-    "section": ".menu_control_setup_text",
-    "vram": 2148086680,
-    "rom": 606104,
-    "size": 184,
-    "symbols": {
-      "D_80093398": 0,
-      "D_800933A0": 8,
-      "D_800933A8": 16,
-      "D_800933B0": 24,
-      "D_800933B8": 32,
-      "D_800933C4": 44,
-      "D_800933D0": 56,
-      "D_800933E8": 80,
-      "D_800933FC": 100,
-      "D_80093408": 112,
-      "D_80093420": 136,
-      "D_80093434": 156,
-      "D_80093440": 168
-    },
-    "evidence": "docs/control-setup-records.md"
-  },
-  {
     "source": "src/game/save_menus/pak_confirmation/labels.c",
     "object": "build/us/menu_pak_confirmation_labels.o",
     "input_section": ".data",
@@ -4948,5 +4923,86 @@
       "D_80091814": 28
     },
     "evidence": "docs/scene-arrivals.md"
+  },
+  {
+    "source": "src/game/save_menus/control_setup/text.c",
+    "object": "build/us/menu_control_setup_text.o",
+    "input_section": ".rodata",
+    "section": ".menu_control_setup_text",
+    "vram": 2148086680,
+    "rom": 606104,
+    "size": 56,
+    "symbols": {
+      "D_80093398": 0,
+      "D_800933A0": 8,
+      "D_800933A8": 16,
+      "D_800933B0": 24,
+      "D_800933B8": 32,
+      "D_800933C4": 44
+    },
+    "evidence": "docs/control-setup-records.md"
+  },
+  {
+    "source": "src/game/save_menus/control_setup/text.c",
+    "object": "build/us/menu_control_setup_text.o",
+    "input_section": ".data",
+    "section": ".menu_control_setup_mutable_text",
+    "vram": 2148086736,
+    "rom": 606160,
+    "size": 44,
+    "symbols": {
+      "D_800933D0": 0,
+      "D_800933E8": 24
+    },
+    "evidence": "docs/control-setup-records.md"
+  },
+  {
+    "source": "src/game/save_menus/control_setup/text_details.c",
+    "object": "build/us/menu_control_setup_text_details.o",
+    "input_section": ".rodata",
+    "section": ".menu_control_setup_text_details",
+    "vram": 2148086780,
+    "rom": 606204,
+    "size": 84,
+    "symbols": {
+      "D_800933FC": 0,
+      "D_80093408": 12,
+      "D_80093420": 36,
+      "D_80093434": 56,
+      "D_80093440": 68
+    },
+    "evidence": "docs/control-setup-records.md"
+  },
+  {
+    "source": "src/game/session_initialization/literals.c",
+    "object": "build/us/game_initializer_literals.o",
+    "input_section": ".rodata",
+    "section": ".game_initializer_literals",
+    "vram": 2148082252,
+    "rom": 601676,
+    "size": 96,
+    "symbols": {
+      "D_8009224C": 0,
+      "D_80092250": 4,
+      "D_80092264": 24,
+      "D_80092274": 40,
+      "D_80092288": 60,
+      "D_80092290": 68,
+      "D_80092294": 72
+    },
+    "evidence": "docs/game-initialization.md"
+  },
+  {
+    "source": "src/game/session_initialization/levels.c",
+    "object": "build/us/game_initializer_levels.o",
+    "input_section": ".bss",
+    "section": ".game_level_filenames",
+    "vram": 2148247464,
+    "rom": null,
+    "size": 880,
+    "symbols": {
+      "D_800BA7A8": 0
+    },
+    "evidence": "docs/game-initialization.md"
   }
 ]

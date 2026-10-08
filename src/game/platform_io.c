@@ -7,7 +7,7 @@ void func_8003C5C4(void)
 {
 }
 
-void func_8003C5CC(void)
+void func_8003C5CC()
 {
 }
 

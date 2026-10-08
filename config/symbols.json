@@ -419,5 +419,58 @@
     "rom": "0x7d338",
     "vram": "0x8007c738",
     "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "func_8002205C",
+    "rom": "0x22C5C",
+    "vram": "0x8002205C",
+    "status": "excluded complete C candidate; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_8009224C",
+    "rom": "0x92e4c",
+    "vram": "0x8009224c",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092250",
+    "rom": "0x92e50",
+    "vram": "0x80092250",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092264",
+    "rom": "0x92e64",
+    "vram": "0x80092264",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092274",
+    "rom": "0x92e74",
+    "vram": "0x80092274",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092288",
+    "rom": "0x92e88",
+    "vram": "0x80092288",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092290",
+    "rom": "0x92e90",
+    "vram": "0x80092290",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092294",
+    "rom": "0x92e94",
+    "vram": "0x80092294",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_800BA7A8",
+    "vram": "0x800BA7A8",
+    "status": "source-owned 220-pointer BSS table; see docs/game-initialization.md"
   }
 ]

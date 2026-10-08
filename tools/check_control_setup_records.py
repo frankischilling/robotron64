@@ -114,7 +114,7 @@ def main():
         start=first-0x80000000+0xC00;q=compare_block(name,source,first,start,start+last-first,target,'control-setup-execution',layout)
         assert q['matches'];comparisons[name]=q;compiled.append((first,(r/'build/control-setup-execution'/name/(name+'.bin')).read_bytes()));original.append((first,target[start:start+last-first]))
     image=[];data_comparisons={}
-    for leaf in ('choices','labels','page','text'):
+    for leaf in ('choices','labels','page','text','text_details'):
         source='src/game/save_menus/control_setup/'+leaf+'.c';records=source_sections(source)
         data_comparisons[source]=compare_unit(source,records,target,layout)
         sections,_=elf_sections_and_symbols(comparison_directory(source)/'compiled.elf')

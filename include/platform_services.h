@@ -20,7 +20,8 @@ int func_8003BFDC();
 void func_8003BFE4();
 
 void func_8003C5C4(void);
-void func_8003C5CC(void);
+/* The game initializer passes an unused word to this empty retail leaf. */
+void func_8003C5CC();
 void func_8003C5D4(void);
 void func_8003C5DC(void);
 int func_8003C5E4();

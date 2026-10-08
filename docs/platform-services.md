@@ -56,3 +56,11 @@ preserved. The resource loader and size-query declarations are shared through
 The empty functions are reproduced because those bodies are present in this
 version of the game. They are counted separately here from the active adapters
 so the function count does not imply thirty-two substantial recovered systems.
+
+The game initializer passes 1 in A0 to func_8003C5CC. Its empty leaf
+reads no argument and remains jr ra; nop. The C declaration and definition
+use an unspecified argument list. A named integer parameter adds an A0 stack
+spill to the return delay slot under pinned IDO 5.3 and changes a retail word.
+Ghidra records the observed integer argument for caller analysis. The complete
+244-byte unit is independently compared, and the real leaf executes inside
+make audit-game-initialization; this interface correction adds no ownership.

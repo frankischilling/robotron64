@@ -259,7 +259,7 @@ build/us/entry.o: src/boot/entry.s tools/provenance.py
 	$(CROSS)as -EB -32 -march=vr4300 -o $@ $<
 	$(PYTHON) tools/provenance.py $< $@
 
-build/us/startup.o: src/boot/startup.c include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/frame.h include/graphics_tasks.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/renderer_projection_internal.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h
+build/us/startup.o: src/boot/startup.c include/game_initializer_internal.h include/audio_control.h include/audio_io.h include/audio_properties_internal.h include/audio_runtime.h include/frame.h include/graphics_tasks.h include/scheduler.h include/scheduler_runtime.h include/scheduler_task.h include/sdk_device_manager.h include/sdk_pi_device.h include/sdk_pi_dma.h include/sdk_pi_transfer.h include/sdk_pi_word.h include/sdk_time.h $(IDO) Makefile tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/renderer_projection_internal.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o $@ $<
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
@@ -2380,7 +2380,7 @@ build/us/graphics_environment.o: src/game/graphics_environment.c include/debug_o
 	$(PYTHON) tools/trim_padding.py build/us/graphics_environment.raw.o $@ .text 0xb0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/save_level_lookup.o: src/game/save_level_lookup.c include/destination_format.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/save_level_lookup.o: src/game/save_level_lookup.c include/game_initializer_internal.h include/destination_format.h include/pak_file.h include/save_game.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/save_level_lookup.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/save_level_lookup.raw.o $@ .text 0x18
@@ -8255,6 +8255,10 @@ RUNTIME_OBJECTS += build/us/graphics_setup_defaults.o build/us/graphics_setup_ti
 
 RUNTIME_OBJECTS += build/us/scene_arrivals_storage.o build/us/scene_arrivals_diagnostics.o
 
+RUNTIME_OBJECTS += build/us/menu_control_setup_text_details.o
+RUNTIME_OBJECTS += build/us/game_initializer_literals.o
+RUNTIME_OBJECTS += build/us/game_initializer_levels.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8510,3 +8514,28 @@ audit-scene-arrivals: toolchain
 .PHONY: audit-scene-resource-selection
 audit-scene-resource-selection: toolchain
 	$(PYTHON) tools/check_scene_resource_selection.py
+
+build/us/menu_control_setup_text_details.o: src/game/save_menus/control_setup/text_details.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/menu_control_setup_text_details.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/menu_control_setup_text_details.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+
+build/us/game_initializer_literals.o: src/game/session_initialization/literals.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_initializer_literals.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/game_initializer_literals.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+
+build/us/game_initializer_levels.o: src/game/session_initialization/levels.c $(wildcard include/*.h) $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/game_initializer_levels.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/game_initializer_levels.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+
+.PHONY: audit-game-initialization
+audit-game-initialization: toolchain
+	$(PYTHON) tools/check_game_initialization.py

@@ -1386,7 +1386,9 @@ SECTIONS
     .scene_arrivals_diagnostics 0x800917F8 : AT(0x923F8) SUBALIGN(4) { build/us/scene_arrivals_diagnostics.o(.data) }
     .error_fallback_92434_92558 0x80091834 : AT(0x92434) { build/us/fallback.o(.rom_error_fallback_92434_92558) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
-    .endgame_data_92560_93698 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_93698) }
+    .endgame_data_92560_92e4c 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_92e4c) }
+    .game_initializer_literals 0x8009224C : AT(0x92E4C) SUBALIGN(4) { build/us/game_initializer_literals.o(.rodata) }
+    .endgame_data_92eac_93698 0x800922AC : AT(0x92eac) { build/us/fallback.o(.rom_endgame_data_92eac_93698) }
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
     .menu_display_text_before 0x80092ac4 : AT(0x936c4) { build/us/fallback.o(.rom_menu_display_text_before) }
     .menu_display_text 0x80092C08 : AT(0x93808) SUBALIGN(4) { build/us/menu_display_text.o(.data) }
@@ -1394,6 +1396,8 @@ SECTIONS
     .menu_front_text 0x80093254 : AT(0x93e54) SUBALIGN(4) { build/us/menu_front_text.o(.rodata) }
     .front_fallback_93f18_93f98 0x80093318 : AT(0x93f18) { build/us/fallback.o(.rom_front_fallback_93f18_93f98) }
     .menu_control_setup_text 0x80093398 : AT(0x93f98) SUBALIGN(4) { build/us/menu_control_setup_text.o(.rodata) }
+    .menu_control_setup_mutable_text 0x800933D0 : AT(0x93FD0) SUBALIGN(4) { build/us/menu_control_setup_text.o(.data) }
+    .menu_control_setup_text_details 0x800933FC : AT(0x93FFC) SUBALIGN(4) { build/us/menu_control_setup_text_details.o(.rodata) }
     .menu_pak_confirmation_text 0x80093450 : AT(0x94050) SUBALIGN(4) { build/us/menu_pak_confirmation_text.o(.rodata) }
     .menu_pak_confirmation_title 0x80093460 : AT(0x94060) SUBALIGN(4) { build/us/menu_pak_confirmation_title.o(.data) }
     .menu_static_confirmation_text 0x8009347c : AT(0x9407c) SUBALIGN(4) { build/us/menu_static_confirmation_text.o(.rodata) }
@@ -1572,6 +1576,7 @@ SECTIONS
     .graphics_setup_arena_bss 0x80126B74 (NOLOAD) : SUBALIGN(4) { build/us/graphics_setup_arena_state.o(.bss) }
     .scene_arrivals_bss 0x800B9A78 (NOLOAD) : SUBALIGN(4) { build/us/scene_arrivals_storage.o(.bss) }
 
+    .game_level_filenames 0x800BA7A8 (NOLOAD) : SUBALIGN(4) { build/us/game_initializer_levels.o(.bss) }
     /DISCARD/ : {
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
@@ -2764,7 +2769,8 @@ ASSERT(SIZEOF(.actor_collision_turn) == 0x118, "actor_collision_turn size change
 ASSERT(SIZEOF(.session_background_select_rodata) == 0x2c, "session_background_select_rodata size changed")
 ASSERT(SIZEOF(.early_effect_spawn_rodata) == 0x18, "early_effect_spawn_rodata size changed")
 ASSERT(SIZEOF(.endgame_13550_15c20) == 0x26d0, "endgame_13550_15c20 size changed")
-ASSERT(SIZEOF(.endgame_data_92560_93698) == 0x1138, "endgame_data_92560_93698 size changed")
+ASSERT(SIZEOF(.endgame_data_92560_92e4c) == 0x8ec, "startup literal prefix changed")
+ASSERT(SIZEOF(.endgame_data_92eac_93698) == 0x7ec, "startup literal suffix changed")
 D_800AD160 = 0x800AD160;
 D_800B23D0 = 0x800B23D0;
 D_800B2428 = 0x800B2428;
@@ -3310,7 +3316,9 @@ ASSERT(SIZEOF(.menu_display_never) == 0x8, "menu_display_never size changed")
 ASSERT(SIZEOF(.menu_control_setup_choices) == 0x20, "menu_control_setup_choices size changed")
 ASSERT(SIZEOF(.menu_control_setup_labels) == 0x140, "menu_control_setup_labels size changed")
 ASSERT(SIZEOF(.menu_control_setup_page) == 0x34, "menu_control_setup_page size changed")
-ASSERT(SIZEOF(.menu_control_setup_text) == 0xb8, "menu_control_setup_text size changed")
+ASSERT(SIZEOF(.menu_control_setup_text) == 0x38, "control text prefix changed")
+ASSERT(SIZEOF(.menu_control_setup_mutable_text) == 0x2c, "mutable control labels changed")
+ASSERT(SIZEOF(.menu_control_setup_text_details) == 0x54, "control text suffix changed")
 
 ASSERT(SIZEOF(.menu_pak_confirmation_labels) == 0x50, "menu_pak_confirmation_labels size changed")
 ASSERT(SIZEOF(.menu_pak_confirmation_page) == 0x34, "menu_pak_confirmation_page size changed")
@@ -3523,3 +3531,22 @@ ASSERT(ADDR(.scene_arrivals_diagnostics) == 0x800917F8, "arrival messages moved"
 ASSERT(SIZEOF(.scene_arrivals_diagnostics) == 0x3C, "arrival messages size changed")
 ASSERT(D_800917F8 == ADDR(.scene_arrivals_diagnostics), "arrival limit message overridden")
 ASSERT(D_80091814 == ADDR(.scene_arrivals_diagnostics) + 0x1C, "arrival capacity message overridden")
+
+/* Initialization uses these interiors of the source-owned label array. */
+D_800770D0 = D_800770A8 + 0x28;
+ASSERT(D_800770D0 == ADDR(.menu_control_setup_labels) + 0x28, "D_800770D0 control label alias moved")
+D_80077148 = D_800770A8 + 0xA0;
+ASSERT(D_80077148 == ADDR(.menu_control_setup_labels) + 0xA0, "D_80077148 control label alias moved")
+D_800771B0 = D_800770A8 + 0x108;
+ASSERT(D_800771B0 == ADDR(.menu_control_setup_labels) + 0x108, "D_800771B0 control label alias moved")
+D_80077138 = D_800770A8 + 0x90;
+ASSERT(D_80077138 == ADDR(.menu_control_setup_labels) + 0x90, "D_80077138 control label alias moved")
+D_80077128 = D_800770A8 + 0x80;
+ASSERT(D_80077128 == ADDR(.menu_control_setup_labels) + 0x80, "D_80077128 control label alias moved")
+D_80077100 = D_800770A8 + 0x58;
+ASSERT(D_80077100 == ADDR(.menu_control_setup_labels) + 0x58, "D_80077100 control label alias moved")
+ASSERT(ADDR(.game_initializer_literals) == 0x8009224C, "initializer data moved")
+ASSERT(SIZEOF(.game_initializer_literals) == 0x60, "initializer data size changed")
+ASSERT(ADDR(.game_level_filenames) == 0x800BA7A8, "initializer data moved")
+ASSERT(SIZEOF(.game_level_filenames) == 0x370, "initializer data size changed")
+ASSERT(D_800BA7A8 == ADDR(.game_level_filenames), "level filename array overridden")

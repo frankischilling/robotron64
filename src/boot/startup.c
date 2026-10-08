@@ -27,7 +27,7 @@ extern int D_80138250, D_8007D8F0;
 
 void func_8004C090(void);
 void func_800470F4(void);
-void func_8002205C(void *);
+#include "../../include/game_initializer_internal.h"
 int func_80005DEC(void);
 void func_80022D24(void);
 void func_800400D0(void);

@@ -14,7 +14,7 @@ The page's timeout callback is null. Its 52-byte extent does not extend the
 separately constructed 48-byte options page.
 
 Fresh IDO comparisons and independent spimdisasm and splat reassemblies check
-all four ranges. Linked objdiff comparisons cover every byte. All pointer
+all six ranges. Linked objdiff comparisons cover every byte. All pointer
 relocations, record and array sizes, alignment, player stride and the offset of
 `saved.field34` are checked against retail placement. Ghidra uses the canonical
 eight-byte choice, 40-byte label and 52-byte page types. Two former standalone
@@ -40,3 +40,12 @@ Analysis uses Ghidra 12.1.4 and Ghidra MCP, pinned IDO 5.3, spimdisasm 1.42.4,
 splat 0.50.0, MIPS binutils, objdiff, Unicorn, Capstone and pyelftools through
 the installed `robotron-tools` workflow. Tool and repository references are
 listed in `docs/toolchain.md` and `docs/reference-study.md`.
+
+Initialization writes byte 15 in D_800933D0 and D_800933E8, changing the
+control-stick digits. These two arrays use writable C storage. Their 44-byte
+interval is placed separately between the 56-byte read-only prefix and the
+84-byte suffix; all 184 original text bytes stay in their retail locations.
+The six linker aliases used by the initializer refer to complete records and
+pointer fields inside the one source-owned label array. Their offset and
+size assertions grant no additional ownership. The current initializer and
+fresh display evidence is in [game initialization](game-initialization.md).

@@ -921,6 +921,7 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("game_initialize", "src/game/session_initialization/initialize.c", 0x8002205C, 0x80022528),
     ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
     ("actor_group_path", "src/game/actor_groups/path.c", 0x8000E894, 0x8000EAE4),
     ("actor_group_bonus_child", "src/game/actor_groups/bonus_child.c", 0x8000F030, 0x8000F318),
@@ -980,6 +981,9 @@ def compare_blocks(records, target, family, layout, jobs=1):
         if name == "scene_resource_select":
             # Its generated switch data is excluded together with the full function.
             from check_scene_resource_selection import compare_candidate_block
+            result = compare_candidate_block(name, source, target, layout)
+        elif name == "game_initialize":
+            from check_game_initialization import compare_candidate_block
             result = compare_candidate_block(name, source, target, layout)
         else:
             result = compare_block(name, source, start, start - 0x80000000 + 0xC00,
