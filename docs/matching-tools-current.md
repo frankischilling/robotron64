@@ -23,25 +23,22 @@ reproduces every byte in its verified range, including both rotation procedures:
 | --- | ---: | --- |
 | `8000E720..8000E894` | 372 | Both rotation helpers match. |
 | `8000E894..8000EAE4` | 592 | Complete path callback matches all instructions. |
-| `8000F030..8000F318` | 744 | Bonus-child candidate differs in four words. |
+| `8000F030..8000F318` | 744 | Complete bonus-child creator matches all instructions. |
 | `8004BD00..8004C088` | 904 | Loader candidate differs in eleven words. |
 | `8004DE8C..8004DED8` | 76 | Published heap candidate differs in eighteen words; private source variants reached sixteen. |
 
-The tested ranges own no generated tables. Original alignment outside each
-range remains outside its instruction count. m2c output is a research aid;
-none of these mismatching candidates enters the matching link or progress.
-The [bonus-child ledger](actor-bonus-child-current-provenance.json) records the
-four remaining stack-related words and 1,668 guarded execution cases.
+The rotation helpers, path callback and bonus-child creator match their complete
+natural IDO function extents. They own no generated tables. Alignment outside
+each function remains outside its instruction count. The bonus-child source
+reuses a pointer after resource selection and declares the child pointer first;
+this reproduces all 744 bytes, including the 56-byte frame and incoming A1 home.
+Original variable names and source spelling are unproved.
 
-The existing `robotron-tools match` runner compiled rotation, path and bonus
-child, reused their unchanged verified cache entries, then freshly compiled all
-three again. The earlier run reported complete sizes and 0/5/4 differences. The current
-path source freshly matches all 592 bytes and its natural function extent.
-Each candidate mismatch returned nonzero. Cache reuse therefore saves repeated
-research work without changing acceptance. `robotron-tools diff` showed the
-same full ranges through asm-differ. objdiff inspected both independently
-assembled objects and linked images for the matching rotation control and
-mismatching bonus-child candidate. Its percentages do not replace exact bytes.
+The [bonus-child ledger](actor-bonus-child-current-provenance.json) records
+complete independent reassemblies and 1,668 guarded execution cases. Fresh
+workbench, asm-differ and objdiff checks cover its complete function. Scores
+and cache hits remain separate from natural sizes, complete bytes, initialized
+data, relocations and execution acceptance.
 
 Private context, splits, disassembly, objects, viewer reports and experiments
 stay under ignored `.local`/`build` directories. The public ledgers contain
@@ -49,10 +46,10 @@ sizes, hashes and measured conclusions. Tool sources and N64 reference projects
 are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-study.md).
 No third-party game implementation or generated retail code is added here.
 
-Fresh acceptance checks cover all 907 runtime comparison units, two startup
+Fresh acceptance checks cover all 908 runtime comparison units, two startup
 units, eighteen assembly units and 193 data-only units. The clean build matches
-all 8,388,608 retail bytes. The checkpoint has 1,425 matching C functions /
-309,388 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized
+all 8,388,608 retail bytes. The checkpoint has 1,426 matching C functions /
+310,132 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized
 data bytes and 879,157 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -140,8 +137,8 @@ The object projection candidate at `8003B2B0` remains excluded. A separate
 400 suggestions. Independent compilation of the twenty lowest-scoring forms
 still found complete-function mismatches. Those scores add no matching credit.
 
-Full source recovery remains incomplete: 140,796 declared fallback CPU bytes
-in 185 spans and 164 unclassified bytes remain. The executable/function
+Full source recovery remains incomplete: 140,052 declared fallback CPU bytes
+in 184 spans and 164 unclassified bytes remain. The executable/function
 denominator is unknown, and these checks do not establish complete gameplay.
 
 [Scene resource setup](scene-resource-setup.md) now has a complete public

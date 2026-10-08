@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,425 matching C functions covering 309,388 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,875 bytes of source-owned initialized data, and 879,157 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,426 matching C functions covering 310,132 bytes, twenty-nine assembly functions covering 4,372 bytes, 36,875 bytes of source-owned initialized data, and 879,157 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -207,12 +207,11 @@ slot-status integers as 37,200 bytes of runtime BSS. An optional MIPS checker
 verifies resource selection, fixed-matrix paths and display-list submissions.
 
 [Actor-group callbacks and child storage](docs/actor-group-path.md) include two
-matching rotation helpers and retain excluded path and bonus-child candidates.
-They own a 260-byte tangent table plus 1,056 bytes of runtime child resources
-and counts. Optional MIPS execution checkers compare rotations, overlapping
-buffers, path traversal and bonus child setup with retail instructions. The
-bonus-child candidate now differs in four words and remains outside matching
-progress.
+matching rotation helpers, the 592-byte path callback and the complete
+[744-byte bonus-child creator](docs/actor-bonus-child.md). They own a 260-byte
+tangent table plus 1,056 bytes of runtime child resources and counts. Guarded
+MIPS checks compare rotations, overlapping buffers, path traversal and bonus
+child setup with retail instructions.
 
 [Text storage and character widths](docs/text-record-storage.md) owns thirty
 268-byte records as 8,040 bytes of BSS and both width tables as 144 initialized

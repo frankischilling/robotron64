@@ -155,7 +155,7 @@ SECTIONS
     .early_animation_callback 0x8000ECE4 : AT(0xF8E4) SUBALIGN(4) { build/us/early_animation_callback.o(.text) }
     .early_session_animation 0x8000EDE0 : AT(0xF9E0) SUBALIGN(4) { build/us/early_session_animation.o(.text) }
     .early_scene_animation_advance 0x8000EE48 : AT(0xFA48) SUBALIGN(4) { build/us/early_scene_animation_advance.o(.text) }
-    .endgame_fc30_ff18 0x8000F030 : AT(0xFC30) { build/us/fallback.o(.rom_endgame_fc30_ff18) }
+    .actor_group_bonus_child 0x8000F030 : AT(0xFC30) SUBALIGN(4) { build/us/actor_group_bonus_child.o(.text) }
     .early_bonus_pattern 0x8000F318 : AT(0xFF18) SUBALIGN(4) { build/us/early_bonus_pattern.o(.text) }
     .early_animation_restart 0x8000F4E0 : AT(0x100E0) SUBALIGN(4) { build/us/early_animation_restart.o(.text) }
     .early_actor_pair_spawn 0x8000F564 : AT(0x10164) SUBALIGN(4) { build/us/early_actor_pair_spawn.o(.text) }
@@ -2874,7 +2874,6 @@ D_80097340 = 0x80097340;
 D_80097344 = 0x80097344;
 D_80097348 = 0x80097348;
 D_8009734C = 0x8009734C;
-func_8000F030 = 0x8000F030;
 ASSERT(SIZEOF(.actor_list_animation_tick) == 0x26c, "actor_list_animation_tick size changed")
 ASSERT(SIZEOF(.early_bonus_pattern) == 0x1c8, "early_bonus_pattern size changed")
 ASSERT(SIZEOF(.graphics_setup_table) == 0x7c, "graphics_setup_table size changed")
@@ -2926,7 +2925,6 @@ ASSERT(SIZEOF(.model_normal_polygon_dispatch) == 0x348, "model normal polygon di
 ASSERT(SIZEOF(.scene_menu_string_schedule) == 0x1b0, "scene menu string schedule text size changed")
 ASSERT(SIZEOF(.endgame_22c5c_23128) == 0x4cc, "endgame_22c5c_23128 size changed")
 ASSERT(SIZEOF(.session_scene_start) == 0x1C0, "session scene start text size changed")
-ASSERT(SIZEOF(.endgame_fc30_ff18) == 0x2e8, "endgame_fc30_ff18 size changed")
 ASSERT(SIZEOF(.early_scene_animation_advance) == 0x1E8, "early scene animation advance text size changed")
 ASSERT(SIZEOF(.save_menu_continue_decode) == 0x230, "continue decoder text size changed")
 ASSERT(SIZEOF(.scene_frame_tick) == 0x230, "scene_frame_tick size changed")
@@ -3108,6 +3106,8 @@ ASSERT(SIZEOF(.actor_direction_table) == 0x104, "actor_direction_table size chan
 ASSERT(SIZEOF(.actor_child_resources) == 0x3F4, "actor child resources BSS size changed")
 ASSERT(SIZEOF(.actor_child_counts) == 0x2C, "actor child counts BSS size changed")
 ASSERT(D_800ACB08 == D_800AC998 + 4 * 0x5C, "actor child resource alias changed")
+D_800ACCD4 = D_800AC998 + 9 * 0x5C;
+ASSERT(D_800ACCD4 == 0x800ACCD4, "bonus child resource slot 9 moved")
 ASSERT(SIZEOF(.actor_direction_fallback_7d03c_7d148) == 0x10c, "actor_direction_fallback_7d03c_7d148 size changed")
 ASSERT(SIZEOF(.renderer_resource_identifier_maps_bss) == 0x1770, "renderer identifier maps BSS size changed")
 ASSERT(SIZEOF(.renderer_resource_arena_state) == 0xc, "renderer_resource_arena_state size changed")
@@ -3575,3 +3575,8 @@ ASSERT(SIZEOF(.actor_group_path) == 0x250, "actor_group_path size changed")
 ASSERT(ADDR(.actor_group_path) == 0x8000E894, "actor_group_path address changed")
 ASSERT(LOADADDR(.actor_group_path) == 0xF494, "actor_group_path ROM placement changed")
 ASSERT(func_8000E894 == 0x8000E894, "actor_group_path function placement changed")
+
+ASSERT(SIZEOF(.actor_group_bonus_child) == 0x2E8, "actor_group_bonus_child size changed")
+ASSERT(ADDR(.actor_group_bonus_child) == 0x8000F030, "actor_group_bonus_child address changed")
+ASSERT(LOADADDR(.actor_group_bonus_child) == 0xFC30, "actor_group_bonus_child ROM placement changed")
+ASSERT(func_8000F030 == 0x8000F030, "actor_group_bonus_child function placement changed")

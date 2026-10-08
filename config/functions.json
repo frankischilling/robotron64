@@ -16030,5 +16030,16 @@
     "section": ".actor_group_path",
     "section_vram": 2147543188,
     "evidence": "docs/actor-group-path.md"
+  },
+  {
+    "name": "func_8000F030",
+    "rom": 64560,
+    "vram": 2147545136,
+    "size": 744,
+    "source": "src/game/actor_groups/bonus_child.c",
+    "object": "build/us/actor_group_bonus_child.o",
+    "section": ".actor_group_bonus_child",
+    "section_vram": 2147545136,
+    "evidence": "docs/actor-bonus-child.md"
   }
 ]

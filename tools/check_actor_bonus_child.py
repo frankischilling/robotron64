@@ -1,4 +1,4 @@
-"""Compare the excluded bonus child candidate with retail MIPS execution."""
+"""Compare the matching bonus child function with guarded retail MIPS execution."""
 
 import hashlib
 import itertools
@@ -11,7 +11,7 @@ from unicorn import UC_HOOK_CODE
 from unicorn import mips_const as regs
 from check_actor_group_path import SUPPORT, machine, word
 from compare_data import compare_unit, comparison_directory
-from compare_runtime import MATCHING_BLOCKS, CANDIDATE_BLOCKS
+from compare_runtime import MATCHING_BLOCKS
 from compare_startup import compare_block, SymbolLayoutSnapshot
 from owned_sections import elf_sections_and_symbols, source_sections
 from rom import ROOT, validate
@@ -134,20 +134,19 @@ def main():
     compiled, retail, support = [], [], []
     comparisons = {}
     for name in (NAME,) + SUPPORT_UNITS:
-        records = CANDIDATE_BLOCKS if name == NAME else MATCHING_BLOCKS
-        _, source, start, end = next(r for r in records if r[0] == name)
+        _, source, start, end = next(r for r in MATCHING_BLOCKS if r[0] == name)
         report = compare_block(name, source, start, start - 0x80000000 + 0xC00,
                                end - 0x80000000 + 0xC00, target,
                                family='actor-bonus-execution', layout=layout)
         directory = ROOT / 'build/actor-bonus-execution' / name
         data = (directory / (name + '.bin')).read_bytes()
         comparisons[name] = report
+        if not report['matches']:
+            raise ValueError('Checked unit does not completely match: ' + name)
         if name == NAME:
             compiled.append((start, data))
             retail.append((start, target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00]))
         else:
-            if not report['matches']:
-                raise ValueError('Support unit does not match: ' + name)
             support.append((start, data))
             sections, _ = elf_sections_and_symbols(directory / (name + '.elf'))
             for owned in source_sections(source):
@@ -192,7 +191,7 @@ def main():
                           'The allocator boundary returns a prepared child or null; allocator, drawing and full-game behavior are not verified.',
                           'Stubs clobber caller-saved integer and float registers; actor, target, resource, session and child guards are checked.',
                           'Signed overflow characterizes only the pinned compiler and target; invalid kinds and allocation aliasing are not exercised.',
-                          'Execution agreement does not establish instruction matching for the excluded bonus child function.'])
+                          'The complete 744-byte bonus child function is independently instruction matched; execution checks the listed cases.'])
     output = ROOT / 'build/actor-bonus-execution/report.json'
     output.write_text(json.dumps(result, indent=2) + '\n')
     print('Passed bonus child execution:', counts, output, flush=True)
