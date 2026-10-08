@@ -12,6 +12,11 @@ There remain 141,388 declared fallback CPU bytes in 186 spans and 164 unclassifi
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
 
+The [scene resource setup candidate](scene-resource-setup.md) now has public C
+and a reproducible checker: 319 pairs, 42 compiled layout checks and five
+rejected mutations. Its 2,688-byte code and ten-entry table still differ from
+retail; the candidate owns no new code or storage.
+
 The [complete early resource group](early-resource-group.md) adds 528 BSS
 bytes, expanding the verified first group and adjacent selector to 1,008 bytes.
 All retained instructions match; 48 guarded command/reset pairs and the full

@@ -76,6 +76,11 @@ C storage in their original positions.
 resource types. Its 1,683 paired cases, 17 mutation controls and 102 layout
 probes pass; 40 instruction words still differ.
 
+[Scene resource setup](docs/scene-resource-setup.md) provides a complete excluded
+C candidate and a reproducible 319-pair guarded audit with five mutation
+controls. Its 349 instruction-word and six dispatch-word differences add no
+matching credit. Runtime and workbench comparisons cover the complete table.
+
 [Scene storage and arrivals](docs/scene-arrivals.md) owns the complete 3,348-byte
 scene record and 60 initialized diagnostic bytes. The excluded insertion
 candidate passes 3,713 paired cases and nine mutation controls, with 55

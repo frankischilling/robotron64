@@ -142,3 +142,9 @@ still found complete-function mismatches. Those scores add no matching credit.
 Full source recovery remains incomplete: 141,388 declared fallback CPU bytes
 in 186 spans and 164 unclassified bytes remain. The executable/function
 denominator is unknown, and these checks do not establish complete gameplay.
+
+[Scene resource setup](scene-resource-setup.md) now has a complete public
+excluded candidate. Runtime and workbench checks compare its natural code
+extent and all ten relocated dispatch entries at the retail table address.
+The guarded audit passes 319 pairs, 42 layout checks and five mutation controls.
+Its 349 instruction-word and six table-word differences remain unowned.

@@ -8543,3 +8543,8 @@ audit-game-initialization: toolchain
 .PHONY: audit-early-resource-group
 audit-early-resource-group: toolchain
 	$(PYTHON) tools/check_early_resource_group.py
+
+# Complete setup research remains excluded from RUNTIME_OBJECTS.
+.PHONY: audit-scene-resource-setup
+audit-scene-resource-setup: toolchain
+	$(PYTHON) tools/check_scene_resource_setup.py
