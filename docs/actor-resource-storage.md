@@ -1,7 +1,7 @@
 # Actor resource storage
 
-Seven complete resource definitions replace absolute linker bindings with
-28,312 bytes of C-owned BSS. The matching 400-byte reset at
+Seven translation units define complete resource storage totaling
+28,840 bytes of C-owned BSS. The matching 400-byte reset at
 `8001D260..8001D3F0` establishes each count and stride from its original pointer
 increments and end bounds. Gaps between these ranges remain unowned.
 
@@ -13,17 +13,21 @@ increments and end bounds. Gaps between these ranges remain unowned.
 | `D_8009AA00` | `ActorResource5CInternal[16]` | `8009AA00..8009AFC0` | 1,472 |
 | `D_8009AFD8` | `TextGlyphResource[4]` | `8009AFD8..8009B138` | 352 |
 | `D_8009B138` | `TextGlyphResource` | `8009B138..8009B190` | 88 |
-| `D_8009EA18` | `ActorResource60Internal[5]` | `8009EA18..8009EBF8` | 480 |
+| `D_8009EA18` | `ActorResourceGroupInternal[1]` | `8009EA18..8009EE04` | 1,004 |
+| `D_8009EE04` | `int` | `8009EE04..8009EE08` | 4 |
 
 The already owned eleven child records at `800AC998..800ACD8C` participate in
 the same reset and are checked without adding their 1,012 bytes again. The
+complete [early group and selector](early-resource-group.md) include five
+resource slots reset by this routine; their remaining bytes are preserved. The
 reset clears bit `0x80` of the byte at offset six in all other records, or
 offset ten in the five 96-byte records. It repeats the first sixteen primary
 records. This second pass is retained, giving 341 flag-byte reads and writes.
 All other flag bits and record bytes are preserved.
 
-The existing Ghidra analysis now has seven uninitialized, non-executable
-blocks and complete array types with these exact bounds. Applying the types
+The existing Ghidra analysis has uninitialized, non-executable storage
+and complete types with these exact bounds. The early group spans its
+original prefix block and the verified 528-byte continuation. Applying the types
 leaves existing code units and labels intact. A pinned IDO probe agrees with
 Ghidra on the sizes, alignments, offsets and widths of all 52 ordinary fields
 in the five resource views, including the loader's overlapping 88-byte view.
@@ -53,15 +57,15 @@ array and add no storage.
 compiled reset against an independent model of all eight complete pools. It
 checks the complete records, guarded gaps, the repeated flag writes, instruction
 and memory bounds, and preserved O32 registers. The loader's already-loaded
-path is checked at every record in the seven compatible pools; no loader
+path is checked at every record in the eight compatible pools; no loader
 callee is stubbed or permitted to execute on that path. Reset behavior and
 this bounded loader path do not establish model loading or complete gameplay.
 
 Twelve reset cases per image combine three byte patterns with loaded flags
-clear, set, alternating and inverse alternating. Another 960 cases per image
-cover every one of the 320 records with a flag at offset six and geometry
-arguments zero, one and minus seventeen. This gives 1,944 target-function
-executions. The model checks all 29,324 pool bytes and the entire 116,200-byte
+clear, set, alternating and inverse alternating. Another 975 cases per image
+cover every one of the 325 loader resource views with a flag at offset six and geometry
+arguments zero, one and minus seventeen. This gives 1,974 target-function
+executions. The model checks all 29,852 storage bytes and the entire 116,200-byte
 arena spanning their guarded gaps. The loader checks its seven saved-register
 stores and restores against the complete stack model and returns two.
 
@@ -79,7 +83,8 @@ Run the checks with the optional analysis environment:
 ```
 
 The [verification ledger](actor-resource-storage-provenance.json) records the
-complete data and code comparisons, layout evidence, guarded executions and
-mutation controls. This storage recovery adds no functions or initialized ROM
+original prefix comparisons, layout evidence, guarded executions and
+mutation controls. The [early group ledger](early-resource-group-provenance.json)
+records the expanded first group and selector. This storage recovery adds no functions or initialized ROM
 bytes. Analysis tools and reference projects are credited in
 [CREDITS](../CREDITS.md).

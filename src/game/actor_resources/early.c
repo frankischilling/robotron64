@@ -1,6 +1,7 @@
 #include "../../../include/actor_resource_internal.h"
 
-ActorResource60Internal D_8009EA18[5];
+ActorResourceGroupInternal D_8009EA18[1];
+int D_8009EE04;
 
-typedef char EarlyResourcePoolMustBe480Bytes[
-    sizeof(D_8009EA18) == 0x1E0 ? 1 : -1];
+typedef char EarlyResourceGroupMustBe1004Bytes[
+    sizeof(D_8009EA18) == 0x3EC ? 1 : -1];

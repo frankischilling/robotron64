@@ -27,6 +27,6 @@ void func_8001D260(void)
         D_8009AFD8[i].flags06.bits.loaded = 0;
     }
     for (i = 0; i < 5; i++) {
-        D_8009EA18[i].flags0A.bits.loaded = 0;
+        D_8009EA18[0].resources[i].resource.flags06.bits.loaded = 0;
     }
 }

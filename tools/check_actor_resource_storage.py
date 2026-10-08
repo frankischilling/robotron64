@@ -143,7 +143,8 @@ def prepare_images():
     for name, base, count, stride, flag, source in POOLS:
         records = source_sections(source)
         assert len(records) == 1 and records[0]['rom'] is None
-        assert (records[0]['vram'], records[0]['size']) == (base, count * stride)
+        storage_size = 1008 if name == 'early' else count * stride
+        assert (records[0]['vram'], records[0]['size']) == (base, storage_size)
         data[source] = compare_unit(source, records, target, layout)
     comparisons, original, compiled = {}, [], []
     directory = ROOT / 'build/actor-resource-storage-check'
@@ -170,7 +171,7 @@ MUTATIONS = {
                         'for (i = 0; i < 15; i++) {\n        D_800B1BE8[i]'),
     'secondary_short': ('for (i = 0; i < 16; i++) {\n        D_8009AA00[i]',
                         'for (i = 0; i < 15; i++) {\n        D_8009AA00[i]'),
-    'early_flags_zero': ('D_8009EA18[i].flags0A.bits.loaded = 0;', 'D_8009EA18[i].flags0A.value = 0;'),
+    'early_flags_zero': ('D_8009EA18[0].resources[i].resource.flags06.bits.loaded = 0;', 'D_8009EA18[0].resources[i].resource.flags06.value = 0;'),
 }
 
 
@@ -237,17 +238,15 @@ def main(mutations=False):
         results.append(recovered)
     loader_results = []
     for name, base, count, stride, flag, source in POOLS:
-        if flag != 6:
-            continue
         for index, geometry in itertools.product(range(count), (0, 1, -17)):
-            case = (base + index * stride, geometry)
+            case = (base + index * stride + flag - 6, geometry)
             retail = run(original, 173, 2, case)
             recovered = run(compiled, 173, 2, case)
             assert retail == recovered, (name, index, geometry)
             loader_results.append({'pool': name, 'index': index, **recovered})
     report = {'matches': True, 'rom_sha256': hashlib.sha256(target).hexdigest(),
-              'unicorn': version('unicorn'), 'new_bss_bytes': 28312,
-              'already_owned_child_bytes': 1012, 'complete_pool_bytes_checked': 29324,
+              'unicorn': version('unicorn'), 'source_owned_resource_bss_bytes': 28840,
+              'already_owned_child_bytes': 1012, 'complete_pool_bytes_checked': 29852,
               'guarded_arena_bytes': ARENA_END - ARENA_START,
               'reset_cases_per_image': len(reset_cases), 'reset_flag_stores_per_case': 341,
               'already_loaded_cases_per_image': len(loader_results),
@@ -265,7 +264,7 @@ def main(mutations=False):
     layout.verify()
     directory = ROOT / 'build/actor-resource-storage-check'
     (directory / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
-    print(f'Resource storage: 28,312 new BSS bytes; {len(reset_cases)} reset and '
+    print(f'Resource storage: 28,840 source-owned BSS bytes; {len(reset_cases)} reset and '
           f'{len(loader_results)} already-loaded cases per image; '
           f"{report['total_function_executions']} function executions")
 

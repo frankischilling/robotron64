@@ -49,19 +49,19 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 906 runtime comparison units, two startup
-units, eighteen assembly units and 186 data-only units. The clean build matches
+units, eighteen assembly units and 191 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,424 matching C functions /
-308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,715 initialized
-data bytes and 874,369 BSS bytes. The text pool contributes 8,040 BSS bytes and
+308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,871 initialized
+data bytes and 879,125 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
 reset and every byte-valued character, with five rejected mutations.
 
-The [resource storage audit](actor-resource-storage.md) adds 28,312 BSS bytes
-in seven complete pools. The original reset bounds and accepted consumers
+The [resource storage audit](actor-resource-storage.md) owns 28,840 BSS bytes
+in seven translation units, including the [complete early group](early-resource-group.md). The original reset bounds and accepted consumers
 establish their counts and strides. All 52 ordinary fields across five resource
 views agree between a pinned IDO layout probe and Ghidra. Twelve whole-pool reset
-patterns and 960 already-loaded cases per image pass the independent byte,
+patterns and 975 already-loaded cases per image pass the independent byte,
 access-count and stack models, with six rejected mutations. The projection
 candidate remains excluded after 114 additional variants; its two stack-spill
 differences remain unresolved.

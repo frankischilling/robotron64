@@ -2829,7 +2829,6 @@ ASSERT(SIZEOF(.audio_backend_patch_trigger_bss) == 0x14, "audio_backend_patch_tr
 D_800761F4 = 0x800761F4;
 D_800BB128 = 0x800BB128;
 D_8007D8FC = 0x8007D8FC;
-D_8009EE04 = 0x8009EE04;
 ASSERT(SIZEOF(.save_menu_pak_name_select) == 0x90, "save_menu_pak_name_select size changed")
 ASSERT(SIZEOF(.early_signature_gate) == 0x94, "early_signature_gate size changed")
 ASSERT(SIZEOF(.early_resource_arguments) == 0xa0, "early_resource_arguments size changed")
@@ -3376,8 +3375,10 @@ ASSERT(ADDR(.actor_resources_player_bss) == 0x8009B138, "player resource pool mo
 ASSERT(SIZEOF(.actor_resources_player_bss) == 0x58, "player resource pool size changed")
 ASSERT(D_8009B138 == ADDR(.actor_resources_player_bss), "player resource pool symbol moved")
 ASSERT(ADDR(.actor_resources_early_bss) == 0x8009EA18, "early resource pool moved")
-ASSERT(SIZEOF(.actor_resources_early_bss) == 0x1E0, "early resource pool size changed")
+ASSERT(SIZEOF(.actor_resources_early_bss) == 0x3F0, "early resource group and selector size changed")
 ASSERT(D_8009EA18 == ADDR(.actor_resources_early_bss), "early resource pool symbol moved")
+ASSERT(D_8009EE04 == D_8009EA18 + 0x3EC, "early resource selector moved")
+ASSERT(D_8009EE04 + 4 == 0x8009EE08, "early resource storage boundary moved")
 D_800B1F58 = D_800B1BE8 + 10 * 0x58;
 ASSERT(D_800B1F58 == 0x800B1F58, "primary resource alias 10 moved")
 ASSERT(D_800B27F0 == 0x800B27F0, "primary resource alias 35 moved")

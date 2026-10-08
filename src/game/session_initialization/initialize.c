@@ -133,7 +133,7 @@ void func_8002205C(unsigned char *script)
     *(short *)&D_8009AA00[1].unknown0C[0x1A] = *(short *)&D_800AF1F0[5].unknown1C[10];
     *(short *)&D_8009AA00[6].unknown0C[0x1A] = *(short *)&D_800AF1F0[5].unknown1C[10];
     *(short *)&D_8009AA00[10].unknown0C[0x1A] = *(short *)&D_800AF1F0[5].unknown1C[10];
-    D_800736A8 = *(short *)&D_8009EA18[0].unknown0C[0x48];
+    D_800736A8 = D_8009EA18[0].resources[0].resource.playbackSpeed;
     D_800AD138.animationLimitA0 = 5;
     D_800AD138.animationIndex9C = 4;
     if (!(D_8007C334 & 2)) {

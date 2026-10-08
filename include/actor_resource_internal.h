@@ -59,6 +59,24 @@ typedef struct ActorResource60Internal {
     unsigned char unknown0C[0x54];
 } ActorResource60Internal;
 
+/* The group loader steps by 96 bytes; the script command writes ten
+ * integer parameters after its ten resource slots. */
+typedef struct ActorGroupedResourceEntryInternal {
+    TextGlyphResource resource;
+    unsigned char unknown58[8];
+} ActorGroupedResourceEntryInternal;
+
+typedef struct ActorResourceGroupInternal {
+    int count;
+    ActorGroupedResourceEntryInternal resources[10];
+    int parameters[10];
+} ActorResourceGroupInternal;
+
+typedef char ActorGroupedResourceEntryInternalMustBe96Bytes[
+    sizeof(ActorGroupedResourceEntryInternal) == 0x60 ? 1 : -1];
+typedef char ActorResourceGroupInternalMustBe1004Bytes[
+    sizeof(ActorResourceGroupInternal) == 0x3EC ? 1 : -1];
+
 typedef char ActorResource68InternalMustBe104Bytes[
     sizeof(ActorResource68Internal) == 0x68 ? 1 : -1];
 typedef char ActorResource60InternalMustBe96Bytes[
@@ -81,7 +99,8 @@ extern unsigned char D_8009AFC0[];
 extern ActorResource68Internal D_800AF1F0[36];
 extern ActorResource5CInternal D_800AC998[11];
 extern ActorResource5CInternal D_8009AA00[16];
-extern ActorResource60Internal D_8009EA18[5];
+extern ActorResourceGroupInternal D_8009EA18[1];
+extern int D_8009EE04;
 
 extern unsigned char D_80090704[];
 extern unsigned char D_80090734[];

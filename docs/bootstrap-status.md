@@ -4,13 +4,19 @@ The target is the supplied USA ROM with header revision zero. `config/target.jso
 
 Current verified totals are 1,424 matching C functions / 308,796 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 36,871 initialized bytes
-and 878,597 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
+and 879,125 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
 There remain 141,388 declared fallback CPU bytes in 186 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
+
+The [complete early resource group](early-resource-group.md) adds 528 BSS
+bytes, expanding the verified first group and adjacent selector to 1,008 bytes.
+All retained instructions match; 48 guarded command/reset pairs and the full
+1,974-execution resource audit pass. Its 2,660-byte scene setup research
+candidate stays excluded because both its code and generated table differ.
 
 [Game initialization](game-initialization.md) adds 96 initialized bytes and
 880 BSS bytes. The complete candidate passes 919 paired executions and 4,112

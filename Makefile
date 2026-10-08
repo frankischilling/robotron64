@@ -8539,3 +8539,7 @@ build/us/game_initializer_levels.o: src/game/session_initialization/levels.c $(w
 .PHONY: audit-game-initialization
 audit-game-initialization: toolchain
 	$(PYTHON) tools/check_game_initialization.py
+
+.PHONY: audit-early-resource-group
+audit-early-resource-group: toolchain
+	$(PYTHON) tools/check_early_resource_group.py

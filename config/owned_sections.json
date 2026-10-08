@@ -4538,11 +4538,12 @@
     "section": ".actor_resources_early_bss",
     "vram": 2148133400,
     "rom": null,
-    "size": 480,
+    "size": 1008,
     "symbols": {
-      "D_8009EA18": 0
+      "D_8009EA18": 0,
+      "D_8009EE04": 1004
     },
-    "evidence": "docs/actor-resource-storage.md"
+    "evidence": "docs/early-resource-group.md"
   },
   {
     "source": "src/game/save_storage/players.c",
