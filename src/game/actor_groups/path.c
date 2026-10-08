@@ -3,7 +3,7 @@
 void func_8000E7E0(int *destination, int *source, int angle);
 void func_8000E5C8(EarlyGameActor *actor, int initialize);
 
-/* Excluded candidate; complete instruction comparison still differs. */
+/* Follow the current path segment and submit its interpolated movement. */
 void func_8000E894(EarlyGameActor *actor, int unused)
 {
     int speed;
@@ -40,21 +40,24 @@ void func_8000E894(EarlyGameActor *actor, int unused)
     progress += step;
     actor->field4C = index;
     actor->field50 = progress;
-    first.x = path->pairs[index].index;
-    first.y = path->pairs[index].value;
-    second.x = path->pairs[index + 1].index;
-    second.y = path->pairs[index + 1].value;
-    func_8000E7E0((int *)&first, (int *)&first, parameter->value10);
-    func_8000E7E0((int *)&second, (int *)&second, parameter->value10);
-    actor->position.value[0] = first.x +
-        ((second.x - first.x) * progress) / path->distances[index];
-    actor->position.value[1] = first.y +
-        ((second.y - first.y) * progress) / path->distances[index];
-    distance = second.x - first.x;
-    heading = func_8003CD4C(second.y - first.y, distance);
-    actor->angle08 = heading;
-    func_80039514(actor->objectIndex0C, actor->angle08);
-    actor->field6C = 0;
-    actor->field70 = 0;
-    actor->field74 = 0;
+    /* Keep interpolation and movement submission in one IDO control-flow block. */
+    do {
+        first.x = path->pairs[index].index;
+        first.y = path->pairs[index].value;
+        second.x = path->pairs[index + 1].index;
+        second.y = path->pairs[index + 1].value;
+        func_8000E7E0((int *)&first, (int *)&first, parameter->value10);
+        func_8000E7E0((int *)&second, (int *)&second, parameter->value10);
+        actor->position.value[0] = first.x +
+            ((second.x - first.x) * progress) / path->distances[index];
+        actor->position.value[1] = first.y +
+            ((second.y - first.y) * progress) / path->distances[index];
+        distance = second.x - first.x;
+        heading = func_8003CD4C(second.y - first.y, distance);
+        actor->angle08 = heading;
+        func_80039514(actor->objectIndex0C, actor->angle08);
+        actor->field6C = 0;
+        actor->field70 = 0;
+        actor->field74 = 0;
+    } while (0);
 }

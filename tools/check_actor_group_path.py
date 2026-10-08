@@ -1,4 +1,4 @@
-"""Execute matching rotation and excluded path code against retail MIPS instructions.
+"""Execute matching rotation and path code against retail MIPS instructions.
 
 Arithmetic callees and their initialized tables are freshly compiled and
 matched. Completion and object-angle submission use recorded ABI stubs.
@@ -26,7 +26,7 @@ from actor_path_model import oracle as path_oracle
 SUPPORT = ('object_recovery_fixed_trig', 'short_sine', 'short_cosine',
            'object_recovery_angle_scale', 'object_recovery_direction_angle',
            'object_recovery_angle_table', 'fixed_geometry_setup')
-CANDIDATES = ('actor_group_rotate', 'actor_group_path')
+CHECKED_UNITS = ('actor_group_rotate', 'actor_group_path')
 SENTINEL = 0x80000080
 ACTOR, PARAMETER, POOL = 0x80210000, 0x80211000, 0x80212000
 
@@ -221,7 +221,7 @@ def main():
     candidate, retail, support = [], [], []
     comparisons = {}
     compiled_hashes, target_hashes = {}, {}
-    for name in CANDIDATES + SUPPORT:
+    for name in CHECKED_UNITS + SUPPORT:
         records = MATCHING_BLOCKS + CANDIDATE_BLOCKS
         _, source, start, end = next(record for record in records if record[0] == name)
         report = compare_block(name, source, start, start - 0x80000000 + 0xC00,
@@ -230,11 +230,11 @@ def main():
         directory = ROOT / 'build/actor-group-execution' / name
         data = (directory / (name + '.bin')).read_bytes()
         comparisons[name] = report
-        if name == 'actor_group_rotate' and not report['matches']:
-            raise ValueError('Complete rotation source does not match')
+        if name in CHECKED_UNITS and not report['matches']:
+            raise ValueError('Complete actor-group source does not match: ' + name)
         compiled_hashes[name] = hashlib.sha256(data).hexdigest()
         target_hashes[name] = hashlib.sha256(target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00]).hexdigest()
-        if name in CANDIDATES:
+        if name in CHECKED_UNITS:
             candidate.append((start, data))
             retail.append((start, target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00]))
         else:
@@ -297,7 +297,7 @@ def main():
                           'Path execution checks instruction/read/write bounds, surrounding canaries, GP, stack and saved registers.',
                           'Signed overflow cases characterize the pinned compiler and target; they do not establish portable ISO C behavior.',
                           'Zero distances and invalid indices/counts are not exercised; complete game behavior remains unverified.',
-                          'Both rotation procedures are independently instruction matched; the path candidate remains excluded.'])
+                          'The two rotation procedures and the complete path callback are independently instruction matched.'])
     output = ROOT / 'build/actor-group-execution/report.json'
     output.write_text(json.dumps(result, indent=2) + '\n')
     print('Passed actor-group execution:', counts, output, flush=True)

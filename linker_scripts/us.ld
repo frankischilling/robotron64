@@ -146,7 +146,7 @@ SECTIONS
     .early_actor_scale_decay 0x8000E5C8 : AT(0xF1C8) SUBALIGN(4) { build/us/early_actor_scale_decay.o(.text) }
     .early_actor_counter_decrement 0x8000E6F0 : AT(0xF2F0) SUBALIGN(4) { build/us/early_actor_counter_decrement.o(.text) }
     .actor_group_rotate 0x8000E720 : AT(0xF320) SUBALIGN(4) { build/us/actor_group_rotate.o(.text) }
-    .rotation_fallback_f494_f6e4 0x8000E894 : AT(0xF494) { build/us/fallback.o(.rom_rotation_fallback_f494_f6e4) }
+    .actor_group_path 0x8000E894 : AT(0xF494) SUBALIGN(4) { build/us/actor_group_path.o(.text) }
     .early_actor_vector_clear 0x8000EAE4 : AT(0xF6E4) SUBALIGN(4) { build/us/early_actor_vector_clear.o(.text) }
     .early_parameter_complete 0x8000EAF8 : AT(0xF6F8) SUBALIGN(4) { build/us/early_parameter_complete.o(.text) }
     .endgame_f828_f830 0x8000EC28 : AT(0xF828) { build/us/fallback.o(.rom_endgame_f828_f830) }
@@ -2794,7 +2794,6 @@ D_8009EFA0 = 0x8009EFA0;
 D_800AE304 = 0x800AE304;
 D_800AE4F4 = 0x800AE4F4;
 D_800972B0 = 0x800972B0;
-func_8000E894 = 0x8000E894;
 D_80076474 = 0x80076474;
 D_800767E0 = 0x800767E0;
 D_80076C34 = 0x80076C34;
@@ -3243,7 +3242,6 @@ ASSERT(SIZEOF(.collision_fallback_90d9c_90e00) == 0x64, "collision_fallback_90d9
 ASSERT(SIZEOF(.actor_collision_retirement_message) == 0x1c, "actor_collision_retirement_message size changed")
 D_8009F878 = 0x8009F878;
 ASSERT(SIZEOF(.actor_group_rotate) == 0x174, "actor_group_rotate size changed")
-ASSERT(SIZEOF(.rotation_fallback_f494_f6e4) == 0x250, "rotation_fallback_f494_f6e4 size changed")
 ASSERT(SIZEOF(.actor_collision_kind_response) == 0x2cc, "actor_collision_kind_response size changed")
 ASSERT(SIZEOF(.actor_collision_impact) == 0x748, "actor_collision_impact size changed")
 ASSERT(SIZEOF(.actor_collision_kind_response_rodata) == 0x90, "actor_collision_kind_response table changed")
@@ -3572,3 +3570,8 @@ ASSERT(D_8007CDC0 == ADDR(.renderer_primitive_expansion_data) + 0x0, "D_8007CDC0
 ASSERT(ADDR(.renderer_primitive_expansion_bss) == 0x800BF90C, ".renderer_primitive_expansion_bss address changed")
 ASSERT(SIZEOF(.renderer_primitive_expansion_bss) == 0x4, ".renderer_primitive_expansion_bss size changed")
 ASSERT(D_800BF90C == ADDR(.renderer_primitive_expansion_bss) + 0x0, "D_800BF90C moved")
+
+ASSERT(SIZEOF(.actor_group_path) == 0x250, "actor_group_path size changed")
+ASSERT(ADDR(.actor_group_path) == 0x8000E894, "actor_group_path address changed")
+ASSERT(LOADADDR(.actor_group_path) == 0xF494, "actor_group_path ROM placement changed")
+ASSERT(func_8000E894 == 0x8000E894, "actor_group_path function placement changed")

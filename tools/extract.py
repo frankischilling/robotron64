@@ -17,7 +17,6 @@ REGIONS = (
     ("endgame_cac0_d950", 0xcac0, 0xd950),
     ("endgame_dab8_dac0", 0xdab8, 0xdac0),
     ("cpu_after_early_byte_clear", 0xe220, 0xeb14),
-    ("rotation_fallback_f494_f6e4", 0xf494, 0xf6e4),
     ("endgame_f828_f830", 0xf828, 0xf830),
     ("endgame_fc30_ff18", 0xfc30, 0xff18),
     ("movement_fallback_11c28_13290", 0x11c28, 0x13290),

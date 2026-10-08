@@ -1,8 +1,8 @@
 # Actor-group callbacks and child storage
 
 The [rotation helpers](actor-group-rotation.md) at `8000E720..8000E894`
-are now included in the matching build. The path callback at
-`8000E894..8000EAE4` remains excluded. Complete retail instructions guide
+and the complete path callback at `8000E894..8000EAE4` are included in the
+matching build. Complete retail instructions guide
 reconstruction; Ghidra's pseudocode is checked against the original ROM
 and compiled IDO output.
 
@@ -53,9 +53,13 @@ project's [N64 reference study](reference-study.md), including SM64 and IDO.
 No reference game implementation was copied. Instruction mismatches remain
 outside matching progress, even when execution agrees for tested inputs.
 
-The revised path candidate represents its two endpoint temporaries with the
+The matching path source represents its two endpoint temporaries with the
 existing `GeometryPoint` type and exits segment traversal with a `break`. These
-source forms reduce the complete comparison from 36 differing words to five.
+source forms previously reduced the complete comparison from 36 differing
+words to five. A single-pass `do` block for interpolation and movement
+submission resolves the remaining endpoint base register. The compiled function
+now matches all 592 bytes, its natural size and every stack offset. The original
+source spelling is unproved; the block emits no additional instructions.
 The point view has three signed words, occupies twelve bytes and aligns to four;
 a pinned IDO layout probe and the live Ghidra type agree on all field offsets
 and widths. The two stack objects are typed in Ghidra, and the parameter pointer
@@ -66,11 +70,11 @@ research checkpoint, with no matching ownership.
 ## Validation and remaining differences
 
 The combined rotation object matches all 372 instruction bytes and is linked
-and counted as two recovered functions. The path object contains all 592
-instruction bytes and differs in five words, all the endpoint-load base register:
-retail uses V0 and the candidate uses V1. Its 96-byte stack frame and all spill
-offsets agree. The routine remains excluded from the ROM link and matching
-source progress.
+and counted as two recovered functions. The path object matches all 592
+instruction bytes, including the V0 endpoint-load base, its 96-byte frame and all
+spill offsets. The function is linked from compiled C at ROM `F494..F6E4`; its
+former extraction range and all three absolute function bindings are removed.
+It adds one complete matching function and no initialized data or BSS.
 
 The bonus child object contains all 744 instruction bytes and differs in four
 words. Capturing the consumed object index before the floating scale expression
@@ -126,8 +130,9 @@ the PR #87 candidates, compiler and input hashes, complete instruction
 differences, code hashes, table comparison and execution coverage. Current
 rotation acceptance is recorded in its [own ledger](actor-group-rotation-provenance.json).
 The [current path research ledger](actor-group-path-current-provenance.json)
-records the complete comparison, reference assembly, independent model and
-validation for the revised candidate. This work adds no matching code or data.
+records the complete matching comparison, both independent retail reassemblies,
+independent model and current acceptance. The path recovery adds 592 instruction
+bytes. Earlier candidate records retain their historical hashes and limits.
 The live Ghidra project retains the verified
 callback prototypes, existing heap layouts, a typed 65-word tangent array,
 and the two uninitialized child arrays. Resource typing preserves the

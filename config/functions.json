@@ -16019,5 +16019,16 @@
     "section": ".game_hud_state",
     "section_vram": 2147709436,
     "evidence": "docs/game-hud-state.md"
+  },
+  {
+    "name": "func_8000E894",
+    "rom": 62612,
+    "vram": 2147543188,
+    "size": 592,
+    "source": "src/game/actor_groups/path.c",
+    "object": "build/us/actor_group_path.o",
+    "section": ".actor_group_path",
+    "section_vram": 2147543188,
+    "evidence": "docs/actor-group-path.md"
   }
 ]
