@@ -24,6 +24,7 @@ reproduces every byte in its verified range, including both rotation procedures:
 | `8000E720..8000E894` | 372 | Both rotation helpers match. |
 | `8000E894..8000EAE4` | 592 | Complete path callback matches all instructions. |
 | `8000F030..8000F318` | 744 | Complete bonus-child creator matches all instructions. |
+| `80048DDC..8004913C` | 864 | Complete startup projection and 184-byte frame match all instructions. |
 | `80018480..800186D8` | 600 | Complete boundary clamp matches all instructions. |
 | `8004BD00..8004C088` | 904 | Loader candidate differs in eleven words. |
 | `8004DE8C..8004DED8` | 76 | Published heap candidate differs in eighteen words; private source variants reached sixteen. |
@@ -49,16 +50,22 @@ and every spill/register assignment under unchanged compiler flags. A bounded
 two-worker permuter search retained stack differences; removing the generated
 empty conditional and recompiling the readable source preserved the exact match.
 
+The [projection ledger](startup-projection-current-provenance.json) records the
+complete natural 864-byte extent, both independent reassemblies and 396 guarded
+pairs with real SDK callees. Seven source faults and three invalid-access probes
+fail after controls. Twelve distinct saved floating-register values are checked.
+The final two packets reuse a consumed pointer with the unchanged compiler profile.
+
 Private context, splits, disassembly, objects, viewer reports and experiments
 stay under ignored `.local`/`build` directories. The public ledgers contain
 sizes, hashes and measured conclusions. Tool sources and N64 reference projects
 are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-study.md).
 No third-party game implementation or generated retail code is added here.
 
-Fresh acceptance checks cover all 909 runtime comparison units, two startup
+Fresh acceptance checks cover all 910 runtime comparison units, two startup
 units, eighteen assembly units and 193 data-only units. The clean build matches
-all 8,388,608 retail bytes. The checkpoint has 1,427 matching C functions /
-310,732 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized
+all 8,388,608 retail bytes. The checkpoint has 1,428 matching C functions /
+311,596 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized
 data bytes and 879,157 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -69,9 +76,8 @@ in seven translation units, including the [complete early group](early-resource-
 establish their counts and strides. All 52 ordinary fields across five resource
 views agree between a pinned IDO layout probe and Ghidra. Twelve whole-pool reset
 patterns and 975 already-loaded cases per image pass the independent byte,
-access-count and stack models, with six rejected mutations. The projection
-candidate remains excluded after 114 additional variants; its two stack-spill
-differences remain unresolved.
+access-count and stack models, with six rejected mutations. That storage checkpoint retained two startup-projection stack spills.
+The current projection recovery above resolves them.
 
 The [save storage audit](save-state-storage.md) adds 11,144 BSS bytes across
 the complete two-player array, configuration/audio settings and save image.
@@ -146,8 +152,8 @@ The object projection candidate at `8003B2B0` remains excluded. A separate
 400 suggestions. Independent compilation of the twenty lowest-scoring forms
 still found complete-function mismatches. Those scores add no matching credit.
 
-Full source recovery remains incomplete: 139,452 declared fallback CPU bytes
-in 185 spans and 164 unclassified bytes remain. The executable/function
+Full source recovery remains incomplete: 138,588 declared fallback CPU bytes
+in 184 spans and 164 unclassified bytes remain. The executable/function
 denominator is unknown, and these checks do not establish complete gameplay.
 
 [Scene resource setup](scene-resource-setup.md) now has a complete public

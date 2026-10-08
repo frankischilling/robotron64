@@ -16052,5 +16052,16 @@
     "section": ".actor_boundary_clamp",
     "section_vram": 2147583104,
     "evidence": "docs/actor-boundary-clamp.md"
+  },
+  {
+    "name": "func_80048DDC",
+    "rom": 301532,
+    "vram": 2147782108,
+    "size": 864,
+    "source": "src/game/renderer_projection/setup.c",
+    "object": "build/us/renderer_projection_setup.o",
+    "section": ".renderer_projection_setup",
+    "section_vram": 2147782108,
+    "evidence": "docs/startup-projection-and-diagnostics.md"
   }
 ]

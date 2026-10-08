@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
     ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
     ("game_hud_state", "src/game/game_hud_state.c", 0x800371FC, 0x80037408),
     ("early_input_sequence_define", "src/game/input_sequences/define.c", 0x8001BE2C, 0x8001BF48),
@@ -930,7 +931,6 @@ CANDIDATE_BLOCKS = (
     ("renderer_surface_quad", "src/game/renderer_surfaces/quad.c", 0x80042BDC, 0x80042E2C),
     ("renderer_surface_tiles", "src/game/renderer_surfaces/tiles.c", 0x80042E2C, 0x80043070),
     ("renderer_grid", "src/game/renderer_setup/grid.c", 0x800431C0, 0x80043930),
-    ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
     ("actor_history_trail", "src/game/actor_history/trail.c", 0x8004E364, 0x8004E7D4),
     ("heap_initialize", "src/game/heap/initialize.c", 0x8004DE8C, 0x8004DED8),
     ("renderer_resource_loader", "src/game/renderer_resources/load.c", 0x8004BD00, 0x8004C088),

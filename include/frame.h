@@ -27,6 +27,13 @@ extern unsigned long long D_80138248;
     command->words.w1 = (unsigned int)(second); \
 }
 
+/* Write another command through an existing packet-pointer local. */
+#define FRAME_COMMAND_REUSE(packet, first, second) { \
+    (packet) = D_80138254++; \
+    (packet)->words.w0 = (first); \
+    (packet)->words.w1 = (unsigned int)(second); \
+}
+
 void func_80048510(void);
 void func_800489F4(void);
 void func_80048B8C(void *, int *);

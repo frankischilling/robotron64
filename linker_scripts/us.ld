@@ -668,7 +668,7 @@ SECTIONS
     .frame_render 0x800489F4 : AT(0x495F4) SUBALIGN(4) { build/us/frame_render.o(.text) }
     .frame_helpers 0x80048B8C : AT(0x4978C) SUBALIGN(4) { build/us/frame_helpers.o(.text) }
     .debug_noop 0x80048DC0 : AT(0x499C0) SUBALIGN(4) { build/us/debug_noop.o(.text) }
-    .endgame_499dc_49d3c 0x80048DDC : AT(0x499DC) { build/us/fallback.o(.rom_endgame_499dc_49d3c) }
+    .renderer_projection_setup 0x80048DDC : AT(0x499DC) SUBALIGN(4) { build/us/renderer_projection_setup.o(.text) }
     .renderer_projection_highlight 0x8004913C : AT(0x49D3C) SUBALIGN(4) { build/us/renderer_projection_highlight.o(.text) }
     .frame_projection 0x800493F4 : AT(0x49FF4) SUBALIGN(4) { build/us/frame_projection.o(.text) }
     .frame_matrices 0x80049514 : AT(0x4A114) SUBALIGN(4) { build/us/frame_matrices.o(.text) }
@@ -2966,7 +2966,10 @@ func_8001669C = 0x8001669C;
 func_8001737C = 0x8001737C;
 ASSERT(SIZEOF(.renderer_projection_highlight) == 0x2b8, "renderer_projection_highlight size changed")
 ASSERT(SIZEOF(.renderer_projection_highlight_constants) == 0x30, "renderer_projection_highlight_constants size changed")
-ASSERT(SIZEOF(.endgame_499dc_49d3c) == 0x360, "endgame_499dc_49d3c size changed")
+ASSERT(SIZEOF(.renderer_projection_setup) == 0x360, "renderer projection setup size changed")
+ASSERT(ADDR(.renderer_projection_setup) == 0x80048DDC, "renderer projection setup address changed")
+ASSERT(LOADADDR(.renderer_projection_setup) == 0x499DC, "renderer projection setup ROM placement changed")
+ASSERT(func_80048DDC == 0x80048DDC, "renderer projection setup function placement changed")
 D_8013D958 = 0x8013D958;
 ASSERT(SIZEOF(.actor_pool_allocate) == 0x314, "actor_pool_allocate size changed")
 ASSERT(SIZEOF(.actor_pool_allocate_strings) == 0x60, "actor_pool_allocate_strings size changed")
