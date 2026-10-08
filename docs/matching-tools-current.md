@@ -1,6 +1,6 @@
 # Matching-tool evidence
 
-The 2026-10-07 audit uses the current recovery sources in an isolated native
+The 2026-10-08 audit uses the current recovery sources in an isolated native
 WSL checkout and the pinned IDO 5.3 compiler. Tool installation, cached research,
 viewer scores and ROM equality each answer different questions. Source acceptance
 requires the complete independent code and data comparisons below.
@@ -51,8 +51,8 @@ No third-party game implementation or generated retail code is added here.
 Fresh acceptance checks cover all 906 runtime comparison units, two startup
 units, eighteen assembly units and 191 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,424 matching C functions /
-308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,871 initialized
-data bytes and 879,125 BSS bytes. The text pool contributes 8,040 BSS bytes and
+308,796 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized
+data bytes and 879,157 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
 reset and every byte-valued character, with five rejected mutations.
@@ -148,3 +148,5 @@ excluded candidate. Runtime and workbench checks compare its natural code
 extent and all ten relocated dispatch entries at the retail table address.
 The guarded audit passes 319 pairs, 42 layout checks and five mutation controls.
 Its 349 instruction-word and six table-word differences remain unowned.
+
+[Renderer primitive state](renderer-primitive-state.md) adds four initialized bytes and 32 BSS bytes.

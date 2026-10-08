@@ -227,7 +227,7 @@ REGIONS = (
     ("renderer_setup_fallback_7d8b4_7d98c", 0x7d8b4, 0x7d98c),
     ("diagnostic_fallback_7d994_7d9a0", 0x7d994, 0x7d9a0),
     ("diagnostic_fallback_7d9a8_7d9b0", 0x7d9a8, 0x7d9b0),
-    ("diagnostic_fallback_7d9c0_7e2a0", 0x7d9c0, 0x7e1d8),
+    ("diagnostic_fallback_7d9c4_7e1d8", 0x7d9c4, 0x7e1d8),
     ("diagnostic_fallback_7e2ac_7e2b0", 0x7e2ac, 0x7e2b0),
     ("diagnostic_fallback_7e2d0_7e4f0", 0x7e2d0, 0x7e4f0),
     ("projection_diagnostic_fallback_7e4f4_7e504", 0x7e4f4, 0x7e504),

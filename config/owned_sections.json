@@ -5005,5 +5005,50 @@
       "D_800BA7A8": 0
     },
     "evidence": "docs/game-initialization.md"
+  },
+  {
+    "source": "src/game/renderer_primitives/packet_state.c",
+    "object": "build/us/renderer_primitive_packet_state.o",
+    "input_section": ".bss",
+    "section": ".renderer_primitive_packet_state",
+    "vram": 2148678368,
+    "rom": null,
+    "size": 28,
+    "symbols": {
+      "D_80123AE0": 0,
+      "D_80123AE4": 4,
+      "D_80123AE8": 8,
+      "D_80123AEC": 12,
+      "D_80123AF0": 16,
+      "D_80123AF4": 20,
+      "D_80123AF8": 24
+    },
+    "evidence": "docs/renderer-primitive-state.md"
+  },
+  {
+    "source": "src/game/renderer_primitives/expansion_state.c",
+    "object": "build/us/renderer_primitive_expansion_state.o",
+    "input_section": ".data",
+    "section": ".renderer_primitive_expansion_data",
+    "vram": 2147995072,
+    "rom": 514496,
+    "size": 4,
+    "symbols": {
+      "D_8007CDC0": 0
+    },
+    "evidence": "docs/renderer-primitive-state.md"
+  },
+  {
+    "source": "src/game/renderer_primitives/expansion_state.c",
+    "object": "build/us/renderer_primitive_expansion_state.o",
+    "input_section": ".bss",
+    "section": ".renderer_primitive_expansion_bss",
+    "vram": 2148268300,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_800BF90C": 0
+    },
+    "evidence": "docs/renderer-primitive-state.md"
   }
 ]

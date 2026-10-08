@@ -1278,7 +1278,8 @@ SECTIONS
     .renderer_diagnostic_vertex_pool 0x8007CDA0 : AT(0x7D9A0) SUBALIGN(4) { build/us/renderer_diagnostic_vertex_pool.o(.data) }
     .diagnostic_fallback_7d9a8_7d9b0 0x8007CDA8 : AT(0x7D9A8) { build/us/fallback.o(.rom_diagnostic_fallback_7d9a8_7d9b0) }
     .renderer_texture_corner_state 0x8007CDB0 : AT(0x7D9B0) SUBALIGN(4) { build/us/renderer_textured_submit.o(.data) }
-    .diagnostic_fallback_7d9c0_7e2a0 0x8007CDC0 : AT(0x7D9C0) { build/us/fallback.o(.rom_diagnostic_fallback_7d9c0_7e2a0) }
+    .renderer_primitive_expansion_data 0x8007CDC0 : AT(0x7D9C0) SUBALIGN(4) { build/us/renderer_primitive_expansion_state.o(.data) }
+    .diagnostic_fallback_7d9c4_7e1d8 0x8007CDC4 : AT(0x7D9C4) { build/us/fallback.o(.rom_diagnostic_fallback_7d9c4_7e1d8) }
     .renderer_diagnostic_matrix_pool 0x8007D6A0 : AT(0x7E2A0) SUBALIGN(4) { build/us/renderer_diagnostic_matrix_pool.o(.data) }
     .renderer_matrix_cursor_data 0x8007D6A8 : AT(0x7E2A8) SUBALIGN(4) { build/us/renderer_matrix_cursor_data.o(.data) }
     .diagnostic_fallback_7e2ac_7e2b0 0x8007D6AC : AT(0x7E2AC) { build/us/fallback.o(.rom_diagnostic_fallback_7e2ac_7e2b0) }
@@ -1572,6 +1573,8 @@ SECTIONS
     .audio_sequence_tick_bss 0x80192800 (NOLOAD) : SUBALIGN(4) { build/us/audio_sequence_tick.o(.bss) }
     .graphics_setup_defaults 0x8007D5D8 : AT(0x7E1D8) SUBALIGN(4) { build/us/graphics_setup_defaults.o(.data) }
     .graphics_setup_tile_packets 0x8007C970 : AT(0x7D570) SUBALIGN(4) { build/us/graphics_setup_tile_packets.o(.data) }
+    .renderer_primitive_expansion_bss 0x800BF90C (NOLOAD) : SUBALIGN(4) { build/us/renderer_primitive_expansion_state.o(.bss) }
+    .renderer_primitive_packet_state 0x80123AE0 (NOLOAD) : SUBALIGN(4) { build/us/renderer_primitive_packet_state.o(.bss) }
     .graphics_setup_cache_bss 0x80123B00 (NOLOAD) : SUBALIGN(4) { build/us/graphics_setup_cache_state.o(.bss) }
     .graphics_setup_arena_bss 0x80126B74 (NOLOAD) : SUBALIGN(4) { build/us/graphics_setup_arena_state.o(.bss) }
     .scene_arrivals_bss 0x800B9A78 (NOLOAD) : SUBALIGN(4) { build/us/scene_arrivals_storage.o(.bss) }
@@ -2907,7 +2910,6 @@ ASSERT(SIZEOF(.endgame_4bed8_4bee0) == 0x8, "endgame_4bed8_4bee0 size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle) == 0x2d8, "renderer_expanded_triangle size changed")
 ASSERT(SIZEOF(.renderer_expanded_triangle_strings) == 0x28, "renderer_expanded_triangle_strings size changed")
 ASSERT(SIZEOF(.endgame_453d0_45718) == 0x348, "endgame_453d0_45718 size changed")
-D_800BF90C = 0x800BF90C;
 ASSERT(SIZEOF(.audio_engine_parameter_callback_state) == 0xc, "audio_engine_parameter_callback_state size changed")
 ASSERT(SIZEOF(.endgame_434c0_43c70) == 0x7b0, "endgame_434c0_43c70 size changed")
 ASSERT(SIZEOF(.endgame_43dc0_44530) == 0x770, "endgame_43dc0_44530 size changed")
@@ -3054,7 +3056,7 @@ ASSERT(SIZEOF(.renderer_diagnostic_path_pool) == 0x8, "renderer_diagnostic_path_
 ASSERT(SIZEOF(.diagnostic_fallback_7d994_7d9a0) == 0xc, "diagnostic_fallback_7d994_7d9a0 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_vertex_pool) == 0x8, "renderer_diagnostic_vertex_pool size changed")
 ASSERT(SIZEOF(.diagnostic_fallback_7d9a8_7d9b0) == 0x8, "diagnostic_fallback_7d9a8_7d9b0 size changed")
-ASSERT(SIZEOF(.diagnostic_fallback_7d9c0_7e2a0) == 0x818, "diagnostic_fallback_7d9c0_7e2a0 size changed")
+ASSERT(SIZEOF(.diagnostic_fallback_7d9c4_7e1d8) == 0x814, "diagnostic_fallback_7d9c4_7e1d8 size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_matrix_pool) == 0x8, "renderer_diagnostic_matrix_pool size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_hierarchy_pool) == 0x8, "renderer_diagnostic_hierarchy_pool size changed")
 ASSERT(SIZEOF(.renderer_diagnostic_frame_metrics_bss) == 0x40, "renderer_diagnostic_frame_metrics BSS size changed")
@@ -3551,3 +3553,22 @@ ASSERT(SIZEOF(.game_initializer_literals) == 0x60, "initializer data size change
 ASSERT(ADDR(.game_level_filenames) == 0x800BA7A8, "initializer data moved")
 ASSERT(SIZEOF(.game_level_filenames) == 0x370, "initializer data size changed")
 ASSERT(D_800BA7A8 == ADDR(.game_level_filenames), "level filename array overridden")
+
+ASSERT(ADDR(.renderer_primitive_packet_state) == 0x80123AE0, ".renderer_primitive_packet_state address changed")
+ASSERT(SIZEOF(.renderer_primitive_packet_state) == 0x1C, ".renderer_primitive_packet_state size changed")
+ASSERT(D_80123AE0 == ADDR(.renderer_primitive_packet_state) + 0x0, "D_80123AE0 moved")
+ASSERT(D_80123AE4 == ADDR(.renderer_primitive_packet_state) + 0x4, "D_80123AE4 moved")
+ASSERT(D_80123AE8 == ADDR(.renderer_primitive_packet_state) + 0x8, "D_80123AE8 moved")
+ASSERT(D_80123AEC == ADDR(.renderer_primitive_packet_state) + 0xC, "D_80123AEC moved")
+ASSERT(D_80123AF0 == ADDR(.renderer_primitive_packet_state) + 0x10, "D_80123AF0 moved")
+ASSERT(D_80123AF4 == ADDR(.renderer_primitive_packet_state) + 0x14, "D_80123AF4 moved")
+ASSERT(D_80123AF8 == ADDR(.renderer_primitive_packet_state) + 0x18, "D_80123AF8 moved")
+
+ASSERT(ADDR(.renderer_primitive_expansion_data) == 0x8007CDC0, ".renderer_primitive_expansion_data address changed")
+ASSERT(SIZEOF(.renderer_primitive_expansion_data) == 0x4, ".renderer_primitive_expansion_data size changed")
+ASSERT(LOADADDR(.renderer_primitive_expansion_data) == 0x7D9C0, ".renderer_primitive_expansion_data ROM address changed")
+ASSERT(D_8007CDC0 == ADDR(.renderer_primitive_expansion_data) + 0x0, "D_8007CDC0 moved")
+
+ASSERT(ADDR(.renderer_primitive_expansion_bss) == 0x800BF90C, ".renderer_primitive_expansion_bss address changed")
+ASSERT(SIZEOF(.renderer_primitive_expansion_bss) == 0x4, ".renderer_primitive_expansion_bss size changed")
+ASSERT(D_800BF90C == ADDR(.renderer_primitive_expansion_bss) + 0x0, "D_800BF90C moved")
