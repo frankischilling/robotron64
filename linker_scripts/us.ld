@@ -1422,7 +1422,9 @@ SECTIONS
     .actor_behavior_hulk_switch 0x80093A1C : AT(0x9461C) SUBALIGN(4) { build/us/actor_behavior_hulk.o(.rodata) }
     .actor_behavior_enforcer_switch 0x80093A44 : AT(0x94644) SUBALIGN(4) { build/us/actor_behavior_enforcer.o(.rodata) }
     .actor_behavior_pursuit_switch 0x80093A68 : AT(0x94668) SUBALIGN(4) { build/us/actor_behavior_pursuit.o(.rodata) }
-    .lifecycle_fallback_9468c_94c84 0x80093A8C : AT(0x9468C) { build/us/fallback.o(.rom_lifecycle_fallback_9468c_94c84) }
+    .lifecycle_fallback_9468c_948b0 0x80093A8C : AT(0x9468C) { build/us/fallback.o(.rom_lifecycle_fallback_9468c_948b0) }
+    .session_initializer_diagnostics 0x80093CB0 : AT(0x948B0) SUBALIGN(4) { build/us/session_initializer_diagnostics.o(.data) }
+    .session_initializer_fallback_94918_94c84 0x80093D18 : AT(0x94918) { build/us/fallback.o(.rom_session_initializer_fallback_94918_94c84) }
     .save_menu_status_tables 0x80094084 : AT(0x94C84) SUBALIGN(4) { build/us/save_menu_status.o(.rodata) }
     .script_diagnostic_fallback_94cb4_94d10 0x800940B4 : AT(0x94CB4) { build/us/fallback.o(.rom_script_diagnostic_fallback_94cb4_94d10) }
     .command_script_diagnostics 0x80094110 : AT(0x94D10) SUBALIGN(4) { build/us/command_script_diagnostics.o(.data) }
@@ -3170,7 +3172,8 @@ ASSERT(SIZEOF(.actor_create) == 0x3e0, "actor_create size changed")
 ASSERT(SIZEOF(.actor_create_switch) == 0x88, "actor_create_switch size changed")
 ASSERT(SIZEOF(.actor_behavior_pursuit) == 0x4b0, "actor_behavior_pursuit size changed")
 ASSERT(SIZEOF(.actor_behavior_pursuit_switch) == 0x24, "actor_behavior_pursuit_switch size changed")
-ASSERT(SIZEOF(.lifecycle_fallback_9468c_94c84) == 0x5f8, "lifecycle_fallback_9468c_94c84 size changed")
+ASSERT(SIZEOF(.lifecycle_fallback_9468c_948b0) == 0x224, "lifecycle_fallback_9468c_948b0 size changed")
+ASSERT(SIZEOF(.session_initializer_fallback_94918_94c84) == 0x36C, "session_initializer_fallback_94918_94c84 size changed")
 ASSERT(SIZEOF(.actor_behavior_enforcer) == 0x69c, "actor_behavior_enforcer size changed")
 ASSERT(SIZEOF(.actor_behavior_enforcer_switch) == 0x24, "actor_behavior_enforcer_switch size changed")
 ASSERT(SIZEOF(.actor_brain_diagnostic) == 0x18, "actor_brain_diagnostic size changed")
@@ -3590,3 +3593,10 @@ ASSERT(SIZEOF(.actor_group_bonus_child) == 0x2E8, "actor_group_bonus_child size 
 ASSERT(ADDR(.actor_group_bonus_child) == 0x8000F030, "actor_group_bonus_child address changed")
 ASSERT(LOADADDR(.actor_group_bonus_child) == 0xFC30, "actor_group_bonus_child ROM placement changed")
 ASSERT(func_8000F030 == 0x8000F030, "actor_group_bonus_child function placement changed")
+
+ASSERT(ADDR(.session_initializer_diagnostics) == 0x80093CB0, "session initializer diagnostics moved")
+ASSERT(SIZEOF(.session_initializer_diagnostics) == 0x68, "session initializer diagnostics size changed")
+ASSERT(D_80093CB0 == ADDR(.session_initializer_diagnostics), "session initializer capacity message overridden")
+ASSERT(D_80093CC0 == ADDR(.session_initializer_diagnostics) + 0x10, "session initializer category message overridden")
+ASSERT(D_80093CE0 == ADDR(.session_initializer_diagnostics) + 0x30, "session initializer callback message overridden")
+ASSERT(D_80093CFC == ADDR(.session_initializer_diagnostics) + 0x4C, "session initializer enemy message overridden")

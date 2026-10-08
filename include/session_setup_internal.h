@@ -116,6 +116,11 @@ extern int D_800A4578;
 extern SessionSetupAnimation D_800AA710[];
 extern SessionSetupAnimation D_800A4538[4];
 
+extern char D_80093CB0[16];
+extern char D_80093CC0[32];
+extern char D_80093CE0[28];
+extern char D_80093CFC[28];
+
 extern unsigned char D_80093D18[];
 extern unsigned char D_80093D48[];
 extern unsigned char D_80093D7C[];

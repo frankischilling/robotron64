@@ -63,9 +63,9 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 910 runtime comparison units, two startup
-units, eighteen assembly units and 193 data-only units. The clean build matches
+units, eighteen assembly units and 194 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,428 matching C functions /
-311,596 bytes, twenty-nine assembly functions / 4,372 bytes, 36,875 initialized
+311,596 bytes, twenty-nine assembly functions / 4,372 bytes, 36,979 initialized
 data bytes and 879,157 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -163,3 +163,7 @@ The guarded audit passes 319 pairs, 42 layout checks and five mutation controls.
 Its 349 instruction-word and six table-word differences remain unowned.
 
 [Renderer primitive state](renderer-primitive-state.md) adds four initialized bytes and 32 BSS bytes.
+
+The [session initializer diagnostics](session-initializer-diagnostics.md) add
+104 initialized bytes in four complete C arrays. Initializer instructions and
+its dispatch tables remain outside matching ownership.

@@ -5050,5 +5050,21 @@
       "D_800BF90C": 0
     },
     "evidence": "docs/renderer-primitive-state.md"
+  },
+  {
+    "source": "src/game/session_setup/initializer_diagnostics.c",
+    "object": "build/us/session_initializer_diagnostics.o",
+    "input_section": ".data",
+    "section": ".session_initializer_diagnostics",
+    "vram": 2148089008,
+    "rom": 608432,
+    "size": 104,
+    "symbols": {
+      "D_80093CB0": 0,
+      "D_80093CC0": 16,
+      "D_80093CE0": 48,
+      "D_80093CFC": 76
+    },
+    "evidence": "docs/session-initializer-diagnostics.md"
   }
 ]
