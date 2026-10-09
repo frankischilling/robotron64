@@ -1354,7 +1354,7 @@ SECTIONS
     .movie_string_position_submit_constants 0x8008F828 : AT(0x90428) SUBALIGN(4) { build/us/movie_string_position_submit.o(.rodata) }
     .endgame_data_90438_90530 0x8008F838 : AT(0x90438) { build/us/fallback.o(.rom_endgame_data_90438_90530) }
     .early_signature_gate_rodata 0x8008F930 : AT(0x90530) SUBALIGN(4) { build/us/early_signature_gate.o(.rodata) }
-    .endgame_90540_90558 0x8008F940 : AT(0x90540) { build/us/fallback.o(.rom_endgame_90540_90558) }
+    .early_effect_coordinate_scales 0x8008F940 : AT(0x90540) SUBALIGN(4) { build/us/early_effect_coordinate_scales.o(.data) }
     .early_effect_spawn_rodata 0x8008F958 : AT(0x90558) SUBALIGN(4) { build/us/early_effect_spawn.o(.rodata) }
     .early_render_coordinate_data 0x8008F970 : AT(0x90570) SUBALIGN(4) { build/us/early_render_coordinate_data.o(.data) }
     .early_render_handler_select_rodata 0x8008F974 : AT(0x90574) SUBALIGN(4) { build/us/early_render_handler_select.o(.rodata) }
@@ -2850,7 +2850,8 @@ ASSERT(SIZEOF(.early_signature_gate_rodata) == 0x10, "early_signature_gate_rodat
 ASSERT(SIZEOF(.endgame_64f0_69ec) == 0x4fc, "endgame_64f0_69ec size changed")
 ASSERT(SIZEOF(.endgame_6a80_ab58) == 0x40d8, "endgame_6a80_ab58 size changed")
 ASSERT(SIZEOF(.endgame_f828_f830) == 0x8, "endgame_f828_f830 size changed")
-ASSERT(SIZEOF(.endgame_90540_90558) == 0x18, "endgame_90540_90558 size changed")
+ASSERT(ADDR(.early_effect_coordinate_scales) == 0x8008F940, "early_effect_coordinate_scales moved")
+ASSERT(SIZEOF(.early_effect_coordinate_scales) == 0x18, "early_effect_coordinate_scales size changed")
 D_8008D790 = 0x8008D790;
 D_8008D794 = 0x8008D794;
 ASSERT(SIZEOF(.audio_dma_read) == 0x1d4, "audio_dma_read size changed")
@@ -3669,3 +3670,15 @@ ASSERT(ADDR(.collision_capture_dispatch) == 0x80090038, "collision capture dispa
 D_800B2740 = D_800B1BE8 + 33 * 0x58;
 ASSERT(D_800B2740 == 0x800B2740, "collision capture resource view moved")
 ASSERT(D_800B2740 == ADDR(.actor_resources_primary_bss) + 33 * 0x58, "collision capture resource view lost source ownership")
+
+ASSERT(D_8008F940 == ADDR(.early_effect_coordinate_scales) + 0x0, "D_8008F940 source definition overridden")
+
+ASSERT(D_8008F944 == ADDR(.early_effect_coordinate_scales) + 0x4, "D_8008F944 source definition overridden")
+
+ASSERT(D_8008F948 == ADDR(.early_effect_coordinate_scales) + 0x8, "D_8008F948 source definition overridden")
+
+ASSERT(D_8008F94C == ADDR(.early_effect_coordinate_scales) + 0xC, "D_8008F94C source definition overridden")
+
+ASSERT(D_8008F950 == ADDR(.early_effect_coordinate_scales) + 0x10, "D_8008F950 source definition overridden")
+
+ASSERT(D_8008F954 == ADDR(.early_effect_coordinate_scales) + 0x14, "D_8008F954 source definition overridden")

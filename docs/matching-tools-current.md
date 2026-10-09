@@ -1,6 +1,6 @@
 # Matching-tool evidence
 
-The 2026-10-08 audit uses the current recovery sources in an isolated native
+The 2026-10-09 audit uses the current recovery sources in an isolated native
 WSL checkout and the pinned IDO 5.3 compiler. Tool installation, cached research,
 viewer scores and ROM equality each answer different questions. Source acceptance
 requires the complete independent code and data comparisons below.
@@ -63,9 +63,9 @@ are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-stu
 No third-party game implementation or generated retail code is added here.
 
 Fresh acceptance checks cover all 912 runtime comparison units, two startup
-units, eighteen assembly units and 198 data-only units. The clean build matches
+units, eighteen assembly units and 200 data-only units. The clean build matches
 all 8,388,608 retail bytes. The checkpoint has 1,430 matching C functions /
-314,348 bytes, twenty-nine assembly functions / 4,372 bytes, 37,827 initialized
+314,348 bytes, twenty-nine assembly functions / 4,372 bytes, 37,867 initialized
 data bytes and 879,157 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -182,3 +182,8 @@ function, 1,712 code bytes and a 96-byte generated dispatch table.
 
 The [collision acceptance ledger](actor-collision-capture-provenance.json) records
 all 39 fresh stages, natural extents, relocations, guarded execution and limits.
+
+The [early effect scale ledger](early-effect-coordinate-scales-provenance.json)
+adds six complete four-byte float definitions / 24 initialized bytes. All
+six retail loads, natural symbols and both reassemblies agree. The drawing
+procedures remain unresolved; eight IDO alignment bytes are excluded.

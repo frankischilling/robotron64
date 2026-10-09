@@ -1,0 +1,20 @@
+name: Robotron six early effect coordinate scales
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: early_effect_coordinate_scales
+  base_path: ../../.local/early-effect-scales-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  symbol_addrs_path: ../../config/analysis/early_effect_coordinate_scales_symbols.txt
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: early_effect_coordinate_scales
+    type: code
+    start: 0x90540
+    vram: 0x8008F940
+    subsegments:
+      - [0x90540, rodata, early_effect_coordinate_scales]
+  - [0x90558, bin, suffix]
+  - [0x800000]

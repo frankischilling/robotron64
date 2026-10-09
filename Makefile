@@ -6427,6 +6427,7 @@ build/us/early_render_coordinate_data.o: src/game/early_render_coordinate_data.c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += build/us/early_render_coordinate_data.o
+RUNTIME_OBJECTS += build/us/early_effect_coordinate_scales.o
 
 build/us/renderer_image_placement_data.o: src/game/renderer_image_placement_data.c include/debug_output.h include/fixed_math.h include/frame.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_image_setup_internal.h include/rom_files.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json include/palette.h
 	mkdir -p $(@D)
@@ -8679,4 +8680,10 @@ build/us/renderer_mesh_texture_corners.o: src/game/renderer_primitives/mesh_text
 	@mkdir -p build/us
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_mesh_texture_corners.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/renderer_mesh_texture_corners.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/early_effect_coordinate_scales.o: src/game/early_render_effects/coordinate_scales.c include/early_effect_coordinate_scales.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_effect_coordinate_scales.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/early_effect_coordinate_scales.raw.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)

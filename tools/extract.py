@@ -254,7 +254,6 @@ REGIONS = (
     ("after_video_default_modes_data", 0x90220, 0x90278),
     ("endgame_data_903a0_90428", 0x903a0, 0x90428),
     ("endgame_data_90438_90530", 0x90438, 0x90530),
-    ("endgame_90540_90558", 0x90540, 0x90558),
     ("boss_fallback_90588_9078c", 0x90588, 0x9078c),
     ("movement_fallback_907bc_909e0", 0x907bc, 0x909e0),
     ("collision_fallback_90a44_90a64", 0x90a44, 0x90a64),

@@ -5164,5 +5164,23 @@
       "D_800736D0": 0
     },
     "evidence": "docs/renderer-mesh-texture-corners.md"
+  },
+  {
+    "source": "src/game/early_render_effects/coordinate_scales.c",
+    "object": "build/us/early_effect_coordinate_scales.o",
+    "input_section": ".data",
+    "section": ".early_effect_coordinate_scales",
+    "vram": 2148071744,
+    "rom": 591168,
+    "size": 24,
+    "symbols": {
+      "D_8008F940": 0,
+      "D_8008F944": 4,
+      "D_8008F948": 8,
+      "D_8008F94C": 12,
+      "D_8008F950": 16,
+      "D_8008F954": 20
+    },
+    "evidence": "docs/early-effect-coordinate-scales.md"
   }
 ]
