@@ -1,0 +1,27 @@
+name: Robotron complete missile callback and dispatch
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: missile_update
+  base_path: ../../.local/actor-missile-update-references/splat
+  target_path: ../../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  symbol_addrs_path: ../../../config/analysis/missile_update_symbols.txt
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: missile_update
+    type: code
+    start: 0x39430
+    vram: 0x80038830
+    subsegments:
+      - [0x39430, asm, missile_update]
+  - [0x3998C, bin, middle]
+  - name: missile_update_dispatch
+    type: code
+    start: 0x957F0
+    vram: 0x80094BF0
+    subsegments:
+      - [0x957F0, rodata, missile_update_dispatch]
+  - [0x9580C, bin, suffix]
+  - [0x800000]

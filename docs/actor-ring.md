@@ -65,13 +65,19 @@ through a multiplication-by-50 sequence followed by multiplication by 3.
 These are confirmed instruction observations; they do not establish the
 original declaration order or source expression.
 
-The recorded 149 source comparisons cover blue/RGB lifetimes, direct and
+The recorded 181 source comparisons cover blue/RGB lifetimes, direct and
 captured object pointers, trig product scheduling, SDK-style byte packing,
 shared/copied/derived vertex indices, consumed radius expressions, loop forms,
 index signedness and declaration order. No form matches. Changing only the
 radius algebra often produces identical compiled instructions. No unused
 storage, extra ABI arguments, injected instructions or manual padding is used
 to make the candidate resemble retail.
+
+The latest 32 comparisons vary triangle induction by one/two, named/direct
+indices, packet-pointer lifetime and early/late index copies. A private early
+copy form reduces the full difference to 197 words, but still has a 1,020-byte
+function and 192-byte frame. It is not the public candidate; the public guard
+and 204-word result above are unchanged. No form matches.
 
 ## Reproduce the bounded execution check
 

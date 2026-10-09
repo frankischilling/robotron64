@@ -15,6 +15,11 @@ and `make check-actor-ring`. The complete comparison still differs; the
 execution guard checks vertices, matrices, command words, allocation and ABI
 preservation with real matching helpers. It adds no matching source bytes.
 
+[Missile updates](docs/actor-missile-update.md) add an excluded callback and
+`make check-missile-update`. All 1,592 execution pairs pass with real matching
+RNG, motion, heading and object helpers. The complete function still differs
+in 190 words; the exact dispatch table adds no ownership while it is excluded.
+
 ## Target
 
 The [PI manager](docs/sdk-pi-manager.md) recovers creation, DMA and disk

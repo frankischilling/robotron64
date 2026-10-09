@@ -18,6 +18,13 @@ support units, and 32 deliberate guest/source faults are rejected. The complete
 1,024-byte compiled output differs from retail's 1,044 bytes in 204 words;
 this research adds no instruction, initialized-data or BSS ownership.
 
+The [missile update callback](actor-missile-update.md) has an excluded
+1,372-byte C candidate, exact 28-byte dispatch table and reproducible guard.
+All 1,592 pairs pass with thirteen real matching support units; 36 faults
+are rejected and four actual zero-duration traps agree. The callback retains
+190 differing instruction words and a 72-byte frame instead of retail's 448.
+It adds no source ownership, and child allocation remains outside the guard.
+
 The [startup projection](startup-projection-and-diagnostics.md) contributes one
 complete 864-byte function with a 184-byte frame. Independent retail reassemblies
 and 396 guarded execution pairs agree. Seven source faults and three actual

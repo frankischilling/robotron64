@@ -1,0 +1,537 @@
+{
+  "status": "Excluded research; no independently matching source ownership.",
+  "issue": 40,
+  "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "retail": {
+    "vram_start": "0x80038830",
+    "vram_end": "0x80038D8C",
+    "rom_start": "0x39430",
+    "rom_end": "0x3998C",
+    "instructions": 343,
+    "natural_bytes": 1372,
+    "frame_bytes": 448,
+    "code_sha256": "83d70e79998a2c3ee1027837823d2b51f56e466c584fd3c8568ba3e91e9f74aa"
+  },
+  "dispatch": {
+    "vram_start": "0x80094BF0",
+    "vram_end": "0x80094C0C",
+    "rom_start": "0x957F0",
+    "rom_end": "0x9580C",
+    "entries": 7,
+    "bytes": 28,
+    "relocations": "R_MIPS_32",
+    "matches": true,
+    "table_sha256": "21bbf1ac514818c044096c18cbebfc7cdaa576f3b4ce8b2b6dad5a785c70d03f",
+    "source_ownership_added": 0
+  },
+  "candidate": {
+    "source": "src/game/actor_projectiles/missile_update.c",
+    "source_sha256": "77512c9aaecba9cd7a9cde9cdb82c17be0365516d9a8fdef8859419b4b8ad35b",
+    "natural_bytes": 1372,
+    "raw_text_bytes": 1376,
+    "zero_alignment_bytes": 4,
+    "frame_bytes": 72,
+    "full_differing_words": 190,
+    "matches": false,
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "code_sha256": "d49527b7066184299afdfb3acdebf6d1a8c77cc2e5d0337465146816ebdbc974",
+    "raw_object_sha256": "3f018faaebe95ec2a32a2ed5ed904e87d0cfd99b1b98250ed95efae5b9b10b64",
+    "elf_sha256": "b84f978d0c8405641c81e8982686105d2944f38428cddba176340093a5845941",
+    "full_comparison_receipt_sha256": "eb675451675c4ff84c86d959131c268a3b779a8142b6bb8211988208352636f5"
+  },
+  "independent_retail_references": {
+    "spim": {
+      "matches": true,
+      "complete_function_bytes": 1372,
+      "raw_text_bytes": 1376,
+      "complete_dispatch_bytes": 28,
+      "table_relocations": 7,
+      "unaltered_generated_assembly": true,
+      "code_sha256": "83d70e79998a2c3ee1027837823d2b51f56e466c584fd3c8568ba3e91e9f74aa",
+      "table_sha256": "21bbf1ac514818c044096c18cbebfc7cdaa576f3b4ce8b2b6dad5a785c70d03f",
+      "assembly_sha256": "a61f501ccf3e0091595630ded21182362e605f5143ef72bf30f1daa74585b09a",
+      "raw_object_sha256": "8c84942620cf5787d65326b8ba76808bcc94bb5798dca32d0d33aa4c8ba8937d",
+      "elf_sha256": "29de25684b0e869d787898fbe3520f98e2271ad06c36f4f4f30417450fcaf3f5"
+    },
+    "splat": {
+      "matches": true,
+      "complete_function_bytes": 1372,
+      "raw_text_bytes": 1376,
+      "complete_dispatch_bytes": 28,
+      "table_relocations": 7,
+      "unaltered_generated_assembly": true,
+      "code_sha256": "83d70e79998a2c3ee1027837823d2b51f56e466c584fd3c8568ba3e91e9f74aa",
+      "table_sha256": "21bbf1ac514818c044096c18cbebfc7cdaa576f3b4ce8b2b6dad5a785c70d03f",
+      "assembly_sha256": "8d86c3192cff3a4212e26288ff6b9a9d753f300835e82ab70c8167d68a56b8b3",
+      "raw_object_sha256": "285e4b8ca3bb6519ea716483b1f6af640a8efc1de7673f37e36f5da5d96880e3",
+      "elf_sha256": "73b736a26f597f72b5fa9ed5a1ef230b9b9a69f46ef33c08e363e8b5742d1767"
+    }
+  },
+  "public_splat_config": "config/analysis/missile_update.yaml",
+  "public_splat_symbols": "config/analysis/missile_update_symbols.txt",
+  "public_splat_generated_code_and_table_equal_validated_reference": true,
+  "execution": {
+    "paired_cases": 1592,
+    "principal_executions": 3184,
+    "max_instructions": 695,
+    "trace_sha256": "5b31618e7ae37d8cd67bd7e15eef2e1b9bebb85c5e3ce877ca32c45ff843b3b3",
+    "coverage": {
+      "kind_0": 96,
+      "expired": 530,
+      "kind_1": 96,
+      "kind_2": 96,
+      "kind_3": 96,
+      "kind_4": 106,
+      "kind_5": 96,
+      "kind_6": 96,
+      "blend_new": 74,
+      "blend_existing": 100,
+      "child_boundary": 54,
+      "kind_7": 94,
+      "heading_update": 100,
+      "kind_8": 94,
+      "nearest_found": 80,
+      "nearest_fallback": 14,
+      "kind_9": 96,
+      "kind_10": 96
+    },
+    "guard_inputs_sha256": {
+      "src/game/actor_projectiles/missile_update.c": "77512c9aaecba9cd7a9cde9cdb82c17be0365516d9a8fdef8859419b4b8ad35b",
+      "tools/check_missile_update.py": "769cfac94fb9cafcddcc8b286141c68cdaf0be2aae7cc4713ffc312d1a2a7688",
+      "tools/missile_update_model.py": "e7ce990b1e404c7c74b59204b2f01210e8799d13b158ca50732c60713d91e0a9",
+      "tools/missile_update_compare.py": "3fdb5efa4140afa32473549773dd7c47a392d30909b03d537ad4f649652f2905",
+      "tools/check_actor_group_path.py": "8a0df26056b10c6958f757d7d0c6afb0f1463d0007f265ec62f7c321371ea6bc",
+      "tools/compare_startup.py": "1f48c68436259c2b5beb53c19bd05dbf3aacc02ec27e1e98dfeba783b4235d1a",
+      "tools/compare_runtime.py": "d3b9dc3be703c79b1dadaa1420fbcd9b15e1c64740cea122a0e20518c812dce2",
+      "tools/compare_data.py": "c0fe490cbe61b6bf36218aae5f5b3030a662c3148b730f78190a705c259fa6a4",
+      "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
+      "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
+      "tools/provenance.py": "78dbad67713f5346c0e83d5dd30ee9e8373c4900b3911aff3c34c06f5af13068",
+      "tools/trim_padding.py": "03185161972900b515a1a0bcdeef53c1999e4bdcf456df74a1f810cefb6a8a2b",
+      "tools/toolchain.py": "83a91499cbef3c6f7319c8482e2decb06b3cad9a67ec398460ab4fae22b08c5b",
+      "tools/rom.py": "e0a61a3034aad22593a66275e77cc828765b83185291872325fc23ea3881a3e2"
+    },
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "limits": [
+      "Finite synthetic CPU cases. Full instruction comparison still fails.",
+      "Thirteen complete matched support units and their owned data execute real code.",
+      "The child creator uses an explicit caller-clobbering O32 boundary; its allocation effects are not proved.",
+      "Four actual divide-by-zero traps are checked separately. Invalid objects and gameplay remain outside the successful sweep.",
+      "Stack interiors are bounded and ABI-checked, not claimed byte-identical."
+    ]
+  },
+  "real_support": {
+    "complete_units": 13,
+    "instruction_bytes": 5364,
+    "code": {
+      "actor_behavior_state": {
+        "source": "src/game/actor_behavior_state.c",
+        "actual_size": 44,
+        "matches": true
+      },
+      "actor_behavior_blend_motion": {
+        "source": "src/game/actor_behavior_blend_motion.c",
+        "actual_size": 556,
+        "matches": true
+      },
+      "actor_nearest_match": {
+        "source": "src/game/actor_nearest_match.c",
+        "actual_size": 328,
+        "matches": true
+      },
+      "runtime_random": {
+        "source": "src/game/runtime_random.c",
+        "actual_size": 32,
+        "matches": true
+      },
+      "gu_random": {
+        "source": "src/sdk/gu_random.c",
+        "actual_size": 44,
+        "matches": true
+      },
+      "object_transforms": {
+        "source": "src/game/object_transforms.c",
+        "actual_size": 1976,
+        "matches": true
+      },
+      "fixed_geometry_setup": {
+        "source": "src/game/fixed_geometry_setup.c",
+        "actual_size": 1508,
+        "matches": true
+      },
+      "object_recovery_fixed_trig": {
+        "source": "src/game/object_recovery_fixed_trig.c",
+        "actual_size": 144,
+        "matches": true
+      },
+      "short_sine": {
+        "source": "src/sdk/short_sine.c",
+        "actual_size": 112,
+        "matches": true
+      },
+      "short_cosine": {
+        "source": "src/sdk/short_cosine.c",
+        "actual_size": 48,
+        "matches": true
+      },
+      "object_recovery_angle_scale": {
+        "source": "src/game/object_recovery_angle_scale.c",
+        "actual_size": 36,
+        "matches": true
+      },
+      "object_recovery_direction_angle": {
+        "source": "src/game/object_recovery_direction_angle.c",
+        "actual_size": 388,
+        "matches": true
+      },
+      "object_recovery_angle_table": {
+        "source": "src/game/object_recovery_angle_table.c",
+        "actual_size": 148,
+        "matches": true
+      }
+    },
+    "data_only": {
+      "src/game/actor_groups/direction_table.c": {
+        "source": "src/game/actor_groups/direction_table.c",
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/actor_groups/direction_table.c",
+              "object": "build/us/actor_direction_table.o",
+              "input_section": ".data",
+              "section": ".actor_direction_table",
+              "vram": 2147992376,
+              "rom": 511800,
+              "size": 260,
+              "symbols": {
+                "D_8007C338": 0
+              },
+              "evidence": "docs/actor-group-path.md"
+            },
+            "bytes_sha256": "292c845d061d8cf472b112a9a5a6275386cc514a0674a429938ba4fce443ad60"
+          }
+        ],
+        "matches": true
+      },
+      "src/game/object_angle_setter_constants.c": {
+        "source": "src/game/object_angle_setter_constants.c",
+        "sections": [
+          {
+            "ownership": {
+              "source": "src/game/object_angle_setter_constants.c",
+              "object": "build/us/object_angle_setter_constants.o",
+              "input_section": ".data",
+              "section": ".object_angle_setter_constants",
+              "vram": 2148092960,
+              "rom": 612384,
+              "size": 12,
+              "symbols": {
+                "D_FLT_80094C20": 0,
+                "D_FLT_80094C24": 4,
+                "D_FLT_80094C28": 8
+              },
+              "evidence": "docs/object-angle-constants.md"
+            },
+            "bytes_sha256": "900b4e7512f7dedb290c5bc14001cd537b3d054487447ff98e32766671569ce5"
+          }
+        ],
+        "matches": true
+      }
+    },
+    "support_owned_sine_bytes": 2048,
+    "support_owned_rng_seed_bytes": 4
+  },
+  "child_creator_boundary": {
+    "address": "0x80015218",
+    "integer_caller_registers_clobbered": 16,
+    "floating_caller_registers_clobbered": "F0..F19",
+    "memory_effects_verified": false,
+    "allocation_effects_verified": false,
+    "callee_saved_registers_preserved": true
+  },
+  "controls": {
+    "rejected_faults": 36,
+    "actual_expected_arithmetic_traps": 4,
+    "results": [
+      {
+        "name": "expiry_boundary",
+        "rejected_by": "Write guard"
+      },
+      {
+        "name": "timer_boundary",
+        "rejected_by": "Write guard"
+      },
+      {
+        "name": "speed_halving",
+        "rejected_by": "Call trace"
+      },
+      {
+        "name": "heading_mask",
+        "rejected_by": "Call trace"
+      },
+      {
+        "name": "velocity_division",
+        "rejected_by": "Call trace"
+      },
+      {
+        "name": "nearest_kind",
+        "rejected_by": "Call trace"
+      },
+      {
+        "name": "random_shift",
+        "rejected_by": "Call trace"
+      },
+      {
+        "name": "progress_byte",
+        "rejected_by": "Call trace"
+      },
+      {
+        "name": "draw_callback",
+        "rejected_by": "Independent memory oracle"
+      },
+      {
+        "name": "saved_fpu_f20",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f21",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f22",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f23",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f24",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f25",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f26",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f27",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f28",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f29",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f30",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_fpu_f31",
+        "rejected_by": "Saved FPU words"
+      },
+      {
+        "name": "saved_integer_17",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_integer_18",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_integer_19",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_integer_20",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_integer_21",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_integer_22",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_integer_23",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_integer_30",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_s0_epilogue",
+        "rejected_by": "Integer saved registers"
+      },
+      {
+        "name": "saved_gp",
+        "rejected_by": "SP/GP"
+      },
+      {
+        "name": "invalid_read",
+        "rejected_by": "Read guard"
+      },
+      {
+        "name": "invalid_write",
+        "rejected_by": "Write guard"
+      },
+      {
+        "name": "null_actor_retail",
+        "rejected_by": "Read guard"
+      },
+      {
+        "name": "zero_duration_retail_7",
+        "expected_divide_by_zero": true,
+        "address": "0x80038cac",
+        "instruction": "0007000d",
+        "instructions": 99
+      },
+      {
+        "name": "zero_duration_retail_8",
+        "expected_divide_by_zero": true,
+        "address": "0x80038cac",
+        "instruction": "0007000d",
+        "instructions": 140
+      },
+      {
+        "name": "null_actor_candidate",
+        "rejected_by": "Read guard"
+      },
+      {
+        "name": "zero_duration_candidate_7",
+        "expected_divide_by_zero": true,
+        "address": "0x80038cac",
+        "instruction": "0007000d",
+        "instructions": 99
+      },
+      {
+        "name": "zero_duration_candidate_8",
+        "expected_divide_by_zero": true,
+        "address": "0x80038cac",
+        "instruction": "0007000d",
+        "instructions": 140
+      },
+      {
+        "name": "escaped_code",
+        "rejected_by": "Escaped code"
+      }
+    ]
+  },
+  "private_execution_receipt_sha256": "b92ef5f15e8285d0dc0f44a5d5abec289dd3434d31a491389760a99d39ba7d43",
+  "viewers": {
+    "asm-differ": {
+      "executed": true,
+      "exit_status": 0,
+      "command": [
+        "robotron-tools",
+        "asm-differ",
+        "0",
+        "0x55c",
+        "--no-pager",
+        "--format=plain"
+      ],
+      "log_sha256": "fdc07e320c706e308ae4be29b1ce05d79cb928198dd0f754ed6cd1bf0d214b57"
+    },
+    "objdiff-raw": {
+      "executed": true,
+      "exit_status": 0,
+      "command": [
+        "robotron-tools",
+        "objdiff",
+        "diff",
+        "-1",
+        "/root/robotron64-validation/boundary-reflection-current-20261009/.local/missile-update-38830/references/spim.raw.o",
+        "-2",
+        "/root/robotron64-validation/boundary-reflection-current-20261009/build/missile-update-execution/candidate/candidate.raw.o",
+        "-o",
+        "/root/robotron64-validation/boundary-reflection-current-20261009/.local/missile-update-38830/viewers/objdiff-raw.json"
+      ],
+      "log_sha256": "68955c7d61ddec92eca40778a0eab38c0effe1fe3f2a1f34fb524379c06020ed",
+      "output_sha256": "6d53af9120d9ef041fcaefe17e8f9bb9e6752b50978a915a87ee5efebc56be3b"
+    },
+    "objdiff-linked": {
+      "executed": true,
+      "exit_status": 1,
+      "command": [
+        "robotron-tools",
+        "objdiff",
+        "diff",
+        "-1",
+        "/root/robotron64-validation/boundary-reflection-current-20261009/.local/missile-update-38830/references/spim.elf",
+        "-2",
+        "/root/robotron64-validation/boundary-reflection-current-20261009/build/missile-update-execution/candidate/candidate.elf",
+        "-o",
+        "/root/robotron64-validation/boundary-reflection-current-20261009/.local/missile-update-38830/viewers/objdiff-linked.json"
+      ],
+      "log_sha256": "9ebda2e37f750b075124bb894bea8bd6e60302e54fdfb4c096130828eefe5e0e",
+      "limitation": "Pinned objdiff rejects the linked ELF with Symbol address out of section bounds; no linked-ELF viewer result is claimed."
+    },
+    "scope": {
+      "full_function_bytes": 1372,
+      "dispatch_bytes_linked_at_retail_address": 28,
+      "full_byte_comparison_different_words": 190,
+      "source_ownership_added": 0,
+      "viewer_success_is_not_instruction_match": true
+    }
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "saved": true,
+    "complete_raw_code_and_table_verified": true,
+    "signatures": {
+      "rng": "int func_8004CDE8(void)",
+      "callback": "void func_80038830(EarlyGameActor * actor, int initialize)"
+    },
+    "raw_read_receipt_sha256": "720f9a3cb31b04338038fb845a10aa4b96b40ebb9506cd0b475f0831862979da",
+    "function_receipt_sha256": "d84ea86f65e90726b62211f0d8353b3c52abb6f5b212434b0524dc506a09e917",
+    "save_receipt_sha256": "206295baf21da79c7a161baae9e5f63d0d078d90d9fda4997d8c28cf60b4919a",
+    "source_ownership_added": 0
+  },
+  "tools": {
+    "m2c": "708d2d2cb2698f091a92492b328f73b24209f72d",
+    "decomp-permuter": "059609d4aec73eb0650726772954e1ad575825f8",
+    "asm-differ": "0dd09af8f8008f1f880327cf0aca3b26d2562ea2",
+    "splat": "0.50.0",
+    "spimdisasm": "1.42.4",
+    "objdiff": "3.8.2",
+    "unicorn": "2.1.1",
+    "capstone": "5.0.9",
+    "pyelftools": "0.33"
+  },
+  "source_ownership_added": {
+    "C_functions": 0,
+    "instruction_bytes": 0,
+    "initialized_bytes": 0,
+    "BSS_bytes": 0
+  }
+}

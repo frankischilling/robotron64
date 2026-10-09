@@ -927,6 +927,7 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("actor_missile_update", "src/game/actor_projectiles/missile_update.c", 0x80038830, 0x80038D8C),
     ("actor_ring", "src/game/actor_effects/ring.c", 0x80006240, 0x80006654),
     ("actor_boundary_reflection", "src/game/actor_contacts/reflection.c", 0x800186D8, 0x80018CC8),
     ("scene_resource_setup", "src/game/scene_resources/setup.c", 0x8001D3F0, 0x8001DE54),
@@ -983,7 +984,10 @@ def compare_blocks(records, target, family, layout, jobs=1):
 
     def compare_record(record):
         name, source, start, end = record
-        if name == "scene_resource_setup":
+        if name == "actor_missile_update":
+            from missile_update_compare import compare_candidate_block
+            result = compare_candidate_block(name, source, target, layout, family)
+        elif name == "scene_resource_setup":
             from check_scene_resource_setup import compare_candidate_block
             result = compare_candidate_block(name, source, target, layout, family)
         elif name == "scene_resource_select":

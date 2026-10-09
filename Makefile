@@ -22,6 +22,10 @@ check-actor-boundary-reflection: toolchain
 check-actor-ring: toolchain
 	$(PYTHON) tools/check_actor_ring.py
 
+.PHONY: check-missile-update
+check-missile-update: toolchain
+	$(PYTHON) tools/check_missile_update.py
+
 resources:
 	$(PYTHON) tools/resources.py "$(BASEROM)"
 

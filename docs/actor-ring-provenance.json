@@ -88,6 +88,23 @@
       "matching_forms": 0,
       "best_differing_words": 204,
       "private_receipt_sha256": "f6f7a75362719496cabcef9dc32170bde4b98ebc62655dca18528378d46667b0"
+    },
+    "triangle-inductions.json": {
+      "complete_comparisons": 32,
+      "matching_forms": 0,
+      "best_differing_words": 197,
+      "best_private_form": {
+        "name": "tri_step1_named_scoped_index_early",
+        "natural_bytes": 1020,
+        "raw_text_bytes": 1024,
+        "frame": 192,
+        "differing_words": 197,
+        "matches": false,
+        "source_sha256": "ad5546fff78c49cf187654cc1943754f83cde5f6e7869acd6ef269aff99c3c77",
+        "source_ownership_added": 0
+      },
+      "public_candidate_changed": false,
+      "private_receipt_sha256": "f47254dd6108231217d62d525ef7939c2df93f17466d057ad8e172f548e93126"
     }
   },
   "execution": {
@@ -398,8 +415,8 @@
     "splat": "0.50.0",
     "spimdisasm": "1.42.4",
     "objdiff": "3.8.2",
-    "m2c": "708d8b7",
-    "asm_differ": "0dd09e6",
+    "m2c": "708d2d2cb2698f091a92492b328f73b24209f72d",
+    "asm_differ": "0dd09af8f8008f1f880327cf0aca3b26d2562ea2",
     "unicorn": "2.1.1",
     "capstone": "5.0.9",
     "pyelftools": "0.33",
