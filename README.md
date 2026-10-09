@@ -4,6 +4,12 @@ A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint 
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
+[Actor boundary reflection](docs/actor-boundary-reflection.md) adds an excluded
+1,520-byte C candidate and a reproducible guarded checker. Its 1,818 execution
+pairs pass, but two stack-slot instructions still differ. It adds no matching
+source bytes; `make check-actor-boundary-reflection` reproduces the bounded
+execution audit.
+
 ## Target
 
 The [PI manager](docs/sdk-pi-manager.md) recovers creation, DMA and disk

@@ -927,6 +927,7 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("actor_boundary_reflection", "src/game/actor_contacts/reflection.c", 0x800186D8, 0x80018CC8),
     ("scene_resource_setup", "src/game/scene_resources/setup.c", 0x8001D3F0, 0x8001DE54),
     ("game_initialize", "src/game/session_initialization/initialize.c", 0x8002205C, 0x80022528),
     ("renderer_surface_ring", "src/game/renderer_surfaces/ring.c", 0x800428C0, 0x80042BDC),

@@ -14,6 +14,10 @@ check-palette-color-tables: toolchain
 
 all: build/us/robotron64.z64
 
+.PHONY: check-actor-boundary-reflection
+check-actor-boundary-reflection: toolchain
+	$(PYTHON) tools/check_actor_boundary_reflection.py
+
 resources:
 	$(PYTHON) tools/resources.py "$(BASEROM)"
 
