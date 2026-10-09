@@ -5087,5 +5087,58 @@
       "D_80090660": 432
     },
     "evidence": "docs/scripted-file-diagnostics.md"
+  },
+  {
+    "source": "src/game/script_service/command_literals.c",
+    "object": "build/us/script_command_literals.o",
+    "input_section": ".data",
+    "section": ".script_command_literals",
+    "vram": 2148075152,
+    "rom": 594576,
+    "size": 56,
+    "symbols": {
+      "D_80090690": 0,
+      "D_800906A0": 16,
+      "D_800906BC": 44
+    },
+    "evidence": "docs/script-resource-literals.md"
+  },
+  {
+    "source": "src/game/actor_resources/animation_literals.c",
+    "object": "build/us/script_animation_literals.o",
+    "input_section": ".data",
+    "section": ".script_animation_literals",
+    "vram": 2148075216,
+    "rom": 594640,
+    "size": 52,
+    "symbols": {
+      "D_800906D0": 0,
+      "D_800906D8": 8,
+      "D_800906E0": 16,
+      "D_800906E8": 24
+    },
+    "evidence": "docs/script-resource-literals.md"
+  },
+  {
+    "source": "src/game/actor_resources/literals.c",
+    "object": "build/us/actor_resource_literals.o",
+    "input_section": ".data",
+    "section": ".actor_resource_literals",
+    "vram": 2148075268,
+    "rom": 594692,
+    "size": 164,
+    "symbols": {
+      "D_80090704": 0,
+      "D_80090734": 48,
+      "D_8009074C": 72,
+      "D_80090754": 80,
+      "D_80090760": 92,
+      "D_80090768": 100,
+      "D_80090770": 108,
+      "D_8009077C": 120,
+      "D_80090784": 128,
+      "D_8009078C": 136
+    },
+    "evidence": "docs/script-resource-literals.md"
   }
 ]

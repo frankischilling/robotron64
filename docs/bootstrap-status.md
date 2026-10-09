@@ -3,7 +3,7 @@
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
 Current verified totals are 1,428 matching C functions / 311,596 instruction
-bytes, twenty-nine assembly functions / 4,372 bytes, 37,459 initialized bytes
+bytes, twenty-nine assembly functions / 4,372 bytes, 37,731 initialized bytes
 and 879,157 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
@@ -60,7 +60,7 @@ BSS and both width tables add 144 initialized bytes. All thirty allocation slots
 exhaustion and the full reset pass 744 guarded cases per image; another 1,024
 cases check every byte-valued character. Five isolated source mutations are rejected. The
 [current matching-tool audit](matching-tools-current.md) independently compares
-910 runtime units, two startup units, eighteen assembly units and 195 data-only
+910 runtime units, two startup units, eighteen assembly units and 198 data-only
 units. The [bonus-child creator](actor-bonus-child.md) contributes one complete
 matching C function / 744 instruction bytes. Reusing the selected pointer and
 preserving declaration order reproduces its 56-byte frame and all stack homes;
@@ -267,3 +267,6 @@ its dispatch tables remain outside matching ownership.
 
 Nine [scripted file diagnostics](scripted-file-diagnostics.md) add 480
 initialized bytes in complete C arrays; their six callers already match.
+
+Seventeen [script and resource literals](script-resource-literals.md) add
+272 initialized bytes; the eight-byte unexplained gap remains fallback.

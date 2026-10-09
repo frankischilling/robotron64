@@ -102,16 +102,6 @@ extern ActorResource5CInternal D_8009AA00[16];
 extern ActorResourceGroupInternal D_8009EA18[1];
 extern int D_8009EE04;
 
-extern unsigned char D_80090704[];
-extern unsigned char D_80090734[];
-extern unsigned char D_8009074C[];
-extern unsigned char D_80090754[];
-extern unsigned char D_80090760[];
-extern unsigned char D_80090768[];
-extern unsigned char D_80090770[];
-extern unsigned char D_8009077C[];
-extern unsigned char D_80090784[];
-extern unsigned char D_8009078C[];
 
 extern int func_800391C0(int kind);
 extern void func_800391F0(int kind, ActorAnimation *animation, int model,
@@ -121,5 +111,20 @@ extern int func_8003CA24(int kind, int current, unsigned char *path);
 extern int func_8003CA34(int current, unsigned char *path, int identifier);
 extern void func_8001CE70(TextGlyphResource *resource, ActorAnimation *animation,
                          int reference);
+
+extern unsigned char D_800906D0[8];
+extern unsigned char D_800906D8[8];
+extern unsigned char D_800906E0[8];
+extern unsigned char D_800906E8[28];
+extern unsigned char D_80090704[48];
+extern unsigned char D_80090734[24];
+extern unsigned char D_8009074C[8];
+extern unsigned char D_80090754[12];
+extern unsigned char D_80090760[8];
+extern unsigned char D_80090768[8];
+extern unsigned char D_80090770[12];
+extern unsigned char D_8009077C[8];
+extern unsigned char D_80090784[8];
+extern unsigned char D_8009078C[28];
 
 #endif

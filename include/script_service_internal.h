@@ -65,4 +65,8 @@ void func_8001CD60(void);
 void func_8001CDA0(int left, int top, int right, int bottom, int value);
 void func_8001CE68(void);
 
+extern unsigned char D_80090690[16];
+extern unsigned char D_800906A0[28];
+extern unsigned char D_800906BC[12];
+
 #endif

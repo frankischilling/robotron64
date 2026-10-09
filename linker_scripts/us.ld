@@ -1387,7 +1387,11 @@ SECTIONS
     .error_formatted_table 0x80090460 : AT(0x91060) SUBALIGN(4) { build/us/error_formatted.o(.rodata) }
     .error_fallback_910a8_910b0 0x800904A8 : AT(0x910A8) { build/us/fallback.o(.rom_error_fallback_910a8_910b0) }
     .scripted_file_diagnostics 0x800904B0 : AT(0x910B0) SUBALIGN(4) { build/us/scripted_file_diagnostics.o(.data) }
-    .scripted_file_fallback_91290_923f8 0x80090690 : AT(0x91290) { build/us/fallback.o(.rom_scripted_file_fallback_91290_923f8) }
+    .script_command_literals 0x80090690 : AT(0x91290) SUBALIGN(4) { build/us/script_command_literals.o(.data) }
+    .script_resource_gap_912c8_912d0 0x800906C8 : AT(0x912C8) { build/us/fallback.o(.rom_script_resource_gap_912c8_912d0) }
+    .script_animation_literals 0x800906D0 : AT(0x912D0) SUBALIGN(4) { build/us/script_animation_literals.o(.data) }
+    .actor_resource_literals 0x80090704 : AT(0x91304) SUBALIGN(4) { build/us/actor_resource_literals.o(.data) }
+    .script_resource_fallback_913a8_923f8 0x800907A8 : AT(0x913A8) { build/us/fallback.o(.rom_script_resource_fallback_913a8_923f8) }
     .scene_arrivals_diagnostics 0x800917F8 : AT(0x923F8) SUBALIGN(4) { build/us/scene_arrivals_diagnostics.o(.data) }
     .error_fallback_92434_92558 0x80091834 : AT(0x92434) { build/us/fallback.o(.rom_error_fallback_92434_92558) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
@@ -3223,7 +3227,8 @@ ASSERT(SIZEOF(.scene_action_fallback_90f96_90fc8) == 0x32, "scene_action_fallbac
 ASSERT(SIZEOF(.input_sequence_limit_message) == 0x20, "input_sequence_limit_message size changed")
 ASSERT(SIZEOF(.scene_action_table) == 0x38, "scene_action_table size changed")
 ASSERT(SIZEOF(.error_fallback_910a8_910b0) == 0x8, "error_fallback_910a8_910b0 size changed")
-ASSERT(SIZEOF(.scripted_file_fallback_91290_923f8) == 0x1168, "scripted_file_fallback_91290_923f8 size changed")
+ASSERT(SIZEOF(.script_resource_gap_912c8_912d0) == 0x8, "script_resource_gap_912c8_912d0 size changed")
+ASSERT(SIZEOF(.script_resource_fallback_913a8_923f8) == 0x1050, "script_resource_fallback_913a8_923f8 size changed")
 ASSERT(SIZEOF(.error_fallback_92434_92558) == 0x124, "error_fallback_92434_92558 size changed")
 ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")
 ASSERT(SIZEOF(.early_boss_create) == 0x304, "early_boss_create size changed")
@@ -3615,3 +3620,29 @@ ASSERT(D_800905B8 == ADDR(.scripted_file_diagnostics) + 0x108, "D_800905B8 sourc
 ASSERT(D_800905F8 == ADDR(.scripted_file_diagnostics) + 0x148, "D_800905F8 source definition overridden")
 ASSERT(D_80090630 == ADDR(.scripted_file_diagnostics) + 0x180, "D_80090630 source definition overridden")
 ASSERT(D_80090660 == ADDR(.scripted_file_diagnostics) + 0x1B0, "D_80090660 source definition overridden")
+
+ASSERT(ADDR(.script_command_literals) == 0x80090690, "script_command_literals moved")
+ASSERT(SIZEOF(.script_command_literals) == 0x38, "script_command_literals size changed")
+ASSERT(D_80090690 == ADDR(.script_command_literals) + 0x0, "D_80090690 source definition overridden")
+ASSERT(D_800906A0 == ADDR(.script_command_literals) + 0x10, "D_800906A0 source definition overridden")
+ASSERT(D_800906BC == ADDR(.script_command_literals) + 0x2C, "D_800906BC source definition overridden")
+
+ASSERT(ADDR(.script_animation_literals) == 0x800906D0, "script_animation_literals moved")
+ASSERT(SIZEOF(.script_animation_literals) == 0x34, "script_animation_literals size changed")
+ASSERT(D_800906D0 == ADDR(.script_animation_literals) + 0x0, "D_800906D0 source definition overridden")
+ASSERT(D_800906D8 == ADDR(.script_animation_literals) + 0x8, "D_800906D8 source definition overridden")
+ASSERT(D_800906E0 == ADDR(.script_animation_literals) + 0x10, "D_800906E0 source definition overridden")
+ASSERT(D_800906E8 == ADDR(.script_animation_literals) + 0x18, "D_800906E8 source definition overridden")
+
+ASSERT(ADDR(.actor_resource_literals) == 0x80090704, "actor_resource_literals moved")
+ASSERT(SIZEOF(.actor_resource_literals) == 0xA4, "actor_resource_literals size changed")
+ASSERT(D_80090704 == ADDR(.actor_resource_literals) + 0x0, "D_80090704 source definition overridden")
+ASSERT(D_80090734 == ADDR(.actor_resource_literals) + 0x30, "D_80090734 source definition overridden")
+ASSERT(D_8009074C == ADDR(.actor_resource_literals) + 0x48, "D_8009074C source definition overridden")
+ASSERT(D_80090754 == ADDR(.actor_resource_literals) + 0x50, "D_80090754 source definition overridden")
+ASSERT(D_80090760 == ADDR(.actor_resource_literals) + 0x5C, "D_80090760 source definition overridden")
+ASSERT(D_80090768 == ADDR(.actor_resource_literals) + 0x64, "D_80090768 source definition overridden")
+ASSERT(D_80090770 == ADDR(.actor_resource_literals) + 0x6C, "D_80090770 source definition overridden")
+ASSERT(D_8009077C == ADDR(.actor_resource_literals) + 0x78, "D_8009077C source definition overridden")
+ASSERT(D_80090784 == ADDR(.actor_resource_literals) + 0x80, "D_80090784 source definition overridden")
+ASSERT(D_8009078C == ADDR(.actor_resource_literals) + 0x88, "D_8009078C source definition overridden")

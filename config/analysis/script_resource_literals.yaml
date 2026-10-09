@@ -1,0 +1,32 @@
+name: Robotron 64 verified script and resource literals
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: script_resource_literals
+  base_path: ../../.local/script-resource-literals-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: script_command_literals
+    type: code
+    start: 0x91290
+    vram: 0x80090690
+    subsegments:
+      - [0x91290, rodata, script_command_literals]
+  - [0x912C8, bin, unexplained_command_animation_gap]
+  - name: script_animation_literals
+    type: code
+    start: 0x912D0
+    vram: 0x800906D0
+    subsegments:
+      - [0x912D0, rodata, script_animation_literals]
+  - name: actor_resource_literals
+    type: code
+    start: 0x91304
+    vram: 0x80090704
+    subsegments:
+      - [0x91304, rodata, actor_resource_literals]
+  - [0x913A8, bin, suffix]
+  - [0x800000]
