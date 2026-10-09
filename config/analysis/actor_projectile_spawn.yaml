@@ -1,0 +1,19 @@
+name: Robotron complete projectile_spawn retail function
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: projectile_spawn
+  base_path: ../../.local/projectile-references/splat
+  target_path: ../../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: projectile_spawn
+    type: code
+    start: 0x3998C
+    vram: 0x80038D8C
+    subsegments:
+      - [0x3998C, asm, projectile_spawn]
+  - [0x39D9C, bin, suffix]
+  - [0x800000]

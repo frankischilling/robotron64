@@ -62,10 +62,10 @@ sizes, hashes and measured conclusions. Tool sources and N64 reference projects
 are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-study.md).
 No third-party game implementation or generated retail code is added here.
 
-Fresh acceptance checks cover all 910 runtime comparison units, two startup
+Fresh acceptance checks cover all 911 runtime comparison units, two startup
 units, eighteen assembly units and 198 data-only units. The clean build matches
-all 8,388,608 retail bytes. The checkpoint has 1,428 matching C functions /
-311,596 bytes, twenty-nine assembly functions / 4,372 bytes, 37,731 initialized
+all 8,388,608 retail bytes. The checkpoint has 1,429 matching C functions /
+312,636 bytes, twenty-nine assembly functions / 4,372 bytes, 37,731 initialized
 data bytes and 879,157 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -152,7 +152,7 @@ The object projection candidate at `8003B2B0` remains excluded. A separate
 400 suggestions. Independent compilation of the twenty lowest-scoring forms
 still found complete-function mismatches. Those scores add no matching credit.
 
-Full source recovery remains incomplete: 138,588 declared fallback CPU bytes
+Full source recovery remains incomplete: 137,548 declared fallback CPU bytes
 in 184 spans and 164 unclassified bytes remain. The executable/function
 denominator is unknown, and these checks do not establish complete gameplay.
 
@@ -173,3 +173,6 @@ initialized bytes in complete C arrays; their six callers already match.
 
 Seventeen [script and resource literals](script-resource-literals.md) add
 272 initialized bytes; the eight-byte unexplained gap remains fallback.
+
+[Projectile spawn](actor-projectile-spawn.md) adds one complete function and
+1,040 code bytes, with no new initialized data or BSS ownership.

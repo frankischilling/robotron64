@@ -1,0 +1,1138 @@
+{
+  "schema": 1,
+  "kind": "complete source-owned projectile spawn procedure",
+  "verified_date": "2026-10-09",
+  "baseline_head": "9cd79702df8c0f9eeda86056333c9b98242aa365",
+  "owned_added": {
+    "functions": 1,
+    "code": 1040,
+    "initialized_data": 0,
+    "bss": 0
+  },
+  "function": {
+    "name": "func_80038D8C",
+    "source": "src/game/actor_projectiles/spawn.c",
+    "source_sha256": "deb8c450d56cdcfbb04a27dcd75c33563631d934b6b54eae845cdb6b5008e29e",
+    "vram": 2147716492,
+    "rom": 235916,
+    "natural_function_bytes": 1040,
+    "raw_text_bytes": 1040,
+    "raw_text_sha256": "ca56d8bd24be383ceab9304bcbdbe71b8217e72332a57940c8a2bbf271f636ee",
+    "raw_relocations": [
+      {
+        "section": ".rel.text",
+        "offset": 164,
+        "type": 5,
+        "symbol": "D_800AC998"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 168,
+        "type": 6,
+        "symbol": "D_800AC998"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 176,
+        "type": 5,
+        "symbol": "D_8009EF94"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 188,
+        "type": 6,
+        "symbol": "D_8009EF94"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 180,
+        "type": 5,
+        "symbol": "D_800AC98C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 184,
+        "type": 6,
+        "symbol": "D_800AC98C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 208,
+        "type": 4,
+        "symbol": "func_800283D4"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 228,
+        "type": 5,
+        "symbol": "D_800AC998"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 232,
+        "type": 6,
+        "symbol": "D_800AC998"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 252,
+        "type": 5,
+        "symbol": "func_80005560"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 256,
+        "type": 6,
+        "symbol": "func_80005560"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 260,
+        "type": 4,
+        "symbol": "func_80039C50"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 272,
+        "type": 4,
+        "symbol": "func_80039BE4"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 308,
+        "type": 5,
+        "symbol": "D_800ACA50"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 312,
+        "type": 6,
+        "symbol": "D_800ACA50"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 328,
+        "type": 5,
+        "symbol": "func_80005560"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 332,
+        "type": 6,
+        "symbol": "func_80005560"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 336,
+        "type": 4,
+        "symbol": "func_80039C50"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 320,
+        "type": 5,
+        "symbol": "D_800ACAAC"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 368,
+        "type": 6,
+        "symbol": "D_800ACAAC"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 388,
+        "type": 4,
+        "symbol": "func_80039C50"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 524,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 564,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 608,
+        "type": 4,
+        "symbol": "func_80039514"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 616,
+        "type": 4,
+        "symbol": "func_8004CDE8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 668,
+        "type": 4,
+        "symbol": "func_8004CDE8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 756,
+        "type": 5,
+        "symbol": "D_800AC9F4"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 760,
+        "type": 6,
+        "symbol": "D_800AC9F4"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 864,
+        "type": 5,
+        "symbol": "D_800AC998"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 884,
+        "type": 6,
+        "symbol": "D_800AC998"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 896,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 924,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 956,
+        "type": 4,
+        "symbol": "func_80039514"
+      }
+    ],
+    "linked_text_bytes": 1040,
+    "instructions": 260,
+    "frame_bytes": 104,
+    "code_sha256": "16a781cecfbf500dde2a6cbb85a33007f4682837f234ef56315583d1fafd6ead",
+    "alignment_bytes_credited": 0,
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+    "complete_comparison_sha256": "0e06b7b6f8762b95152b899b5816eccb0bc9d341879d4b624619b4215280cdc5",
+    "independent_references": {
+      "spimdisasm": {
+        "matches": true,
+        "natural_function_bytes": 1040,
+        "raw_text_bytes": 1040,
+        "complete_linked_text_bytes": 1040,
+        "code_sha256": "16a781cecfbf500dde2a6cbb85a33007f4682837f234ef56315583d1fafd6ead",
+        "source_sha256": "b423a0bbd713ecdffed402fdb524c5b80bcb8274cbd7fd4f0414587add2b8e0a",
+        "raw_object_sha256": "303699e31db7ada3efec4e89240eeddd0041146a916396070ac6a14d62721284",
+        "elf_sha256": "859ce2e2287eb4341d88de365fb50187c07a81fd739924ee9f4c824e3bcf824e",
+        "bindings": {
+          "D_8009EF94": "0x8009ef94",
+          "D_800AC98C": "0x800ac98c",
+          "D_800AC998": "0x800ac998",
+          "D_800AC9F4": "0x800ac9f4",
+          "D_800ACA50": "0x800aca50",
+          "D_800ACAAC": "0x800acaac",
+          "func_80005560": "0x80005560",
+          "func_800283D4": "0x800283d4",
+          "func_80039514": "0x80039514",
+          "func_80039BE4": "0x80039be4",
+          "func_80039C50": "0x80039c50",
+          "func_8003CC58": "0x8003cc58",
+          "func_8003CC88": "0x8003cc88",
+          "func_8004CDE8": "0x8004cde8"
+        }
+      },
+      "splat": {
+        "matches": true,
+        "natural_function_bytes": 1040,
+        "raw_text_bytes": 1040,
+        "complete_linked_text_bytes": 1040,
+        "code_sha256": "16a781cecfbf500dde2a6cbb85a33007f4682837f234ef56315583d1fafd6ead",
+        "source_sha256": "cb0cdf9fe897076834d770ae75ea9f776154ffabd1a7844dc19ad1f18a93aeb0",
+        "raw_object_sha256": "a82f97bf6c9f4965844579ecc4ea8617094960358372bc25b2143af520f642bf",
+        "elf_sha256": "06feb52426edae20a4d4ae5439084d1ab7bab2c2c7989735293d06c4192b32a7",
+        "bindings": {
+          "D_80005560": "0x80005560",
+          "D_8009EF94": "0x8009ef94",
+          "D_800AC98C": "0x800ac98c",
+          "D_800AC998": "0x800ac998",
+          "D_800AC9F4": "0x800ac9f4",
+          "D_800ACA50": "0x800aca50",
+          "D_800ACAAC": "0x800acaac",
+          "func_800283D4": "0x800283d4",
+          "func_80039514": "0x80039514",
+          "func_80039BE4": "0x80039be4",
+          "func_80039C50": "0x80039c50",
+          "func_8003CC58": "0x8003cc58",
+          "func_8003CC88": "0x8003cc88",
+          "func_8004CDE8": "0x8004cde8"
+        }
+      }
+    }
+  },
+  "existing_resource_views": {
+    "D_800AC9F4": {
+      "array": "D_800AC998",
+      "element": 1,
+      "offset": 92,
+      "vram": 2148190708,
+      "section_index": "SHN_ABS",
+      "new_owned_bytes": 0
+    },
+    "D_800ACA50": {
+      "array": "D_800AC998",
+      "element": 2,
+      "offset": 184,
+      "vram": 2148190800,
+      "section_index": "SHN_ABS",
+      "new_owned_bytes": 0
+    },
+    "D_800ACAAC": {
+      "array": "D_800AC998",
+      "element": 3,
+      "offset": 276,
+      "vram": 2148190892,
+      "section_index": "SHN_ABS",
+      "new_owned_bytes": 0
+    }
+  },
+  "preceding_unowned_range": {
+    "vram": 2147715120,
+    "bytes": 1372,
+    "ownership_added": 0
+  },
+  "source_review": {
+    "readable_reconstruction_not_original_source": true,
+    "dummy_or_identity_expressions": false,
+    "inline_assembly_or_inserted_opcodes": false,
+    "spawned_flag_expression": "The actual spawned-flag store is consumed before the first resource comparison; the loop indices, record pointer and copied position all carry real values.",
+    "historical_nonmatching_baseline_and_permuter_suggestions_retained_privately": true,
+    "private_receipts_root": ".local/projectile-spawn-20261009"
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "full_function_extent_and_signature_verified": true,
+    "full_retail_bytes_verified": 1040,
+    "saved": true,
+    "private_research_receipt_sha256": "ba462e71f29c70962d927316b95b869b4b73577a9068863bd959e9afd48f92f4",
+    "private_acceptance_receipt_sha256": "eb0f99806384c5398009fc767e1f6cd4833f7c43ea45fa3a8b3de84477df37eb"
+  },
+  "execution": {
+    "paired_cases": 606,
+    "principal_executions": 1212,
+    "support_calls_per_image": 8863,
+    "digest": "59fa1cd48ee94fcb14c306dee223a472855ed370c4c3ed40180e2f048cfa5f5f",
+    "complete_support_instruction_bytes": 2356,
+    "initialized_support_bytes": 2064,
+    "source_mutants_rejected": 8,
+    "saved_fpu_faults_rejected": 12,
+    "guest_access_faults_rejected": 3,
+    "positive_retail_and_candidate_before_every_fault": true,
+    "candidate_positive_after_every_fault": true,
+    "checker_sha256": "e6895b132ffb7d374595ad08d20f377b125d4e7fed5f2b1d7ee17e276d8a2f83",
+    "runner_sha256": "cd3364406ca735c2f4e167132b0194b7fed0b30c9d9181528663d2eb2475a809",
+    "limitations": [
+      "Allocation alone uses an argument-checked ABI boundary with synthetic actors; all six matching support units execute.",
+      "Allocation-time position mutations are adversarial fixtures, not asserted allocator behavior.",
+      "Finite valid resource kinds and mapped objects only; unsafe kinds, arbitrary aliasing and full gameplay remain unverified.",
+      "Stack interiors are bounded and preserved integer/FPU registers are checked; stack byte identity is not claimed."
+    ],
+    "controls": [
+      {
+        "kind": "source",
+        "name": "z_copy",
+        "rejected": true,
+        "reason": "('copied position', [12345, -6789, 8663], [12345, -6789, 8662])",
+        "source_sha256": "da978e560e14f603bd59f8e4af69cb98138893e90c46dd06f8ac078d64e47eb3",
+        "comparison_sha256": "0e5f96369b49b7927301551d8b4dff79c1044166742ed7e7c7bc7c82cac1c7bd"
+      },
+      {
+        "kind": "source",
+        "name": "spawn_count",
+        "rejected": true,
+        "reason": "('trace', [[2147648468, [4, 2148190984, [12345, -6789, 8662]]], [2147732616, [0]], [2147732568, [0]], [2147718420, [0, 0]], [2147798504, []], [2147798504, []]], [[2147648468, [4, 2148190984, [12345, -6789, 8662]]], [2147732616, [0]], [2147732568, [0]], [2147718420, [0, 0]], [2147798504, []], [2147798504, []], [2147648468, [4, 2148190984, [12362, -6818, 8705]]], [2147732616, [0]], [2147732568, [0]], [2147718420, [1, 0]], [2147798504, []], [2147798504, []], [2147648468, [4, 2148190984, [12396, -6876, 8791]]], [2147732616, [0]], [2147732568, [0]], [2147718420, [17, 0]], [2147798504, []], [2147798",
+        "source_sha256": "eb66b44173ad234fdb648fdac6753c8db47ee17e3806225cfc5839024cf0bc46",
+        "comparison_sha256": "865dab12b412e3f6bec5f3a0d8c5d2c2c1bccb8371c15a58c7d9ae6f56ed3bed"
+      },
+      {
+        "kind": "source",
+        "name": "secondary_flag",
+        "rejected": true,
+        "reason": "('memory', '0x80205100', [('0x80205126', 94, 93)])",
+        "source_sha256": "39ed22ba227d00821e96a70957812259bec2a6fc6b5d4f0149facb8c6f99aa1e",
+        "comparison_sha256": "58efe5112d2ea378b5b132fb46d0ff0c0ca36eac4779fe4145a6e8c7bc711e5b"
+      },
+      {
+        "kind": "source",
+        "name": "wrong_resource_speed",
+        "rejected": true,
+        "reason": "('memory', '0x80205000', [('0x8020503f', 68, 223), ('0x80205067', 68, 223), ('0x8020507e', 252, 253), ('0x8020507f', 208, 107)])",
+        "source_sha256": "6446d2ff6cfa3900d72bd5b3183f5d7fe075efe2a3763aefc615b24d2ff59b62",
+        "comparison_sha256": "281f40766cb5374b44d2d625c08a74e9d88eafe719ef35243b5f211c3c17c7c3"
+      },
+      {
+        "kind": "source",
+        "name": "negative_division",
+        "rejected": true,
+        "reason": "('memory', '0x80205000', [('0x8020507f', 60, 61)])",
+        "source_sha256": "5013fd8af3a9e914c8e3ba8dcbdb6f36cd94f777bd871eaa1a60133f48b764e0",
+        "comparison_sha256": "3175b64b61cfe2476a1d62ad3f8f1f6304b726b649f6844e901f83536cc7f745"
+      },
+      {
+        "kind": "source",
+        "name": "owner_velocity",
+        "rejected": true,
+        "reason": "('memory', '0x80205000', [('0x8020507f', 224, 107)])",
+        "source_sha256": "217e161f8d960cd15c16f1f9657c9bfde584cf0007eafa1270eccc9aba67568c",
+        "comparison_sha256": "d262ba935b554e9f5a9386f8a99fbf875409534231bfe52c5b5612bbe536ec95"
+      },
+      {
+        "kind": "source",
+        "name": "angle_threshold",
+        "rejected": true,
+        "reason": "('memory', '0x80205000', [('0x80205077', 6, 106)])",
+        "source_sha256": "a9c2e4ac65b58a15cdd4fb70e649a094459d76a9ad69f8d966feaa5ab6effb38",
+        "comparison_sha256": "0b45ec1a6b54fde7f2eeba522f3279ca473ce7cad25fa88b952afa69f140ff69"
+      },
+      {
+        "kind": "source",
+        "name": "last_result",
+        "rejected": true,
+        "reason": "('result', '0x0', '0x80205010')",
+        "source_sha256": "a2759227d4d6706551432abd7ce918a7032ca138dfb92714f4c149b87c07c8b7",
+        "comparison_sha256": "5ace49a04f8fe79b55839e273f5ace134be6e5ef8fd347acd5839ef4dbbc0c14"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 20,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 21,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 22,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 23,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 24,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 25,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 26,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 27,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 28,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 29,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 30,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 31,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "access",
+        "name": "null",
+        "rejected": true,
+        "reason": "('access', 16, '0x80000000', 4, '0x80038dec')"
+      },
+      {
+        "kind": "access",
+        "name": "misaligned",
+        "rejected": true,
+        "reason": "Unhandled CPU exception (UC_ERR_EXCEPTION)"
+      },
+      {
+        "kind": "access",
+        "name": "past_position",
+        "rejected": true,
+        "reason": "('access', 16, '0x8020101c', 4, '0x80038e04')"
+      }
+    ],
+    "support_comparisons": {
+      "object_transforms": {
+        "source": "src/game/object_transforms.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 1976,
+        "actual_size": 1976,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "11c11a2288a2de33a00cc7dc594131072fe439603a6fb700cbde7e7e7325be15",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_recovery_fixed_trig": {
+        "source": "src/game/object_recovery_fixed_trig.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 144,
+        "actual_size": 144,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "c3ee2c4478cc0e3e0c0053045efdf360f3ff39931d8ae2d74bc1e2bf4b06fb4a",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "runtime_random": {
+        "source": "src/game/runtime_random.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 32,
+        "actual_size": 32,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "5e07534e4348705010046ce93ae896763105d8bdfb47e77698a064ce855338c4",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "gu_random": {
+        "source": "src/sdk/gu_random.c",
+        "compiler_profile": {
+          "name": "sdk-o2-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "expected_size": 44,
+        "actual_size": 44,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "ca0c4f89f5e12e0eebe0acab7c60c2adfda65f3ba79d58b08024118a99d784c8",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "short_sine": {
+        "source": "src/sdk/short_sine.c",
+        "compiler_profile": {
+          "name": "sdk-o2-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "expected_size": 112,
+        "actual_size": 112,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "b3559f474397cbb8a89d879117bdb09fce3b5650c9385db23954e0264770254f",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "short_cosine": {
+        "source": "src/sdk/short_cosine.c",
+        "compiler_profile": {
+          "name": "sdk-o2-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "expected_size": 48,
+        "actual_size": 48,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "6c3ff48a51243ca00b57bc960ac28c47abef85acc458e801a587a57ede27ffa1",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "src/game/object_angle_setter_constants.c": {
+        "source": "src/game/object_angle_setter_constants.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "matches": true,
+        "complete_comparison_sha256": "dce854f33c19a6d1c8cbd2c880cc46c8e228f4a39472d5e0c530215f127a05a6",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      }
+    },
+    "private_complete_report_sha256": "637169fd892cbe602474faa43aaa04ee7fa496fc497ff6c58fb70e7b51d3bfc2"
+  },
+  "validation": {
+    "stages": [
+      {
+        "step": "independent-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/projection-references/generate.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.39
+      },
+      {
+        "step": "independent-literal-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/literal-references.py",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.65
+      },
+      {
+        "step": "independent-projectile-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/projectile-references/generate.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.83
+      },
+      {
+        "step": "clean-build",
+        "command": [
+          "make",
+          "-j4",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 67.81
+      },
+      {
+        "step": "projectile-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_projectile_spawn.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 12.49
+      },
+      {
+        "step": "literal-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_script_resource_literals.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 11.47
+      },
+      {
+        "step": "diagnostic-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_scripted_file_diagnostics.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 2.73
+      },
+      {
+        "step": "diagnostic-controls",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/diagnostic-controls.py",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 2.51
+      },
+      {
+        "step": "script-storage",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_script_resource_storage.py",
+          "--mutations"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 36.75
+      },
+      {
+        "step": "formatter-regression",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_error_formatters.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 28.73
+      },
+      {
+        "step": "verify-progress",
+        "command": [
+          "make",
+          "progress",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 31.87
+      },
+      {
+        "step": "remaining",
+        "command": [
+          "make",
+          "remaining",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.8
+      },
+      {
+        "step": "runtime",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_runtime.py",
+          "-j4"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 499.02
+      },
+      {
+        "step": "startup",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_startup.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.99
+      },
+      {
+        "step": "assembly",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_assembly.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 11.82
+      },
+      {
+        "step": "data",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_data.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 11.24
+      },
+      {
+        "step": "excluded",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_runtime.py",
+          "--candidates",
+          "-j4"
+        ],
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "seconds": 13.82
+      },
+      {
+        "step": "path-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_group_path.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 150.05
+      },
+      {
+        "step": "bonus-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_bonus_child.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 15.08
+      },
+      {
+        "step": "boundary-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_boundary_boss.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 17.15
+      },
+      {
+        "step": "boundary-mutations",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/boundary-mutations.py",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 2.31
+      },
+      {
+        "step": "projection-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_startup_projection.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 20.64
+      },
+      {
+        "step": "projection-controls",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_startup_projection.py",
+          "--controls"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 6.52
+      },
+      {
+        "step": "graphics-storage",
+        "command": [
+          "make",
+          "audit-graphics-setup-storage",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 19.39
+      },
+      {
+        "step": "setup-audit",
+        "command": [
+          "make",
+          "audit-scene-resource-setup",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 11.07
+      },
+      {
+        "step": "renderer-grid",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_renderer_grid.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 32.04
+      },
+      {
+        "step": "tests",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.3
+      },
+      {
+        "step": "manifest",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/manifest.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.93
+      },
+      {
+        "step": "fresh-workbench",
+        "command": [
+          "robotron-tools",
+          "match",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/projection-spec.json",
+          "--fresh",
+          "-j",
+          "2"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.21
+      },
+      {
+        "step": "asm-differ",
+        "command": [
+          "robotron-tools",
+          "diff",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/projection-spec.json",
+          "--name",
+          "renderer_projection_setup"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.47
+      },
+      {
+        "step": "objdiff",
+        "command": [
+          "robotron-tools",
+          "objdiff",
+          "diff",
+          "-1",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/projection-references/reference.raw.o",
+          "-2",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/build/us/renderer_projection_setup.raw.o",
+          "-o",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/objdiff.json"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.15
+      },
+      {
+        "step": "projectile-fresh-workbench",
+        "command": [
+          "robotron-tools",
+          "match",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/projectile-spec.json",
+          "--fresh",
+          "-j",
+          "2"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.05
+      },
+      {
+        "step": "projectile-asm-differ",
+        "command": [
+          "robotron-tools",
+          "diff",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/projectile-spec.json",
+          "--name",
+          "actor_projectile_spawn"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.46
+      },
+      {
+        "step": "projectile-objdiff",
+        "command": [
+          "robotron-tools",
+          "objdiff",
+          "diff",
+          "-1",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/projectile-references/reference.raw.o",
+          "-2",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/build/us/actor_projectile_spawn.raw.o",
+          "-o",
+          "/root/robotron64-validation/projectile-spawn-final4-20261009/.local/acceptance/projectile-objdiff.json"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.08
+      }
+    ],
+    "comparisons": {
+      "runtime-comparison": {
+        "units": 911,
+        "matches": true,
+        "private_report_sha256": "06dae24c593a584b709c4f5075ea49b8c35496bc028b0cadc846757b911ea273"
+      },
+      "startup-comparison": {
+        "units": 2,
+        "matches": true,
+        "private_report_sha256": "665750710e51b85f871aa9344bbbdeddc83fbe708f379e86ee56eeec6cf71496"
+      },
+      "assembly-comparison": {
+        "units": 18,
+        "matches": true,
+        "private_report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data-comparison": {
+        "units": 198,
+        "matches": true,
+        "private_report_sha256": "2aa59b4b555939640a87a798a5a9a849ca84faae7502976fa89927db4d880820"
+      }
+    },
+    "excluded_candidates": 26,
+    "linux_tests": 171,
+    "windows_tests": 171,
+    "windows_skips": 9,
+    "full_rom_bytes": 8388608,
+    "full_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "frozen_public_inputs": 1994,
+    "frozen_input_map_sha256": "8f80b586c5e6b4271a89e4c4369b43e1a5ddf8c79da9add57a982464d0d488ac",
+    "earlier_failed_setup_and_build_attempts": [
+      {
+        "reason": "The third snapshot passed the clean build and early audits. Review found unnecessary reordering of existing function registry records; restored their original sequence, verified every preexisting record identical, stopped only that snapshot acceptance processes and restarted all stages in snapshot4. No source semantics or ownership changed.",
+        "private_results_sha256": "cfb208be7c8aa496ff3dfc24c7368a77c44dc4b477d24d4778d3d002d1a4cd86"
+      },
+      {
+        "reason": "Initial relative ROM path was one directory too shallow. Corrected the public splat target path and restarted in a fresh snapshot.",
+        "private_results_sha256": "e559435a081bd5b297e513e1ddaaf014e68ed205403520ed3222a750b6819a2b"
+      },
+      {
+        "reason": "The Windows file copy omitted private compiler executable modes. Restored modes from the accepted pinned toolchain before restarting; no source change.",
+        "private_results_sha256": "bc41748586ef53bb300486cd208ec9530af2b5b8b363fb38b52b8e96c0336478"
+      },
+      {
+        "reason": "A new header reused an existing filename. Restored the existing header byte for byte, used a distinct spawn header with complete dependencies, and restarted all stages in a fresh snapshot. No provenance check was weakened.",
+        "private_results_sha256": "d18bb59b5cd9e78f36e6fdb4cfc238472b7e8447f08a303047befdc9bd7c4183"
+      }
+    ],
+    "objdiff_private_report_sha256": "3202365dd3cdc934f77a277c3f5951a266ce18ed4c061beca44a3679cea9ea88",
+    "viewer_score_is_not_acceptance": "Both natural references and complete linked IDO instructions compare byte for byte independently of viewer output.",
+    "post_validation_documentation_edits": [
+      {
+        "path": "docs/actor-projectile-spawn.md",
+        "before_sha256": "b778ae336b5bfbcb9aaee1ff0876acc059cc9b2003ab9f24ce5a7c1a12f22f23",
+        "after_sha256": "1fcbb37dbdc49843d1d52f44ba0019e2b09857f9d87c1627cf376fd62a103a67",
+        "purpose": "Link the completed ledger and state measured acceptance without changing executable inputs."
+      },
+      {
+        "path": "docs/bootstrap-status.md",
+        "before_sha256": "609b9c5645701aaffd428cbfbcc47ad89c62d090c9f7857604d1eab7f3c173b9",
+        "after_sha256": "bb44230dca3e312881c0f7add03aa82dc48759a33f7f80f4cf15a8e0868a4e6e",
+        "purpose": "Refresh measured fallback bytes and runtime unit count after complete acceptance."
+      },
+      {
+        "path": "docs/matching-tools-current.md",
+        "before_sha256": "1b02210ffe36d32dbe36fabfc72c2cb472a66b42b359c6496f948e4eeec031fc",
+        "after_sha256": "ce387c6fcf5961724a7e21f3d8630e1fee356d217e8ab8bfd9a48a5a0fc27e9d",
+        "purpose": "Refresh measured fallback bytes and runtime unit count after complete acceptance."
+      }
+    ]
+  },
+  "current_totals": {
+    "matching_c_functions": 1429,
+    "matching_c_bytes": 312636,
+    "matching_assembly_functions": 29,
+    "matching_assembly_bytes": 4372,
+    "initialized_data_bytes": 37731,
+    "bss_bytes": 879157,
+    "fallback_cpu_bytes": 137548,
+    "fallback_cpu_spans": 184,
+    "unclassified_cpu_bytes": 164,
+    "full_decompilation_complete": false
+  }
+}

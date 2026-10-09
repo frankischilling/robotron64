@@ -70,6 +70,7 @@ MATCHING_BLOCKS = (
     ("tweak_scene_define", "src/game/tweak_scene_define.c", 0x800378CC, 0x8003799C),
     ("tweak_difficulty_define", "src/game/tweak_difficulty_define.c", 0x8003762C, 0x80037700),
     ("actor_animation", "src/game/actor_animation.c", 0x80027AB8, 0x80027B9C),
+    ("actor_projectile_spawn", "src/game/actor_projectiles/spawn.c", 0x80038D8C, 0x8003919C),
     ("object_transforms", "src/game/object_transforms.c", 0x800394C0, 0x80039C78),
     ("text", "src/game/text.c", 0x80000450, 0x80000F48),
     ("text_conversion", "src/game/text_conversion.c", 0x800016D8, 0x8000177C),

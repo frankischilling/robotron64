@@ -534,6 +534,7 @@ SECTIONS
     .scene_timer_initialize 0x800387C8 : AT(0x393C8) SUBALIGN(4) { build/us/scene_timer_initialize.o(.text) }
     .scene_timer_service 0x80038810 : AT(0x39410) SUBALIGN(4) { build/us/scene_timer_service.o(.text) }
     .cpu_after_scene_timer_service 0x80038830 : AT(0x39430) { build/us/fallback.o(.rom_cpu_after_scene_timer_service) }
+    .actor_projectile_spawn 0x80038D8C : AT(0x3998C) SUBALIGN(4) { build/us/actor_projectile_spawn.o(.text) }
     .object_service 0x8003919C : AT(0x39D9C) SUBALIGN(4) { build/us/object_service.o(.text) }
     .cpu_after_object_service 0x800391BC : AT(0x39DBC) { build/us/fallback.o(.rom_cpu_after_object_service) }
     .object_registration 0x800391C0 : AT(0x39DC0) SUBALIGN(4) { build/us/object_registration.o(.text) }
@@ -1948,7 +1949,7 @@ ASSERT(SIZEOF(.cpu_after_resource_string_load) == 0x4, "cpu_after_resource_strin
 ASSERT(SIZEOF(.scene_timer_capture) == 0x28, "scene_timer_capture size changed")
 ASSERT(SIZEOF(.scene_timer_initialize) == 0x48, "scene_timer_initialize size changed")
 ASSERT(SIZEOF(.scene_timer_service) == 0x20, "scene_timer_service size changed")
-ASSERT(SIZEOF(.cpu_after_scene_timer_service) == 0x96c, "cpu_after_scene_timer_service size changed")
+ASSERT(SIZEOF(.cpu_after_scene_timer_service) == 0x55c, "cpu_after_scene_timer_service size changed")
 ASSERT(SIZEOF(.object_service) == 0x20, "object_service size changed")
 ASSERT(SIZEOF(.cpu_after_object_service) == 0x4, "cpu_after_object_service size changed")
 ASSERT(SIZEOF(.object_registration) == 0x5c, "object_registration size changed")
@@ -3646,3 +3647,16 @@ ASSERT(D_80090770 == ADDR(.actor_resource_literals) + 0x6C, "D_80090770 source d
 ASSERT(D_8009077C == ADDR(.actor_resource_literals) + 0x78, "D_8009077C source definition overridden")
 ASSERT(D_80090784 == ADDR(.actor_resource_literals) + 0x80, "D_80090784 source definition overridden")
 ASSERT(D_8009078C == ADDR(.actor_resource_literals) + 0x88, "D_8009078C source definition overridden")
+
+ASSERT(ADDR(.actor_projectile_spawn) == 0x80038D8C, "projectile spawn moved")
+ASSERT(SIZEOF(.actor_projectile_spawn) == 0x410, "projectile spawn size changed")
+ASSERT(func_80038D8C == ADDR(.actor_projectile_spawn), "projectile spawn source definition overridden")
+D_800AC9F4 = D_800AC998 + 1 * 0x5C;
+ASSERT(D_800AC9F4 == 0x800AC9F4, "D_800AC9F4 resource view moved")
+ASSERT(D_800AC9F4 == ADDR(.actor_child_resources) + 1 * 0x5C, "D_800AC9F4 resource view lost source ownership")
+D_800ACA50 = D_800AC998 + 2 * 0x5C;
+ASSERT(D_800ACA50 == 0x800ACA50, "D_800ACA50 resource view moved")
+ASSERT(D_800ACA50 == ADDR(.actor_child_resources) + 2 * 0x5C, "D_800ACA50 resource view lost source ownership")
+D_800ACAAC = D_800AC998 + 3 * 0x5C;
+ASSERT(D_800ACAAC == 0x800ACAAC, "D_800ACAAC resource view moved")
+ASSERT(D_800ACAAC == ADDR(.actor_child_resources) + 3 * 0x5C, "D_800ACAAC resource view lost source ownership")

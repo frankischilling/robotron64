@@ -62,7 +62,7 @@ REGIONS = (
     ("cpu_after_debug_context_set", 0x38018, 0x38020),
     ("cpu_after_debug_text_draw", 0x380c8, 0x380d0),
     ("cpu_after_resource_string_load", 0x3916c, 0x39170),
-    ("cpu_after_scene_timer_service", 0x39430, 0x39d9c),
+    ("cpu_after_scene_timer_service", 0x39430, 0x3998c),
     ("cpu_after_object_service", 0x39dbc, 0x39dc0),
     ("cpu_after_object_helpers_draw_mode", 0x3b4b0, 0x3be54),
     ("cpu_after_object_runtime_service", 0x3beb0, 0x3c028),

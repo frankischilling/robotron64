@@ -8297,6 +8297,7 @@ RUNTIME_OBJECTS += build/us/scripted_file_diagnostics.o
 RUNTIME_OBJECTS += build/us/script_command_literals.o
 RUNTIME_OBJECTS += build/us/script_animation_literals.o
 RUNTIME_OBJECTS += build/us/actor_resource_literals.o
+RUNTIME_OBJECTS += build/us/actor_projectile_spawn.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
@@ -8637,3 +8638,13 @@ build/us/actor_resource_literals.o: src/game/actor_resources/literals.c include/
 .PHONY: audit-script-resource-literals
 audit-script-resource-literals: toolchain
 	$(PYTHON) tools/check_script_resource_literals.py
+
+build/us/actor_projectile_spawn.o: src/game/actor_projectiles/spawn.c include/actor.h include/actor_behavior_internal.h include/actor_behavior_more_internal.h include/actor_projectile_spawn_internal.h include/actor_resource_5c_internal.h include/early_game_state.h include/game_memory.h include/object.h include/object_recovery.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_projectile_spawn.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/actor_projectile_spawn.raw.o $@ .text 0x410
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: audit-actor-projectile-spawn
+audit-actor-projectile-spawn: toolchain
+	$(PYTHON) tools/check_actor_projectile_spawn.py

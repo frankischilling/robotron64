@@ -2,13 +2,13 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
-Current verified totals are 1,428 matching C functions / 311,596 instruction
+Current verified totals are 1,429 matching C functions / 312,636 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 37,731 initialized bytes
 and 879,157 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
-There remain 138,588 declared fallback CPU bytes in 184 spans and 164 unclassified
+There remain 137,548 declared fallback CPU bytes in 184 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
 
@@ -60,7 +60,7 @@ BSS and both width tables add 144 initialized bytes. All thirty allocation slots
 exhaustion and the full reset pass 744 guarded cases per image; another 1,024
 cases check every byte-valued character. Five isolated source mutations are rejected. The
 [current matching-tool audit](matching-tools-current.md) independently compares
-910 runtime units, two startup units, eighteen assembly units and 198 data-only
+911 runtime units, two startup units, eighteen assembly units and 198 data-only
 units. The [bonus-child creator](actor-bonus-child.md) contributes one complete
 matching C function / 744 instruction bytes. Reusing the selected pointer and
 preserving declaration order reproduces its 56-byte frame and all stack homes;
@@ -270,3 +270,6 @@ initialized bytes in complete C arrays; their six callers already match.
 
 Seventeen [script and resource literals](script-resource-literals.md) add
 272 initialized bytes; the eight-byte unexplained gap remains fallback.
+
+[Projectile spawn](actor-projectile-spawn.md) adds one complete function and
+1,040 code bytes, with no new initialized data or BSS ownership.

@@ -16063,5 +16063,16 @@
     "section": ".renderer_projection_setup",
     "section_vram": 2147782108,
     "evidence": "docs/startup-projection-and-diagnostics.md"
+  },
+  {
+    "name": "func_80038D8C",
+    "rom": 235916,
+    "vram": 2147716492,
+    "size": 1040,
+    "source": "src/game/actor_projectiles/spawn.c",
+    "object": "build/us/actor_projectile_spawn.o",
+    "section": ".actor_projectile_spawn",
+    "section_vram": 2147716492,
+    "evidence": "docs/actor-projectile-spawn.md"
   }
 ]
