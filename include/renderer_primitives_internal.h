@@ -17,6 +17,7 @@ typedef struct RendererMeshPrefix {
 typedef char RendererMeshPrefixMustBe24Bytes[
     sizeof(RendererMeshPrefix) == 24 ? 1 : -1];
 
+extern short D_800736D0[4][2];
 extern short D_8007CDB0[4][2];
 extern int D_8007CDC0;
 extern int D_800BF90C;

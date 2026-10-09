@@ -197,7 +197,7 @@ REGIONS = (
     ("trigger_fallback_73d40_74188", 0x73d40, 0x74188),
     ("trigger_fallback_7418c_74190", 0x7418c, 0x74190),
     ("trigger_fallback_742a8_742ac", 0x742a8, 0x742ac),
-    ("collision_fallback_742d0_74550", 0x742d0, 0x74550),
+    ("collision_fallback_742e0_74550", 0x742e0, 0x74550),
     ("collision_fallback_745c8_74648", 0x745c8, 0x74648),
     ("menu_display_choices_before", 0x74688, 0x76df8),
     ("front_fallback_76e08_778d0", 0x76e08, 0x778d0),

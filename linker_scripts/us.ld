@@ -1210,7 +1210,8 @@ SECTIONS
     .trigger_fallback_742a8_742ac 0x800736A8 : AT(0x742A8) { build/us/fallback.o(.rom_trigger_fallback_742a8_742ac) }
     .early_reset_parameter_data 0x800736AC : AT(0x742AC) SUBALIGN(4) { build/us/early_reset_parameter.o(.data) }
     .boss_update_initializers 0x800736B8 : AT(0x742B8) SUBALIGN(4) { build/us/boss_update.o(.data) }
-    .collision_fallback_742d0_74550 0x800736D0 : AT(0x742D0) { build/us/fallback.o(.rom_collision_fallback_742d0_74550) }
+    .renderer_mesh_texture_corners 0x800736D0 : AT(0x742D0) SUBALIGN(4) { build/us/renderer_mesh_texture_corners.o(.data) }
+    .collision_fallback_742e0_74550 0x800736E0 : AT(0x742E0) { build/us/fallback.o(.rom_collision_fallback_742e0_74550) }
     .actor_collision_palette 0x80073950 : AT(0x74550) SUBALIGN(4) { build/us/actor_collision_palette.o(.data) }
     .actor_collision_pickup_order 0x800739BC : AT(0x745BC) SUBALIGN(4) { build/us/actor_collision_pickup_order.o(.data) }
     .collision_fallback_745c8_74648 0x800739C8 : AT(0x745C8) { build/us/fallback.o(.rom_collision_fallback_745c8_74648) }
@@ -3269,7 +3270,9 @@ ASSERT(SIZEOF(.actor_collision_kind_response_rodata) == 0x90, "actor_collision_k
 ASSERT(SIZEOF(.actor_collision_impact_switch) == 0x8c, "actor_collision_impact_switch size changed")
 ASSERT(SIZEOF(.collision_capture_dispatch) == 0x60, "collision capture dispatch size changed")
 ASSERT(SIZEOF(.boss_update_initializers) == 0x18, "boss_update_initializers size changed")
-ASSERT(SIZEOF(.collision_fallback_742d0_74550) == 0x280, "collision_fallback_742d0_74550 size changed")
+ASSERT(SIZEOF(.renderer_mesh_texture_corners) == 0x10, "mesh texture coordinate table size changed")
+ASSERT(D_800736D0 == 0x800736D0, "mesh texture coordinate table address changed")
+ASSERT(SIZEOF(.collision_fallback_742e0_74550) == 0x270, "collision_fallback_742e0_74550 size changed")
 ASSERT(SIZEOF(.actor_collision_palette) == 0x6c, "actor_collision_palette size changed")
 
 ASSERT(SIZEOF(.error_messages) == 0x40, "error_messages size changed")

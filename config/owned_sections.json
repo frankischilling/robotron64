@@ -5151,5 +5151,18 @@
     "size": 96,
     "symbols": {},
     "evidence": "docs/actor-collision-capture.md"
+  },
+  {
+    "source": "src/game/renderer_primitives/mesh_texture_corners.c",
+    "object": "build/us/renderer_mesh_texture_corners.o",
+    "input_section": ".data",
+    "section": ".renderer_mesh_texture_corners",
+    "vram": 2147956432,
+    "rom": 475856,
+    "size": 16,
+    "symbols": {
+      "D_800736D0": 0
+    },
+    "evidence": "docs/renderer-mesh-texture-corners.md"
   }
 ]
