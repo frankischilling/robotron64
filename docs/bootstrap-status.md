@@ -8,9 +8,15 @@ and 879,157 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
-There remain 137,548 declared fallback CPU bytes in 184 spans and 164 unclassified
+There remain 135,836 declared fallback CPU bytes in 183 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
+
+The [actor ring callback](actor-ring.md) has an excluded C candidate and a
+reproducible guard. Its 1,800 execution pairs pass with ten real matching
+support units, and 32 deliberate guest/source faults are rejected. The complete
+1,024-byte compiled output differs from retail's 1,044 bytes in 204 words;
+this research adds no instruction, initialized-data or BSS ownership.
 
 The [startup projection](startup-projection-and-diagnostics.md) contributes one
 complete 864-byte function with a 184-byte frame. Independent retail reassemblies

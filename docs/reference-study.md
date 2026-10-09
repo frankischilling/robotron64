@@ -32,3 +32,9 @@ and local target-comparison workflow. Robotron's scene layouts, packed save
 fields, background behavior, and switch tables were recovered from its own
 target instructions and callers; no game implementation was imported from
 those reference projects.
+
+Actor ring research also inspected `include/PR/gbi.h` in the GoldenEye 007
+revision listed above. Its `gSP2Triangles` and triangle byte-packing definitions
+explain the F3DEX index-times-two command encoding. Robotron's complete callback
+instructions establish the actual indices, both winding orders and write order;
+the research candidate remains excluded while its compiled instructions differ.

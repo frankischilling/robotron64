@@ -18,6 +18,10 @@ all: build/us/robotron64.z64
 check-actor-boundary-reflection: toolchain
 	$(PYTHON) tools/check_actor_boundary_reflection.py
 
+.PHONY: check-actor-ring
+check-actor-ring: toolchain
+	$(PYTHON) tools/check_actor_ring.py
+
 resources:
 	$(PYTHON) tools/resources.py "$(BASEROM)"
 

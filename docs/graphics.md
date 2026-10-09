@@ -12,3 +12,8 @@ Both strings credit Yoshitaka Yasumoto and Nintendo. The task producer at `0x800
 The matching setter at `0x800498E0` writes the selector used by the frame-end caller. Direct calls at `0x80022F38` and `0x800235C0` select one and zero respectively. Scene names and the full renderer architecture remain unresolved. See [graphics task production](graphics-tasks.md) for the pointer table, complete task record, completion messages, callers, and independent comparison commands.
 
 The [startup](startup.md) and [scheduler](scheduler.md) evidence records VI mode selection and notification queues. Matching [frame helpers](frame-runtime.md) cover palette commands, completion waits, clock conversion, and the fixed-point matrix operations used by the frame path.
+
+The excluded [actor ring callback](actor-ring.md) fills 32 vertices and emits
+sixteen quads in both winding orders. Its CPU-side vertex, matrix and command
+effects pass a guarded execution comparison with the matching helpers. Its
+instructions still differ, and the check does not execute RSP/RDP graphics.

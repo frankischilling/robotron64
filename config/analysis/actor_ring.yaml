@@ -1,0 +1,19 @@
+name: Robotron complete actor ring callback retail function
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: actor_ring
+  base_path: ../../.local/actor-ring-references/splat
+  target_path: ../../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: actor_ring
+    type: code
+    start: 0x6E40
+    vram: 0x80006240
+    subsegments:
+      - [0x6E40, asm, actor_ring]
+  - [0x7254, bin, suffix]
+  - [0x800000]

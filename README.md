@@ -10,6 +10,11 @@ pairs pass, but two stack-slot instructions still differ. It adds no matching
 source bytes; `make check-actor-boundary-reflection` reproduces the bounded
 execution audit.
 
+[Actor ring drawing](docs/actor-ring.md) adds an excluded callback candidate
+and `make check-actor-ring`. The complete comparison still differs; the
+execution guard checks vertices, matrices, command words, allocation and ABI
+preservation with real matching helpers. It adds no matching source bytes.
+
 ## Target
 
 The [PI manager](docs/sdk-pi-manager.md) recovers creation, DMA and disk
