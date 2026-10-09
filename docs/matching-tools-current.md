@@ -62,10 +62,10 @@ sizes, hashes and measured conclusions. Tool sources and N64 reference projects
 are credited in [CREDITS](../CREDITS.md) and [the reference study](reference-study.md).
 No third-party game implementation or generated retail code is added here.
 
-Fresh acceptance checks cover all 911 runtime comparison units, two startup
+Fresh acceptance checks cover all 912 runtime comparison units, two startup
 units, eighteen assembly units and 198 data-only units. The clean build matches
-all 8,388,608 retail bytes. The checkpoint has 1,429 matching C functions /
-312,636 bytes, twenty-nine assembly functions / 4,372 bytes, 37,731 initialized
+all 8,388,608 retail bytes. The checkpoint has 1,430 matching C functions /
+314,348 bytes, twenty-nine assembly functions / 4,372 bytes, 37,827 initialized
 data bytes and 879,157 BSS bytes. The text pool contributes 8,040 BSS bytes and
 no new instructions. Both character-width tables add 144 initialized bytes.
 The [guarded audit](text-record-storage.md) covers all thirty slots, exhaustion,
@@ -176,3 +176,9 @@ Seventeen [script and resource literals](script-resource-literals.md) add
 
 [Projectile spawn](actor-projectile-spawn.md) adds one complete function and
 1,040 code bytes, with no new initialized data or BSS ownership.
+
+[Actor collision capture](actor-collision-capture.md) adds one complete
+function, 1,712 code bytes and a 96-byte generated dispatch table.
+
+The [collision acceptance ledger](actor-collision-capture-provenance.json) records
+all 39 fresh stages, natural extents, relocations, guarded execution and limits.

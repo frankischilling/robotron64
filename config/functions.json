@@ -16074,5 +16074,16 @@
     "section": ".actor_projectile_spawn",
     "section_vram": 2147716492,
     "evidence": "docs/actor-projectile-spawn.md"
+  },
+  {
+    "name": "func_8001737C",
+    "rom": 98172,
+    "vram": 2147578748,
+    "size": 1712,
+    "source": "src/game/collisions/capture.c",
+    "object": "build/us/collision_capture.o",
+    "section": ".collision_capture",
+    "section_vram": 2147578748,
+    "evidence": "docs/actor-collision-capture.md"
   }
 ]

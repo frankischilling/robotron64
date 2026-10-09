@@ -5140,5 +5140,16 @@
       "D_8009078C": 136
     },
     "evidence": "docs/script-resource-literals.md"
+  },
+  {
+    "source": "src/game/collisions/capture.c",
+    "object": "build/us/collision_capture.o",
+    "input_section": ".rodata",
+    "section": ".collision_capture_dispatch",
+    "vram": 2148073528,
+    "rom": 592952,
+    "size": 96,
+    "symbols": {},
+    "evidence": "docs/actor-collision-capture.md"
   }
 ]
