@@ -73,6 +73,38 @@ No dummy arrays, unused storage, extra parameters or inserted instructions
 were introduced. Private generated assembly and binary evidence remain outside
 Git. Tool and reference credits are in [CREDITS.md](../CREDITS.md).
 
-The next matching investigation is the original lifetime of the temporary
-across the two absolute-value calls and the pinned compiler's spill allocation.
+## Frontend temporary investigation
+
+The original MIPS IDO 5.3 optimizer was inspected in a separate Ghidra program.
+Its `gettemp` routine chooses the first free, size-compatible temporary. A
+private compiler copy was instrumented to read its temporary list; the public
+candidate and two separately named coordinate forms produce exactly the same
+instructions as their respective pinned compiler outputs. All three traces
+make two slot requests and select displacement `-44` both times.
+
+That selection does not determine the two differing instructions. Retained
+frontend `.B` files already contain the absolute-coordinate home, which survives
+as `Urstr` and `Urlod` in optimized `.O` output. The public candidate uses `-36`,
+which becomes SP+`0x34` in its 88-byte frame. Removing both bound locals produces
+the desired frontend home `-28`, but shrinks the frame to 80 bytes. A consumed
+scoped argument restores the 88-byte frame while moving the home to `-32`, or
+SP+`0x38`; its complete body still differs in two words. Separately assigning
+the first result to the existing lower-bound local reaches SP+`0x3c`, but its
+complete body differs in 38 words.
+
+The follow-up batch compares 120 complete bodies: 61 scoped call-argument forms,
+44 consumed bound aggregates and 15 bound-reuse forms. None matches. The
+intermediate decoder consumes every byte of five retained frontend/optimizer
+stream pairs; its schema comes from the append-only IDO opcode table, with the
+relevant homes checked against actual 5.3 object instructions.
+
+An isolated host wrapper also enables optimizer diagnostic modes 2, 3, 6 and 7,
+whose floating-point listings previously reached unimplemented `ecvt`/`fcvt`
+wrappers. Plain and diagnostic builds preserve the pinned candidate's complete
+raw text. This modified compiler is used only for diagnosis. The accepted
+compiler, candidate, execution checker and ownership declarations are unchanged.
+Private intermediate files and compiler artifacts remain outside Git.
+
+The next matching investigation is the source lifetime and frontend allocation
+that preserve both the retail temporary home and frame size.
 The existing whole-ROM match still includes this procedure's extracted fallback.

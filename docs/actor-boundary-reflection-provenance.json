@@ -211,5 +211,278 @@
     "Division exception delivery and arbitrary gameplay callers remain unverified.",
     "The readable C candidate is registered only in CANDIDATE_BLOCKS; extracted fallback still supplies its ROM range.",
     "Complete function and executable-byte denominators remain unknown. This does not establish full decompilation."
-  ]
+  ],
+  "frontend_diagnosis": {
+    "verified_at_utc": "2026-10-09T09:39:33.426806+00:00",
+    "publication_base": "371474ec20ec9043dd0b864e8271bf6274ea1058",
+    "source_and_checker_unchanged": true,
+    "source_ownership_added": 0,
+    "families": {
+      "scoped-call-captures": {
+        "complete_comparisons": 61,
+        "best_differing_words": 2,
+        "report_sha256": "47b146805d3a440c9600e8c2ae1ead826ad8e61f9197e73615dd9ce9056bf94e",
+        "source_ownership_added": 0
+      },
+      "bound-aggregates": {
+        "complete_comparisons": 44,
+        "best_differing_words": 2,
+        "report_sha256": "4f304b25f6a945bbd344554fdc3ecbddb4cfce6cf6bb5837aeb02e8c5f0f708d",
+        "source_ownership_added": 0
+      },
+      "reused-bound-locals": {
+        "complete_comparisons": 15,
+        "best_differing_words": 19,
+        "report_sha256": "40e44a6b20fab2808f0893b34936a696e295b0d91ba8c8963b9a3c8d11ffa49d",
+        "source_ownership_added": 0
+      }
+    },
+    "original_optimizer": {
+      "version": "5.3",
+      "mips_binary_sha256": "a4dc9b9b20845889f60d9c0dda307569f9f66fd44419aab33693f0d5430aaaf2",
+      "ghidra_program": "uopt",
+      "gettemp_entry": "0x0047FD1C",
+      "complete_body_end_inclusive": "0x0047FEC3",
+      "analysis_limit": "Ghidra splits the three-instruction PIC prologue from its fallthrough body.",
+      "temploc_bytes": 20,
+      "fields": {
+        "index": 0,
+        "displacement": 4,
+        "size": 8,
+        "free": 12,
+        "next": 16
+      }
+    },
+    "isolated_diagnostic_wrapper": {
+      "acceptance_compiler": false,
+      "compiler_outputs_preserved": true,
+      "debug_modes": [
+        2,
+        3,
+        6,
+        7
+      ],
+      "receipt_sha256": "e98f919c606e952af637718e5858e96fe3bd5b7a5cdea4397ec811191da03d55"
+    },
+    "read_only_slot_instrumentation": {
+      "receipt_sha256": "6d07807d149ffbc958512fcfe0e5897e972e04c4c20b949b8fb7cba4cfe4b4a6",
+      "results": [
+        {
+          "name": "baseline",
+          "request_count": 2,
+          "complete_raw_text_matches_pinned": true,
+          "source_sha256": "2694a84c0bfd63139dc30fa21b844e3d17edd7664f8edca204af8fdc1ff71a72",
+          "instrumented_optimizer_sha256": "a4c23675e9b4cec4bcd76eeab90468eb08d14f77d4211682561812314e7ef793",
+          "receipt_sha256": "ad1df004680be6a4070936cc04f32928e964473cb1a66a6f1a5b9acfa74c7feb"
+        },
+        {
+          "name": "lower_assigned",
+          "request_count": 2,
+          "complete_raw_text_matches_pinned": true,
+          "source_sha256": "c2700a58d861db858dca5769348326fd2bd5cdf9ec8dc5e2fa6661d0d4fb5c47",
+          "instrumented_optimizer_sha256": "a4c23675e9b4cec4bcd76eeab90468eb08d14f77d4211682561812314e7ef793",
+          "receipt_sha256": "3a4c38dfa959e0457c7115d127ef4593309fd8511ce5be595f3460f253da27be"
+        },
+        {
+          "name": "x_assigned",
+          "request_count": 2,
+          "complete_raw_text_matches_pinned": true,
+          "source_sha256": "8dcd265b2f2d12e8b94da14b8f7fc1c9c4169c3a0da2e7aa4f8d3153ebaa4e51",
+          "instrumented_optimizer_sha256": "a4c23675e9b4cec4bcd76eeab90468eb08d14f77d4211682561812314e7ef793",
+          "receipt_sha256": "b046d84c1902e4f5800f024f6d128a036584eed681341db2755bcf7f3dfdca3b"
+        }
+      ],
+      "requests_select_displacement": -44,
+      "finding": "The coordinate home is already emitted by the frontend, independently of these gettemp requests."
+    },
+    "intermediate_streams": {
+      "receipt_sha256": "ac117686f3dd9bce905c589cfa4a6adb627dad0ebb64429e7131c8f84ddb031b",
+      "decoded_complete_pairs": 5,
+      "schema": "IDO append-only opcode table and readuinstr; actual 5.3 homes cross-checked with compiled words",
+      "results": [
+        {
+          "name": "baseline",
+          "frame_bytes": 88,
+          "natural_bytes": 1520,
+          "source_sha256": "2694a84c0bfd63139dc30fa21b844e3d17edd7664f8edca204af8fdc1ff71a72",
+          "streams": {
+            "B": {
+              "ucode_sha256": "c93516b2463da2ca633bf55caa971cd08e953bb580331624c3c2b5db0c6b30a9",
+              "record_count": 1007,
+              "local_offsets": [
+                -40,
+                -36,
+                -32,
+                -28,
+                -24,
+                -20,
+                -16,
+                -12,
+                -8,
+                -4,
+                0
+              ]
+            },
+            "O": {
+              "ucode_sha256": "a18e1c02e1bcebb38c1f38080b6ef1191510689e0c2766db41659a9d452680d9",
+              "record_count": 841,
+              "local_offsets": [
+                -52,
+                -36,
+                -20,
+                -16,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "name": "lower_assigned",
+          "frame_bytes": 88,
+          "natural_bytes": 1520,
+          "source_sha256": "c2700a58d861db858dca5769348326fd2bd5cdf9ec8dc5e2fa6661d0d4fb5c47",
+          "streams": {
+            "B": {
+              "ucode_sha256": "20baec5e82a52b1fda0207884b82c1067894f0dc44347180dc871a7e395b319f",
+              "record_count": 1008,
+              "local_offsets": [
+                -40,
+                -36,
+                -32,
+                -28,
+                -24,
+                -20,
+                -16,
+                -12,
+                -8,
+                -4,
+                0
+              ]
+            },
+            "O": {
+              "ucode_sha256": "dceb35715ef5ead344b322ec6e59706e39cc0bf19e9febf2f3c47b430e3248ea",
+              "record_count": 842,
+              "local_offsets": [
+                -52,
+                -28,
+                -20,
+                -16,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "name": "x_assigned",
+          "frame_bytes": 88,
+          "natural_bytes": 1520,
+          "source_sha256": "8dcd265b2f2d12e8b94da14b8f7fc1c9c4169c3a0da2e7aa4f8d3153ebaa4e51",
+          "streams": {
+            "B": {
+              "ucode_sha256": "adf4352bcdeed5bd99bb01b7f264946c14f0d9c84e8a3d80f84ca9bfc74b268b",
+              "record_count": 1008,
+              "local_offsets": [
+                -40,
+                -36,
+                -32,
+                -28,
+                -24,
+                -20,
+                -16,
+                -12,
+                -8,
+                -4,
+                0
+              ]
+            },
+            "O": {
+              "ucode_sha256": "401a8fa89d2435eca9864f73d286bb36352994e6b0984de4c1bfcd3b555cb7c2",
+              "record_count": 842,
+              "local_offsets": [
+                -52,
+                -20,
+                -16,
+                -4,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "name": "scoped_pointer",
+          "frame_bytes": 88,
+          "natural_bytes": 1520,
+          "source_sha256": "4fc83779d90a956e1c33995c462357f6babc0c62d64ce4567e8af5496fdd7856",
+          "streams": {
+            "B": {
+              "ucode_sha256": "197105fe75fd34d3a8b4ecf24d022e346cecfa359b5f1f0b8fce0d6fc2cdf897",
+              "record_count": 1024,
+              "local_offsets": [
+                -36,
+                -32,
+                -28,
+                -24,
+                -20,
+                -16,
+                -12,
+                -8,
+                -4,
+                0
+              ]
+            },
+            "O": {
+              "ucode_sha256": "b1d0a9c9783c2a5a914d4d1ea0d762c050c8f88d0d30f977a50f2b7f62c17947",
+              "record_count": 838,
+              "local_offsets": [
+                -52,
+                -32,
+                -20,
+                -16,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "name": "six_locals",
+          "frame_bytes": 80,
+          "natural_bytes": 1520,
+          "source_sha256": "6528943376fd5c993de764707a139ca10166b273cccb7dd3968b766daf6fc3c5",
+          "streams": {
+            "B": {
+              "ucode_sha256": "2e077b658c3c7e5cce379b2d7f2b928d10b7464955b0afe69364bf1881f92976",
+              "record_count": 1021,
+              "local_offsets": [
+                -32,
+                -28,
+                -24,
+                -20,
+                -16,
+                -12,
+                -8,
+                -4,
+                0
+              ]
+            },
+            "O": {
+              "ucode_sha256": "7d9769b3b599a3d463098152815e44e0e5476b1ded454514b998aa79e4abe6c0",
+              "record_count": 837,
+              "local_offsets": [
+                -48,
+                -28,
+                -20,
+                -16,
+                2
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "limits": [
+      "Research forms remain excluded.",
+      "Private compiler changes are diagnostic only.",
+      "No code, data, BSS or completion credit follows from these comparisons."
+    ]
+  }
 }
