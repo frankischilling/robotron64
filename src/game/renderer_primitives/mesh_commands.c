@@ -1,12 +1,13 @@
 #include "../../../include/renderer_primitives_internal.h"
 
-/* Excluded candidate; see docs/renderer-mesh-resources.md. */
+/* Submit the signed mesh stream with separate copy and load cursors. */
 int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination)
 {
     short first;
     short count;
     short second;
     short third;
+    int *copyCursor;
     short fourth;
     short colorIndex;
     int remaining;
@@ -15,19 +16,21 @@ int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination)
     unsigned char *color;
     int copyDestination;
     int loadDestination;
+    short copyFirst;
 
-    copyDestination = destination;
     loadDestination = destination;
+    copyDestination = destination;
+    copyCursor = &copyDestination;
     for (;;) {
         switch (*commands++) {
         case 0x7001:
-            first = commands[0];
+            copyFirst = commands[0];
             count = commands[1];
             commands += 2;
             if (D_800C85B8 != 0) {
-                func_800460D8(first, count, copyDestination, mesh->normals);
+                func_800460D8(copyFirst, count, *copyCursor, mesh->normals);
             } else {
-                func_80045F40(first, count, copyDestination);
+                func_80045F40(copyFirst, count, *copyCursor);
             }
             copyDestination += count;
             break;
@@ -39,18 +42,19 @@ int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination)
                               &D_800CDBD0[loadDestination]);
             } else {
                 remaining = count;
-                vertices = &D_800CDBD0[loadDestination];
-                commandDestination = 0;
-                while (remaining > 0) {
-                    if (remaining > 32) {
-                        FRAME_COMMAND((GRAPHICS_FIELD(commandDestination, 16, 8) | 0x04000000) | ((32 << 10) | (sizeof(RendererVertex) * 32 - 1)), vertices);
-                    } else {
-                        FRAME_COMMAND((GRAPHICS_FIELD(commandDestination, 16, 8) | 0x04000000) |
-                                      (((remaining << 10) | (sizeof(RendererVertex) * remaining - 1)) & 0xFFFF), vertices);
-                    }
-                    remaining -= 32;
-                    commandDestination += 64;
-                    vertices += 32;
+                if (remaining > 0) {
+                    commandDestination = 0, vertices = &D_800CDBD0[loadDestination];
+                    do {
+                        if (remaining > 32) {
+                            FRAME_COMMAND((GRAPHICS_FIELD(commandDestination, 16, 8) | 0x04000000) | ((32 << 10) | (sizeof(RendererVertex) * 32 - 1)), vertices);
+                        } else {
+                            FRAME_COMMAND((GRAPHICS_FIELD(commandDestination, 16, 8) | 0x04000000) |
+                                          (((remaining << 10) | (sizeof(RendererVertex) * remaining - 1)) & 0xFFFF), vertices);
+                        }
+                        remaining -= 32;
+                        commandDestination += 64;
+                        vertices += 32;
+                    } while (remaining > 0);
                 }
             }
             loadDestination += count;
@@ -73,7 +77,8 @@ int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination)
             RENDERER_QUAD(first, second, third, fourth);
             break;
         case 0x7010:
-            colorIndex = *commands++ & 0xFF;
+            colorIndex = *commands++;
+            colorIndex &= 0xFF;
             if (D_800C85B8 != 0) {
                 if (colorIndex != D_80123ADC) {
                     D_80123ADC = colorIndex;

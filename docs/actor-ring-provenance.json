@@ -1,0 +1,478 @@
+{
+  "status": "Excluded research; no independently matching source ownership.",
+  "issue": 127,
+  "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "retail": {
+    "vram_start": "0x80006240",
+    "vram_end": "0x80006654",
+    "rom_start": "0x6E40",
+    "rom_end": "0x7254",
+    "instructions": 261,
+    "natural_bytes": 1044,
+    "frame_bytes": 224,
+    "code_sha256": "f8c75a80b90a78f69659c977436e9f5b03395220f215f278a2a5325418005881"
+  },
+  "candidate": {
+    "source": "src/game/actor_effects/ring.c",
+    "natural_bytes": 1020,
+    "raw_text_bytes": 1024,
+    "zero_alignment_bytes": 4,
+    "frame_bytes": 192,
+    "full_differing_words": 204,
+    "matches": false,
+    "code_sha256": "4312d4d57f41ba8394c5ac39d48d99e6193de3181e7e963b00522f8f413042d2",
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "source_sha256": "286dcfa8f252c49b6a65af93a6a0720a4f6b2bcd5dd4ad21b478d8890a95df4f"
+  },
+  "independent_retail_references": {
+    "spimdisasm": {
+      "matches": true,
+      "natural_function_bytes": 1044,
+      "raw_text_bytes": 1056,
+      "complete_linked_text_bytes": 1044,
+      "code_sha256": "f8c75a80b90a78f69659c977436e9f5b03395220f215f278a2a5325418005881",
+      "source_sha256": "9d2d1feb646f7cdea6408d328b00a462da8483abc5935d27f77892c15101ddff",
+      "raw_object_sha256": "e1344424ea2c18d8a33f18045c450e59af2e0de27e3cee46af044a7af946e3d8",
+      "elf_sha256": "b3219732d468636e850a7594f751b525e2d88413f5f6021b7c5e4866251d0972"
+    },
+    "splat": {
+      "matches": true,
+      "natural_function_bytes": 1044,
+      "raw_text_bytes": 1056,
+      "complete_linked_text_bytes": 1044,
+      "code_sha256": "f8c75a80b90a78f69659c977436e9f5b03395220f215f278a2a5325418005881",
+      "source_sha256": "5df703f48c79c682c517d32eaaab8852612d760d179b76921ab78a6df66f6ae1",
+      "raw_object_sha256": "e1344424ea2c18d8a33f18045c450e59af2e0de27e3cee46af044a7af946e3d8",
+      "elf_sha256": "1f736e6cc62f646c16080c469d218c5358fb026e174a18aa4bff76c23f9236e9"
+    }
+  },
+  "public_splat_config": "config/analysis/actor_ring.yaml",
+  "source_form_research": {
+    "forms.json": {
+      "complete_comparisons": 16,
+      "matching_forms": 0,
+      "best_differing_words": 235,
+      "private_receipt_sha256": "829562b954c95de4617fbb8012ec4bf623795c446f7b92037e7892150de6db4b"
+    },
+    "color-forms.json": {
+      "complete_comparisons": 16,
+      "matching_forms": 0,
+      "best_differing_words": 238,
+      "private_receipt_sha256": "13b0a47c3632b6ccf22c2bdda6e6386063ed98adc42830dd6668d1dbb6cd8eb4"
+    },
+    "radius-index-forms.json": {
+      "complete_comparisons": 60,
+      "matching_forms": 0,
+      "best_differing_words": 204,
+      "private_receipt_sha256": "62fc6b87cd45cedd3e4730c1f502ec9f8247ee9e64220e0230f7bdeebb3ceb6d"
+    },
+    "lifetime-forms.json": {
+      "complete_comparisons": 57,
+      "matching_forms": 0,
+      "best_differing_words": 204,
+      "private_receipt_sha256": "f6f7a75362719496cabcef9dc32170bde4b98ebc62655dca18528378d46667b0"
+    },
+    "triangle-inductions.json": {
+      "complete_comparisons": 32,
+      "matching_forms": 0,
+      "best_differing_words": 197,
+      "best_private_form": {
+        "name": "tri_step1_named_scoped_index_early",
+        "natural_bytes": 1020,
+        "raw_text_bytes": 1024,
+        "frame": 192,
+        "differing_words": 197,
+        "matches": false,
+        "source_sha256": "ad5546fff78c49cf187654cc1943754f83cde5f6e7869acd6ef269aff99c3c77",
+        "source_ownership_added": 0
+      },
+      "public_candidate_changed": false,
+      "private_receipt_sha256": "f47254dd6108231217d62d525ef7939c2df93f17466d057ad8e172f548e93126"
+    }
+  },
+  "execution": {
+    "paired_cases": 1800,
+    "principal_executions": 3600,
+    "max_instructions": 3103,
+    "trace_sha256": "c9f9028ada878682dfa70a8a02470e6fad6622094615dc3bc474e44ec4157e8c",
+    "guard_inputs_sha256": {
+      "src/game/actor_effects/ring.c": "286dcfa8f252c49b6a65af93a6a0720a4f6b2bcd5dd4ad21b478d8890a95df4f",
+      "tools/check_actor_ring.py": "2df216a8fc163db5a2d463af882e0c9c36ae0e48666477e1ac2d758fea3100d5",
+      "tools/actor_ring_model.py": "e7bce872210a78c3679c87a7b8999fcfdb26587b4c8e074cd9adfe3c782ca63f",
+      "tools/check_actor_group_path.py": "8a0df26056b10c6958f757d7d0c6afb0f1463d0007f265ec62f7c321371ea6bc"
+    },
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "limits": [
+      "Candidate remains excluded until its complete instructions, size, layout and relocations match.",
+      "Finite synthetic CPU, integer, vertex, matrix and display-word cases.",
+      "Old graphics modes 1 and 18; frame vertex base 0; matrix cursor 7 and buffer 1.",
+      "Real matched callees execute; no external ABI stubs are used.",
+      "RSP/RDP execution, fatal formatting and full gameplay are not verified.",
+      "Stack interiors are bounded and ABI-checked, not compared byte-for-byte."
+    ]
+  },
+  "controls": {
+    "rejected_faults": 32,
+    "additional_positive_executions": 4,
+    "faults": [
+      {
+        "name": "radius_bias"
+      },
+      {
+        "name": "alpha_bias"
+      },
+      {
+        "name": "upper_height"
+      },
+      {
+        "name": "triangle_opcode"
+      },
+      {
+        "name": "allocation_count"
+      },
+      {
+        "name": "saved_fpu_f20"
+      },
+      {
+        "name": "saved_fpu_f21"
+      },
+      {
+        "name": "saved_fpu_f22"
+      },
+      {
+        "name": "saved_fpu_f23"
+      },
+      {
+        "name": "saved_fpu_f24"
+      },
+      {
+        "name": "saved_fpu_f25"
+      },
+      {
+        "name": "saved_fpu_f26"
+      },
+      {
+        "name": "saved_fpu_f27"
+      },
+      {
+        "name": "saved_fpu_f28"
+      },
+      {
+        "name": "saved_fpu_f29"
+      },
+      {
+        "name": "saved_fpu_f30"
+      },
+      {
+        "name": "saved_fpu_f31"
+      },
+      {
+        "name": "saved_s0_epilogue"
+      },
+      {
+        "name": "saved_s1_epilogue"
+      },
+      {
+        "name": "saved_s2_epilogue"
+      },
+      {
+        "name": "saved_s3_epilogue"
+      },
+      {
+        "name": "saved_s4_epilogue"
+      },
+      {
+        "name": "saved_s5_epilogue"
+      },
+      {
+        "name": "saved_s6_epilogue"
+      },
+      {
+        "name": "saved_s7_epilogue"
+      },
+      {
+        "name": "saved_fp_epilogue"
+      },
+      {
+        "name": "saved_gp"
+      },
+      {
+        "name": "out_of_fixture_read"
+      },
+      {
+        "name": "out_of_fixture_write"
+      },
+      {
+        "name": "null_actor_retail"
+      },
+      {
+        "name": "null_actor_candidate"
+      },
+      {
+        "name": "escaped_executable_range"
+      }
+    ]
+  },
+  "real_matching_support": {
+    "graphics_mode_dispatch": {
+      "source": "src/game/graphics_mode_dispatch.c",
+      "text_bytes": 540,
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "graphics_modes": {
+      "source": "src/game/graphics_modes.c",
+      "text_bytes": 1572,
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "graphics_pool": {
+      "source": "src/game/graphics_pool.c",
+      "text_bytes": 420,
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "debug_noop": {
+      "source": "src/game/debug_noop.c",
+      "text_bytes": 28,
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "palette": {
+      "source": "src/game/palette.c",
+      "text_bytes": 404,
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "object_recovery_fixed_trig": {
+      "source": "src/game/object_recovery_fixed_trig.c",
+      "text_bytes": 144,
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "short_sine": {
+      "source": "src/sdk/short_sine.c",
+      "text_bytes": 112,
+      "compiler_profile": {
+        "name": "sdk-o2-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "short_cosine": {
+      "source": "src/sdk/short_cosine.c",
+      "text_bytes": 48,
+      "compiler_profile": {
+        "name": "sdk-o2-mips2",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips2",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "frame_transform": {
+      "source": "src/game/frame_transform.c",
+      "text_bytes": 232,
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "matches": true
+    },
+    "renderer_matrix_submit": {
+      "source": "src/game/renderer_matrix_submit.c",
+      "text_bytes": 664,
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "matches": true
+    }
+  },
+  "source_ownership_delta": {
+    "C_functions": 0,
+    "C_bytes": 0,
+    "initialized_bytes": 0,
+    "BSS_bytes": 0
+  },
+  "tools": {
+    "splat": "0.50.0",
+    "spimdisasm": "1.42.4",
+    "objdiff": "3.8.2",
+    "m2c": "708d2d2cb2698f091a92492b328f73b24209f72d",
+    "asm_differ": "0dd09af8f8008f1f880327cf0aca3b26d2562ea2",
+    "unicorn": "2.1.1",
+    "capstone": "5.0.9",
+    "pyelftools": "0.33",
+    "notes": "Installed offline workbench, MIPS binutils and live Ghidra MCP. No permuter score or prefix establishes acceptance."
+  },
+  "reference_study": {
+    "repository": "n64decomp/007",
+    "commit": "c4356466796c697dfd298010b9bed261f9ed8c6a",
+    "file": "include/PR/gbi.h",
+    "use": "F3DEX gSP2Triangles index-times-two byte packing."
+  },
+  "whole_rom": {
+    "matches": true,
+    "bytes": 8388608,
+    "includes_extracted_fallback": true,
+    "sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd"
+  },
+  "tests": {
+    "Linux": {
+      "count": 176,
+      "passed": true,
+      "skipped": 0
+    },
+    "Windows": {
+      "count": 176,
+      "passed": true,
+      "skipped": 9
+    }
+  },
+  "current_totals": {
+    "C_functions": 1430,
+    "C_bytes": 314348,
+    "assembly_functions": 29,
+    "assembly_bytes": 4372,
+    "initialized_bytes": 37843,
+    "BSS_bytes": 879157,
+    "fallback_CPU_bytes": 135836,
+    "fallback_spans": 183,
+    "unclassified_bytes": 164,
+    "complete_source_decompilation": false
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "saved": true,
+    "private_mcp_receipt_sha256": "2e4206082e5bc21319220a336e993f1400077811105999cbabd9778999b43add",
+    "verified_canonical_sizes": {
+      "PaletteColor": 4,
+      "RendererDrawState": 60,
+      "FixedMatrix": 36,
+      "FrameView": 40
+    },
+    "existing_BSS_blocks_mapped": {
+      "0x800C8B88": 120,
+      "0x800CD250": 36
+    },
+    "new_source_or_ROM_ownership": 0,
+    "initialized_RAM_bytes_invented": 0
+  }
+}

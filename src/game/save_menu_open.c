@@ -1,7 +1,7 @@
+#include "../../include/static_menu_internal.h"
 #include "../../include/save_menu_internal.h"
 
 extern void *D_800AEE9C;
-extern unsigned char D_8007751C[];
 
 void func_80030C3C(int mode);
 

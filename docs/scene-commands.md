@@ -85,8 +85,11 @@ units were rechecked after correcting these declarations.
 `func_8001FCE4` spans `0x8001FCE4..0x80020134`, or 1,104 bytes. Its ordinary-C
 candidate covers trigger normalization, optional random delay, duplicate
 arrival handling, insertion with an overlapping move, capacity reporting,
-and coordinate conversion. The full function remains outside the matching
-manifest until its complete compiled body matches.
+and coordinate conversion. The public candidate at `src/game/scene_arrivals/insert.c` has 55 differing
+instruction words and remains outside the matching manifest and ROM link.
+The [arrival audit](scene-arrivals.md) checks 3,713 paired executions and nine
+source/message mutations; the complete scene BSS and diagnostic data are owned
+separately.
 
 Trigger 4 chooses a random delay after enforcing a minimum argument of 100;
 trigger 1 scales the supplied delay by 100. Count and delay are checked with

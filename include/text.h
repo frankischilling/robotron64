@@ -78,17 +78,17 @@ typedef struct TextGlyphResource {
 typedef char ActorResourceFlagsMustBe2Bytes[sizeof(ActorResourceFlags) == 2 ? 1 : -1];
 typedef char TextGlyphResourceMustBe88Bytes[sizeof(TextGlyphResource) == 0x58 ? 1 : -1];
 
-extern int D_80072B40[];
-extern int D_80072BA8[];
+extern int D_80072B40[26];
+extern int D_80072BA8[10];
 extern TextRecord D_800B6FF8[30];
-extern TextGlyphResource D_800B1BE8[];
+extern TextGlyphResource D_800B1BE8[244];
 extern char D_8008F620[];
 extern void func_8001C0D0(char *format, ...);
 extern int func_80039E1C(int object, int value);
 extern int func_8003947C(int object, int index);
 extern int func_80039DCC(int object, int value);
 extern int func_80039E0C(int object, int mode);
-extern void func_80039E5C(int object, int value);
+extern int func_80039E5C(int object, int value);
 extern void func_80039E80(int object, int value);
 extern char D_8008F64C[];
 extern int func_800392F4(int object);

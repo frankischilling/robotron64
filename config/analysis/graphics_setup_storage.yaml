@@ -1,0 +1,26 @@
+name: Robotron 64 renderer setup storage
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: graphics_setup
+  base_path: ../../.local/graphics-setup-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: graphics_setup_tile_packets
+    type: code
+    start: 0x7D570
+    vram: 0x8007C970
+    subsegments:
+      - [0x7D570, data, graphics_setup_tile_packets]
+  - [0x7D5F0, bin, after_graphics_setup_tile_packets]
+  - name: graphics_setup_defaults
+    type: code
+    start: 0x7E1D8
+    vram: 0x8007D5D8
+    subsegments:
+      - [0x7E1D8, data, graphics_setup_defaults]
+  - [0x7E2A0, bin, after_graphics_setup_defaults]
+  - [0x800000]

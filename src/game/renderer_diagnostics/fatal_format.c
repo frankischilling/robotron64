@@ -1,9 +1,8 @@
 #include "../../../include/game_memory.h"
 #include "../../../include/game_stdarg.h"
+#include "../../../include/debug_output.h"
 
-void func_80048DC0();
 void func_8004C6E0(void);
-extern unsigned char D_8009542C[];
 
 /* Nonmatching candidate; see docs/renderer-diagnostics-and-text.md. */
 void func_800496E0(unsigned char *format, ...)
@@ -57,7 +56,7 @@ void func_800496E0(unsigned char *format, ...)
     }
     *text = 0;
     va_end(args);
-    func_80048DC0(D_8009542C, message);
+    func_80048DC0((char *)D_8009542C, message);
     func_8004C6E0();
     while (1) {}
 }

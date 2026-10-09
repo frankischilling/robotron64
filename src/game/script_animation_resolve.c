@@ -2,11 +2,6 @@
 #include "../../include/game_memory.h"
 #include "../../include/resource_strings.h"
 
-extern unsigned char D_800906D0[];
-extern unsigned char D_800906D8[];
-extern unsigned char D_800906E0[];
-extern unsigned char D_800906E8[];
-
 void func_8001CE70(TextGlyphResource *resource, ActorAnimation *animation,
                    int reference)
 {

@@ -1,8 +1,8 @@
 # Actor-group callbacks and child storage
 
 The [rotation helpers](actor-group-rotation.md) at `8000E720..8000E894`
-are now included in the matching build. The path callback at
-`8000E894..8000EAE4` remains excluded. Complete retail instructions guide
+and the complete path callback at `8000E894..8000EAE4` are included in the
+matching build. Complete retail instructions guide
 reconstruction; Ghidra's pseudocode is checked against the original ROM
 and compiled IDO output.
 
@@ -53,27 +53,54 @@ project's [N64 reference study](reference-study.md), including SM64 and IDO.
 No reference game implementation was copied. Instruction mismatches remain
 outside matching progress, even when execution agrees for tested inputs.
 
+The matching path source represents its two endpoint temporaries with the
+existing `GeometryPoint` type and exits segment traversal with a `break`. These
+source forms previously reduced the complete comparison from 36 differing
+words to five. A single-pass `do` block for interpolation and movement
+submission resolves the remaining endpoint base register. The compiled function
+now matches all 592 bytes, its natural size and every stack offset. The original
+source spelling is unproved; the block emits no additional instructions.
+The point view has three signed words, occupies twelve bytes and aligns to four;
+a pinned IDO layout probe and the live Ghidra type agree on all field offsets
+and widths. The two stack objects are typed in Ghidra, and the parameter pointer
+remains typed after re-decompilation. Only X and Y participate in this callback;
+Z remains untouched. The earlier private 27-word candidate is retained as a
+research checkpoint, with no matching ownership.
+
 ## Validation and remaining differences
 
 The combined rotation object matches all 372 instruction bytes and is linked
-and counted as two recovered functions. The path object contains all 592
-instruction bytes and differs in 88 words. It remains excluded from the ROM
-and matching source progress.
+and counted as two recovered functions. The path object matches all 592
+instruction bytes, including the V0 endpoint-load base, its 96-byte frame and all
+spill offsets. The function is linked from compiled C at ROM `F494..F6E4`; its
+former extraction range and all three absolute function bindings are removed.
+It adds one complete matching function and no initialized data or BSS.
 
-The bonus child object contains all 744 instruction bytes and differs in six
-words: stack size, the incoming index slot and the floating result register.
-It is not linked into the ROM or counted as matching C.
+The bonus child object contains all 744 instruction bytes and differs in four
+words. Capturing the consumed object index before the floating scale expression
+reproduces the retail floating registers and spills. The candidate still uses a
+64-byte stack frame rather than 56 bytes, so its incoming index home slot is
+eight bytes higher. The two stack adjustments and two accesses to that slot
+remain different. It is not linked into the ROM or counted as matching C.
+The [current candidate ledger](actor-bonus-child-current-provenance.json)
+records the full comparison, independent retail reassemblies and guarded
+execution. Earlier ledgers below retain their historical source hashes.
 
-The optional checker passes 8,512 rotation and 1,008 path cases: 336 complete
-the path and 672 interpolate a segment. It covers all 4,096 masked angles,
+The optional checker passes 8,512 rotation and 10,144 path cases: 1,728 complete
+the path and 8,416 interpolate a segment. It covers all 4,096 masked angles,
 wrapped angles, signed coordinates, overlapping buffers, paths of two through
 five points, the first and last heap path slots, segment boundaries, multiple
-segment crossings, and negative/zero/positive steps. Seven complete arithmetic
+segment crossings, negative/zero/positive steps, signed speed-product wrapping,
+and every masked angle on the path callback itself. Seven complete arithmetic
 support units and the short-sine and tangent tables are freshly compiled and
 matched before execution. Completion and object-angle submission use stubs
 that record arguments and actor snapshots and clobber caller-saved registers.
 The check preserves the pool, parameter and actor Z coordinate and verifies
-the stack and saved registers. Invalid indices and zero distances are outside
+the stack and saved registers. Each retail and candidate path run also checks
+a separate Python model of the complete actor image and call snapshots.
+Instruction, read and write bounds, outer canaries and GP preservation are checked. Five deliberate changes to
+segment equality, speed scaling, interpolation, completion arguments and
+movement clearing were detected. Invalid indices and zero distances are outside
 its scope; it does not prove full-game behavior or instruction matching.
 
 Run it after installing the optional analysis requirements:
@@ -102,10 +129,17 @@ The historical [provenance ledger](actor-group-path-provenance.json) records
 the PR #87 candidates, compiler and input hashes, complete instruction
 differences, code hashes, table comparison and execution coverage. Current
 rotation acceptance is recorded in its [own ledger](actor-group-rotation-provenance.json).
+The [current path research ledger](actor-group-path-current-provenance.json)
+records the complete matching comparison, both independent retail reassemblies,
+independent model and current acceptance. The path recovery adds 592 instruction
+bytes. Earlier candidate records retain their historical hashes and limits.
 The live Ghidra project retains the verified
 callback prototypes, existing heap layouts, a typed 65-word tangent array,
 and the two uninitialized child arrays. Resource typing preserves the
-existing interior field labels instead of clearing them.
+existing interior field labels instead of clearing them. The current audit also
+restores the complete `EarlyGameActor` definition after finding an empty one-byte
+placeholder; pinned IDO and Ghidra agree on its 124-byte size, four-byte alignment,
+and all 36 field offsets and widths.
 
 At the PR #87 checkpoint, isolated extraction and rebuild reproduced all
 8,388,608 bytes with SHA-256

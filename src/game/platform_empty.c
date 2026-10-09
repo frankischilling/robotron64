@@ -21,7 +21,7 @@ void func_8003BF7C(void)
 {
 }
 
-void func_8003BF84(void)
+int func_8003BF84()
 {
 }
 

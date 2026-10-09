@@ -1,3 +1,4 @@
+#include "../../include/pak_confirmation_internal.h"
 #include "../../include/save_menu_legacy_internal.h"
 
 void func_80026674(int deleteSelected)

@@ -8,6 +8,8 @@ void func_8004CCD0(void)
     RendererPeakMetrics *metrics;
 
     if (index < 0) index = 0;
+    /* Retail permits index 201, beyond the 201 records cleared at startup.
+     * Its FPS field aliases the heap pointer; retain the original limit. */
     if (index >= 202) index = 201;
     metrics = &D_8013DC30[index];
     index = D_8013D9C0 - D_8013D9C4;

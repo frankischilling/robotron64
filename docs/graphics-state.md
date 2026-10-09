@@ -8,9 +8,10 @@ comparisons use IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`.
 
 The accepted batch contains 30 complete functions, 3,916 code bytes, and
 340 bytes of strings and generated tables. The tile-mode helper
-`func_80046C2C` remains a nonmatching candidate and is excluded from those
-totals. Its observed behavior is described below where it explains the
-accepted callers and state fields.
+`func_80046C2C` later matched all 204 instruction bytes and is now included
+in current progress. [Setup storage](renderer-setup-storage.md) separately
+owns both complete packet lists, four mutable defaults, and fourteen cache
+and arena words; its finite execution checks cover the matching consumers.
 
 ## Display lists and render modes
 

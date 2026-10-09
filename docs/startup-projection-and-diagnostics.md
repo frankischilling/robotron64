@@ -3,9 +3,10 @@
 The complete resource report at `8004C6E0..8004CCA4` matches the retail
 instructions from `src/game/renderer_diagnostics/report.c`. Its 1,476 bytes
 replace executable fallback. The startup projection routine at
-`80048DDC..8004913C` has a complete candidate in
-`src/game/renderer_projection/setup.c` and remains excluded from the ROM link
-and matching instruction totals.
+`80048DDC..8004913C` now reproduces all 864 instruction bytes from
+`src/game/renderer_projection/setup.c`. Its complete natural extent replaces
+executable fallback. The [current projection ledger](startup-projection-current-provenance.json)
+records the fresh source acceptance; the report and data retain their existing ownership.
 
 ## Diagnostic report
 
@@ -24,7 +25,7 @@ the BSS-end address. The local BSS-end value is used again to calculate the
 gap before the image buffers. No unused local or enlarged record is needed
 for the match.
 
-## Startup projection candidate
+## Startup projection
 
 The startup and frame-service callers pass their existing matrix-buffer
 pointer. The routine writes a perspective matrix into the current buffer's
@@ -47,11 +48,11 @@ second uses `(100, 0, 0)`. Both texture dimensions are 32.
 The display list receives two look-at commands, perspective normalization,
 and the projection/view matrix pair. Separate SDK calls create zero translation
 and rotation matrices at offsets `0x2A0` and `0x260`; the final commands submit
-those matrices. The candidate preserves the target's differing address
+those matrices. The source preserves the target's differing address
 conventions for look-at data and physical matrix addresses.
 
 These offsets establish the accessed fields. They do not establish a complete
-original matrix-buffer structure. The candidate keeps the existing byte-address
+original matrix-buffer structure. The source keeps the existing byte-address
 view rather than inventing fields in unobserved gaps.
 
 ## Constants and state
@@ -76,26 +77,49 @@ that word are outside this ownership claim.
 
 ## Matching evidence
 
-The report uses the pinned IDO 5.3 game profile. The startup projection candidate
-uses the same verified R4300 multiply profile as the neighboring matching
-projection/highlight routine. Its complete compiled text is 864 bytes and
-differs in two instruction words, both addressing the saved look-at pointer
-at stack offset `0x68` instead of the retail `0x6C`. The 184-byte frame and
-remaining instructions agree. It receives no matching C credit.
+The report uses the pinned IDO 5.3 game profile. Projection uses the unchanged
+verified R4300 multiply profile of the neighboring projection/highlight routine.
+Its natural and complete raw text are both 864 bytes, with a 184-byte frame and
+216 matching instructions. No alignment bytes are credited and no new data or
+BSS is added. Splat and spimdisasm independently reassemble the full retail range.
 
-The new constants and state are independently compiled as data-only sources;
-their complete initialized bytes, symbol offsets, sections, and BSS extents
-are checked. The accompanying provenance ledger records current comparisons
-for the matching report, excluded startup candidate, new data units, and
-supporting renderer, startup, heap, and SDK routines.
+The final two matrix packets reuse one consumed `FrameCommand *` local through
+`FRAME_COMMAND_REUSE`. This gives IDO the retail look-at pointer home at stack
+offset `0x6C`. The macro keeps each allocation and packet write in one expansion,
+preserving the retail assembler schedule. Separate statement lines change eight
+scheduling words despite preserving the pointer home. The ordinary packet scopes
+and shared final pointer reproduce all bytes without changing compiler flags.
+Original source spelling and local names remain unknown.
 
-Private experiments tested address representation, used local placement,
-coordinate constants, SDK command scopes, and normalization/index flow.
-The unresolved stack slot is preserved as evidence. No padding local, empty
-conditional, instruction patch, inline assembly, or unproved matrix size was
-added. The optional projectile/heap execution checks are rerun after the shared
-layout changes; they do not verify the startup projection candidate's graphics
-behavior.
+The public checker runs 396 pairs / 792 principal executions. Thirteen complete
+matching C support units and the eight-byte SDK square-root routine execute real
+instructions; no ABI stubs execute. Fresh support comparisons cover 6,944 code
+bytes and 516 initialized bytes. A separate rounded arithmetic and fixed-matrix
+model checks perspective, look-at, highlight, complete buffer gaps, all seven
+packets, globals and O32 arguments. Every guest instruction, read and write is
+bounded. State and stack canaries, GP/SP, saved integer registers and twelve
+distinct F20..F31 values are checked. The SDK rotation initializer's four-byte
+write stays within its already owned static BSS object.
+
+Seven isolated source faults and three actual guest invalid-access probes fail
+after positive controls. Reproduce the bounded checks with:
+
+```sh
+python3 tools/check_startup_projection.py
+python3 tools/check_startup_projection.py --controls
+```
+
+Fixtures cover finite widths and angles, two separate buffers and matrix indices
+zero and one. Nonfinite floating-point exceptions, arbitrary global aliasing,
+RSP/RDP results and complete gameplay remain unverified. Whole-ROM equality still
+includes other extracted fallback and does not establish full source recovery.
+
+The [original report/data ledger](startup-projection-and-diagnostics-provenance.json)
+preserves its earlier nonmatching projection checkpoint. Current projection
+ownership and full validation appear in the separate current ledger. The local
+SM64, SDK and IDO references and the analysis tools are credited in
+[CREDITS](../CREDITS.md), [the reference study](reference-study.md) and
+[the toolchain notes](toolchain.md). No reference game's implementation is copied.
 
 The existing diagnostic and font issue remains open for its other candidates:
 [issue #61](https://github.com/frankischilling/robotron64/issues/61).

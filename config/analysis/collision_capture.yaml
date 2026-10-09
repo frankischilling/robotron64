@@ -1,0 +1,26 @@
+name: Robotron complete collision_capture retail function
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: collision_capture
+  base_path: ../../.local/collision-capture-references/splat
+  target_path: ../../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: collision_capture
+    type: code
+    start: 0x17F7C
+    vram: 0x8001737C
+    subsegments:
+      - [0x17F7C, asm, collision_capture]
+  - [0x1862C, bin, middle]
+  - name: collision_capture_dispatch
+    type: code
+    start: 0x90C38
+    vram: 0x80090038
+    subsegments:
+      - [0x90C38, rodata, collision_capture_dispatch]
+  - [0x90C98, bin, suffix]
+  - [0x800000]

@@ -55,7 +55,7 @@ Callback replacement clears flag `0x40` before invoking the prior callback,
 then reloads the actor flags. It installs `func_8000FBC0`, sets the flag and
 stores timer 999 in the verified instruction order. The child creator's three
 arguments and created-actor return are confirmed by its complete disassembly;
-its source candidate still has compiler differences and remains fallback.
+its [complete 744-byte source](actor-bonus-child.md) now matches independently.
 
 ## References
 

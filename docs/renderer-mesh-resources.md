@@ -38,9 +38,11 @@ stack frame. Every local is used by the recovered behavior.
 candidate in `src/game/renderer_resources/load.c`. It remains excluded
 from the matching manifest and ROM link. Its remaining instruction
 differences are tracked in [issue 65](https://github.com/frankischilling/robotron64/issues/65).
-The pinned IDO 5.3 game profile produces exactly 904 bytes with sixteen
-differing words. Those words concern the cache pointer's stack offset and
-pointer register allocation; the complete function still needs a match.
+The current pinned IDO 5.3 comparison produces exactly 904 live bytes with
+eleven differing words, all pointer register choices. The raw object also
+contains eight zero alignment bytes, checked separately against retail.
+The complete function still needs a match; the original PR 66 ledger below
+retains its historical sixteen-word comparison.
 
 The three signed arguments select a model, animation, and bitmap. A model
 of `-1` is skipped; animations are accepted from 0 through 254; negative
@@ -101,23 +103,19 @@ credit.
 
 ## Remaining polygon candidates
 
-The expanded quad and diagnostic line remain excluded candidates. The
-command-stream candidate preserves its switch dispatch, separate copy and
-load cursors, lighting branch, palette updates, polygon calls, and returned
-vertex count. Its generated switch table is still unowned. Private fixed
-table placement was useful for instruction research, but the public
-comparison uses the repository's actual linker inputs.
+The expanded quad and diagnostic line remain excluded candidates. The mesh
+command interpreter now owns all 1,336 instruction bytes and its complete
+68-byte generated switch table. See [mesh command interpreter](renderer-mesh-commands.md)
+for the current public source, independent reassemblies and guarded execution.
+
+The following comparisons retain the historical PR 66 checkpoint. Current
+resource-loader differences are described above; these rows add no ownership.
 
 | Candidate | Retail bytes | Compiled bytes | Differing words |
 | --- | ---: | ---: | ---: |
 | Expanded quad `func_800447D0` | 840 | 840 | 167 |
 | Diagnostic line `func_800453D8` | 316 | 316 | 57 |
-| Mesh commands `func_80045A08` | 1,336 | 1,360 | 300 |
 | Resource loader `func_8004BD00` | 904 | 904 | 16 |
-
-The command candidate's raw table section occupies 80 bytes. Its first
-seventeen entries cover the retail table's 68 bytes, with five differing
-entries. Neither those entries nor the section padding receive data credit.
 
 The adjacent functions and data are checked again after integrating the
 mesh and diagnostic definitions. Full comparison results, hashes, and

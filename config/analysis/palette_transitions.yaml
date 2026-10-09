@@ -1,0 +1,33 @@
+name: Robotron 64 verified palette transition ranges
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: palette_transitions
+  base_path: ../../.local/palette-transitions-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: palette_transition_allocate
+    type: code
+    start: 0x32728
+    vram: 0x80031B28
+    subsegments:
+      - [0x32728, asm, palette_transition_allocate]
+  - [0x32810, bin, after_allocate]
+  - name: palette_transition_update
+    type: code
+    start: 0x32ACC
+    vram: 0x80031ECC
+    subsegments:
+      - [0x32ACC, asm, palette_transition_update]
+  - [0x32F7C, bin, after_update]
+  - name: palette_transition_order
+    type: code
+    start: 0x78820
+    vram: 0x80077C20
+    subsegments:
+      - [0x78820, data, palette_transition_order]
+  - [0x7883C, bin, remainder]
+  - [0x800000]

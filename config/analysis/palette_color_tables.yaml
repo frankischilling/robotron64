@@ -1,0 +1,33 @@
+name: Robotron 64 verified color tables and formatting constants
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: palette_color_tables
+  base_path: ../../.local/palette-color-tables-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: game_number_digits
+    type: code
+    start: 0x7C71C
+    vram: 0x8007BB1C
+    subsegments:
+      - [0x7C71C, rodata, game_number_digits]
+  - [0x7C730, bin, between_digits_and_colors]
+  - name: palette_color_tables
+    type: code
+    start: 0x7C734
+    vram: 0x8007BB34
+    subsegments:
+      - [0x7C734, data, palette_color_tables]
+  - [0x7CF34, bin, after_colors]
+  - name: renderer_fatal_message
+    type: code
+    start: 0x9602C
+    vram: 0x8009542C
+    subsegments:
+      - [0x9602C, rodata, renderer_fatal_message]
+  - [0x96034, bin, remainder]
+  - [0x800000]

@@ -1,0 +1,1777 @@
+{
+  "schema": 1,
+  "kind": "complete source-owned actor collision capture procedure and generated table",
+  "verified_date": "2026-10-09",
+  "baseline_head": "b79c55978365a1b80fe36b8ff53c0f867f5f8966",
+  "owned_added": {
+    "functions": 1,
+    "code": 1712,
+    "initialized_data": 96,
+    "bss": 0
+  },
+  "function": {
+    "name": "func_8001737C",
+    "source": "src/game/collisions/capture.c",
+    "source_sha256": "564b90656362a8c09a7786a4e9d15cc3cb68492ee54ed64898b497dba905831c",
+    "vram": 2147578748,
+    "rom": 98172,
+    "natural_function_bytes": 1712,
+    "raw_text_bytes": 1712,
+    "raw_text_sha256": "3fec7ef41d99b30f6e7c86fbdbba2781cc9e8a15bd257fed8b0d19faf1805ff4",
+    "raw_relocations": [
+      {
+        "section": ".rel.text",
+        "offset": 100,
+        "type": 5,
+        "symbol": ".rodata"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 108,
+        "type": 6,
+        "symbol": ".rodata"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 184,
+        "type": 5,
+        "symbol": "func_80029E5C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 188,
+        "type": 6,
+        "symbol": "func_80029E5C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 244,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 260,
+        "type": 5,
+        "symbol": "D_8009EFA0"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 264,
+        "type": 6,
+        "symbol": "D_8009EFA0"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 280,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 336,
+        "type": 4,
+        "symbol": "func_8003CD4C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 356,
+        "type": 4,
+        "symbol": "func_8004CEF0"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 376,
+        "type": 5,
+        "symbol": "D_8009EFA0"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 396,
+        "type": 6,
+        "symbol": "D_8009EFA0"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 408,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 468,
+        "type": 5,
+        "symbol": "func_80029154"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 472,
+        "type": 6,
+        "symbol": "func_80029154"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 540,
+        "type": 4,
+        "symbol": "func_800290B0"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 552,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 564,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 580,
+        "type": 4,
+        "symbol": "func_80039514"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 596,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 608,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 620,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 636,
+        "type": 4,
+        "symbol": "func_80039514"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 688,
+        "type": 5,
+        "symbol": "func_8002BF88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 692,
+        "type": 6,
+        "symbol": "func_8002BF88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 728,
+        "type": 5,
+        "symbol": "D_800B2740"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 732,
+        "type": 6,
+        "symbol": "D_800B2740"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 736,
+        "type": 4,
+        "symbol": "func_800283D4"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 820,
+        "type": 4,
+        "symbol": "func_8003CD4C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 840,
+        "type": 4,
+        "symbol": "func_8004CEF0"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 868,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 928,
+        "type": 5,
+        "symbol": "func_80029210"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 932,
+        "type": 6,
+        "symbol": "func_80029210"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 976,
+        "type": 4,
+        "symbol": "func_8003CD4C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 992,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1004,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1020,
+        "type": 4,
+        "symbol": "func_80039514"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1036,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1064,
+        "type": 4,
+        "symbol": "func_8003945C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1076,
+        "type": 4,
+        "symbol": "func_80039DCC"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1092,
+        "type": 4,
+        "symbol": "func_80039C5C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1104,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1116,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1132,
+        "type": 4,
+        "symbol": "func_80039514"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1168,
+        "type": 4,
+        "symbol": "func_8003CD4C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1184,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1196,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1212,
+        "type": 4,
+        "symbol": "func_80039514"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1228,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1256,
+        "type": 4,
+        "symbol": "func_8003945C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1268,
+        "type": 4,
+        "symbol": "func_80039D4C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1284,
+        "type": 4,
+        "symbol": "func_80036B00"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1300,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1312,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1324,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1340,
+        "type": 4,
+        "symbol": "func_80039514"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1352,
+        "type": 4,
+        "symbol": "func_80039D4C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1404,
+        "type": 5,
+        "symbol": "func_80029210"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1408,
+        "type": 6,
+        "symbol": "func_80029210"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1436,
+        "type": 4,
+        "symbol": "func_80039DCC"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1452,
+        "type": 4,
+        "symbol": "func_80039C5C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1488,
+        "type": 4,
+        "symbol": "func_8003CD4C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1508,
+        "type": 4,
+        "symbol": "func_8004CEF0"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1552,
+        "type": 4,
+        "symbol": "func_8003CD4C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1568,
+        "type": 4,
+        "symbol": "func_8003CC88"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1580,
+        "type": 4,
+        "symbol": "func_8003CC58"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1596,
+        "type": 4,
+        "symbol": "func_80039514"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1612,
+        "type": 4,
+        "symbol": "func_80027AB8"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1640,
+        "type": 4,
+        "symbol": "func_8003945C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1652,
+        "type": 4,
+        "symbol": "func_80039DCC"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1668,
+        "type": 4,
+        "symbol": "func_80039C5C"
+      },
+      {
+        "section": ".rel.text",
+        "offset": 1680,
+        "type": 4,
+        "symbol": "func_80039D4C"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 0,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 4,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 8,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 12,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 16,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 20,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 24,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 28,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 32,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 36,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 40,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 44,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 48,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 52,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 56,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 60,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 64,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 68,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 72,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 76,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 80,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 84,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 88,
+        "type": 2,
+        "symbol": ".text"
+      },
+      {
+        "section": ".rel.rodata",
+        "offset": 92,
+        "type": 2,
+        "symbol": ".text"
+      }
+    ],
+    "linked_text_bytes": 1712,
+    "instructions": 428,
+    "frame_bytes": 56,
+    "code_sha256": "f328aa22a4ed78f47fcda267e01299ef845d5b42668eb2fecfdfe2fd6432c90d",
+    "alignment_bytes_credited": 0,
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+    "complete_comparison_sha256": "4032021eee85cc04b5cb4e487e95f7da8236fc810fdf40aa5d8ac727c62e448b",
+    "independent_references": {
+      "spimdisasm": {
+        "generated_table_bytes": 96,
+        "generated_table_sha256": "098bb16e974eacfe479a4a0c1d4cb90fb03efe73f12c642b8e0da4726e50fcd2",
+        "generated_table_matches": true,
+        "matches": true,
+        "natural_function_bytes": 1712,
+        "raw_text_bytes": 1712,
+        "complete_linked_text_bytes": 1712,
+        "code_sha256": "f328aa22a4ed78f47fcda267e01299ef845d5b42668eb2fecfdfe2fd6432c90d",
+        "source_sha256": "0fd0174f81d7e26ba09a870c6405bc0c73fff9a4754b9e6e2b1d3b6613310dc1",
+        "raw_object_sha256": "901221c14d023f850bf0b243ced9a96932b2783a57a7a47211c94b7bf889933f",
+        "elf_sha256": "560c9de33cb8b727aae5d300863e55a5ed20e3f20192ad879b1be1d4fcde4ed6",
+        "bindings": {
+          "D_8009EFA0": "0x8009efa0",
+          "D_800B2740": "0x800b2740",
+          "func_80027AB8": "0x80027ab8",
+          "func_800283D4": "0x800283d4",
+          "func_800290B0": "0x800290b0",
+          "func_80029154": "0x80029154",
+          "func_80029210": "0x80029210",
+          "func_80029E5C": "0x80029e5c",
+          "func_8002BF88": "0x8002bf88",
+          "func_80036B00": "0x80036b00",
+          "func_8003945C": "0x8003945c",
+          "func_80039514": "0x80039514",
+          "func_80039C5C": "0x80039c5c",
+          "func_80039D4C": "0x80039d4c",
+          "func_80039DCC": "0x80039dcc",
+          "func_8003CC58": "0x8003cc58",
+          "func_8003CC88": "0x8003cc88",
+          "func_8003CD4C": "0x8003cd4c",
+          "func_8004CEF0": "0x8004cef0"
+        }
+      },
+      "splat": {
+        "generated_table_bytes": 96,
+        "generated_table_sha256": "098bb16e974eacfe479a4a0c1d4cb90fb03efe73f12c642b8e0da4726e50fcd2",
+        "generated_table_matches": true,
+        "matches": true,
+        "natural_function_bytes": 1712,
+        "raw_text_bytes": 1712,
+        "complete_linked_text_bytes": 1712,
+        "code_sha256": "f328aa22a4ed78f47fcda267e01299ef845d5b42668eb2fecfdfe2fd6432c90d",
+        "source_sha256": "0adf42bc81e8315903f89641d85e2a5606338dc9bd1a4d0d77ed57c07656012f",
+        "raw_object_sha256": "c1632255c7f5aacad4c9b37b81206a698c365d953624e381cf34881c036ef3c3",
+        "elf_sha256": "3f3a52b9f9e392a54b6a2d14c0b0f845a6e2f006a0a63c2de166b4dd50094570",
+        "bindings": {
+          "D_80029154": "0x80029154",
+          "D_80029210": "0x80029210",
+          "D_80029E5C": "0x80029e5c",
+          "D_8002BF88": "0x8002bf88",
+          "D_8009EFA0": "0x8009efa0",
+          "D_800B2740": "0x800b2740",
+          "func_80027AB8": "0x80027ab8",
+          "func_800283D4": "0x800283d4",
+          "func_800290B0": "0x800290b0",
+          "func_80036B00": "0x80036b00",
+          "func_8003945C": "0x8003945c",
+          "func_80039514": "0x80039514",
+          "func_80039C5C": "0x80039c5c",
+          "func_80039D4C": "0x80039d4c",
+          "func_80039DCC": "0x80039dcc",
+          "func_8003CC58": "0x8003cc58",
+          "func_8003CC88": "0x8003cc88",
+          "func_8003CD4C": "0x8003cd4c",
+          "func_8004CEF0": "0x8004cef0"
+        }
+      }
+    }
+  },
+  "generated_table": {
+    "entries": 24,
+    "selector_kinds": [
+      5,
+      28
+    ],
+    "vram": 2148073528,
+    "rom": 592952,
+    "bytes": 96,
+    "sha256": "098bb16e974eacfe479a4a0c1d4cb90fb03efe73f12c642b8e0da4726e50fcd2",
+    "raw_relocations": 24,
+    "compiled_with_function": true,
+    "all_targets_within_function": true
+  },
+  "source_review": {
+    "readable_reconstruction_not_original_source": true,
+    "dummy_or_identity_expressions": false,
+    "inline_assembly_or_inserted_opcodes": false,
+    "signed_thresholds": "Verified signed slti instructions at 800174EC, 800176D0, 8001796C; actor flags retain unsigned fields.",
+    "position_copy": "A real three-word struct copy; final two formal pointers are stored but not read.",
+    "callback_order": "Clear active flag and call old callback, then reload flags and install replacement/timer.",
+    "observable_zero_speed_trig_calls": true,
+    "earlier_nonmatching_sources_retained_privately": true
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "full_function_extent_and_signature_verified": true,
+    "retail_code_bytes_verified": 1712,
+    "retail_table_bytes_verified": 96,
+    "saved": true,
+    "private_research_receipt_sha256": "b3425ddcee629c420f064194ae32309a7c19a907c076f5125b5e5b371c8755b5",
+    "private_acceptance_receipt_sha256": "7a5bb95a365d908407b0bbb592baea28253202435ce7d45ba76ac24d6eecd8fc"
+  },
+  "execution": {
+    "paired_cases": 838,
+    "principal_executions": 1676,
+    "support_calls_per_image": 8540,
+    "matching_support_calls_per_image": 8419,
+    "unowned_retail_loader_calls_per_image": 121,
+    "digest": "ce651ad72eca472fee486f2fd311f01d73d6a0a1bf6af5fb3b12bdb9622cc3dc",
+    "complete_matching_support_instruction_bytes": 5444,
+    "unowned_retail_loader_instruction_bytes": 904,
+    "initialized_support_bytes": 2420,
+    "source_mutants_rejected": 10,
+    "saved_fpu_faults_rejected": 12,
+    "guest_access_faults_rejected": 3,
+    "positive_retail_and_candidate_for_every_fault": true,
+    "candidate_positive_after_every_fault": true,
+    "checker_sha256": "3fb448cbe408ab1a03818682e8f72c4097d1e730d0fad383452528d9e9b7014a",
+    "runner_sha256": "22d634151ee9f75e24ade7c19e7da32af21cc92652fc803ea139b2abb7edab05",
+    "limitations": [
+      "Allocation, original actor callback, spawned initializer, fragment creation and sound playback use explicit synthetic caller-clobbering ABI boundaries.",
+      "Fourteen complete matching support units execute; an additional 904 unowned retail loader bytes execute only on valid cache hits.",
+      "Finite valid tracks/models/object indices and explicit callback mutations only; asset misses, unsafe indices, audio hardware, fragment effects and full gameplay are excluded.",
+      "Stack interiors are bounded and ABI checked, not claimed byte-identical."
+    ],
+    "controls": [
+      {
+        "kind": "source",
+        "name": "other_kind_guard",
+        "case_index": 58,
+        "rejected": true,
+        "reason": "('event', {'kind': 5, 'other_kind': 4, 'first_animation': 0, 'second_animation': 0, 'angle': 0, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 117, 71), 'flags': 268435520, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147732812, [140, 0], 'ce85d67ec584827204bf566176c07fea051d79cab7561630d84d5f7b47a72a51'], [])",
+        "comparison_sha256": "3ce98025803fca4a61fc5a09e7269df8d82f0021049e69e0ad90eaa9d1abd850"
+      },
+      {
+        "kind": "source",
+        "name": "threshold_edge",
+        "case_index": 383,
+        "rejected": true,
+        "reason": "('event', {'kind': 5, 'other_kind': 0, 'first_animation': 0, 'second_animation': 0, 'angle': 24, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 77, 71), 'flags': 0, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147646136, [2149589008, 1, 1], '87bc5deab9bda2d9fc396ae9b3c932ba6d37941b3c3b274e1c842ab3b1f133d1'], [])",
+        "comparison_sha256": "ca8c82b2e77cc5791bc657cf77fba8b7ad45586800d57873cf259097c12307a3"
+      },
+      {
+        "kind": "source",
+        "name": "callback_flag_clear",
+        "case_index": 250,
+        "rejected": true,
+        "reason": "('event', {'kind': 25, 'other_kind': 0, 'first_animation': 0, 'second_animation': 0, 'angle': 0, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 117, 71), 'flags': 268435520, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147484032, [2149589008], '65257c2effddc2eabb0adc4301ae10830e1d6a3bd48b28cd1327bf15654fcfa5'], [[2147484032, [2149589008], '74c7f2df603339f25f93fb9ea8a5eafb9de5cab45f3a5f7c30a3789e25909ed2']])",
+        "comparison_sha256": "cf2cf7be9ab3312cbe8cc8a458e9244f505f857434eddd5f5d363ef207e595cf"
+      },
+      {
+        "kind": "source",
+        "name": "callback_installation",
+        "case_index": 250,
+        "rejected": true,
+        "reason": "('event', {'kind': 25, 'other_kind': 0, 'first_animation': 0, 'second_animation': 0, 'angle': 0, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 117, 71), 'flags': 268435520, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147646136, [2149589008, 3, 1], '3bcf2f84bffea859ad55adf0dc883f7090b150b5eeef2091fb7e91001897907a'], [[2147646136, [2149589008, 3, 1], 'cdf6cb134fbeb49639fff2d3acac7e4c1b321f5290b3e6f1b259037e2230abd8']])",
+        "comparison_sha256": "8ce48fc470e1d10bcd7d4ca98b2084409d17dfc0e53f64f89d5cf970beea1f80"
+      },
+      {
+        "kind": "source",
+        "name": "timer_value",
+        "case_index": 250,
+        "rejected": true,
+        "reason": "('event', {'kind': 25, 'other_kind': 0, 'first_animation': 0, 'second_animation': 0, 'angle': 0, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 117, 71), 'flags': 268435520, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147646136, [2149589008, 3, 1], 'c8c4f27a9a89dd5f823f541dfa942b272d211e01f4d40ccec647466c9f469d89'], [[2147646136, [2149589008, 3, 1], 'cdf6cb134fbeb49639fff2d3acac7e4c1b321f5290b3e6f1b259037e2230abd8']])",
+        "comparison_sha256": "c9886878803418039082b4b41afb6795f9d58cfb3e257fa37088f75733cdd1ff"
+      },
+      {
+        "kind": "source",
+        "name": "copied_height",
+        "case_index": 250,
+        "rejected": true,
+        "reason": "('event', {'kind': 25, 'other_kind': 0, 'first_animation': 0, 'second_animation': 0, 'angle': 0, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 117, 71), 'flags': 268435520, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147646136, [2149589008, 3, 1], '145dc9029c9947814f9d9abe1681c1f12204fd6960799a892b8a2e2c98cc1fab'], [[2147646136, [2149589008, 3, 1], 'cdf6cb134fbeb49639fff2d3acac7e4c1b321f5290b3e6f1b259037e2230abd8']])",
+        "comparison_sha256": "b4a7a2fedaee8022e321b69d9a3823f32afa579fe97d790229a987e5a0d07ceb"
+      },
+      {
+        "kind": "source",
+        "name": "sine_call_removed",
+        "case_index": 50,
+        "rejected": true,
+        "reason": "('event', {'kind': 5, 'other_kind': 0, 'first_animation': 0, 'second_animation': 0, 'angle': 0, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 117, 71), 'flags': 268435520, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147718420, [17, 0], 'de27e90aa6490c9748128726d347a3a0c1ff7ab42fc7138ad9a8557cd5e44b87'], [[2147732568, [0], '54a20b93252547eb759e4c7f4ab591657b1fe8905ad4d038627cbdaef5173a34']])",
+        "comparison_sha256": "2cd1c3bf55d73c005678631af813dcbc538e4ff1d8d04b73b86d93f1c7fbe212"
+      },
+      {
+        "kind": "source",
+        "name": "attachment_target",
+        "case_index": 60,
+        "rejected": true,
+        "reason": "('event', {'kind': 6, 'other_kind': 0, 'first_animation': 0, 'second_animation': 0, 'angle': 0, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 117, 71), 'flags': 268435520, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147720284, [17, 17], 'ba2476be0628568a3b90e3841e31d9750ae5ae8ce18987dee5c657731e0bf0eb'], [[2147720284, [17, 0], 'ba2476be0628568a3b90e3841e31d9750ae5ae8ce18987dee5c657731e0bf0eb']])",
+        "comparison_sha256": "e115e57971f23c4d3629d6c2b0c24dc63f4c755f638c8e6eebe2410e846d2fd0"
+      },
+      {
+        "kind": "source",
+        "name": "spawn_initializer_argument",
+        "case_index": 50,
+        "rejected": true,
+        "reason": "('event', {'kind': 5, 'other_kind': 0, 'first_animation': 0, 'second_animation': 0, 'angle': 0, 'other_angle': -1, 'first_position': (17, -23, 31), 'second_position': (17, 117, 71), 'flags': 268435520, 'loop': 90, 'limit': 3, 'clock': 2147483647, 'fail': False, 'mutation': 0, 'fallback': False, 'sound': False, 'formal': 4294967295}, [2147484096, [2149593104, 0], '99952a65610a6c64ff82113430bbc7ff75a441bb19ec766cfdeef4c4e79c36ca'], [[2147484096, [2149593104, 1], '99952a65610a6c64ff82113430bbc7ff75a441bb19ec766cfdeef4c4e79c36ca']])",
+        "comparison_sha256": "72102335213e0aae1cd1f5c239a8d29cbb54614ee3fe7f2a3f7c54a54ccb98e6"
+      },
+      {
+        "kind": "source",
+        "name": "return_value",
+        "case_index": 0,
+        "rejected": true,
+        "reason": "",
+        "comparison_sha256": "dd80d9040d1432fb8b529f09a4c7a3b6eefd1e412f9919c9b48b8a6fa880b661"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 20,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 21,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 22,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 23,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 24,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 25,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 26,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 27,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 28,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 29,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 30,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "saved_fpu",
+        "register": 31,
+        "rejected": true,
+        "reason": "Twelve distinct saved FPU words and guards"
+      },
+      {
+        "kind": "access",
+        "input": "0x0",
+        "rejected": true,
+        "reason": "('access', 16, '0x80000024', 4, '0x800173c0')"
+      },
+      {
+        "kind": "access",
+        "input": "0x8020100c",
+        "rejected": true,
+        "reason": "Invalid memory read (UC_ERR_READ_UNMAPPED)"
+      },
+      {
+        "kind": "access",
+        "input": "0x80400100",
+        "rejected": true,
+        "reason": "Invalid memory read (UC_ERR_READ_UNMAPPED)"
+      }
+    ],
+    "support_comparisons": {
+      "object_recovery_angle_scale": {
+        "source": "src/game/object_recovery_angle_scale.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 36,
+        "actual_size": 36,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "8aa6b31d123c1827f3ab850fbce41900bdbb72d48a623f7295c1ea310d1a1961",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_recovery_direction_angle": {
+        "source": "src/game/object_recovery_direction_angle.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 388,
+        "actual_size": 388,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "dcc7ca61586c13a12a290250c936f1344ccbe03a1865483d8c70573c6b5a6fe0",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_recovery_angle_table": {
+        "source": "src/game/object_recovery_angle_table.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 148,
+        "actual_size": 148,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "521c915a93f79aa41d0ae1c15a8170d07377974ac3f69279e7567d5b13898ada",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "fixed_geometry_setup": {
+        "source": "src/game/fixed_geometry_setup.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 1508,
+        "actual_size": 1508,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "b9031c764dc8564d3ff6273eb11d82da251d691ef02e44d596d138ee921bdd83",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "actor_animation": {
+        "source": "src/game/actor_animation.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 228,
+        "actual_size": 228,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "c855193682d17b3d39d91260a6dc65bea241a5b43fa573a972315e457f99e3d5",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "actor_position_submit": {
+        "source": "src/game/actor_position_submit.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 164,
+        "actual_size": 164,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "a11567ad8ec4af73599bc630fa681dd259687bed5ba571cf66dddaebff1105a3",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_recovery_fixed_trig": {
+        "source": "src/game/object_recovery_fixed_trig.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 144,
+        "actual_size": 144,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "d2279fc9a0675da5c6054ae6fdf951fbb0c1d5d6c985bd362ae48f6669fb8c3b",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "short_sine": {
+        "source": "src/sdk/short_sine.c",
+        "compiler_profile": {
+          "name": "sdk-o2-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "expected_size": 112,
+        "actual_size": 112,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "edcbd4653140e582f8ae02e1dc23548669a460c41c3dade04ff825eae6dfc7e0",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "short_cosine": {
+        "source": "src/sdk/short_cosine.c",
+        "compiler_profile": {
+          "name": "sdk-o2-mips2",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips2",
+            "-32"
+          ]
+        },
+        "expected_size": 48,
+        "actual_size": 48,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "189690a15618cdcb387a6c3feb9929ca8fee440ba125b69858570d35f8eecc57",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_transforms": {
+        "source": "src/game/object_transforms.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 1976,
+        "actual_size": 1976,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "7b35e0bf970947ce947b807e30d8a5c8a467cd9a270aaca272efea74a0c35243",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_model_access": {
+        "source": "src/game/object_model_access.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 228,
+        "actual_size": 228,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "d552aceea48496c47d1ac3d2a471ce2b02dffabe6cffa24daafbe01ffec9ea14",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_helpers_properties": {
+        "source": "src/game/object_helpers_properties.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 244,
+        "actual_size": 244,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "05a4d31b2ce7f71c3a9f72e39bf94180a8edab10bdaec9c4b3d73ad132d706d8",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_helpers_index_set": {
+        "source": "src/game/object_helpers_index_set.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 96,
+        "actual_size": 96,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "56c8e39aa8564b5d1a229fde0eacb99881207d50259ea9b3dc5642f7ffba271d",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "object_helpers_index_limit": {
+        "source": "src/game/object_helpers_index_limit.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "expected_size": 124,
+        "actual_size": 124,
+        "matches": true,
+        "different_words": [],
+        "complete_comparison_sha256": "50285384b69f66b14e276ff33e89b6e0d407f4e507f2126677930b5181a39f01",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "src/game/object_angle_setter_constants.c": {
+        "source": "src/game/object_angle_setter_constants.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "matches": true,
+        "complete_comparison_sha256": "094ce3db0f910b51a1d5d74c9e1175467f2ae0cb3817fc1c05d134853abdb5d6",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      },
+      "src/game/actor_groups/direction_table.c": {
+        "source": "src/game/actor_groups/direction_table.c",
+        "compiler_profile": {
+          "name": "game",
+          "version": "5.3",
+          "flags": [
+            "-O2",
+            "-G",
+            "0",
+            "-non_shared",
+            "-mips1",
+            "-32"
+          ]
+        },
+        "matches": true,
+        "complete_comparison_sha256": "c418b5ede04626b1af200fbbea32957199be77e4001b2e7016a396f6c8fc1fa5",
+        "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09"
+      }
+    },
+    "private_complete_report_sha256": "407222c83e4c13f1f647d5054babdc6b2e478c0c8a613e2318cb16261bfcfe46"
+  },
+  "validation": {
+    "stages": [
+      {
+        "step": "independent-collision-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/collision-capture-references/generate.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 2.14
+      },
+      {
+        "step": "independent-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/projection-references/generate.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.09
+      },
+      {
+        "step": "independent-literal-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/literal-references.py",
+          "/root/robotron64-validation/collision-capture-final2-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.54
+      },
+      {
+        "step": "independent-projectile-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/projectile-references/generate.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.7
+      },
+      {
+        "step": "clean-build",
+        "command": [
+          "make",
+          "-j4",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 63.24
+      },
+      {
+        "step": "projectile-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_projectile_spawn.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 12.38
+      },
+      {
+        "step": "collision-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_collision_capture.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 36.24
+      },
+      {
+        "step": "literal-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_script_resource_literals.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 12.12
+      },
+      {
+        "step": "diagnostic-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_scripted_file_diagnostics.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 2.84
+      },
+      {
+        "step": "diagnostic-controls",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/diagnostic-controls.py",
+          "/root/robotron64-validation/collision-capture-final2-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 2.65
+      },
+      {
+        "step": "script-storage",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_script_resource_storage.py",
+          "--mutations"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 36.32
+      },
+      {
+        "step": "formatter-regression",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_error_formatters.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 29.7
+      },
+      {
+        "step": "verify-progress",
+        "command": [
+          "make",
+          "progress",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 32.35
+      },
+      {
+        "step": "remaining",
+        "command": [
+          "make",
+          "remaining",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.78
+      },
+      {
+        "step": "runtime",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_runtime.py",
+          "-j4"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 500.33
+      },
+      {
+        "step": "startup",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_startup.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.94
+      },
+      {
+        "step": "assembly",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_assembly.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 13.11
+      },
+      {
+        "step": "data",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_data.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 13.77
+      },
+      {
+        "step": "excluded",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_runtime.py",
+          "--candidates",
+          "-j4"
+        ],
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "seconds": 14.02
+      },
+      {
+        "step": "path-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_group_path.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 148.11
+      },
+      {
+        "step": "bonus-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_bonus_child.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 15.01
+      },
+      {
+        "step": "boundary-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_boundary_boss.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 15.25
+      },
+      {
+        "step": "boundary-mutations",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/boundary-mutations.py",
+          "/root/robotron64-validation/collision-capture-final2-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.85
+      },
+      {
+        "step": "projection-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_startup_projection.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 19.16
+      },
+      {
+        "step": "projection-controls",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_startup_projection.py",
+          "--controls"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 6.43
+      },
+      {
+        "step": "graphics-storage",
+        "command": [
+          "make",
+          "audit-graphics-setup-storage",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 19.56
+      },
+      {
+        "step": "setup-audit",
+        "command": [
+          "make",
+          "audit-scene-resource-setup",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 11.5
+      },
+      {
+        "step": "renderer-grid",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_renderer_grid.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 28.42
+      },
+      {
+        "step": "tests",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.99
+      },
+      {
+        "step": "manifest",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/manifest.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.78
+      },
+      {
+        "step": "fresh-workbench",
+        "command": [
+          "robotron-tools",
+          "match",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/projection-spec.json",
+          "--fresh",
+          "-j",
+          "2"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.95
+      },
+      {
+        "step": "asm-differ",
+        "command": [
+          "robotron-tools",
+          "diff",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/projection-spec.json",
+          "--name",
+          "renderer_projection_setup"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.41
+      },
+      {
+        "step": "objdiff",
+        "command": [
+          "robotron-tools",
+          "objdiff",
+          "diff",
+          "-1",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/projection-references/reference.raw.o",
+          "-2",
+          "/root/robotron64-validation/collision-capture-final2-20261009/build/us/renderer_projection_setup.raw.o",
+          "-o",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/objdiff.json"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.1
+      },
+      {
+        "step": "projectile-fresh-workbench",
+        "command": [
+          "robotron-tools",
+          "match",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/projectile-spec.json",
+          "--fresh",
+          "-j",
+          "2"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.08
+      },
+      {
+        "step": "projectile-asm-differ",
+        "command": [
+          "robotron-tools",
+          "diff",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/projectile-spec.json",
+          "--name",
+          "actor_projectile_spawn"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.42
+      },
+      {
+        "step": "projectile-objdiff",
+        "command": [
+          "robotron-tools",
+          "objdiff",
+          "diff",
+          "-1",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/projectile-references/reference.raw.o",
+          "-2",
+          "/root/robotron64-validation/collision-capture-final2-20261009/build/us/actor_projectile_spawn.raw.o",
+          "-o",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/projectile-objdiff.json"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.08
+      },
+      {
+        "step": "collision-fresh-workbench",
+        "command": [
+          "robotron-tools",
+          "match",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/collision-spec.json",
+          "--fresh",
+          "-j",
+          "2"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.92
+      },
+      {
+        "step": "collision-asm-differ",
+        "command": [
+          "robotron-tools",
+          "diff",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/collision-spec.json",
+          "--name",
+          "collision_capture"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.39
+      },
+      {
+        "step": "collision-objdiff",
+        "command": [
+          "robotron-tools",
+          "objdiff",
+          "diff",
+          "-1",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/collision-capture-references/reference.raw.o",
+          "-2",
+          "/root/robotron64-validation/collision-capture-final2-20261009/build/us/collision_capture.raw.o",
+          "-o",
+          "/root/robotron64-validation/collision-capture-final2-20261009/.local/acceptance/collision-objdiff.json"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.08
+      }
+    ],
+    "comparisons": {
+      "runtime-comparison": {
+        "units": 912,
+        "matches": true,
+        "private_report_sha256": "f5c36ed0355f8befbe7b905b0e2a2293075f6a00a730ab126f0e2b11e047140c"
+      },
+      "startup-comparison": {
+        "units": 2,
+        "matches": true,
+        "private_report_sha256": "b124cb9fd9635fa2ed5f6f1c54a97ee7ab74cf4db3b98b75bb0c95bd2cc174a2"
+      },
+      "assembly-comparison": {
+        "units": 18,
+        "matches": true,
+        "private_report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data-comparison": {
+        "units": 198,
+        "matches": true,
+        "private_report_sha256": "11d09c8aff1ae4cef240da7a10a00453e486f88005dca42ca376d2681326b521"
+      }
+    },
+    "excluded_candidates": 26,
+    "linux_tests": 171,
+    "windows_tests": 171,
+    "windows_skips": 9,
+    "full_rom_bytes": 8388608,
+    "full_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "frozen_public_inputs": 2001,
+    "frozen_input_map_sha256": "b613e1210956c5278c55c5a50724f05e36659f02a0be771f6370e53c6bd34648",
+    "objdiff_private_report_sha256": "ba6e3aa43900a10a68aedefcb96379272aac5820aca261ee36140099332d1ed9",
+    "viewer_score_is_not_acceptance": "Both natural references and all linked IDO code/table bytes compare independently of viewer output.",
+    "earlier_pre_freeze_failures": [
+      "New source ownership rejected the retained absolute function bindings; removed them from both external symbol maps and the final linker before freezing.",
+      "A threshold mutation initially survived because the fixture used the wrong coordinate axis; corrected the fixture, then reran all positive cases and faults without weakening guards."
+    ],
+    "direct_fresh_splat_code_table_reassembly": {
+      "matches": true,
+      "complete_function_bytes": 1712,
+      "complete_dispatch_bytes": 96,
+      "dispatch_relocations": 24,
+      "source": "Fresh unmodified splat code and rodata assembly concatenated directly; no pointer-table or code-label reconstruction.",
+      "raw_object_sha256": "0d64aa64584c37550d97b9ca57e888d286e12f83d94b7c87cffc1b07d0cc97bc",
+      "elf_sha256": "283b407de1d9ed49f3a6ea5ffde39b016ad5425d517d7878f36c4552be9d8c58",
+      "code_assembly_sha256": "3cfb9697014544d874c534df59d111ad8d38440d080516626a5d58258aad9278",
+      "table_assembly_sha256": "30712ebf6e39f49fc7660f7bf91c1120c08834c2cbcdde4fe5cdba5029c6ace9"
+    },
+    "earlier_failed_clean_snapshot": {
+      "reason": "The first clean linker build rejected a missing D_800B2740 resource alias. Verified this is primary resource element 33, added a source-owned section-relative alias and assertions, then restarted all 39 stages from a new empty build snapshot.",
+      "private_validation_results_sha256": "3f611c4f69fd6e0e5b3ca7fec88468f9419ecef469c87ca2af3b242407749b2b"
+    }
+  },
+  "current_totals": {
+    "matching_c_functions": 1430,
+    "matching_c_bytes": 314348,
+    "matching_assembly_functions": 29,
+    "matching_assembly_bytes": 4372,
+    "initialized_data_bytes": 37827,
+    "bss_bytes": 879157,
+    "fallback_cpu_bytes": 135836,
+    "fallback_cpu_spans": 183,
+    "unclassified_cpu_bytes": 164,
+    "full_decompilation_complete": false
+  },
+  "existing_resource_view": {
+    "name": "D_800B2740",
+    "array": "D_800B1BE8",
+    "element": 33,
+    "record_bytes": 88,
+    "vram": 2148214592,
+    "owned_bss_section": ".actor_resources_primary_bss",
+    "new_owned_bytes": 0
+  }
+}

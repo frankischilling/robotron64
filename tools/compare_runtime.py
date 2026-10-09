@@ -11,6 +11,15 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
+    ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
+    ("game_hud_state", "src/game/game_hud_state.c", 0x800371FC, 0x80037408),
+    ("early_input_sequence_define", "src/game/input_sequences/define.c", 0x8001BE2C, 0x8001BF48),
+    ("renderer_rotating_rings", "src/game/renderer_surfaces/rotating_rings.c", 0x80040968, 0x80040BA0),
+    ("palette_transition_update", "src/game/palette_effects/transition_update.c", 0x80031ECC, 0x8003237C),
+    ("renderer_background_dispatch", "src/game/renderer_surfaces/background_dispatch.c", 0x800400D0, 0x800404F4),
+    ("renderer_material_cache_reset", "src/game/renderer_resources/material_reset.c", 0x800420B0, 0x80042828),
+    ("palette_transition_allocate", "src/game/palette_effects/transition_allocate.c", 0x80031B28, 0x80031C10),
     ("actor_collision_kind_response", "src/game/collisions/kind_response.c", 0x80016950, 0x80016C1C),
     ("renderer_border_gradient", "src/game/renderer_surfaces/border_gradient.c", 0x80041180, 0x800414C4),
     ("renderer_color_gradient", "src/game/renderer_surfaces/color_gradient.c", 0x80040F5C, 0x80041180),
@@ -25,6 +34,8 @@ MATCHING_BLOCKS = (
     ("boundary_dispatch", "src/game/actor_groups/boundary_dispatch.c", 0x800190F8, 0x800194DC),
     ("actor_collision_impact", "src/game/collisions/impact.c", 0x80016C1C, 0x80017364),
     ("actor_group_rotate", "src/game/actor_groups/rotate.c", 0x8000E720, 0x8000E894),
+    ("actor_group_path", "src/game/actor_groups/path.c", 0x8000E894, 0x8000EAE4),
+    ("actor_group_bonus_child", "src/game/actor_groups/bonus_child.c", 0x8000F030, 0x8000F318),
     ("actor_collision_rebound", "src/game/collisions/rebound.c", 0x8001631C, 0x80016618),
     ("actor_collision_retire", "src/game/collisions/retire.c", 0x8001B4F8, 0x8001B7D0),
     ("actor_collision_pickup_response", "src/game/collisions/pickup_response.c", 0x80015F00, 0x800162AC),
@@ -59,6 +70,8 @@ MATCHING_BLOCKS = (
     ("tweak_scene_define", "src/game/tweak_scene_define.c", 0x800378CC, 0x8003799C),
     ("tweak_difficulty_define", "src/game/tweak_difficulty_define.c", 0x8003762C, 0x80037700),
     ("actor_animation", "src/game/actor_animation.c", 0x80027AB8, 0x80027B9C),
+    ("actor_projectile_spawn", "src/game/actor_projectiles/spawn.c", 0x80038D8C, 0x8003919C),
+    ("collision_capture", "src/game/collisions/capture.c", 0x8001737C, 0x80017A2C),
     ("object_transforms", "src/game/object_transforms.c", 0x800394C0, 0x80039C78),
     ("text", "src/game/text.c", 0x80000450, 0x80000F48),
     ("text_conversion", "src/game/text_conversion.c", 0x800016D8, 0x8000177C),
@@ -77,6 +90,7 @@ MATCHING_BLOCKS = (
     ("movie_callback", "src/game/movie_callback.c", 0x8000440C, 0x800044AC),
     ("movie_prepare", "src/game/movie_prepare.c", 0x800044AC, 0x800045E4),
     ("movie_start", "src/game/movie_start.c", 0x800045E4, 0x80004C3C),
+    ("movie_update", "src/game/movie_update.c", 0x80004C3C, 0x80005354),
     ("movie_status", "src/game/movie_status.c", 0x80005354, 0x8000544C),
     ("movie_cleanup", "src/game/movie_cleanup.c", 0x8000544C, 0x80005560),
     ("early_actor_tick", "src/game/early_actor_tick.c", 0x80009F58, 0x80009F90),
@@ -382,6 +396,7 @@ MATCHING_BLOCKS = (
     ("renderer_vertex_positions", "src/game/renderer_vertex_positions.c", 0x80044270, 0x800444F8),
     ("renderer_material_reset", "src/game/renderer_material_reset.c", 0x80045514, 0x80045534),
     ("renderer_mesh_positions", "src/game/renderer_mesh_positions.c", 0x80045934, 0x80045A08),
+    ("renderer_mesh_commands", "src/game/renderer_primitives/mesh_commands.c", 0x80045A08, 0x80045F40),
     ("renderer_vertex_copy", "src/game/renderer_vertex_copy.c", 0x80045F40, 0x800462DC),
     ("renderer_texture_load", "src/game/renderer_texture_load.c", 0x800462DC, 0x800464F4),
     ("graphics_display_list", "src/game/graphics_display_list.c", 0x800464F4, 0x8004653C),
@@ -784,6 +799,7 @@ MATCHING_BLOCKS = (
     ("name_table_lookup", "src/game/name_table_lookup.c", 0x8001B7D0, 0x8001B870),
     ("session_mode_advance", "src/game/session_mode_advance.c", 0x80022B78, 0x80022BFC),
     ("resource_selection_clear", "src/game/resource_selection_clear.c", 0x800338F0, 0x80033974),
+    ("menu_display", "src/game/save_menus/display/submit.c", 0x8002741C, 0x800278AC),
     ("menu_transition_start", "src/game/menu_transition_start.c", 0x800278AC, 0x80027940),
     ("renderer_texture_file_cache", "src/game/renderer_texture_file_cache.c", 0x80042830, 0x800428C0),
     ("renderer_number_forward", "src/game/renderer_number_forward.c", 0x8004B45C, 0x8004B4F8),
@@ -911,18 +927,18 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
-    ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
-    ("actor_group_path", "src/game/actor_groups/path.c", 0x8000E894, 0x8000EAE4),
-    ("actor_group_bonus_child", "src/game/actor_groups/bonus_child.c", 0x8000F030, 0x8000F318),
+    ("actor_missile_update", "src/game/actor_projectiles/missile_update.c", 0x80038830, 0x80038D8C),
+    ("actor_ring", "src/game/actor_effects/ring.c", 0x80006240, 0x80006654),
+    ("actor_boundary_reflection", "src/game/actor_contacts/reflection.c", 0x800186D8, 0x80018CC8),
+    ("scene_resource_setup", "src/game/scene_resources/setup.c", 0x8001D3F0, 0x8001DE54),
+    ("game_initialize", "src/game/session_initialization/initialize.c", 0x8002205C, 0x80022528),
     ("renderer_surface_ring", "src/game/renderer_surfaces/ring.c", 0x800428C0, 0x80042BDC),
     ("renderer_surface_quad", "src/game/renderer_surfaces/quad.c", 0x80042BDC, 0x80042E2C),
     ("renderer_surface_tiles", "src/game/renderer_surfaces/tiles.c", 0x80042E2C, 0x80043070),
     ("renderer_grid", "src/game/renderer_setup/grid.c", 0x800431C0, 0x80043930),
-    ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
     ("actor_history_trail", "src/game/actor_history/trail.c", 0x8004E364, 0x8004E7D4),
     ("heap_initialize", "src/game/heap/initialize.c", 0x8004DE8C, 0x8004DED8),
     ("renderer_resource_loader", "src/game/renderer_resources/load.c", 0x8004BD00, 0x8004C088),
-    ("renderer_mesh_commands", "src/game/renderer_primitives/mesh_commands.c", 0x80045A08, 0x80045F40),
     ("renderer_diagnostic_line", "src/game/renderer_primitives/diagnostic_line.c", 0x800453D8, 0x80045514),
     ("renderer_expanded_quad", "src/game/renderer_primitives/expanded_quad.c", 0x800447D0, 0x80044B18),
 
@@ -936,11 +952,12 @@ CANDIDATE_BLOCKS = (
     ("early_render_fan", "src/game/early_render_fan.c", 0x8000B9D4, 0x8000BE80),
     ("early_render_tube_wide", "src/game/early_render_tube_wide.c", 0x8000B5AC, 0x8000B964),
     ("early_render_tube", "src/game/early_render_tube.c", 0x8000B1E4, 0x8000B5AC),
-    ("early_input_sequence_define", "src/game/early_input_sequence_define.c", 0x8001BE2C, 0x8001BF48),
     ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),
     ("object_runtime_projection", "src/game/object_runtime_projection.c", 0x8003B2B0, 0x8003B428),
     ("frame_begin", "src/boot/frame_begin.c", 0x80048510, 0x800489F4),
+    ("scene_arrival_insert", "src/game/scene_arrivals/insert.c", 0x8001FCE4, 0x80020134),
+    ("scene_resource_select", "src/game/scene_arrivals/select.c", 0x80021C3C, 0x80022044),
 )
 
 
@@ -967,8 +984,22 @@ def compare_blocks(records, target, family, layout, jobs=1):
 
     def compare_record(record):
         name, source, start, end = record
-        result = compare_block(name, source, start, start - 0x80000000 + 0xC00,
-                               end - 0x80000000 + 0xC00, target, family=family, layout=layout)
+        if name == "actor_missile_update":
+            from missile_update_compare import compare_candidate_block
+            result = compare_candidate_block(name, source, target, layout, family)
+        elif name == "scene_resource_setup":
+            from check_scene_resource_setup import compare_candidate_block
+            result = compare_candidate_block(name, source, target, layout, family)
+        elif name == "scene_resource_select":
+            # Its generated switch data is excluded together with the full function.
+            from check_scene_resource_selection import compare_candidate_block
+            result = compare_candidate_block(name, source, target, layout)
+        elif name == "game_initialize":
+            from check_game_initialization import compare_candidate_block
+            result = compare_candidate_block(name, source, target, layout)
+        else:
+            result = compare_block(name, source, start, start - 0x80000000 + 0xC00,
+                                   end - 0x80000000 + 0xC00, target, family=family, layout=layout)
         return name, result
 
     blocks = {}

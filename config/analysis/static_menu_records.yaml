@@ -1,0 +1,52 @@
+name: Robotron 64 verified static menu records
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: static_menu_records
+  base_path: ../../.local/static-menu-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: menu_static_confirmation_labels
+    type: code
+    start: 0x77EA0
+    vram: 0x800772A0
+    subsegments:
+      - [0x77EA0, data, menu_static_confirmation_labels]
+  - name: menu_static_confirmation_page
+    type: code
+    start: 0x77EF0
+    vram: 0x800772F0
+    subsegments:
+      - [0x77EF0, data, menu_static_confirmation_page]
+  - [0x77F24, bin, after_menu_static_confirmation_page]
+  - name: menu_static_pause_labels
+    type: code
+    start: 0x78054
+    vram: 0x80077454
+    subsegments:
+      - [0x78054, data, menu_static_pause_labels]
+  - name: menu_static_pause_page
+    type: code
+    start: 0x7811C
+    vram: 0x8007751C
+    subsegments:
+      - [0x7811C, data, menu_static_pause_page]
+  - [0x78150, bin, after_menu_static_pause_page]
+  - name: menu_static_confirmation_text
+    type: code
+    start: 0x9407C
+    vram: 0x8009347C
+    subsegments:
+      - [0x9407C, rodata, menu_static_confirmation_text]
+  - [0x9408C, bin, after_menu_static_confirmation_text]
+  - name: menu_static_pause_text
+    type: code
+    start: 0x940F0
+    vram: 0x800934F0
+    subsegments:
+      - [0x940F0, rodata, menu_static_pause_text]
+  - [0x94140, bin, after_menu_static_pause_text]
+  - [0x800000]

@@ -1,78 +1,58 @@
 #include "../../include/object_runtime.h"
+#include "../../include/renderer_resource_storage.h"
+#include "../../include/renderer_geometry_internal.h"
 
-typedef struct ObjectRuntimeRecord8 {
-    unsigned char bytes[8];
-} ObjectRuntimeRecord8;
-
-typedef struct ObjectRuntimeSlotView {
-    unsigned char unknown0000[0x1F50];
-    ObjectRuntimeRecord8 *records;
-    int count;
-    int frame;
-    int unused0C;
-} ObjectRuntimeSlotView;
-
-typedef struct ObjectRuntimeArena {
-    unsigned char unknown0000[0x2F30];
-    ObjectRuntimeRecord8 *output;
-    int outputCount;
-    int outputActive;
-    unsigned char outputReady;
-    unsigned char outputDirty;
-} ObjectRuntimeArena;
-
-typedef struct ObjectRuntimeContext {
-    unsigned char unknown00[0x0A];
+typedef struct ObjectProjectionResourceArena {
+    unsigned char unknown00[16];
+    RendererModelCacheRecord models[400];
+    RendererAnimationCacheRecord animations[400];
+} ObjectProjectionResourceArena;
+typedef struct ObjectProjectionContext {
+    unsigned char unknown00[10];
     short index0A;
-} ObjectRuntimeContext;
+} ObjectProjectionContext;
 
-extern ObjectRuntimeContext *D_8009B168;
+extern ObjectProjectionContext *D_8009B168;
 extern int D_800BEF64;
 extern int D_800BEF6C;
-extern ObjectRuntimeRecord8 D_800C8C10[];
+extern ObjectRecoveryDatPoint D_800C8C10[];
+void func_8003F818(int count, RendererNormal *output,
+                  RendererNormal *first, RendererNormal *second);
+extern void func_8004BD00(int model, int animation, int bitmap);
 
-extern void func_8003F818(int count, ObjectRuntimeRecord8 *output,
-                         ObjectRuntimeRecord8 *source,
-                         ObjectRuntimeRecord8 *reference);
-extern void func_8004BD00(int first, int second, int third);
+#define ANIMATION_CACHE (((ObjectProjectionResourceArena *)D_80078274)->animations)
 
+/* Excluded candidate; complete retail range still differs. */
 void func_8003B2B0(int index, int frame)
 {
-    ObjectRuntimeSlotView *slot;
-    ObjectRuntimeSlotView *referenceSlot;
-    ObjectRuntimeRecord8 *output;
-    ObjectRuntimeRecord8 *source;
     int referenceIndex;
-    int preCount;
-    int postCount;
+    int count;
+    int phase;
     int i;
+    ObjectRecoveryDatPoint *source;
+    ObjectRecoveryDatPoint *output;
 
     referenceIndex = D_8009B168->index0A;
     func_8004BD00(-1, referenceIndex, -1);
-
-    slot = (ObjectRuntimeSlotView *)(D_80078274 + index * 0x10);
-    preCount = slot->count;
-    referenceSlot = (ObjectRuntimeSlotView *)(D_80078274 +
-                                               referenceIndex * 0x10);
-    func_8003F818(preCount, D_800C8C10,
-                  slot->records + preCount * frame,
-                  referenceSlot->records + referenceSlot->count *
-                      ((((D_800BEF6C - D_800BEF64) & 0xFFF) / 512) * 10));
-
-    postCount = slot->count;
-    output = D_800C8C10 + postCount;
-    source = slot->records + postCount * slot->frame;
+    count = ANIMATION_CACHE[index].pointCount;
+    phase = ((D_800BEF6C - D_800BEF64) & 0xFFF) / 512 * 10;
+    func_8003F818(count, (RendererNormal *)D_800C8C10,
+        (RendererNormal *)(ANIMATION_CACHE[index].data + count * frame),
+        (RendererNormal *)(ANIMATION_CACHE[referenceIndex].data +
+            ANIMATION_CACHE[referenceIndex].pointCount * phase));
+    count = ANIMATION_CACHE[index].pointCount;
+    source = ANIMATION_CACHE[index].data + count * ANIMATION_CACHE[index].frameCount;
+    output = D_800C8C10 + count;
     i = 0;
-    if (postCount > 0) {
+    if (count > 0) {
         do {
             *output++ = *source++;
             i++;
-        } while (i < slot->count);
+        } while (i < ANIMATION_CACHE[index].pointCount);
     }
-
-    ((ObjectRuntimeArena *)D_80078274)->output = D_800C8C10;
-    ((ObjectRuntimeArena *)D_80078274)->outputReady = 1;
-    ((ObjectRuntimeArena *)D_80078274)->outputDirty = 1;
-    ((ObjectRuntimeArena *)D_80078274)->outputActive = 1;
-    ((ObjectRuntimeArena *)D_80078274)->outputCount = slot->count;
+    ANIMATION_CACHE[254].data = D_800C8C10;
+    ANIMATION_CACHE[254].loaded = 1;
+    ANIMATION_CACHE[254].unknown0D = 1;
+    ANIMATION_CACHE[254].frameCount = 1;
+    ANIMATION_CACHE[254].pointCount = ANIMATION_CACHE[index].pointCount;
 }

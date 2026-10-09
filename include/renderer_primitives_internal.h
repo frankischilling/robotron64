@@ -2,6 +2,7 @@
 #define ROBOTRON_RENDERER_PRIMITIVES_INTERNAL_H
 
 #include "renderer_geometry_internal.h"
+#include "palette.h"
 
 /* The first 24 bytes shared by the mesh submission callers. */
 typedef struct RendererMeshPrefix {
@@ -16,10 +17,10 @@ typedef struct RendererMeshPrefix {
 typedef char RendererMeshPrefixMustBe24Bytes[
     sizeof(RendererMeshPrefix) == 24 ? 1 : -1];
 
+extern short D_800736D0[4][2];
 extern short D_8007CDB0[4][2];
 extern int D_8007CDC0;
 extern int D_800BF90C;
-extern unsigned int D_8007BB34[];
 
 #define RENDERER_SET_POSITION(vertex, input) { \
     (vertex).color.position[0] = (input)[0]; \
@@ -56,6 +57,8 @@ void func_80044F60(int *first, int *second, int *third, int *fourth);
 void func_80045214(int *first, int *second, int *third, int *fourth);
 
 void func_80045534(RendererMeshPrefix *mesh, RendererPosition *positions);
+
+int func_80045A08(short *commands, RendererMeshPrefix *mesh, int destination);
 
 void func_80045F40(int first, int count, int destination);
 void func_800460D8(int first, int count, int destination, RendererNormal *normals);

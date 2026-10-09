@@ -10,7 +10,10 @@ typedef struct PaletteColor {
 
 typedef char PaletteColorMustBe4Bytes[sizeof(PaletteColor) == 4 ? 1 : -1];
 
-extern PaletteColor D_8007BB34[];
+#define PALETTE_COLOR_COUNT 256
+
+extern PaletteColor D_8007BB34[PALETTE_COLOR_COUNT];
+extern int D_8007BF34[PALETTE_COLOR_COUNT];
 extern unsigned short D_8007D6D0[];
 
 int func_8003BFEC(int red, int green, int blue);

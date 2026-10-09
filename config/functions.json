@@ -15909,5 +15909,181 @@
     "section": ".actor_collision_kind_response",
     "section_vram": 2147576144,
     "evidence": "docs/actor-collision-kind-response.md"
+  },
+  {
+    "name": "func_80031B28",
+    "rom": 206632,
+    "vram": 2147687208,
+    "size": 232,
+    "source": "src/game/palette_effects/transition_allocate.c",
+    "object": "build/us/palette_transition_allocate.o",
+    "section": ".palette_transition_allocate",
+    "section_vram": 2147687208,
+    "evidence": "docs/palette-transitions.md"
+  },
+  {
+    "name": "func_800400D0",
+    "rom": 265424,
+    "vram": 2147746000,
+    "size": 1060,
+    "source": "src/game/renderer_surfaces/background_dispatch.c",
+    "object": "build/us/renderer_background_dispatch.o",
+    "section": ".renderer_background_dispatch",
+    "section_vram": 2147746000,
+    "evidence": "docs/renderer-background-dispatch.md"
+  },
+  {
+    "name": "func_800420B0",
+    "rom": 273584,
+    "vram": 2147754160,
+    "size": 1912,
+    "source": "src/game/renderer_resources/material_reset.c",
+    "object": "build/us/renderer_material_cache_reset.o",
+    "section": ".renderer_material_cache_reset",
+    "section_vram": 2147754160,
+    "evidence": "docs/renderer-material-reset.md"
+  },
+  {
+    "name": "func_80031ECC",
+    "rom": 207564,
+    "vram": 2147688140,
+    "size": 1200,
+    "source": "src/game/palette_effects/transition_update.c",
+    "object": "build/us/palette_transition_update.o",
+    "section": ".palette_transition_update",
+    "section_vram": 2147688140,
+    "evidence": "docs/palette-transitions.md"
+  },
+  {
+    "name": "func_80040968",
+    "rom": 267624,
+    "vram": 2147748200,
+    "size": 568,
+    "source": "src/game/renderer_surfaces/rotating_rings.c",
+    "object": "build/us/renderer_rotating_rings.o",
+    "section": ".renderer_rotating_rings",
+    "section_vram": 2147748200,
+    "evidence": "docs/renderer-rotating-rings.md"
+  },
+  {
+    "name": "func_8001BE2C",
+    "rom": 117292,
+    "vram": 2147597868,
+    "size": 284,
+    "source": "src/game/input_sequences/define.c",
+    "object": "build/us/early_input_sequence_define.o",
+    "section": ".early_input_sequence_define",
+    "section_vram": 2147597868,
+    "evidence": "docs/input-sequence-definition.md"
+  },
+  {
+    "name": "func_8002741C",
+    "rom": 163868,
+    "vram": 2147644444,
+    "size": 1168,
+    "source": "src/game/save_menus/display/submit.c",
+    "object": "build/us/menu_display.o",
+    "section": ".menu_display",
+    "section_vram": 2147644444,
+    "evidence": "docs/menu-display.md"
+  },
+  {
+    "name": "func_80045A08",
+    "rom": 288264,
+    "vram": 2147768840,
+    "size": 1336,
+    "source": "src/game/renderer_primitives/mesh_commands.c",
+    "object": "build/us/renderer_mesh_commands.o",
+    "section": ".renderer_mesh_commands",
+    "section_vram": 2147768840,
+    "evidence": "docs/renderer-mesh-commands.md"
+  },
+  {
+    "name": "func_80004C3C",
+    "rom": 22588,
+    "vram": 2147503164,
+    "size": 1816,
+    "source": "src/game/movie_update.c",
+    "object": "build/us/movie_update.o",
+    "section": ".movie_update",
+    "section_vram": 2147503164,
+    "evidence": "docs/movie-playback.md"
+  },
+  {
+    "name": "func_800371FC",
+    "rom": 228860,
+    "vram": 2147709436,
+    "size": 524,
+    "source": "src/game/game_hud_state.c",
+    "object": "build/us/game_hud_state.o",
+    "section": ".game_hud_state",
+    "section_vram": 2147709436,
+    "evidence": "docs/game-hud-state.md"
+  },
+  {
+    "name": "func_8000E894",
+    "rom": 62612,
+    "vram": 2147543188,
+    "size": 592,
+    "source": "src/game/actor_groups/path.c",
+    "object": "build/us/actor_group_path.o",
+    "section": ".actor_group_path",
+    "section_vram": 2147543188,
+    "evidence": "docs/actor-group-path.md"
+  },
+  {
+    "name": "func_8000F030",
+    "rom": 64560,
+    "vram": 2147545136,
+    "size": 744,
+    "source": "src/game/actor_groups/bonus_child.c",
+    "object": "build/us/actor_group_bonus_child.o",
+    "section": ".actor_group_bonus_child",
+    "section_vram": 2147545136,
+    "evidence": "docs/actor-bonus-child.md"
+  },
+  {
+    "name": "func_80018480",
+    "rom": 102528,
+    "vram": 2147583104,
+    "size": 600,
+    "source": "src/game/actor_contacts/boundary.c",
+    "object": "build/us/actor_boundary_clamp.o",
+    "section": ".actor_boundary_clamp",
+    "section_vram": 2147583104,
+    "evidence": "docs/actor-boundary-clamp.md"
+  },
+  {
+    "name": "func_80048DDC",
+    "rom": 301532,
+    "vram": 2147782108,
+    "size": 864,
+    "source": "src/game/renderer_projection/setup.c",
+    "object": "build/us/renderer_projection_setup.o",
+    "section": ".renderer_projection_setup",
+    "section_vram": 2147782108,
+    "evidence": "docs/startup-projection-and-diagnostics.md"
+  },
+  {
+    "name": "func_80038D8C",
+    "rom": 235916,
+    "vram": 2147716492,
+    "size": 1040,
+    "source": "src/game/actor_projectiles/spawn.c",
+    "object": "build/us/actor_projectile_spawn.o",
+    "section": ".actor_projectile_spawn",
+    "section_vram": 2147716492,
+    "evidence": "docs/actor-projectile-spawn.md"
+  },
+  {
+    "name": "func_8001737C",
+    "rom": 98172,
+    "vram": 2147578748,
+    "size": 1712,
+    "source": "src/game/collisions/capture.c",
+    "object": "build/us/collision_capture.o",
+    "section": ".collision_capture",
+    "section_vram": 2147578748,
+    "evidence": "docs/actor-collision-capture.md"
   }
 ]

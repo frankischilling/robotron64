@@ -1,0 +1,274 @@
+{
+  "schema": 1,
+  "kind": "complete source-owned mesh texture-coordinate table",
+  "baseline_head": "b4314f4dbb454c9152dc67b8ebcd933e95c910fb",
+  "owned_added": {
+    "functions": 0,
+    "code": 0,
+    "initialized_data": 16,
+    "bss": 0
+  },
+  "source": "src/game/renderer_primitives/mesh_texture_corners.c",
+  "source_sha256": "3f572f2e2a350db1fbda9fa70c33db8f207dbd59f0731ad799cc9d7139025026",
+  "symbol": "D_800736D0",
+  "vram": 2147956432,
+  "rom": 475856,
+  "size": 16,
+  "declaration": "short D_800736D0[4][2]",
+  "element_stride": 2,
+  "pair_stride": 4,
+  "pairs": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1984
+    ],
+    [
+      1984,
+      1984
+    ],
+    [
+      1984,
+      0
+    ]
+  ],
+  "sha256": "20ff05e89209a21d02013feb4d4086781cf5ce823e6d1c176df0789cb40acc4e",
+  "consumers": [
+    "func_80011030",
+    "func_8001162C"
+  ],
+  "consumer_source_ownership_added": 0,
+  "validation_status": "passed fresh independent acceptance",
+  "verified_date": "2026-10-09",
+  "compiler_profile": {
+    "name": "game",
+    "version": "5.3",
+    "flags": [
+      "-O2",
+      "-G",
+      "0",
+      "-non_shared",
+      "-mips1",
+      "-32"
+    ]
+  },
+  "natural_raw_data_bytes": 16,
+  "natural_symbol_bytes": 16,
+  "raw_allocated_code_bytes": 0,
+  "raw_bss_bytes": 0,
+  "raw_relocations": 0,
+  "alignment_bytes_credited": 0,
+  "independent_references": {
+    "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "references": {
+      "spimdisasm": {
+        "matches": true,
+        "unaltered_generated_assembly": true,
+        "source_sha256": "14485840d2217ea14bec21d55cf9455099d483c19c6cc21f683122d1ec2ef396",
+        "natural_object_bytes": 16,
+        "linked_bytes": 16,
+        "sha256": "20ff05e89209a21d02013feb4d4086781cf5ce823e6d1c176df0789cb40acc4e",
+        "object_sha256": "369ad674c7d0c35df249e03c8bc0458027a69c4f2d1f9122f7026908881915db",
+        "elf_sha256": "6ed8724743cf26c1df75af59e483c554bd7ee35eab5c941e2e9f8e22afb261e2",
+        "relocations": 0
+      },
+      "splat": {
+        "matches": true,
+        "unaltered_generated_assembly": true,
+        "source_sha256": "20234737bfc6afc21bee247430a68329eabd5f63b4af01d2e3ed5ebd5950f00e",
+        "natural_object_bytes": 16,
+        "linked_bytes": 16,
+        "sha256": "20ff05e89209a21d02013feb4d4086781cf5ce823e6d1c176df0789cb40acc4e",
+        "object_sha256": "369ad674c7d0c35df249e03c8bc0458027a69c4f2d1f9122f7026908881915db",
+        "elf_sha256": "6ed8724743cf26c1df75af59e483c554bd7ee35eab5c941e2e9f8e22afb261e2",
+        "relocations": 0
+      }
+    }
+  },
+  "compiled_controls": {
+    "positive_before_and_after": true,
+    "controls": [
+      {
+        "name": "coordinate_value",
+        "rejected": true,
+        "error": "ValueError: Owned data bytes differ: .renderer_mesh_texture_corners",
+        "source_sha256": "ade7b59107a5b0d55c705e9f5e98058ec2d504e185aa7c59f4325cea0194b920"
+      },
+      {
+        "name": "allocated_code",
+        "rejected": true,
+        "error": "ValueError: Data-only source has an unowned allocated section: .text",
+        "source_sha256": "157a05478a99203d2b3cbc8d872631d3e190fd94ab5a23efeabb41e920c0a283"
+      }
+    ],
+    "source_sha256": "3f572f2e2a350db1fbda9fa70c33db8f207dbd59f0731ad799cc9d7139025026",
+    "source_owned_code_bytes_added": 0,
+    "owned_initialized_bytes": 16,
+    "checker_sha256": "57fe1b91cb97aa2709ce21c4636694d804c7940cbd30711ec5dbdecef62a56f3"
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "canonical_name": "D_800736D0",
+    "type": "short[4][2]",
+    "complete_bytes": 16,
+    "retail_bytes_verified": true,
+    "saved": true
+  },
+  "validation": {
+    "stages": [
+      {
+        "step": "clean-build",
+        "command": [
+          "make",
+          "-j4",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 64.257
+      },
+      {
+        "step": "verify-progress",
+        "command": [
+          "make",
+          "progress",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 45.157
+      },
+      {
+        "step": "remaining",
+        "command": [
+          "make",
+          "remaining",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.028
+      },
+      {
+        "step": "runtime",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_runtime.py",
+          "-j4"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 477.931
+      },
+      {
+        "step": "startup",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_startup.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.111
+      },
+      {
+        "step": "assembly",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_assembly.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 13.243
+      },
+      {
+        "step": "data",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_data.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 14.126
+      },
+      {
+        "step": "excluded",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_runtime.py",
+          "--candidates",
+          "-j4"
+        ],
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "seconds": 13.645
+      },
+      {
+        "step": "tests",
+        "command": [
+          "make",
+          "test",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 3.016
+      }
+    ],
+    "comparisons": {
+      "runtime-comparison": {
+        "units": 912,
+        "matches": true,
+        "private_complete_report_sha256": "c4eb53d25bad2a22742d6f2713c5f941ef5422d56f996654e6d205ef86daf643"
+      },
+      "startup-comparison": {
+        "units": 2,
+        "matches": true,
+        "private_complete_report_sha256": "a0b14781a611c7a8c06e76d0146fece21d3ffa3603afcd689f09c093aa21c69a"
+      },
+      "assembly-comparison": {
+        "units": 18,
+        "matches": true,
+        "private_complete_report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data-comparison": {
+        "units": 199,
+        "matches": true,
+        "private_complete_report_sha256": "d93e77b11a75bbdb457afcf123d5758e2dc6495831132da0651c44a9a4c4fd5a"
+      }
+    },
+    "excluded_candidates": 26,
+    "linux_tests": 171,
+    "windows_tests": 171,
+    "windows_skips": 9,
+    "full_rom_bytes": 8388608,
+    "full_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "frozen_public_inputs": 2005,
+    "prior_failed_snapshots_preserved": [
+      "mesh-texture-corners-final-20261009: nested source include path",
+      "mesh-texture-corners-final2-20261009: transitive header provenance",
+      "mesh-texture-corners-final3-20261009: input section placement and remaining fallback assertion"
+    ],
+    "all_stages_restarted_after_fixes": true,
+    "frozen_input_map_sha256": "8aeac67ccf7b16bf489b2449cd397bc47111684ccc7c18992f84d97d89e4e8fa",
+    "objdiff_data_report_sha256": "8e5e18d44a823dcdbbd24e1687064a8d254cee7ff5da706d7768a659ec6e2e12",
+    "viewer_score_is_not_acceptance": "Raw natural symbol extent, complete source-owned data, both reassemblies and the entire ROM are checked independently of the viewer."
+  },
+  "current_totals": {
+    "matching_c_functions": 1430,
+    "matching_c_bytes": 314348,
+    "assembly_functions": 29,
+    "assembly_bytes": 4372,
+    "initialized_bytes": 37843,
+    "bss_bytes": 879157,
+    "fallback_cpu_bytes": 135836,
+    "fallback_cpu_spans": 183,
+    "unclassified_cpu_bytes": 164
+  },
+  "limits": [
+    "Only the complete 16-byte table receives new source ownership. Its two drawing consumers remain unowned fallback code.",
+    "Whole-ROM equality includes extracted code and data fallback. It does not establish full source recovery or full-game execution."
+  ]
+}

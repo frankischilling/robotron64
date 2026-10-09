@@ -29,6 +29,10 @@ the page owns `800AF1A8..800AF1D8`, another 48 bytes. These definitions claim
 runtime storage and no ROM data. The existing label updater retains its
 40-byte stride. Navigation still uses its older partial page and option
 views; this change does not establish a complete shared menu representation.
+Later [static menu recovery](static-menu-records.md) establishes a 52-byte
+extent for the confirmation and pause pages, including their timeout word at
+offset `0x30`. The dynamic page's following timeout word remains unowned;
+its 48-byte initializer view covers only the fields written here.
 The diagnostic and cancel-label storage remain fallback.
 
 The execution checker passes 1,024 cases: 896 direct calls and 128 calls through

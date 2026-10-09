@@ -15,7 +15,7 @@ declaration home is still part of the stack layout. Declaring it before
 `AudioSettings` places the configuration at `sp + 0x4C`, the settings at
 `sp + 0x88`, and produces the target `0xA8`-byte frame.
 
-The matching source supports an inferred 0x2000-byte thread-stack region
+The matching source establishes a complete 0x2000-byte thread-stack region
 beginning at `0x8018DF30`. The audio memory block passed to `func_800656F0`
 starts at `D_8014C080` and has size `0x41EB0`, so it ends at `0x8018DF30`.
 Adding 0x2000 reaches `0x8018FF30`, the initial stack pointer passed to
@@ -51,8 +51,12 @@ python3 tools/compare_runtime.py
 ```
 
 Reports are written under `build/runtime-comparison/`. Both functions have
-the target size and zero differing words. The main build records
-`D_8018DF30` at `0x8018DF30` in its runtime symbol map. `make progress`
+the target size and zero differing words. The main build defines
+`D_8018DF30` at `0x8018DF30` through the complete C-owned stack section.
+`make progress`
 checks both functions' source and header hashes, object symbols, linked
 placement, and bytes in the complete ROM. See [audio task thread](audio-thread.md)
 for the recovered message and task behavior.
+
+See [audio startup storage](audio-startup-storage.md) for the complete BSS
+definitions and their guarded execution evidence.

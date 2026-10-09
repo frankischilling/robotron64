@@ -1,0 +1,501 @@
+{
+  "checked": "2026-10-07T18:07:07.780398+00:00",
+  "matching_source_complete": false,
+  "accepted_delta": {
+    "matching_c_functions": 0,
+    "instruction_bytes": 0,
+    "initialized_bytes": 328,
+    "bss_bytes": 56
+  },
+  "progress": {
+    "matched_c_functions": 1424,
+    "matched_c_bytes": 308796,
+    "matched_assembly_functions": 29,
+    "matched_assembly_bytes": 4372,
+    "source_owned_initialized_bytes": 36715,
+    "source_owned_bss_bytes": 874369,
+    "whole_rom_matches": true
+  },
+  "owned_sections": [
+    {
+      "source": "src/game/renderer_setup/defaults.c",
+      "object": "build/us/graphics_setup_defaults.o",
+      "input_section": ".data",
+      "section": ".graphics_setup_defaults",
+      "vram": 2147997144,
+      "rom": 516568,
+      "size": 200,
+      "symbols": {
+        "D_8007D5D8": 0,
+        "D_8007D5DC": 4,
+        "D_8007D5E0": 8,
+        "D_8007D5E4": 12,
+        "D_8007D5E8": 16
+      },
+      "evidence": "docs/renderer-setup-storage.md"
+    },
+    {
+      "source": "src/game/renderer_setup/tile_packets.c",
+      "object": "build/us/graphics_setup_tile_packets.o",
+      "input_section": ".data",
+      "section": ".graphics_setup_tile_packets",
+      "vram": 2147993968,
+      "rom": 513392,
+      "size": 128,
+      "symbols": {
+        "D_8007C970": 0
+      },
+      "evidence": "docs/renderer-setup-storage.md"
+    },
+    {
+      "source": "src/game/renderer_setup/cache_state.c",
+      "object": "build/us/graphics_setup_cache_state.o",
+      "input_section": ".bss",
+      "section": ".graphics_setup_cache_bss",
+      "vram": 2148678400,
+      "rom": null,
+      "size": 36,
+      "symbols": {
+        "D_80123B00": 0,
+        "D_80123B04": 4,
+        "D_80123B08": 8,
+        "D_80123B0C": 12,
+        "D_80123B10": 16,
+        "D_80123B14": 20,
+        "D_80123B18": 24,
+        "D_80123B1C": 28,
+        "D_80123B20": 32
+      },
+      "evidence": "docs/renderer-setup-storage.md"
+    },
+    {
+      "source": "src/game/renderer_setup/arena_state.c",
+      "object": "build/us/graphics_setup_arena_state.o",
+      "input_section": ".bss",
+      "section": ".graphics_setup_arena_bss",
+      "vram": 2148690804,
+      "rom": null,
+      "size": 20,
+      "symbols": {
+        "D_80126B74": 0,
+        "D_80126B78": 4,
+        "D_80126B7C": 8,
+        "D_80126B80": 12,
+        "D_80126B84": 16
+      },
+      "evidence": "docs/renderer-setup-storage.md"
+    }
+  ],
+  "inputs_sha256": {
+    "Makefile": "e4dfe2b14ddc6957da401ca1fe71000c7369c387910419b9680284aadf62f6e1",
+    "config/owned_sections.json": "7be95328da349df9197f45486d8dc2b5c05feba4401e607d976d04a789daba6b",
+    "config/runtime_symbols.ld": "1ed3dabc6e3aa4f53842d3498c46c4dc8daf7fd3c82e2c2695db195c774eb995",
+    "config/startup_symbols.ld": "9191f8fe22b6f9792d76cbe61e227c919c1ca9bfb218f6fc3d803e5df0ee8a1d",
+    "include/graphics_state_internal.h": "a67205c0d7a2495c95564aca7b035034a80aef2513e493d16d17433e3cf9667f",
+    "include/frame.h": "63723dea2eec243d8cb966711aefb9bef933b1fe64ac69dc5ee6d60cc43f2d08",
+    "linker_scripts/us.ld": "9574ad686a78c0962ecb84967bc5b67402e63fb713baf49fdbde10901d6587a3",
+    "tools/extract.py": "7e78f86d7a58d134b9a340075835de5eee498b8e1e7d8f96eccced53516bad2f",
+    "tools/check_graphics_setup_storage.py": "6b0d50a9482d9096073a995980a2407b4d4d1188f31010ac0bc75468f8529dc5",
+    "tools/check_game_hud_state.py": "604c8f711c3b0ac36df664ed9e2a2bd04e4a8e42b2d0a25c5e1745330ab9411a",
+    "tools/owned_sections.py": "4e8b75b8e958a2cd878c74bcfc3f02aa9b5675d435dac2d1b1ab87d01c581e80",
+    "tools/compiler.py": "f7513507c9d68834efe10f08b5e6e115a5d667f17854a4170bce3a116bc40118",
+    "config/toolchain_files.json": "d6a7a0f163ab1094da23244ab8c27708edd516584c45a0e90a014bfac4397ecb",
+    "config/analysis/graphics_setup_storage.yaml": "a8e008912a41d1f2ebe16f7b64ad122d8d152a7730905c758fdbf3bab42138e9",
+    "src/game/renderer_setup/defaults.c": "3fe6662b0024b8c88d30326a7a0669dca2c5e4fcf927c81326c4323409c46e21",
+    "src/game/renderer_setup/tile_packets.c": "2cf8faaa4cceae44cc0e0b8a498d0f96e4678292752d87181f64cc313faab132",
+    "src/game/renderer_setup/cache_state.c": "79795d6bc043753b3fa94fb75a9be5bba5b82705fb752928c97173040e0146de",
+    "src/game/renderer_setup/arena_state.c": "54dcb232d67d71706a134736166218e79df5381da11f3ba91b95303a3b9b4c41"
+  },
+  "raw_data_proofs": [
+    {
+      "source": "src/game/renderer_setup/defaults.c",
+      "live_bytes": 200,
+      "raw_bytes": 208,
+      "genuine_alignment_bytes": 8,
+      "raw_object_sha256": "49260a66e9822700d9bc6d2e8ffb3ced4a72369af056fadc2f7dc43c748e1cf7",
+      "compiled_object_sha256": "aac52130c11f533755263b4749d12eeb4a6c7bc9812923ba4f9083355bf32740"
+    },
+    {
+      "source": "src/game/renderer_setup/tile_packets.c",
+      "live_bytes": 128,
+      "raw_bytes": 128,
+      "genuine_alignment_bytes": 0,
+      "raw_object_sha256": "654d03e402e5a3e0dfbe35ee605e4757894e28cb182e81fa3dfef162ca299db9",
+      "compiled_object_sha256": "654d03e402e5a3e0dfbe35ee605e4757894e28cb182e81fa3dfef162ca299db9"
+    },
+    {
+      "source": "src/game/renderer_setup/cache_state.c",
+      "live_bytes": 36,
+      "raw_bytes": 48,
+      "genuine_alignment_bytes": 12,
+      "raw_object_sha256": "af493c9f92b0c8990c5aba17a048a939c4294b59f4eab16efd2295dd7ed6b2aa",
+      "compiled_object_sha256": "87a731d6079634209431fc46b52d24764a0b2caf1608acbc574255faf976098a"
+    },
+    {
+      "source": "src/game/renderer_setup/arena_state.c",
+      "live_bytes": 20,
+      "raw_bytes": 32,
+      "genuine_alignment_bytes": 12,
+      "raw_object_sha256": "5a685dbbc7901ae44570b4852bcf05c1fc2eb7fbc4b2e76ce82e51692454b770",
+      "compiled_object_sha256": "6ca6721787e595a0af05177c11501e58d58e9c0fa006e66bf7be78a31776b6dc"
+    }
+  ],
+  "independent_references": [
+    {
+      "section": ".graphics_setup_defaults",
+      "tool": "spimdisasm",
+      "bytes": 200,
+      "target_sha256": "7c0ea1b7a65784dc9148de2e306ce11a095eb4a7d524a65c8a0d4826c31d5811",
+      "reference_sha256": "7c0ea1b7a65784dc9148de2e306ce11a095eb4a7d524a65c8a0d4826c31d5811",
+      "source_sha256": "3fe6662b0024b8c88d30326a7a0669dca2c5e4fcf927c81326c4323409c46e21",
+      "raw_pointer_relocations": [
+        {
+          "offset": 140,
+          "type": 2,
+          "symbol": "D_8007CDD8"
+        }
+      ],
+      "objdiff_report_sha256": "1fc952cb67932a3b56f528e4625113bac9199f3081f17a827f714280b8347286",
+      "objdiff_section_percent": 100.0
+    },
+    {
+      "section": ".graphics_setup_defaults",
+      "tool": "splat",
+      "bytes": 200,
+      "target_sha256": "7c0ea1b7a65784dc9148de2e306ce11a095eb4a7d524a65c8a0d4826c31d5811",
+      "reference_sha256": "7c0ea1b7a65784dc9148de2e306ce11a095eb4a7d524a65c8a0d4826c31d5811",
+      "source_sha256": "3fe6662b0024b8c88d30326a7a0669dca2c5e4fcf927c81326c4323409c46e21",
+      "raw_pointer_relocations": [
+        {
+          "offset": 140,
+          "type": 2,
+          "symbol": "D_8007CDD8"
+        }
+      ],
+      "objdiff_report_sha256": "3dac28989f33acc73bba3a14715ab1d412d796cd380f09928802e4c150145820",
+      "objdiff_section_percent": 100.0
+    },
+    {
+      "section": ".graphics_setup_tile_packets",
+      "tool": "spimdisasm",
+      "bytes": 128,
+      "target_sha256": "0e0ff3340400f96acc18bcddefba90a3f9cd2365bb62eda5574def7ca792dc04",
+      "reference_sha256": "0e0ff3340400f96acc18bcddefba90a3f9cd2365bb62eda5574def7ca792dc04",
+      "source_sha256": "2cf8faaa4cceae44cc0e0b8a498d0f96e4678292752d87181f64cc313faab132",
+      "raw_pointer_relocations": [
+        {
+          "offset": 68,
+          "type": 2,
+          "symbol": "D_8007C770"
+        }
+      ],
+      "objdiff_report_sha256": "e6a582ef13359f7d968f7d4cc68cc70254f57d5c65cb84b15ee8e2871929a9cd",
+      "objdiff_section_percent": 100.0
+    },
+    {
+      "section": ".graphics_setup_tile_packets",
+      "tool": "splat",
+      "bytes": 128,
+      "target_sha256": "0e0ff3340400f96acc18bcddefba90a3f9cd2365bb62eda5574def7ca792dc04",
+      "reference_sha256": "0e0ff3340400f96acc18bcddefba90a3f9cd2365bb62eda5574def7ca792dc04",
+      "source_sha256": "2cf8faaa4cceae44cc0e0b8a498d0f96e4678292752d87181f64cc313faab132",
+      "raw_pointer_relocations": [
+        {
+          "offset": 68,
+          "type": 2,
+          "symbol": "D_8007C770"
+        }
+      ],
+      "objdiff_report_sha256": "dfac37307061000a6e3d743ea2e5b4df066ebfd531049ba0bd74d55a22d1dbd6",
+      "objdiff_section_percent": 100.0
+    }
+  ],
+  "objdiff_normalization": "Linked comparison views use section-relative symbols, zero section addresses and ET_REL headers. The reference .data name is aligned with the owned output name. Allocated bytes are unchanged. Disassembler symbol groupings are not scalar extent evidence.",
+  "ghidra": {
+    "get_type_size?type_name=FrameCommand": {
+      "type_name": "FrameCommand",
+      "size": 8,
+      "alignment": 8,
+      "path": "/FrameCommand"
+    },
+    "get_xrefs_to?address=0x8007D5E8&limit=0": {
+      "references": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8004662c",
+          "type": "DATA",
+          "from_function": "func_80046608"
+        }
+      ],
+      "count": 2,
+      "offset": 0,
+      "total": 2
+    },
+    "get_xrefs_to?address=0x8007C970&limit=0": {
+      "references": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "80046c50",
+          "type": "DATA",
+          "from_function": "func_80046C2C"
+        }
+      ],
+      "count": 2,
+      "offset": 0,
+      "total": 2
+    },
+    "get_type_size?type_name=GraphicsLight": {
+      "type_name": "GraphicsLight",
+      "size": 16,
+      "alignment": 8,
+      "path": "/GraphicsLight"
+    },
+    "program": "robotron64.elf",
+    "saved": true,
+    "memory_comparisons": [
+      {
+        "address": "8007c970",
+        "bytes": 128,
+        "target_sha256": "0e0ff3340400f96acc18bcddefba90a3f9cd2365bb62eda5574def7ca792dc04",
+        "complete_range_matches": true
+      },
+      {
+        "address": "8007d5d8",
+        "bytes": 200,
+        "target_sha256": "7c0ea1b7a65784dc9148de2e306ce11a095eb4a7d524a65c8a0d4826c31d5811",
+        "complete_range_matches": true
+      }
+    ],
+    "globals": [
+      "D_8007C970: FrameCommand[16]",
+      "D_8007D5E8: FrameCommand[23]"
+    ]
+  },
+  "pinned_ido_layout": {
+    "pinned_ido_layout": [
+      8,
+      8,
+      184,
+      128,
+      4,
+      4,
+      4,
+      16,
+      8,
+      0,
+      4,
+      8,
+      392,
+      384,
+      388,
+      32
+    ],
+    "fields": [
+      "FrameCommand.size",
+      "FrameCommand.alignment",
+      "default_list.size",
+      "tile_list.size",
+      "int.size",
+      "uint.size",
+      "pointer.size",
+      "GraphicsLight.size",
+      "GraphicsLight.alignment",
+      "GraphicsLight.color.offset",
+      "GraphicsLight.colorCopy.offset",
+      "GraphicsLight.direction.offset",
+      "GraphicsTileState.size",
+      "GraphicsTileState.tileX.offset",
+      "GraphicsTileState.tileY.offset",
+      "GraphicsFrameCounters.size"
+    ]
+  },
+  "execution": {
+    "matches": true,
+    "cases": {
+      "default": 1,
+      "tile": 64,
+      "light": 2187,
+      "tint": 8,
+      "reset": 5
+    },
+    "paired_cases": 2265,
+    "checker_sha256": "6b0d50a9482d9096073a995980a2407b4d4d1188f31010ac0bc75468f8529dc5",
+    "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "trace_sha256": "fcfc3b78ab72372e467e1e241e4ee5fc0537533e1ff76caf0b7a8435b77043b6",
+    "emulator": {
+      "package": "unicorn",
+      "version": "2.1.1"
+    },
+    "limits": [
+      "Five complete matching consumer units are loaded; their default, tile, light, tint and reset entry points execute without callee stubs.",
+      "The tint loop reads the independently matched, compiled palette table.",
+      "Light fixtures cover the 256 indices demanded by the tint loop; no full light-array extent is owned.",
+      "Packet submission, tile packing, direction narrowing, frame snapshots and guarded storage are checked.",
+      "RSP/RDP execution, texture contents, allocation paths and gameplay are not established."
+    ]
+  },
+  "clean_build": {
+    "native_fresh_checkout": true,
+    "rom_bytes": 8388608,
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "elf_sha256": "82306baea7310d7bdc5598e9295597b4eb703b35b073cf8dbd3313d7ef60dc6b",
+    "complete_owned_sections_and_symbols_verified": true,
+    "log_sha256": "60f8fb2e993f9dd754e3285e53cef8e37876ecfc790f2eee2d89b2f7564e198e"
+  },
+  "fresh_independent_comparisons": {
+    "runtime-comparison": {
+      "units": 906,
+      "matches": true,
+      "report_sha256": "6e4385d1dfc410bfe9d2f021882fa906e544c0d7412ce1362618bf520381dabf"
+    },
+    "startup-comparison": {
+      "units": 2,
+      "matches": true,
+      "report_sha256": "b858062b8637280d0d08834beaa00287f36dc55baccd81811627c8ab1da0baef"
+    },
+    "assembly-comparison": {
+      "units": 18,
+      "matches": true,
+      "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+    },
+    "data-comparison": {
+      "units": 186,
+      "matches": true,
+      "report_sha256": "005fb9c139c58e7170c0ac33bff8e493c44007faee5f184babe75bde595f9628"
+    }
+  },
+  "focused_consumer_checks": [
+    {
+      "reset_cases_per_image": 12,
+      "already_loaded_cases_per_image": 960,
+      "total_function_executions": 1944,
+      "check": "actor-resource-storage-check",
+      "matches": true,
+      "report_sha256": "60351434be933b91ed72aecb6b81853dee5738944fe02bca4a6bdcc4ffcda682",
+      "mutations": 6
+    },
+    {
+      "paired_cases": 1356,
+      "target_executions": 2712,
+      "check": "save-state-storage-check",
+      "matches": true,
+      "report_sha256": "ab8c24f75d71dba5f339bd46a5bd4630c4fef4d47dd9c7eb18923d21f268e6db",
+      "mutations": 6
+    },
+    {
+      "paired_cases": 630,
+      "target_executions": 1260,
+      "check": "script-resource-storage-check",
+      "matches": true,
+      "report_sha256": "3412abea1b21ae7722690cea5d38e3c6c77a9984ac65c9e56ed612e4f23dfc11",
+      "mutations": 7
+    },
+    {
+      "paired_cases": 687,
+      "target_executions": 1374,
+      "case_kinds": {
+        "reset": 3,
+        "lookup": 75,
+        "load": 300,
+        "release": 300,
+        "callback": 9
+      },
+      "check": "movie-storage-check",
+      "matches": true,
+      "report_sha256": "c2f396b46a652ccb63f0e6f0dad4ddb0832838829469a0b52f1e61a0ecf3241a",
+      "mutations": 5
+    },
+    {
+      "paired_cases": 2241,
+      "target_executions": 4482,
+      "check": "movie-playback-check",
+      "matches": true,
+      "report_sha256": "557d0a52f24554891f0defd432a651d316ba9e6f37d14d6bfd882f7bf1d42064",
+      "mutations": 6
+    },
+    {
+      "paired_cases": 786,
+      "target_executions": 1572,
+      "check": "audio-startup-storage-check",
+      "matches": true,
+      "report_sha256": "03b343821378091974063d76c2dddb1c06d6a7cfb1149c46150e5ae87ae7416c",
+      "mutations": 8
+    },
+    {
+      "counts": {
+        "cases": 595,
+        "levels": 288,
+        "gates": 288,
+        "stack-seeds": 16,
+        "two-player-selection": 3
+      },
+      "check": "hud-state-check",
+      "matches": true,
+      "report_sha256": "45e4e1b7d126a7a17f482f3c44e3befda6eef9d637cd39f731dd44080b266bab",
+      "source_controls": 11,
+      "bounds_controls": 4
+    },
+    {
+      "paired_cases": 1210,
+      "target_executions": 2420,
+      "boundary_alias_cases": 145,
+      "array_only_controls_rejected": 290,
+      "case_kinds": {
+        "clear": 3,
+        "update": 1207
+      },
+      "check": "renderer-peak-metrics-check",
+      "matches": true,
+      "report_sha256": "f4fd53da8375ff1b5f9f134a5d01ca21be210dac1bf5a7396d77253505ba9d4b",
+      "source_mutations": 7
+    },
+    {
+      "paired_cases": 2898,
+      "principal_executions": 5796,
+      "check": "object-angle-constants-check",
+      "matches": true,
+      "report_sha256": "b3f5f4a7288f92e7c57230df4eb893bc590fa80df3a7dfb9078d8ec676af375c",
+      "source_mutations": 6,
+      "boundary_controls": 10
+    },
+    {
+      "cases": {
+        "default": 1,
+        "tile": 64,
+        "light": 2187,
+        "tint": 8,
+        "reset": 5
+      },
+      "paired_cases": 2265,
+      "check": "graphics-setup-execution",
+      "matches": true,
+      "report_sha256": "a9392fa98ed518c0de645326a14f877a82e253135d1a307eb4ee8418eaa752cc"
+    }
+  ],
+  "tests": {
+    "linux": {
+      "tests": 163,
+      "skipped": 0,
+      "passed": true,
+      "log_sha256": "77912514795b6d16dc037003ed12fcc41f95b6656a558ed4a1d01663dd68b3f6"
+    },
+    "windows": {
+      "tests": 163,
+      "skipped": 4,
+      "passed": true,
+      "log_sha256": "20d6aea0941dd48a5876ca53c1fac900a9c6941177852724cb8c29279a4b847c"
+    }
+  },
+  "limits": [
+    "No new matching CPU instructions are credited.",
+    "Texture bytes, neighboring data, gaps and the light-array extent remain outside this storage ownership.",
+    "Full-ROM equality includes extracted fallback; 141388 declared fallback CPU bytes in 186 spans and 164 unclassified bytes remain.",
+    "The complete executable/function denominator is unknown. These finite checks do not establish RSP/RDP rendering or complete gameplay."
+  ]
+}

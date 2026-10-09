@@ -1,0 +1,1267 @@
+{
+  "schema": 1,
+  "kind": "complete source-owned script and resource literal arrays",
+  "verified_date": "2026-10-09",
+  "baseline_head": "51f0a756ace06882c95eba5d8aeb5828c4ce4077",
+  "owned_added": {
+    "functions": 0,
+    "code": 0,
+    "initialized_data": 272,
+    "bss": 0
+  },
+  "ranges": [
+    {
+      "source": "src/game/script_service/command_literals.c",
+      "source_sha256": "8a6be579b990066abe886c08b76cce60e17e8430008ac7a901bf9af7a92748e1",
+      "vram": 2148075152,
+      "rom": 594576,
+      "natural_bytes": 56,
+      "raw_data_bytes": 64,
+      "alignment_bytes_excluded": 8,
+      "data_sha256": "2736d3e489dfe5829bfd3b0ef9c81e7aaa1715eb09affd0af9b54abadd29d471",
+      "symbol_offsets": {
+        "D_80090690": 0,
+        "D_800906A0": 16,
+        "D_800906BC": 44
+      },
+      "symbol_lengths": {
+        "D_80090690": 16,
+        "D_800906A0": 28,
+        "D_800906BC": 12
+      },
+      "ido_elf_symbol_sizes": {
+        "D_80090690": 0,
+        "D_800906A0": 0,
+        "D_800906BC": 0
+      },
+      "relocations": 0,
+      "independent_references": {
+        "spimdisasm": {
+          "natural_bytes": 56,
+          "matches": true,
+          "data_sha256": "2736d3e489dfe5829bfd3b0ef9c81e7aaa1715eb09affd0af9b54abadd29d471",
+          "assembly_sha256": "90429d04e1c572bdc5b54bc21a91dfaa72ea2bec9410d93e21f94ef35deb95c1",
+          "elf_sha256": "57e7163dd6e9409080fb06e4e5fe3f8470873af7eb045ff4a3e62d7b2af1cd62"
+        },
+        "splat": {
+          "natural_bytes": 56,
+          "matches": true,
+          "data_sha256": "2736d3e489dfe5829bfd3b0ef9c81e7aaa1715eb09affd0af9b54abadd29d471",
+          "assembly_sha256": "8f2f7b9fe5908a0e420b29e17a545208a99d73dd1c97a0669de0376629eac74b",
+          "elf_sha256": "0b4a7245b0f41f3de7b1574997c971a27b8e49edff9e37980b946fb1633d80c8"
+        }
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+      "complete_data_comparison_sha256": "51da0ebe67e1bf5f7afe072acc9e7db8ff1b97053c46481f6d8f8c5f327b8d04"
+    },
+    {
+      "source": "src/game/actor_resources/animation_literals.c",
+      "source_sha256": "f221b5c1c2e1c46616b441f4d322e164232b65da2cf3bf3c0d463efb55a3a9d8",
+      "vram": 2148075216,
+      "rom": 594640,
+      "natural_bytes": 52,
+      "raw_data_bytes": 64,
+      "alignment_bytes_excluded": 12,
+      "data_sha256": "36d8974f34d3bf183023018fffb0a4b195cf4a438255e34f0524da5716a89ee4",
+      "symbol_offsets": {
+        "D_800906D0": 0,
+        "D_800906D8": 8,
+        "D_800906E0": 16,
+        "D_800906E8": 24
+      },
+      "symbol_lengths": {
+        "D_800906D0": 8,
+        "D_800906D8": 8,
+        "D_800906E0": 8,
+        "D_800906E8": 28
+      },
+      "ido_elf_symbol_sizes": {
+        "D_800906D0": 0,
+        "D_800906D8": 0,
+        "D_800906E0": 0,
+        "D_800906E8": 0
+      },
+      "relocations": 0,
+      "independent_references": {
+        "spimdisasm": {
+          "natural_bytes": 52,
+          "matches": true,
+          "data_sha256": "36d8974f34d3bf183023018fffb0a4b195cf4a438255e34f0524da5716a89ee4",
+          "assembly_sha256": "813fbcb4534b7246d8edd4fd5dd62d03e5b55671b94d8bfcb9d3968a7b528ac6",
+          "elf_sha256": "5c1d55bd40a5c7ebfcfd97ae176446380551bc49d5fbdc37e2de817f12f53f03"
+        },
+        "splat": {
+          "natural_bytes": 52,
+          "matches": true,
+          "data_sha256": "36d8974f34d3bf183023018fffb0a4b195cf4a438255e34f0524da5716a89ee4",
+          "assembly_sha256": "8120bd6156928e3a1bba01699a54dbf8e1e4715dbfa5b649e425bafdace1a558",
+          "elf_sha256": "6db3e1f3394ce4a4f04c6850b62ab3639158cee69e6f700a01b3c95e35455aca"
+        }
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+      "complete_data_comparison_sha256": "f172fce42265f57d8ee940784a78a070edeacb83aacf77de34262090bc03b6b7"
+    },
+    {
+      "source": "src/game/actor_resources/literals.c",
+      "source_sha256": "50dd37815f96c5585ddee66dd5b6fea9c866c0429b91c25dc3a7a6233edb86d9",
+      "vram": 2148075268,
+      "rom": 594692,
+      "natural_bytes": 164,
+      "raw_data_bytes": 176,
+      "alignment_bytes_excluded": 12,
+      "data_sha256": "8321916b1bd37d2be7add72a21f61ec79acde793bb338dfd8ecd10a2be024778",
+      "symbol_offsets": {
+        "D_80090704": 0,
+        "D_80090734": 48,
+        "D_8009074C": 72,
+        "D_80090754": 80,
+        "D_80090760": 92,
+        "D_80090768": 100,
+        "D_80090770": 108,
+        "D_8009077C": 120,
+        "D_80090784": 128,
+        "D_8009078C": 136
+      },
+      "symbol_lengths": {
+        "D_80090704": 48,
+        "D_80090734": 24,
+        "D_8009074C": 8,
+        "D_80090754": 12,
+        "D_80090760": 8,
+        "D_80090768": 8,
+        "D_80090770": 12,
+        "D_8009077C": 8,
+        "D_80090784": 8,
+        "D_8009078C": 28
+      },
+      "ido_elf_symbol_sizes": {
+        "D_80090704": 0,
+        "D_80090734": 0,
+        "D_8009074C": 0,
+        "D_80090754": 0,
+        "D_80090760": 0,
+        "D_80090768": 0,
+        "D_80090770": 0,
+        "D_8009077C": 0,
+        "D_80090784": 0,
+        "D_8009078C": 0
+      },
+      "relocations": 0,
+      "independent_references": {
+        "spimdisasm": {
+          "natural_bytes": 164,
+          "matches": true,
+          "data_sha256": "8321916b1bd37d2be7add72a21f61ec79acde793bb338dfd8ecd10a2be024778",
+          "assembly_sha256": "7aff5670a73703ca11d1affe3c78acafb54158807d00bfd6ba309430e179fa64",
+          "elf_sha256": "d01ccaa17573c3656f1f91e90f450598fb0d61a58d5747100ae417fb7dd6b955"
+        },
+        "splat": {
+          "natural_bytes": 164,
+          "matches": true,
+          "data_sha256": "8321916b1bd37d2be7add72a21f61ec79acde793bb338dfd8ecd10a2be024778",
+          "assembly_sha256": "dad24a1e40239ff7af2f192e90b72b6449853c6c04157410575c6ebe165b4729",
+          "elf_sha256": "952068cd5ca13ec9a12667728aa23a4031ec6f281f81b77618f9ac1a548e6c72"
+        }
+      },
+      "compiler_profile": {
+        "name": "game",
+        "version": "5.3",
+        "flags": [
+          "-O2",
+          "-G",
+          "0",
+          "-non_shared",
+          "-mips1",
+          "-32"
+        ]
+      },
+      "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+      "complete_data_comparison_sha256": "8194f3ced9b376a1dfa5c9a7fb1ae63f3696eb015f9cbeab3645a19b66698449"
+    }
+  ],
+  "ido_size_note": "IDO leaves these array symbol sizes zero. The explicit C dimensions, all successive offsets, independent references and complete natural section establish their sizes. Only natural bytes receive ownership.",
+  "unexplained_gap_excluded": "0x800906C8..0x800906D0",
+  "caller_instruction_bytes_unchanged": 1292,
+  "already_matching_direct_caller_functions": 5,
+  "ghidra": {
+    "program": "robotron64.elf",
+    "canonical_labels_and_array_types": 17,
+    "all_natural_bytes_verified": 272,
+    "gap_reverified_and_excluded": 8,
+    "saved": true,
+    "xrefs": {
+      "0x80090690": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cc0c",
+          "type": "PARAM",
+          "from_function": "func_8001CBE8"
+        }
+      ],
+      "0x800906A0": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cc7c",
+          "type": "PARAM",
+          "from_function": "func_8001CC5C"
+        }
+      ],
+      "0x800906BC": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cd30",
+          "type": "PARAM",
+          "from_function": "func_8001CD1C"
+        }
+      ],
+      "0x800906D0": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001ce9c",
+          "type": "PARAM",
+          "from_function": "func_8001CE70"
+        }
+      ],
+      "0x800906D8": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cee4",
+          "type": "PARAM",
+          "from_function": "func_8001CE70"
+        }
+      ],
+      "0x800906E0": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cf00",
+          "type": "PARAM",
+          "from_function": "func_8001CE70"
+        }
+      ],
+      "0x800906E8": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cf34",
+          "type": "PARAM",
+          "from_function": "func_8001CE70"
+        }
+      ],
+      "0x80090704": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cfb8",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x80090734": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cfd8",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x8009074C": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001cfe4",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x80090754": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001d05c",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x80090760": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001d09c",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x80090768": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001d0b8",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x80090770": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001d0d4",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x8009077C": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001d11c",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x80090784": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001d138",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ],
+      "0x8009078C": [
+        {
+          "from_address": "Entry Point",
+          "type": "EXTERNAL"
+        },
+        {
+          "from_address": "8001d168",
+          "type": "PARAM",
+          "from_function": "func_8001CF68"
+        }
+      ]
+    },
+    "private_receipt_sha256": "bc727ad7585be6949e775f6b6387ff595f52300baff400bf01ccd5a1dfff6181"
+  },
+  "execution": {
+    "consumer_pairs": 435,
+    "animation_pairs": 105,
+    "formatter_pairs": 6,
+    "principal_executions": 1092,
+    "actual_consumer_c_units": 6,
+    "actual_consumer_c_instruction_bytes": 2320,
+    "data_faults_detected": 17,
+    "data_controls": [
+      {
+        "symbol": "D_80090690",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'scene', '0x8001c0d0', [2148075152, b'uoo many BFFs'], [2148075152, b'too many BFFs'])"
+      },
+      {
+        "symbol": "D_800906A0",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'level', '0x8001c0d0', [2148075168, b'Uoo many Levels defined\\n'], [2148075168, b'Too many Levels defined\\n'])"
+      },
+      {
+        "symbol": "D_800906BC",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'setup', '0x80038498', [2148075196, b'RTRINGS.STR'], [2148075196, b'STRINGS.STR'])"
+      },
+      {
+        "symbol": "D_80090704",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8001c0d0', [2148075268, b'Urying to load a gfx that has not been defined\\n'], [2148075268, b'Trying to load a gfx that has not been defined\\n'])"
+      },
+      {
+        "symbol": "D_80090734",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8001c0d0', [2148075316, b'Uoo many chars defined'], [2148075316, b'Too many chars defined'])"
+      },
+      {
+        "symbol": "D_8009074C",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8003c94c', [255, 4294967289, b'LODELS\\\\robot', 0], [255, 4294967289, b'MODELS\\\\robot', 0])"
+      },
+      {
+        "symbol": "D_80090754",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8003ca34', [4294967291, b'UEXTURES\\\\robot.BMP', 1], [4294967291, b'TEXTURES\\\\robot.BMP', 1])"
+      },
+      {
+        "symbol": "D_80090760",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8003ca34', [4294967291, b'TEXTURES\\\\robot/BMP', 1], [4294967291, b'TEXTURES\\\\robot.BMP', 1])"
+      },
+      {
+        "symbol": "D_80090768",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8003ca34', [4294967291, b'TEXTURES\\\\robot/BMP', 1], [4294967291, b'TEXTURES\\\\robot.BMP', 1])"
+      },
+      {
+        "symbol": "D_80090770",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8003ca24', [255, 4294967293, b'UEXTURES\\\\robot.TXR'], [255, 4294967293, b'TEXTURES\\\\robot.TXR'])"
+      },
+      {
+        "symbol": "D_8009077C",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8003ca24', [255, 4294967293, b'TEXTURES\\\\robot/TXR'], [255, 4294967293, b'TEXTURES\\\\robot.TXR'])"
+      },
+      {
+        "symbol": "D_80090784",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8003ca24', [255, 4294967293, b'TEXTURES\\\\robot/TXR'], [255, 4294967293, b'TEXTURES\\\\robot.TXR'])"
+      },
+      {
+        "symbol": "D_8009078C",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Independent service arguments/order', 'resource', '0x8001c0d0', [2148075404, b'Moad Texture Map %s failed\\n', b'TEXTURES\\\\robot.TXR'], [2148075404, b'Load Texture Map %s failed\\n', b'TEXTURES\\\\robot.TXR'])"
+      },
+      {
+        "symbol": "D_800906D0",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Service arguments/path/order', ['load', 17, 0, '4a494e535c69646c652e4b494e', 0], [['load', 17, 0, '4b494e535c69646c652e4b494e', 0]])"
+      },
+      {
+        "symbol": "D_800906D8",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Service arguments/path/order', ['load', 17, 0, '4b494e535c77616c6b2f4b494e', 0], [['load', 17, 0, '4b494e535c77616c6b2e4b494e', 0]])"
+      },
+      {
+        "symbol": "D_800906E0",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Service arguments/path/order', ['load', 17, 0, '4b494e535c69646c652f4b494e', 0], [['load', 17, 0, '4b494e535c69646c652e4b494e', 0]])"
+      },
+      {
+        "symbol": "D_800906E8",
+        "positive_passed": true,
+        "rejected": true,
+        "reason": "('Service arguments/path/order', ['fatal', 2148075240, '4d6f6164204b696e656d6174696f6e202573206661696c65640a', '4b494e535c69646c652e4b494e'], [['load', 17, 0, '4b494e535c69646c652e4b494e', 0], ['fatal', 2148075240, '4c6f6164204b696e656d6174696f6e202573206661696c65640a', '4b494e535c69646c652e4b494e']])"
+      }
+    ],
+    "actual_guest_read_bounds_control": {
+      "positive_passed": true,
+      "rejected": true,
+      "kind": "actual_guest_read_bounds",
+      "reason": "('Formatter read bounds', '0x907a8', 1)"
+    },
+    "support_comparisons": {
+      "consumers": {
+        "script_service_commands": {
+          "source": "src/game/script_service_commands.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 580,
+          "actual_size": 580,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "d7a3eed57bc1338eae025b703f8663cadf5a7012e84b4a63def93a053f7a662a",
+          "complete_comparison_sha256": "38afdd17f1a10c0cf4a1a0947708beb400f875aa11c5d5586889e719801be24b"
+        },
+        "actor_resource_load": {
+          "source": "src/game/actor_resource_load.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 760,
+          "actual_size": 760,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "c0582c23aa669aae28f4a875297b0222f885f8128b20e0165ea645aa7acdac13",
+          "complete_comparison_sha256": "e6fea1113cb8a3c475e17d5f9340c50ee8003c80e847f285bacaed2d9db3cce1"
+        },
+        "script_animation_resolve": {
+          "source": "src/game/script_animation_resolve.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 248,
+          "actual_size": 248,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "f005566cc2b996814d4827fbf1abb0cf9308ef79ef67005f9e2bc236eba714b3",
+          "complete_comparison_sha256": "13689f994bf75f1150f33a309911a1b8fea6e163cea9a4f2d9c3e22370c8943e"
+        },
+        "game_memory": {
+          "source": "src/game/game_memory.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 628,
+          "actual_size": 628,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "48eb964e66c7bf01121a70403983d942bdd372f116d90a8e9d6edceb012c8f00",
+          "complete_comparison_sha256": "27a723725b2d58489b0f4174aaa865927bf8cc4ebfba8ebf77dcbdfdc35c0a60"
+        },
+        "game_string_append": {
+          "source": "src/game/game_string_append.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 52,
+          "actual_size": 52,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "14343029b084da52f40960de2bb7c23798dd17d7880543b321a8de8311d15ddc",
+          "complete_comparison_sha256": "df09fe9afb3c2e3f38c46d3978a2ec36c9e77500e78e3104f2e1c041bb0c7054"
+        },
+        "string_resource": {
+          "source": "src/game/string_resource.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 52,
+          "actual_size": 52,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "b1dcd3afb57e24b037ebb574b43ec860a383604abc972b9ba9fd6d35a976f77e",
+          "complete_comparison_sha256": "5ef004ce0c28dd39866e5ca7793d3786dfe2ca5882a7922055aaabd4dc7fc7f7"
+        }
+      },
+      "formatters": {
+        "error_fatal_format": {
+          "source": "src/game/diagnostics/fatal.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 500,
+          "actual_size": 500,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "39b54b21a8db904fdeb2c91e1b433a01a486cb122e81ef5c56297915c06a5118",
+          "complete_comparison_sha256": "63ba39b622c860bb3f1e52ff62c12d0648c9596232b1db9f99c475773b6aa5af"
+        },
+        "error_formatted": {
+          "source": "src/game/diagnostics/formatted.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 664,
+          "actual_size": 664,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "8eff0f1bcdb6ca3d480a3c79bf5dc51aa58a1a90697a5873947182f1aa9f03c1",
+          "complete_comparison_sha256": "62b737686f251a5ba610a658c4112f7533e4d0bda8248a86fe62311f5c3c10ba"
+        },
+        "game_memory": {
+          "source": "src/game/game_memory.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 628,
+          "actual_size": 628,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "48eb964e66c7bf01121a70403983d942bdd372f116d90a8e9d6edceb012c8f00",
+          "complete_comparison_sha256": "27a723725b2d58489b0f4174aaa865927bf8cc4ebfba8ebf77dcbdfdc35c0a60"
+        },
+        "game_number_format": {
+          "source": "src/game/game_number_format.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 644,
+          "actual_size": 644,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "91b8bd79ad353bc08354e3afa06da7d9d28fbf83b5166fd1cf253b30050c0f7c",
+          "complete_comparison_sha256": "23f63e4b13d5faa787a08f1dfeffa492d02b34ef5b8cdfcdfad502e078016a93"
+        },
+        "fixed_geometry_setup": {
+          "source": "src/game/fixed_geometry_setup.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 1508,
+          "actual_size": 1508,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "4b531ab0b07c79d1f94716960b4893683f7ad554496a4ba10a6fc1ee91bbc8e2",
+          "complete_comparison_sha256": "84352ae3f1fbf6bfd7496a27dabd1c46ca826c9751dd45eaa278b4a237621a70"
+        },
+        "geometry_debug_bridge": {
+          "source": "src/game/geometry_debug_bridge.c",
+          "compiler_profile": {
+            "name": "game",
+            "version": "5.3",
+            "flags": [
+              "-O2",
+              "-G",
+              "0",
+              "-non_shared",
+              "-mips1",
+              "-32"
+            ]
+          },
+          "expected_size": 40,
+          "actual_size": 40,
+          "matches": true,
+          "different_words": [],
+          "toolchain_identity_sha256": "3be238e335a13cda46d03bd625a290b1e67744547448a619eb69379247b13d09",
+          "inputs_sha256": "94a39449278d51a0b732a00dd45fb6a9d64588c3d00a3d9175a9c8e7e73d96a9",
+          "complete_comparison_sha256": "0684164f5ca754acd21ca67b3317abcb34a62b5b4e4ec7666bb05181ef3f0807"
+        }
+      }
+    },
+    "complete_private_report_sha256": "82a64fbebd5d6dfca29e030a093092f71c0a2a2b1992b88a9c94d3ac247f4439",
+    "checker_sha256": "9d928f142371be1eed7e3edd4ca6c35741a74db6a71121ce75a18d6c6e7333bf",
+    "runner_sha256": "35cb27d38377dce02fd0052bcff1eccd15d162f1f299fb60151a17f9a5fb49ef",
+    "limitations": [
+      "Fatal capacity/undefined/reserve/texture errors stop at the checked fatal call; their continuation is unverified.",
+      "The animation failure diagnostic returns synthetically through its checked ABI boundary to exercise the resolver epilogue.",
+      "Returning file-loader, reservation, string-table and script-parser services use checked ABI boundaries that clobber caller-saved integer and FPU registers.",
+      "Integer preserved registers, GP/SP/RA on returning consumers, twelve distinct saved FPU words, complete object/data guards and all guest instruction/read/write bounds are checked.",
+      "Resource-loader fixtures have ten null animation pointers; the animation resolver executes separately.",
+      "The actual formatter and string/numeric helpers execute; output/fatal reporting uses its documented ABI boundaries.",
+      "The eight-byte command/animation gap is unreadable/unowned. Bounded indices/paths below 100 bytes only; file I/O, script interpretation, arbitrary aliasing and gameplay remain unverified."
+    ]
+  },
+  "validation": {
+    "stages": [
+      {
+        "step": "independent-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/.local/projection-references/generate.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.56
+      },
+      {
+        "step": "independent-literal-references",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/.local/acceptance/literal-references.py",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.58
+      },
+      {
+        "step": "clean-build",
+        "command": [
+          "make",
+          "-j4",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 68.95
+      },
+      {
+        "step": "literal-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_script_resource_literals.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 11.97
+      },
+      {
+        "step": "diagnostic-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_scripted_file_diagnostics.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 2.64
+      },
+      {
+        "step": "diagnostic-controls",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/.local/acceptance/diagnostic-controls.py",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 2.5
+      },
+      {
+        "step": "script-storage",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_script_resource_storage.py",
+          "--mutations"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 37.92
+      },
+      {
+        "step": "formatter-regression",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_error_formatters.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 31.48
+      },
+      {
+        "step": "verify-progress",
+        "command": [
+          "make",
+          "progress",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 35.09
+      },
+      {
+        "step": "remaining",
+        "command": [
+          "make",
+          "remaining",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.78
+      },
+      {
+        "step": "runtime",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_runtime.py",
+          "-j4"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 513.4
+      },
+      {
+        "step": "startup",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_startup.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.15
+      },
+      {
+        "step": "assembly",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_assembly.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 13.47
+      },
+      {
+        "step": "data",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_data.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 14.72
+      },
+      {
+        "step": "excluded",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/compare_runtime.py",
+          "--candidates",
+          "-j4"
+        ],
+        "exit_code": 1,
+        "expected_exit_code": 1,
+        "seconds": 14.01
+      },
+      {
+        "step": "path-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_group_path.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 174.72
+      },
+      {
+        "step": "bonus-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_bonus_child.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 17.43
+      },
+      {
+        "step": "boundary-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_actor_boundary_boss.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 15.25
+      },
+      {
+        "step": "boundary-mutations",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/.local/acceptance/boundary-mutations.py",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.85
+      },
+      {
+        "step": "projection-execution",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_startup_projection.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 20.13
+      },
+      {
+        "step": "projection-controls",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_startup_projection.py",
+          "--controls"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 6.58
+      },
+      {
+        "step": "graphics-storage",
+        "command": [
+          "make",
+          "audit-graphics-setup-storage",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 20.25
+      },
+      {
+        "step": "setup-audit",
+        "command": [
+          "make",
+          "audit-scene-resource-setup",
+          "PYTHON=/root/robotron64-tools/.venv/bin/python"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 12.35
+      },
+      {
+        "step": "renderer-grid",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/check_renderer_grid.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 29.03
+      },
+      {
+        "step": "tests",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.11
+      },
+      {
+        "step": "manifest",
+        "command": [
+          "/root/robotron64-tools/.venv/bin/python",
+          "tools/manifest.py"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.81
+      },
+      {
+        "step": "fresh-workbench",
+        "command": [
+          "robotron-tools",
+          "match",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/.local/acceptance/projection-spec.json",
+          "--fresh",
+          "-j",
+          "2"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 1.06
+      },
+      {
+        "step": "asm-differ",
+        "command": [
+          "robotron-tools",
+          "diff",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/.local/acceptance/projection-spec.json",
+          "--name",
+          "renderer_projection_setup"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.45
+      },
+      {
+        "step": "objdiff",
+        "command": [
+          "robotron-tools",
+          "objdiff",
+          "diff",
+          "-1",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/.local/projection-references/reference.raw.o",
+          "-2",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/build/us/renderer_projection_setup.raw.o",
+          "-o",
+          "/root/robotron64-validation/script-resource-literals-final2-20261009/.local/acceptance/objdiff.json"
+        ],
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "seconds": 0.09
+      }
+    ],
+    "comparisons": {
+      "runtime-comparison": {
+        "units": 910,
+        "matches": true,
+        "private_report_sha256": "f14e7365e02933fd604dc3ac42cfdb714b2b4cf3710adc97c715043030c33413"
+      },
+      "startup-comparison": {
+        "units": 2,
+        "matches": true,
+        "private_report_sha256": "7ae59b0edd516a94afaaecabbe2da0030ae78dbc3f62f166237d6b2aa13f7161"
+      },
+      "assembly-comparison": {
+        "units": 18,
+        "matches": true,
+        "private_report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+      },
+      "data-comparison": {
+        "units": 198,
+        "matches": true,
+        "private_report_sha256": "040fb0f3ac10b060799a589f6fdc1a20097933ea07c25b72ce90a873d9e66659"
+      }
+    },
+    "excluded_candidates": 26,
+    "linux_tests": 171,
+    "windows_tests": 171,
+    "windows_skips": 9,
+    "legacy_diagnostic_pairs": 27,
+    "legacy_data_access_controls": 10,
+    "registry_pairs": 630,
+    "registry_source_mutations": 7,
+    "formatter_regression_pairs": 3588,
+    "full_rom_bytes": 8388608,
+    "full_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "frozen_public_inputs": 1987,
+    "frozen_input_map_sha256": "8e9704a37212a41bf8f3d54fa8280f20390007d1221e174dda42084ba5a4d393",
+    "post_validation_documentation_edit": {
+      "path": "docs/script-resource-literals.md",
+      "before_sha256": "f583e926cd00c429f42fa66f87bf79775ed128e40402daa8cb1dcbb6561b1565",
+      "after_sha256": "23c20a245138d3d9f92d9a83fa7dff23f4a7cb70b228fa5b01e6947a19f4ffbc",
+      "purpose": "Link the completed ledger and state the measured results without changing execution inputs."
+    },
+    "failed_first_snapshot": {
+      "reason": "The clean-build provenance guard rejected omitted transitive headers. Added actor_resource_5c_internal.h, game_memory.h and object.h to the explicit dependencies, then restarted all 29 stages in a new clean snapshot. No source comparison or provenance check was weakened.",
+      "private_report_sha256": "ba112754daa7db415fd8fb4d0cf0b8b579ff6abe9ea791073b7c36689919dbbb"
+    },
+    "new_data_objdiff_views": {
+      "natural_bytes_independently_verified": 272,
+      "units": [
+        {
+          "unit": "script_command_literals",
+          "natural_bytes": 56,
+          "byte_equality_verified": true,
+          "reference_normalization": "Remove empty assembly data section; rename independently assembled rodata to data. Both compared objects use natural extents; compiler alignment is excluded.",
+          "report_sha256": "f6b18f7537cbf1442390c2a265a96173570dffa44097caa93e2e38cda8bedce6",
+          "section_views": {
+            "left": [
+              {
+                "name": ".data",
+                "size": "56",
+                "match_percent": 100.0
+              }
+            ],
+            "right": [
+              {
+                "name": ".data",
+                "size": "56"
+              }
+            ]
+          }
+        },
+        {
+          "unit": "script_animation_literals",
+          "natural_bytes": 52,
+          "byte_equality_verified": true,
+          "reference_normalization": "Remove empty assembly data section; rename independently assembled rodata to data. Both compared objects use natural extents; compiler alignment is excluded.",
+          "report_sha256": "f5a33f408b1020069686198769c5fc3ee5e58e8891fbb2b4172040acaf318ada",
+          "section_views": {
+            "left": [
+              {
+                "name": ".data",
+                "size": "52",
+                "match_percent": 99.02912
+              }
+            ],
+            "right": [
+              {
+                "name": ".data",
+                "size": "52"
+              }
+            ]
+          }
+        },
+        {
+          "unit": "actor_resource_literals",
+          "natural_bytes": 164,
+          "byte_equality_verified": true,
+          "reference_normalization": "Remove empty assembly data section; rename independently assembled rodata to data. Both compared objects use natural extents; compiler alignment is excluded.",
+          "report_sha256": "62d6328716a3b818c14739e19fa2abd1918938653c626152be35062c54cacdae",
+          "section_views": {
+            "left": [
+              {
+                "name": ".data",
+                "size": "164",
+                "match_percent": 100.0
+              }
+            ],
+            "right": [
+              {
+                "name": ".data",
+                "size": "164"
+              }
+            ]
+          }
+        }
+      ],
+      "note": "The natural sections are byte-identical. The animation viewer reports 99.02912 despite the 52 equal bytes: its reference last-array ELF size is 27 at offset 24, whereas IDO records size 0 and the C declaration owns 28. The final padding byte remains validated by complete-section and explicit-array comparisons; no score replaces those checks. Earlier duplicate-section/raw-alignment viewer attempts are retained privately and receive no matching claim."
+    },
+    "post_validation_evidence_edit": {
+      "before_ledger_sha256": "57a3eeb3951f57ecb66866fd57143502cbe1d271af539123c287f7b87fed4305",
+      "purpose": "Polish documentation and ledger wording; all source and execution inputs/results are unchanged."
+    }
+  },
+  "current_totals": {
+    "matching_c_functions": 1428,
+    "matching_c_bytes": 311596,
+    "matching_assembly_functions": 29,
+    "matching_assembly_bytes": 4372,
+    "initialized_data_bytes": 37731,
+    "bss_bytes": 879157,
+    "fallback_cpu_bytes": 138588,
+    "fallback_cpu_spans": 184,
+    "unclassified_cpu_bytes": 164,
+    "full_decompilation_complete": false
+  }
+}

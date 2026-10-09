@@ -1,3 +1,4 @@
+#include "front_menu_internal.h"
 #ifndef ROBOTRON_SAVE_MENU_INTERNAL_H
 #define ROBOTRON_SAVE_MENU_INTERNAL_H
 
@@ -19,7 +20,6 @@ typedef char SaveMenuContinueCodeMustBe8Bytes[
 
 extern int D_80076EC0;
 extern int D_800AF1E0;
-extern unsigned char D_80076E44[];
 
 void func_80026178(void *menu, int mode);
 int func_8003614C(int sound, int value, int enabled, int extra);

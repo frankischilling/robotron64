@@ -1,3 +1,5 @@
+#include "front_menu_internal.h"
+#include "static_menu_internal.h"
 #ifndef ROBOTRON_SAVE_MENU_NAV_INTERNAL_H
 #define ROBOTRON_SAVE_MENU_NAV_INTERNAL_H
 
@@ -52,9 +54,9 @@ typedef struct SaveMenuNavigationStateInternal {
     int cameraAngleX38;
     int cameraAngleY3C;
     int cameraAngleZ40;
-    unsigned char unknown44[4];
+    int drawX44;
     int previewY48;
-    unsigned char unknown4C[4];
+    int drawY4C;
     SaveMenuNodeInternal *selected50;
     int transition54;
     int restoreCamera58;
@@ -71,12 +73,8 @@ extern SaveMenuNavigationStateInternal D_800AEE98;
 extern int D_800AEEB4;
 extern int D_800761F0;
 extern int D_800761F4;
-extern unsigned char D_80076D70[];
-extern unsigned char D_80076F18[];
 extern unsigned char *D_80076FBC;
 extern unsigned char D_80077A8C[];
-extern unsigned char D_800772F0[];
-extern unsigned char D_8007751C[];
 extern unsigned char D_80092BF4[];
 extern TextGlyphResource D_800B2218;
 extern float D_FLT_800938D0;

@@ -1,8 +1,24 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,414 matching C functions covering 298,696 bytes, twenty-nine assembly functions covering 4,372 bytes, 31,391 bytes of source-owned initialized data, and 505,187 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,430 matching C functions covering 314,348 bytes, twenty-nine assembly functions covering 4,372 bytes, 37,867 bytes of source-owned initialized data, and 879,157 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
+
+[Actor boundary reflection](docs/actor-boundary-reflection.md) adds an excluded
+1,520-byte C candidate and a reproducible guarded checker. Its 1,818 execution
+pairs pass, but two stack-slot instructions still differ. It adds no matching
+source bytes; `make check-actor-boundary-reflection` reproduces the bounded
+execution audit.
+
+[Actor ring drawing](docs/actor-ring.md) adds an excluded callback candidate
+and `make check-actor-ring`. The complete comparison still differs; the
+execution guard checks vertices, matrices, command words, allocation and ABI
+preservation with real matching helpers. It adds no matching source bytes.
+
+[Missile updates](docs/actor-missile-update.md) add an excluded callback and
+`make check-missile-update`. All 1,592 execution pairs pass with real matching
+RNG, motion, heading and object helpers. The complete function still differs
+in 190 words; the exact dispatch table adds no ownership while it is excluded.
 
 ## Target
 
@@ -64,6 +80,44 @@ alongside verified matching progress.
 `make test` also checks every function's source and evidence paths, range, source language, consistent object ownership, and declared section placement without requiring a ROM. These metadata checks run in public CI; local build-input checks, linked-byte comparisons, and full-ROM comparison establish matching.
 
 ## Source and references
+
+The [startup projection](docs/startup-projection-and-diagnostics.md) adds one
+complete 864-byte C function. Its 184-byte frame and every instruction match
+with the pinned R4300 multiply profile. Reusing the final packet pointer resolves
+the saved look-at stack slot. A guarded checker passes 396 paired cases with real
+SDK callees and rejects seven source faults plus three invalid-access probes.
+Initialized data and BSS totals are unchanged.
+
+[Game initialization](docs/game-initialization.md) adds all 96 startup literal
+bytes and the complete 880-byte level filename table. Its 1,228-byte C
+candidate passes 919 execution pairs but remains excluded with eleven stack
+offset differences. The two control labels modified at startup use writable
+C storage in their original positions.
+
+[Scene resource selection](docs/scene-resource-selection.md) records the full
+1,032-byte excluded candidate, exact 24-byte dispatch table and canonical
+resource types. Its 1,683 paired cases, 17 mutation controls and 102 layout
+probes pass; 40 instruction words still differ.
+
+[Scene resource setup](docs/scene-resource-setup.md) provides a complete excluded
+C candidate and a reproducible 319-pair guarded audit with five mutation
+controls. Its 349 instruction-word and six dispatch-word differences add no
+matching credit. Runtime and workbench comparisons cover the complete table.
+
+[Scene storage and arrivals](docs/scene-arrivals.md) owns the complete 3,348-byte
+scene record and 60 initialized diagnostic bytes. The excluded insertion
+candidate passes 3,713 paired cases and nine mutation controls, with 55
+instruction words still differing from retail.
+
+[Movie update](docs/movie-playback.md) recovers the complete 1,816-byte
+procedure. Both independent references, fresh/cached workbench comparisons,
+2,241 guarded execution pairs and six isolated mutation controls pass.
+
+[Input-sequence definition](docs/input-sequence-definition.md) recovers the
+complete 284-byte handler. Its 1,176 guarded cases check all fourteen records,
+command/destination aliasing and the diagnostic boundary; four mutations fail.
+The three fixed record names alias existing source-owned storage; its complete
+32-byte diagnostic format section is now source-defined.
 
 [Collision-kind response](docs/actor-collision-kind-response.md) recovers the complete
 716-byte handler and its 144-byte dispatch table. Its checker verifies 3,871
@@ -137,8 +191,9 @@ position word supplied to allocation.
 
 [Boss creation and actor boundaries](docs/actor-boundary-and-boss.md) completes
 the 772-byte boss-part constructor, its 24-byte error string and eight timestamp
-BSS bytes. The MIPS checker verifies 1,740 cases; the boundary clamp remains
-excluded with two stack-spill differences.
+BSS bytes. The [complete boundary clamp](docs/actor-boundary-clamp.md) adds
+600 matching instruction bytes. The MIPS checker verifies 1,740 paired cases
+and rejects five boundary source mutations after positive controls.
 
 [Scene actions](docs/scene-actions.md) completes the 724-byte menu and pickup
 handler, its 56-byte generated switch table and four-byte pickup counter. Its
@@ -149,6 +204,12 @@ the existing menu caller across 3,516 guarded execution cases.
 initializer and owns its seventeen records and page, totaling 728 bytes of BSS.
 Its MIPS checker verifies count limits, callback storage, string-length calls,
 the existing callers and subsequent label updates.
+
+[Load, main and audio menu records](docs/front-menu-records.md) reconstruct
+832 initialized bytes across twelve labels, three complete pages and fifteen
+strings. Full data comparisons and 1,578 guarded cases verify traversal,
+display, cleanup and the three audio callbacks. Menu activation and the
+main page's deferred timeout flow remain outside that execution proof.
 
 [Object-attached font glyph](docs/renderer-object-glyph.md) completes the
 1,024-byte body and 176-byte frame. Its MIPS checker verifies both allocation
@@ -169,11 +230,75 @@ the complete 692-byte effect callback and owns 300 object records and 300
 slot-status integers as 37,200 bytes of runtime BSS. An optional MIPS checker
 verifies resource selection, fixed-matrix paths and display-list submissions.
 
-[Actor-group callbacks and child storage](docs/actor-group-path.md) reconstruct
-four excluded callbacks and own a 260-byte tangent table plus 1,056 bytes of
-runtime child resources and counts. Optional MIPS execution checkers compare
-rotations, overlapping buffers, path traversal and bonus child setup with
-retail instructions. The callbacks remain outside matching progress.
+[Actor-group callbacks and child storage](docs/actor-group-path.md) include two
+matching rotation helpers, the 592-byte path callback and the complete
+[744-byte bonus-child creator](docs/actor-bonus-child.md). They own a 260-byte
+tangent table plus 1,056 bytes of runtime child resources and counts. Guarded
+MIPS checks compare rotations, overlapping buffers, path traversal and bonus
+child setup with retail instructions.
+
+[Text storage and character widths](docs/text-record-storage.md) owns thirty
+268-byte records as 8,040 bytes of BSS and both width tables as 144 initialized
+bytes. Its checker covers all allocation slots, exhaustion and the complete
+reset in 744 guarded cases per image, plus 1,024 character-width cases and five
+detected source mutations. [Matching-tool evidence](docs/matching-tools-current.md) records fresh
+and cached comparisons, independent retail reassemblies and unresolved candidates.
+
+[Actor resource storage](docs/actor-resource-storage.md) owns complete storage
+in seven translation units totaling 28,840 BSS bytes. The guarded checker
+preserves the reset's 341 flag stores, including its repeated first sixteen
+records, and checks the already-loaded path at every compatible resource view.
+Its 1,974 executions and six mutation controls cover complete storage, guarded
+gaps and exact stack effects. The [early resource group](docs/early-resource-group.md)
+contains ten 96-byte slots, ten integer parameters and its adjacent selector;
+its full 1,008-byte extent adds 528 BSS bytes. All existing instructions match.
+
+[Player and save storage](docs/save-state-storage.md) owns the two live player
+records, configuration and audio settings, and the complete 4 KiB save image:
+11,144 BSS bytes. Its checker passes 1,356 paired cases and rejects six mutations,
+preserving the retail restore's reads beyond individual saved-player prefixes.
+The copy routine executes real matching code; file services, settings application
+and menu refresh use recorded ABI boundaries.
+
+[Script and resource storage](docs/script-resource-storage.md) owns the complete
+100-file registry, 1,000 signed string offsets, 80 scene-file boundaries and
+their two counters: 15,446 BSS bytes. Its checker passes 630 paired cases and
+rejects seven mutations. String helpers execute real matching code; diagnostics,
+file allocation/free and scene submission use recorded ABI boundaries.
+
+[Renderer setup storage](docs/renderer-setup-storage.md) adds both complete default and tile setup lists,
+328 initialized bytes and 56 BSS bytes. Independent references, pointer
+relocations, pinned IDO layout probes and 2,265 guarded pairs verify the
+packet addresses, tile packing, mutable light directions and frame snapshots.
+Texture bytes remain extracted assets.
+
+[Object angle constants](docs/object-angle-constants.md) add six complete scalars /
+36 initialized bytes, preserving the retail setter/getter value asymmetry.
+All 2,898 paired cases, six compiled-data mutations and ten address controls
+pass. No new instructions or BSS are credited.
+
+[Peak metrics storage](docs/renderer-peak-metrics-storage.md) adds the complete 201-record array /
+4,020 BSS bytes. Its already matching reset and writer pass 1,210 paired
+cases, seven source mutations and 290 array-bound controls. The retail
+index-201 heap alias is preserved and checked in separate boundary cases.
+No new instructions or initialized bytes are credited.
+
+[HUD state dispatch](docs/game-hud-state.md) adds the complete 524-byte
+caller. All fifteen HUD arguments, display gates, signed animation levels,
+and the retail single-player stack word pass 595 paired cases. Eleven source
+mutations and four out-of-pool reads are rejected. The drawing callee remains
+outside this recovery.
+
+[Audio startup storage](docs/audio-startup-storage.md) defines the complete
+270,000-byte synthesis heap, 8 KiB thread stack, three completion records,
+three scheduler records, two queues with message arrays, and thread/heap
+state. The ten units add 279,320 BSS bytes. Its guarded checker passes 786
+paired cases and rejects eight isolated source mutations.
+
+[Movie storage](docs/movie-storage.md) owns the complete 25-track pool and
+movie configuration: 6,936 BSS bytes. Its checker passes 687 paired cases and
+rejects five mutations. Byte-copy, clear and string helpers execute real
+matching code; resource load/free and diagnostics use recorded ABI boundaries.
 
 [Actor group setup](docs/actor-group-setup.md) recovers the complete 544-byte
 group constructor, its first-actor placement and later-actor parent links.
@@ -268,8 +393,13 @@ and formatting notes above.
 
 [Fixed-alpha quad and polygon command recovery](docs/renderer-polygon-emission.md)
 adds two complete quad procedures with 904 instruction bytes and 200
-initialized diagnostic bytes. Three complete polygon and command-stream candidates
-remain excluded from matching progress.
+initialized diagnostic bytes. Two complete polygon candidates remain excluded from matching progress.
+
+[Mesh command interpreter](docs/renderer-mesh-commands.md) recovers the complete
+1,336-byte command loop and its 68-byte generated switch table. Its separate
+vertex copy and load cursors, signed counts, triangle rotation and lighting
+cache retain retail behavior. `make check-mesh-commands` checks 1,080 fixtures
+with both real vertex-copy functions and detects seven mutations.
 
 [Controller polling and storage](docs/controller-polling-and-storage.md)
 recovers the complete 272-byte motor duty update, 48 initialized bytes,
@@ -287,6 +417,12 @@ instruction bytes and remain excluded; the report now matches as described above
 adds the complete matching 1,176-byte Euler matrix submitter, 76 initialized
 bytes, and 36,096 BSS bytes for the matrix arena, RSP stack and yield buffer.
 The adjacent supplied-matrix routine remains an excluded C candidate.
+
+[Palette color tables and formatting constants](docs/palette-color-tables.md)
+owns two separate 256-color initialized arrays, the numeric conversion alphabet,
+and the fatal formatter's output template: 2,076 data bytes. All 256 palette and
+lighting indices execute matched code with the recovered tables; the fatal
+formatter's CPU candidate remains excluded.
 
 [Fan, prism, and image setup recovery](docs/render-submission-effects.md)
 adds 24 initialized bytes and twelve BSS bytes. Five full C candidates cover
@@ -308,6 +444,11 @@ The controller-sampling caller also matches all 212 original instruction bytes. 
 also has a complete matching source comparison.
 
 The [renderer-state recovery](docs/graphics-state.md) covers display-list termination and calls, render-mode switching, directional lights, vertex-pool accounting, and environment colors. [Renderer geometry](docs/renderer-geometry.md) records hardware vertex attributes, material selection, texture uploads, and vertex-copy loops. [Sound bridges](docs/sound-bridge.md) and [geometry bridges](docs/geometry-bridges.md) document the game-side sound queue and transform wrappers. All counted functions and their generated tables or strings pass complete comparisons.
+
+[Background dispatch](docs/renderer-background-dispatch.md) recovers the
+complete per-frame renderer selection, three color modes, background extents,
+and view-matrix restoration. Its eleven-entry switch table and initial color
+mode compile from source. The guarded execution check covers 15,000 cases.
 
 [Textured polygon submission](docs/renderer-textured-submission.md) recovers
 complete triangle and quad submission, packed texture corner consumption,
@@ -434,7 +575,7 @@ model transforms. The shared history pool owns 24 flags and 4,608 BSS bytes.
 
 [Graphics task production](docs/graphics-tasks.md) covers the shared task record, both microcode choices, completion waits, and RDP setup commands. [Frame helpers](docs/frame-runtime.md) cover palette state, elapsed-time sampling, and fixed-point transforms.
 
-Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame, object-update, record-copy, inverse-camera, and input-sequence definition sources and exits nonzero while they differ. Candidate spans must not overlap recovered functions. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
+Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame, object-update, record-copy, inverse-camera, and renderer sources and exits nonzero while they differ. Candidate spans must not overlap recovered functions. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
 
 `python3 tools/compare_runtime.py --jobs 4` runs four independent source
 compilations concurrently. Each uses a separate output directory and the same
@@ -459,3 +600,5 @@ repository-relative file paths selected for publication. The audit derives
 counts and byte totals from the current manifest, rejects missing or stale
 source/header proof metadata, and reruns the linked build and provenance
 checks. Its report is written to `build/publication-audit.json`.
+
+[Renderer primitive state](docs/renderer-primitive-state.md) adds four initialized bytes and 32 BSS bytes.

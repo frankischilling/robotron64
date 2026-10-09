@@ -1,0 +1,26 @@
+name: Robotron 64 verified input-sequence definition
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: input_sequence_definition
+  base_path: ../../.local/input-sequence-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: input_sequence_definition
+    type: code
+    start: 0x1CA2C
+    vram: 0x8001BE2C
+    subsegments:
+      - [0x1CA2C, asm, input_sequence_definition]
+  - [0x1CB48, bin, after_definition]
+  - name: input_sequence_limit_message
+    type: code
+    start: 0x90FC8
+    vram: 0x800903C8
+    subsegments:
+      - [0x90FC8, rodata, input_sequence_limit_message]
+  - [0x90FE8, bin, remainder]
+  - [0x800000]

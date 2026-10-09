@@ -16,7 +16,7 @@ void func_8003EC98(RendererMeshPrefix *mesh)
     for (index = 0; index < mesh->polygonCount; index++) {
         polygon = &polygons[index];
         packedColor = polygon->colors[0];
-        color = &D_8007BB34[(packedColor >> 24) & 0xFF];
+        color = (unsigned int *)&D_8007BB34[(packedColor >> 24) & 0xFF];
         first = polygon->vertices[0];
         second = polygon->vertices[1];
         third = polygon->vertices[2];

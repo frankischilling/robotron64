@@ -22,6 +22,16 @@ typedef struct ScriptedFile {
 
 typedef char ScriptedFileMustBe128Bytes[sizeof(ScriptedFile) == 0x80 ? 1 : -1];
 
+extern unsigned char D_800904B0[32];
+extern unsigned char D_800904D0[64];
+extern unsigned char D_80090510[60];
+extern unsigned char D_8009054C[56];
+extern unsigned char D_80090584[52];
+extern unsigned char D_800905B8[64];
+extern unsigned char D_800905F8[56];
+extern unsigned char D_80090630[48];
+extern unsigned char D_80090660[48];
+
 extern ScriptedFile D_80097650[100];
 extern ScriptedFile D_8009A850[];
 
@@ -54,5 +64,9 @@ void func_8001CD1C(unsigned char *filename);
 void func_8001CD60(void);
 void func_8001CDA0(int left, int top, int right, int bottom, int value);
 void func_8001CE68(void);
+
+extern unsigned char D_80090690[16];
+extern unsigned char D_800906A0[28];
+extern unsigned char D_800906BC[12];
 
 #endif

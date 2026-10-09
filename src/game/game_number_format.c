@@ -1,6 +1,5 @@
 #include "../../include/game_memory.h"
 
-extern unsigned char D_8007BB1C[];
 int func_8004CEF0(int value);
 
 void func_8003B928(int value, unsigned char *text, int radix)

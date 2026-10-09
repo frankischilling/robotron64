@@ -48,7 +48,7 @@ The first and third angle setters, `func_800396F4` and `func_80039740`, convert 
 
 The `0xFFD` mask is present in the target instructions. It keeps the low 12-bit range while clearing bit 1. It must not be replaced with `0xFFF` merely because the reverse helpers use `0xFFF`. The three reverse helpers at `0x80039A90`, `0x80039B00`, and `0x80039B74` multiply the transform float by `2048.0f`, divide by a double constant, truncate to an integer with the FCSR sequence described above, then mask with `0xFFF`. The middle helper adds 1024 before the mask.
 
-The three setter-side floats at `0x80094C20`, `0x80094C24`, and `0x80094C28` decode as `3.141592025756836f`. The three getter-side doubles at `0x80094C30`, `0x80094C38`, and `0x80094C40` decode as `3.13159`. The target therefore does not use identical constants in the two directions. The reconstruction keeps those values separate instead of assuming an exact inverse conversion.
+The three setter-side floats at `0x80094C20`, `0x80094C24`, and `0x80094C28` decode as `3.141592025756836f`. The three getter-side doubles at `0x80094C30`, `0x80094C38`, and `0x80094C40` decode as `3.13159`. The [source-owned constant sections](object-angle-constants.md) now emit all six values and retain the four-byte gap between the sections. The target therefore does not use identical constants in the two directions. The reconstruction keeps those values separate instead of assuming an exact inverse conversion.
 
 ## Accessors and empty routines
 

@@ -1,0 +1,40 @@
+name: Robotron 64 verified menu display
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: menu_display
+  base_path: ../../.local/menu-display-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: menu_display
+    type: code
+    start: 0x2801C
+    vram: 0x8002741C
+    subsegments:
+      - [0x2801C, asm, menu_display]
+  - [0x284AC, bin, after_menu_display]
+  - name: menu_display_choices
+    type: code
+    start: 0x76DF8
+    vram: 0x800761F8
+    subsegments:
+      - [0x76DF8, data, menu_display_choices]
+  - [0x76E08, bin, after_menu_display_choices]
+  - name: menu_display_text
+    type: code
+    start: 0x93808
+    vram: 0x80092C08
+    subsegments:
+      - [0x93808, data, menu_display_text]
+  - [0x93810, bin, after_menu_display_text]
+  - name: menu_display_never
+    type: code
+    start: 0x944C8
+    vram: 0x800938C8
+    subsegments:
+      - [0x944C8, data, menu_display_never]
+  - [0x944D0, bin, after_menu_display_never]
+  - [0x800000]

@@ -6,9 +6,6 @@
 extern int D_8009EE04;
 extern int D_800BA7A0;
 extern int D_800BAB18[];
-extern unsigned char D_80090690[];
-extern unsigned char D_800906A0[];
-extern unsigned char D_800906BC[];
 
 void func_8001CB50(int *command)
 {

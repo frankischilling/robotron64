@@ -1,4 +1,4 @@
-"""Execute matching rotation and excluded path code against retail MIPS instructions.
+"""Execute matching rotation and path code against retail MIPS instructions.
 
 Arithmetic callees and their initialized tables are freshly compiled and
 matched. Completion and object-angle submission use recorded ABI stubs.
@@ -13,19 +13,20 @@ from importlib.metadata import version
 from pathlib import Path
 
 import unicorn
-from unicorn import Uc, UC_ARCH_MIPS, UC_MODE_MIPS32, UC_MODE_BIG_ENDIAN, UC_HOOK_CODE, UC_HOOK_MEM_WRITE
+from unicorn import Uc, UC_ARCH_MIPS, UC_MODE_MIPS32, UC_MODE_BIG_ENDIAN, UC_HOOK_CODE, UC_HOOK_MEM_WRITE, UC_HOOK_MEM_READ
 from unicorn import mips_const as regs
 from compare_data import compare_unit
 from compare_runtime import MATCHING_BLOCKS, CANDIDATE_BLOCKS
 from compare_startup import compare_block, SymbolLayoutSnapshot
 from owned_sections import elf_sections_and_symbols, source_sections
 from rom import ROOT, validate
+from actor_path_model import oracle as path_oracle
 
 
 SUPPORT = ('object_recovery_fixed_trig', 'short_sine', 'short_cosine',
            'object_recovery_angle_scale', 'object_recovery_direction_angle',
            'object_recovery_angle_table', 'fixed_geometry_setup')
-CANDIDATES = ('actor_group_rotate', 'actor_group_path')
+CHECKED_UNITS = ('actor_group_rotate', 'actor_group_path')
 SENTINEL = 0x80000080
 ACTOR, PARAMETER, POOL = 0x80210000, 0x80211000, 0x80212000
 
@@ -107,9 +108,63 @@ def run_rotation(code, support, case):
     return observed.hex()
 
 
+def path_machine(code, helpers):
+    code_ranges = [(start, end) for name, source, start, end in MATCHING_BLOCKS
+                   if name in SUPPORT]
+    data_ranges = [(address, address + len(data)) for address, data in helpers
+                   if not any(start <= address < end for start, end in code_ranges)]
+    uc, write, execute = machine(code, helpers)
+    code_ranges += [(address, address + len(data)) for address, data in code]
+    code_ranges += [(SENTINEL, SENTINEL + 4), (0x8000E5C8, 0x8000E5CC),
+                    (0x80039514, 0x80039518)]
+    state = [(ACTOR, ACTOR + 124), (PARAMETER, PARAMETER + 36),
+             (POOL, POOL + 9096), (0x800AE4F4, 0x800AE4F8)]
+    stack = (0x802FFE00, 0x80300020)
+    canaries = []
+    for start, end in state[:3] + [stack]:
+        for address, data in ((start - 16, b'\xD7' * 16), (end, b'\xE9' * 16)):
+            write(address, data)
+            canaries.append((address, data))
+    uc.reg_write(regs.UC_MIPS_REG_GP, 0xA578ABCD)
+
+    def normalized(address):
+        return (address & 0x1FFFFFFF) | 0x80000000
+
+    def inside(address, size, ranges):
+        return any(start <= address and address + size <= end for start, end in ranges)
+
+    def instruction(uc, address, size, user):
+        assert not address & 3 and inside(normalized(address), 4, code_ranges), (
+            'Path instruction bounds', hex(address))
+
+    def read(uc, access, address, size, value, user):
+        assert inside(normalized(address), size, state + data_ranges + [stack]), (
+            'Path read bounds', hex(address), size)
+
+    def store(uc, access, address, size, value, user):
+        assert inside(normalized(address), size, [(ACTOR, ACTOR + 124), stack]), (
+            'Path write bounds', hex(address), size)
+
+    def guarded(entry):
+        handles = [uc.hook_add(UC_HOOK_CODE, instruction),
+                   uc.hook_add(UC_HOOK_MEM_READ, read),
+                   uc.hook_add(UC_HOOK_MEM_WRITE, store)]
+        try:
+            execute(entry)
+        finally:
+            for handle in handles:
+                uc.hook_del(handle)
+        assert uc.reg_read(regs.UC_MIPS_REG_GP) == 0xA578ABCD
+        for address, expected in canaries:
+            assert bytes(uc.mem_read(address & 0x1FFFFFFF, len(expected))) == expected, (
+                'Path canary', hex(address))
+
+    return uc, write, guarded
+
+
 def run_path(code, support, case):
     count, index, progress_kind, speed, angle, group = case
-    uc, write, execute = machine(code, support)
+    uc, write, execute = path_machine(code, support)
     actor = bytearray(b'\xA5' * 124)
     actor[12:14] = struct.pack('>h', 17)
     actor[0x28:0x2C] = word(PARAMETER)
@@ -154,7 +209,9 @@ def run_path(code, support, case):
     result = bytes(uc.mem_read(ACTOR & 0x1FFFFFFF, 124))
     assert result[0x68:0x6C] == actor[0x68:0x6C]
     assert len(trace) == 1
-    return dict(actor=result.hex(), trace=trace)
+    observed = dict(actor=result.hex(), trace=trace)
+    assert observed == path_oracle(case), ('Independent actor path state/call oracle', case, observed)
+    return observed
 
 
 def main():
@@ -164,7 +221,7 @@ def main():
     candidate, retail, support = [], [], []
     comparisons = {}
     compiled_hashes, target_hashes = {}, {}
-    for name in CANDIDATES + SUPPORT:
+    for name in CHECKED_UNITS + SUPPORT:
         records = MATCHING_BLOCKS + CANDIDATE_BLOCKS
         _, source, start, end = next(record for record in records if record[0] == name)
         report = compare_block(name, source, start, start - 0x80000000 + 0xC00,
@@ -173,11 +230,11 @@ def main():
         directory = ROOT / 'build/actor-group-execution' / name
         data = (directory / (name + '.bin')).read_bytes()
         comparisons[name] = report
-        if name == 'actor_group_rotate' and not report['matches']:
-            raise ValueError('Complete rotation source does not match')
+        if name in CHECKED_UNITS and not report['matches']:
+            raise ValueError('Complete actor-group source does not match: ' + name)
         compiled_hashes[name] = hashlib.sha256(data).hexdigest()
         target_hashes[name] = hashlib.sha256(target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00]).hexdigest()
-        if name in CANDIDATES:
+        if name in CHECKED_UNITS:
             candidate.append((start, data))
             retail.append((start, target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00]))
         else:
@@ -221,20 +278,26 @@ def main():
         check('rotation', (entry, angle, *coordinate, offset))
     for count in (2, 3, 5):
         for index, progress, speed, angle, group in itertools.product(range(count - 1), range(3),
-                (-333, 0, 13, 14, 100, 1000), (0, 1, 1024, 4095), (0, 9)):
+                (-0x80000000, -333, -14, -13, -1, 0, 1, 13, 14, 100, 1000, 0x7FFFFFFF),
+                (0, 1, 511, 1023, 1024, 2047, 2048, 3072, 4095, 4096, -1, -0x80000000), (0, 9)):
             check('path', (count, index, progress, speed, angle, group))
+    for angle in range(4096):
+        check('path', (2, 0, 1, 13, angle, 0))
     result = dict(matches=True, counts=counts, trace_sha256=digest.hexdigest(), comparisons=comparisons,
                   compiled_code_sha256=compiled_hashes, target_code_sha256=target_hashes,
                   table_comparison=table, checker_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                  oracle_sha256=hashlib.sha256((ROOT / 'tools/actor_path_model.py').read_bytes()).hexdigest(),
                   target_rom_sha256=hashlib.sha256(target).hexdigest(),
                   emulator=dict(package='unicorn', version=version('unicorn')),
                   limits=['Seven complete matching arithmetic units and two matching initialized tables execute compiled code.',
                           'All 1024 short-sine values agree with the mathematical generator; every rotation run checks an independent wrapped-arithmetic and guarded-buffer oracle.',
                           'Completion and object-angle submission use ABI-clobbering stubs and record arguments and actor state.',
                           'All 4096 masked angles and the listed wrap, overlap, coordinate, path, progress and speed cases are checked.',
+                          'Each retail and candidate path execution independently checks full actor memory and call snapshots against a wrapped-integer model.',
+                          'Path execution checks instruction/read/write bounds, surrounding canaries, GP, stack and saved registers.',
                           'Signed overflow cases characterize the pinned compiler and target; they do not establish portable ISO C behavior.',
                           'Zero distances and invalid indices/counts are not exercised; complete game behavior remains unverified.',
-                          'Both rotation procedures are independently instruction matched; the path candidate remains excluded.'])
+                          'The two rotation procedures and the complete path callback are independently instruction matched.'])
     output = ROOT / 'build/actor-group-execution/report.json'
     output.write_text(json.dumps(result, indent=2) + '\n')
     print('Passed actor-group execution:', counts, output, flush=True)

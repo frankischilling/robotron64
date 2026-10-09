@@ -8,7 +8,7 @@
 extern float func_8004CEB0(float angle);
 extern int D_8007D914;
 
-/* Excluded candidate; see docs/startup-projection-and-diagnostics.md. */
+/* Perspective, animated lighting and initial frame matrices. */
 void func_80048DDC(void *base)
 {
     float eyeX = 0.0f;
@@ -45,6 +45,9 @@ void func_80048DDC(void *base)
     FRAME_COMMAND(0x01010040, (unsigned int)base + (D_8007D914 << 6) + 0x80000080);
     func_80061258((SdkMatrix *)((unsigned char *)base + 0x2A0), eyeX, eyeY, eyeZ);
     func_800613FC((SdkMatrix *)((unsigned char *)base + 0x260), eyeX, eyeY, eyeZ);
-    FRAME_COMMAND(0x01020040, (unsigned int)base + 0x800002A0);
-    FRAME_COMMAND(0x01000040, (unsigned int)base + 0x80000260);
+    {
+        FrameCommand *command;
+        FRAME_COMMAND_REUSE(command, 0x01020040, (unsigned int)base + 0x800002A0);
+        FRAME_COMMAND_REUSE(command, 0x01000040, (unsigned int)base + 0x80000260);
+    }
 }

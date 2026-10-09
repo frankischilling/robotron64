@@ -57,7 +57,9 @@ Controller and early-game recovery are
 tracked in GitHub issues [#39](https://github.com/frankischilling/robotron64/issues/39)
 and [#43](https://github.com/frankischilling/robotron64/issues/43).
 
-The complete sequence-definition candidate is in
-`src/game/early_input_sequence_define.c`. It preserves the command-field stores,
-400-halfword limit diagnostic, cursor update, and fixed-sequence overrides. Its
-compiler differences remain excluded from matching progress.
+The [sequence-definition handler](input-sequence-definition.md) now matches
+all 284 instruction bytes in `src/game/input_sequences/define.c`. It preserves
+the command-field stores, 400-halfword limit diagnostic, cursor reload/update
+and fixed-sequence overrides. Its 1,176 guarded cases cover all fourteen
+records, arithmetic boundaries and command/destination aliasing. The diagnostic
+call uses a synthetically returning ABI stub.

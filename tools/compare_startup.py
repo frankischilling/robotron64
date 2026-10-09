@@ -91,6 +91,12 @@ def comparison_input_hashes(source, root=ROOT):
 
 
 def compare_block(name, source, vram, start, end, target, family="startup-comparison", layout=None):
+    if source == "src/game/scene_resources/setup.c":
+        if (vram, start, end) != (0x8001D3F0, 0x1DFF0, 0x1EA54):
+            raise ValueError("Scene setup comparison must cover its complete retail range")
+        from check_scene_resource_setup import compare_candidate_block
+        layout = layout if layout is not None else SymbolLayoutSnapshot()
+        return compare_candidate_block(name, source, target, layout, family)
     layout = layout if layout is not None else SymbolLayoutSnapshot()
     layout.verify()
     toolchain_identity = installed_identity(profile_for_source(source)["version"])

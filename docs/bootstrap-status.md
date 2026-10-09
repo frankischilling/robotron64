@@ -2,6 +2,146 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
+Current verified totals are 1,430 matching C functions / 314,348 instruction
+bytes, twenty-nine assembly functions / 4,372 bytes, 37,867 initialized bytes
+and 879,157 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
+The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
+generated switch table; [its evidence](renderer-mesh-commands.md) covers both
+independent reassemblies and 1,080 guarded command streams with seven mutations.
+There remain 135,836 declared fallback CPU bytes in 183 spans and 164 unclassified
+bytes. A complete function/executable denominator is unknown; full source recovery
+remains incomplete. Earlier checkpoints below retain their historical counts.
+
+The [actor ring callback](actor-ring.md) has an excluded C candidate and a
+reproducible guard. Its 1,800 execution pairs pass with ten real matching
+support units, and 32 deliberate guest/source faults are rejected. The complete
+1,024-byte compiled output differs from retail's 1,044 bytes in 204 words;
+this research adds no instruction, initialized-data or BSS ownership.
+
+The [missile update callback](actor-missile-update.md) has an excluded
+1,372-byte C candidate, exact 28-byte dispatch table and reproducible guard.
+All 1,592 pairs pass with thirteen real matching support units; 36 faults
+are rejected and four actual zero-duration traps agree. The callback retains
+190 differing instruction words and a 72-byte frame instead of retail's 448.
+It adds no source ownership, and child allocation remains outside the guard.
+
+The [startup projection](startup-projection-and-diagnostics.md) contributes one
+complete 864-byte function with a 184-byte frame. Independent retail reassemblies
+and 396 guarded execution pairs agree. Seven source faults and three actual
+guest invalid-access probes are rejected after positive controls. The final
+two packet writes share one consumed pointer local; no data or BSS is added.
+
+The [actor boundary clamp](actor-boundary-clamp.md) contributes one complete
+600-byte function with a verified 72-byte frame. Both independent reassemblies,
+972 guarded boundary pairs and five source mutation controls pass. It adds no
+initialized data or BSS.
+
+The [actor-group path callback](actor-group-path.md) now contributes one complete
+matching C function / 592 instruction bytes. Both independent retail references
+and the natural IDO function extent agree. Its interpolation block preserves
+the endpoint temporary register; source-owned data and BSS totals are unchanged.
+
+The [scene resource setup candidate](scene-resource-setup.md) now has public C
+and a reproducible checker: 319 pairs, 42 compiled layout checks and five
+rejected mutations. Its 2,688-byte code and ten-entry table still differ from
+retail; the candidate owns no new code or storage.
+
+The [complete early resource group](early-resource-group.md) adds 528 BSS
+bytes, expanding the verified first group and adjacent selector to 1,008 bytes.
+All retained instructions match; 48 guarded command/reset pairs and the full
+1,974-execution resource audit pass. Its 2,660-byte scene setup research
+candidate stays excluded because both its code and generated table differ.
+
+[Game initialization](game-initialization.md) adds 96 initialized bytes and
+880 BSS bytes. The complete candidate passes 919 paired executions and 4,112
+level lookups but retains eleven stack offset differences and stays excluded.
+The two startup-modified control labels have writable C storage; their retail
+bytes and positions are unchanged.
+
+[Scene resource selection](scene-resource-selection.md) passes 1,683 paired
+cases and 17 mutation controls. Its complete 1,032-byte candidate has the exact
+dispatch table but still differs in 40 instruction words and remains excluded.
+
+[Scene storage and arrival insertion](scene-arrivals.md) adds 3,348 BSS bytes
+and 60 initialized diagnostic bytes. All 3,713 paired cases and nine mutation
+controls pass; pinned IDO and Ghidra agree on 99 layout values across three
+types. The insertion candidate remains excluded with 55 differing words and
+a 48-byte frame instead of the retail 56-byte frame. No code is credited.
+
+The [text record pool](text-record-storage.md) adds 8,040 bytes of source-owned
+BSS and both width tables add 144 initialized bytes. All thirty allocation slots,
+exhaustion and the full reset pass 744 guarded cases per image; another 1,024
+cases check every byte-valued character. Five isolated source mutations are rejected. The
+[current matching-tool audit](matching-tools-current.md) independently compares
+911 runtime units, two startup units, eighteen assembly units and 198 data-only
+units. The [bonus-child creator](actor-bonus-child.md) contributes one complete
+matching C function / 744 instruction bytes. Reusing the selected pointer and
+preserving declaration order reproduces its 56-byte frame and all stack homes;
+initialized data and BSS ownership do not change.
+
+Seven [actor resource pools](actor-resource-storage.md) add 28,312 BSS bytes
+without adding instructions or initialized bytes. The reset and already-loaded
+loader path pass 1,944 guarded executions and six mutation controls. Pinned IDO
+and Ghidra agree on all 52 ordinary fields in five resource views, including
+their sizes and alignments. That checkpoint retained two startup-projection stack differences;
+the current projection recovery above resolves them.
+
+[Player and save storage](save-state-storage.md) adds 11,144 BSS bytes in
+three complete sections. All 1,356 paired execution cases and six isolated
+mutation controls pass. Ghidra and pinned IDO agree on eight types and 52
+field layouts. The full player restore length, complete save buffer and
+1,011-word checksum are preserved. No new instructions are credited.
+
+[Script and resource storage](script-resource-storage.md) adds 15,446 BSS bytes
+in three complete sections. All 630 paired cases and seven isolated mutation
+controls pass. The registry and offset resets cover every element; lookups
+preserve case folding, signed offsets and strict scene boundaries. Pinned IDO
+and Ghidra agree on twenty size, alignment and field checks across three types.
+
+[Renderer setup storage](renderer-setup-storage.md) adds both complete default and tile setup lists,
+328 initialized bytes and 56 BSS bytes. Independent references, pointer
+relocations, pinned IDO layout probes and 2,265 guarded pairs verify the
+packet addresses, tile packing, mutable light directions and frame snapshots.
+Texture bytes remain extracted assets.
+
+[Object angle constants](object-angle-constants.md) add six complete scalars /
+36 initialized bytes, preserving the retail setter/getter value asymmetry.
+All 2,898 paired cases, six compiled-data mutations and ten address controls
+pass. No new instructions or BSS are credited.
+
+[Peak metrics storage](renderer-peak-metrics-storage.md) adds the complete 201-record array /
+4,020 BSS bytes. Its already matching reset and writer pass 1,210 paired
+cases, seven source mutations and 290 array-bound controls. The retail
+index-201 heap alias is preserved and checked in separate boundary cases.
+No new instructions or initialized bytes are credited.
+
+[HUD state dispatch](game-hud-state.md) adds one complete matching C
+function / 524 instruction bytes, with no new data or BSS. Splat and spimdisasm
+independently reproduce the natural 131-instruction extent; fresh and cached
+workbench checks, asm-differ and objdiff agree. A bounded four-worker permuter
+search retained stack differences; the final readable source was independently
+compiled and guarded. Ghidra and IDO agree on 260 size, alignment, offset and
+width probes across six types and 124 ordinary fields. All 595 paired cases,
+eleven isolated source mutations and four bounds controls pass. The evidence
+preserves retail's uninitialized single-player secondary powers word and
+limits execution claims to the caller's fifteen-word ABI boundary.
+
+[Audio startup storage](audio-startup-storage.md) adds ten complete C-owned
+sections totaling 279,320 BSS bytes. Its 786 paired execution cases and eight
+rejected mutations cover startup, scheduler cycling, heap boundaries and
+generation-mode storage within the documented service limits.
+
+[Movie storage](movie-storage.md) adds 6,936 BSS bytes in two complete sections.
+All 687 paired cases and five isolated mutation controls pass. IDO and Ghidra
+agree on 164 size, alignment and ordinary-field checks across nine types.
+The reset's full byte counts, all 25 track slots and three valid callback
+slots are preserved. No new instructions are credited.
+
+[Movie update](movie-playback.md) adds the complete 1,816-byte procedure.
+All 2,241 retail/C execution pairs and six isolated mutations pass. The audit
+checks full objects, exact writes, service traces, bounds and saved O32 state.
+Both independent assembly references and fresh/cached workbench comparisons pass.
+
 Completed locally:
 
 - Created the public repository and bootstrap branch.
@@ -19,6 +159,23 @@ Both [controller polling procedures](controller-polling-and-storage.md) now
 have complete comparisons covering 832 bytes. Their 6,316 guarded cases check
 connection masks, signed sticks, button edges and SDK call boundaries. The
 existing button halfwords retain their addresses as private static storage.
+
+The [palette transition allocator and updater](palette-transitions.md) have
+complete 232-byte and 1,200-byte C comparisons. Allocation, bitfield narrowing,
+RGB inputs, and four-byte base-color snapshot preserve the existing pool layout.
+The related command storage adds 15,648 bytes of checked BSS ownership for
+source colors, configurations, ranges, and counters.
+The seven-entry transition index table adds 28 initialized control-data bytes;
+the adjacent palette resource remains extracted.
+The updater preserves signed cycling/interpolation, position reflection and
+wrapping, IDO argument evaluation order, lighting calls, and overlapping uploads.
+
+The [renderer color wave state](renderer-color-wave.md) adds 260 bytes of
+checked BSS ownership for its time accumulator and sixteen wave records.
+An aggregate preserves the array's four-byte offset without IDO inserting
+padding. The [material cache reset](renderer-material-reset.md) also matches
+its complete 1,912-byte function. The related animated color grids still use
+fallback; their close instruction comparisons do not add recovered function bytes.
 
 The [random spawn-position chooser](actor-spawn-position.md) has a complete
 696-byte C comparison. Its signed arithmetic, axis constraints, per-actor
@@ -81,3 +238,54 @@ See [reference study](reference-study.md) and [credits](../CREDITS.md) for the i
 [Text record evidence](text-records.md) recovers the 30-record pool and matching allocation/release routines.
 
 [Text option evidence](text-options.md) covers four additional functions and the second compiled switch table.
+
+The rotating-ring renderer now owns its complete 568-byte instruction range.
+Its fresh spimdisasm/splat references, pinned IDO output, and 640 guarded CPU
+cases agree; three deliberate mutations fail. The source preserves packets
+pointing beyond each four-vertex group. This checkpoint verifies 1,419 C
+functions / 303,668 bytes and the entire target ROM. There remain 146,516
+fallback CPU bytes in 190 spans and 164 unclassified bytes. See
+[Rotating ring renderer](renderer-rotating-rings.md) for the range and limits.
+
+The renderer state checkpoint also owns two initialized depth-blend target
+words and eight complete material display lists: 440 additional data bytes.
+Pinned IDO output and independent spimdisasm/splat reassembly agree on each
+range. That checkpoint brought initialized source data to 31,907 bytes. C instruction totals
+remain 1,419 functions / 303,668 bytes; the inverse camera matrix, depth-blend
+routine and animated RGB grid remain nonmatching candidates. See
+[Renderer material presets](renderer-material-presets.md) for boundaries and
+caller/RSP limits.
+
+The two separate initialized 256-color tables, numeric conversion alphabet,
+and fatal formatter output template add 2,076 data bytes. Initialized source
+data now totals 33,983 bytes; instruction and BSS totals are unchanged. All
+256 palette/light indices are covered in 1,071 guarded executions, and numeric
+helpers read the freshly compiled alphabet in the diagnostic formatter checker.
+The fatal formatter remains excluded. See
+[Palette color tables and formatting constants](palette-color-tables.md).
+
+The [input-sequence definition](input-sequence-definition.md) adds 284 complete
+C instruction bytes with 1,176 guarded cases and four detected mutations. Its
+three record aliases add no storage ownership. Its complete diagnostic format
+section adds 32 initialized bytes. That input checkpoint reached 1,420 C functions /
+303,952 bytes, 34,015 initialized bytes and 521,095 BSS bytes.
+The candidate CPU range retains 146,232 fallback bytes in 189 spans, plus
+164 unclassified bytes; some unresolved spans may be padding or data.
+
+[Renderer primitive state](renderer-primitive-state.md) adds four initialized bytes and 32 BSS bytes.
+
+The [session initializer diagnostics](session-initializer-diagnostics.md) add
+104 initialized bytes in four complete C arrays. Initializer instructions and
+its dispatch tables remain outside matching ownership.
+
+Nine [scripted file diagnostics](scripted-file-diagnostics.md) add 480
+initialized bytes in complete C arrays; their six callers already match.
+
+Seventeen [script and resource literals](script-resource-literals.md) add
+272 initialized bytes; the eight-byte unexplained gap remains fallback.
+
+[Projectile spawn](actor-projectile-spawn.md) adds one complete function and
+1,040 code bytes, with no new initialized data or BSS ownership.
+
+[Actor collision capture](actor-collision-capture.md) adds one complete
+function, 1,712 code bytes and a 96-byte generated dispatch table.

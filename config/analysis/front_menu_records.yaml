@@ -1,0 +1,56 @@
+name: Robotron 64 verified front menu records
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: front_menu_records
+  base_path: ../../.local/front-menu-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: menu_front_load_labels
+    type: code
+    start: 0x778D0
+    vram: 0x80076CD0
+    subsegments:
+      - [0x778D0, data, menu_front_load_labels]
+  - name: menu_front_load_page
+    type: code
+    start: 0x77970
+    vram: 0x80076D70
+    subsegments:
+      - [0x77970, data, menu_front_load_page]
+  - name: menu_front_main_labels
+    type: code
+    start: 0x779A4
+    vram: 0x80076DA4
+    subsegments:
+      - [0x779A4, data, menu_front_main_labels]
+  - name: menu_front_main_page
+    type: code
+    start: 0x77A44
+    vram: 0x80076E44
+    subsegments:
+      - [0x77A44, data, menu_front_main_page]
+  - name: menu_front_audio_labels
+    type: code
+    start: 0x77A78
+    vram: 0x80076E78
+    subsegments:
+      - [0x77A78, data, menu_front_audio_labels]
+  - name: menu_front_audio_page
+    type: code
+    start: 0x77B18
+    vram: 0x80076F18
+    subsegments:
+      - [0x77B18, data, menu_front_audio_page]
+  - [0x77B4C, bin, after_menu_front_audio_page]
+  - name: menu_front_text
+    type: code
+    start: 0x93E54
+    vram: 0x80093254
+    subsegments:
+      - [0x93E54, rodata, menu_front_text]
+  - [0x93F18, bin, after_menu_front_text]
+  - [0x800000]

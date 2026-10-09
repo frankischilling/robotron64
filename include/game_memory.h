@@ -1,6 +1,8 @@
 #ifndef ROBOTRON_GAME_MEMORY_H
 #define ROBOTRON_GAME_MEMORY_H
 
+extern const unsigned char D_8007BB1C[17];
+
 unsigned char *func_8003B4C0(unsigned char *text, unsigned char character);
 int func_8003B4FC(unsigned char *text);
 void *func_8003B520(void *destination, void *source, int count);

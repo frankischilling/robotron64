@@ -2,14 +2,6 @@
 #include "../../include/game_memory.h"
 #include "../../include/platform_services.h"
 
-extern unsigned char D_80090510[];
-extern unsigned char D_8009054C[];
-extern unsigned char D_80090584[];
-extern unsigned char D_800905B8[];
-extern unsigned char D_800905F8[];
-extern unsigned char D_80090630[];
-extern unsigned char D_80090660[];
-
 int func_8001C8C4(unsigned char *name)
 {
     ScriptedFile *file;

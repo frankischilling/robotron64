@@ -3,6 +3,7 @@
 
 #include "early_game_state.h"
 #include "scene_player_runtime_internal.h"
+#include "front_menu_internal.h"
 
 extern int D_80073A40;
 extern int D_8007BB18;
@@ -14,7 +15,6 @@ extern int D_800AD30C;
 extern int D_8009E574;
 extern unsigned char *D_80076FF4;
 extern unsigned char D_80076FB4[];
-extern unsigned char D_80076E44[];
 extern int D_80097640;
 extern int D_800AD288;
 extern int D_800AD284;

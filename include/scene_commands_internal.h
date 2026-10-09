@@ -29,8 +29,8 @@ extern int D_8009EFB4;
 extern char D_8009176C[];
 extern char D_8009178C[];
 extern char D_800917A8[];
-extern char D_800917F8[];
-extern unsigned char D_80091814[];
+extern char D_800917F8[28];
+extern unsigned char D_80091814[32];
 
 unsigned char *func_800383C4(int identifier);
 void func_8002A808(GameActor *actor, int state);
@@ -69,5 +69,7 @@ void func_8001F868(SceneCommand *command);
 void func_8001F87C(void);
 void func_8001FCE4(int replace, int category, int resourceIndex,
                   int trigger, int delay, unsigned int count, int x, int y);
+
+void func_80021C3C(int *output, int enabled);
 
 #endif

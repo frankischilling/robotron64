@@ -1,0 +1,2 @@
+func_80038830 = 0x80038830; // type:func size:0x55C
+jtbl_80094BF0 = 0x80094BF0; // type:jtbl size:0x1C

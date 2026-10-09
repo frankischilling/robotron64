@@ -83,7 +83,12 @@ The resource initializer remains outside the matching manifest:
 
 | Function | Complete extent | Remaining difference |
 | --- | --- | --- |
-| Resource initializer | `0x8002E670..0x8002ECC4`, 1,620 bytes | Temporary-register allocation; the complete 224-byte jump-table section matches |
+| Resource initializer | `0x8002E670..0x8002ECC4`, 1,620 bytes | 180 instruction words; the complete 224-byte jump-table section matches |
+
+The four [initializer diagnostics](session-initializer-diagnostics.md) now own
+104 initialized bytes independently of the unfinished function. The private
+initializer candidate passes 944 paired execution checks, including distinct
+incoming-stack values for the singleton path. Its code remains nonmatching.
 
 The initializer selects ten resource categories and generates three jump
 tables at `0x80093EAC`, `0x80093ED4`, and `0x80093EFC`. It also retains the

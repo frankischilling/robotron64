@@ -32,3 +32,18 @@ and local target-comparison workflow. Robotron's scene layouts, packed save
 fields, background behavior, and switch tables were recovered from its own
 target instructions and callers; no game implementation was imported from
 those reference projects.
+
+Actor ring research also inspected `include/PR/gbi.h` in the GoldenEye 007
+revision listed above. Its `gSP2Triangles` and triangle byte-packing definitions
+explain the F3DEX index-times-two command encoding. Robotron's complete callback
+instructions establish the actual indices, both winding orders and write order;
+the research candidate remains excluded while its compiled instructions differ.
+
+Missile update research uses unmodified splat and SPIM output for the complete
+callback and seven-entry dispatch table. m2c uses canonical project headers;
+asm-differ shows complete linked instructions and objdiff shows raw objects.
+The linked-ELF objdiff limitation is recorded in the
+[research evidence](actor-missile-update.md). Real, independently matching
+motion, RNG, nearest search, heading and object helpers execute under the guard.
+The child creator remains an explicit ABI boundary; passing finite fixtures
+does not establish its allocations or matching ownership for the callback.

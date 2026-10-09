@@ -79,7 +79,54 @@ The complete loader at `8004BD00..8004C088` still has an excluded C
 candidate. A used byte-offset local expresses the three cache index strides
 and reproduces the cache pointer's stack home. The remaining differences
 concern pointer registers; matching credit requires the entire procedure.
-Its current comparison is recorded in the ledger.
+The fresh complete comparison has eleven differing instruction words and
+the correct 904-byte live extent, followed by eight zero alignment bytes.
+The published ledger retains the earlier checkpoint.
+
+## Projection candidate execution audit
+
+`func_8003B2B0` occupies `8003B2B0..8003B428`, with 376 instruction bytes.
+Its excluded source now uses the canonical 20-byte model and 16-byte
+animation cache records. A view of their shared arena places the animation
+bank at offset `0x1F50`; it defines no new storage. Independent spimdisasm
+assembly reproduces all 376 retail bytes.
+
+The helper loads the reference index from context offset ten and invokes
+the loader. It chooses a reference phase from the masked clock difference,
+divided by 512 and multiplied by ten. The matching eight-byte-record helper
+copies reference x/y/z fields for the first twelve points and selected-frame
+fields for the rest, leaving each fourth halfword untouched. Projection
+then appends `pointCount` complete eight-byte records from immediately after
+the declared animation frames. The meaning of those trailing records remains
+unresolved. Each record's first four bytes are copied before its second four
+bytes are read, including when the buffers overlap.
+
+The result becomes animation cache entry 254: output pointer, selected point
+count, one frame, and bytes twelve and thirteen set to one. The caller
+`func_8003A8B0` selects animation index `0xFE` after this call.
+
+`make audit-object-projection` freshly compiles the candidate and its matched
+512-byte record-copy callee. Both the complete retail function and the
+candidate execute the actual 904-byte retail loader on preloaded fixtures;
+there are no callee stubs. An independent memory and call oracle verifies
+364 cases, including nonpositive counts, the twelve-point boundary, clock
+wraparound, cache entry 254, overlapping buffers and two-byte-aligned inputs.
+Read/write/code guards, stack and buffer canaries, saved registers and return
+checks cover every case. Three instruction mutations must fail.
+
+Pinned IDO emits 380 live candidate bytes and four compiler alignment bytes.
+The complete instruction comparison fails, so the candidate remains outside
+the matching manifest and ROM link. This audit adds zero source-owned bytes.
+Loader miss paths, file loading and visual gameplay are outside its scope.
+Current compiler inputs and execution results are recorded in
+`object-projection-execution-audit.json`. Ghidra contains the canonical types,
+bounded functions, signatures and behavior notes. The earlier audit left
+`D_8009B168` unmapped. The later [resource storage recovery](actor-resource-storage.md)
+maps that pointer word inside the complete `D_8009B138` record, at offset `0x30`.
+It aliases `animation.tracks[2]`; the projection view reads its pointed-to
+signed halfword at offset `0x0A`. The two views agree on the accessed bytes
+without establishing a broader meaning for that context. The alias adds no
+storage or matching instructions.
 
 ## Evidence
 

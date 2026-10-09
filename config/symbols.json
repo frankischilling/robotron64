@@ -341,5 +341,136 @@
     "vram": "0x8008D96C",
     "rom": "0x8E56C",
     "status": "verified alias for the sequence-command member at D_8008D920 + 0x4C; see docs/audio-seeking.md"
+  },
+  {
+    "name": "func_800400D0",
+    "rom": "0x40cd0",
+    "vram": "0x800400d0",
+    "status": "matching C; docs/renderer-background-dispatch.md"
+  },
+  {
+    "name": "D_8007CCB0",
+    "rom": "0x7d8b0",
+    "vram": "0x8007ccb0",
+    "status": "source-owned initialized int; docs/renderer-background-dispatch.md"
+  },
+  {
+    "name": "func_800420B0",
+    "rom": "0x42cb0",
+    "vram": "0x800420B0",
+    "status": "matching C; see docs/renderer-material-reset.md"
+  },
+  {
+    "name": "D_8007C5B4",
+    "rom": "0x7d1b4",
+    "vram": "0x8007c5b4",
+    "status": "source-owned initialized int; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C5B8",
+    "rom": "0x7d1b8",
+    "vram": "0x8007c5b8",
+    "status": "source-owned initialized int; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C5C0",
+    "rom": "0x7d1c0",
+    "vram": "0x8007c5c0",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C5F0",
+    "rom": "0x7d1f0",
+    "vram": "0x8007c5f0",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C628",
+    "rom": "0x7d228",
+    "vram": "0x8007c628",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C660",
+    "rom": "0x7d260",
+    "vram": "0x8007c660",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C698",
+    "rom": "0x7d298",
+    "vram": "0x8007c698",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C6D0",
+    "rom": "0x7d2d0",
+    "vram": "0x8007c6d0",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C700",
+    "rom": "0x7d300",
+    "vram": "0x8007c700",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "D_8007C738",
+    "rom": "0x7d338",
+    "vram": "0x8007c738",
+    "status": "source-owned initialized FrameCommand array; docs/renderer-material-presets.md"
+  },
+  {
+    "name": "func_8002205C",
+    "rom": "0x22C5C",
+    "vram": "0x8002205C",
+    "status": "excluded complete C candidate; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_8009224C",
+    "rom": "0x92e4c",
+    "vram": "0x8009224c",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092250",
+    "rom": "0x92e50",
+    "vram": "0x80092250",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092264",
+    "rom": "0x92e64",
+    "vram": "0x80092264",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092274",
+    "rom": "0x92e74",
+    "vram": "0x80092274",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092288",
+    "rom": "0x92e88",
+    "vram": "0x80092288",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092290",
+    "rom": "0x92e90",
+    "vram": "0x80092290",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_80092294",
+    "rom": "0x92e94",
+    "vram": "0x80092294",
+    "status": "source-owned startup literal; see docs/game-initialization.md"
+  },
+  {
+    "name": "D_800BA7A8",
+    "vram": "0x800BA7A8",
+    "status": "source-owned 220-pointer BSS table; see docs/game-initialization.md"
   }
 ]

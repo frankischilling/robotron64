@@ -1,4 +1,4 @@
-"""Execute the matching boss constructor and excluded boundary C candidate.
+"""Execute the matching boss constructor and complete actor boundary clamp.
 
 Integer trigonometry and absolute value execute freshly matched source.
 Object, allocation, animation and diagnostic boundaries use ABI stubs.
@@ -11,11 +11,11 @@ import struct
 from importlib.metadata import version
 from pathlib import Path
 
-from unicorn import UC_HOOK_CODE
+from unicorn import UC_HOOK_CODE, UC_HOOK_MEM_READ, UC_HOOK_MEM_WRITE
 from unicorn import mips_const as regs
 from check_actor_group_path import SENTINEL, machine, word
 from compare_data import compare_unit
-from compare_runtime import MATCHING_BLOCKS, CANDIDATE_BLOCKS
+from compare_runtime import MATCHING_BLOCKS
 from compare_startup import compare_block, SymbolLayoutSnapshot
 from owned_sections import elf_sections_and_symbols, source_sections
 from rom import ROOT, validate
@@ -122,7 +122,50 @@ def run_boundary(code, support, case):
 
     uc.hook_add(UC_HOOK_CODE, submit, begin=0x800290B0, end=0x800290B0)
     uc.reg_write(regs.UC_MIPS_REG_A0, ACTOR)
-    execute(BOUNDARY)
+    # Constrain the actual boundary instructions and every guest data access.
+    support_code = [(start, end) for name, source, start, end in MATCHING_BLOCKS
+                    if name in SUPPORT]
+    table_ranges = [(address, address + len(data)) for address, data in support
+                    if not any(start <= address < end for start, end in support_code)]
+    code_ranges = support_code + [
+        (BOUNDARY, BOUNDARY + len(next(data for address, data in code if address == BOUNDARY))),
+        (CLOBBER, CLOBBER + 92), (SENTINEL, SENTINEL + 4),
+        (0x800290B0, 0x800290B4),
+    ]
+    stack = (0x802FFF00, 0x80300010)
+    canaries = [(stack[0] - 16, b'\xD7' * 16), (stack[1], b'\xE9' * 16)]
+    for address, data in canaries:
+        write(address, data)
+    uc.reg_write(regs.UC_MIPS_REG_GP, 0xA578ABCD)
+
+    def inside(address, size, ranges):
+        address = (address & 0x1FFFFFFF) | 0x80000000
+        return any(start <= address and address + size <= end for start, end in ranges)
+
+    def instruction(uc, address, size, user):
+        assert not address & 3 and inside(address, 4, code_ranges), (
+            'Boundary instruction bounds', case, hex(address))
+
+    def load(uc, access, address, size, value, user):
+        assert inside(address, size, [(ACTOR, ACTOR + 124),
+                      (0x800BA784, 0x800BA788), stack] + table_ranges), (
+            'Boundary read bounds', case, hex(address), size)
+
+    def store(uc, access, address, size, value, user):
+        assert inside(address, size, [(ACTOR + 0x60, ACTOR + 0x68), stack]), (
+            'Boundary write bounds', case, hex(address), size)
+
+    handles = [uc.hook_add(UC_HOOK_CODE, instruction),
+               uc.hook_add(UC_HOOK_MEM_READ, load),
+               uc.hook_add(UC_HOOK_MEM_WRITE, store)]
+    try:
+        execute(BOUNDARY)
+    finally:
+        for handle in handles:
+            uc.hook_del(handle)
+    assert uc.reg_read(regs.UC_MIPS_REG_GP) == 0xA578ABCD
+    for address, data in canaries:
+        assert read(address, len(data)) == data, ('Boundary stack canary', case, hex(address))
     assert uc.reg_read(regs.UC_MIPS_REG_PC) == SENTINEL
     assert uc.reg_read(regs.UC_MIPS_REG_V0) == changed
     assert read(ACTOR - 16, 156) == bytes(expected)
@@ -252,19 +295,16 @@ def main():
     layout = SymbolLayoutSnapshot()
     compiled, retail, support, comparisons, tables = [], [], [], {}, {}
     for name in ('early_boss_create', 'actor_boundary_clamp') + SUPPORT:
-        records = CANDIDATE_BLOCKS if name == 'actor_boundary_clamp' else MATCHING_BLOCKS
-        _, source, start, end = next(record for record in records if record[0] == name)
+        _, source, start, end = next(record for record in MATCHING_BLOCKS if record[0] == name)
         report = compare_block(name, source, start, start - 0x80000000 + 0xC00,
                                end - 0x80000000 + 0xC00, target,
                                family='actor-boundary-boss-execution', layout=layout)
         directory = ROOT / 'build/actor-boundary-boss-execution' / name
         data = (directory / (name + '.bin')).read_bytes()
         comparisons[name] = report
+        assert report['matches'], name
         if name == 'actor_boundary_clamp':
             assert report['actual_size'] == report['expected_size'] == 600
-            assert [int(word['vram'], 16) for word in report['different_words']] == [0x80018590, 0x80018594]
-        else:
-            assert report['matches'], name
         if name in ('early_boss_create', 'actor_boundary_clamp'):
             compiled.append((start, data))
             retail.append((start, target[start - 0x80000000 + 0xC00:end - 0x80000000 + 0xC00]))
@@ -313,7 +353,8 @@ def main():
                           'Only selector index zero and its one verified animation pointer are exercised; other resource sets and caller index bounds remain unresolved.',
                           'Signed overflow and negative shifts characterize pinned IDO and MIPS behavior, not portable ISO C.',
                           'The selected boundary inputs do not reach a zero divisor after rectangular clamping; division exception delivery is not exercised.',
-                          'The excluded boundary candidate still has two instruction-word differences and receives no source ownership or matching progress credit.',
+                          'The complete 600-byte boundary function matches; boundary instruction, read and write bounds, stack canaries and GP preservation are checked.',
+                          'Boss constructor checks compare complete state and surrounding canaries; its machine does not apply the boundary access hooks.',
                           'This checker does not establish complete gameplay behavior.'])
     output = ROOT / 'build/actor-boundary-boss-execution/report.json'
     output.write_text(json.dumps(result, indent=2) + '\n')

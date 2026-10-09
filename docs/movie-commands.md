@@ -90,6 +90,7 @@ Each is compiled and compared independently before integration.
 | `movie_callback.c` | `0x8000440C..0x800044AC` | 160 | Append a frame callback with the original three-slot equality check |
 | `movie_prepare.c` | `0x800044AC..0x800045E4` | 312 | Parse movie commands and request the configured camera/text tracks |
 | `movie_start.c` | `0x800045E4..0x80004C3C` | 1,624 | Initialize camera selection, text, props, color events, and scene requests |
+| `movie_update.c` | `0x80004C3C..0x80005354` | 1,816 | Advance prop/camera/string frames, sound/color events and callback thresholds |
 | `movie_status.c` | `0x80005354..0x8000544C` | 248 | Determine termination from the mode, elapsed frame and repeat count |
 | `movie_cleanup.c` | `0x8000544C..0x80005560` | 276 | Restore camera settings, release text and actors, and stop scene effects |
 | `scene_audio_request.c` | `0x8001F8E8..0x8001F90C` | 36 | Store five background-image request arguments; the historical filename is retained |
@@ -130,12 +131,12 @@ path. The separately emitted success arms retain their actual destinations.
 The table is word-aligned, so independent and production linking both preserve
 its explicit address even though IDO gives the input section 16-byte alignment.
 
-Exact source/header snapshots and reports remain under `build/sdk-options`
-and the private recovery directories. Configuration storage, track buffers,
-and diagnostic strings remain externally supplied target data. The
-movie update routine, camera application, and generic
-script interpreter have reconstructed candidates whose remaining differences
-are excluded from matching counts until their full comparisons pass.
+Current source/header snapshots and reports are retained by the independent
+comparison pipeline. The [configuration and track buffers](movie-storage.md)
+are now source-owned; diagnostic strings remain externally supplied data. The
+movie update routine now has a complete matching comparison and a
+[guarded execution audit](movie-playback.md). The generic script interpreter
+still has unresolved instruction differences and remains excluded.
 
 The complete track-loader and release comparison is documented in
 [Movie track files](movie-files.md).
