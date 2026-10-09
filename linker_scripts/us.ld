@@ -1385,7 +1385,9 @@ SECTIONS
     .input_sequence_limit_message 0x800903C8 : AT(0x90FC8) SUBALIGN(4) { build/us/input_sequence_limit_message.o(.rodata) }
     .scene_action_table 0x800903E8 : AT(0x90FE8) SUBALIGN(4) { build/us/scene_action_dispatch.o(.rodata) }
     .error_formatted_table 0x80090460 : AT(0x91060) SUBALIGN(4) { build/us/error_formatted.o(.rodata) }
-    .error_fallback_910a8_923f8 0x800904A8 : AT(0x910A8) { build/us/fallback.o(.rom_error_fallback_910a8_923f8) }
+    .error_fallback_910a8_910b0 0x800904A8 : AT(0x910A8) { build/us/fallback.o(.rom_error_fallback_910a8_910b0) }
+    .scripted_file_diagnostics 0x800904B0 : AT(0x910B0) SUBALIGN(4) { build/us/scripted_file_diagnostics.o(.data) }
+    .scripted_file_fallback_91290_923f8 0x80090690 : AT(0x91290) { build/us/fallback.o(.rom_scripted_file_fallback_91290_923f8) }
     .scene_arrivals_diagnostics 0x800917F8 : AT(0x923F8) SUBALIGN(4) { build/us/scene_arrivals_diagnostics.o(.data) }
     .error_fallback_92434_92558 0x80091834 : AT(0x92434) { build/us/fallback.o(.rom_error_fallback_92434_92558) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
@@ -3220,7 +3222,8 @@ ASSERT(SIZEOF(.scene_action_dispatch) == 0x2d4, "scene_action_dispatch size chan
 ASSERT(SIZEOF(.scene_action_fallback_90f96_90fc8) == 0x32, "scene_action_fallback_90f96_90fc8 size changed")
 ASSERT(SIZEOF(.input_sequence_limit_message) == 0x20, "input_sequence_limit_message size changed")
 ASSERT(SIZEOF(.scene_action_table) == 0x38, "scene_action_table size changed")
-ASSERT(SIZEOF(.error_fallback_910a8_923f8) == 0x1350, "error_fallback_910a8_923f8 size changed")
+ASSERT(SIZEOF(.error_fallback_910a8_910b0) == 0x8, "error_fallback_910a8_910b0 size changed")
+ASSERT(SIZEOF(.scripted_file_fallback_91290_923f8) == 0x1168, "scripted_file_fallback_91290_923f8 size changed")
 ASSERT(SIZEOF(.error_fallback_92434_92558) == 0x124, "error_fallback_92434_92558 size changed")
 ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")
 ASSERT(SIZEOF(.early_boss_create) == 0x304, "early_boss_create size changed")
@@ -3600,3 +3603,15 @@ ASSERT(D_80093CB0 == ADDR(.session_initializer_diagnostics), "session initialize
 ASSERT(D_80093CC0 == ADDR(.session_initializer_diagnostics) + 0x10, "session initializer category message overridden")
 ASSERT(D_80093CE0 == ADDR(.session_initializer_diagnostics) + 0x30, "session initializer callback message overridden")
 ASSERT(D_80093CFC == ADDR(.session_initializer_diagnostics) + 0x4C, "session initializer enemy message overridden")
+
+ASSERT(ADDR(.scripted_file_diagnostics) == 0x800904B0, "scripted file diagnostics moved")
+ASSERT(SIZEOF(.scripted_file_diagnostics) == 0x1E0, "scripted file diagnostics size changed")
+ASSERT(D_800904B0 == ADDR(.scripted_file_diagnostics) + 0x0, "D_800904B0 source definition overridden")
+ASSERT(D_800904D0 == ADDR(.scripted_file_diagnostics) + 0x20, "D_800904D0 source definition overridden")
+ASSERT(D_80090510 == ADDR(.scripted_file_diagnostics) + 0x60, "D_80090510 source definition overridden")
+ASSERT(D_8009054C == ADDR(.scripted_file_diagnostics) + 0x9C, "D_8009054C source definition overridden")
+ASSERT(D_80090584 == ADDR(.scripted_file_diagnostics) + 0xD4, "D_80090584 source definition overridden")
+ASSERT(D_800905B8 == ADDR(.scripted_file_diagnostics) + 0x108, "D_800905B8 source definition overridden")
+ASSERT(D_800905F8 == ADDR(.scripted_file_diagnostics) + 0x148, "D_800905F8 source definition overridden")
+ASSERT(D_80090630 == ADDR(.scripted_file_diagnostics) + 0x180, "D_80090630 source definition overridden")
+ASSERT(D_80090660 == ADDR(.scripted_file_diagnostics) + 0x1B0, "D_80090660 source definition overridden")

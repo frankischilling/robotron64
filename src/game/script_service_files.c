@@ -1,9 +1,6 @@
 #include "../../include/script_service_internal.h"
 #include "../../include/game_memory.h"
 
-extern unsigned char D_800904B0[];
-extern unsigned char D_800904D0[];
-
 int func_8001C790(unsigned char *path)
 {
     int handle;

@@ -22,6 +22,16 @@ typedef struct ScriptedFile {
 
 typedef char ScriptedFileMustBe128Bytes[sizeof(ScriptedFile) == 0x80 ? 1 : -1];
 
+extern unsigned char D_800904B0[32];
+extern unsigned char D_800904D0[64];
+extern unsigned char D_80090510[60];
+extern unsigned char D_8009054C[56];
+extern unsigned char D_80090584[52];
+extern unsigned char D_800905B8[64];
+extern unsigned char D_800905F8[56];
+extern unsigned char D_80090630[48];
+extern unsigned char D_80090660[48];
+
 extern ScriptedFile D_80097650[100];
 extern ScriptedFile D_8009A850[];
 

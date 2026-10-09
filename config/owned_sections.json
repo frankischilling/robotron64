@@ -5066,5 +5066,26 @@
       "D_80093CFC": 76
     },
     "evidence": "docs/session-initializer-diagnostics.md"
+  },
+  {
+    "source": "src/game/script_service/diagnostics.c",
+    "object": "build/us/scripted_file_diagnostics.o",
+    "input_section": ".data",
+    "section": ".scripted_file_diagnostics",
+    "vram": 2148074672,
+    "rom": 594096,
+    "size": 480,
+    "symbols": {
+      "D_800904B0": 0,
+      "D_800904D0": 32,
+      "D_80090510": 96,
+      "D_8009054C": 156,
+      "D_80090584": 212,
+      "D_800905B8": 264,
+      "D_800905F8": 328,
+      "D_80090630": 384,
+      "D_80090660": 432
+    },
+    "evidence": "docs/scripted-file-diagnostics.md"
   }
 ]

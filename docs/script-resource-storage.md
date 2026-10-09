@@ -60,3 +60,8 @@ bindings; the new BSS consumes no ROM bytes.
 The compiler, analysis and execution workflow follows the local IDO and SM64
 references in [reference study](reference-study.md). No reference game code or
 extracted retail strings are included in these storage definitions.
+
+The [scripted file diagnostics](scripted-file-diagnostics.md) recover the nine
+complete arrays referenced by registry services. The storage audit continues
+to record diagnostic calls at the ABI boundary; the diagnostic audit executes
+the actual formatters with independently compiled strings.

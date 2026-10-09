@@ -9,7 +9,7 @@ import json
 from importlib.metadata import version
 from pathlib import Path
 
-from unicorn import UC_HOOK_CODE, UC_HOOK_MEM_WRITE
+from unicorn import UC_HOOK_CODE, UC_HOOK_MEM_READ, UC_HOOK_MEM_WRITE
 from unicorn import mips_const as regs
 
 from check_actor_group_path import machine, word, SENTINEL
@@ -110,7 +110,7 @@ def cases(widths=False):
                 yield b'%' + bytes([specifier]) + b'%C/%d', (81, -37)
 
 
-def run(code, support, entry, size, case):
+def run(code, support, entry, size, case, format_image=None):
     format_string, values = case
     expected = oracle(format_string, values, widths=entry == 0x8001C49C)
     # Unicorn's MIPS API cannot access these FPRs directly. Use MIPS loads/stores
@@ -129,8 +129,14 @@ def run(code, support, entry, size, case):
     write(0x3100, b'\x89' * 48)
     write(STACK - 0x2010, b'\xA7' * 16)
     write(STACK - 0x2000, b'\xA5' * 0x2080)
-    guarded_format = b'\xA9' * 16 + format_string + b'\0' + b'\xB9' * 16
-    write(FORMAT - 16, guarded_format)
+    format_address = FORMAT
+    format_base = FORMAT
+    format_bytes = format_string + b'\0'
+    if format_image is not None:
+        format_address, format_base, format_bytes = format_image
+        assert format_base <= format_address < format_base + len(format_bytes)
+    guarded_format = b'\xA9' * 16 + format_bytes + b'\xB9' * 16
+    write(format_base - 16, guarded_format)
     inputs, arguments = [], []
     for index, value in enumerate(values):
         if isinstance(value, bytes):
@@ -147,7 +153,7 @@ def run(code, support, entry, size, case):
         uc.reg_write(register, argument)
     stack_arguments = b''.join(word(value) for value in arguments[3:])
     write(STACK + 16, stack_arguments)
-    uc.reg_write(regs.UC_MIPS_REG_A0, FORMAT)
+    uc.reg_write(regs.UC_MIPS_REG_A0, format_address)
     uc.reg_write(regs.UC_MIPS_REG_GP, 0xA1234000)
     uc.reg_write(regs.UC_MIPS_REG_RA, FP_RETURN)
     trace, buffer = [], []
@@ -214,6 +220,36 @@ def run(code, support, entry, size, case):
 
     for address in (OUTPUT, REPORT):
         uc.hook_add(UC_HOOK_CODE, boundary, begin=address, end=address)
+    if format_image is not None:
+        known_code = {start: end for _, _, start, end in MATCHING_BLOCKS + CANDIDATE_BLOCKS}
+        code_ranges, data_ranges = [], []
+        for address, data in code + support:
+            bounds = (address, address + len(data))
+            if address in known_code:
+                assert bounds[1] <= known_code[address]
+                code_ranges.append(bounds)
+            else:
+                data_ranges.append(bounds)
+        code_ranges += [(FP_INIT, FP_INIT + len(initializer)),
+                        (FP_STUB, FP_STUB + len(clobber)),
+                        (FP_RETURN, FP_RETURN + len(observer))]
+        data_ranges += [(format_base, format_base + len(format_bytes)),
+                        (0x80003000, 0x80003084),
+                        (STACK - 0x2000, STACK + 16 + len(stack_arguments))]
+        data_ranges += [(address + 16, address + len(data) - 16) for address, data in inputs]
+
+        def inside(address, size, bounds):
+            address = (address & 0x1FFFFFFF) | 0x80000000
+            return any(start <= address and address + size <= end for start, end in bounds)
+
+        def guard_code(uc, address, size, user):
+            assert address in (SENTINEL, OUTPUT, REPORT) or inside(address, size, code_ranges), ('Formatter instruction bounds', hex(address))
+
+        def guard_read(uc, access, address, size, value, user):
+            assert inside(address, size, data_ranges), ('Formatter read bounds', hex(address), size)
+
+        uc.hook_add(UC_HOOK_CODE, guard_code)
+        uc.hook_add(UC_HOOK_MEM_READ, guard_read)
     execute(FP_INIT)
     assert uc.reg_read(regs.UC_MIPS_REG_GP) == 0xA1234000
     assert read(0x3100, 48) == fp_seed[80:128]
@@ -229,7 +265,7 @@ def run(code, support, entry, size, case):
                                b'errors.c'.hex(), 77])
     assert trace == expected_trace, (case, trace, expected_trace)
     assert read(buffer[0], len(expected) + 1) == expected + b'\0'
-    assert read(FORMAT - 16, len(guarded_format)) == guarded_format
+    assert read(format_base - 16, len(guarded_format)) == guarded_format
     for address, data in inputs:
         assert read(address, len(data)) == data
     assert read(STACK + 16, len(stack_arguments)) == stack_arguments
