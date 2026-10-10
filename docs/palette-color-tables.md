@@ -55,8 +55,9 @@ outside this check.
 `tools/check_error_formatters.py` now compiles, completely matches and supplies
 the source-defined alphabet to the matching numeric helpers. Its 3,588 bounded
 cases retain output and fatal-report ABI stubs; the fatal reporter returns
-synthetically. This does not execute the excluded renderer fatal formatter or
-establish its infinite-wait behavior.
+synthetically. This checker does not execute the renderer fatal formatter.
+Its complete match and infinite-wait check are recorded separately in
+[renderer fatal formatter](renderer-fatal-formatter.md).
 
 Ghidra uses the canonical four-byte `PaletteColor` layout and separate bounded
 arrays. Its two string types exclude compiler alignment bytes. The fatal

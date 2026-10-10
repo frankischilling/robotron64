@@ -26,12 +26,30 @@ CONTEXT_PARTITIONS = {
     "src/game/audio/backend/voice_release_all.c": ("func_8005B854", "func_8005AEA8", 0x1A4),
 }
 
+# The contiguous frame context reproduces IDO's section-relative epilogue
+# alignment. Its other functions and constants are already independently owned.
+CONTEXT_LAYOUTS = {
+    "src/game/renderer_diagnostics/fatal_format.c": (
+        "func_800496E0",
+        {"func_80048D90": (0, 12), "func_80048D9C": (12, 36),
+         "func_80048DC0": (48, 28), "func_80048DDC": (76, 864),
+         "func_8004913C": (940, 696), "func_800493F4": (1636, 288),
+         "func_80049514": (1924, 168), "func_800495BC": (2092, 252),
+         "func_800496B8": (2344, 32), "func_800496D8": (2376, 8),
+         "func_800496E0": (2384, 512), "func_800498E0": (2896, 12)},
+        (64, "984a1feb424184fd016da4e6a64bc9b5f27b4cdba16fcadc1b0119ecd248e268"),
+    ),
+}
+
 
 def compiler_support_files(source):
+    if source in CONTEXT_LAYOUTS:
+        return {"tools/partition_context.py"}
     return {"tools/partition_text.py"} if source in CONTEXT_PARTITIONS else set()
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/game/renderer_diagnostics/fatal_format.c": "game-r4300-mul",
     "src/game/renderer_projection/setup.c": "game-r4300-mul",
     "src/game/game_float_parse.c": "game-r4300-mul",
     "src/game/renderer_projection_highlight.c": "game-r4300-mul",
@@ -346,6 +364,13 @@ def compile_source(source, output, compiler=None):
         destination = Path(output)
         original = destination.read_bytes()
         partitioned = retain_function(original, *CONTEXT_PARTITIONS[relative])
+        destination.with_name(destination.name + ".ido").write_bytes(original)
+        destination.write_bytes(partitioned)
+    if relative in CONTEXT_LAYOUTS:
+        from partition_context import retain_context
+        destination = Path(output)
+        original = destination.read_bytes()
+        partitioned = retain_context(original, *CONTEXT_LAYOUTS[relative])
         destination.with_name(destination.name + ".ido").write_bytes(original)
         destination.write_bytes(partitioned)
     if "-mips3" in profile["flags"]:

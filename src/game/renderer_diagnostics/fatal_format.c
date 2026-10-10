@@ -4,9 +4,21 @@
 
 void func_8004C6E0(void);
 
-/* Nonmatching candidate; see docs/renderer-diagnostics-and-text.md. */
+/* Complete neighboring C bodies preserve IDO's epilogue alignment. The build
+ * retains only the fatal formatter; these routines keep their existing owners. */
+#define ROBOTRON_FRAME_FATAL_CONTEXT
+#include "../../boot/frame_helpers.c"
+#undef ROBOTRON_FRAME_FATAL_CONTEXT
+#include "../debug_noop.c"
+#include "../renderer_projection/setup.c"
+#include "../renderer_projection_highlight.c"
+#include "../../boot/frame_projection.c"
+#include "../../boot/frame_matrices.c"
+#include "../../boot/frame_timing.c"
+
 void func_800496E0(unsigned char *format, ...)
 {
+    int length;
     unsigned char message[256];
     unsigned char *text;
     int character;
@@ -32,17 +44,24 @@ void func_800496E0(unsigned char *format, ...)
 
                 source = va_arg(args, unsigned char *);
                 func_8003B520(text, source, func_8003B4FC(source) + 1);
-                text += func_8003B4FC(text);
+                length = func_8003B4FC(text);
+                text += length;
                 break;
             }
-            case 'd':
-                func_8003B928(va_arg(args, int), text, 10);
-                text += func_8003B4FC(text);
+            case 'd': {
+                int value = va_arg(args, int);
+                func_8003B928(value, text, 10);
+                length = func_8003B4FC(text);
+                text += length;
                 break;
-            case 'x':
-                func_8003B928(va_arg(args, int), text, 16);
-                text += func_8003B4FC(text);
+            }
+            case 'x': {
+                int value = va_arg(args, int);
+                func_8003B928(value, text, 16);
+                length = func_8003B4FC(text);
+                text += length;
                 break;
+            }
             default:
                 va_arg(args, int);
                 break;
@@ -60,3 +79,5 @@ void func_800496E0(unsigned char *format, ...)
     func_8004C6E0();
     while (1) {}
 }
+
+#include "../../boot/graphics_ucode.c"

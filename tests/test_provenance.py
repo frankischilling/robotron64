@@ -56,6 +56,21 @@ class ProvenanceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Compiled source"):
             self.verify(source="other.c")
 
+    def test_contiguous_context_helper_is_recorded_and_invalidates_the_object(self):
+        source = "src/game/renderer_diagnostics/fatal_format.c"
+        helper = "tools/partition_context.py"
+        for name in (source, helper):
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("synthetic input\n")
+        record(source, "compiled.o", root=self.root)
+        verify_record(source, "compiled.o", self.root)
+        metadata = json.loads(object_record(self.root / "compiled.o").read_text())
+        self.assertIn(helper, metadata["inputs"])
+        (self.root / helper).write_text("changed context partition helper\n")
+        with self.assertRaisesRegex(ValueError, "Build input changed.*partition_context.py"):
+            verify_record(source, "compiled.o", self.root)
+
     def test_rejects_changed_source_or_header(self):
         for filename in ("source.c", "types.h"):
             with self.subTest(filename=filename):

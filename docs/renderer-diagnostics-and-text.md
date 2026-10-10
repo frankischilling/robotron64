@@ -1,12 +1,14 @@
 # Renderer diagnostics and font drawing
 
 This recovery owns twelve data units used by the renderer's diagnostic report
-and retains three complete C candidates. The candidates are excluded from the
+and retains two complete C candidates. The candidates are excluded from the
 matching ROM build. Their presence does not increase the matching-function or
 matching-code totals. The complete report now matches; its current evidence
 is in [startup projection and diagnostics](startup-projection-and-diagnostics.md).
 The object-attached glyph now matches its complete body and frame; its current
 evidence and unresolved return interface are in [object-attached font glyph](renderer-object-glyph.md).
+The complete [fatal formatter](renderer-fatal-formatter.md) also matches,
+including its unreachable epilogue and section-relative alignment.
 
 ## Report behavior
 
@@ -62,7 +64,6 @@ matching function manifest or selected by a ROM-build rule.
 
 | Function | Purpose | Retail bytes | Compiled bytes | Differing words |
 | --- | --- | ---: | ---: | ---: |
-| `func_800496E0` | Fatal formatter, report call and infinite wait | 512 | 496 | 31 |
 | `func_80049E3C` | Font glyph at the current text position | 1,144 | 1,184 | 137 |
 | `func_8004B590` | One- or two-player HUD | 1,588 | 1,584 | 323 |
 
@@ -107,7 +108,7 @@ and diagnostics ledger.
 
 The data-only comparisons check the full initialized ranges, symbol offsets,
 section placement and BSS lengths using the pinned IDO 5.3 compiler. Full ROM
-verification remains dependent on extracted fallback bytes for the three
+verification remains dependent on extracted fallback bytes for the two
 candidates and the other unrecovered code. A matching ROM build with those
 fallbacks is not completion of the source decompilation.
 

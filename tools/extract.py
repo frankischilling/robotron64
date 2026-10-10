@@ -80,7 +80,6 @@ REGIONS = (
     ("matrix_transform_fallback_48168_48170", 0x48168, 0x48170),
     ("endgame_48d64_48d70", 0x48d64, 0x48d70),
     ("cpu_after_startup", 0x49110, 0x495f4),
-    ("cpu_after_frame_timing", 0x4a2e0, 0x4a4e0),
     ("cpu_before_renderer_platform", 0x4a4ec, 0x4a4f0),
     ("endgame_4aa3c_4aeb4", 0x4aa3c, 0x4aeb4),
     ("endgame_4bed8_4bee0", 0x4bed8, 0x4bee0),
