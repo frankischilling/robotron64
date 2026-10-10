@@ -53,12 +53,17 @@ by an excluded procedure does not give that procedure instruction credit.
 Four additional procedures have complete C candidates. They remain outside
 the matching manifest and ROM rules:
 
-| Candidate | Retail instruction bytes | Compiled instruction bytes | Differing words |
+| Candidate | Retail instruction bytes | Compiled comparison bytes | Differing words |
 | --- | ---: | ---: | ---: |
 | Expanded quad `func_800447D0` | 840 | 840 | 167 |
 | Diagnostic line `func_800453D8` | 316 | 316 | 57 |
 | Mesh submission `func_80045534` | 1,024 | 1,024 | 251 |
 | Mesh commands `func_80045A08` | 1,336 | 1,376 | 332 |
+
+The current diagnostic-line audit distinguishes the natural 308-byte C body
+from the 316-byte comparison window, which includes eight alignment bytes.
+Its 528 guarded retail/C pairs do not resolve the 57 instruction differences.
+See [the current line evidence](renderer-diagnostic-line-audit.md).
 
 The expanded quad consumes four packed texture-corner selectors, computes
 the X and Z centroid with signed division by four, and conditionally

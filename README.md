@@ -397,6 +397,11 @@ and formatting notes above.
 adds two complete quad procedures with 904 instruction bytes and 200
 initialized diagnostic bytes. Two complete polygon candidates remain excluded from matching progress.
 
+[Diagnostic line audit](docs/renderer-diagnostic-line-audit.md) checks 528
+retail/C pairs and twelve controls. Run `make check-renderer-diagnostic-line`.
+The candidate has 308 natural bytes and remains excluded with 57 differing
+words; its aligned comparison window adds no instruction ownership.
+
 [Mesh command interpreter](docs/renderer-mesh-commands.md) recovers the complete
 1,336-byte command loop and its 68-byte generated switch table. Its separate
 vertex copy and load cursors, signed counts, triangle rotation and lighting

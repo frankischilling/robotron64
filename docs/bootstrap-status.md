@@ -27,6 +27,10 @@ void candidate to 76 natural bytes and thirteen differing words. All 449
 retail/C pairs and ten controls pass; this adds no source ownership. The
 original return declaration and instruction match remain unresolved.
 
+The [diagnostic line audit](renderer-diagnostic-line-audit.md) distinguishes
+308 natural C bytes from its aligned comparison window. All 528 retail/C pairs
+and twelve controls pass; 57 differing words still prevent source ownership.
+
 The [actor boundary reflection](actor-boundary-reflection.md) contributes one
 complete 1,520-byte function with an 88-byte frame. Independent reassemblies,
 1,818 guarded pairs and semantic, saved-FPU and guest-access controls pass.
