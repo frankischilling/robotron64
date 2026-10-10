@@ -1,4 +1,4 @@
-"""Audit the excluded inverse camera matrix with real fixed-point callees.
+"""Verify the matching inverse camera matrix with real fixed-point callees.
 
 Execution agreement does not replace complete instruction matching.
 """
@@ -139,11 +139,26 @@ def main(source='src/game/view_inverse_matrix.c'):
     target = (ROOT / 'baseroms/us/baserom.z64').read_bytes()
     validate(target)
     layout = SymbolLayoutSnapshot()
+    assert ('view_inverse_matrix', source, ENTRY, ENTRY + 428) in MATCHING_BLOCKS
     reports, helpers = {}, []
     report = compare_block('inverse_camera', source, ENTRY, 0x40080, 0x4022C,
                            target, FAMILY, layout)
     reports['inverse_camera'] = report
+    assert report['matches'], 'Complete inverse camera instruction comparison failed'
+    directory = ROOT / 'build' / FAMILY / 'inverse_camera'
+    raw_sections, raw_symbols = elf_sections_and_symbols(directory / 'inverse_camera.raw.o')
+    function = raw_symbols['func_8003F480']
+    matrix = raw_symbols['D_800CD250']
+    assert function['value'] == 0 and function['size'] == 428 and function['type'] == 2
+    assert raw_sections['.text']['size'] == 432 and raw_sections['.text']['bytes'][428:] == b'\0' * 4
+    assert matrix['value'] == 0 and matrix['size'] == 36 and matrix['section'] == '.bss'
+    assert raw_sections['.bss']['size'] == 48
+    assert {name for name, symbol in raw_symbols.items()
+            if symbol['type'] == 2 and symbol['index'] != 0} == {'func_8003F480'}
+    assert not any(raw_sections.get(name, {}).get('size', 0)
+                   for name in ('.data', '.sdata', '.rdata', '.rodata'))
     candidate = (ROOT / 'build' / FAMILY / 'inverse_camera/inverse_camera.bin').read_bytes()
+    assert len(candidate) == 428 and candidate[:4] == bytes.fromhex('27bdff98')
     for name in SUPPORT:
         _, support_source, start, end = next(row for row in MATCHING_BLOCKS if row[0] == name)
         q = compare_block(name, support_source, start, start - 0x80000000 + 0xC00,
@@ -181,8 +196,12 @@ def main(source='src/game/view_inverse_matrix.c'):
     for comparison in reports.values():
         for name, expected_hash in comparison['inputs_sha256'].items():
             assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == expected_hash
-    result = dict(matches=True, cases=count, paired_executions=count * 2,
-                  source_owned=False, comparisons=reports, trace_sha256=digest.hexdigest(),
+    assert count == 16640
+    result = dict(matches=True, instruction_matches=True, cases=count, paired_executions=count * 2,
+                  source_owned=True, comparisons=reports, trace_sha256=digest.hexdigest(),
+                  layout=dict(natural_function_bytes=428, raw_text_bytes=432, frame_bytes=104,
+                              matrix_bytes=36, raw_bss_bytes=48,
+                              alignment_bytes_are_not_instruction_credit=True),
                   checker_inputs_sha256=checker_hashes,
                   candidate_sha256=hashlib.sha256(candidate).hexdigest(),
                   retail_sha256=hashlib.sha256(retail).hexdigest(),
@@ -193,7 +212,7 @@ def main(source='src/game/view_inverse_matrix.c'):
                           'Every masked phase is exercised separately on each axis, with Cartesian boundary and deterministic full-width input cases.',
                           'Code/read/write bounds, call arguments, unchanged complete FrameView, matrix/stack canaries, SP, GP and saved GPRs are checked.',
                           'This is bounded CPU execution, without a complete game, graphics microcode or hardware proof.',
-                          'The inverse camera candidate remains excluded from matching ownership.'])
+                          'The complete compiled function and its existing matrix definition are independently verified; matrix storage adds no new BSS bytes.'])
     output = ROOT / 'build' / FAMILY / 'report.json'
     output.write_text(json.dumps(result, indent=2) + '\n')
     print('Passed inverse camera execution:', count, 'cases.', flush=True)

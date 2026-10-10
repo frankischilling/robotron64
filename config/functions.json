@@ -16107,5 +16107,16 @@
     "section": ".renderer_fatal_format",
     "section_vram": 2147784416,
     "evidence": "docs/renderer-fatal-formatter.md"
+  },
+  {
+    "name": "func_8003F480",
+    "rom": 262272,
+    "vram": 2147742848,
+    "size": 428,
+    "source": "src/game/view_inverse_matrix.c",
+    "object": "build/us/view_inverse_matrix.o",
+    "section": ".view_inverse_matrix",
+    "section_vram": 2147742848,
+    "evidence": "docs/renderer-inverse-camera.md"
   }
 ]

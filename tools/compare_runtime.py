@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("renderer_fatal_format", "src/game/renderer_diagnostics/fatal_format.c", 0x800496E0, 0x800498E0),
     ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
     ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
@@ -952,7 +953,6 @@ CANDIDATE_BLOCKS = (
     ("early_render_fan", "src/game/early_render_fan.c", 0x8000B9D4, 0x8000BE80),
     ("early_render_tube_wide", "src/game/early_render_tube_wide.c", 0x8000B5AC, 0x8000B964),
     ("early_render_tube", "src/game/early_render_tube.c", 0x8000B1E4, 0x8000B5AC),
-    ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("object_runtime_update", "src/game/object_runtime_update.c", 0x8003A8B0, 0x8003B254),
     ("object_runtime_projection", "src/game/object_runtime_projection.c", 0x8003B2B0, 0x8003B428),
     ("frame_begin", "src/boot/frame_begin.c", 0x80048510, 0x800489F4),
