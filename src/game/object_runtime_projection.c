@@ -22,26 +22,29 @@ extern void func_8004BD00(int model, int animation, int bitmap);
 
 #define ANIMATION_CACHE (((ObjectProjectionResourceArena *)D_80078274)->animations)
 
-/* Excluded candidate; complete retail range still differs. */
+/* Excluded candidate; instruction scheduling and registers still differ. */
 void func_8003B2B0(int index, int frame)
 {
     int referenceIndex;
     int count;
     int phase;
+    int clockDifference;
     int i;
     ObjectRecoveryDatPoint *source;
     ObjectRecoveryDatPoint *output;
 
     referenceIndex = D_8009B168->index0A;
     func_8004BD00(-1, referenceIndex, -1);
+    clockDifference = D_800BEF6C - D_800BEF64;
     count = ANIMATION_CACHE[index].pointCount;
-    phase = ((D_800BEF6C - D_800BEF64) & 0xFFF) / 512 * 10;
+    phase = (clockDifference & 0xFFF) / 512 * 10;
     func_8003F818(count, (RendererNormal *)D_800C8C10,
         (RendererNormal *)(ANIMATION_CACHE[index].data + count * frame),
         (RendererNormal *)(ANIMATION_CACHE[referenceIndex].data +
             ANIMATION_CACHE[referenceIndex].pointCount * phase));
     count = ANIMATION_CACHE[index].pointCount;
-    source = ANIMATION_CACHE[index].data + count * ANIMATION_CACHE[index].frameCount;
+    source = ANIMATION_CACHE[index].data;
+    source += count * ANIMATION_CACHE[index].frameCount;
     output = D_800C8C10 + count;
     i = 0;
     if (count > 0) {
@@ -53,6 +56,6 @@ void func_8003B2B0(int index, int frame)
     ANIMATION_CACHE[254].data = D_800C8C10;
     ANIMATION_CACHE[254].loaded = 1;
     ANIMATION_CACHE[254].unknown0D = 1;
-    ANIMATION_CACHE[254].frameCount = 1;
     ANIMATION_CACHE[254].pointCount = ANIMATION_CACHE[index].pointCount;
+    ANIMATION_CACHE[254].frameCount = 1;
 }
