@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("renderer_fatal_format", "src/game/renderer_diagnostics/fatal_format.c", 0x800496E0, 0x800498E0),
     ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
     ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
     ("actor_boundary_reflection", "src/game/actor_contacts/reflection.c", 0x800186D8, 0x80018CC8),
@@ -942,7 +943,6 @@ CANDIDATE_BLOCKS = (
     ("renderer_diagnostic_line", "src/game/renderer_primitives/diagnostic_line.c", 0x800453D8, 0x80045514),
     ("renderer_expanded_quad", "src/game/renderer_primitives/expanded_quad.c", 0x800447D0, 0x80044B18),
 
-    ("renderer_fatal_format", "src/game/renderer_diagnostics/fatal_format.c", 0x800496E0, 0x800498E0),
     ("renderer_text_glyph", "src/game/renderer_text/text_glyph.c", 0x80049E3C, 0x8004A2B4),
     ("renderer_game_hud", "src/game/renderer_text/game_hud.c", 0x8004B590, 0x8004BBC4),
 

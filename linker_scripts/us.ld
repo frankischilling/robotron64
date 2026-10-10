@@ -674,7 +674,7 @@ SECTIONS
     .frame_projection 0x800493F4 : AT(0x49FF4) SUBALIGN(4) { build/us/frame_projection.o(.text) }
     .frame_matrices 0x80049514 : AT(0x4A114) SUBALIGN(4) { build/us/frame_matrices.o(.text) }
     .frame_timing 0x800495BC : AT(0x4A1BC) SUBALIGN(4) { build/us/frame_timing.o(.text) }
-    .cpu_after_frame_timing 0x800496E0 : AT(0x4A2E0) { build/us/fallback.o(.rom_cpu_after_frame_timing) }
+    .renderer_fatal_format 0x800496E0 : AT(0x4A2E0) SUBALIGN(4) { build/us/renderer_fatal_format.o(.text) }
     .graphics_ucode 0x800498E0 : AT(0x4A4E0) SUBALIGN(4) { build/us/graphics_ucode.o(.text) }
     .cpu_before_renderer_platform 0x800498EC : AT(0x4A4EC) { build/us/fallback.o(.rom_cpu_before_renderer_platform) }
     .renderer_glyph_map 0x800498F0 : AT(0x4A4F0) SUBALIGN(4) { build/us/renderer_glyph_map.o(.text) }
@@ -2107,7 +2107,7 @@ ASSERT(SIZEOF(.debug_noop) == 0x1c, "debug_noop size changed")
 ASSERT(SIZEOF(.frame_projection) == 0x120, "frame projection size changed")
 ASSERT(SIZEOF(.frame_matrices) == 0xa8, "frame matrix commands size changed")
 ASSERT(SIZEOF(.frame_timing) == 0x124, "frame timing size changed")
-ASSERT(SIZEOF(.cpu_after_frame_timing) == 0x200, "CPU fallback after frame timing size changed")
+ASSERT(SIZEOF(.renderer_fatal_format) == 0x200, "Renderer fatal formatter size changed")
 ASSERT(SIZEOF(.graphics_ucode) == 0xc, "graphics microcode selector size changed")
 ASSERT(SIZEOF(.cpu_before_renderer_platform) == 0x4, "cpu_before_renderer_platform size changed")
 ASSERT(SIZEOF(.renderer_glyph_map) == 0x1e8, "renderer_glyph_map size changed")

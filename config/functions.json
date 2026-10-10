@@ -16096,5 +16096,16 @@
     "section": ".collision_capture",
     "section_vram": 2147578748,
     "evidence": "docs/actor-collision-capture.md"
+  },
+  {
+    "name": "func_800496E0",
+    "rom": 303840,
+    "vram": 2147784416,
+    "size": 512,
+    "source": "src/game/renderer_diagnostics/fatal_format.c",
+    "object": "build/us/renderer_fatal_format.o",
+    "section": ".renderer_fatal_format",
+    "section_vram": 2147784416,
+    "evidence": "docs/renderer-fatal-formatter.md"
   }
 ]

@@ -8321,6 +8321,7 @@ RUNTIME_OBJECTS += build/us/actor_projectile_spawn.o
 RUNTIME_OBJECTS += build/us/collision_capture.o
 
 RUNTIME_OBJECTS += build/us/renderer_mesh_texture_corners.o
+RUNTIME_OBJECTS += build/us/renderer_fatal_format.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
@@ -8694,3 +8695,12 @@ build/us/early_effect_coordinate_scales.o: src/game/early_render_effects/coordin
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_effect_coordinate_scales.raw.o $<
 	$(PYTHON) tools/owned_sections.py $< build/us/early_effect_coordinate_scales.raw.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+build/us/renderer_fatal_format.o: src/game/renderer_diagnostics/fatal_format.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/fixed_math.h include/frame.h include/game_memory.h include/game_stdarg.h include/graphics_state_internal.h include/graphics_tasks.h include/heap.h include/object_recovery.h include/palette.h include/renderer_geometry_internal.h include/renderer_projection_internal.h include/rom_files.h include/runtime_angle.h include/scalar_math.h include/scheduler.h include/scheduler_task.h include/sdk_camera.h include/sdk_float_math.h include/sdk_matrix.h src/boot/frame_helpers.c src/boot/frame_matrices.c src/boot/frame_projection.c src/boot/frame_timing.c src/boot/graphics_ucode.c src/game/debug_noop.c src/game/renderer_projection/setup.c src/game/renderer_projection_highlight.c $(IDO) Makefile tools/provenance.py tools/compiler.py tools/partition_context.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o $@ $<
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/% src/%,$^)
+
+.PHONY: check-renderer-fatal-format
+check-renderer-fatal-format: toolchain
+	$(PYTHON) tools/check_renderer_fatal_format.py

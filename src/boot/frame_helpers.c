@@ -7,6 +7,7 @@ extern FixedMatrix D_800CD250;
 
 void func_80048460(void);
 
+#ifndef ROBOTRON_FRAME_FATAL_CONTEXT
 void func_80048B8C(void *output, int *position)
 {
     int relative[3];
@@ -37,6 +38,7 @@ void func_80048D70(void)
 {
     func_80048460();
 }
+#endif
 
 void func_80048D90(int value)
 {
