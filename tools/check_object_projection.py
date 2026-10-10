@@ -1,4 +1,4 @@
-"""Audit excluded projection source with real retail cache-hit callees.
+"""Audit excluded projection source with real preloaded retail callees.
 
 Execution equivalence never overrides an instruction mismatch. Loader miss
 paths are excluded; the loader executes retail fallback, without callee stubs.
@@ -42,9 +42,16 @@ def get(data, address, size):
 
 def initial(case):
     count, frames, frame, clock, start, index, reference_index, alias, seed = case
+    source_limit = 0x2000
+    if index == reference_index and alias == 0:
+        phase = ((clock - start) & 4095) // 512 * 10
+        extent = max(0, count * frames + count, count * frame + count,
+                     count * phase + min(count, 12)) * 8
+        source_limit = max(source_limit, extent + 32)
+        assert source_limit <= 0xF000, ('Source fixture extent', case, source_limit)
     ranges = [(CACHE - 32, CACHE + 400 * 16 + 32),
               (OUTPUT - 0x300, OUTPUT + 0x2000),
-              (POOL - 0x400, POOL + 0x2000),
+              (POOL - 0x400, POOL + source_limit),
               (REFERENCE - 32, REFERENCE + 0x10000),
               (CONTEXT - 16, CONTEXT + 32),
               (0x8009B158, 0x8009B178), (0x800BEF54, 0x800BEF7C),
@@ -187,6 +194,65 @@ def execute(code, support, case):
     return digest.hexdigest()
 
 
+def source_fault_controls(target, layout, support, baseline_code):
+    """Compile each faulty C form and its unchanged positive pair with IDO."""
+    directory = ROOT / '.local/object-projection-execution-controls'
+    directory.mkdir(parents=True, exist_ok=True)
+    source = (ROOT / 'src/game/object_runtime_projection.c').read_text()
+    faults = {
+        'phase_period': (' / 512 * 10;', ' / 256 * 10;'),
+        'phase_mask': ('clockDifference & 0xFFF', 'clockDifference & 0x7FF'),
+        'first_frame': ('data + count * frame)', 'data + count * (frame + 1))'),
+        'reference_phase': ('pointCount * phase)', 'pointCount * (phase + 1))'),
+        'footer_frame': ('source += count * ANIMATION_CACHE[index].frameCount;',
+                         'source += count * (ANIMATION_CACHE[index].frameCount + 1);'),
+        'footer_destination': ('output = D_800C8C10 + count;', 'output = D_800C8C10 + count + 1;'),
+        'source_record_stride': ('*output++ = *source++;', '*output++ = *source; source += 2;'),
+        'destination_record_stride': ('*output++ = *source++;', '*output = *source++; output += 2;'),
+        'loaded_flag': ('ANIMATION_CACHE[254].loaded = 1;', 'ANIMATION_CACHE[254].loaded = 0;'),
+        'dirty_flag': ('ANIMATION_CACHE[254].unknown0D = 1;', 'ANIMATION_CACHE[254].unknown0D = 0;'),
+        'published_frames': ('ANIMATION_CACHE[254].frameCount = 1;', 'ANIMATION_CACHE[254].frameCount = 2;'),
+        'published_count': ('ANIMATION_CACHE[254].pointCount = ANIMATION_CACHE[index].pointCount;',
+                            'ANIMATION_CACHE[254].pointCount = ANIMATION_CACHE[index].pointCount + 1;'),
+        'output_overrun': ('ANIMATION_CACHE[254].frameCount = 1;',
+                           'ANIMATION_CACHE[254].frameCount = 1; ((unsigned char *)D_800C8C10)[0x2000] = 0;'),
+    }
+    case = (13, 3, 1, 4095, 0, 137, 254, 0, 7)
+    expected = execute(target[0x3BEB0:0x3C028], support, case)
+
+    def compile_control(name, text):
+        path = directory / (name + '.c')
+        path.write_text(text)
+        compare_block(name, path.relative_to(ROOT).as_posix(), ENTRY,
+                      0x3BEB0, 0x3C028, target, FAMILY, layout)
+        build = ROOT / 'build' / FAMILY / name
+        sections, symbols = elf_sections_and_symbols(build / (name + '.raw.o'))
+        live = symbols['func_8003B2B0']['size']
+        assert not any(sections['.text']['bytes'][live:]), 'Control alignment'
+        assert not any(sections.get(section, {}).get('size', 0)
+                       for section in ('.data', '.sdata', '.rodata', '.rdata', '.bss')), 'Control data'
+        return (build / (name + '.bin')).read_bytes()[:live], hashlib.sha256(path.read_bytes()).hexdigest()
+
+    results = []
+    for name, (before, after) in faults.items():
+        assert source.count(before) == 1, ('Fault insertion', name)
+        positive, _ = compile_control(name + '_positive', source)
+        assert positive == baseline_code, ('Positive compilation', name)
+        assert execute(positive, support, case) == expected, ('Positive execution', name)
+        faulty, source_hash = compile_control(name, source.replace(before, after, 1))
+        assert faulty != baseline_code, ('Unchanged fault', name)
+        try:
+            execute(faulty, support, case)
+        except (AssertionError, ValueError) as error:
+            results.append(dict(name=name, source_sha256=source_hash,
+                                code_sha256=hashlib.sha256(faulty).hexdigest(),
+                                detected=str(error)[:220], positive_passed=True))
+        else:
+            raise AssertionError(('Undetected source fault', name))
+        print('Separately compiled projection fault detected', name, flush=True)
+    return results
+
+
 def main():
     target = (ROOT / 'baseroms/us/baserom.z64').read_bytes()
     validate(target)
@@ -218,6 +284,12 @@ def main():
         cases.append((rng.randrange(25), rng.randrange(4), rng.randrange(3),
                       rng.randrange(-0x80000000, 0x80000000), rng.randrange(-0x80000000, 0x80000000),
                       rng.randrange(400), rng.randrange(400), 0, seed))
+    for seed, (index, count, frames, clock) in enumerate(itertools.product(
+            (0, 1, 137, 254, 255, 399), (-1, 0, 1, 12, 13, 32), (0, 2), (512, 4095))):
+        cases.append((count, frames, 0, clock, 0, index, index, 0, seed + 1000))
+    for seed, (count, frames, clock) in enumerate(itertools.product((64, 128, 255, 511), (0, 1), (0, 512))):
+        cases.append((count, frames, 1, clock, 0, 137, 254, 0, seed + 2000))
+    assert len(cases) == 524
     digest = hashlib.sha256()
     for index, case in enumerate(cases):
         a, b = execute(retail, support, case), execute(candidate, support, case)
@@ -237,7 +309,8 @@ def main():
             mutations.append(dict(name=name, detected=str(error)[:180]))
         else:
             raise AssertionError(('Undetected mutation', name))
-    result = dict(status='Excluded candidate cache-hit execution audit; not source ownership.',
+    controls = source_fault_controls(target, layout, support, candidate)
+    result = dict(status='Excluded candidate preloaded execution audit; not source ownership.',
                   instruction_matches=report['matches'], source_owned=False,
                   retail_instruction_bytes=376, candidate_live_bytes=live,
                   compiler_raw_bytes=sections['.text']['size'], cases=len(cases),
@@ -246,6 +319,7 @@ def main():
                   rom_sha256=hashlib.sha256(target).hexdigest(),
                   unicorn_version=version('unicorn'),
                   trace_sha256=digest.hexdigest(), mutations=mutations,
+                  compiled_source_controls=controls,
                   comparison=report, freshly_matched_support=support_report,
                   retail_loader=dict(instruction_bytes=904, sha256=hashlib.sha256(support[0][1]).hexdigest(), source_owned=False),
                   audit_source_sha256=hashlib.sha256((ROOT / 'tools/check_object_projection.py').read_bytes()).hexdigest(),
@@ -256,7 +330,7 @@ def main():
                                                     'tools/compare_startup.py',
                                                     'tools/owned_sections.py',
                                                     'tools/rom.py')},
-                  limits=['Loader cache hits only; file loading and miss paths are not covered.',
+                  limits=['Preloaded or skipped-index loader paths only; file loading and miss paths are not covered.',
                           'No callee stubs. The loader executes retail fallback, not recovered C.',
                           'This audit adds no source-owned instructions or data; visual gameplay remains unproved.'])
     layout.verify()

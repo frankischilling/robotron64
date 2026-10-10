@@ -49,5 +49,46 @@ retail entry reads no incoming argument registers. `func_8003B2B0` has a
 verified 376-byte boundary and recovered record-copy behavior, but its current
 C still differs in register allocation.
 
+## Excluded animation projection
+
+`src/game/object_runtime_projection.c` reconstructs the full
+`0x8003B2B0..0x8003B428` range. Its natural function size is 376 bytes,
+with a 64-byte frame and eight separate zero alignment bytes. The current
+IDO output still differs in 39 of the 94 instruction words, including
+division scheduling and register use. It remains excluded from the build's
+matching function list and adds no source-owned instructions or data.
+
+The helper reads the signed reference index at context offset `0x0A`, calls
+the resource loader, and blends two animation frames into `D_800C8C10`.
+The clock difference is masked to twelve bits, divided by 512, then multiplied
+by ten before selecting the reference frame. After the blend, it reloads the
+selected animation count, appends complete eight-byte records, and publishes
+animation cache entry 254. The copy loop retains the retail count reload on
+each iteration. The cache data remains owned by the separate resource storage
+translation units.
+
+`make audit-object-projection` runs 524 guarded retail/source pairs against
+an independent memory oracle. Cases include negative and zero counts, clock
+wraparound, equal animation indices, overlapping and unaligned buffers, the
+twelve-point blend boundary, and counts through 511. Equal-index fixtures
+reserve enough source space for the later reference phases. Both executions
+use the independently matching blend source and the complete 904-byte retail
+loader, without callee stubs. Only preloaded or skipped-index loader paths
+are covered; cache misses, file loading, and visual gameplay remain unproved.
+
+The audit checks call arguments, complete fixture memory, read/write/code
+bounds, stack canaries, saved registers, SP, and GP. It also compiles thirteen
+source faults with IDO and runs an unchanged positive pair for each one. The
+faults alter phase arithmetic, frame selection, footer addresses and strides,
+cache fields, or an output guard byte. Three retail instruction mutations
+remain separate checks. Execution agreement does not override the instruction
+mismatch. Hashes and comparison limits are recorded in
+[the projection audit](object-projection-execution-audit.json).
+
+The private research used Ghidra MCP, splat and spimdisasm references verified
+against all 376 retail bytes, m2c with the pinned IDO context, asm-differ,
+objdiff, the fresh matching runner, and bounded decomp-permuter searches with
+stack differences enabled. Retail bytes and generated assembly remain local.
+
 Independent comparison output is kept under the ignored
 `build/object-runtime-worker2-20260927/` family during recovery.
