@@ -5182,5 +5182,18 @@
       "D_8008F954": 20
     },
     "evidence": "docs/early-effect-coordinate-scales.md"
+  },
+  {
+    "source": "src/game/renderer_text/clock_storage.c",
+    "object": "build/us/renderer_text_clock_storage.o",
+    "input_section": ".bss",
+    "section": ".renderer_text_clock_storage",
+    "vram": 2148324016,
+    "rom": null,
+    "size": 4,
+    "symbols": {
+      "D_800CD2B0": 0
+    },
+    "evidence": "docs/renderer-screen-glyph-audit.md"
   }
 ]

@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,432 matching C functions covering 316,380 bytes, twenty-nine assembly functions covering 4,372 bytes, 37,867 bytes of source-owned initialized data, and 879,157 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,432 matching C functions covering 316,380 bytes, twenty-nine assembly functions covering 4,372 bytes, 37,867 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -423,6 +423,11 @@ and the fatal formatter's output template: 2,076 data bytes. All 256 palette and
 lighting indices execute matched code with the recovered tables. The complete
 [renderer fatal formatter](docs/renderer-fatal-formatter.md) now matches all
 512 bytes using its verified contiguous C context.
+
+[Screen glyph state and execution audit](docs/renderer-screen-glyph-audit.md)
+owns the four-byte glyph clock. Run `make check-renderer-screen-glyph` for 816
+guarded execution pairs using eight real support units and independent output
+oracles. The full glyph candidate remains excluded from matching instructions.
 
 [Fan, prism, and image setup recovery](docs/render-submission-effects.md)
 adds 24 initialized bytes and twelve BSS bytes. Five full C candidates cover
