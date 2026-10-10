@@ -8719,3 +8719,7 @@ check-renderer-screen-glyph: toolchain
 .PHONY: check-heap-initializer
 check-heap-initializer: toolchain
 	$(PYTHON) tools/check_heap_initializer.py
+
+.PHONY: check-renderer-diagnostic-line
+check-renderer-diagnostic-line: toolchain
+	$(PYTHON) tools/check_renderer_diagnostic_line.py
