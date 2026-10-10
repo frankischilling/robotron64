@@ -1,0 +1,267 @@
+{
+  "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+  "function": {
+    "name": "func_8004DE8C",
+    "vram_start": "0x8004DE8C",
+    "vram_end": "0x8004DED8",
+    "rom_start": "0x4EA8C",
+    "rom_end": "0x4EAD8",
+    "retail_bytes": 76,
+    "retail_words": 19
+  },
+  "source": {
+    "path": "src/game/heap/initialize.c",
+    "sha256": "06131468b444ce4331fb47c400ddf233f3f7ae99c7bb42ecc1bb31a8045ea978",
+    "status": "excluded nonmatching candidate",
+    "natural_function_bytes": 76,
+    "raw_text_bytes": 80,
+    "zero_alignment_bytes": 4,
+    "candidate_code_sha256": "cd0e68caac6a6c38fdf21d2c73697de3dcda5bc65b7602f45be7321d270fbce5",
+    "retail_code_sha256": "24401a6674fe5a160045ab41f18220ac223fc1a3d6b23231d14f5a968e4100f2",
+    "differing_instruction_words": 13,
+    "initialized_data_added": 0,
+    "bss_added": 0,
+    "instruction_ownership_added": 0,
+    "signature": "void func_8004DE8C(void *start, void *end)",
+    "original_return_declaration": "unresolved"
+  },
+  "preceding_candidate": {
+    "source_sha256": "4ded3d42093b6f362127e6576fa8df06edee024af2a86f07124523d876d05842",
+    "natural_function_bytes": 68,
+    "raw_text_bytes": 80,
+    "linked_comparison_bytes": 76,
+    "linked_alignment_bytes": 8,
+    "differing_instruction_words": 18
+  },
+  "compiler_profile": {
+    "name": "game",
+    "version": "5.3",
+    "flags": [
+      "-O2",
+      "-G",
+      "0",
+      "-non_shared",
+      "-mips1",
+      "-32"
+    ]
+  },
+  "compiler_identity": {
+    "version": "5.3",
+    "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+    "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+    "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+  },
+  "candidate_relocations": [
+    {
+      "offset": 32,
+      "type": 5,
+      "symbol": "D_8013EBF0"
+    },
+    {
+      "offset": 40,
+      "type": 6,
+      "symbol": "D_8013EBF0"
+    }
+  ],
+  "independent_references": {
+    "target_rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "references": {
+      "spimdisasm": {
+        "matches": true,
+        "natural_function_bytes": 76,
+        "raw_text_bytes": 80,
+        "complete_linked_text_bytes": 76,
+        "code_sha256": "24401a6674fe5a160045ab41f18220ac223fc1a3d6b23231d14f5a968e4100f2",
+        "source_sha256": "1ba5d4756b65ee652dc35b8d553ae8d338c02e7ebf9838f68c27ab2a080140fa",
+        "raw_object_sha256": "5c441721e271f0c65f49b1866ea39093f7f295bcf89c9b07cd665cdf61ff1aa2",
+        "elf_sha256": "05146e726c03db79504f5e8ec0c258a09025b51059c4e27b30c0d0fc466e8c1e",
+        "bindings": {
+          "D_8013EBF0": "0x8013ebf0"
+        }
+      },
+      "splat": {
+        "matches": true,
+        "natural_function_bytes": 76,
+        "raw_text_bytes": 80,
+        "complete_linked_text_bytes": 76,
+        "code_sha256": "24401a6674fe5a160045ab41f18220ac223fc1a3d6b23231d14f5a968e4100f2",
+        "source_sha256": "635ea986ffa82833cd9d6f9dccf2b7babd56a4c540244d10fa3a0b37999e26c3",
+        "raw_object_sha256": "5c441721e271f0c65f49b1866ea39093f7f295bcf89c9b07cd665cdf61ff1aa2",
+        "elf_sha256": "574ddc994031a226ba2ab8f316e3906b09e54eebba9f6006159053892bf01aca",
+        "bindings": {
+          "D_8013EBF0": "0x8013ebf0"
+        }
+      }
+    },
+    "alignment_bytes_are_not_instruction_credit": true
+  },
+  "independent_reference_proof_sha256": "884cd6131532b7b083d7250c6e233884ff5da19ee8dac9ca446772cc35ae3e56",
+  "execution": {
+    "cases": 449,
+    "paired_comparisons": 449,
+    "principal_fixture_executions": 898,
+    "distinct_argument_pairs": 417,
+    "case_classes": {
+      "ordinary": 256,
+      "head_collision": 64,
+      "terminator_collision": 32,
+      "undersized": 64,
+      "uncached_inputs": 32,
+      "retail_caller_bounds": 1
+    },
+    "trace_sha256": "f588aef27ca387883aa67eb2e172eccd373c784eb535428c2045aa03e13aee5d",
+    "candidate_v0_matches_retail_cases": 20,
+    "return_declaration_unresolved": true,
+    "callee_stubs": 0,
+    "emulator": {
+      "name": "Unicorn",
+      "version": "2.1.1"
+    },
+    "limits": [
+      "449 finite fixtures validate ordered writes, independent memory windows, permitted accesses, return PC, saved integer/F20-F31 state, SP/GP/RA and stack canaries.",
+      "V0 is observed but excluded from equivalence under the existing void interface; the caller ignores the result.",
+      "Collisions, undersized bounds and uncached pointers are diagnostic cases, not evidence of valid game allocations.",
+      "These checks do not prove exact instructions, hardware behavior or complete gameplay."
+    ]
+  },
+  "checker": {
+    "path": "tools/check_heap_initializer.py",
+    "sha256": "74920df4f67a0d4b78f84eb9261cbbf3bd1bd7c73d8a2f3da77cfcf38a7d8e42",
+    "command": "make check-heap-initializer",
+    "proof": "build/heap-initializer-execution/proof.json",
+    "proof_sha256": "714f7892d7a9e435d410718740790c438ee2656dc18b908df425baa0f869af19",
+    "controls": [
+      {
+        "name": "extra_write",
+        "detected": true,
+        "reason": "('ordered_write_mismatch', [['0x8013ebf0', 4, '0x80204000'], ['0x80204000', 4, '0x9'], ['0x8020400c', 4, '0xfffffffe']], [['0x80204000', 4, '0x0'], ['0x8013ebf0', 4, '0x80204000'], ['0x80204000', 4, '0x9'], ['0x8020400c', 4, '0xfffffffe']])",
+        "code_sha256": "6c2c9bdb8e619e6ea9268ab7d2ae758bc1b2725a7431e4c3e6ec93f9c7efb638"
+      },
+      {
+        "name": "wrong_terminator",
+        "detected": true,
+        "reason": "[['unexpected_write', '0x204010', 4]]",
+        "code_sha256": "4871f2d97734f1f723367eb71307c40bafeeea1233efda6fa4a14cc24293cbc0"
+      },
+      {
+        "name": "saved_integer_clobber",
+        "detected": true,
+        "reason": "('abi_changed', {'S0': 2721319936, 'S1': 2721319968, 'S2': 2721320000, 'S3': 2721320032, 'S4': 2721320064, 'S5': 2721320096, 'S6': 2721320128, 'S7': 2721320160, 'FP': 2721320192, 'GP': 2150694912, 'SP': 2150629376, 'RA': 2147483776}, {'S0': 0, 'S1': 2721319968, 'S2': 2721320000, 'S3': 2721320032, 'S4': 2721320064, 'S5': 2721320096, 'S6': 2721320128, 'S7': 2721320160, 'FP': 2721320192, 'GP': 2150694912, 'SP': 2150629376, 'RA': 2147483776})",
+        "code_sha256": "ff37fc399e2b53af2d8cad0d0e3209c573fff43b6f129eba1382bf40aaad48b6"
+      },
+      {
+        "name": "saved_float_clobber",
+        "detected": true,
+        "reason": "floating_saved_state_changed",
+        "code_sha256": "fcfd850342c93c5c0a05f6e9d7ce997f76b165b59eb2bddf69f5d0f87a49388a"
+      },
+      {
+        "name": "unexpected_read",
+        "detected": true,
+        "reason": "[['unexpected_read', '0x310000', 4]]",
+        "code_sha256": "a065f2e6366a2a7d38c838fd637311032c779082886bd3b6a65e49a4ddcaaa74"
+      },
+      {
+        "name": "unexpected_code",
+        "detected": true,
+        "reason": "('ordered_write_mismatch', [['0x8013ebf0', 4, '0x80204000'], ['0x80204000', 4, '0x9'], ['0x8020400c', 4, '0xfffffffe']], [])",
+        "code_sha256": "648c247e10068a01f3e63559d1e172047ea3c5fdd16653b0866a4f1ff54047f2"
+      },
+      {
+        "name": "missing_return",
+        "detected": true,
+        "reason": "[['unexpected_code', '0x8004ded8']]",
+        "code_sha256": "27a49c9abe3d78c6803cd5618df38e8e2e1aaf23f008aa85a8c1cbeec2a95909"
+      },
+      {
+        "name": "free_bit",
+        "detected": true,
+        "reason": "('ordered_write_mismatch', [['0x8013ebf0', 4, '0x80204000'], ['0x80204000', 4, '0x9'], ['0x8020400c', 4, '0xfffffffe']], [['0x8013ebf0', 4, '0x80204000'], ['0x80204000', 4, '0xb'], ['0x8020400c', 4, '0xfffffffe']])",
+        "code_sha256": "482e59f95236cd7f10ac5eba97de94c30088302d2edaea9cfa080d6e8b1a7f44"
+      },
+      {
+        "name": "sentinel",
+        "detected": true,
+        "reason": "('ordered_write_mismatch', [['0x8013ebf0', 4, '0x80204000'], ['0x80204000', 4, '0x9'], ['0x8020400c', 4, '0xfffffffe']], [['0x8013ebf0', 4, '0x80204000'], ['0x80204000', 4, '0x9'], ['0x8020400c', 4, '0xfffffffd']])",
+        "code_sha256": "72a2323d5768eee67599a9e9ceb9bf831a18c7e865f05773d51a3a34f258dc64"
+      },
+      {
+        "name": "head_reload",
+        "detected": true,
+        "reason": "Unhandled CPU exception (UC_ERR_EXCEPTION)",
+        "code_sha256": "194262883f3a97be4897ff93e231788e0caa3940fdeb8d3ffde90da42baf8e03"
+      }
+    ],
+    "source_mutations": [
+      {
+        "name": "free_bit",
+        "source_sha256": "ea0d10f189f3bf42216de98dbb90f6c1232bb6028bd33f4f71562a0120fddfe7"
+      },
+      {
+        "name": "sentinel",
+        "source_sha256": "f32c8896f3e2499c1c14a4af1d4a942efe5c95637832bcaf48e2a6358bc51387"
+      },
+      {
+        "name": "head_reload",
+        "source_sha256": "0ab05eaba2acef96a9ce2f9ca0563c8d47983a049034af86cbebc2b303a748b2"
+      }
+    ]
+  },
+  "research": {
+    "new_complete_source_comparisons": 98,
+    "prior_best_void_reverified": true,
+    "families": {
+      "heap-consumed-head-20261010": {
+        "comparisons": 25,
+        "best_different_words": 13,
+        "receipt_sha256": "e08203c0ac76efddd6c40e2c6838c8df917499b249be600ce323423c80ccedd8"
+      },
+      "heap-return-liveness-20261010": {
+        "comparisons": 18,
+        "best_different_words": 16,
+        "receipt_sha256": "721ac3210724742a5360783849b78d737896f77ba4e21520cdb26786c438edf2"
+      },
+      "heap-expression-reuse-20261010": {
+        "comparisons": 24,
+        "best_different_words": 18,
+        "receipt_sha256": "f1d00aaee087d947b500ada1bc0ea424ea18fb5ce8454b240001fc45b5744839"
+      },
+      "heap-early-capacity-20261010": {
+        "comparisons": 32,
+        "best_different_words": 13,
+        "receipt_sha256": "b740628624fdbb7aa74b82570ef4f870590fac4629232eb44cb42362f1365e3f"
+      }
+    },
+    "diagnostic_proof_sha256": "553741df27c4c9b0f0748248dee0ccde582c2051ce819bc12c0dba77c33b38e7",
+    "original_optimizer_sha256": "a4dc9b9b20845889f60d9c0dda307569f9f66fd44419aab33693f0d5430aaaf2",
+    "original_optimizer_global_color_counts": {
+      "canonical_void": 5,
+      "void_13": 8,
+      "pointer_17": 9,
+      "expression_18": 6
+    },
+    "every_diagnostic_allocated_section_equal_pinned": true,
+    "retail_compiler_intermediate_code_available": false
+  },
+  "acceptance": {
+    "clean_extraction_build_and_tests": true,
+    "every_rom_byte_equal": true,
+    "independent_runtime_units": 914,
+    "independent_startup_units": 2,
+    "independent_assembly_units": 18,
+    "independent_data_units": 201,
+    "tooling_tests": 181,
+    "legacy_trail_cases": 5040,
+    "legacy_heap_cases": 256,
+    "receipt_sha256": "24806a41bdf8ed3c6be4a293c599b478eb811c0d10f98cf4bdcb5305b0698dea"
+  },
+  "unchanged_verified_totals": {
+    "matched_c_functions": 1432,
+    "matched_c_bytes": 316380,
+    "matched_assembly_functions": 29,
+    "matched_assembly_bytes": 4372,
+    "source_owned_initialized_bytes": 37867,
+    "source_owned_bss_bytes": 879161
+  },
+  "full_source_recovery_complete": false
+}

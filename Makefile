@@ -8715,3 +8715,7 @@ build/us/renderer_text_clock_storage.o: src/game/renderer_text/clock_storage.c $
 .PHONY: check-renderer-screen-glyph
 check-renderer-screen-glyph: toolchain
 	$(PYTHON) tools/check_renderer_screen_glyph.py
+
+.PHONY: check-heap-initializer
+check-heap-initializer: toolchain
+	$(PYTHON) tools/check_heap_initializer.py

@@ -374,7 +374,10 @@ reconstructs the complete trail callback as an excluded C candidate and owns
 68 initialized bytes and sixteen BSS bytes for arena/heap state and diagnostics.
 An optional MIPS execution checker compares its returns, ribbon geometry,
 colors, and vertex accounting with the target using deterministic callee stubs.
-It also compares the heap initializer's complete memory-write sequence.
+The separate [heap initializer audit](docs/heap-initializer-audit.md) compares
+449 retail/C pairs with independent memory and saved-register checks and ten
+rejected controls. Its 76-byte natural candidate remains excluded with thirteen
+differing instruction words.
 Instruction matching remains required before the callback receives credit.
 
 [Resource cache storage and destination formatting](docs/resource-cache-and-formatting.md)

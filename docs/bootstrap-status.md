@@ -22,6 +22,11 @@ adds four BSS bytes and a guarded checker with 816 paired cases, eight real
 support units, and eight controls. It adds no matching CPU instructions; the
 full glyph and HUD candidates still differ.
 
+The [heap initializer audit](heap-initializer-audit.md) refines the excluded
+void candidate to 76 natural bytes and thirteen differing words. All 449
+retail/C pairs and ten controls pass; this adds no source ownership. The
+original return declaration and instruction match remain unresolved.
+
 The [actor boundary reflection](actor-boundary-reflection.md) contributes one
 complete 1,520-byte function with an 88-byte frame. Independent reassemblies,
 1,818 guarded pairs and semantic, saved-FPU and guest-access controls pass.
