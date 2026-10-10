@@ -5249,5 +5249,96 @@
       "D_8008FA0C": 0
     },
     "evidence": "docs/actor-path-literals.md"
+  },
+  {
+    "source": "src/game/rom_file_error.c",
+    "object": "build/us/rom_file_error.o",
+    "input_section": ".data",
+    "section": ".rom_file_failure_literal",
+    "vram": 2148096832,
+    "rom": 616256,
+    "size": 16,
+    "symbols": {
+      "D_80095B40": 0
+    },
+    "evidence": "docs/rom-file-literals.md"
+  },
+  {
+    "source": "src/game/rom_files.c",
+    "object": "build/us/rom_files.o",
+    "input_section": ".data",
+    "section": ".rom_file_not_found_literal",
+    "vram": 2148096848,
+    "rom": 616272,
+    "size": 52,
+    "symbols": {
+      "D_80095B50": 0
+    },
+    "evidence": "docs/rom-file-literals.md"
+  },
+  {
+    "source": "src/game/rom_files_data/location.c",
+    "object": "build/us/rom_file_location.o",
+    "input_section": ".data",
+    "section": ".rom_file_location_literal",
+    "vram": 2148096900,
+    "rom": 616324,
+    "size": 10,
+    "symbols": {
+      "D_80095B84": 0
+    },
+    "evidence": "docs/rom-file-literals.md"
+  },
+  {
+    "source": "src/game/rom_files_data/boss_two.c",
+    "object": "build/us/rom_file_boss_two.o",
+    "input_section": ".data",
+    "section": ".rom_file_boss_two_literal",
+    "vram": 2148096912,
+    "rom": 616336,
+    "size": 6,
+    "symbols": {
+      "D_80095B90": 0
+    },
+    "evidence": "docs/rom-file-literals.md"
+  },
+  {
+    "source": "src/game/rom_files_data/boss_one.c",
+    "object": "build/us/rom_file_boss_one.o",
+    "input_section": ".data",
+    "section": ".rom_file_boss_one_literal",
+    "vram": 2148096920,
+    "rom": 616344,
+    "size": 6,
+    "symbols": {
+      "D_80095B98": 0
+    },
+    "evidence": "docs/rom-file-literals.md"
+  },
+  {
+    "source": "src/game/rom_files_data/level_prefix.c",
+    "object": "build/us/rom_file_level_prefix.o",
+    "input_section": ".data",
+    "section": ".rom_file_level_prefix_literal",
+    "vram": 2148096928,
+    "rom": 616352,
+    "size": 6,
+    "symbols": {
+      "D_80095BA0": 0
+    },
+    "evidence": "docs/rom-file-literals.md"
+  },
+  {
+    "source": "src/game/rom_files_data/stream_extension.c",
+    "object": "build/us/rom_file_stream_extension.o",
+    "input_section": ".data",
+    "section": ".rom_file_stream_extension_literal",
+    "vram": 2148096936,
+    "rom": 616360,
+    "size": 5,
+    "symbols": {
+      "D_80095BA8": 0
+    },
+    "evidence": "docs/rom-file-literals.md"
   }
 ]

@@ -1063,16 +1063,18 @@ build/us/rom_directory.o: src/game/rom_directory.c include/heap.h include/pi.h i
 	$(PYTHON) tools/trim_padding.py build/us/rom_directory.raw.o $@ .text 0x194
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/rom_file_error.o: src/game/rom_file_error.c include/debug_output.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/rom_file_error.o: src/game/rom_file_error.c include/debug_output.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/rom_file_literals.h tools/owned_sections.py config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/rom_file_error.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/rom_file_error.raw.o $@ .text 0x64
+	$(PYTHON) tools/trim_padding.py build/us/rom_file_error.raw.o build/us/rom_file_error.text.o .text 0x64
+	$(PYTHON) tools/owned_sections.py $< build/us/rom_file_error.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/rom_files.o: src/game/rom_files.c include/debug_output.h include/game_memory.h include/pi.h include/rom_files.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/rom_files.o: src/game/rom_files.c include/debug_output.h include/game_memory.h include/pi.h include/rom_files.h include/scene_definition.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/rom_file_literals.h tools/owned_sections.py config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/rom_files.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/rom_files.raw.o $@ .text 0x230
+	$(PYTHON) tools/trim_padding.py build/us/rom_files.raw.o build/us/rom_files.text.o .text 0x230
+	$(PYTHON) tools/owned_sections.py $< build/us/rom_files.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/object_runtime_active.o: src/game/object_runtime_active.c include/debug_output.h include/object_runtime.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -8330,6 +8332,46 @@ RUNTIME_OBJECTS += build/us/renderer_mesh_texture_corners.o
 RUNTIME_OBJECTS += build/us/renderer_fatal_format.o
 RUNTIME_OBJECTS += build/us/renderer_text_clock_storage.o
 
+build/us/rom_file_location.o: src/game/rom_files_data/location.c include/rom_file_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/rom_file_location.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/rom_file_location.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/rom_file_location.o
+
+build/us/rom_file_boss_two.o: src/game/rom_files_data/boss_two.c include/rom_file_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/rom_file_boss_two.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/rom_file_boss_two.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/rom_file_boss_two.o
+
+build/us/rom_file_boss_one.o: src/game/rom_files_data/boss_one.c include/rom_file_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/rom_file_boss_one.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/rom_file_boss_one.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/rom_file_boss_one.o
+
+build/us/rom_file_level_prefix.o: src/game/rom_files_data/level_prefix.c include/rom_file_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/rom_file_level_prefix.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/rom_file_level_prefix.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/rom_file_level_prefix.o
+
+build/us/rom_file_stream_extension.o: src/game/rom_files_data/stream_extension.c include/rom_file_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/rom_file_stream_extension.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/rom_file_stream_extension.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/rom_file_stream_extension.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8733,3 +8775,7 @@ check-renderer-diagnostic-line: toolchain
 .PHONY: audit-actor-path-literals
 audit-actor-path-literals: toolchain
 	$(PYTHON) tools/check_actor_path_literals.py
+
+.PHONY: audit-rom-file-literals
+audit-rom-file-literals: toolchain
+	$(PYTHON) tools/check_rom_file_literals.py

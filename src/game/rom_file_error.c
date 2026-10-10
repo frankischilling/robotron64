@@ -1,7 +1,6 @@
 #include "../../include/rom_files.h"
+#include "../../include/rom_file_literals.h"
 #include "../../include/debug_output.h"
-
-extern unsigned char D_80095B40[];
 
 int func_8004ED14(int unused)
 {
@@ -11,3 +10,5 @@ int func_8004ED14(int unused)
     func_8003CF88(D_80095B40);
     return numerator / denominator;
 }
+
+unsigned char D_80095B40[] = "EXIT at %s[%d]\n";
