@@ -194,5 +194,8 @@ code and BSS ownership do not change. The six first terminators are included;
 all following zeros remain fallback.
 
 Seven [ROM-file literals](rom-file-literals.md) add 101 initialized bytes.
-Current initialized ownership is 38,172 bytes; code and BSS totals do not change.
+That checkpoint had 38,172 initialized bytes; code and BSS totals do not change.
 Only characters and their first terminators receive ownership.
+
+Fourteen [movie literals](movie-literals.md) add 210 initialized bytes.
+Current initialized ownership is 38,382 bytes; code and BSS totals do not change.

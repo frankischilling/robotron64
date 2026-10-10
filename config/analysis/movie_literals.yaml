@@ -1,0 +1,97 @@
+name: Robotron 64 movie literals
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: movie_literals
+  base_path: ../../.local/movie-literals-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: movie_literal_props_limit
+    type: code
+    start: 0x90440
+    vram: 0x8008F840
+    subsegments:
+      - [0x90440, rodata, movie_literal_props_limit]
+  - name: movie_literal_primary_frames_limit
+    type: code
+    start: 0x90458
+    vram: 0x8008F858
+    subsegments:
+      - [0x90458, rodata, movie_literal_primary_frames_limit]
+  - name: movie_literal_color_cycles_limit
+    type: code
+    start: 0x90478
+    vram: 0x8008F878
+    subsegments:
+      - [0x90478, rodata, movie_literal_color_cycles_limit]
+  - name: movie_literal_strings_limit
+    type: code
+    start: 0x90498
+    vram: 0x8008F898
+    subsegments:
+      - [0x90498, rodata, movie_literal_strings_limit]
+  - name: movie_literal_path_prefix
+    type: code
+    start: 0x904B0
+    vram: 0x8008F8B0
+    subsegments:
+      - [0x904B0, rodata, movie_literal_path_prefix]
+  - name: movie_literal_replace_movie_extension
+    type: code
+    start: 0x904B8
+    vram: 0x8008F8B8
+    subsegments:
+      - [0x904B8, rodata, movie_literal_replace_movie_extension]
+  - name: movie_literal_append_movie_extension
+    type: code
+    start: 0x904C0
+    vram: 0x8008F8C0
+    subsegments:
+      - [0x904C0, rodata, movie_literal_append_movie_extension]
+  - name: movie_literal_tracks_limit
+    type: code
+    start: 0x904C8
+    vram: 0x8008F8C8
+    subsegments:
+      - [0x904C8, rodata, movie_literal_tracks_limit]
+  - name: movie_literal_track_extension
+    type: code
+    start: 0x904E0
+    vram: 0x8008F8E0
+    subsegments:
+      - [0x904E0, rodata, movie_literal_track_extension]
+  - name: movie_literal_integer_extension
+    type: code
+    start: 0x904E8
+    vram: 0x8008F8E8
+    subsegments:
+      - [0x904E8, rodata, movie_literal_integer_extension]
+  - name: movie_literal_float_extension
+    type: code
+    start: 0x904F0
+    vram: 0x8008F8F0
+    subsegments:
+      - [0x904F0, rodata, movie_literal_float_extension]
+  - name: movie_literal_callbacks_limit
+    type: code
+    start: 0x904F8
+    vram: 0x8008F8F8
+    subsegments:
+      - [0x904F8, rodata, movie_literal_callbacks_limit]
+  - name: movie_literal_update_label
+    type: code
+    start: 0x90514
+    vram: 0x8008F914
+    subsegments:
+      - [0x90514, rodata, movie_literal_update_label]
+  - name: movie_literal_erase_label
+    type: code
+    start: 0x90520
+    vram: 0x8008F920
+    subsegments:
+      - [0x90520, rodata, movie_literal_erase_label]
+  - [0x90530, bin, suffix]
+  - [0x800000]

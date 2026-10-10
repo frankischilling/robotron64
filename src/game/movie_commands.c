@@ -1,12 +1,9 @@
 #include "../../include/movie.h"
+#include "../../include/movie_literals.h"
 #include "../../include/game_memory.h"
 #include "../../include/scalar_math.h"
 #include "../../include/text.h"
 
-extern char D_8008F840[];
-extern char D_8008F858[];
-extern char D_8008F878[];
-extern char D_8008F898[];
 extern int D_8009EFB4;
 extern int D_800B1BE0;
 

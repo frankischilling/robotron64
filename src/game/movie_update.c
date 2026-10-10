@@ -1,9 +1,9 @@
 #include "../../include/movie.h"
+#include "../../include/movie_literals.h"
 #include "../../include/actor.h"
 #include "../../include/palette_effects.h"
 
 extern int D_800AD158, D_800AD280, D_8009EFA8;
-extern unsigned char D_8008F914[], D_8008F920[];
 
 int func_800360B8(unsigned char *label);
 int func_8004CEF0(int value);
