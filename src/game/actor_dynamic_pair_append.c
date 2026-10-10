@@ -2,8 +2,6 @@
 #include "../../include/debug_output.h"
 #include "../../include/actor_dynamic_pool_internal.h"
 
-extern char D_8008F9F4[];
-
 void func_8000D1FC(ActorDynamicCommand *command)
 {
     ActorDynamicPairGroup *group;
@@ -17,3 +15,5 @@ void func_8000D1FC(ActorDynamicCommand *command)
     group->pairs[group->count].value = value * 10;
     group->count++;
 }
+
+char D_8008F9F4[] = "Too many path segments\n";

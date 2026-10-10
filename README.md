@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,433 matching C functions covering 316,808 bytes, twenty-nine assembly functions covering 4,372 bytes, 37,867 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,433 matching C functions covering 316,808 bytes, twenty-nine assembly functions covering 4,372 bytes, 38,071 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -615,3 +615,6 @@ source/header proof metadata, and reruns the linked build and provenance
 checks. Its report is written to `build/publication-audit.json`.
 
 [Renderer primitive state](docs/renderer-primitive-state.md) adds four initialized bytes and 32 BSS bytes.
+
+Six [actor path and name literals](docs/actor-path-literals.md) now come from
+their C consumers. Run `make audit-actor-path-literals` for the bounded audit.

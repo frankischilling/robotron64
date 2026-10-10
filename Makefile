@@ -1791,10 +1791,11 @@ build/us/actor_setup_noop.o: src/game/actor_setup_noop.c $(IDO) Makefile tools/t
 	$(PYTHON) tools/trim_padding.py build/us/actor_setup_noop.raw.o $@ .text 0x8
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/actor_setup_strings.o: src/game/actor_setup_strings.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor_setup_internal.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_setup_strings.o: src/game/actor_setup_strings.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor_setup_internal.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_setup_strings.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/actor_setup_strings.raw.o $@ .text 0x110
+	$(PYTHON) tools/trim_padding.py build/us/actor_setup_strings.raw.o build/us/actor_setup_strings.text.o .text 0x110
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_setup_strings.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/actor_setup_animation_reset.o: src/game/actor_setup_animation_reset.c include/actor.h include/game_memory.h include/object.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
@@ -5461,16 +5462,18 @@ build/us/actor_dynamic_group_allocate.o: src/game/actor_dynamic_group_allocate.c
 	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_group_allocate.raw.o $@ .text 0xb0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/actor_dynamic_pair_append.o: src/game/actor_dynamic_pair_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_dynamic_pair_append.o: src/game/actor_dynamic_pair_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_dynamic_pair_append.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_pair_append.raw.o $@ .text 0xb8
+	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_pair_append.raw.o build/us/actor_dynamic_pair_append.text.o .text 0xb8
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_dynamic_pair_append.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/actor_dynamic_parameter_append.o: src/game/actor_dynamic_parameter_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_dynamic_parameter_append.o: src/game/actor_dynamic_parameter_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/object.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_dynamic_parameter_append.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_parameter_append.raw.o $@ .text 0xb8
+	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_parameter_append.raw.o build/us/actor_dynamic_parameter_append.text.o .text 0xb8
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_dynamic_parameter_append.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 build/us/renderer_texture_index_draw.o: src/game/renderer_texture_index_draw.c include/debug_output.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/renderer_texture_index.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
@@ -5665,10 +5668,11 @@ build/us/audio_backend_patch_trigger.o: src/game/audio_backend_patch_trigger.c i
 	$(PYTHON) tools/owned_sections.py $< build/us/audio_backend_patch_trigger.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/actor_dynamic_point_append.o: src/game/actor_dynamic_point_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/object.h include/object_recovery.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/actor_dynamic_point_append.o: src/game/actor_dynamic_point_append.c include/actor.h include/actor_dynamic_pool_internal.h include/actor_resource_internal.h include/actor_resource_5c_internal.h include/actor_setup_internal.h include/debug_output.h include/game_memory.h include/object.h include/object_recovery.h include/scene_definition.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json tools/owned_sections.py config/owned_sections.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/actor_dynamic_point_append.raw.o $<
-	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_point_append.raw.o $@ .text 0x16c
+	$(PYTHON) tools/trim_padding.py build/us/actor_dynamic_point_append.raw.o build/us/actor_dynamic_point_append.text.o .text 0x16c
+	$(PYTHON) tools/owned_sections.py $< build/us/actor_dynamic_point_append.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
 RUNTIME_OBJECTS += \
@@ -8725,3 +8729,7 @@ check-heap-initializer: toolchain
 .PHONY: check-renderer-diagnostic-line
 check-renderer-diagnostic-line: toolchain
 	$(PYTHON) tools/check_renderer_diagnostic_line.py
+
+.PHONY: audit-actor-path-literals
+audit-actor-path-literals: toolchain
+	$(PYTHON) tools/check_actor_path_literals.py

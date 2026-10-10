@@ -5195,5 +5195,59 @@
       "D_800CD2B0": 0
     },
     "evidence": "docs/renderer-screen-glyph-audit.md"
+  },
+  {
+    "source": "src/game/actor_setup_strings.c",
+    "object": "build/us/actor_setup_strings.o",
+    "input_section": ".data",
+    "section": ".actor_setup_strings_literals",
+    "vram": 2147961508,
+    "rom": 480932,
+    "size": 75,
+    "symbols": {
+      "D_80074AA4": 0,
+      "D_80074ACC": 40
+    },
+    "evidence": "docs/actor-path-literals.md"
+  },
+  {
+    "source": "src/game/actor_dynamic_point_append.c",
+    "object": "build/us/actor_dynamic_point_append.o",
+    "input_section": ".data",
+    "section": ".actor_dynamic_point_append_literals",
+    "vram": 2148071848,
+    "rom": 591272,
+    "size": 76,
+    "symbols": {
+      "D_8008F9A8": 0,
+      "D_8008F9C0": 24
+    },
+    "evidence": "docs/actor-path-literals.md"
+  },
+  {
+    "source": "src/game/actor_dynamic_pair_append.c",
+    "object": "build/us/actor_dynamic_pair_append.o",
+    "input_section": ".data",
+    "section": ".actor_dynamic_pair_append_literals",
+    "vram": 2148071924,
+    "rom": 591348,
+    "size": 24,
+    "symbols": {
+      "D_8008F9F4": 0
+    },
+    "evidence": "docs/actor-path-literals.md"
+  },
+  {
+    "source": "src/game/actor_dynamic_parameter_append.c",
+    "object": "build/us/actor_dynamic_parameter_append.o",
+    "input_section": ".data",
+    "section": ".actor_dynamic_parameter_append_literals",
+    "vram": 2148071948,
+    "rom": 591372,
+    "size": 29,
+    "symbols": {
+      "D_8008FA0C": 0
+    },
+    "evidence": "docs/actor-path-literals.md"
   }
 ]

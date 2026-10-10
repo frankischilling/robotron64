@@ -1216,7 +1216,9 @@ SECTIONS
     .actor_collision_pickup_order 0x800739BC : AT(0x745BC) SUBALIGN(4) { build/us/actor_collision_pickup_order.o(.data) }
     .collision_fallback_745c8_74648 0x800739C8 : AT(0x745C8) { build/us/fallback.o(.rom_collision_fallback_745c8_74648) }
     .early_input_fixed_data_data 0x80073A48 : AT(0x74648) SUBALIGN(4) { build/us/early_input_fixed_data.o(.data) }
-    .menu_display_choices_before 0x80073a88 : AT(0x74688) { build/us/fallback.o(.rom_menu_display_choices_before) }
+    .menu_display_choices_before_74688_756a4 0x80073A88 : AT(0x74688) { build/us/fallback.o(.rom_menu_display_choices_before_74688_756a4) }
+    .actor_setup_strings_literals 0x80074AA4 : AT(0x756A4) SUBALIGN(4) { build/us/actor_setup_strings.o(.data) }
+    .menu_display_choices_before_756ef_76df8 0x80074AEF : AT(0x756EF) { build/us/fallback.o(.rom_menu_display_choices_before_756ef_76df8) }
     .menu_display_choices 0x800761F8 : AT(0x76DF8) SUBALIGN(4) { build/us/menu_display_choices.o(.data) }
     .front_fallback_76e08_778d0 0x80076208 : AT(0x76e08) { build/us/fallback.o(.rom_front_fallback_76e08_778d0) }
     .menu_front_load_labels 0x80076cd0 : AT(0x778d0) SUBALIGN(4) { build/us/menu_front_load_labels.o(.data) }
@@ -1358,7 +1360,11 @@ SECTIONS
     .early_effect_spawn_rodata 0x8008F958 : AT(0x90558) SUBALIGN(4) { build/us/early_effect_spawn.o(.rodata) }
     .early_render_coordinate_data 0x8008F970 : AT(0x90570) SUBALIGN(4) { build/us/early_render_coordinate_data.o(.data) }
     .early_render_handler_select_rodata 0x8008F974 : AT(0x90574) SUBALIGN(4) { build/us/early_render_handler_select.o(.rodata) }
-    .boss_fallback_90588_9078c 0x8008F988 : AT(0x90588) { build/us/fallback.o(.rom_boss_fallback_90588_9078c) }
+    .boss_fallback_90588_9078c_90588_905a8 0x8008F988 : AT(0x90588) { build/us/fallback.o(.rom_boss_fallback_90588_9078c_90588_905a8) }
+    .actor_dynamic_point_append_literals 0x8008F9A8 : AT(0x905A8) SUBALIGN(4) { build/us/actor_dynamic_point_append.o(.data) }
+    .actor_dynamic_pair_append_literals 0x8008F9F4 : AT(0x905F4) SUBALIGN(4) { build/us/actor_dynamic_pair_append.o(.data) }
+    .actor_dynamic_parameter_append_literals 0x8008FA0C : AT(0x9060C) SUBALIGN(4) { build/us/actor_dynamic_parameter_append.o(.data) }
+    .boss_fallback_90588_9078c_90629_9078c 0x8008FA29 : AT(0x90629) { build/us/fallback.o(.rom_boss_fallback_90588_9078c_90629_9078c) }
     .early_boss_error 0x8008FB8C : AT(0x9078C) SUBALIGN(4) { build/us/early_boss_create.o(.rodata) }
     .early_actor_movement_switch 0x8008FBA4 : AT(0x907A4) SUBALIGN(4) { build/us/early_actor_movement.o(.rodata) }
     .movement_fallback_907bc_909e0 0x8008FBBC : AT(0x907BC) { build/us/fallback.o(.rom_movement_fallback_907bc_909e0) }
@@ -2739,8 +2745,6 @@ ASSERT(SIZEOF(.endgame_34574_35d90) == 0x181c, "endgame_34574_35d90 size changed
 ASSERT(SIZEOF(.endgame_4c190_4c7d0) == 0x640, "endgame_4c190_4c7d0 size changed")
 D_800AE4F8 = 0x800AE4F8;
 D_8008F990 = 0x8008F990;
-D_8008F9F4 = 0x8008F9F4;
-D_8008FA0C = 0x8008FA0C;
 D_800C8DFC = 0x800C8DFC;
 D_8007BAC4 = 0x8007BAC4;
 D_80138250 = 0x80138250;
@@ -2834,8 +2838,6 @@ D_80192820 = 0x80192820;
 D_8019282C = 0x8019282C;
 D_80192830 = 0x80192830;
 D_80192834 = 0x80192834;
-D_8008F9A8 = 0x8008F9A8;
-D_8008F9C0 = 0x8008F9C0;
 ASSERT(SIZEOF(.audio_backend_pan_command) == 0x154, "audio_backend_pan_command size changed")
 ASSERT(SIZEOF(.audio_backend_patch_trigger) == 0x180, "audio_backend_patch_trigger size changed")
 ASSERT(SIZEOF(.actor_dynamic_point_append) == 0x16c, "actor_dynamic_point_append size changed")
@@ -3238,7 +3240,11 @@ ASSERT(SIZEOF(.script_resource_fallback_913a8_923f8) == 0x1050, "script_resource
 ASSERT(SIZEOF(.error_fallback_92434_92558) == 0x124, "error_fallback_92434_92558 size changed")
 ASSERT(SIZEOF(.scene_action_pickup_count) == 0x4, "scene_action_pickup_count BSS size changed")
 ASSERT(SIZEOF(.early_boss_create) == 0x304, "early_boss_create size changed")
-ASSERT(SIZEOF(.boss_fallback_90588_9078c) == 0x204, "boss_fallback_90588_9078c size changed")
+ASSERT(SIZEOF(.boss_fallback_90588_9078c_90588_905a8) == 0x20, "boss_fallback_90588_9078c_90588_905a8 size changed")
+ASSERT(SIZEOF(.actor_dynamic_point_append_literals) == 0x4C, "actor_dynamic_point_append_literals size changed")
+ASSERT(SIZEOF(.actor_dynamic_pair_append_literals) == 0x18, "actor_dynamic_pair_append_literals size changed")
+ASSERT(SIZEOF(.actor_dynamic_parameter_append_literals) == 0x1D, "actor_dynamic_parameter_append_literals size changed")
+ASSERT(SIZEOF(.boss_fallback_90588_9078c_90629_9078c) == 0x163, "boss_fallback_90588_9078c_90629_9078c size changed")
 ASSERT(SIZEOF(.early_boss_error) == 0x18, "early_boss_error size changed")
 ASSERT(SIZEOF(.early_boss_timestamps) == 0x8, "early_boss_timestamps BSS size changed")
 ASSERT(SIZEOF(.early_boss_trigger) == 0x3ac, "early_boss_trigger size changed")
@@ -3335,7 +3341,9 @@ ASSERT(SIZEOF(.menu_static_confirmation_text) == 0x10, "menu_static_confirmation
 ASSERT(SIZEOF(.menu_static_pause_text) == 0x50, "menu_static_pause_text size changed")
 ASSERT(SIZEOF(.menu_display_before) == 0x910, "menu_display_before size changed")
 ASSERT(SIZEOF(.menu_display) == 0x490, "menu_display size changed")
-ASSERT(SIZEOF(.menu_display_choices_before) == 0x2770, "menu_display_choices_before size changed")
+ASSERT(SIZEOF(.menu_display_choices_before_74688_756a4) == 0x101C, "menu_display_choices_before_74688_756a4 size changed")
+ASSERT(SIZEOF(.actor_setup_strings_literals) == 0x4B, "actor_setup_strings_literals size changed")
+ASSERT(SIZEOF(.menu_display_choices_before_756ef_76df8) == 0x1709, "menu_display_choices_before_756ef_76df8 size changed")
 ASSERT(SIZEOF(.menu_display_choices) == 0x10, "menu_display_choices size changed")
 ASSERT(SIZEOF(.menu_display_text_before) == 0x144, "menu_display_text_before size changed")
 ASSERT(SIZEOF(.menu_display_text) == 0x8, "menu_display_text size changed")
@@ -3687,3 +3695,17 @@ ASSERT(D_8008F94C == ADDR(.early_effect_coordinate_scales) + 0xC, "D_8008F94C so
 ASSERT(D_8008F950 == ADDR(.early_effect_coordinate_scales) + 0x10, "D_8008F950 source definition overridden")
 
 ASSERT(D_8008F954 == ADDR(.early_effect_coordinate_scales) + 0x14, "D_8008F954 source definition overridden")
+
+ASSERT(ADDR(.actor_setup_strings_literals) == 0x80074AA4, "actor_setup_strings_literals moved")
+ASSERT(D_80074AA4 == ADDR(.actor_setup_strings_literals) + 0x0, "D_80074AA4 source definition overridden")
+ASSERT(D_80074ACC == ADDR(.actor_setup_strings_literals) + 0x28, "D_80074ACC source definition overridden")
+
+ASSERT(ADDR(.actor_dynamic_point_append_literals) == 0x8008F9A8, "actor_dynamic_point_append_literals moved")
+ASSERT(D_8008F9A8 == ADDR(.actor_dynamic_point_append_literals) + 0x0, "D_8008F9A8 source definition overridden")
+ASSERT(D_8008F9C0 == ADDR(.actor_dynamic_point_append_literals) + 0x18, "D_8008F9C0 source definition overridden")
+
+ASSERT(ADDR(.actor_dynamic_pair_append_literals) == 0x8008F9F4, "actor_dynamic_pair_append_literals moved")
+ASSERT(D_8008F9F4 == ADDR(.actor_dynamic_pair_append_literals) + 0x0, "D_8008F9F4 source definition overridden")
+
+ASSERT(ADDR(.actor_dynamic_parameter_append_literals) == 0x8008FA0C, "actor_dynamic_parameter_append_literals moved")
+ASSERT(D_8008FA0C == ADDR(.actor_dynamic_parameter_append_literals) + 0x0, "D_8008FA0C source definition overridden")

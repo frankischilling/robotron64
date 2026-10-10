@@ -3,9 +3,6 @@
 #include "../../include/debug_output.h"
 #include "../../include/object_recovery.h"
 
-extern char D_8008F9A8[];
-extern unsigned char D_8008F9C0[];
-
 void func_8000D090(ActorDynamicPointCommand *command)
 {
     ActorDynamicPairGroup *group;
@@ -37,3 +34,6 @@ void func_8000D090(ActorDynamicPointCommand *command)
     }
     group->count++;
 }
+
+char D_8008F9A8[] = "Too many path segments\n";
+unsigned char D_8008F9C0[] = "WARNING:\tzero lenght found in path, possible crash\n";

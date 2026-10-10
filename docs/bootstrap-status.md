@@ -3,7 +3,7 @@
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
 Current verified totals are 1,433 matching C functions / 316,808 instruction
-bytes, twenty-nine assembly functions / 4,372 bytes, 37,867 initialized bytes
+bytes, twenty-nine assembly functions / 4,372 bytes, 38,071 initialized bytes
 and 879,161 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both

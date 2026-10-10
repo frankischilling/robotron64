@@ -23,3 +23,6 @@ void func_8001DE60(int value)
     text[func_8003B4FC(text) - 2] = 0x26;
     text[func_8003B4FC(text) - 1] = 0x95;
 }
+
+unsigned char D_80074AA4[] = "abcdefghijklmnopqrstuvwxyz0123456789SDE";
+unsigned char D_80074ACC[] = "bcdfghjklmnpqrstvwxyz0123456789SDE";
