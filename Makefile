@@ -8322,6 +8322,7 @@ RUNTIME_OBJECTS += build/us/collision_capture.o
 
 RUNTIME_OBJECTS += build/us/renderer_mesh_texture_corners.o
 RUNTIME_OBJECTS += build/us/renderer_fatal_format.o
+RUNTIME_OBJECTS += build/us/renderer_text_clock_storage.o
 
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
@@ -8704,3 +8705,13 @@ build/us/renderer_fatal_format.o: src/game/renderer_diagnostics/fatal_format.c i
 .PHONY: check-renderer-fatal-format
 check-renderer-fatal-format: toolchain
 	$(PYTHON) tools/check_renderer_fatal_format.py
+
+build/us/renderer_text_clock_storage.o: src/game/renderer_text/clock_storage.c $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	@mkdir -p build/us
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/renderer_text_clock_storage.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/renderer_text_clock_storage.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: check-renderer-screen-glyph
+check-renderer-screen-glyph: toolchain
+	$(PYTHON) tools/check_renderer_screen_glyph.py

@@ -1,0 +1,322 @@
+{
+  "schema": 1,
+  "kind": "source-owned screen glyph clock and excluded candidate execution audit",
+  "verified_utc": "2026-10-10T08:04:11.256212+00:00",
+  "baseline_head": "7e43083351215c6d5705ddb5a6af2526fb9b43a3",
+  "owned_added": {
+    "functions": 0,
+    "code": 0,
+    "initialized_data": 0,
+    "bss": 4
+  },
+  "clock": {
+    "source": "src/game/renderer_text/clock_storage.c",
+    "source_sha256": "7c10a75b0193b6ebbb22fd2d9db337c657ed5d9ec8ce5417cf9f12e85b7bd9e0",
+    "ownership": {
+      "source": "src/game/renderer_text/clock_storage.c",
+      "object": "build/us/renderer_text_clock_storage.o",
+      "input_section": ".bss",
+      "section": ".renderer_text_clock_storage",
+      "vram": 2148324016,
+      "rom": null,
+      "size": 4,
+      "symbols": {
+        "D_800CD2B0": 0
+      },
+      "evidence": "docs/renderer-screen-glyph-audit.md"
+    },
+    "raw_symbol": {
+      "value": 0,
+      "size": 4,
+      "type": 1,
+      "section": ".bss",
+      "index": 4
+    },
+    "raw_bss_bytes": 16,
+    "owned_bss_bytes": 4,
+    "alignment_bytes_uncredited": 12,
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    },
+    "independent_layout_matches": true,
+    "source_defines_no_executable_code": true,
+    "read_instruction": "0x80049FF4",
+    "write_instruction": "0x8004A020",
+    "increment_after_allocation": 10
+  },
+  "excluded_glyph": {
+    "name": "func_80049E3C",
+    "source": "src/game/renderer_text/text_glyph.c",
+    "source_sha256": "7c7e6b543213fcbd225260a13fe78b50fe4f001f95f2e7992898cb95246b7322",
+    "vram": "0x80049E3C",
+    "rom": "0x4AA3C",
+    "natural_retail_bytes": 1144,
+    "retail_instructions": 286,
+    "compiled_bytes": 1184,
+    "different_words": 137,
+    "matches": false,
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    }
+  },
+  "independent_references": {
+    "spimdisasm": {
+      "matches": true,
+      "natural_function_bytes": 1144,
+      "raw_text_bytes": 1152,
+      "complete_linked_text_bytes": 1144,
+      "code_sha256": "3acdb45d2805561228349a6012b8f46dac8af951c34cccdeef0ffd31ad30493d",
+      "source_sha256": "57c0793b416236bbbb74a469a8e1bcfcf2731b331f25ef216b3359d1fd2f4011",
+      "raw_object_sha256": "981248768d624eacd68590584cd7ee314c3ec461435e1ef3cac99bba236f8926",
+      "elf_sha256": "da05e598802d9947d42aef5106ef4c0ac84e0a6718d5239aac07772e57681c21"
+    },
+    "splat": {
+      "matches": true,
+      "natural_function_bytes": 1144,
+      "raw_text_bytes": 1152,
+      "complete_linked_text_bytes": 1144,
+      "code_sha256": "3acdb45d2805561228349a6012b8f46dac8af951c34cccdeef0ffd31ad30493d",
+      "source_sha256": "c9f8e74c44eb9b975c2457c4db7559fc4310cc77bb7d42726e72bf9f391494b0",
+      "raw_object_sha256": "981248768d624eacd68590584cd7ee314c3ec461435e1ef3cac99bba236f8926",
+      "elf_sha256": "444ec3821fdbcfe3fa89c03cfbd61b2f2d389863ab9ceee73adbd598071992fc"
+    }
+  },
+  "execution": {
+    "paired_cases": 816,
+    "paired_executions": 1632,
+    "trace_sha256": "d182b78661c357feedd8424356f807da48fe2c5c243bdd4fb3ab13013641aec4",
+    "real_support_units": [
+      "renderer_glyph_map",
+      "fixed_math",
+      "renderer_matrix_transform",
+      "short_sine",
+      "short_cosine",
+      "object_recovery_fixed_trig",
+      "graphics_pool",
+      "debug_noop"
+    ],
+    "stubbed_callees": [],
+    "support_comparisons": {
+      "renderer_glyph_map": {
+        "source": "src/game/renderer_glyph_map.c",
+        "matches": true,
+        "complete_text_bytes": 488
+      },
+      "fixed_math": {
+        "source": "src/game/fixed_math.c",
+        "matches": true,
+        "complete_text_bytes": 308
+      },
+      "renderer_matrix_transform": {
+        "source": "src/game/renderer_matrix_transform.c",
+        "matches": true,
+        "complete_text_bytes": 1176
+      },
+      "short_sine": {
+        "source": "src/sdk/short_sine.c",
+        "matches": true,
+        "complete_text_bytes": 112
+      },
+      "short_cosine": {
+        "source": "src/sdk/short_cosine.c",
+        "matches": true,
+        "complete_text_bytes": 48
+      },
+      "object_recovery_fixed_trig": {
+        "source": "src/game/object_recovery_fixed_trig.c",
+        "matches": true,
+        "complete_text_bytes": 144
+      },
+      "graphics_pool": {
+        "source": "src/game/graphics_pool.c",
+        "matches": true,
+        "complete_text_bytes": 420
+      },
+      "debug_noop": {
+        "source": "src/game/debug_noop.c",
+        "matches": true,
+        "complete_text_bytes": 28
+      }
+    },
+    "controls": [
+      {
+        "name": "alpha_254",
+        "character": 65,
+        "rejected": true,
+        "error": "('bytes', (65, 0, 0, 0, 0), '0x800cdbc0')"
+      },
+      {
+        "name": "commit_three",
+        "character": 65,
+        "rejected": true,
+        "error": ""
+      },
+      {
+        "name": "wrong_font_alignment",
+        "character": 65,
+        "rejected": true,
+        "error": "('state', (65, 0, 0, 0, 0), '0x80123b00')"
+      },
+      {
+        "name": "extent_21",
+        "character": 65,
+        "rejected": true,
+        "error": "('state', (65, 0, 0, 0, 0), '0x8008cb20')"
+      },
+      {
+        "name": "lower_red_zero",
+        "character": 65,
+        "rejected": true,
+        "error": "('bytes', (65, 0, 0, 0, 0), '0x800cdbc0')"
+      },
+      {
+        "name": "negative_vertex",
+        "rejected": true,
+        "error": "('0x8004a000', '0xcdac4', 2, 17)"
+      },
+      {
+        "name": "matrix_cursor",
+        "rejected": true,
+        "error": "('0x80047834', '0x12e890', 2, 17)"
+      },
+      {
+        "name": "unaligned_commands",
+        "rejected": true,
+        "error": "Unhandled CPU exception (UC_ERR_EXCEPTION)"
+      }
+    ],
+    "checker_sha256": "5e73eb87ed4342d7894978552c4a0072d74e23528bfac9eca7f12a8dd03e4b2e",
+    "unicorn_version": "2.1.1",
+    "limits": [
+      "All source candidates remain nonmatching over the complete natural retail range.",
+      "Diagnostic matrix exhaustion and vertex commit exhaustion are excluded; tested cursors are 0 and 73.",
+      "The current public draw-state type is retained; private transform views are not part of this audit.",
+      "This checks bounded CPU state and ABI behavior; RSP/RDP rendering and full-game behavior remain unverified."
+    ]
+  },
+  "ghidra": {
+    "program": "robotron64.elf",
+    "source_owned_bss_bytes": 4,
+    "initialized": false,
+    "clock": {
+      "label": "D_800CD2B0",
+      "address": "800cd2b0",
+      "type": "int",
+      "size": 4,
+      "block": "renderer_text_clock_storage"
+    },
+    "block": {
+      "name": "renderer_text_clock_storage",
+      "start": "800cd2b0",
+      "end": "800cd2b3",
+      "size": 4,
+      "readable": true,
+      "writable": true,
+      "executable": false,
+      "initialized": false
+    },
+    "other_blocks_unchanged": true,
+    "glyph_memory_sha256": "3acdb45d2805561228349a6012b8f46dac8af951c34cccdeef0ffd31ad30493d",
+    "every_glyph_byte_equal": true,
+    "saved": true,
+    "matching_instruction_bytes_added": 0
+  },
+  "independent_comparisons": {
+    "runtime-comparison": {
+      "units": 914,
+      "matches": true,
+      "report_sha256": "b536cc2665b9d94415e52b16e3aedae136ce80464ce71ad99101b3986b757d24"
+    },
+    "startup-comparison": {
+      "units": 2,
+      "matches": true,
+      "report_sha256": "de59e0f4df44d34328a59027fd35eee3f545e962e2c6f8c53bee152ab9a13cdf"
+    },
+    "assembly-comparison": {
+      "units": 18,
+      "matches": true,
+      "report_sha256": "55a8715123851ae53d0ecf9791c2a6031b8e74015ad30b942ab69cea9d39af90"
+    },
+    "data-comparison": {
+      "units": 201,
+      "matches": true,
+      "report_sha256": "dd750b6af55bcdd4e7d3b6eea3debb60275eebb63a7219a1e121464ca5dfed64"
+    }
+  },
+  "clean_build": {
+    "extraction_passed": true,
+    "pinned_ido": true,
+    "every_rom_byte_equal": true,
+    "rom_bytes": 8388608,
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd"
+  },
+  "tests": {
+    "linux": {
+      "tests": 181,
+      "skipped": 0,
+      "passed": true
+    },
+    "windows": {
+      "tests": 181,
+      "skipped": 9,
+      "passed": true
+    }
+  },
+  "progress": {
+    "matched_c_functions": 1432,
+    "matched_c_bytes": 316380,
+    "matched_assembly_functions": 29,
+    "matched_assembly_bytes": 4372,
+    "source_owned_initialized_bytes": 37867,
+    "source_owned_bss_bytes": 879161,
+    "total_code_bytes": null,
+    "total_functions": null,
+    "matching_code_percent": null,
+    "unmeasured_rom_bytes": 8029989,
+    "whole_rom_matches": true,
+    "note": "Unmeasured bytes include padding, header, boot, fallback code/data and assets; ROM equality is not source completion. Source-owned BSS consumes no ROM bytes."
+  },
+  "remaining": {
+    "declared_fallback_cpu_bytes": 133804,
+    "fallback_ranges": 181,
+    "unclassified_bytes": 164,
+    "total_function_denominator_known": false,
+    "total_executable_denominator_known": false
+  },
+  "limits": [
+    "This work owns four BSS bytes and zero CPU instructions.",
+    "The complete screen glyph remains excluded from the matching function manifest and ROM link.",
+    "The matching ROM retains extracted fallback CPU code and assets; full source recovery is incomplete.",
+    "Public CI checks tooling without the commercial ROM; local every-byte verification is separate."
+  ]
+}

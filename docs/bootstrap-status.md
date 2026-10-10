@@ -4,7 +4,7 @@ The target is the supplied USA ROM with header revision zero. `config/target.jso
 
 Current verified totals are 1,432 matching C functions / 316,380 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 37,867 initialized bytes
-and 879,157 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
+and 879,161 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
@@ -16,6 +16,11 @@ The complete [renderer fatal formatter](renderer-fatal-formatter.md) adds 512
 instruction bytes. Its verified contiguous C context reproduces IDO's epilogue
 alignment; 806 guarded pairs and five instruction faults cover the formatter's
 CPU behavior and infinite wait.
+
+The [screen glyph clock and execution audit](renderer-screen-glyph-audit.md)
+adds four BSS bytes and a guarded checker with 816 paired cases, eight real
+support units, and eight controls. It adds no matching CPU instructions; the
+full glyph and HUD candidates still differ.
 
 The [actor boundary reflection](actor-boundary-reflection.md) contributes one
 complete 1,520-byte function with an 88-byte frame. Independent reassemblies,

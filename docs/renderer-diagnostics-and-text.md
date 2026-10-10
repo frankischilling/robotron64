@@ -10,6 +10,11 @@ evidence and unresolved return interface are in [object-attached font glyph](ren
 The complete [fatal formatter](renderer-fatal-formatter.md) also matches,
 including its unreachable epilogue and section-relative alignment.
 
+The [screen glyph clock](renderer-screen-glyph-audit.md) owns four additional
+BSS bytes. Its execution checker covers 816 paired cases with real support
+code, output oracles, access guards and eight controls. The glyph's complete
+instruction range remains nonmatching.
+
 ## Report behavior
 
 `func_8004C6E0` at `0x8004C6E0..0x8004CCA4` prints the report once the startup
