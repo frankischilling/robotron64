@@ -27,8 +27,8 @@ accesses, code and stack writes. The checker requires the explicit return PC,
 SP, GP, RA, saved integer registers, F20-F31 and stack/FPU canaries.
 
 Error cases verify the formatter address, format and filename pointers, signed
-usage word, limit and source line `0x3C1`. They require no vertex or packet
-writes. The checker stops at formatter entry and checks the caller's 56-byte
+usage word, limit and source line `0x3C1`. They check unchanged vertex and packet
+memory. The checker stops at formatter entry and checks the caller's 56-byte
 frame. It executes no formatter body and supplies no returning diagnostic
 stub. The separate [fatal formatter audit](renderer-fatal-formatter.md) covers
 that formatter's bounded CPU behavior and wait loop.
