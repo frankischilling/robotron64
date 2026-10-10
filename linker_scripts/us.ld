@@ -199,7 +199,7 @@ SECTIONS
     .actor_collision_score_result 0x80017E50 : AT(0x18A50) SUBALIGN(4) { build/us/actor_collision_score_result.o(.text) }
     .endgame_18b9c_19080 0x80017F9C : AT(0x18B9C) { build/us/fallback.o(.rom_endgame_18b9c_19080) }
     .actor_boundary_clamp 0x80018480 : AT(0x19080) SUBALIGN(4) { build/us/actor_boundary_clamp.o(.text) }
-    .endgame_192d8_198c8 0x800186D8 : AT(0x192D8) { build/us/fallback.o(.rom_endgame_192d8_198c8) }
+    .actor_boundary_reflection 0x800186D8 : AT(0x192D8) SUBALIGN(4) { build/us/actor_boundary_reflection.o(.text) }
     .actor_collision_separate 0x80018CC8 : AT(0x198C8) SUBALIGN(4) { build/us/actor_collision_separate.o(.text) }
     .actor_collision_separation 0x80018E1C : AT(0x19A1C) SUBALIGN(4) { build/us/actor_collision_separation.o(.text) }
     .boundary_dispatch 0x800190F8 : AT(0x19CF8) SUBALIGN(4) { build/us/boundary_dispatch.o(.text) }
@@ -2899,7 +2899,10 @@ ASSERT(SIZEOF(.actor_boundary_clamp) == 0x258, "actor_boundary_clamp size change
 ASSERT(ADDR(.actor_boundary_clamp) == 0x80018480, "actor_boundary_clamp address changed")
 ASSERT(LOADADDR(.actor_boundary_clamp) == 0x19080, "actor_boundary_clamp ROM placement changed")
 ASSERT(func_80018480 == 0x80018480, "actor_boundary_clamp function placement changed")
-ASSERT(SIZEOF(.endgame_192d8_198c8) == 0x5F0, "endgame_192d8_198c8 size changed")
+ASSERT(SIZEOF(.actor_boundary_reflection) == 0x5F0, "actor_boundary_reflection size changed")
+ASSERT(ADDR(.actor_boundary_reflection) == 0x800186D8, "actor_boundary_reflection address changed")
+ASSERT(LOADADDR(.actor_boundary_reflection) == 0x192D8, "actor_boundary_reflection ROM placement changed")
+ASSERT(func_800186D8 == 0x800186D8, "actor_boundary_reflection function placement changed")
 ASSERT(SIZEOF(.actor_spawn_position) == 0x2b8, "actor_spawn_position size changed")
 ASSERT(SIZEOF(.actor_damage) == 0x11c, "actor_damage size changed")
 ASSERT(SIZEOF(.early_parameter_slot_tick) == 0xd8, "early_parameter_slot_tick size changed")

@@ -64,8 +64,9 @@ hooks apply only to the boundary cases. Together these are 1,740 cases and
 The [current ledger](actor-boundary-current-provenance.json) records the clean
 acceptance snapshot, independent comparisons, complete references, compiler
 identity, mutations and source hashes. The linker owns only the complete
-600-byte function; the adjacent 1,252-byte prefix and 1,520-byte suffix retain
-extracted fallback. Size, address, ROM placement and entry-symbol assertions
+600-byte function. The adjacent 1,252-byte prefix retains extracted fallback;
+the 1,520-byte suffix is now owned by [boundary reflection](actor-boundary-reflection.md).
+Size, address, ROM placement and entry-symbol assertions
 protect the split. Matching totals become 1,427 C functions / 310,732 instruction
 bytes, with initialized data and BSS unchanged. The whole 8,388,608-byte ROM
 comparison still includes 139,452 fallback CPU bytes in 185 spans and 164

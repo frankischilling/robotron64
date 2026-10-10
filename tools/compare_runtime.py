@@ -13,6 +13,7 @@ from toolchain import install
 MATCHING_BLOCKS = (
     ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
     ("actor_boundary_clamp", "src/game/actor_contacts/boundary.c", 0x80018480, 0x800186D8),
+    ("actor_boundary_reflection", "src/game/actor_contacts/reflection.c", 0x800186D8, 0x80018CC8),
     ("game_hud_state", "src/game/game_hud_state.c", 0x800371FC, 0x80037408),
     ("early_input_sequence_define", "src/game/input_sequences/define.c", 0x8001BE2C, 0x8001BF48),
     ("renderer_rotating_rings", "src/game/renderer_surfaces/rotating_rings.c", 0x80040968, 0x80040BA0),
@@ -929,7 +930,6 @@ MATCHING_BLOCKS = (
 CANDIDATE_BLOCKS = (
     ("actor_missile_update", "src/game/actor_projectiles/missile_update.c", 0x80038830, 0x80038D8C),
     ("actor_ring", "src/game/actor_effects/ring.c", 0x80006240, 0x80006654),
-    ("actor_boundary_reflection", "src/game/actor_contacts/reflection.c", 0x800186D8, 0x80018CC8),
     ("scene_resource_setup", "src/game/scene_resources/setup.c", 0x8001D3F0, 0x8001DE54),
     ("game_initialize", "src/game/session_initialization/initialize.c", 0x8002205C, 0x80022528),
     ("renderer_surface_ring", "src/game/renderer_surfaces/ring.c", 0x800428C0, 0x80042BDC),

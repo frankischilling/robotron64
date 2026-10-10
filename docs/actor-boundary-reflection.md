@@ -1,110 +1,105 @@
-# Actor boundary reflection research
+# Actor boundary reflection
 
-`func_800186D8` occupies the complete retail range
-`800186D8..80018CC8` (ROM `192D8..198C8`): 1,520 bytes and an 88-byte frame.
-The readable candidate in `src/game/actor_contacts/reflection.c` remains
-excluded from the ROM build and source-ownership manifest.
+`func_800186D8` occupies the complete retail range `800186D8..80018CC8`
+(ROM `192D8..198C8`): 1,520 bytes, 380 instruction words and an 88-byte frame.
+Pinned IDO 5.3, O2, MIPS I reproduces every byte from
+`src/game/actor_contacts/reflection.c`. Its natural function symbol and raw text
+section are both 1,520 bytes. It generates no alignment tail, initialized game
+data, jump table or BSS.
 
-Pinned IDO 5.3, O2, MIPS I produces exactly 1,520 natural instruction bytes,
-without text alignment, initialized data or BSS. Two instructions differ:
-the first absolute-coordinate result is saved and reloaded at stack offset
-`0x34`, whereas retail uses `0x3c`. Their addresses are `80018A88` and
-`80018A8C`. All other instruction words match after resolving relocations.
-The entire extent must match before this procedure receives ownership.
+The linker and manifest own exactly this extent. The corresponding extraction
+span and absolute function binding are removed; the adjacent clamp and collision
+routines keep their existing placements. Size, runtime-address, ROM-address and
+entry-symbol assertions protect the replacement. The full ROM comparison still
+includes other extracted fallbacks and does not establish complete decompilation.
 
-The routine clamps both position axes against bounds derived from the signed
-halfword at actor offset `0x06`, reflects the corresponding velocity components,
-and submits object positions and headings. A separate state word at `800BA784`
-enables the diagonal limit. That path subtracts the actor halfword twice and
-retains the unusual heading cutoff of 3,096. Calls can change the position
-before subsequent reads; the source preserves those reads and the original
-two-component velocity stores. Address-based field names remain where their
-broader meaning is not established.
+## Behavior and source structure
 
-## Reproduce the checks
+The routine clamps Y lower, Y upper, X lower and X upper in that order, using
+inclusive comparisons and the signed halfword at actor offset `06`. It reflects
+the corresponding velocity component, submits object headings when motion is
+nonzero, submits positions and returns whether any boundary changed the actor.
+The source retains the velocity self-assignments present in retail.
 
-With the documented toolchain and user-supplied target ROM:
+The scene-arrival field at `800BA784` enables a separate diagonal bound. This
+word is already owned at `D_800B9A78 + 0xD0C`; the function adds no storage for
+it. The diagonal branch subtracts the actor halfword twice, computes a fixed
+point slope, preserves position signs and applies the original quadrant-specific
+velocity changes. The third heading cutoff is 3,096. The final heading is
+written to the actor's signed halfword at offset `08`.
 
-```sh
-make check-actor-boundary-reflection
-python3 tools/compare_runtime.py --candidates --jobs 2
+Six consumed integer locals reproduce the original allocation. The `value`
+local first supplies the object index to the upper-X position submission and
+later holds the absolute slope ratio. Rectangular bounds are evaluated directly,
+and the final diagonal Y expression consumes the X magnitude directly:
+
+```c
+value = actor->objectIndex;
+func_800290B0(value, actor->position);
+
+/* In the subsequent diagonal branch. */
+actor->position[1] =
+    (limit - func_8004CEF0(actor->position[0])) *
+    BOUNCE_SIGN(actor->position[1]);
 ```
 
-The first command checks execution behavior and writes
-`build/actor-boundary-reflection/report.json` and its guard-control report.
-A successful execution audit does not establish instruction matching.
-The second command independently compares complete excluded ranges and exits
-nonzero while their instructions differ. Neither command adds source ownership.
+These actual value lifetimes reproduce the spill homes and the A3 slope
+register. No unused local, padding, forced register, fabricated condition,
+instruction patch or altered compiler flag is used. Original variable names
+and source spelling remain unproved. Callback-sensitive position reads are
+retained.
 
-The current audit passes 1,818 retail/candidate pairs, or 3,636 principal
-executions, including 36 adversarial position mutations at a submission call.
+## Independent verification
+
+Fresh splat and SPIM disassemblies independently reassemble all 1,520 original
+bytes. Their natural symbols, relocations and complete linked extents agree
+with the original ROM. Fresh pinned compilation, asm-differ and raw/linked
+objdiff comparisons verify the complete source output. Viewer scores alone
+are not acceptance evidence. Ghidra retains the original bytes and the
+`ActorBehaviorActorInternal *` prototype used by the C headers and generated
+m2c context.
+
+The [current acceptance ledger](actor-boundary-reflection-current-provenance.json)
+records source/compiler hashes, natural extents, relocations, owned sections,
+independent references, clean build and ROM checks. The earlier
+[research ledger](actor-boundary-reflection-provenance.json) describes the
+excluded candidate before this recovery and retains its historical evidence.
+
+The execution checker passes 1,818 retail/source pairs, or 3,636 principal
+executions, including 36 injected position mutations at a submission boundary.
 Six complete matching support units and their initialized data are freshly
 compiled; reached angle, arithmetic, position and object-transform helpers
 execute actual instructions. A separate integer and rounded-float model checks
-actors, object records, transforms, callback arguments and return values.
+actor records, object records, transforms, callback arguments and return values.
 
-Every guest instruction and memory access is bounded. The audit checks canaries,
-GP, SP, saved integer registers and twelve distinct incoming F20..F31 words.
-Three actual guest instruction/read/write faults are rejected after positive
-controls. Separate current-source controls reject five semantic source changes
-and twelve executed saved-FPU corruptions. These controls establish that the
-checker detects the tested faults; they do not prove arbitrary inputs.
+Every guest instruction and memory access is bounded. The checker verifies
+canaries, GP, SP, saved integer registers and twelve distinct incoming F20..F31
+words. Fresh controls reject five semantic source changes, twelve executed
+saved-FPU corruptions and three guest instruction/read/write faults after
+positive controls. These finite fixtures do not establish arbitrary inputs,
+aliasing, division exception delivery or full gameplay. Negative object indices
+use deliberately mapped synthetic records. The mutation fixtures do not assert
+that the normal position helper changes the actor.
 
-Negative object indices use a deliberately mapped synthetic record. Position
-mutation fixtures model possible callback effects and do not assert that the
-normal position helper changes the actor. Division exception delivery,
-arbitrary aliasing and full gameplay remain unverified.
+## Reproduce the checks
 
-## Independent evidence
+With the pinned toolchain and user-supplied target ROM:
 
-Fresh splat and SPIM reassemblies each reproduce all 1,520 retail bytes.
-Ghidra's raw memory and complete instruction listing agree with that extent,
-and its `ActorBehaviorActorInternal` prototype remains consistent with the
-C headers and generated m2c context. asm-differ and raw/linked objdiff views
-retain the two stack differences. Viewer scores are not acceptance evidence.
-The [provenance ledger](actor-boundary-reflection-provenance.json) records
-hashes, comparisons, execution counts and the current admission status.
+```sh
+make check-actor-boundary-reflection
+python3 tools/check_actor_boundary_reflection_controls.py
+python3 tools/compare_runtime.py --jobs 2
+make setup
+make -j2
+make verify
+make test
+make progress
+```
 
-The latest research batch compares 219 complete bodies: 76 wall/sign macro
-forms, 64 consumed call-operand forms and 79 branch-predicate forms. These are
-comparison counts, including repeated baselines, rather than a count of
-distinct recovered procedures. None improves the two-word candidate.
-No dummy arrays, unused storage, extra parameters or inserted instructions
-were introduced. Private generated assembly and binary evidence remain outside
-Git. Tool and reference credits are in [CREDITS.md](../CREDITS.md).
-
-## Frontend temporary investigation
-
-The original MIPS IDO 5.3 optimizer was inspected in a separate Ghidra program.
-Its `gettemp` routine chooses the first free, size-compatible temporary. A
-private compiler copy was instrumented to read its temporary list; the public
-candidate and two separately named coordinate forms produce exactly the same
-instructions as their respective pinned compiler outputs. All three traces
-make two slot requests and select displacement `-44` both times.
-
-That selection does not determine the two differing instructions. Retained
-frontend `.B` files already contain the absolute-coordinate home, which survives
-as `Urstr` and `Urlod` in optimized `.O` output. The public candidate uses `-36`,
-which becomes SP+`0x34` in its 88-byte frame. Removing both bound locals produces
-the desired frontend home `-28`, but shrinks the frame to 80 bytes. A consumed
-scoped argument restores the 88-byte frame while moving the home to `-32`, or
-SP+`0x38`; its complete body still differs in two words. Separately assigning
-the first result to the existing lower-bound local reaches SP+`0x3c`, but its
-complete body differs in 38 words.
-
-The follow-up batch compares 120 complete bodies: 61 scoped call-argument forms,
-44 consumed bound aggregates and 15 bound-reuse forms. None matches. The
-intermediate decoder consumes every byte of five retained frontend/optimizer
-stream pairs; its schema comes from the append-only IDO opcode table, with the
-relevant homes checked against actual 5.3 object instructions.
-
-An isolated host wrapper also enables optimizer diagnostic modes 2, 3, 6 and 7,
-whose floating-point listings previously reached unimplemented `ecvt`/`fcvt`
-wrappers. Plain and diagnostic builds preserve the pinned candidate's complete
-raw text. This modified compiler is used only for diagnosis. The accepted
-compiler, candidate, execution checker and ownership declarations are unchanged.
-Private intermediate files and compiler artifacts remain outside Git.
-
-The next matching investigation is the source lifetime and frontend allocation
-that preserve both the retail temporary home and frame size.
-The existing whole-ROM match still includes this procedure's extracted fallback.
+The default reflection checker requires complete instruction equality before
+running execution fixtures. An optional alternate source path remains available
+for research and reports its instruction and execution results separately.
+Private disassembly, binaries, diagnostic compiler copies and extracted input
+remain outside Git. The matching workflow and local SM64/IDO references are
+credited in [CREDITS](../CREDITS.md), [the reference study](reference-study.md)
+and [the toolchain notes](toolchain.md).

@@ -22,7 +22,6 @@ REGIONS = (
     ("endgame_13550_15c20", 0x13550, 0x15c20),
     ("endgame_1627c_1675c", 0x1627c, 0x1675c),
     ("endgame_18b9c_19080", 0x18b9c, 0x19080),
-    ("endgame_192d8_198c8", 0x192d8, 0x198c8),
     ("boundary_fallback_1a0dc_1aa40", 0x1a0dc, 0x1aa40),
     ("endgame_1ad68_1ad70", 0x1ad68, 0x1ad70),
     ("endgame_1af44_1af50", 0x1af44, 0x1af50),

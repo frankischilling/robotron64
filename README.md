@@ -1,14 +1,13 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,430 matching C functions covering 314,348 bytes, twenty-nine assembly functions covering 4,372 bytes, 37,867 bytes of source-owned initialized data, and 879,157 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,431 matching C functions covering 315,868 bytes, twenty-nine assembly functions covering 4,372 bytes, 37,867 bytes of source-owned initialized data, and 879,157 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
-[Actor boundary reflection](docs/actor-boundary-reflection.md) adds an excluded
-1,520-byte C candidate and a reproducible guarded checker. Its 1,818 execution
-pairs pass, but two stack-slot instructions still differ. It adds no matching
-source bytes; `make check-actor-boundary-reflection` reproduces the bounded
-execution audit.
+[Actor boundary reflection](docs/actor-boundary-reflection.md) replaces the
+complete 1,520-byte fallback with matching C. Independent references, the
+88-byte frame and 1,818 guarded execution pairs agree. Run
+`make check-actor-boundary-reflection` to reproduce its bounded execution audit.
 
 [Actor ring drawing](docs/actor-ring.md) adds an excluded callback candidate
 and `make check-actor-ring`. The complete comparison still differs; the
