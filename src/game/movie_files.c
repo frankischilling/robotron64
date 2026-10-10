@@ -1,13 +1,10 @@
 #include "../../include/movie.h"
+#include "../../include/movie_literals.h"
 #include "../../include/game_memory.h"
 #include "../../include/text.h"
 
 void *func_8003C64C(unsigned char *name, int *size);
 void func_8003C698();
-
-extern unsigned char D_8008F8B0[], D_8008F8B8[], D_8008F8C0[];
-extern char D_8008F8C8[];
-extern unsigned char D_8008F8E0[], D_8008F8E8[], D_8008F8F0[];
 
 int func_80003A7C(int identifier, unsigned char *name)
 {

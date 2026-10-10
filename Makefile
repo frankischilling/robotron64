@@ -1209,7 +1209,7 @@ build/us/movie_parameters.o: src/game/movie_parameters.c include/movie.h include
 	$(PYTHON) tools/trim_padding.py build/us/movie_parameters.raw.o $@ .text 0x118
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/movie_commands.o: src/game/movie_commands.c include/game_memory.h include/movie.h include/object.h include/palette.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/movie_commands.o: src/game/movie_commands.c include/game_memory.h include/movie.h include/object.h include/palette.h include/scalar_math.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/movie_literals.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_commands.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/movie_commands.raw.o $@ .text 0x7b8
@@ -1239,7 +1239,7 @@ build/us/movie_sample.o: src/game/movie_sample.c include/movie.h include/palette
 	$(PYTHON) tools/trim_padding.py build/us/movie_sample.raw.o $@ .text 0x1c0
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/movie_callback.o: src/game/movie_callback.c include/game_memory.h include/movie.h include/object.h include/palette.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/movie_callback.o: src/game/movie_callback.c include/game_memory.h include/movie.h include/object.h include/palette.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/movie_literals.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_callback.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/movie_callback.raw.o $@ .text 0xa0
@@ -1319,7 +1319,7 @@ build/us/actor_sweep.o: src/game/actor_sweep.c include/actor.h include/game_memo
 	$(PYTHON) tools/trim_padding.py build/us/actor_sweep.raw.o $@ .text 0x68
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/movie_files.o: src/game/movie_files.c include/game_memory.h include/movie.h include/object.h include/palette.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/movie_files.o: src/game/movie_files.c include/game_memory.h include/movie.h include/object.h include/palette.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/movie_literals.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_files.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/movie_files.raw.o $@ .text 0x2f8
@@ -8372,6 +8372,118 @@ build/us/rom_file_stream_extension.o: src/game/rom_files_data/stream_extension.c
 
 RUNTIME_OBJECTS += build/us/rom_file_stream_extension.o
 
+build/us/movie_literal_props_limit.o: src/game/movie_literals/props_limit.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_props_limit.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_props_limit.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_props_limit.o
+
+build/us/movie_literal_primary_frames_limit.o: src/game/movie_literals/primary_frames_limit.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_primary_frames_limit.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_primary_frames_limit.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_primary_frames_limit.o
+
+build/us/movie_literal_color_cycles_limit.o: src/game/movie_literals/color_cycles_limit.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_color_cycles_limit.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_color_cycles_limit.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_color_cycles_limit.o
+
+build/us/movie_literal_strings_limit.o: src/game/movie_literals/strings_limit.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_strings_limit.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_strings_limit.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_strings_limit.o
+
+build/us/movie_literal_path_prefix.o: src/game/movie_literals/path_prefix.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_path_prefix.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_path_prefix.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_path_prefix.o
+
+build/us/movie_literal_replace_movie_extension.o: src/game/movie_literals/replace_movie_extension.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_replace_movie_extension.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_replace_movie_extension.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_replace_movie_extension.o
+
+build/us/movie_literal_append_movie_extension.o: src/game/movie_literals/append_movie_extension.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_append_movie_extension.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_append_movie_extension.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_append_movie_extension.o
+
+build/us/movie_literal_tracks_limit.o: src/game/movie_literals/tracks_limit.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_tracks_limit.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_tracks_limit.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_tracks_limit.o
+
+build/us/movie_literal_track_extension.o: src/game/movie_literals/track_extension.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_track_extension.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_track_extension.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_track_extension.o
+
+build/us/movie_literal_integer_extension.o: src/game/movie_literals/integer_extension.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_integer_extension.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_integer_extension.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_integer_extension.o
+
+build/us/movie_literal_float_extension.o: src/game/movie_literals/float_extension.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_float_extension.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_float_extension.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_float_extension.o
+
+build/us/movie_literal_callbacks_limit.o: src/game/movie_literals/callbacks_limit.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_callbacks_limit.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_callbacks_limit.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_callbacks_limit.o
+
+build/us/movie_literal_update_label.o: src/game/movie_literals/update_label.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_update_label.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_update_label.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_update_label.o
+
+build/us/movie_literal_erase_label.o: src/game/movie_literals/erase_label.c include/movie_literals.h $(IDO) Makefile tools/owned_sections.py config/owned_sections.json tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_literal_erase_label.raw.o $<
+	$(PYTHON) tools/owned_sections.py $< build/us/movie_literal_erase_label.raw.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/movie_literal_erase_label.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8470,7 +8582,7 @@ build/us/movie_storage_configuration.o: src/game/movie_storage/configuration.c $
 audit-movie-storage: toolchain
 	$(PYTHON) tools/check_movie_storage.py
 
-build/us/movie_update.o: src/game/movie_update.c include/actor.h include/game_memory.h include/movie.h include/object.h include/palette.h include/palette_effects.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/movie_update.o: src/game/movie_update.c include/actor.h include/game_memory.h include/movie.h include/object.h include/palette.h include/palette_effects.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/movie_literals.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/movie_update.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/movie_update.raw.o $@ .text 0x718
@@ -8779,3 +8891,7 @@ audit-actor-path-literals: toolchain
 .PHONY: audit-rom-file-literals
 audit-rom-file-literals: toolchain
 	$(PYTHON) tools/check_rom_file_literals.py
+
+.PHONY: audit-movie-literals
+audit-movie-literals: toolchain
+	$(PYTHON) tools/check_movie_literals.py

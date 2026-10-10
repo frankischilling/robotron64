@@ -5340,5 +5340,187 @@
       "D_80095BA8": 0
     },
     "evidence": "docs/rom-file-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/props_limit.c",
+    "object": "build/us/movie_literal_props_limit.o",
+    "input_section": ".data",
+    "section": ".movie_literal_props_limit",
+    "vram": 2148071488,
+    "rom": 590912,
+    "size": 21,
+    "symbols": {
+      "D_8008F840": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/primary_frames_limit.c",
+    "object": "build/us/movie_literal_primary_frames_limit.o",
+    "input_section": ".data",
+    "section": ".movie_literal_primary_frames_limit",
+    "vram": 2148071512,
+    "rom": 590936,
+    "size": 32,
+    "symbols": {
+      "D_8008F858": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/color_cycles_limit.c",
+    "object": "build/us/movie_literal_color_cycles_limit.o",
+    "input_section": ".data",
+    "section": ".movie_literal_color_cycles_limit",
+    "vram": 2148071544,
+    "rom": 590968,
+    "size": 31,
+    "symbols": {
+      "D_8008F878": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/strings_limit.c",
+    "object": "build/us/movie_literal_strings_limit.o",
+    "input_section": ".data",
+    "section": ".movie_literal_strings_limit",
+    "vram": 2148071576,
+    "rom": 591000,
+    "size": 23,
+    "symbols": {
+      "D_8008F898": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/path_prefix.c",
+    "object": "build/us/movie_literal_path_prefix.o",
+    "input_section": ".data",
+    "section": ".movie_literal_path_prefix",
+    "vram": 2148071600,
+    "rom": 591024,
+    "size": 7,
+    "symbols": {
+      "D_8008F8B0": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/replace_movie_extension.c",
+    "object": "build/us/movie_literal_replace_movie_extension.o",
+    "input_section": ".data",
+    "section": ".movie_literal_replace_movie_extension",
+    "vram": 2148071608,
+    "rom": 591032,
+    "size": 5,
+    "symbols": {
+      "D_8008F8B8": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/append_movie_extension.c",
+    "object": "build/us/movie_literal_append_movie_extension.o",
+    "input_section": ".data",
+    "section": ".movie_literal_append_movie_extension",
+    "vram": 2148071616,
+    "rom": 591040,
+    "size": 5,
+    "symbols": {
+      "D_8008F8C0": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/tracks_limit.c",
+    "object": "build/us/movie_literal_tracks_limit.o",
+    "input_section": ".data",
+    "section": ".movie_literal_tracks_limit",
+    "vram": 2148071624,
+    "rom": 591048,
+    "size": 23,
+    "symbols": {
+      "D_8008F8C8": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/track_extension.c",
+    "object": "build/us/movie_literal_track_extension.o",
+    "input_section": ".data",
+    "section": ".movie_literal_track_extension",
+    "vram": 2148071648,
+    "rom": 591072,
+    "size": 5,
+    "symbols": {
+      "D_8008F8E0": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/integer_extension.c",
+    "object": "build/us/movie_literal_integer_extension.o",
+    "input_section": ".data",
+    "section": ".movie_literal_integer_extension",
+    "vram": 2148071656,
+    "rom": 591080,
+    "size": 5,
+    "symbols": {
+      "D_8008F8E8": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/float_extension.c",
+    "object": "build/us/movie_literal_float_extension.o",
+    "input_section": ".data",
+    "section": ".movie_literal_float_extension",
+    "vram": 2148071664,
+    "rom": 591088,
+    "size": 5,
+    "symbols": {
+      "D_8008F8F0": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/callbacks_limit.c",
+    "object": "build/us/movie_literal_callbacks_limit.o",
+    "input_section": ".data",
+    "section": ".movie_literal_callbacks_limit",
+    "vram": 2148071672,
+    "rom": 591096,
+    "size": 25,
+    "symbols": {
+      "D_8008F8F8": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/update_label.c",
+    "object": "build/us/movie_literal_update_label.o",
+    "input_section": ".data",
+    "section": ".movie_literal_update_label",
+    "vram": 2148071700,
+    "rom": 591124,
+    "size": 10,
+    "symbols": {
+      "D_8008F914": 0
+    },
+    "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/movie_literals/erase_label.c",
+    "object": "build/us/movie_literal_erase_label.o",
+    "input_section": ".data",
+    "section": ".movie_literal_erase_label",
+    "vram": 2148071712,
+    "rom": 591136,
+    "size": 13,
+    "symbols": {
+      "D_8008F920": 0
+    },
+    "evidence": "docs/movie-literals.md"
   }
 ]

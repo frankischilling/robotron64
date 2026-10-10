@@ -1354,7 +1354,34 @@ SECTIONS
     .text_table 0x8008F678 : AT(0x90278) SUBALIGN(4) { build/us/text.o(.rodata) }
     .endgame_data_903a0_90428 0x8008F7A0 : AT(0x903A0) { build/us/fallback.o(.rom_endgame_data_903a0_90428) }
     .movie_string_position_submit_constants 0x8008F828 : AT(0x90428) SUBALIGN(4) { build/us/movie_string_position_submit.o(.rodata) }
-    .endgame_data_90438_90530 0x8008F838 : AT(0x90438) { build/us/fallback.o(.rom_endgame_data_90438_90530) }
+    .movie_literal_fallback_90438_90440 0x8008F838 : AT(0x90438) { build/us/fallback.o(.rom_movie_literal_fallback_90438_90440) }
+    .movie_literal_props_limit 0x8008F840 : AT(0x90440) SUBALIGN(4) { build/us/movie_literal_props_limit.o(.data) }
+    .movie_literal_fallback_90455_90458 0x8008F855 : AT(0x90455) { build/us/fallback.o(.rom_movie_literal_fallback_90455_90458) }
+    .movie_literal_primary_frames_limit 0x8008F858 : AT(0x90458) SUBALIGN(4) { build/us/movie_literal_primary_frames_limit.o(.data) }
+    .movie_literal_color_cycles_limit 0x8008F878 : AT(0x90478) SUBALIGN(4) { build/us/movie_literal_color_cycles_limit.o(.data) }
+    .movie_literal_fallback_90497_90498 0x8008F897 : AT(0x90497) { build/us/fallback.o(.rom_movie_literal_fallback_90497_90498) }
+    .movie_literal_strings_limit 0x8008F898 : AT(0x90498) SUBALIGN(4) { build/us/movie_literal_strings_limit.o(.data) }
+    .movie_literal_fallback_904af_904b0 0x8008F8AF : AT(0x904AF) { build/us/fallback.o(.rom_movie_literal_fallback_904af_904b0) }
+    .movie_literal_path_prefix 0x8008F8B0 : AT(0x904B0) SUBALIGN(4) { build/us/movie_literal_path_prefix.o(.data) }
+    .movie_literal_fallback_904b7_904b8 0x8008F8B7 : AT(0x904B7) { build/us/fallback.o(.rom_movie_literal_fallback_904b7_904b8) }
+    .movie_literal_replace_movie_extension 0x8008F8B8 : AT(0x904B8) SUBALIGN(4) { build/us/movie_literal_replace_movie_extension.o(.data) }
+    .movie_literal_fallback_904bd_904c0 0x8008F8BD : AT(0x904BD) { build/us/fallback.o(.rom_movie_literal_fallback_904bd_904c0) }
+    .movie_literal_append_movie_extension 0x8008F8C0 : AT(0x904C0) SUBALIGN(4) { build/us/movie_literal_append_movie_extension.o(.data) }
+    .movie_literal_fallback_904c5_904c8 0x8008F8C5 : AT(0x904C5) { build/us/fallback.o(.rom_movie_literal_fallback_904c5_904c8) }
+    .movie_literal_tracks_limit 0x8008F8C8 : AT(0x904C8) SUBALIGN(4) { build/us/movie_literal_tracks_limit.o(.data) }
+    .movie_literal_fallback_904df_904e0 0x8008F8DF : AT(0x904DF) { build/us/fallback.o(.rom_movie_literal_fallback_904df_904e0) }
+    .movie_literal_track_extension 0x8008F8E0 : AT(0x904E0) SUBALIGN(4) { build/us/movie_literal_track_extension.o(.data) }
+    .movie_literal_fallback_904e5_904e8 0x8008F8E5 : AT(0x904E5) { build/us/fallback.o(.rom_movie_literal_fallback_904e5_904e8) }
+    .movie_literal_integer_extension 0x8008F8E8 : AT(0x904E8) SUBALIGN(4) { build/us/movie_literal_integer_extension.o(.data) }
+    .movie_literal_fallback_904ed_904f0 0x8008F8ED : AT(0x904ED) { build/us/fallback.o(.rom_movie_literal_fallback_904ed_904f0) }
+    .movie_literal_float_extension 0x8008F8F0 : AT(0x904F0) SUBALIGN(4) { build/us/movie_literal_float_extension.o(.data) }
+    .movie_literal_fallback_904f5_904f8 0x8008F8F5 : AT(0x904F5) { build/us/fallback.o(.rom_movie_literal_fallback_904f5_904f8) }
+    .movie_literal_callbacks_limit 0x8008F8F8 : AT(0x904F8) SUBALIGN(4) { build/us/movie_literal_callbacks_limit.o(.data) }
+    .movie_literal_fallback_90511_90514 0x8008F911 : AT(0x90511) { build/us/fallback.o(.rom_movie_literal_fallback_90511_90514) }
+    .movie_literal_update_label 0x8008F914 : AT(0x90514) SUBALIGN(4) { build/us/movie_literal_update_label.o(.data) }
+    .movie_literal_fallback_9051e_90520 0x8008F91E : AT(0x9051E) { build/us/fallback.o(.rom_movie_literal_fallback_9051e_90520) }
+    .movie_literal_erase_label 0x8008F920 : AT(0x90520) SUBALIGN(4) { build/us/movie_literal_erase_label.o(.data) }
+    .movie_literal_fallback_9052d_90530 0x8008F92D : AT(0x9052D) { build/us/fallback.o(.rom_movie_literal_fallback_9052d_90530) }
     .early_signature_gate_rodata 0x8008F930 : AT(0x90530) SUBALIGN(4) { build/us/early_signature_gate.o(.rodata) }
     .early_effect_coordinate_scales 0x8008F940 : AT(0x90540) SUBALIGN(4) { build/us/early_effect_coordinate_scales.o(.data) }
     .early_effect_spawn_rodata 0x8008F958 : AT(0x90558) SUBALIGN(4) { build/us/early_effect_spawn.o(.rodata) }
@@ -2956,7 +2983,62 @@ ASSERT(SIZEOF(.movie_string_position_submit) == 0x170, "movie_string_position_su
 ASSERT(SIZEOF(.movie_string_position_submit_constants) == 0x10, "movie_string_position_submit_constants size changed")
 ASSERT(SIZEOF(.endgame_237c_3970) == 0x15f4, "endgame_237c_3970 size changed")
 ASSERT(SIZEOF(.endgame_data_903a0_90428) == 0x88, "endgame_data_903a0_90428 size changed")
-ASSERT(SIZEOF(.endgame_data_90438_90530) == 0xf8, "endgame_data_90438_90530 size changed")
+ASSERT(SIZEOF(.movie_literal_fallback_90438_90440) == 0x8, "movie_literal_fallback_90438_90440 size changed")
+ASSERT(ADDR(.movie_literal_props_limit) == 0x8008F840, "D_8008F840 moved")
+ASSERT(SIZEOF(.movie_literal_props_limit) == 0x15, "D_8008F840 size changed")
+ASSERT(D_8008F840 == ADDR(.movie_literal_props_limit), "D_8008F840 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_90455_90458) == 0x3, "movie_literal_fallback_90455_90458 size changed")
+ASSERT(ADDR(.movie_literal_primary_frames_limit) == 0x8008F858, "D_8008F858 moved")
+ASSERT(SIZEOF(.movie_literal_primary_frames_limit) == 0x20, "D_8008F858 size changed")
+ASSERT(D_8008F858 == ADDR(.movie_literal_primary_frames_limit), "D_8008F858 definition overridden")
+ASSERT(ADDR(.movie_literal_color_cycles_limit) == 0x8008F878, "D_8008F878 moved")
+ASSERT(SIZEOF(.movie_literal_color_cycles_limit) == 0x1F, "D_8008F878 size changed")
+ASSERT(D_8008F878 == ADDR(.movie_literal_color_cycles_limit), "D_8008F878 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_90497_90498) == 0x1, "movie_literal_fallback_90497_90498 size changed")
+ASSERT(ADDR(.movie_literal_strings_limit) == 0x8008F898, "D_8008F898 moved")
+ASSERT(SIZEOF(.movie_literal_strings_limit) == 0x17, "D_8008F898 size changed")
+ASSERT(D_8008F898 == ADDR(.movie_literal_strings_limit), "D_8008F898 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_904af_904b0) == 0x1, "movie_literal_fallback_904af_904b0 size changed")
+ASSERT(ADDR(.movie_literal_path_prefix) == 0x8008F8B0, "D_8008F8B0 moved")
+ASSERT(SIZEOF(.movie_literal_path_prefix) == 0x7, "D_8008F8B0 size changed")
+ASSERT(D_8008F8B0 == ADDR(.movie_literal_path_prefix), "D_8008F8B0 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_904b7_904b8) == 0x1, "movie_literal_fallback_904b7_904b8 size changed")
+ASSERT(ADDR(.movie_literal_replace_movie_extension) == 0x8008F8B8, "D_8008F8B8 moved")
+ASSERT(SIZEOF(.movie_literal_replace_movie_extension) == 0x5, "D_8008F8B8 size changed")
+ASSERT(D_8008F8B8 == ADDR(.movie_literal_replace_movie_extension), "D_8008F8B8 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_904bd_904c0) == 0x3, "movie_literal_fallback_904bd_904c0 size changed")
+ASSERT(ADDR(.movie_literal_append_movie_extension) == 0x8008F8C0, "D_8008F8C0 moved")
+ASSERT(SIZEOF(.movie_literal_append_movie_extension) == 0x5, "D_8008F8C0 size changed")
+ASSERT(D_8008F8C0 == ADDR(.movie_literal_append_movie_extension), "D_8008F8C0 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_904c5_904c8) == 0x3, "movie_literal_fallback_904c5_904c8 size changed")
+ASSERT(ADDR(.movie_literal_tracks_limit) == 0x8008F8C8, "D_8008F8C8 moved")
+ASSERT(SIZEOF(.movie_literal_tracks_limit) == 0x17, "D_8008F8C8 size changed")
+ASSERT(D_8008F8C8 == ADDR(.movie_literal_tracks_limit), "D_8008F8C8 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_904df_904e0) == 0x1, "movie_literal_fallback_904df_904e0 size changed")
+ASSERT(ADDR(.movie_literal_track_extension) == 0x8008F8E0, "D_8008F8E0 moved")
+ASSERT(SIZEOF(.movie_literal_track_extension) == 0x5, "D_8008F8E0 size changed")
+ASSERT(D_8008F8E0 == ADDR(.movie_literal_track_extension), "D_8008F8E0 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_904e5_904e8) == 0x3, "movie_literal_fallback_904e5_904e8 size changed")
+ASSERT(ADDR(.movie_literal_integer_extension) == 0x8008F8E8, "D_8008F8E8 moved")
+ASSERT(SIZEOF(.movie_literal_integer_extension) == 0x5, "D_8008F8E8 size changed")
+ASSERT(D_8008F8E8 == ADDR(.movie_literal_integer_extension), "D_8008F8E8 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_904ed_904f0) == 0x3, "movie_literal_fallback_904ed_904f0 size changed")
+ASSERT(ADDR(.movie_literal_float_extension) == 0x8008F8F0, "D_8008F8F0 moved")
+ASSERT(SIZEOF(.movie_literal_float_extension) == 0x5, "D_8008F8F0 size changed")
+ASSERT(D_8008F8F0 == ADDR(.movie_literal_float_extension), "D_8008F8F0 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_904f5_904f8) == 0x3, "movie_literal_fallback_904f5_904f8 size changed")
+ASSERT(ADDR(.movie_literal_callbacks_limit) == 0x8008F8F8, "D_8008F8F8 moved")
+ASSERT(SIZEOF(.movie_literal_callbacks_limit) == 0x19, "D_8008F8F8 size changed")
+ASSERT(D_8008F8F8 == ADDR(.movie_literal_callbacks_limit), "D_8008F8F8 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_90511_90514) == 0x3, "movie_literal_fallback_90511_90514 size changed")
+ASSERT(ADDR(.movie_literal_update_label) == 0x8008F914, "D_8008F914 moved")
+ASSERT(SIZEOF(.movie_literal_update_label) == 0xA, "D_8008F914 size changed")
+ASSERT(D_8008F914 == ADDR(.movie_literal_update_label), "D_8008F914 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_9051e_90520) == 0x2, "movie_literal_fallback_9051e_90520 size changed")
+ASSERT(ADDR(.movie_literal_erase_label) == 0x8008F920, "D_8008F920 moved")
+ASSERT(SIZEOF(.movie_literal_erase_label) == 0xD, "D_8008F920 size changed")
+ASSERT(D_8008F920 == ADDR(.movie_literal_erase_label), "D_8008F920 definition overridden")
+ASSERT(SIZEOF(.movie_literal_fallback_9052d_90530) == 0x3, "movie_literal_fallback_9052d_90530 size changed")
 ASSERT(SIZEOF(.model_normal_polygon_dispatch) == 0x348, "model normal polygon dispatch text size changed")
 ASSERT(SIZEOF(.scene_menu_string_schedule) == 0x1b0, "scene menu string schedule text size changed")
 ASSERT(SIZEOF(.endgame_22c5c_23128) == 0x4cc, "endgame_22c5c_23128 size changed")
