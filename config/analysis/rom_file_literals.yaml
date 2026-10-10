@@ -1,0 +1,55 @@
+name: Robotron 64 ROM-file literals
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: rom_file_literals
+  base_path: ../../.local/rom-file-literals-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: rom_file_failure_literal
+    type: code
+    start: 0x96740
+    vram: 0x80095B40
+    subsegments:
+      - [0x96740, rodata, rom_file_failure_literal]
+  - name: rom_file_not_found_literal
+    type: code
+    start: 0x96750
+    vram: 0x80095B50
+    subsegments:
+      - [0x96750, rodata, rom_file_not_found_literal]
+  - name: rom_file_location_literal
+    type: code
+    start: 0x96784
+    vram: 0x80095B84
+    subsegments:
+      - [0x96784, rodata, rom_file_location_literal]
+  - name: rom_file_boss_two_literal
+    type: code
+    start: 0x96790
+    vram: 0x80095B90
+    subsegments:
+      - [0x96790, rodata, rom_file_boss_two_literal]
+  - name: rom_file_boss_one_literal
+    type: code
+    start: 0x96798
+    vram: 0x80095B98
+    subsegments:
+      - [0x96798, rodata, rom_file_boss_one_literal]
+  - name: rom_file_level_prefix_literal
+    type: code
+    start: 0x967A0
+    vram: 0x80095BA0
+    subsegments:
+      - [0x967A0, rodata, rom_file_level_prefix_literal]
+  - name: rom_file_stream_extension_literal
+    type: code
+    start: 0x967A8
+    vram: 0x80095BA8
+    subsegments:
+      - [0x967A8, rodata, rom_file_stream_extension_literal]
+  - [0x967B0, bin, suffix]
+  - [0x800000]

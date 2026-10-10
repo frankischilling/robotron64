@@ -1493,7 +1493,19 @@ SECTIONS
     .renderer_diagnostic_messages 0x80095640 : AT(0x96240) SUBALIGN(4) { build/us/renderer_diagnostic_messages.o(.rodata) }
     .actor_history_tick_constant 0x80095B30 : AT(0x96730) SUBALIGN(4) { build/us/actor_history_tick.o(.rodata) }
     .object_history_write_rodata 0x80095B34 : AT(0x96734) SUBALIGN(4) { build/us/object_history_write.o(.rodata) }
-    .controller_fallback_96738_967b0 0x80095B38 : AT(0x96738) { build/us/fallback.o(.rom_controller_fallback_96738_967b0) }
+    .rom_file_fallback_96738_96740 0x80095B38 : AT(0x96738) { build/us/fallback.o(.rom_rom_file_fallback_96738_96740) }
+    .rom_file_failure_literal 0x80095B40 : AT(0x96740) SUBALIGN(4) { build/us/rom_file_error.o(.data) }
+    .rom_file_not_found_literal 0x80095B50 : AT(0x96750) SUBALIGN(4) { build/us/rom_files.o(.data) }
+    .rom_file_location_literal 0x80095B84 : AT(0x96784) SUBALIGN(4) { build/us/rom_file_location.o(.data) }
+    .rom_file_fallback_9678e_96790 0x80095B8E : AT(0x9678E) { build/us/fallback.o(.rom_rom_file_fallback_9678e_96790) }
+    .rom_file_boss_two_literal 0x80095B90 : AT(0x96790) SUBALIGN(4) { build/us/rom_file_boss_two.o(.data) }
+    .rom_file_fallback_96796_96798 0x80095B96 : AT(0x96796) { build/us/fallback.o(.rom_rom_file_fallback_96796_96798) }
+    .rom_file_boss_one_literal 0x80095B98 : AT(0x96798) SUBALIGN(4) { build/us/rom_file_boss_one.o(.data) }
+    .rom_file_fallback_9679e_967a0 0x80095B9E : AT(0x9679E) { build/us/fallback.o(.rom_rom_file_fallback_9679e_967a0) }
+    .rom_file_level_prefix_literal 0x80095BA0 : AT(0x967A0) SUBALIGN(4) { build/us/rom_file_level_prefix.o(.data) }
+    .rom_file_fallback_967a6_967a8 0x80095BA6 : AT(0x967A6) { build/us/fallback.o(.rom_rom_file_fallback_967a6_967a8) }
+    .rom_file_stream_extension_literal 0x80095BA8 : AT(0x967A8) SUBALIGN(4) { build/us/rom_file_stream_extension.o(.data) }
+    .rom_file_fallback_967ad_967b0 0x80095BAD : AT(0x967AD) { build/us/fallback.o(.rom_rom_file_fallback_967ad_967b0) }
     .controller_motor_initialize_message_data 0x80095BB0 : AT(0x967B0) SUBALIGN(4) { build/us/controller_motor_initialize_message.o(.data) }
     .controller_fallback_967c4_967c8 0x80095BC4 : AT(0x967C4) { build/us/fallback.o(.rom_controller_fallback_967c4_967c8) }
     .controller_motor_refresh_message_data 0x80095BC8 : AT(0x967C8) SUBALIGN(4) { build/us/controller_motor_refresh_message.o(.data) }
@@ -3099,7 +3111,33 @@ ASSERT(SIZEOF(.audio_bank_allocation_state) == 0x28, "audio_bank_allocation_stat
 ASSERT(SIZEOF(.audio_after_bank_allocation_state) == 0x28, "audio_after_bank_allocation_state size changed")
 ASSERT(SIZEOF(.audio_dispatch) == 0x28, "audio_dispatch size changed")
 ASSERT(SIZEOF(.audio_bank_loader_storage) == 0x24, "audio_bank_loader_storage size changed")
-ASSERT(SIZEOF(.controller_fallback_96738_967b0) == 0x78, "controller_fallback_96738_967b0 size changed")
+ASSERT(SIZEOF(.rom_file_fallback_96738_96740) == 0x8, "rom_file_fallback_96738_96740 size changed")
+ASSERT(ADDR(.rom_file_failure_literal) == 0x80095B40, "D_80095B40 moved")
+ASSERT(SIZEOF(.rom_file_failure_literal) == 0x10, "D_80095B40 size changed")
+ASSERT(D_80095B40 == ADDR(.rom_file_failure_literal), "D_80095B40 source definition overridden")
+ASSERT(ADDR(.rom_file_not_found_literal) == 0x80095B50, "D_80095B50 moved")
+ASSERT(SIZEOF(.rom_file_not_found_literal) == 0x34, "D_80095B50 size changed")
+ASSERT(D_80095B50 == ADDR(.rom_file_not_found_literal), "D_80095B50 source definition overridden")
+ASSERT(ADDR(.rom_file_location_literal) == 0x80095B84, "D_80095B84 moved")
+ASSERT(SIZEOF(.rom_file_location_literal) == 0xA, "D_80095B84 size changed")
+ASSERT(D_80095B84 == ADDR(.rom_file_location_literal), "D_80095B84 source definition overridden")
+ASSERT(SIZEOF(.rom_file_fallback_9678e_96790) == 0x2, "rom_file_fallback_9678e_96790 size changed")
+ASSERT(ADDR(.rom_file_boss_two_literal) == 0x80095B90, "D_80095B90 moved")
+ASSERT(SIZEOF(.rom_file_boss_two_literal) == 0x6, "D_80095B90 size changed")
+ASSERT(D_80095B90 == ADDR(.rom_file_boss_two_literal), "D_80095B90 source definition overridden")
+ASSERT(SIZEOF(.rom_file_fallback_96796_96798) == 0x2, "rom_file_fallback_96796_96798 size changed")
+ASSERT(ADDR(.rom_file_boss_one_literal) == 0x80095B98, "D_80095B98 moved")
+ASSERT(SIZEOF(.rom_file_boss_one_literal) == 0x6, "D_80095B98 size changed")
+ASSERT(D_80095B98 == ADDR(.rom_file_boss_one_literal), "D_80095B98 source definition overridden")
+ASSERT(SIZEOF(.rom_file_fallback_9679e_967a0) == 0x2, "rom_file_fallback_9679e_967a0 size changed")
+ASSERT(ADDR(.rom_file_level_prefix_literal) == 0x80095BA0, "D_80095BA0 moved")
+ASSERT(SIZEOF(.rom_file_level_prefix_literal) == 0x6, "D_80095BA0 size changed")
+ASSERT(D_80095BA0 == ADDR(.rom_file_level_prefix_literal), "D_80095BA0 source definition overridden")
+ASSERT(SIZEOF(.rom_file_fallback_967a6_967a8) == 0x2, "rom_file_fallback_967a6_967a8 size changed")
+ASSERT(ADDR(.rom_file_stream_extension_literal) == 0x80095BA8, "D_80095BA8 moved")
+ASSERT(SIZEOF(.rom_file_stream_extension_literal) == 0x5, "D_80095BA8 size changed")
+ASSERT(D_80095BA8 == ADDR(.rom_file_stream_extension_literal), "D_80095BA8 source definition overridden")
+ASSERT(SIZEOF(.rom_file_fallback_967ad_967b0) == 0x3, "rom_file_fallback_967ad_967b0 size changed")
 ASSERT(SIZEOF(.controller_motor_initialize_message_data) == 0x14, "controller_motor_initialize_message_data size changed")
 ASSERT(SIZEOF(.controller_fallback_967c4_967c8) == 0x4, "controller_fallback_967c4_967c8 size changed")
 ASSERT(SIZEOF(.controller_motor_refresh_message_data) == 0x14, "controller_motor_refresh_message_data size changed")
