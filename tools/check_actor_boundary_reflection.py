@@ -1,4 +1,4 @@
-"""Check the excluded actor reflection candidate against retail and an arithmetic model."""
+"""Check actor boundary reflection against retail and an arithmetic model."""
 
 from pathlib import Path
 import sys, json, struct, hashlib, itertools, math
@@ -428,6 +428,8 @@ def main():
         family="boundary-reflection-near-execution",
         layout=layout,
     )
+    if candidate_path == R / "src/game/actor_contacts/reflection.c":
+        assert candidate["matches"], candidate["different_words"]
     candidate_bytes = (
         R / "build/boundary-reflection-near-execution/reflection/reflection.bin"
     ).read_bytes()
@@ -549,7 +551,7 @@ def main():
         emulator_version=version("unicorn"),
         saved_fpu_initial_bits=[hex(0x3F800101 + i * 257) for i in range(12)],
         limits=[
-            "The candidate remains excluded until its complete instructions match.",
+            "The default source must match the complete retail instructions; alternate source paths remain research comparisons.",
             "Six complete matching support units and their initialized data are freshly compiled; only the reached arithmetic, position and angle helpers execute.",
             "Actor, object record, transform, callback arguments and snapshots are checked against a separate wrapped-integer and rounded-float model.",
             "Every guest instruction and memory access is bounded; canaries, GP, SP, integer saved registers and F20 through F31 are checked.",

@@ -16054,6 +16054,17 @@
     "evidence": "docs/actor-boundary-clamp.md"
   },
   {
+    "name": "func_800186D8",
+    "rom": 103128,
+    "vram": 2147583704,
+    "size": 1520,
+    "source": "src/game/actor_contacts/reflection.c",
+    "object": "build/us/actor_boundary_reflection.o",
+    "section": ".actor_boundary_reflection",
+    "section_vram": 2147583704,
+    "evidence": "docs/actor-boundary-reflection.md"
+  },
+  {
     "name": "func_80048DDC",
     "rom": 301532,
     "vram": 2147782108,
