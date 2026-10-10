@@ -66,7 +66,6 @@ REGIONS = (
     ("cpu_after_object_runtime_service", 0x3beb0, 0x3c028),
     ("cpu_after_game_debug_format", 0x3dd64, 0x3dd70),
     ("cpu_after_model_rotation", 0x3e03c, 0x3f77c),
-    ("endgame_40080_4022c", 0x40080, 0x4022c),
     ("endgame_409c4_40c0c", 0x409c4, 0x40c0c),
     ("cpu_after_model_vertices_scatter", 0x40cc4, 0x40cd0),
     ("cpu_after_renderer_rotating_rings", 0x417a0, 0x41b5c),

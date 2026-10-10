@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,432 matching C functions covering 316,380 bytes, twenty-nine assembly functions covering 4,372 bytes, 37,867 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,433 matching C functions covering 316,808 bytes, twenty-nine assembly functions covering 4,372 bytes, 37,867 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -588,7 +588,7 @@ model transforms. The shared history pool owns 24 flags and 4,608 BSS bytes.
 
 [Graphics task production](docs/graphics-tasks.md) covers the shared task record, both microcode choices, completion waits, and RDP setup commands. [Frame helpers](docs/frame-runtime.md) cover palette state, elapsed-time sampling, and fixed-point transforms.
 
-Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. `python3 tools/compare_runtime.py --candidates` checks the excluded frame, object-update, record-copy, inverse-camera, and renderer sources and exits nonzero while they differ. Candidate spans must not overlap recovered functions. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
+Run `python3 tools/compare_runtime.py` to compile the recovered runtime blocks independently and compare them with the local target. The [inverse camera writer](docs/renderer-inverse-camera.md) matches its complete 428-byte body and reuses the existing matrix storage. `python3 tools/compare_runtime.py --candidates` checks the excluded frame, object-update, record-copy and renderer sources and exits nonzero while they differ. Candidate spans must not overlap recovered functions. [Frame-begin evidence](docs/frame-begin.md) records the remaining color-store and register-allocation differences. These candidates do not contribute to matching progress.
 
 `python3 tools/compare_runtime.py --jobs 4` runs four independent source
 compilations concurrently. Each uses a separate output directory and the same

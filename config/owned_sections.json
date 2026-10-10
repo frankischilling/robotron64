@@ -1897,8 +1897,8 @@
     "evidence": "docs/camera-angles.md"
   },
   {
-    "source": "src/game/camera_matrix_data.c",
-    "object": "build/us/camera_matrix_data.o",
+    "source": "src/game/view_inverse_matrix.c",
+    "object": "build/us/view_inverse_matrix.o",
     "input_section": ".bss",
     "section": ".camera_matrix_data_bss",
     "vram": 2148323920,

@@ -6282,13 +6282,15 @@ build/us/camera_state_data.o: src/game/camera_state_data.c include/frame.h inclu
 
 RUNTIME_OBJECTS += build/us/camera_state_data.o
 
-build/us/camera_matrix_data.o: src/game/camera_matrix_data.c include/fixed_math.h include/sdk_matrix.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
+build/us/view_inverse_matrix.o: src/game/view_inverse_matrix.c include/model_geometry_internal.h include/renderer_primitives_internal.h include/renderer_geometry_internal.h include/graphics_state_internal.h include/frame.h include/heap.h include/rom_files.h include/debug_output.h include/fixed_geometry.h include/fixed_math.h include/sdk_matrix.h include/palette.h $(IDO) Makefile tools/owned_sections.py tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json config/owned_sections.json
 	mkdir -p $(@D)
-	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/camera_matrix_data.raw.o $<
-	$(PYTHON) tools/owned_sections.py $< build/us/camera_matrix_data.raw.o $@
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/view_inverse_matrix.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/view_inverse_matrix.raw.o build/us/view_inverse_matrix.text.o .text 0x1ac
+	$(PYTHON) tools/owned_sections.py $< build/us/view_inverse_matrix.text.o $@
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-RUNTIME_OBJECTS += build/us/camera_matrix_data.o
+RUNTIME_OBJECTS += build/us/view_inverse_matrix.o
+
 
 build/us/controller_input.o: src/game/controller_input.c include/controller_input.h include/scalar_math.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)

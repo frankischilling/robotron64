@@ -600,7 +600,7 @@ SECTIONS
     .model_normal_polygon_dispatch 0x8003EE20 : AT(0x3FA20) SUBALIGN(4) { build/us/model_normal_polygon_dispatch.o(.text) }
     .model_hierarchy_vertices 0x8003F168 : AT(0x3FD68) SUBALIGN(4) { build/us/model_hierarchy_vertices.o(.text) }
     .model_hierarchy_transform 0x8003F314 : AT(0x3FF14) SUBALIGN(4) { build/us/model_hierarchy_transform.o(.text) }
-    .endgame_40080_4022c 0x8003F480 : AT(0x40080) { build/us/fallback.o(.rom_endgame_40080_4022c) }
+    .view_inverse_matrix 0x8003F480 : AT(0x40080) SUBALIGN(4) { build/us/view_inverse_matrix.o(.text) }
     .model_camera_identity 0x8003F62C : AT(0x4022C) SUBALIGN(4) { build/us/model_camera_identity.o(.text) }
     .model_camera_rotation 0x8003F650 : AT(0x40250) SUBALIGN(4) { build/us/model_camera_rotation.o(.text) }
     .model_mesh_iteration 0x8003F7F4 : AT(0x403F4) SUBALIGN(4) { build/us/model_mesh_iteration.o(.text) }
@@ -1596,7 +1596,7 @@ SECTIONS
         *(.reginfo .MIPS.abiflags .mdebug .mdebug.* .pdr .comment .note.GNU-stack)
     }
     .camera_state_data_bss 0x800C8B88 (NOLOAD) : SUBALIGN(4) { build/us/camera_state_data.o(.bss) }
-    .camera_matrix_data_bss 0x800CD250 (NOLOAD) : SUBALIGN(4) { build/us/camera_matrix_data.o(.bss) }
+    .camera_matrix_data_bss 0x800CD250 (NOLOAD) : SUBALIGN(4) { build/us/view_inverse_matrix.o(.bss) }
     .controller_pad_state_bss 0x8013DBA0 (NOLOAD) : SUBALIGN(4) { build/us/controller_pad_state.o(.bss) }
     .controller_legacy_polled_buttons_bss 0x8013DC08 (NOLOAD) : SUBALIGN(4) { build/us/controller_legacy_poll.o(.bss) }
     .early_input_cursor_data_bss 0x8009E588 (NOLOAD) : SUBALIGN(4) { build/us/early_input_cursor_data.o(.bss) }
@@ -3000,7 +3000,7 @@ ASSERT(SIZEOF(.sound_request_dispatch) == 0xb0, "sound_request_dispatch size cha
 ASSERT(SIZEOF(.sound_request_dispatch_strings) == 0x20, "sound_request_dispatch_strings size changed")
 ASSERT(SIZEOF(.actor_chain_reset) == 0x3c, "actor_chain_reset size changed")
 ASSERT(SIZEOF(.model_hierarchy_transform) == 0x16c, "model_hierarchy_transform size changed")
-ASSERT(SIZEOF(.endgame_40080_4022c) == 0x1ac, "endgame_40080_4022c size changed")
+ASSERT(SIZEOF(.view_inverse_matrix) == 0x1ac, "view_inverse_matrix size changed")
 ASSERT(SIZEOF(.actor_history_projectile) == 0x1a4, "actor_history_projectile size changed")
 ASSERT(SIZEOF(.endgame_4ef64_4f3d4) == 0x470, "endgame_4ef64_4f3d4 size changed")
 ASSERT(SIZEOF(.actor_history_flags) == 0x18, "actor_history_flags size changed")
