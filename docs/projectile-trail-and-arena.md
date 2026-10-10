@@ -69,9 +69,11 @@ block's header contains that size with the low free bit set. The word following
 the payload receives the `-2` terminator. It preserves unsigned arithmetic and
 the target's lack of a start/end validity check.
 
-The checker also compares its complete ordered memory writes over 256 valid
-arena bounds with all start/end alignment residues. Those checks pass and
-require no supporting-call stubs. They do not establish instruction matching.
+The trail checker also compares its complete ordered memory writes over 256
+arena bounds with all start/end alignment residues. The separate
+[heap initializer audit](heap-initializer-audit.md) extends this to 449 fixtures
+with independent memory windows, access/code guards, integer and floating saved
+state, and ten rejected controls. These checks do not establish instruction matching.
 
 This initializer remains excluded. Returning a pointer, changing optimization
 or instruction-set profiles, and grouping it with the preceding matching heap
@@ -94,7 +96,9 @@ colors, vertex accounting, and unchanged history storage.
 These checks pass for the current candidate. The stubs model supporting calls;
 they do not run the graphics pipeline or establish full-game behavior. The
 candidate still compiles to 1,120 bytes against 1,136 target bytes and differs
-in 267 instruction words. The initializer comparison differs in eighteen words.
+in 267 instruction words. The current initializer has a 76-byte natural body
+and differs in thirteen words. The earlier provenance ledger records the
+preceding initializer comparison; the new heap ledger records the current candidate.
 
 The ribbon match is tracked in [issue #69](https://github.com/frankischilling/robotron64/issues/69);
 heap and history work remains in [issue #36](https://github.com/frankischilling/robotron64/issues/36).
