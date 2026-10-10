@@ -2,8 +2,6 @@
 #include "../../include/debug_output.h"
 #include "../../include/actor_dynamic_pool_internal.h"
 
-extern char D_8008FA0C[];
-
 void func_8000D2D4(ActorDynamicParameterCommand *command)
 {
     int first = command->value04;
@@ -32,3 +30,5 @@ void func_8000D2D4(ActorDynamicParameterCommand *command)
         func_8001C2C4(D_8008FA0C);
     }
 }
+
+char D_8008FA0C[] = "Num wave instances exceeded\n";

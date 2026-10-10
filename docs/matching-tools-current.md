@@ -187,3 +187,8 @@ The [early effect scale ledger](early-effect-coordinate-scales-provenance.json)
 adds six complete four-byte float definitions / 24 initialized bytes. All
 six retail loads, natural symbols and both reassemblies agree. The drawing
 procedures remain unresolved; eight IDO alignment bytes are excluded.
+
+Six [actor path and name literals](actor-path-literals.md) add 204 initialized
+bytes in four existing C units. Current initialized ownership is 38,071 bytes;
+code and BSS ownership do not change. The six first terminators are included;
+all following zeros remain fallback.

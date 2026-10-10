@@ -73,8 +73,8 @@ typedef char ActorSetupTextLayoutInternalMustBe28Bytes[
 
 extern short D_800B8F74;
 extern short D_800B8F7C;
-extern unsigned char D_80074AA4[];
-extern unsigned char D_80074ACC[];
+extern unsigned char D_80074AA4[40];
+extern unsigned char D_80074ACC[35];
 extern int D_800AD2C8[2];
 extern ActorSetupOptionsInternal D_800AD2D8;
 extern int D_80074A20;

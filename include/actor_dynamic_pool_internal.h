@@ -98,4 +98,9 @@ void func_8000D2D4(ActorDynamicParameterCommand *command);
 
 extern ActorDynamicPool *D_800AE4F4;
 
+extern char D_8008F9A8[24];
+extern unsigned char D_8008F9C0[52];
+extern char D_8008F9F4[24];
+extern char D_8008FA0C[29];
+
 #endif

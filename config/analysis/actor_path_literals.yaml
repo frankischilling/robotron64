@@ -1,0 +1,38 @@
+name: Robotron 64 actor path and name literals
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: actor_path_literals
+  base_path: ../../.local/actor-path-literals-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: actor_setup_strings_literals
+    type: code
+    start: 0x756A4
+    vram: 0x80074AA4
+    subsegments:
+      - [0x756A4, rodata, actor_setup_strings_literals]
+  - [0x756F0, bin, intervening]
+  - name: actor_dynamic_point_append_literals
+    type: code
+    start: 0x905A8
+    vram: 0x8008F9A8
+    subsegments:
+      - [0x905A8, rodata, actor_dynamic_point_append_literals]
+  - name: actor_dynamic_pair_append_literals
+    type: code
+    start: 0x905F4
+    vram: 0x8008F9F4
+    subsegments:
+      - [0x905F4, rodata, actor_dynamic_pair_append_literals]
+  - name: actor_dynamic_parameter_append_literals
+    type: code
+    start: 0x9060C
+    vram: 0x8008FA0C
+    subsegments:
+      - [0x9060C, rodata, actor_dynamic_parameter_append_literals]
+  - [0x9062C, bin, suffix]
+  - [0x800000]
