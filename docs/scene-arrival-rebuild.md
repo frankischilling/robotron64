@@ -17,12 +17,17 @@ folding those groups back into kinds 9 through 12. Kinds 17 through 20
 write secondary limits in list order. Grouped limits use ascending pool-slot
 order. Category 8 changes actor state to 2 and schedules one player arrival.
 
-The candidate's complete natural body is 1,372 bytes with a 928-byte frame;
-retail allocates 936 bytes. The complete comparison differs in 258 code
+The candidate's complete natural body is 1,376 bytes with a 936-byte frame;
+retail allocates 936 bytes. The complete comparison differs in 235 code
 words and two dispatch-table addresses. It remains excluded from the
 matching function manifest and ROM link. No code, initialized-data or BSS
 ownership is added. Padding locals and spare array elements are not used
 to force the frame size.
+
+The source uses a consumed pool-actor pointer for category-zero slot
+calculations and reads category-three resource kinds directly in that case.
+The [arrival-update candidate](scene-arrival-update.md) has a separate
+guarded audit for active spawning and pending-arrival transitions.
 
 Run `make audit-scene-arrival-rebuild` with the documented analysis Python
 environment. An independent model checks 913 fixtures in two layers, for

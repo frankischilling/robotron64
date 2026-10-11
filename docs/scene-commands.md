@@ -24,11 +24,13 @@ them from `0x800B00B0` and `0x800B14A4`, respectively. IDO unrolls the second
 loop in groups of four after its first two writes; the recovered source uses
 two ordinary loops over the flat arrays.
 
-The live session begins with the existing `0x4C`-byte saved-session prefix.
-Sixteen category-3 actor counters begin at live-session offset `0x100`.
-`GameSessionState` describes this known prefix and these counters without
-asserting the size of the entire live allocation. Save copies continue to
-use `SavedSessionState` for their serialized extent.
+The live session is the source-owned 328-byte `GameSessionState` allocation
+at `0x800AD138`. It begins with the `0x4C`-byte `SavedSessionState` prefix.
+Its halfword arrays contain 36 normal counters at `0xB8`, eight category-3
+counters at `0x100`, eleven category-7 counters at `0x110`, and sixteen
+category-1 counters at `0x126`. Save copies use `SavedSessionState` for
+their serialized extent. The [arrival-update audit](scene-arrival-update.md)
+checks the counter lookups and conditional triggers against retail execution.
 
 ## File selection and command behavior
 

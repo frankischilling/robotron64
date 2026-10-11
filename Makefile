@@ -8920,3 +8920,7 @@ audit-scene-arrival-selector: toolchain
 .PHONY: audit-scene-arrival-rebuild
 audit-scene-arrival-rebuild: toolchain
 	$(PYTHON) tools/check_scene_arrival_rebuild.py
+
+.PHONY: audit-scene-arrival-update
+audit-scene-arrival-update: toolchain
+	$(PYTHON) tools/check_scene_arrival_update.py

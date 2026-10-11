@@ -1,0 +1,26 @@
+name: Robotron 64 scene arrival update
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: scene_arrival_update
+  base_path: ../../.local/scene-arrival-update-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: scene_arrival_update
+    type: code
+    start: 0x20D34
+    vram: 0x80020134
+    subsegments:
+      - [0x20D34, asm, scene_arrival_update]
+  - [0x21B24, bin, middle]
+  - name: scene_arrival_update_rodata
+    type: code
+    start: 0x92560
+    vram: 0x80091960
+    subsegments:
+      - [0x92560, rodata, scene_arrival_update]
+  - [0x925E4, bin, suffix]
+  - [0x800000]
