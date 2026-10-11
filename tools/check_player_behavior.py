@@ -19,7 +19,7 @@ ACTOR=0x80500000;SECOND=ACTOR+0x7C;CHILD=SECOND+0x7C;ENEMY=CHILD+0x7C
 RESOURCE=0x80501000;TRACK=0x80502000;BORN=0x80503000
 SEED=0x80510000;READ=0x80510100;CLOBBER=0x80510200;FPU_OUT=0x80510300
 HELPERS={0x80017F9C:1,0x8001C49C:3,0x80027AB8:3,0x800290B0:2,0x80029194:1,0x80032F70:0,
- 0x800330F8:5,0x800338CC:2,0x800338F0:1,0x80035E3C:3,0x80036064:2,0x8003614C:4,
+ 0x800330F8:5,0x800338CC:2,0x800338F0:2,0x80035E3C:3,0x80036064:2,0x8003614C:4,
  0x80038D8C:4,0x800393FC:1,0x8003945C:2,0x80039514:2,0x8003978C:2,0x800397E0:2,
  0x80039CD0:1,0x80039E5C:2,0x8003B520:3,0x8003CC58:1,0x8003CC88:1,0x8003CD4C:2,
  0x8004CDE8:0,0x8004CEF0:1}
@@ -175,7 +175,7 @@ def execute(fixture,elf=None,fault=None):
    data=bytes(host_read(args[1],args[2]));observed=[args[0],data.hex(),args[2]];
    if address not in real_helpers:
     host_write(args[0],data)
-  elif address==0x800338F0:observed=[args[0],s32(r(machine,args[0]))];host_write(args[0],bytes(4))
+  elif address==0x800338F0:observed=[args[0],args[1],s32(r(machine,args[0]))];host_write(args[0],bytes(4))
   elif address==0x80035E3C:observed=[args[0],args[1],bytes(host_read(args[2],36)).hex()]
   elif address==0x800290B0:observed=[args[0],list(struct.unpack('>iii',host_read(args[1],12)))]
   elif address==0x80017F9C:observed=[args[0],list(struct.unpack('>iii',host_read(args[0]+0x60,12)))]
@@ -271,7 +271,9 @@ def run_controls(candidate,corpus,layout):
  for name,before,after in (
   ('height','actor->position[2] = 500;','actor->position[2] = 501;'),
   ('aim_default','D_800BEF6C = -1;','D_800BEF6C = 0;'),
-  ('ability','func_800338F0(&player->selection70);','func_800338F0(&player->selection74);'),
+  ('ability','func_800338F0(&player->selection70, (ScenePlayerRuntime *)player);','func_800338F0(&player->selection74, (ScenePlayerRuntime *)player);'),
+  ('ability_player','func_800338F0(&player->selection70, (ScenePlayerRuntime *)player);','func_800338F0(&player->selection70, (ScenePlayerRuntime *)actor);'),
+  ('other_ability_player','func_800338F0(&player->selection74, (ScenePlayerRuntime *)player);','func_800338F0(&player->selection74, (ScenePlayerRuntime *)actor);'),
   ('clamp_restore','restorePosition = 1;','restorePosition = 0;'),
   ('stick_y','D_8013DBC8[controller]','D_8013DBB8[controller]')):
   assert before in source,name

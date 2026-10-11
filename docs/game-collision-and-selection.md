@@ -48,6 +48,9 @@ Resource selection 8 passes a local value 12 to `func_8001B8D8`, selection
 9 passes 13, and selection 10 passes zero. Other selections skip the call.
 The input selection is always cleared afterward. The local values and
 their addresses are retained rather than replaced with direct arguments.
+The helper forwards the player word in `a1` through a shared two-argument
+prototype; the selected action paths do not read it. All 132 instruction
+bytes still match. See [interface provenance](player-selection-interface-provenance.json).
 
 ## Storage and validation
 

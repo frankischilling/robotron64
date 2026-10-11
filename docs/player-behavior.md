@@ -7,9 +7,9 @@ six-entry weapon table follows at `8009427C`. Together they occupy all
 reassemble the complete code and both tables exactly. The original ROM
 remains the authority for these boundaries and behaviors.
 
-The C candidate is `src/game/player/behavior.c`. It has 5,980 natural
+The C candidate is `src/game/player/behavior.c`. It has 5,988 natural
 instruction bytes, a 200-byte frame and 64 generated dispatch bytes.
-Retail uses a 184-byte frame. The complete comparison differs in 1,511
+Retail uses a 184-byte frame. The complete comparison differs in 1,509
 code words and sixteen table addresses. The source is excluded from the
 matching manifest and ROM link. It adds no instruction, initialized-data
 or BSS ownership. [Issue #144](https://github.com/frankischilling/robotron64/issues/144)
@@ -38,7 +38,10 @@ bits are set, otherwise it decays by one delta. A sufficiently charged
 player can release a child actor, reverse its angle, assign trigonometric
 velocity and decrement the attached-child count. Pressed bits `0x800`
 and `0x1000` consume the two ability selections through the existing
-single-argument clear helper.
+selection-clear helper. Both calls explicitly pass the same player allocation
+in `a1`, using the shared `ScenePlayerRuntime` view. The helper forwards that
+word to the scene action handler; its three selected actions ignore it.
+The helper's complete 132-byte body and 40-byte frame remain matching.
 
 Movement handles primary-stick thresholds, directional buttons, secondary
 aiming, signed scaling and diagonal reduction. The actor's tentative
@@ -72,8 +75,14 @@ All 26 callee entries are exercised. The checker compares call traces and
 every nonstack byte written by either execution, enforces guest memory
 widths and fixture allocation bounds, checks the natural stack frame and
 guards, and verifies preserved integer and floating-point registers.
-Five source mutations and seven guest faults must fail between passing
+Seven source mutations and seven guest faults must fail between passing
 retail/source baselines.
+Two source controls deliberately pass the actor instead of the player to
+each ability slot. The observer records both O32 argument words, so these
+mistakes fail even though its synthetic selection-clearing effect ignores
+the forwarded player. The helper and actual scene action handler are also
+covered by `tools/check_scene_actions.py`, including an unmapped unused
+player word for the clear helper's selected actions.
 
 The remaining 22 callees use explicit returning O32 observers. Their
 effects and returns are synthetic fixture models. Observers clobber
@@ -96,5 +105,5 @@ range. Its separate audit executes ten real callees. The larger caller remains
 excluded, and its existing audit still uses the explicit AI-output observer
 described above. The shared declaration uses the existing `GamePlayerState`
 view; the call casts the identical player storage without changing the O32
-arguments. The caller's complete 5,980-byte candidate and 64 dispatch bytes
-are rechecked after that declaration change.
+arguments. The caller's complete 5,988-byte candidate and 64 dispatch bytes
+are rechecked after the navigation and selection-clear declarations.
