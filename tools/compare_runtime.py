@@ -933,6 +933,8 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("history_prism", "src/game/early_local_effects/history_prism.c", 0x8000A910, 0x8000AC6C),
+    ("ground_disc", "src/game/early_local_effects/ground_disc.c", 0x8000AC6C, 0x8000B06C),
     ("player_behavior", "src/game/player/behavior.c", 0x80033974, 0x80035190),
     ("scene_arrival_update", "src/game/scene_arrivals/update.c", 0x80020134, 0x80020F24),
     ("scene_arrival_rebuild", "src/game/scene_arrivals/rebuild.c", 0x80020F8C, 0x800214D4),

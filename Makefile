@@ -8940,3 +8940,7 @@ audit-player-behavior: toolchain
 .PHONY: check-player-navigation
 check-player-navigation: toolchain
 	$(PYTHON) tools/check_player_navigation.py
+
+.PHONY: check-early-local-effects
+check-early-local-effects: toolchain
+	$(PYTHON) tools/check_early_local_effects.py
