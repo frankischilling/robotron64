@@ -932,6 +932,7 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("scene_arrival_rebuild", "src/game/scene_arrivals/rebuild.c", 0x80020F8C, 0x800214D4),
     ("actor_missile_update", "src/game/actor_projectiles/missile_update.c", 0x80038830, 0x80038D8C),
     ("actor_ring", "src/game/actor_effects/ring.c", 0x80006240, 0x80006654),
     ("scene_resource_setup", "src/game/scene_resources/setup.c", 0x8001D3F0, 0x8001DE54),

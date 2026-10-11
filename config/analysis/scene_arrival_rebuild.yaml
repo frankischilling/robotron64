@@ -1,0 +1,26 @@
+name: Robotron 64 scene arrival rebuild
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: scene_arrival_rebuild
+  base_path: ../../.local/scene-arrival-rebuild-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: scene_arrival_rebuild
+    type: code
+    start: 0x21B8C
+    vram: 0x80020F8C
+    subsegments:
+      - [0x21B8C, asm, scene_arrival_rebuild]
+  - [0x220D4, bin, middle]
+  - name: scene_arrival_rebuild_rodata
+    type: code
+    start: 0x925E4
+    vram: 0x800919E4
+    subsegments:
+      - [0x925E4, rodata, scene_arrival_rebuild]
+  - [0x92608, bin, suffix]
+  - [0x800000]

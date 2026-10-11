@@ -630,3 +630,7 @@ bytes and its 24-byte generated table. Run `make audit-scene-arrival-selector`.
 
 The [arrival insertion function](docs/scene-arrival-insertion.md) adds 1,104
 matching instruction bytes. Run `make audit-scene-arrivals` for its paired checks.
+
+The [arrival rebuild audit](docs/scene-arrival-rebuild.md) checks its excluded
+C candidate in both insertion-boundary and integrated execution pairs. Run
+`make audit-scene-arrival-rebuild`. This audit adds no source ownership.
