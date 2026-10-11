@@ -7,13 +7,24 @@ six-entry weapon table follows at `8009427C`. Together they occupy all
 reassemble the complete code and both tables exactly. The original ROM
 remains the authority for these boundaries and behaviors.
 
-The C candidate is `src/game/player/behavior.c`. It has 6,092 natural
-instruction bytes, a 200-byte frame and 64 generated dispatch bytes.
-Retail uses a 184-byte frame. The complete comparison differs in 1,509
-code words and sixteen table addresses. The source is excluded from the
-matching manifest and ROM link. It adds no instruction, initialized-data
+The C candidate is `src/game/player/behavior.c`. It has 6,160 natural
+instruction bytes, the retail 184-byte frame and 64 generated dispatch
+bytes. The complete comparison differs in 1,461 code words and sixteen
+table addresses. Its natural body is twelve bytes shorter than retail.
+The source is excluded from the matching manifest and ROM link. It adds no
+instruction, initialized-data
 or BSS ownership. [Issue #144](https://github.com/frankischilling/robotron64/issues/144)
 tracks the remaining matching work.
+
+The candidate uses typed position copies and a bounded player-selection
+loop. The death-scale expression preserves its repeated frame-count calls
+and signed division. Its 184-byte frame and initial stores for secondary
+aiming, target, restore flag and player pointer agree with retail. Those
+stores alone do not establish the original local declarations. The compiled
+death-frame expression and position pointer share a compiler-generated
+scratch slot at `sp+0x34`; retail uses `sp+0x3C`. Register allocation,
+scheduling, local storage and both dispatch tables still need matching.
+No padding, inserted instructions or extra call arguments fill the gap.
 
 ## Runtime views and decisions
 

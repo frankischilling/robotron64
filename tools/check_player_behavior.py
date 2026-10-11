@@ -319,20 +319,20 @@ def run_controls(candidate,corpus,layout):
  out=n/'build/player-behavior-audit/controls';out.mkdir(exist_ok=True)
  source=(n/SOURCE).read_text();controls=[]
  for name,before,after in (
-  ('height','actor->position[2] = 500;','actor->position[2] = 501;'),
+  ('height','actor->position[2] = 0x1F4;','actor->position[2] = 0x1F5;'),
   ('aim_default','D_800BEF6C = -1;','D_800BEF6C = 0;'),
   ('ability','func_800338F0(&player->selection70, (ScenePlayerRuntime *)player);','func_800338F0(&player->selection74, (ScenePlayerRuntime *)player);'),
   ('ability_player','func_800338F0(&player->selection70, (ScenePlayerRuntime *)player);','func_800338F0(&player->selection70, (ScenePlayerRuntime *)actor);'),
   ('other_ability_player','func_800338F0(&player->selection74, (ScenePlayerRuntime *)player);','func_800338F0(&player->selection74, (ScenePlayerRuntime *)actor);'),
   ('projectile_primary_word','D_800BEF6C, 185);','D_800BEF6C, 184);'),
-  ('projectile_secondary_word','D_800BEF6C + 0x200U & 0xfff, -1);','D_800BEF6C + 0x200U & 0xfff, 0);'),
+  ('projectile_secondary_word','(D_800BEF6C + 0x200) & 0xFFF, -1);','(D_800BEF6C + 0x200) & 0xFFF, 0);'),
   ('clamp_restore','restorePosition = 1;','restorePosition = 0;'),
   ('stick_y','D_8013DBC8[controller]','D_8013DBB8[controller]'),
-  ('handoff_wrap','if (D_800AD138.saved.mode <= D_800AD138.saved.selection34)', 'if (D_800AD138.saved.mode < D_800AD138.saved.selection34)'),
+  ('handoff_wrap','if (D_800AD138.saved.selection34 >= D_800AD138.saved.mode)', 'if (D_800AD138.saved.selection34 > D_800AD138.saved.mode)'),
   ('handoff_choice','D_800AD138.saved.playerChoices38[D_800AD138.saved.selection34]', 'D_800AD138.saved.playerChoices38[0]'),
-  ('handoff_liveness','if (0 < D_8009B190[D_800AD138.saved.currentPlayer].saved.active)', 'if (0 <= D_8009B190[D_800AD138.saved.currentPlayer].saved.active)'),
-  ('handoff_copy','func_8003B520(&D_800AD138,&D_8009B190[D_800AD138.saved.currentPlayer].saved.field34,0x28);', 'func_8003B520(&D_800AD138,&D_8009B190[D_800AD138.saved.currentPlayer].saved.field34,0x24);'),
-  ('handoff_count','value = value + 1;\n          } while (value < D_800AD138.saved.mode);', 'value = value + 2;\n          } while (value < D_800AD138.saved.mode);')):
+  ('handoff_liveness','if (D_8009B190[D_800AD138.saved.currentPlayer].saved.active > 0)', 'if (D_8009B190[D_800AD138.saved.currentPlayer].saved.active >= 0)'),
+  ('handoff_copy','func_8003B520(&D_800AD138, &D_8009B190[D_800AD138.saved.currentPlayer].saved.field34, 0x28);', 'func_8003B520(&D_800AD138, &D_8009B190[D_800AD138.saved.currentPlayer].saved.field34, 0x24);'),
+  ('handoff_count','searchCount < D_800AD138.saved.mode; searchCount += 1', 'searchCount < D_800AD138.saved.mode; searchCount += 2')):
   assert before in source,name
   mutant_source=out/(name+'.c');mutant_source.write_text(source.replace(before,after,1))
   result=compare_candidate_block(name,mutant_source.relative_to(n).as_posix(),rom,layout,'player-behavior-audit/controls')
