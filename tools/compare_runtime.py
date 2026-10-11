@@ -932,6 +932,7 @@ MATCHING_BLOCKS = (
 )
 
 CANDIDATE_BLOCKS = (
+    ("player_behavior", "src/game/player/behavior.c", 0x80033974, 0x80035190),
     ("scene_arrival_update", "src/game/scene_arrivals/update.c", 0x80020134, 0x80020F24),
     ("scene_arrival_rebuild", "src/game/scene_arrivals/rebuild.c", 0x80020F8C, 0x800214D4),
     ("actor_missile_update", "src/game/actor_projectiles/missile_update.c", 0x80038830, 0x80038D8C),
@@ -986,7 +987,10 @@ def compare_blocks(records, target, family, layout, jobs=1):
 
     def compare_record(record):
         name, source, start, end = record
-        if name == "actor_missile_update":
+        if name == "player_behavior":
+            from player_behavior_compare import compare_candidate_block
+            result = compare_candidate_block(name, source, target, layout, family)
+        elif name == "actor_missile_update":
             from missile_update_compare import compare_candidate_block
             result = compare_candidate_block(name, source, target, layout, family)
         elif name == "scene_resource_setup":

@@ -8924,3 +8924,7 @@ audit-scene-arrival-rebuild: toolchain
 .PHONY: audit-scene-arrival-update
 audit-scene-arrival-update: toolchain
 	$(PYTHON) tools/check_scene_arrival_update.py
+
+.PHONY: audit-player-behavior
+audit-player-behavior: toolchain
+	$(PYTHON) tools/check_player_behavior.py
