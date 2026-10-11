@@ -209,3 +209,9 @@ full-ROM, test and independent comparison gates pass.
 The [arrival insertion function](scene-arrival-insertion.md) adds 1,104 matching
 instruction bytes. Current totals are 1,435 C functions / 318,944 instruction
 bytes / 38,406 initialized bytes, with unchanged assembly and BSS totals.
+
+The [arrival rebuild audit](scene-arrival-rebuild.md) checks 913 fixtures in
+both boundary and integrated layers, with eight source mutations and seven
+guest faults. Its 1,372-byte C candidate remains excluded from the 1,352-byte
+retail range; 258 instruction words and two dispatch-table addresses differ.
+The current ownership totals do not change.

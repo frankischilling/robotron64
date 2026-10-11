@@ -8916,3 +8916,7 @@ audit-movie-literals: toolchain
 .PHONY: audit-scene-arrival-selector
 audit-scene-arrival-selector: toolchain
 	$(PYTHON) tools/check_scene_arrival_selector.py
+
+.PHONY: audit-scene-arrival-rebuild
+audit-scene-arrival-rebuild: toolchain
+	$(PYTHON) tools/check_scene_arrival_rebuild.py
