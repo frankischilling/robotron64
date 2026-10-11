@@ -21,6 +21,23 @@ ENTRY, LOADER, BLEND = 0x8003B2B0, 0x8004BD00, 0x8003F818
 CACHE, OUTPUT, STACK = 0x8007A1C4, 0x800C8C10, 0x80300000
 POOL, REFERENCE, CONTEXT = 0x80200000, 0x80210000, 0x80230000
 FAMILY = 'object-projection-execution'
+FPU_INIT, FPU_PROBE, FPU_RETURN = 0x80000200, 0x80000300, 0x80000380
+FPU_RESULT = 0x80240010
+
+
+def fpu_fixture(seed):
+    """Seed and observe all twelve saved words through guest COP1 instructions."""
+    values = [0x3F800101 + ((seed & 255) << 12) + index * 257
+              for index in range(12)]
+    initialize = b''.join(word(0x3C010000 | (value >> 16)) + word(0x34210000 | (value & 65535)) +
+                          word(0x44810000 | (register << 11))
+                          for register, value in zip(range(20, 32), values))
+    initialize += word(0x03E00008) + word(0)
+    probe = word(0x3C018024) + word(0x34210010)
+    probe += b''.join(word(0xE4200000 | (register << 16) | ((register - 20) * 4))
+                      for register in range(20, 32))
+    probe += word(0x03E00008) + word(0)
+    return initialize, probe, b''.join(word(value) for value in values)
 
 
 def locate(data, address, size):
@@ -134,7 +151,25 @@ def oracle(initial_data, case):
 def execute(code, support, case):
     data = initial(case)
     expected, allowed, expected_trace = oracle(data, case)
-    uc, write, _ = machine([(ENTRY, code)], support)
+    initialize, probe, expected_fpu = fpu_fixture(case[-1])
+    uc, write, _ = machine([(ENTRY, code), (FPU_INIT, initialize),
+                            (FPU_PROBE, probe)], support)
+    uc.reg_write(regs.UC_MIPS_REG_CP0_STATUS,
+                 uc.reg_read(regs.UC_MIPS_REG_CP0_STATUS) | (1 << 29))
+    # Each probe must really reach its own return PC. The main return hook's
+    # previous stop flag cannot stand in for completing either fixture phase.
+    fpu_window = b'\xA5' * 16 + b'\xC7' * 48 + b'\xB6' * 16
+    write(FPU_RESULT - 16, fpu_window)
+    uc.reg_write(regs.UC_MIPS_REG_RA, FPU_RETURN)
+    uc.emu_start(FPU_INIT, FPU_RETURN, count=50)
+    assert uc.reg_read(regs.UC_MIPS_REG_PC) == FPU_RETURN, 'FPU seed did not return'
+    uc.emu_start(FPU_PROBE, FPU_RETURN, count=32)
+    assert uc.reg_read(regs.UC_MIPS_REG_PC) == FPU_RETURN, 'Initial FPU probe did not return'
+    assert bytes(uc.mem_read(FPU_RESULT & 0x1FFFFFFF, 48)) == expected_fpu, 'FPU seed'
+    seeded_window = bytes(uc.mem_read((FPU_RESULT - 16) & 0x1FFFFFFF, 80))
+    assert seeded_window[:16] == fpu_window[:16] and seeded_window[-16:] == fpu_window[-16:], 'FPU seed canary'
+    write(FPU_RESULT - 16, fpu_window)
+    uc.reg_write(regs.UC_MIPS_REG_RA, SENTINEL)
     for address, block in data.items():
         write(address, bytes(block))
     # Projection reserves 0x40 bytes and its retail loader reserves 0x148.
@@ -156,9 +191,13 @@ def execute(code, support, case):
     uc.reg_write(regs.UC_MIPS_REG_A0, case[5])
     uc.reg_write(regs.UC_MIPS_REG_A1, case[2] & 0xFFFFFFFF)
     touched, trace = set(), []
+    probing_fpu = [False]
 
     def guard_write(uc, access, address, size, value, user):
         address |= 0x80000000
+        if probing_fpu[0]:
+            assert FPU_RESULT <= address and address + size <= FPU_RESULT + 48, ('FPU probe write guard', hex(address), size)
+            return
         assert all(address + i in writable for i in range(size)), ('Write guard', hex(address), size, case)
         if stack_start <= address < STACK + 16:
             touched.update(range(address, address + size))
@@ -168,6 +207,9 @@ def execute(code, support, case):
         assert any(a <= address and address + size <= b for a, b in readable), ('Read guard', hex(address), size, case)
 
     def guard_code(uc, address, size, user):
+        if probing_fpu[0]:
+            assert FPU_PROBE <= address and address + size <= FPU_PROBE + len(probe), ('FPU probe code guard', hex(address))
+            return
         assert address == SENTINEL or any(a <= address and address + size <= b for a, b in executable), ('Escaped code', hex(address), case)
         if address in (LOADER, BLEND):
             names = ('A0', 'A1', 'A2') if address == LOADER else ('A0', 'A1', 'A2', 'A3')
@@ -181,6 +223,16 @@ def execute(code, support, case):
     assert uc.reg_read(regs.UC_MIPS_REG_SP) == STACK, 'Stack pointer'
     assert uc.reg_read(regs.UC_MIPS_REG_GP) == 0xABCD1234, 'Global pointer'
     assert all(uc.reg_read(register) == value for register, value in saved.items()), 'Saved registers'
+    assert uc.reg_read(regs.UC_MIPS_REG_RA) == SENTINEL, 'Return address'
+    # The function and its callees cannot write the observer's result window.
+    assert bytes(uc.mem_read((FPU_RESULT - 16) & 0x1FFFFFFF, 80)) == fpu_window, 'FPU observer modified by guest'
+    probing_fpu[0] = True
+    uc.reg_write(regs.UC_MIPS_REG_RA, FPU_RETURN)
+    uc.emu_start(FPU_PROBE, FPU_RETURN, count=32)
+    assert uc.reg_read(regs.UC_MIPS_REG_PC) == FPU_RETURN, 'Final FPU probe did not return'
+    observed_fpu = bytes(uc.mem_read((FPU_RESULT - 16) & 0x1FFFFFFF, 80))
+    assert observed_fpu[16:64] == expected_fpu, ('Saved F20-F31', case)
+    assert observed_fpu[:16] == fpu_window[:16] and observed_fpu[-16:] == fpu_window[-16:], 'FPU probe canary'
     assert trace == expected_trace, ('Call arguments', trace, expected_trace, case)
     digest = hashlib.sha256()
     for address, block in expected.items():
@@ -192,6 +244,32 @@ def execute(code, support, case):
                if stack_start + i not in touched), 'Stack canary'
     digest.update(json.dumps(trace).encode())
     return digest.hexdigest()
+
+
+def saved_register_controls(retail, support):
+    """A positive execution precedes every isolated saved-register fault."""
+    case = (13, 3, 1, 512, 0, 137, 254, 0, 7)
+    faults = [('F' + str(register), 0x148, 0, 0x44800000 | (register << 11),
+               'Saved F20-F31') for register in range(20, 32)]
+    faults += [('S3', 0x148, 0, 0x00009821, 'Saved registers'),
+               ('GP', 0x148, 0, 0x0000E021, 'Global pointer'),
+               ('RA', 0x174, 0xAD2F2F34, 0x27FF0004, 'Return address')]
+    results = []
+    for name, offset, original, replacement, expected_error in faults:
+        assert retail[offset:offset + 4] == word(original), ('ABI fault location', name)
+        execute(retail, support, case)
+        changed = bytearray(retail)
+        changed[offset:offset + 4] = word(replacement)
+        try:
+            execute(bytes(changed), support, case)
+        except AssertionError as error:
+            assert expected_error in str(error), ('Wrong ABI control rejection', name, str(error))
+            results.append(dict(register=name, offset=offset, original=hex(original),
+                                replacement=hex(replacement), positive_passed=True,
+                                detected=str(error)))
+        else:
+            raise AssertionError(('Undetected saved-register fault', name))
+    return results
 
 
 def source_fault_controls(target, layout, support, baseline_code):
@@ -297,16 +375,18 @@ def main():
         digest.update(json.dumps((case, a)).encode())
         if (index + 1) % 64 == 0:
             print('Projection cache-hit guarded cases', index + 1, flush=True)
+    abi_controls = saved_register_controls(retail, support)
     mutations = []
     for name, offset, replacement in (('footer source stride', 0x13C, '24420010'),
                                        ('footer destination', 0xEC, '00105900'),
                                        ('ready and dirty flags', 0x14C, '24020002')):
+        execute(retail, support, (13, 3, 1, 512, 0, 137, 254, 0, 7))
         changed = bytearray(retail)
         changed[offset:offset + 4] = bytes.fromhex(replacement)
         try:
             execute(bytes(changed), support, (13, 3, 1, 512, 0, 137, 254, 0, 7))
         except (AssertionError, ValueError) as error:
-            mutations.append(dict(name=name, detected=str(error)[:180]))
+            mutations.append(dict(name=name, detected=str(error)[:180], positive_passed=True))
         else:
             raise AssertionError(('Undetected mutation', name))
     controls = source_fault_controls(target, layout, support, candidate)
@@ -319,6 +399,9 @@ def main():
                   rom_sha256=hashlib.sha256(target).hexdigest(),
                   unicorn_version=version('unicorn'),
                   trace_sha256=digest.hexdigest(), mutations=mutations,
+                  saved_register_fault_controls=abi_controls,
+                  saved_fpu_words=12, principal_fixture_executions=2 * len(cases),
+                  fpu_observation='Guest MTC1 seeds and SWC1 probes verify all twelve words before and after each principal execution; observer memory is protected from the tested code.',
                   compiled_source_controls=controls,
                   comparison=report, freshly_matched_support=support_report,
                   retail_loader=dict(instruction_bytes=904, sha256=hashlib.sha256(support[0][1]).hexdigest(), source_owned=False),
