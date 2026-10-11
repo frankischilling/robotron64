@@ -1,0 +1,26 @@
+name: Robotron 64 player behavior
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: player_behavior
+  base_path: ../../.local/player-behavior-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: player_behavior
+    type: code
+    start: 0x34574
+    vram: 0x80033974
+    subsegments:
+      - [0x34574, asm, player_behavior]
+  - [0x35D90, bin, middle]
+  - name: player_behavior_rodata
+    type: code
+    start: 0x94E54
+    vram: 0x80094254
+    subsegments:
+      - [0x94E54, rodata, player_behavior]
+  - [0x94E94, bin, suffix]
+  - [0x800000]
