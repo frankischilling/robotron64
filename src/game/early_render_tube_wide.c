@@ -20,9 +20,6 @@ void func_8000B5AC(void)
     int y1;
     int z0;
     int z1;
-    int red;
-    int green;
-    int blue;
 
     func_8004DB34(&identity);
     func_8004D154(&rotation, &identity, D_800730D8);
@@ -34,13 +31,12 @@ void func_8000B5AC(void)
     func_80047D88(&draw, &rotation);
     func_8004729C(1);
     FRAME_COMMAND(0xB6000000, 0x2000);
-    D_80123AE4 = func_80047048();
+    D_80123AE4 = firstVertex = func_80047048();
     if (D_80123AE4 == -1) {
         return;
     }
     z0 = 100;
     z1 = 2100;
-    firstVertex = D_80123AE4;
     for (ring = 0; ring < 16; ring++) {
         color = ring;
         nextColor = color + 1;
@@ -54,15 +50,15 @@ void func_8000B5AC(void)
             D_800CDBD0[D_80123AE4 + 0].color.color[0] = D_800730E0[color & 7][0];
             D_800CDBD0[D_80123AE4 + 0].color.color[1] = D_800730E0[color & 7][1];
             D_800CDBD0[D_80123AE4 + 0].color.color[2] = D_800730E0[color & 7][2];
-            red = D_800730E0[nextColor & 7][0];
-            green = D_800730E0[nextColor & 7][1];
-            blue = D_800730E0[nextColor & 7][2];
-            D_800CDBD0[D_80123AE4 + 1].color.color[0] = red;
-            D_800CDBD0[D_80123AE4 + 3].color.color[0] = red;
-            D_800CDBD0[D_80123AE4 + 1].color.color[1] = green;
-            D_800CDBD0[D_80123AE4 + 3].color.color[1] = green;
-            D_800CDBD0[D_80123AE4 + 1].color.color[2] = blue;
-            D_800CDBD0[D_80123AE4 + 3].color.color[2] = blue;
+            D_800CDBD0[D_80123AE4 + 3].color.color[0] =
+                D_800CDBD0[D_80123AE4 + 1].color.color[0] =
+                    D_800730E0[nextColor & 7][0];
+            D_800CDBD0[D_80123AE4 + 3].color.color[1] =
+                D_800CDBD0[D_80123AE4 + 1].color.color[1] =
+                    D_800730E0[nextColor & 7][1];
+            D_800CDBD0[D_80123AE4 + 3].color.color[2] =
+                D_800CDBD0[D_80123AE4 + 1].color.color[2] =
+                    D_800730E0[nextColor & 7][2];
             D_800CDBD0[D_80123AE4 + 2].color.color[0] = D_800730E0[lastColor & 7][0];
             D_800CDBD0[D_80123AE4 + 2].color.color[1] = D_800730E0[lastColor & 7][1];
             D_800CDBD0[D_80123AE4 + 2].color.color[2] = D_800730E0[lastColor & 7][2];

@@ -9,7 +9,7 @@ totals. Their complete retail extents remain in the ROM fallback.
 | Procedure | Retail extent | Retail bytes | Compiled bytes | Differing words | Role |
 | --- | --- | ---: | ---: | ---: | --- |
 | `func_8000B1E4` | `0x8000B1E4..0x8000B5AC` | 968 | 960 | 158 | Eight quads per band; moving depth |
-| `func_8000B5AC` | `0x8000B5AC..0x8000B964` | 952 | 944 | 158 | Sixteen quads per band; advancing rotation |
+| `func_8000B5AC` | `0x8000B5AC..0x8000B964` | 952 | 952 | 146 | Sixteen quads per band; advancing rotation |
 | `func_8000B9D4` | `0x8000B9D4..0x8000BE80` | 1,196 | 1,196 | 281 | Alternating-radius star fan |
 
 Both tubes prepare an identity matrix, apply the shared Z rotation, transform
@@ -58,6 +58,54 @@ lengths do not establish a match. The complete candidate and data results are
 recorded in `early-render-effects-provenance.json`, including current source,
 header, compiler, and layout input hashes. No candidate contributes executable
 bytes to the rebuilt ROM.
+
+## Tube execution and remaining compiler differences
+
+`make check-early-render-tubes` freshly compiles both complete candidates,
+twelve matching support units, and the 104-byte tube state and palette. The
+guard executes retail and candidate MIPS code without ABI stubs. Independent
+oracles check the entire 22,000-vertex pool, display-list commands and canaries,
+the complete SDK matrix arena, depth and rotation state, trigonometric call
+arguments, cumulative commits, stack bounds, and saved integer registers.
+
+The 320 paired cases cover both segment counts, allocator positions zero and
+seven, the 9,800-vertex threshold and its warning path, a high valid allocation,
+four rotation inputs, unchanged and departing mode 18, both matrix buffers,
+identity and skewed view matrices, and depth values zero, 31,000, 31,001 and
+32,000. Fourteen freshly compiled mutation controls must fail: radius, palette
+mask, alpha, quad command, cumulative count and band limit for each helper,
+plus moving-depth wrap and advancing rotation. Receipts include current source,
+header, compiler, layout, guard and emulator provenance.
+
+The per-band commit uses the original first vertex throughout the function.
+It submits cumulative counts of 32 through 512 for the narrow tube and 64
+through 1,024 for the wide tube. Consequently the allocator advances by 4,352
+and 8,704 respectively while the vertex cursor advances by 512 and 1,024. This
+is observed retail behavior, preserved by the candidate and checked explicitly;
+it is not an invitation to change the game algorithm.
+
+The wide candidate captures the allocator result in the local first-vertex
+value and shares RGB byte assignments between corners one and three. Its
+natural body now has the retail length, but 146 words still differ. The stack
+frame is 288 bytes versus retail's 328 bytes. The narrow candidate remains
+960 bytes with 158 differing words. No unused local, extra parameter, enlarged
+draw record or instruction patch was introduced to force a match. The verified
+60-byte draw prefix does not prove the original caller's complete stack layout.
+
+Private research compared 85 directed compiler forms and freshly recompiled all
+123 retained outputs from a bounded decomp-permuter run with stack checking.
+Review found changed external declarations, loop-counter overwrites, and reads
+of uninitialized coordinate locals. The lowest complete word difference, 144,
+overwrites the band counter with a palette value; using the retail palette it
+draws two bands instead of sixteen. It is rejected. Independent splat and
+spimdisasm references reproduce both complete retail tube ranges; typed m2c
+and the saved Ghidra analysis supply additional control-flow evidence.
+
+The execution guard covers finite CPU fixtures. It does not execute the RSP or
+RDP, prove gameplay, establish original local declarations, or grant instruction
+ownership. Both tube routines remain excluded from the matching ROM build and
+progress totals. Original stack storage, induction variables and scheduling
+still need recovery before their fallback extents can be replaced.
 
 The target ROM supplies all Robotron-specific behavior. The local libreultra
 GBI header supplies command-format and geometry-bit definitions. Existing
