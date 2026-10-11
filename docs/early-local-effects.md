@@ -29,8 +29,11 @@ no vertices or packets.
 
 Signed division and multiplication behavior matters. The checker independently
 models 32-bit multiplication wrap, signed truncation toward zero, coordinate
-halfword truncation, and color byte truncation. Algebraically reducing the alpha
-expression to `size * 4` loses the retail behavior at large signed inputs.
+halfword truncation, and color byte truncation. Replacing the alpha expression
+with `size * 4` changes intermediate values at large signed inputs and changes
+the instruction stream. The final stored alpha byte is equal: the wrapped
+product is divisible by sixteen, and overflow changes its quotient by a
+multiple of `2^28`, which disappears when narrowed to eight bits.
 
 The natural 860-byte prism body and 24-byte stack frame match every retail
 instruction. Independent splat and spimdisasm reassemblies cover the same complete
