@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,436 matching C functions covering 320,948 bytes, twenty-nine assembly functions covering 4,372 bytes, 38,406 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,437 matching C functions covering 321,808 bytes, twenty-nine assembly functions covering 4,372 bytes, 38,406 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -448,10 +448,11 @@ adds 24 initialized bytes and twelve BSS bytes. Five full C candidates cover
 4,164 retail instruction bytes; all remain excluded from matching progress.
 Both image wrappers differ only in four stack/argument instructions each.
 
-[History prisms and ground discs](docs/early-local-effects.md) add two excluded
-source candidates and `make check-early-local-effects`. The guard checks complete
-vertex and command writes with real matched renderer helpers; instruction
-matching remains incomplete.
+[History prisms and ground discs](docs/early-local-effects.md) recover the complete
+860-byte matching prism and retain an excluded ground-disc candidate.
+`make check-early-local-effects` checks complete vertex and command writes with
+real matched renderer helpers. The prism is included in the matching ROM build;
+the disc still differs in 194 words.
 
 [Early tube and star rendering](docs/early-render-effects.md) reconstructs three
 nonmatching C candidates covering 3,116 retail instruction bytes and owns

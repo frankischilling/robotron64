@@ -112,7 +112,9 @@ SECTIONS
     .early_render_color 0x8000A200 : AT(0xAE00) SUBALIGN(4) { build/us/early_render_color.o(.text) }
     .random_between 0x8000A21C : AT(0xAE1C) SUBALIGN(4) { build/us/random_between.o(.text) }
     .actor_relative_geometry 0x8000A2E0 : AT(0xAEE0) SUBALIGN(4) { build/us/actor_relative_geometry.o(.text) }
-    .render_stream_fallback_af88_bc6c 0x8000A388 : AT(0xAF88) { build/us/fallback.o(.rom_render_stream_fallback_af88_bc6c) }
+    .render_stream_fallback_af88_b510 0x8000A388 : AT(0xAF88) { build/us/fallback.o(.rom_render_stream_fallback_af88_b510) }
+    .history_prism 0x8000A910 : AT(0xB510) SUBALIGN(4) { build/us/history_prism.o(.text) }
+    .render_stream_fallback_b86c_bc6c 0x8000AC6C : AT(0xB86C) { build/us/fallback.o(.rom_render_stream_fallback_b86c_bc6c) }
     .early_render_quad 0x8000B06C : AT(0xBC6C) SUBALIGN(4) { build/us/early_render_quad.o(.text) }
     .render_stream_fallback_bde4_c564 0x8000B1E4 : AT(0xBDE4) { build/us/fallback.o(.rom_render_stream_fallback_bde4_c564) }
     .early_render_presets 0x8000B964 : AT(0xC564) SUBALIGN(4) { build/us/early_render_presets.o(.text) }
@@ -3146,7 +3148,9 @@ ASSERT(SIZEOF(.audio_engine_command_table) == 0x90, "audio_engine_command_table 
 ASSERT(SIZEOF(.audio_backend_commands_fallback_before) == 0x20, "audio_backend_commands_fallback_before size changed")
 ASSERT(SIZEOF(.audio_backend_commands) == 0x4c, "audio_backend_commands size changed")
 ASSERT(SIZEOF(.audio_backend_commands_fallback_after) == 0x24, "audio_backend_commands_fallback_after size changed")
-ASSERT(SIZEOF(.render_stream_fallback_af88_bc6c) == 0xce4, "render_stream_fallback_af88_bc6c size changed")
+ASSERT(SIZEOF(.render_stream_fallback_af88_b510) == 0x588, "render_stream_fallback_af88_b510 size changed")
+ASSERT(SIZEOF(.history_prism) == 0x35c, "history_prism size changed")
+ASSERT(SIZEOF(.render_stream_fallback_b86c_bc6c) == 0x400, "render_stream_fallback_b86c_bc6c size changed")
 ASSERT(SIZEOF(.early_render_quad) == 0x178, "early_render_quad size changed")
 ASSERT(SIZEOF(.render_stream_fallback_bde4_c564) == 0x780, "render_stream_fallback_bde4_c564 size changed")
 ASSERT(SIZEOF(.renderer_vertex_arena_data_bss) == 0x55f00, "renderer_vertex_arena_data BSS size changed")

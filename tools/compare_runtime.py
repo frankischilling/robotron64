@@ -930,10 +930,10 @@ MATCHING_BLOCKS = (
     ("error_warning_format", "src/game/diagnostics/warning.c", 0x8001C2C4, 0x8001C49C),
     ("controller_poll", "src/game/controller/poll.c", 0x8004F330, 0x8004F4D8),
     ("controller_legacy_poll", "src/game/controller/legacy_poll.c", 0x8004C1E0, 0x8004C378),
+    ("history_prism", "src/game/early_local_effects/history_prism.c", 0x8000A910, 0x8000AC6C),
 )
 
 CANDIDATE_BLOCKS = (
-    ("history_prism", "src/game/early_local_effects/history_prism.c", 0x8000A910, 0x8000AC6C),
     ("ground_disc", "src/game/early_local_effects/ground_disc.c", 0x8000AC6C, 0x8000B06C),
     ("player_behavior", "src/game/player/behavior.c", 0x80033974, 0x80035190),
     ("scene_arrival_update", "src/game/scene_arrivals/update.c", 0x80020134, 0x80020F24),
