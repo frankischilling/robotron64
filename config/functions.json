@@ -16162,5 +16162,16 @@
     "section": ".history_prism",
     "section_vram": 2147526928,
     "evidence": "docs/early-local-effects.md"
+  },
+  {
+    "name": "func_80040BA0",
+    "rom": 268192,
+    "vram": 2147748768,
+    "size": 956,
+    "source": "src/game/renderer_surfaces/random_grid.c",
+    "object": "build/us/renderer_random_grid.o",
+    "section": ".renderer_random_grid",
+    "section_vram": 2147748768,
+    "evidence": "docs/renderer-random-grid.md"
   }
 ]

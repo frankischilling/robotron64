@@ -68,7 +68,6 @@ REGIONS = (
     ("cpu_after_model_rotation", 0x3e03c, 0x3f77c),
     ("endgame_409c4_40c0c", 0x409c4, 0x40c0c),
     ("cpu_after_model_vertices_scatter", 0x40cc4, 0x40cd0),
-    ("cpu_after_renderer_rotating_rings", 0x417a0, 0x41b5c),
     ("endgame_420c4_42cb0", 0x420c4, 0x42cb0),
     ("cpu_after_renderer_material_reset", 0x43428, 0x43430),
     ("endgame_434c0_43c70", 0x434c0, 0x43c70),
