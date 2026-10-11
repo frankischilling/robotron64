@@ -8484,6 +8484,15 @@ build/us/movie_literal_erase_label.o: src/game/movie_literals/erase_label.c incl
 
 RUNTIME_OBJECTS += build/us/movie_literal_erase_label.o
 
+build/us/scene_arrival_select.o: src/game/scene_arrivals/select.c $(wildcard include/*.h) $(IDO) Makefile tools/trim_padding.py tools/owned_sections.py config/owned_sections.json tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/scene_arrival_select.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/scene_arrival_select.raw.o build/us/scene_arrival_select.text.o .text 0x408
+	$(PYTHON) tools/owned_sections.py $< build/us/scene_arrival_select.text.o $@
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+RUNTIME_OBJECTS += build/us/scene_arrival_select.o
+
 build/us/robotron64.elf: build/us/fallback.o build/us/text.o build/us/text_wrapper.o build/us/text_edit.o build/us/text_properties.o build/us/text_conversion.o build/us/object_transforms.o build/us/entry.o build/us/startup.o build/us/scheduler.o $(RUNTIME_OBJECTS) linker_scripts/us.ld config/startup_symbols.ld config/runtime_symbols.ld
 	$(CROSS)ld -EB -T linker_scripts/us.ld -Map build/us/robotron64.map -o $@
 
@@ -8895,3 +8904,7 @@ audit-rom-file-literals: toolchain
 .PHONY: audit-movie-literals
 audit-movie-literals: toolchain
 	$(PYTHON) tools/check_movie_literals.py
+
+.PHONY: audit-scene-arrival-selector
+audit-scene-arrival-selector: toolchain
+	$(PYTHON) tools/check_scene_arrival_selector.py

@@ -1,7 +1,7 @@
 """Audit complete scene resource selection against retail and independent byte oracles.
 
 All callees execute freshly matched C. The six-entry dispatch table is compiled
-and compared with code; neither range receives source ownership from this audit.
+and compared with code. The default source owns both verified ranges.
 """
 from pathlib import Path
 import argparse
@@ -249,20 +249,20 @@ def negative_controls(source_path, target, layout, helpers, original, dispatch, 
     source = source_path.read_text()
     ordinary = dict(records=[(1, 1, 0, 0, 0, 1)])
     variants = [
-        ('destination-spill', 'selected = &output;', 'selected = (int **)output;', ordinary),
-        ('disabled-default', '    func_80021C14((int **)&selected, &enabled, (unsigned char *)D_800AC998);', '', dict(total=0)),
-        ('trigger-zero-sum', 'amount += arrival->delay;', 'amount += 0;', dict(records=[(0, 1, 0, 0, 4, 7)])),
-        ('trigger-two-delay', 'counts[category][arrival->resourceIndex] < arrival->delay', 'counts[category][arrival->resourceIndex] < arrival->count', dict(records=[(1, 1, 0, 0, 0, 7), (2, 1, 0, 0, 5, 9)])),
+        ('destination-spill', 'selected[0] = (int *)&output;', 'selected[0] = output;', ordinary),
+        ('disabled-default', '    func_80021C14(selected, &enabled, (unsigned char *)D_800AC998);', '', dict(total=0)),
+        ('trigger-zero-sum', 'amount += ((SceneArrival *)resource)->delay;', 'amount += 0;', dict(records=[(0, 1, 0, 0, 4, 7)])),
+        ('trigger-two-delay', 'counts[category][((SceneArrival *)resource)->resourceIndex] < ((SceneArrival *)resource)->delay', 'counts[category][((SceneArrival *)resource)->resourceIndex] < ((SceneArrival *)resource)->count', dict(records=[(1, 1, 0, 0, 0, 7), (2, 1, 0, 0, 5, 9)])),
         ('nonzero-state', 'D_800B9A78.arrivals[index].state != 0', 'D_800B9A78.arrivals[index].state == 1', dict(records=[(1, 2, 0, 0, 0, 1)])),
-        ('category-filter', 'category == 0 || category == 1 || category == 3', 'category == 0 || category == 1 || category == 2 || category == 3', dict(records=[(1, 1, 0, 2, 0, 1)])),
+        ('category-filter', 'case 0:\n            case 1:\n            case 3:', 'case 0:\n            case 1:\n            case 2:\n            case 3:', dict(records=[(1, 1, 0, 2, 0, 1)])),
         ('full-word-status', '(D_800B8F78.word00.value >> 31) != 0', 'D_800B8F78.word00.fields.flags00 < 0', dict(total=0, flags=2147483648)),
         ('captured-factor', 'counts[0][index] * D_800B14A4', 'counts[0][index] * *(volatile int *)&D_800B14A4', dict(records=[(1, 1, 17, 0, 0, 2)], factor1=3)),
         ('row-one-offset', 'counts[1][index]', 'counts[2][index]', dict(records=[(1, 1, 0, 1, 0, 1)])),
         ('threshold-equality', ' / 2 <=', ' / 2 <', ordinary),
         ('last-entry', 'index != 16', 'index != 15', dict(records=[(1, 1, 15, 1, 0, 1)])),
-        ('max-aggregation', 'if (counts[category][arrival->resourceIndex] < amount)', 'if (1)', dict(records=[(0, 1, 0, 0, 5, 7), (0, 1, 0, 0, 0, 1)])),
-        ('signed-delay', 'amount += arrival->delay;', 'amount += (unsigned short)arrival->delay;', dict(records=[(0, 1, 0, 0, -1, 1)])),
-        ('row-alias', 'arrival->resourceIndex]', '(arrival->resourceIndex % 36)]', dict(records=[(1, 1, 36, 0, 0, 1)])),
+        ('max-aggregation', 'if (counts[category][((SceneArrival *)resource)->resourceIndex] < amount)', 'if (1)', dict(records=[(0, 1, 0, 0, 5, 7), (0, 1, 0, 0, 0, 1)])),
+        ('signed-delay', 'amount += ((SceneArrival *)resource)->delay;', 'amount += (unsigned short)((SceneArrival *)resource)->delay;', dict(records=[(0, 1, 0, 0, -1, 1)])),
+        ('row-alias', '((SceneArrival *)resource)->resourceIndex]', '(((SceneArrival *)resource)->resourceIndex % 36)]', dict(records=[(1, 1, 36, 0, 0, 1)])),
     ]
     floor = re.sub('(func_8003941C\\([^;]+?\\)) / 2', '(\\1 >> 1)', source)
     variants.append(('division-rounding', source, floor, dict(records=[(1, 1, 0, 0, 0, -2)], capacity=-3)))
@@ -297,7 +297,7 @@ def negative_controls(source_path, target, layout, helpers, original, dispatch, 
     return results
 
 def compile_candidate(name, source, target, layout):
-    """Compare complete natural code and generated switch data without owning either."""
+    """Compare complete natural code and generated switch data."""
     source = Path(source)
     if not source.is_absolute():
         source = R / source
@@ -336,14 +336,14 @@ def compile_candidate(name, source, target, layout):
 
     def differences(a, b, address):
         return [dict(vram=hex(address + i), expected=b[i:i + 4].hex(), actual=a[i:i + 4].hex()) for i in range(0, max(len(a), len(b)), 4) if a[i:i + 4] != b[i:i + 4]]
-    report = dict(source=relative, compiler_profile=profile, toolchain_identity=identity, inputs_sha256=inputs, expected_size=len(expected), actual_size=len(actual), matches=actual == expected and table == wanted, different_words=differences(actual, expected, START), matching_source_claim=False, generated_dispatch=dict(vram='0x80091A08', expected_size=24, actual_size=len(table), matches=table == wanted, different_words=differences(table, wanted, 0x80091a08)), expected_alignment=dict(vram='0x80022044', size=12, bytes=target[0x22c44:0x22c50].hex(), included_in_function=False), text_sha256=hashlib.sha256(actual).hexdigest(), dispatch_sha256=hashlib.sha256(table).hexdigest())
+    report = dict(source=relative, compiler_profile=profile, toolchain_identity=identity, inputs_sha256=inputs, expected_size=len(expected), actual_size=len(actual), matches=actual == expected and table == wanted, different_words=differences(actual, expected, START), matching_source_claim=relative == DEFAULT_SOURCE and bool(source_sections(relative)) and actual == expected and table == wanted, generated_dispatch=dict(vram='0x80091A08', expected_size=24, actual_size=len(table), matches=table == wanted, different_words=differences(table, wanted, 0x80091a08)), expected_alignment=dict(vram='0x80022044', size=12, bytes=target[0x22c44:0x22c50].hex(), included_in_function=False), text_sha256=hashlib.sha256(actual).hexdigest(), dispatch_sha256=hashlib.sha256(table).hexdigest())
     layout.verify()
     assert comparison_input_hashes(relative) == inputs, 'Candidate inputs changed during compilation'
     (directory / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
     return (report, actual, table)
 
 def compare_candidate_block(name, source, target, layout):
-    """Expose the compound excluded comparison to the runtime candidate runner."""
+    """Expose the complete code and generated-table comparison."""
     return compile_candidate(name, source, target, layout)[0]
 
 def layout_probes():
@@ -466,12 +466,12 @@ def main(source):
     layout.verify()
     assert all((hashlib.sha256((R / path).read_bytes()).hexdigest() == value for path, value in inputs.items())), 'Input changed during audit'
     assert all((hashlib.sha256((R / path).read_bytes()).hexdigest() == value for path, value in artifact_hashes.items())), 'Compiled artifact changed during audit'
-    report = dict(paired_cases=count, case_corpus_sha256=case_digest.hexdigest(), outcomes_sha256=digest.hexdigest(), matching_source_claim=False, versions={name: version(name) for name in ('unicorn', 'capstone', 'pyelftools')}, candidate_comparison=candidate, layout_probes=probes, support_comparisons=proofs, scene_storage_comparison=storage, rejected_mutations=controls, inputs_sha256=inputs, artifacts_sha256=artifact_hashes)
+    report = dict(paired_cases=count, case_corpus_sha256=case_digest.hexdigest(), outcomes_sha256=digest.hexdigest(), matching_source_claim=candidate['matching_source_claim'], versions={name: version(name) for name in ('unicorn', 'capstone', 'pyelftools')}, candidate_comparison=candidate, layout_probes=probes, support_comparisons=proofs, scene_storage_comparison=storage, rejected_mutations=controls, inputs_sha256=inputs, artifacts_sha256=artifact_hashes)
     (BUILD / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
     print('Passed scene selection:', count, 'paired cases,', len(controls), 'rejected mutations,', probes['count'], 'layout probes')
     print('Complete candidate comparison:', candidate['actual_size'], 'compiled bytes /', candidate['expected_size'], 'retail bytes;', len(candidate['different_words']), 'differing code words;', len(candidate['generated_dispatch']['different_words']), 'differing dispatch words')
     print('Report:', (BUILD / 'report.json').relative_to(R))
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source', default=DEFAULT_SOURCE, help='excluded C candidate relative to the repository')
+    parser.add_argument('--source', default=DEFAULT_SOURCE, help='C source path relative to the repository')
     main(parser.parse_args().source)

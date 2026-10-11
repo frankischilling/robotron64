@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("scene_arrival_select", "src/game/scene_arrivals/select.c", 0x80021C3C, 0x80022044),
     ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),
     ("renderer_fatal_format", "src/game/renderer_diagnostics/fatal_format.c", 0x800496E0, 0x800498E0),
     ("renderer_projection_setup", "src/game/renderer_projection/setup.c", 0x80048DDC, 0x8004913C),
@@ -957,7 +958,6 @@ CANDIDATE_BLOCKS = (
     ("object_runtime_projection", "src/game/object_runtime_projection.c", 0x8003B2B0, 0x8003B428),
     ("frame_begin", "src/boot/frame_begin.c", 0x80048510, 0x800489F4),
     ("scene_arrival_insert", "src/game/scene_arrivals/insert.c", 0x8001FCE4, 0x80020134),
-    ("scene_resource_select", "src/game/scene_arrivals/select.c", 0x80021C3C, 0x80022044),
 )
 
 
@@ -990,10 +990,6 @@ def compare_blocks(records, target, family, layout, jobs=1):
         elif name == "scene_resource_setup":
             from check_scene_resource_setup import compare_candidate_block
             result = compare_candidate_block(name, source, target, layout, family)
-        elif name == "scene_resource_select":
-            # Its generated switch data is excluded together with the full function.
-            from check_scene_resource_selection import compare_candidate_block
-            result = compare_candidate_block(name, source, target, layout)
         elif name == "game_initialize":
             from check_game_initialization import compare_candidate_block
             result = compare_candidate_block(name, source, target, layout)

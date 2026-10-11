@@ -285,7 +285,8 @@ SECTIONS
     .save_level_lookup 0x80021B20 : AT(0x22720) SUBALIGN(4) { build/us/save_level_lookup.o(.text) }
     .scene_definition_byteorder 0x80021B38 : AT(0x22738) SUBALIGN(4) { build/us/scene_definition_byteorder.o(.text) }
     .save_menu_conditional_copy 0x80021C14 : AT(0x22814) SUBALIGN(4) { build/us/save_menu_conditional_copy.o(.text) }
-    .cpu_after_save_menu_conditional_copy 0x80021C3C : AT(0x2283C) { build/us/fallback.o(.rom_cpu_after_save_menu_conditional_copy) }
+    .scene_arrival_select 0x80021C3C : AT(0x2283C) SUBALIGN(4) { build/us/scene_arrival_select.o(.text) }
+    .scene_select_return_padding 0x80022044 : AT(0x22C44) { build/us/fallback.o(.rom_scene_select_return_padding) }
     .save_menu_flag_setter 0x80022050 : AT(0x22C50) SUBALIGN(4) { build/us/save_menu_flag_setter.o(.text) }
     .endgame_22c5c_23128 0x8002205C : AT(0x22C5C) { build/us/fallback.o(.rom_endgame_22c5c_23128) }
     .session_scene_start 0x80022528 : AT(0x23128) SUBALIGN(4) { build/us/session_scene_start.o(.text) }
@@ -1430,7 +1431,9 @@ SECTIONS
     .scene_arrivals_diagnostics 0x800917F8 : AT(0x923F8) SUBALIGN(4) { build/us/scene_arrivals_diagnostics.o(.data) }
     .error_fallback_92434_92558 0x80091834 : AT(0x92434) { build/us/fallback.o(.rom_error_fallback_92434_92558) }
     .scene_background_constants 0x80091958 : AT(0x92558) SUBALIGN(4) { build/us/scene_background.o(.rodata) }
-    .endgame_data_92560_92e4c 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_endgame_data_92560_92e4c) }
+    .scene_select_table_before 0x80091960 : AT(0x92560) { build/us/fallback.o(.rom_scene_select_table_before) }
+    .scene_arrival_select_rodata 0x80091A08 : AT(0x92608) SUBALIGN(4) { build/us/scene_arrival_select.o(.rodata) }
+    .scene_select_table_after 0x80091A20 : AT(0x92620) { build/us/fallback.o(.rom_scene_select_table_after) }
     .game_initializer_literals 0x8009224C : AT(0x92E4C) SUBALIGN(4) { build/us/game_initializer_literals.o(.rodata) }
     .endgame_data_92eac_93698 0x800922AC : AT(0x92eac) { build/us/fallback.o(.rom_endgame_data_92eac_93698) }
     .session_background_select_rodata 0x80092A98 : AT(0x93698) SUBALIGN(4) { build/us/session_background_select.o(.rodata) }
@@ -1816,7 +1819,9 @@ ASSERT(SIZEOF(.scene_audio_request) == 0x24, "scene_audio_request size changed")
 ASSERT(SIZEOF(.scene_background) == 0x3d8, "scene_background size changed")
 ASSERT(SIZEOF(.save_level_lookup) == 0x18, "save_level_lookup size changed")
 ASSERT(SIZEOF(.save_menu_conditional_copy) == 0x28, "save_menu_conditional_copy size changed")
-ASSERT(SIZEOF(.cpu_after_save_menu_conditional_copy) == 0x414, "cpu_after_save_menu_conditional_copy size changed")
+ASSERT(SIZEOF(.scene_arrival_select) == 0x408, "scene_arrival_select size changed")
+ASSERT(ADDR(.scene_arrival_select) == 0x80021C3C, "scene_arrival_select moved")
+ASSERT(SIZEOF(.scene_select_return_padding) == 0xC, "scene_select_return_padding size changed")
 ASSERT(SIZEOF(.save_menu_flag_setter) == 0xc, "save_menu_flag_setter size changed")
 ASSERT(SIZEOF(.save_menu_text_flags) == 0x170, "save_menu_text_flags size changed")
 ASSERT(SIZEOF(.save_menu_state_reset) == 0x2c, "save_menu_state_reset size changed")
@@ -2828,7 +2833,10 @@ ASSERT(SIZEOF(.actor_collision_turn) == 0x118, "actor_collision_turn size change
 ASSERT(SIZEOF(.session_background_select_rodata) == 0x2c, "session_background_select_rodata size changed")
 ASSERT(SIZEOF(.early_effect_spawn_rodata) == 0x18, "early_effect_spawn_rodata size changed")
 ASSERT(SIZEOF(.endgame_13550_15c20) == 0x26d0, "endgame_13550_15c20 size changed")
-ASSERT(SIZEOF(.endgame_data_92560_92e4c) == 0x8ec, "startup literal prefix changed")
+ASSERT(SIZEOF(.scene_select_table_before) == 0xA8, "scene_select_table_before size changed")
+ASSERT(SIZEOF(.scene_arrival_select_rodata) == 0x18, "scene_arrival_select_rodata size changed")
+ASSERT(ADDR(.scene_arrival_select_rodata) == 0x80091A08, "scene_arrival_select_rodata moved")
+ASSERT(SIZEOF(.scene_select_table_after) == 0x82C, "scene_select_table_after size changed")
 ASSERT(SIZEOF(.endgame_data_92eac_93698) == 0x7ec, "startup literal suffix changed")
 D_800AD160 = 0x800AD160;
 D_800B23D0 = 0x800B23D0;

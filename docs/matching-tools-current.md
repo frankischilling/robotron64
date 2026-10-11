@@ -198,4 +198,10 @@ That checkpoint had 38,172 initialized bytes; code and BSS totals do not change.
 Only characters and their first terminators receive ownership.
 
 Fourteen [movie literals](movie-literals.md) add 210 initialized bytes.
-Current initialized ownership is 38,382 bytes; code and BSS totals do not change.
+That checkpoint had 38,382 initialized bytes; code and BSS totals did not change.
+
+The [scene arrival selector](scene-arrival-selector.md) adds 1,032 matching C
+instruction bytes and its 24-byte generated switch table. Current totals are
+1,434 C functions / 317,840 instruction bytes / 38,406 initialized bytes;
+assembly and BSS totals are unchanged. Both selector audits and the clean
+full-ROM, test and independent comparison gates pass.

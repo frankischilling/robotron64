@@ -1,10 +1,10 @@
 # Scene resource selection
 
-`func_80021C3C` has a complete C candidate in
-`src/game/scene_arrivals/select.c`. Retail and compiled functions are both
-1,032 bytes, but 40 instruction words still differ. The generated six-entry
-switch table matches all 24 retail bytes. The function and table remain
-excluded from the ROM link and source-ownership manifests.
+`func_80021C3C` has matching C in `src/game/scene_arrivals/select.c`.
+The complete 1,032-byte function and 24-byte generated switch table are
+source-owned and linked at their retail addresses. The
+[selector recovery evidence](scene-arrival-selector.md) describes the natural
+pointer holder and four-iteration loop that reproduce the retail layout.
 
 Retail instructions occupy `0x80021C3C..0x80022044` (ROM
 `0x2283C..0x22C44`). Twelve zero alignment bytes precede the next function at
@@ -82,13 +82,12 @@ addresses stay inside the complete 360-word table and arrival reads stay
 inside the 3,348-byte scene record. Out-of-bounds inputs, gameplay and display
 hardware are outside this audit.
 
-`python3 tools/compare_runtime.py --candidates` includes the complete compound
-code/table comparison and exits nonzero while this or another excluded
-candidate differs. Neither behavioral agreement nor the matching dispatch
-table adds recovered code or data credit. Whole-ROM equality still includes
-fallback and does not establish full source completion.
+`python3 tools/compare_runtime.py` includes the selector's complete code and
+owned table. The selector is absent from the excluded candidate list.
+Whole-ROM equality still includes fallback and does not establish full
+source completion.
 
-The [verification ledger](scene-resource-selection-provenance.json) records
+The historical [verification ledger](scene-resource-selection-provenance.json) records
 independent references, type evidence, guarded execution and fresh repository
 validation. Research used the installed [splat](https://github.com/ethteck/splat),
 [spimdisasm](https://github.com/Decompollaborate/spimdisasm),

@@ -5522,5 +5522,16 @@
       "D_8008F920": 0
     },
     "evidence": "docs/movie-literals.md"
+  },
+  {
+    "source": "src/game/scene_arrivals/select.c",
+    "object": "build/us/scene_arrival_select.o",
+    "input_section": ".rodata",
+    "section": ".scene_arrival_select_rodata",
+    "vram": 2148080136,
+    "rom": 599560,
+    "size": 24,
+    "symbols": {},
+    "evidence": "docs/scene-arrival-selector.md"
   }
 ]
