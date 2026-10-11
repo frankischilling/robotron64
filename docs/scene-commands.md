@@ -80,13 +80,15 @@ shapes, and the empty bodies retain the target instructions. An invented
 return value would change the original behavior. The complete platform source
 units were rechecked after correcting these declarations.
 
-## Arrival insertion candidate
+## Matching arrival insertion
 
-`func_8001FCE4` spans `0x8001FCE4..0x80020134`, or 1,104 bytes. Its ordinary-C
-candidate covers trigger normalization, optional random delay, duplicate
+`func_8001FCE4` spans `0x8001FCE4..0x80020134`, or 1,104 bytes. Its matching C
+source covers trigger normalization, optional random delay, duplicate
 arrival handling, insertion with an overlapping move, capacity reporting,
-and coordinate conversion. The public candidate at `src/game/scene_arrivals/insert.c` has 55 differing
-instruction words and remains outside the matching manifest and ROM link.
+and coordinate conversion. The complete source at
+`src/game/scene_arrivals/insert.c` matches all 1,104 retail bytes and is linked
+at its original address. The [insertion notes](scene-arrival-insertion.md)
+describe its natural frame and independent references.
 The [arrival audit](scene-arrivals.md) checks 3,713 paired executions and nine
 source/message mutations; the complete scene BSS and diagnostic data are owned
 separately.
@@ -101,7 +103,7 @@ For an immediate state-1 arrival, category zero obtains its default delay
 from offset `0x64` in the `0x68`-byte resource record and divides it by 100.
 Category 3 uses a delay of 10. The final X/Y stores preserve -1 as a sentinel
 and otherwise divide by 256. Capacity checks remain in the order observed in
-the target; the candidate does not add new range checks or alter the move.
+the target; the matching source preserves the original range checks and move.
 
 ## Verification and references
 

@@ -36,7 +36,7 @@ REGIONS = (
     ("cpu_after_actor_setup_text_begin", 0x1f72c, 0x1fdd8),
     ("cpu_after_actor_setup_text_reset", 0x1fe38, 0x1fe40),
     ("cpu_after_scene_file_idle", 0x1febc, 0x1fec0),
-    ("endgame_208e4_21b24", 0x208e4, 0x21b24),
+    ("scene_insert_after_20d34_21b24", 0x20d34, 0x21b24),
     ("endgame_21b8c_22720", 0x21b8c, 0x22720),
     ("scene_select_return_padding", 0x22c44, 0x22c50),
     ("endgame_22c5c_23128", 0x22c5c, 0x23128),

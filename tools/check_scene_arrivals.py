@@ -2,7 +2,7 @@
 
 The output hook and fatal reporter are bounded ABI observers. The fatal
 reporter returns synthetically; display hardware and gameplay are outside
-this audit. An instruction mismatch remains excluded from source ownership.
+this audit. Matching source requires complete instruction equality and manifest ownership.
 """
 
 import argparse
@@ -28,6 +28,7 @@ from compare_data import compare_unit, comparison_directory, data_input_hashes
 from compare_startup import compare_block, comparison_input_hashes, SymbolLayoutSnapshot
 from owned_sections import elf_sections_and_symbols, source_sections
 from rom import ROOT, validate
+from manifest import load_manifest
 
 
 ENTRY, END = 0x8001FCE4, 0x80020134
@@ -341,6 +342,12 @@ def compile_image(name, source, start, end, target, layout):
     result = compare_block(name, source, start, start - 0x80000000 + 0xC00,
                            end - 0x80000000 + 0xC00, target, 'scene-arrival-audit', layout)
     directory = ROOT / 'build/scene-arrival-audit' / name
+    if source == DEFAULT_SOURCE:
+        raw_sections, raw_symbols = elf_sections_and_symbols(directory / (name + '.raw.o'))
+        assert raw_symbols['func_8001FCE4']['size'] == 1104, 'Natural arrival function extent'
+        assert not any(raw_sections['.text']['bytes'][1104:]), 'Live arrival instruction tail'
+        assert all(not raw_sections.get(section, {}).get('size', 0)
+                   for section in ('.data', '.rodata', '.bss')), 'Unowned arrival data allocation'
     sections, _ = elf_sections_and_symbols(directory / (name + '.elf'))
     image = (directory / (name + '.bin')).read_bytes()
     constants = {section['address']: section['bytes'] for section in sections.values()
@@ -351,9 +358,9 @@ def compile_image(name, source, start, end, target, layout):
 MUTATIONS = (
     ('category-default', 'delay = 10;', 'delay = 11;',
      dict(total=0, category=3, delay=0)),
-    ('signed-coordinate', 'arrival->x = x / 256;',
-     'arrival->x = (unsigned int)x / 256;', dict(total=0, x=-257)),
-    ('coordinate-sentinel', 'if (x == -1)', 'if (x == 0)', dict(total=0, x=-1)),
+    ('signed-coordinate', 'arrival->x = coordinate / 256;',
+     'arrival->x = (unsigned int)coordinate / 256;', dict(total=0, x=-257)),
+    ('coordinate-sentinel', 'if (coordinate == -1) {\n        arrival->x = coordinate;', 'if (coordinate == 0) {\n        arrival->x = coordinate;', dict(total=0, x=-1)),
     ('unsigned-count-limit', 'count > 0x7FFF', '(int)count > 0x7FFF',
      dict(total=0, count=0xFFFFFFFF)),
     ('overlap-destination', '&D_800B9A78.arrivals[index + 1]',
@@ -453,7 +460,9 @@ def main(source=DEFAULT_SOURCE):
         assert data_input_hashes(data_source) == comparison['inputs_sha256'], ('Arrival data inputs changed', data_source)
     assert hashlib.sha256(Path(__file__).read_bytes()).hexdigest() == checker_hash, 'Arrival checker changed during execution'
     report = {'source': source, 'instruction_match': result['matches'],
-              'matching_source_claim': False, 'retail_size': len(original),
+              'matching_source_claim': result['matches'] and any(
+                  function['name'] == 'func_8001FCE4' and function['source'] == source
+                  and function['size'] == 1104 for function in load_manifest()), 'retail_size': len(original),
               'candidate_size': len(candidate), 'different_words': len(result['different_words']),
               'retail_frame': frame(original), 'candidate_frame': frame(candidate),
               'paired_cases': count, 'coverage': dict(coverage),

@@ -1,0 +1,19 @@
+name: Robotron 64 scene arrival insertion
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: scene_arrival_insertion
+  base_path: ../../.local/scene-arrival-insertion-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: scene_arrival_insert
+    type: code
+    start: 0x208E4
+    vram: 0x8001FCE4
+    subsegments:
+      - [0x208E4, asm, scene_arrival_insert]
+  - [0x20D34, bin, suffix]
+  - [0x800000]
