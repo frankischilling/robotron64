@@ -1,11 +1,11 @@
 # History prisms and ground discs
 
-Two previously unpublished helpers now have complete C candidates. They remain
-excluded from the ROM build and the source ownership count.
+The complete history prism is byte-matching C included in the ROM build and
+source ownership count. The ground disc remains an excluded C candidate.
 
 | Helper | Retail range | Natural IDO bytes | Differing words |
 | --- | --- | ---: | ---: |
-| `func_8000A910` | `8000A910..8000AC6C` | 860 / 860 | 4 |
+| `func_8000A910` | `8000A910..8000AC6C` | 860 / 860 | 0 |
 | `func_8000AC6C` | `8000AC6C..8000B06C` | 1,024 / 1,024 | 194 |
 
 The profiles use pinned IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`.
@@ -29,44 +29,38 @@ no vertices or packets.
 
 Signed division and multiplication behavior matters. The checker independently
 models 32-bit multiplication wrap, signed truncation toward zero, coordinate
-halfword truncation, and color byte truncation. Algebraically reducing the alpha
-expression to `size * 4` loses the retail behavior at large signed inputs.
+halfword truncation, and color byte truncation. Replacing the alpha expression
+with `size * 4` changes intermediate values at large signed inputs and changes
+the instruction stream. The final stored alpha byte is equal: the wrapped
+product is divisible by sixteen, and overflow changes its quotient by a
+multiple of `2^28`, which disappears when narrowed to eight bits.
 
-The complete candidate has the retail length and stack frame. Four words still
-use a different temporary register for alpha scaling. The XYZ position macro
-preserves one source line per vertex after preprocessing and reproduces retail
-coordinate-store scheduling. No padding, extra formal parameters, unused storage, or
-instruction patches are added to conceal those differences.
+The natural 860-byte prism body and 24-byte stack frame match every retail
+instruction. Independent splat and spimdisasm reassemblies cover the same complete
+range; all external references resolve to the verified globals and renderer
+helpers. The object has no initialized data or switch table to recover. IDO's
+four trailing alignment bytes are zero and are checked before trimming.
 
-## IDO statement grouping
+## Alpha storage and IDO scheduling
 
-IDO scheduling depends on source line boundaries as well as expression order.
-Putting each XYZ initialization in a macro produces the retail store order with
-the conventional X, Y, Z assignment order. All sixteen vertex initializations
-use the same macro. This does not establish that the original source used that
-macro; it gives a readable representation that matches the observed scheduling.
+The first four vertices share one chained alpha assignment. The remaining four
+copy the first vertex's alpha byte. This keeps signed multiplication and division
+before byte truncation, with the same color for both faces. It also reproduces
+the retail temporary allocation without a word alpha local. The full signed
+`size` remains available for the height calculation. No unused local, extra
+formal parameter, enlarged record, or instruction patch is needed.
 
-The complete 860-byte candidate retains the retail 24-byte frame. Its remaining
-differences are at `8000A98C`, `8000A9CC`, `8000A9D0`, and `8000A9D4`: alpha
-scaling uses `T0` where retail uses `V1`. Both expressions retain signed
-32-bit multiplication and division before the color-byte store.
+The XYZ position macro preserves one source line per vertex after preprocessing
+and reproduces retail coordinate-store scheduling with conventional X, Y, Z
+assignment order. All sixteen initializations use the same macro. This readable
+representation matches the observed scheduling; it does not prove the spelling
+of the original source or its macro definitions.
 
-The local decomp-permuter run preserved each expanded packet macro on one
-physical source line. Reformatting those macros into separate statements changes
-IDO output and gives a misleading starting score. The corrected baseline has
-four register differences with stack checking enabled. The two-worker search
-performed 9,171 trials, including 463 compiler errors, without an improvement.
-Twenty-one coordinate-macro and scalar-reuse forms, sixteen height-scope forms,
-and forty-eight first-color ordering forms also produced no exact match.
-Narrowing alpha storage or converting before division worsened instruction
-matching; converting the product can also change signed-boundary behavior.
-
-Diagnostic builds of the pinned optimizer reproduced every allocated output
-section of the corresponding ordinary builds. They distinguished a globally
-allocated alpha expression from a chained-store form that fixes the alpha
-temporary but changes the size register. Those findings constrain further
-research; they do not identify the original declarations. The candidate remains
-excluded, and no source ownership is added.
+The ownership manifest declares exactly `8000A910..8000AC6C`. The linker replaces
+only those 860 bytes with `history_prism.o` and leaves the neighboring fallback
+ranges intact. Fresh runtime comparison and the early-effect guard require the
+complete prism match. The guard continues to execute both functions with real
+matched support and rejects all twelve mutation controls.
 
 ## Ground disc
 
@@ -146,7 +140,9 @@ Eight source mutations and four guest instruction mutations must be rejected.
 They exercise prism height, quadrant selection, quad winding, commit count,
 ground-camera height, disc radius, perimeter count, center alpha, and packet
 encoding. These finite CPU fixtures do not execute the RSP/RDP or establish
-full gameplay, original local storage, instruction matching, or new ownership.
+full gameplay or original local storage. Prism ownership additionally requires
+the independent complete instruction and section comparisons; the disc remains
+nonmatching.
 The void routines have no asserted incidental `V0` or `V1` return contract.
 
 Analysis used the existing Robotron Ghidra MCP project, [splat](https://github.com/ethteck/splat),

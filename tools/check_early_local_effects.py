@@ -243,9 +243,9 @@ def main():
     target = (ROOT / 'baseroms/us/baserom.z64').read_bytes()
     validate(target)
     layout = SymbolLayoutSnapshot()
-    records = tuple((row for row in CANDIDATE_BLOCKS if row[0] in NAMES))
-    assert {row[0] for row in records} == set(NAMES)
-    validate_candidate_ranges(records, load_manifest())
+    records = tuple(row for row in (*MATCHING_BLOCKS, *CANDIDATE_BLOCKS) if row[0] in NAMES)
+    assert len(records) == len(NAMES) and {row[0] for row in records} == set(NAMES)
+    validate_candidate_ranges(tuple(row for row in CANDIDATE_BLOCKS if row[0] in NAMES), load_manifest())
     support, owned, proofs, targets, comparisons = ([], [], {}, {}, {})
     guard_files = [Path(__file__).relative_to(ROOT).as_posix()]
     guard_hashes = {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in guard_files}
@@ -288,6 +288,8 @@ def main():
                           and int.from_bytes(candidate[i + 2:i + 4], 'big', signed=True) < 0)
         q['candidate_sha256'] = hashlib.sha256(candidate).hexdigest()
         q['retail_sha256'] = hashlib.sha256(retail).hexdigest()
+        if name == 'history_prism':
+            assert q['matches'] and not q['different_words'] and size == end - start
         comparisons[name] = q
         print(name, size, '/', len(retail), 'bytes;', len(q['different_words']), 'differing words', flush=True)
     evidence = dict(support=support, owned=owned, targets=targets, table=table)
@@ -361,7 +363,7 @@ def main():
             assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == sha, ('Changed comparison input', path)
     for path, sha in guard_hashes.items():
         assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == sha, ('Changed guard input', path)
-    receipt = dict(paired_cases=len(cases), counts=counts, principal_executions=2 * len(cases), instructions=steps, trace_sha256=digest.hexdigest(), comparison=comparisons, real_support=proofs, controls=controls, guard_inputs_sha256=guard_hashes, abi_stubs=0, source_ownership_added=0, emulator_version=version('unicorn'), limits=['Finite guarded CPU cases; RSP/RDP commands are not executed.', 'The two candidate bodies remain excluded because their complete instruction comparisons differ.', 'The original local storage declarations remain unproved, including the disc draw frame.', 'Void routines have no asserted incidental V0/V1 return contract.', 'Stack interiors are bounded and ABI checked, not compared byte for byte.'])
+    receipt = dict(paired_cases=len(cases), counts=counts, principal_executions=2 * len(cases), instructions=steps, trace_sha256=digest.hexdigest(), comparison=comparisons, real_support=proofs, controls=controls, guard_inputs_sha256=guard_hashes, abi_stubs=0, source_ownership_added=0, emulator_version=version('unicorn'), limits=['Finite guarded CPU cases; RSP/RDP commands are not executed.', 'The prism matches completely; the ground disc remains excluded because its complete instruction comparison differs.', 'The original local storage declarations remain unproved, including the disc draw frame.', 'Void routines have no asserted incidental V0/V1 return contract.', 'Stack interiors are bounded and ABI checked, not compared byte for byte.'])
     OUTPUT.mkdir(parents=True, exist_ok=True)
     (OUTPUT / 'report.json').write_text(json.dumps(receipt, indent=2) + '\n')
     print('Early local effect guard:', len(cases), 'paired cases;', len(controls), 'rejected controls; no new ownership', flush=True)

@@ -10,14 +10,12 @@ extern int D_80138274;
     (vertex).color.position[2] = (z); \
 }
 
-/* Excluded candidate: the complete instruction comparison still differs. */
 void func_8000A910(int angle, int size)
 {
     int base;
     int red;
     int green;
     int blue;
-    int alpha;
     int height;
     RendererVertex *vertices;
 
@@ -29,35 +27,32 @@ void func_8000A910(int angle, int size)
         vertices[0].color.color[0] = red = D_80138270;
         vertices[0].color.color[1] = green = D_80138274;
         vertices[0].color.color[2] = blue = D_8013826C;
-        vertices[0].color.color[3] = alpha = (size * 64) / 16;
+        vertices[3].color.color[3] = vertices[2].color.color[3] = vertices[1].color.color[3] = vertices[0].color.color[3] = (size * 64) / 16;
         vertices[1].color.color[0] = red;
         vertices[1].color.color[1] = green;
         vertices[1].color.color[2] = blue;
-        vertices[1].color.color[3] = alpha;
         vertices[2].color.color[0] = red;
         vertices[2].color.color[1] = green;
         vertices[2].color.color[2] = blue;
-        vertices[2].color.color[3] = alpha;
         vertices[3].color.color[0] = red;
         vertices[3].color.color[1] = green;
         vertices[3].color.color[2] = blue;
-        vertices[3].color.color[3] = alpha;
         vertices[4].color.color[0] = red;
         vertices[4].color.color[1] = green;
         vertices[4].color.color[2] = blue;
-        vertices[4].color.color[3] = alpha;
+        vertices[4].color.color[3] = vertices[0].color.color[3];
         vertices[5].color.color[0] = red;
         vertices[5].color.color[1] = green;
         vertices[5].color.color[2] = blue;
-        vertices[5].color.color[3] = alpha;
+        vertices[5].color.color[3] = vertices[0].color.color[3];
         vertices[6].color.color[0] = red;
         vertices[6].color.color[1] = green;
         vertices[6].color.color[2] = blue;
-        vertices[6].color.color[3] = alpha;
+        vertices[6].color.color[3] = vertices[0].color.color[3];
         vertices[7].color.color[0] = red;
         vertices[7].color.color[1] = green;
         vertices[7].color.color[2] = blue;
-        vertices[7].color.color[3] = alpha;
+        vertices[7].color.color[3] = vertices[0].color.color[3];
         height = (size * 370) / 16;
         if (angle == 0 || angle == 2) {
             PRISM_POSITION(vertices[0], 50, 0, 100);

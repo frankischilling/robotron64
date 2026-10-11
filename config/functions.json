@@ -16151,5 +16151,16 @@
     "section": ".player_navigation",
     "section_vram": 2147692792,
     "evidence": "docs/player-navigation.md"
+  },
+  {
+    "name": "func_8000A910",
+    "rom": 46352,
+    "vram": 2147526928,
+    "size": 860,
+    "source": "src/game/early_local_effects/history_prism.c",
+    "object": "build/us/history_prism.o",
+    "section": ".history_prism",
+    "section_vram": 2147526928,
+    "evidence": "docs/early-local-effects.md"
   }
 ]

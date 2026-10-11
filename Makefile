@@ -6404,6 +6404,8 @@ build/us/audio_timing_data.o: src/game/audio_timing_data.c include/audio_host_in
 
 RUNTIME_OBJECTS += build/us/audio_timing_data.o
 
+RUNTIME_OBJECTS += build/us/history_prism.o
+
 build/us/early_render_quad.o: src/game/early_render_quad.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_quad.raw.o $<
@@ -8944,3 +8946,9 @@ check-player-navigation: toolchain
 .PHONY: check-early-local-effects
 check-early-local-effects: toolchain
 	$(PYTHON) tools/check_early_local_effects.py
+
+build/us/history_prism.o: src/game/early_local_effects/history_prism.c include/actor.h include/actor_behavior_internal.h include/debug_output.h include/early_game_helpers.h include/early_game_state.h include/early_render_effects_internal.h include/early_render_internal.h include/fixed_geometry.h include/fixed_math.h include/frame.h include/game_memory.h include/graphics_state_internal.h include/heap.h include/object.h include/object_draw.h include/object_recovery.h include/renderer_draw_state_internal.h include/renderer_geometry_internal.h include/renderer_primitives_internal.h include/rom_files.h include/scalar_math.h include/sdk_matrix.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
+	mkdir -p $(@D)
+	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/history_prism.raw.o $<
+	$(PYTHON) tools/trim_padding.py build/us/history_prism.raw.o $@ .text 0x35c
+	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
