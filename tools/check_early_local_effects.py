@@ -330,7 +330,7 @@ def main():
             actual, _ = execute(name, bytes(bad), case, evidence, False)
             assert actual != expected, ('Instruction control escaped', name, label)
             controls.append(dict(name=name + '_' + label, kind='guest', rejected_by='Paired memory or call trace'))
-    mutations = {'history_prism': [('height', 'size * 370', 'size * 371'), ('quadrant', 'angle /= 1024', 'angle /= 512'), ('quad_winding', 'RENDERER_QUAD(7, 6, 5, 4)', 'RENDERER_QUAD(4, 5, 6, 7)'), ('commit', 'D_80123AE4 += 8', 'D_80123AE4 += 7')], 'ground_disc': [('camera_y', '-D_800C8BD8.position[1]', 'y - D_800C8BD8.position[1]'), ('radius', 'cosine * 200', 'cosine * 201'), ('perimeter_count', 'count = 10', 'count = 9'), ('alpha', 'alpha = 160', 'alpha = 159')]}
+    mutations = {'history_prism': [('height', 'size * 370', 'size * 371'), ('quadrant', 'angle /= 1024', 'angle /= 512'), ('quad_winding', 'RENDERER_QUAD(7, 6, 5, 4)', 'RENDERER_QUAD(4, 5, 6, 7)'), ('commit', 'D_80123AE4 += 8', 'D_80123AE4 += 7')], 'ground_disc': [('camera_y', '-D_800C8BD8.position[1]', 'y - D_800C8BD8.position[1]'), ('radius', 'func_8003CC88(angle) * 200', 'func_8003CC88(angle) * 201'), ('perimeter_count', 'count = 10', 'count = 9'), ('alpha', 'alpha = 160', 'alpha = 159')]}
     for name, source, start, end in records:
         text = (ROOT / source).read_text()
         case = selected[name]
