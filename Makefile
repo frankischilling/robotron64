@@ -8952,3 +8952,7 @@ build/us/history_prism.o: src/game/early_local_effects/history_prism.c include/a
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/history_prism.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/history_prism.raw.o $@ .text 0x35c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
+
+.PHONY: check-early-render-tubes
+check-early-render-tubes: toolchain
+	$(PYTHON) tools/check_early_render_tubes.py

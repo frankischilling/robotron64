@@ -454,6 +454,12 @@ Both image wrappers differ only in four stack/argument instructions each.
 real matched renderer helpers. The prism is included in the matching ROM build;
 the disc still differs in 194 words.
 
+[Early tubes](docs/early-render-effects.md) have a separate
+`make check-early-render-tubes` guard for both complete candidates. It checks
+320 retail/candidate CPU pairs and fourteen mutation controls with real matched
+callees. Both tubes remain excluded from ROM ownership; the wide candidate
+still differs in 146 words despite its equal natural length.
+
 [Early tube and star rendering](docs/early-render-effects.md) reconstructs three
 nonmatching C candidates covering 3,116 retail instruction bytes and owns
 104 initialized bytes for their shared angle, depth, and RGB palette. These
