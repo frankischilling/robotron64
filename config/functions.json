@@ -16118,5 +16118,16 @@
     "section": ".view_inverse_matrix",
     "section_vram": 2147742848,
     "evidence": "docs/renderer-inverse-camera.md"
+  },
+  {
+    "name": "func_80021C3C",
+    "rom": 141372,
+    "vram": 2147621948,
+    "size": 1032,
+    "source": "src/game/scene_arrivals/select.c",
+    "object": "build/us/scene_arrival_select.o",
+    "section": ".scene_arrival_select",
+    "section_vram": 2147621948,
+    "evidence": "docs/scene-arrival-selector.md"
   }
 ]

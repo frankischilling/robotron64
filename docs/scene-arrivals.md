@@ -41,3 +41,6 @@ and type evidence, full independent references, bounded execution and fresh
 acceptance checks. Behavioral agreement does not count the insertion candidate
 as recovered code. Whole-ROM equality retains fallback and does not establish
 full source completion.
+
+The [arrival selector](scene-arrival-selector.md) is a matching source block,
+with complete code, switch-table and paired execution checks.

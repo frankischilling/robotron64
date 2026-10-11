@@ -2,13 +2,13 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
-Current verified totals are 1,433 matching C functions / 316,808 instruction
-bytes, twenty-nine assembly functions / 4,372 bytes, 38,382 initialized bytes
+Current verified totals are 1,434 matching C functions / 317,840 instruction
+bytes, twenty-nine assembly functions / 4,372 bytes, 38,406 initialized bytes
 and 879,161 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
-There remain 133,376 declared fallback CPU bytes in 180 spans and 164 unclassified
+There remain 132,344 declared fallback CPU bytes in 180 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
 
@@ -90,8 +90,9 @@ The two startup-modified control labels have writable C storage; their retail
 bytes and positions are unchanged.
 
 [Scene resource selection](scene-resource-selection.md) passes 1,683 paired
-cases and 17 mutation controls. Its complete 1,032-byte candidate has the exact
-dispatch table but still differs in 40 instruction words and remains excluded.
+cases and 17 mutation controls. Its complete 1,032-byte function and 24-byte
+dispatch table are now matching source. A second selector audit checks 191
+paired fixtures and 16 guest faults with positive brackets.
 
 [Scene storage and arrival insertion](scene-arrivals.md) adds 3,348 BSS bytes
 and 60 initialized diagnostic bytes. All 3,713 paired cases and nine mutation

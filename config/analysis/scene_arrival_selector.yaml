@@ -1,0 +1,26 @@
+name: Robotron 64 scene arrival selector
+sha1: 44d158bc2aeefb111a620b61e043b2703e6c5808
+options:
+  basename: scene_arrival_selector
+  base_path: ../../.local/scene-arrival-selector-split
+  target_path: ../../baseroms/us/baserom.z64
+  platform: n64
+  compiler: IDO
+  asm_emit_size_directive: true
+segments:
+  - [0, bin, prefix]
+  - name: scene_arrival_select
+    type: code
+    start: 0x2283C
+    vram: 0x80021C3C
+    subsegments:
+      - [0x2283C, asm, scene_arrival_select]
+  - [0x22C44, bin, middle]
+  - name: scene_arrival_select_rodata
+    type: code
+    start: 0x92608
+    vram: 0x80091A08
+    subsegments:
+      - [0x92608, rodata, scene_arrival_select]
+  - [0x92620, bin, suffix]
+  - [0x800000]
