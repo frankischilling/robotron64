@@ -70,7 +70,7 @@ freshly compiles and compares the complete signed-shift, absolute-value,
 memory-copy and relative-aiming helpers before executing their real
 instructions in both images.
 
-The finite corpus contains 1,536 retail/source pairs, or 3,072 executions.
+The finite corpus contains 1,752 retail/source pairs, or 3,504 executions.
 It covers all ten animation states, both players, input thresholds,
 ability slots, charged release, six weapon selections, death timing,
 player handoff, square and diamond boundaries, and clock wraparound.
@@ -78,7 +78,7 @@ All 26 callee entries are exercised. The checker compares call traces and
 every nonstack byte written by either execution, enforces guest memory
 widths and fixture allocation bounds, checks the natural stack frame and
 guards, and verifies preserved integer and floating-point registers.
-Nine source mutations and seven guest faults must fail between passing
+Fourteen source mutations and seven guest faults must fail between passing
 retail/source baselines.
 Two source controls deliberately pass the actor instead of the player to
 each ability slot. The observer records both O32 argument words, so these
@@ -90,6 +90,17 @@ player word for the clear helper's selected actions.
 Two further source controls corrupt the primary and secondary projectile
 words. All five constructor arguments are observed, including the unused
 stack word. These controls check the retail call trace, not a gameplay effect.
+
+The original 1,536 random fixtures left the separate player-count word at
+session offset `0x2C` zero. They exercised the empty-search exit but did not
+prove handoff to a live player. The additional 216 cases initialize counts
+zero, one and two, both starting players, four choice orders, live and dead
+alternatives, and elapsed times 1,000, 1,001 and 2,001. The checker independently
+derives the bounded search result from those inputs, checks the selected player
+and index, and compares all 40 copied input bytes. Its receipt reports the
+actual handoff, exhaustion and wrap counts. Five further source controls
+corrupt wrapping, choice indexing, liveness, copy length and the failure count.
+Each must fail on an expired positive-count search between passing baselines.
 
 The remaining 22 callees use explicit returning O32 observers. Their
 effects and returns are synthetic fixture models. Observers clobber
