@@ -16,8 +16,8 @@ bytes. Their explicit extents retain the terminating nulls and retail zero
 padding. Independent data comparison checks the complete compiled section,
 symbol offsets and absence of executable or unowned allocated content.
 
-The ordinary-C insertion candidate spans `8001FCE4..80020134`, or 1,104 retail
-bytes. It remains outside the matching function manifest and ROM link.
+The matching C insertion function spans `8001FCE4..80020134`, or 1,104 retail
+bytes. The complete function is source-owned and linked at its retail address.
 `make audit-scene-arrivals` freshly compiles it, six matching random, copy and
 diagnostic helper units, and the owned scene and diagnostic data units. The
 paired executions check complete scene memory, overlap-copy arguments,
@@ -36,11 +36,11 @@ caller-saved integer and floating-point registers. The fatal renderer returns
 synthetically so the following stores can be compared. Display hardware,
 terminal fatal handling and gameplay are outside this audit.
 
-The [verification ledger](scene-arrivals-provenance.json) records the source
-and type evidence, full independent references, bounded execution and fresh
-acceptance checks. Behavioral agreement does not count the insertion candidate
-as recovered code. Whole-ROM equality retains fallback and does not establish
-full source completion.
+The historical [verification ledger](scene-arrivals-provenance.json) records
+the earlier excluded checkpoint and type evidence. The
+[matching insertion notes](scene-arrival-insertion.md) describe current code
+ownership and acceptance. Whole-ROM equality retains other fallback regions
+and does not establish full source completion.
 
-The [arrival selector](scene-arrival-selector.md) is a matching source block,
+The [arrival selector](scene-arrival-selector.md) is also matching source,
 with complete code, switch-table and paired execution checks.

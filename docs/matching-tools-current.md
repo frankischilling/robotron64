@@ -201,7 +201,11 @@ Fourteen [movie literals](movie-literals.md) add 210 initialized bytes.
 That checkpoint had 38,382 initialized bytes; code and BSS totals did not change.
 
 The [scene arrival selector](scene-arrival-selector.md) adds 1,032 matching C
-instruction bytes and its 24-byte generated switch table. Current totals are
+instruction bytes and its 24-byte generated switch table. That checkpoint had
 1,434 C functions / 317,840 instruction bytes / 38,406 initialized bytes;
 assembly and BSS totals are unchanged. Both selector audits and the clean
 full-ROM, test and independent comparison gates pass.
+
+The [arrival insertion function](scene-arrival-insertion.md) adds 1,104 matching
+instruction bytes. Current totals are 1,435 C functions / 318,944 instruction
+bytes / 38,406 initialized bytes, with unchanged assembly and BSS totals.

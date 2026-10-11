@@ -6,11 +6,12 @@
 void func_8001FCE4(int replace, int category, int resourceIndex,
                   int trigger, int delay, unsigned int count, int x, int y)
 {
+    int other;
     int index;
     int end;
-    int other;
-    int state = 1;
+    int coordinate;
     SceneArrival *arrival;
+    int state = 1;
 
     if (trigger == 4) {
         trigger = 1;
@@ -75,6 +76,7 @@ void func_8001FCE4(int replace, int category, int resourceIndex,
     if (index == D_800B9A78.arrivalCount) {
         D_800B9A78.arrivalCount++;
     }
+    arrival = &D_800B9A78.arrivals[index];
     if (state == 1 && trigger == 1 && delay == 0) {
         if (category == 0) {
             delay = D_800AF1F0[resourceIndex].arrivalDelay / 100;
@@ -88,21 +90,22 @@ void func_8001FCE4(int replace, int category, int resourceIndex,
         return;
     }
 
-    arrival = &D_800B9A78.arrivals[index];
+    coordinate = x;
     arrival->state = state;
     arrival->category = category;
     arrival->resourceIndex = resourceIndex;
-    arrival->delay = delay;
     arrival->trigger = trigger;
+    arrival->delay = delay;
     arrival->count = count;
-    if (x == -1) {
-        arrival->x = x;
+    if (coordinate == -1) {
+        arrival->x = coordinate;
     } else {
-        arrival->x = x / 256;
+        arrival->x = coordinate / 256;
     }
-    if (y == -1) {
-        arrival->y = y;
+    coordinate = y;
+    if (coordinate == -1) {
+        arrival->y = coordinate;
     } else {
-        arrival->y = y / 256;
+        arrival->y = coordinate / 256;
     }
 }

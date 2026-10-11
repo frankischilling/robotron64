@@ -279,7 +279,8 @@ SECTIONS
     .scene_effect_apply 0x8001F87C : AT(0x2047C) SUBALIGN(4) { build/us/scene_effect_apply.o(.text) }
     .scene_audio_request 0x8001F8E8 : AT(0x204E8) SUBALIGN(4) { build/us/scene_audio_request.o(.text) }
     .scene_background 0x8001F90C : AT(0x2050C) SUBALIGN(4) { build/us/scene_background.o(.text) }
-    .endgame_208e4_21b24 0x8001FCE4 : AT(0x208E4) { build/us/fallback.o(.rom_endgame_208e4_21b24) }
+    .scene_arrival_insert 0x8001FCE4 : AT(0x208E4) SUBALIGN(4) { build/us/scene_arrival_insert.o(.text) }
+    .scene_insert_after_20d34_21b24 0x80020134 : AT(0x20D34) { build/us/fallback.o(.rom_scene_insert_after_20d34_21b24) }
     .scene_arrival_reactivate 0x80020F24 : AT(0x21B24) SUBALIGN(4) { build/us/scene_arrival_reactivate.o(.text) }
     .endgame_21b8c_22720 0x80020F8C : AT(0x21B8C) { build/us/fallback.o(.rom_endgame_21b8c_22720) }
     .save_level_lookup 0x80021B20 : AT(0x22720) SUBALIGN(4) { build/us/save_level_lookup.o(.text) }
@@ -2656,7 +2657,9 @@ ASSERT(SIZEOF(.short_cosine) == 0x30, "short_cosine size changed")
 ASSERT(SIZEOF(.ai_frequency) == 0x160, "ai_frequency size changed")
 ASSERT(SIZEOF(.thread_destroy) == 0xf8, "thread_destroy size changed")
 ASSERT(SIZEOF(.pi_start_dma) == 0x10c, "pi_start_dma size changed")
-ASSERT(SIZEOF(.endgame_208e4_21b24) == 0x1240, "endgame_208e4_21b24 size changed")
+ASSERT(ADDR(.scene_arrival_insert) == 0x8001FCE4, "scene arrival insertion moved")
+ASSERT(SIZEOF(.scene_arrival_insert) == 0x450, "scene arrival insertion size changed")
+ASSERT(SIZEOF(.scene_insert_after_20d34_21b24) == 0xDF0, "arrival insertion suffix changed")
 ASSERT(SIZEOF(.endgame_21b8c_22720) == 0xb94, "endgame_21b8c_22720 size changed")
 ASSERT(SIZEOF(.endgame_33600_33900) == 0x300, "endgame_33600_33900 size changed")
 ASSERT(SIZEOF(.pi_event_notify) == 0xec, "pi_event_notify size changed")

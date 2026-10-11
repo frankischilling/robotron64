@@ -2,13 +2,13 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
-Current verified totals are 1,434 matching C functions / 317,840 instruction
+Current verified totals are 1,435 matching C functions / 318,944 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 38,406 initialized bytes
 and 879,161 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
-There remain 132,344 declared fallback CPU bytes in 180 spans and 164 unclassified
+There remain 131,240 declared fallback CPU bytes in 180 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
 
@@ -97,8 +97,8 @@ paired fixtures and 16 guest faults with positive brackets.
 [Scene storage and arrival insertion](scene-arrivals.md) adds 3,348 BSS bytes
 and 60 initialized diagnostic bytes. All 3,713 paired cases and nine mutation
 controls pass; pinned IDO and Ghidra agree on 99 layout values across three
-types. The insertion candidate remains excluded with 55 differing words and
-a 48-byte frame instead of the retail 56-byte frame. No code is credited.
+types. The [insertion function](scene-arrival-insertion.md) now owns all 1,104
+instruction bytes and reproduces the natural retail 56-byte frame.
 
 The [text record pool](text-record-storage.md) adds 8,040 bytes of source-owned
 BSS and both width tables add 144 initialized bytes. All thirty allocation slots,

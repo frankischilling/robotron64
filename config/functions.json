@@ -16129,5 +16129,16 @@
     "section": ".scene_arrival_select",
     "section_vram": 2147621948,
     "evidence": "docs/scene-arrival-selector.md"
+  },
+  {
+    "name": "func_8001FCE4",
+    "rom": 133348,
+    "vram": 2147613924,
+    "size": 1104,
+    "source": "src/game/scene_arrivals/insert.c",
+    "object": "build/us/scene_arrival_insert.o",
+    "section": ".scene_arrival_insert",
+    "section_vram": 2147613924,
+    "evidence": "docs/scene-arrival-insertion.md"
   }
 ]

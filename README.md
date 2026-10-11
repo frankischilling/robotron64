@@ -1,6 +1,6 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,434 matching C functions covering 317,840 bytes, twenty-nine assembly functions covering 4,372 bytes, 38,406 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,435 matching C functions covering 318,944 bytes, twenty-nine assembly functions covering 4,372 bytes, 38,406 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
 
@@ -627,3 +627,6 @@ Run `make audit-movie-literals` for the movie command and file-path checks.
 
 The [scene arrival selector](docs/scene-arrival-selector.md) owns 1,032 instruction
 bytes and its 24-byte generated table. Run `make audit-scene-arrival-selector`.
+
+The [arrival insertion function](docs/scene-arrival-insertion.md) adds 1,104
+matching instruction bytes. Run `make audit-scene-arrivals` for its paired checks.
