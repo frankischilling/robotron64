@@ -5,7 +5,7 @@ excluded from the ROM build and the source ownership count.
 
 | Helper | Retail range | Natural IDO bytes | Differing words |
 | --- | --- | ---: | ---: |
-| `func_8000A910` | `8000A910..8000AC6C` | 860 / 860 | 6 |
+| `func_8000A910` | `8000A910..8000AC6C` | 860 / 860 | 4 |
 | `func_8000AC6C` | `8000AC6C..8000B06C` | 1,000 / 1,024 | 252 |
 
 The profiles use pinned IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`.
@@ -33,9 +33,40 @@ halfword truncation, and color byte truncation. Algebraically reducing the alpha
 expression to `size * 4` loses the retail behavior at large signed inputs.
 
 The complete candidate has the retail length and stack frame. Four words still
-use a different temporary register for alpha scaling; two coordinate stores are
-ordered differently. No padding, extra formal parameters, unused storage, or
+use a different temporary register for alpha scaling. The XYZ position macro
+preserves one source line per vertex after preprocessing and reproduces retail
+coordinate-store scheduling. No padding, extra formal parameters, unused storage, or
 instruction patches are added to conceal those differences.
+
+## IDO statement grouping
+
+IDO scheduling depends on source line boundaries as well as expression order.
+Putting each XYZ initialization in a macro produces the retail store order with
+the conventional X, Y, Z assignment order. All sixteen vertex initializations
+use the same macro. This does not establish that the original source used that
+macro; it gives a readable representation that matches the observed scheduling.
+
+The complete 860-byte candidate retains the retail 24-byte frame. Its remaining
+differences are at `8000A98C`, `8000A9CC`, `8000A9D0`, and `8000A9D4`: alpha
+scaling uses `T0` where retail uses `V1`. Both expressions retain signed
+32-bit multiplication and division before the color-byte store.
+
+The local decomp-permuter run preserved each expanded packet macro on one
+physical source line. Reformatting those macros into separate statements changes
+IDO output and gives a misleading starting score. The corrected baseline has
+four register differences with stack checking enabled. The two-worker search
+performed 9,171 trials, including 463 compiler errors, without an improvement.
+Twenty-one coordinate-macro and scalar-reuse forms, sixteen height-scope forms,
+and forty-eight first-color ordering forms also produced no exact match.
+Narrowing alpha storage or converting before division worsened instruction
+matching; converting the product can also change signed-boundary behavior.
+
+Diagnostic builds of the pinned optimizer reproduced every allocated output
+section of the corresponding ordinary builds. They distinguished a globally
+allocated alpha expression from a chained-store form that fixes the alpha
+temporary but changes the size register. Those findings constrain further
+research; they do not identify the original declarations. The candidate remains
+excluded, and no source ownership is added.
 
 ## Ground disc
 

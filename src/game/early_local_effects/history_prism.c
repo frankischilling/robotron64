@@ -4,6 +4,12 @@ extern int D_8013826C;
 extern int D_80138270;
 extern int D_80138274;
 
+#define PRISM_POSITION(vertex, x, y, z) { \
+    (vertex).color.position[0] = (x); \
+    (vertex).color.position[1] = (y); \
+    (vertex).color.position[2] = (z); \
+}
+
 /* Excluded candidate: the complete instruction comparison still differs. */
 void func_8000A910(int angle, int size)
 {
@@ -54,55 +60,23 @@ void func_8000A910(int angle, int size)
         vertices[7].color.color[3] = alpha;
         height = (size * 370) / 16;
         if (angle == 0 || angle == 2) {
-            vertices[0].color.position[0] = 50;
-            vertices[0].color.position[2] = 100;
-            vertices[0].color.position[1] = 0;
-            vertices[1].color.position[0] = 50;
-            vertices[1].color.position[1] = 0;
-            vertices[1].color.position[2] = 0;
-            vertices[2].color.position[0] = 50;
-            vertices[2].color.position[1] = height;
-            vertices[2].color.position[2] = 0;
-            vertices[3].color.position[1] = height;
-            vertices[3].color.position[2] = 100;
-            vertices[3].color.position[0] = 50;
-            vertices[4].color.position[0] = -50;
-            vertices[4].color.position[2] = 100;
-            vertices[4].color.position[1] = 0;
-            vertices[5].color.position[0] = -50;
-            vertices[5].color.position[1] = 0;
-            vertices[5].color.position[2] = 0;
-            vertices[6].color.position[1] = height;
-            vertices[6].color.position[0] = -50;
-            vertices[6].color.position[2] = 0;
-            vertices[7].color.position[1] = height;
-            vertices[7].color.position[0] = -50;
-            vertices[7].color.position[2] = 100;
+            PRISM_POSITION(vertices[0], 50, 0, 100);
+            PRISM_POSITION(vertices[1], 50, 0, 0);
+            PRISM_POSITION(vertices[2], 50, height, 0);
+            PRISM_POSITION(vertices[3], 50, height, 100);
+            PRISM_POSITION(vertices[4], -50, 0, 100);
+            PRISM_POSITION(vertices[5], -50, 0, 0);
+            PRISM_POSITION(vertices[6], -50, height, 0);
+            PRISM_POSITION(vertices[7], -50, height, 100);
         } else {
-            vertices[0].color.position[0] = 100;
-            vertices[0].color.position[1] = 0;
-            vertices[0].color.position[2] = 50;
-            vertices[1].color.position[0] = -100;
-            vertices[1].color.position[1] = 0;
-            vertices[1].color.position[2] = 50;
-            vertices[2].color.position[0] = -100;
-            vertices[2].color.position[1] = height;
-            vertices[2].color.position[2] = 50;
-            vertices[3].color.position[1] = height;
-            vertices[3].color.position[0] = 100;
-            vertices[3].color.position[2] = 50;
-            vertices[4].color.position[2] = -50;
-            vertices[4].color.position[0] = 100;
-            vertices[4].color.position[1] = 0;
-            vertices[5].color.position[0] = -100;
-            vertices[5].color.position[2] = -50;
-            vertices[5].color.position[1] = 0;
-            vertices[6].color.position[1] = height;
-            vertices[6].color.position[0] = -100;
-            vertices[6].color.position[2] = -50;
-            vertices[7].color.position[1] = height;
-            vertices[7].color.position[2] = -50;
-            vertices[7].color.position[0] = 100;
+            PRISM_POSITION(vertices[0], 100, 0, 50);
+            PRISM_POSITION(vertices[1], -100, 0, 50);
+            PRISM_POSITION(vertices[2], -100, height, 50);
+            PRISM_POSITION(vertices[3], 100, height, 50);
+            PRISM_POSITION(vertices[4], 100, 0, -50);
+            PRISM_POSITION(vertices[5], -100, 0, -50);
+            PRISM_POSITION(vertices[6], -100, height, -50);
+            PRISM_POSITION(vertices[7], 100, height, -50);
         }
         FRAME_COMMAND(0x0400207F, &D_800CDBD0[D_80123AE4]);
         RENDERER_QUAD(0, 1, 2, 3);
