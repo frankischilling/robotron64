@@ -229,7 +229,7 @@ MUTATIONS = (
     ('blocked-state','actor->field28 == 0','actor->field28 != 0',dict(slot=0,kind=2)),
     ('group-value','values[slot] += actor->value22;','values[slot] += 1;',dict(slot=0,kind=9,value=255)),
     ('parent-kind','kinds[slot] = kind - 4;','kinds[slot] = kind - 3;',dict(slot=199,kind=13,parent=0)),
-    ('secondary-window','entry < &counts[21]','entry < &counts[20]',dict(slot=0,kind=20)),
+    ('secondary-window','entry < (&counts[21])','entry < (&counts[20])',dict(slot=0,kind=20)),
     ('player-state','actor->state21 = 2;','actor->state21 = 3;',dict(slot=0,category=8)),
     ('coordinate-axis','actor->position[0], actor->position[1]','actor->position[1], actor->position[1]',dict(slot=0,category=1,kind=3,x=-257,y=257)),
     ('default-scale','arrivalDelay / 100','arrivalDelay / 101',dict(slot=0,kind=0)),
