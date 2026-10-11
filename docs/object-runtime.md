@@ -77,7 +77,16 @@ loader, without callee stubs. Only preloaded or skipped-index loader paths
 are covered; cache misses, file loading, and visual gameplay remain unproved.
 
 The audit checks call arguments, complete fixture memory, read/write/code
-bounds, stack canaries, saved registers, SP, and GP. It also compiles thirteen
+bounds, stack canaries, saved integer registers, SP, GP and RA. Guest COP1
+instructions seed and probe all twelve saved words in F20 through F31 before
+and after each execution. The result window has canaries and cannot be accessed
+by the tested function or its callees. Each fixture phase must reach its own
+return address. Fifteen isolated instruction faults, each preceded by an
+unchanged positive execution, check every saved floating word plus S3, GP and
+RA. The preceding audit checked saved integer registers but did not observe
+saved floating state.
+
+The checker also compiles thirteen
 source faults with IDO and runs an unchanged positive pair for each one. The
 faults alter phase arithmetic, frame selection, footer addresses and strides,
 cache fields, or an output guard byte. Three retail instruction mutations
