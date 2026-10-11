@@ -620,7 +620,7 @@ SECTIONS
     .model_framebuffer_strip 0x80040724 : AT(0x41324) SUBALIGN(4) { build/us/model_framebuffer_strip.o(.text) }
     .model_framebuffer_texture 0x80040874 : AT(0x41474) SUBALIGN(4) { build/us/model_framebuffer_texture.o(.text) }
     .renderer_rotating_rings 0x80040968 : AT(0x41568) SUBALIGN(4) { build/us/renderer_rotating_rings.o(.text) }
-    .cpu_after_renderer_rotating_rings 0x80040BA0 : AT(0x417A0) { build/us/fallback.o(.rom_cpu_after_renderer_rotating_rings) }
+    .renderer_random_grid 0x80040BA0 : AT(0x417A0) SUBALIGN(4) { build/us/renderer_random_grid.o(.text) }
     .renderer_color_gradient 0x80040F5C : AT(0x41B5C) SUBALIGN(4) { build/us/renderer_color_gradient.o(.text) }
     .renderer_border_gradient 0x80041180 : AT(0x41D80) SUBALIGN(4) { build/us/renderer_border_gradient.o(.text) }
     .endgame_420c4_42cb0 0x800414C4 : AT(0x420c4) { build/us/fallback.o(.rom_endgame_420c4_42cb0) }
@@ -2770,7 +2770,7 @@ ASSERT(SIZEOF(.menu_transition_start_bss) == 0x64, "menu_transition_start_bss si
 ASSERT(SIZEOF(.renderer_texture_file_cache_data) == 0x8, "renderer_texture_file_cache_data size changed")
 ASSERT(SIZEOF(.renderer_texture_file_cache_bss) == 0x804, "renderer_texture_file_cache_bss size changed")
 ASSERT(SIZEOF(.renderer_rotating_rings) == 0x238, "renderer_rotating_rings size changed")
-ASSERT(SIZEOF(.cpu_after_renderer_rotating_rings) == 0x3bc, "cpu_after_renderer_rotating_rings size changed")
+ASSERT(SIZEOF(.renderer_random_grid) == 0x3bc, "renderer_random_grid size changed")
 ASSERT(SIZEOF(.endgame_420c4_42cb0) == 0xbec, "endgame_420c4_42cb0 size changed")
 ASSERT(SIZEOF(.renderer_material_cache_reset) == 0x778, "renderer_material_cache_reset size changed")
 ASSERT(SIZEOF(.cpu_after_renderer_material_reset) == 8, "renderer_material_reset alignment changed")

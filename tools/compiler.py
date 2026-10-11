@@ -49,6 +49,7 @@ def compiler_support_files(source):
 
 # Add a source only after comparing its complete functions with the retail ROM.
 SOURCE_PROFILES = {
+    "src/game/renderer_surfaces/random_grid.c": "game",
     "src/game/early_local_effects/history_prism.c": "game",
     "src/game/renderer_diagnostics/fatal_format.c": "game-r4300-mul",
     "src/game/renderer_projection/setup.c": "game-r4300-mul",

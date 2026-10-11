@@ -798,7 +798,6 @@ D_800736A8 = 0x800736A8;
 D_8008D96C = 0x8008D96C;
 /* Background renderers still supplied by the extracted fallback. */
 func_8000B5AC = 0x8000B5AC;
-func_80040BA0 = 0x80040BA0;
 func_80041B24 = 0x80041B24;
 D_8009F560 = 0x8009F560;
 

@@ -22,7 +22,13 @@ segments:
     vram: 0x80040968
     subsegments:
       - [0x41568, asm, renderer_rotating_rings]
-  - [0x417A0, bin, after_rotating_rings]
+  - name: renderer_random_grid
+    type: code
+    start: 0x417A0
+    vram: 0x80040BA0
+    subsegments:
+      - [0x417A0, asm, renderer_random_grid]
+  - [0x41B5C, bin, after_random_grid]
   - name: renderer_material_cache_reset
     type: code
     start: 0x42CB0

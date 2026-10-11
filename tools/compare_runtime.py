@@ -11,6 +11,7 @@ from toolchain import install
 
 
 MATCHING_BLOCKS = (
+    ("renderer_random_grid", "src/game/renderer_surfaces/random_grid.c", 0x80040BA0, 0x80040F5C),
     ("scene_arrival_insert", "src/game/scene_arrivals/insert.c", 0x8001FCE4, 0x80020134),
     ("scene_arrival_select", "src/game/scene_arrivals/select.c", 0x80021C3C, 0x80022044),
     ("view_inverse_matrix", "src/game/view_inverse_matrix.c", 0x8003F480, 0x8003F62C),

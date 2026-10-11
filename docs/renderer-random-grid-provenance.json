@@ -1,0 +1,172 @@
+{
+  "function": "func_80040BA0",
+  "source": "src/game/renderer_surfaces/random_grid.c",
+  "source_sha256": "cde66bb45861936d1e8646d299a994a924510c1e2286618380d99e23e625d019",
+  "checker": "tools/check_renderer_random_grid.py",
+  "checker_sha256": "c1260f4236b31f86cfee1a0c2029eb2ad67b6bb53cf046b8b0c574e575603dc1",
+  "vram_start": "0x80040BA0",
+  "vram_end": "0x80040F5C",
+  "rom_start": "0x417A0",
+  "rom_end": "0x41B5C",
+  "natural_instruction_bytes": 956,
+  "raw_text_bytes": 960,
+  "compiler_alignment_bytes": 4,
+  "frame_bytes": 176,
+  "generated_initialized_bytes": 0,
+  "generated_bss_bytes": 0,
+  "text_relocations": 26,
+  "instruction_sha256": "99afc061cf13b67c6168a9a559fe8dedf9971c1fe7babcb137606b90c1b7e9e0",
+  "compiled_instruction_sha256": "99afc061cf13b67c6168a9a559fe8dedf9971c1fe7babcb137606b90c1b7e9e0",
+  "compiler_profile": {
+    "name": "game",
+    "version": "5.3",
+    "flags": [
+      "-O2",
+      "-G",
+      "0",
+      "-non_shared",
+      "-mips1",
+      "-32"
+    ]
+  },
+  "toolchain_identity": {
+    "version": "5.3",
+    "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+    "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+    "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+  },
+  "independent_references": [
+    {
+      "tool": "spimdisasm",
+      "complete_reassembly_equal": true,
+      "bytes": 956,
+      "sha256": "99afc061cf13b67c6168a9a559fe8dedf9971c1fe7babcb137606b90c1b7e9e0"
+    },
+    {
+      "tool": "splat",
+      "splat_natural_bytes": 956,
+      "splat_complete_retail_equal": true,
+      "retail_sha256": "99afc061cf13b67c6168a9a559fe8dedf9971c1fe7babcb137606b90c1b7e9e0",
+      "workbench_fresh": true,
+      "asm_differ_completed": true,
+      "objdiff_completed": true
+    }
+  ],
+  "execution": {
+    "paired_cases": 384,
+    "principal_executions": 768,
+    "abi_stubs": 0,
+    "saved_fpu_words": 12,
+    "trace_sha256": "4109070d277ca92fce00c2bc4c30cd4c1ffd62fae6bab22bbd6a5b59f788a37a",
+    "controls": [
+      {
+        "name": "phase",
+        "positive_passed": true,
+        "detected": "('Call trace', (2, 3, 0, 1, 137, 18, 32000, 24000), (20, (2147801992, 553), (2147801992, 552)))"
+      },
+      {
+        "name": "corner",
+        "positive_passed": true,
+        "detected": "('Call trace', (2, 3, 0, 1, 137, 18, 32000, 24000), (529, (2147766564, (2148328544, 2148328560, 2148328656, 2148328624)), (2147766564, (2148328544, 2148328560, 2148328640, 2148328624))))"
+      },
+      {
+        "name": "channel",
+        "positive_passed": true,
+        "detected": "('Independent memory oracle', '0x800ce450', (2, 3, 0, 1, 137, 18, 32000, 24000))"
+      },
+      {
+        "name": "extent",
+        "positive_passed": true,
+        "detected": "('Independent memory oracle', '0x800ce450', (2, 3, 0, 1, 137, 18, 32000, 24000))"
+      }
+    ],
+    "limits": "CPU packets, memory and O32 preservation only. Diagnostic formatter branches, zero divisors, RSP and full gameplay excluded."
+  },
+  "real_support": [
+    {
+      "name": "graphics_mode_dispatch",
+      "source": "src/game/graphics_mode_dispatch.c",
+      "instruction_bytes": 540,
+      "complete_match": true
+    },
+    {
+      "name": "graphics_modes",
+      "source": "src/game/graphics_modes.c",
+      "instruction_bytes": 1572,
+      "complete_match": true
+    },
+    {
+      "name": "graphics_pool",
+      "source": "src/game/graphics_pool.c",
+      "instruction_bytes": 420,
+      "complete_match": true
+    },
+    {
+      "name": "fixed_math",
+      "source": "src/game/fixed_math.c",
+      "instruction_bytes": 308,
+      "complete_match": true
+    },
+    {
+      "name": "short_sine",
+      "source": "src/sdk/short_sine.c",
+      "instruction_bytes": 112,
+      "complete_match": true
+    },
+    {
+      "name": "short_cosine",
+      "source": "src/sdk/short_cosine.c",
+      "instruction_bytes": 48,
+      "complete_match": true
+    },
+    {
+      "name": "random_between",
+      "source": "src/game/random_between.c",
+      "instruction_bytes": 196,
+      "complete_match": true
+    },
+    {
+      "name": "runtime_random",
+      "source": "src/game/runtime_random.c",
+      "instruction_bytes": 32,
+      "complete_match": true
+    },
+    {
+      "name": "gu_random",
+      "source": "src/sdk/gu_random.c",
+      "instruction_bytes": 44,
+      "complete_match": true
+    },
+    {
+      "name": "renderer_quad_submit",
+      "source": "src/game/renderer_quad_submit.c",
+      "instruction_bytes": 240,
+      "complete_match": true
+    }
+  ],
+  "integration": {
+    "rom_bytes": 8388608,
+    "rom_sha256": "91d85baeca4b9517e93b3637b52909cee942b09e2fe44a37df9ded17687faddd",
+    "clean_extraction_and_build": true,
+    "comparisons": {
+      "runtime-comparison": 920,
+      "startup-comparison": 2,
+      "assembly-comparison": 18,
+      "data-comparison": 219
+    },
+    "tooling_tests": 181
+  },
+  "source_ownership_added": {
+    "functions": 1,
+    "instruction_bytes": 956,
+    "initialized_bytes": 0,
+    "bss_bytes": 0
+  },
+  "progress_after": {
+    "c_functions": 1438,
+    "c_instruction_bytes": 322764,
+    "remaining_declared_fallback_bytes": 127420,
+    "remaining_declared_fallback_spans": 179
+  },
+  "uncertainty": "Original variable names and source spelling are unproved. The complete game remains incomplete."
+}
