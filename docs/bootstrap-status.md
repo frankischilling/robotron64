@@ -2,15 +2,21 @@
 
 The target is the supplied USA ROM with header revision zero. `config/target.json` records measured hashes of its normalized bytes. The recovered game source matches with IDO 5.3 and O2/MIPS I. Project-wide compiler identification, the SDK release, CIC, and complete segment layout remain under investigation.
 
-Current verified totals are 1,435 matching C functions / 318,944 instruction
+Current verified totals are 1,436 matching C functions / 320,948 instruction
 bytes, twenty-nine assembly functions / 4,372 bytes, 38,406 initialized bytes
 and 879,161 BSS bytes. The clean pinned-IDO build matches the entire retail ROM.
 The mesh command interpreter adds 1,336 complete instruction bytes and a 68-byte
 generated switch table; [its evidence](renderer-mesh-commands.md) covers both
 independent reassemblies and 1,080 guarded command streams with seven mutations.
-There remain 131,240 declared fallback CPU bytes in 180 spans and 164 unclassified
+There remain 129,236 declared fallback CPU bytes in 179 spans and 164 unclassified
 bytes. A complete function/executable denominator is unknown; full source recovery
 remains incomplete. Earlier checkpoints below retain their historical counts.
+
+The complete [player navigation helper](player-navigation.md) adds 2,004
+matching instruction bytes with the retail 120-byte frame. Its full independent
+comparison and finite audit preserve the search contract, signed arithmetic,
+conditional output writes and original nearest-actor return. The player
+behavior caller remains excluded; see [issue #144](https://github.com/frankischilling/robotron64/issues/144).
 
 The complete [inverse camera writer](renderer-inverse-camera.md) adds 428 C
 instruction bytes. Its 104-byte frame, consumed scalar allocation and existing

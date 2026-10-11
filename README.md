@@ -1,8 +1,14 @@
 # Robotron 64
 
-A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,435 matching C functions covering 318,944 bytes, twenty-nine assembly functions covering 4,372 bytes, 38,406 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
+A matching decompilation of Robotron 64 for Nintendo 64. This source checkpoint contains 1,436 matching C functions covering 320,948 bytes, twenty-nine assembly functions covering 4,372 bytes, 38,406 bytes of source-owned initialized data, and 879,161 bytes of source-owned BSS. The build combines that source with extracted fallback regions to reproduce the target ROM byte for byte. The game is not fully decompiled.
 
 This repository does not contain the original game ROM and will not provide one. Supply your own legally obtained copy. Extracted commercial assets and generated binary files remain outside Git.
+
+[Player navigation](docs/player-navigation.md) replaces all 2,004 bytes of
+the navigation fallback with matching C. Run `make check-player-navigation`
+for the complete comparison, 512 paired fixtures with ten real callees, and
+eight controlled source faults. The larger player behavior caller remains
+excluded from ownership.
 
 [Actor boundary reflection](docs/actor-boundary-reflection.md) replaces the
 complete 1,520-byte fallback with matching C. Independent references, the

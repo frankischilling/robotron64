@@ -482,7 +482,7 @@ SECTIONS
     .player_fields_clear 0x80032D00 : AT(0x33900) SUBALIGN(4) { build/us/player_fields_clear.o(.text) }
     .scene_player_setup 0x80032D28 : AT(0x33928) SUBALIGN(4) { build/us/scene_player_setup.o(.text) }
     .scene_actor_reset_begin 0x80032F70 : AT(0x33B70) SUBALIGN(4) { build/us/scene_actor_reset_begin.o(.text) }
-    .endgame_33cf8_344cc 0x800330F8 : AT(0x33CF8) { build/us/fallback.o(.rom_endgame_33cf8_344cc) }
+    .player_navigation 0x800330F8 : AT(0x33CF8) SUBALIGN(4) { build/us/player_navigation.o(.text) }
     .scene_signed_shift 0x800338CC : AT(0x344CC) SUBALIGN(4) { build/us/scene_signed_shift.o(.text) }
     .resource_selection_clear 0x800338F0 : AT(0x344F0) SUBALIGN(4) { build/us/resource_selection_clear.o(.text) }
     .endgame_34574_35d90 0x80033974 : AT(0x34574) { build/us/fallback.o(.rom_endgame_34574_35d90) }
@@ -2987,7 +2987,10 @@ ASSERT(SIZEOF(.endgame_434c0_43c70) == 0x7b0, "endgame_434c0_43c70 size changed"
 ASSERT(SIZEOF(.endgame_43dc0_44530) == 0x770, "endgame_43dc0_44530 size changed")
 ASSERT(SIZEOF(.renderer_camera_square) == 0x150, "renderer camera square text size changed")
 ASSERT(SIZEOF(.early_pool_scene_reset) == 0x11c, "early pool scene reset text size changed")
-ASSERT(SIZEOF(.endgame_33cf8_344cc) == 0x7d4, "endgame_33cf8_344cc size changed")
+ASSERT(SIZEOF(.player_navigation) == 0x7d4, "player navigation text size changed")
+ASSERT(ADDR(.player_navigation) == 0x800330F8, "player navigation moved")
+ASSERT(LOADADDR(.player_navigation) == 0x33CF8, "player navigation ROM offset changed")
+ASSERT(func_800330F8 == ADDR(.player_navigation), "func_800330F8 definition overridden")
 ASSERT(SIZEOF(.scene_actor_reset_begin) == 0x188, "scene actor reset begin text size changed")
 ASSERT(SIZEOF(.scene_menu_string_refresh) == 0x170, "scene menu string refresh text size changed")
 ASSERT(SIZEOF(.movie_string_position_submit) == 0x170, "movie_string_position_submit size changed")

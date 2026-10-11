@@ -881,6 +881,7 @@ MATCHING_BLOCKS = (
     ("renderer_camera_square", "src/game/renderer_camera_square.c", 0x80043070, 0x800431C0),
     ("early_pool_scene_reset", "src/game/early_pool_scene_reset.c", 0x8000D4F8, 0x8000D614),
     ("scene_actor_reset_begin", "src/game/scene_actor_reset_begin.c", 0x80032F70, 0x800330F8),
+    ("player_navigation", "src/game/player/navigation.c", 0x800330F8, 0x800338CC),
     ("scene_menu_string_refresh", "src/game/scene_menu_string_refresh.c", 0x80022A08, 0x80022B78),
     ("movie_string_position_submit", "src/game/movie_string_position_submit.c", 0x80002D70, 0x80002EE0),
     ("model_normal_polygon_dispatch", "src/game/model_normal_polygon_dispatch.c", 0x8003EE20, 0x8003F168),

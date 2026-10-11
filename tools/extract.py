@@ -53,7 +53,6 @@ REGIONS = (
     ("cpu_after_palette_commands", 0x33134, 0x33140),
     ("cpu_after_command_machine", 0x3342c, 0x33430),
     ("endgame_33600_33900", 0x33600, 0x33900),
-    ("endgame_33cf8_344cc", 0x33cf8, 0x344cc),
     ("endgame_34574_35d90", 0x34574, 0x35d90),
     ("cpu_after_sound_bridge_core", 0x36ce8, 0x36cf0),
     ("resource_cache_fallback_37268_37270", 0x37268, 0x37270),

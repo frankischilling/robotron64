@@ -87,3 +87,14 @@ The complete private split is reproducible from
 [`config/analysis/player_behavior.yaml`](../config/analysis/player_behavior.yaml).
 Keep all extracted banks and reference objects outside Git. Tool and
 reference credits are in [CREDITS.md](../CREDITS.md).
+
+## Navigation helper
+
+The called [navigation helper](player-navigation.md), `func_800330F8`, now
+matches all 2,004 retail instruction bytes and replaces its complete fallback
+range. Its separate audit executes ten real callees. The larger caller remains
+excluded, and its existing audit still uses the explicit AI-output observer
+described above. The shared declaration uses the existing `GamePlayerState`
+view; the call casts the identical player storage without changing the O32
+arguments. The caller's complete 5,980-byte candidate and 64 dispatch bytes
+are rechecked after that declaration change.
