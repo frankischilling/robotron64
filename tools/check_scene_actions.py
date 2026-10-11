@@ -156,7 +156,7 @@ def run(code, tables, case):
     for address in (0x80022528, 0x800278AC, 0x8003614C, 0x80026178, 0x800283D4):
         uc.hook_add(UC_HOOK_CODE, stub, begin=address, end=address)
     uc.reg_write(regs.UC_MIPS_REG_A0, selected)
-    # Retail's menu caller supplies only A0; the executed cases never inspect A1.
+    # The clear helper forwards A1, but its three actions never inspect it.
     needs_player = eligible and counter < 5
     uc.reg_write(regs.UC_MIPS_REG_A1, PLAYER if needs_player else 0x81234000)
     execute(entry)

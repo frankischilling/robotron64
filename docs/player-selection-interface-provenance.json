@@ -1,0 +1,103 @@
+{
+  "base_commit": "868b14a283a33bde12b253c5450432682d253d0b",
+  "inputs_sha256": {
+    "Makefile": "0479d6b23bf7e8ea17094b5a23a8159d4a919588b023e9c26ebf35adde5c99b8",
+    "include/player_selection_internal.h": "ff2d852ccdaf73599e4fe84573e0c470a026cd35ff7a3a7e7470b9084f4ad86f",
+    "include/player_behavior_internal.h": "2380638999094b11ade28de97f9d0cfba8ffc790079a35b359a04801d247d819",
+    "src/game/resource_selection_clear.c": "bb335d8d121486145b56405bb8e71cb4c3c252441c2f74fa1bdb11e6b0e56eab",
+    "src/game/player/behavior.c": "831c330d25e9687e2134bb252e0acfeb1c6bf508607adc76429b64e134f1e0a8",
+    "tools/check_player_behavior.py": "58194cd02a2f1663e3a108e20368a4101072b929a09840798d766f997df1b9dd",
+    "tools/check_scene_actions.py": "d4eae58905ac325b1e58542c1d07ac0a21497d18e7e02aa04ce166824c683573"
+  },
+  "helper": {
+    "name": "func_800338F0",
+    "vram_start": "0x800338F0",
+    "vram_end": "0x80033974",
+    "natural_instruction_bytes": 132,
+    "frame_bytes": 40,
+    "matches": true,
+    "code_sha256": "657a4768d42eefeb408c3de701f8fcaa63478793fe7c6ac02753f24a28d9da54",
+    "initialized_data_bytes": 0,
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    }
+  },
+  "ghidra": {
+    "signature": "void __stdcall func_800338F0(int * selection, ScenePlayerRuntime * player)",
+    "parameters": [
+      {
+        "ordinal": 0,
+        "name": "selection",
+        "type": "int *",
+        "storage": "a0:4"
+      },
+      {
+        "ordinal": 1,
+        "name": "player",
+        "type": "ScenePlayerRuntime *",
+        "storage": "a1:4"
+      }
+    ],
+    "natural_bytes": 132,
+    "full_memory_matches": true,
+    "code_sha256": "657a4768d42eefeb408c3de701f8fcaa63478793fe7c6ac02753f24a28d9da54"
+  },
+  "caller": {
+    "name": "func_80033974",
+    "excluded": true,
+    "natural_instruction_bytes": 5988,
+    "frame_bytes": 200,
+    "retail_frame_bytes": 184,
+    "retail_instruction_bytes": 6172,
+    "different_code_words": 1509,
+    "dispatch_bytes": 64,
+    "different_dispatch_words": 16,
+    "code_sha256": "cc9dcefe7b3fc8d327894e8e8d5c6ca31f76f7ac886e6d9cede4fc82f6cf9c97",
+    "tables_sha256": "ecd2e9159d1cd34bf1907e1cd92b3a68ed05df21fec0d3306781b9a96521ad2f"
+  },
+  "player_audit": {
+    "pairs": 1536,
+    "guest_steps": 587311,
+    "callee_entries": 26,
+    "source_controls": 7,
+    "guest_fault_controls": 7,
+    "ability_arguments": [
+      "selection address",
+      "player allocation address"
+    ],
+    "limits": [
+      "Four independently compared matching helpers execute their real instructions. Other callees use explicit returning O32 observers.",
+      "Caller effects and traces under 1536 finite fixtures do not prove gameplay or matching source.",
+      "Guest accesses checked against fixture allocations, natural stack frame and original tables. Host observer effects remain explicit synthetic models."
+    ]
+  },
+  "scene_action_audit": {
+    "cases": 3516,
+    "direct": 3420,
+    "callers": 96,
+    "aliases": 252,
+    "gated_counter": 756,
+    "applied": 504
+  },
+  "source_ownership_added": 0,
+  "limits": [
+    "The selection-clear helper was already owned. This interface refinement adds no matching bytes.",
+    "The player caller still fails complete code and dispatch comparisons.",
+    "Finite execution checks do not prove unrestricted gameplay. Full delivery gates are recorded in the pull request."
+  ]
+}

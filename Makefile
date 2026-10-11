@@ -5343,7 +5343,7 @@ build/us/session_mode_advance.o: src/game/session_mode_advance.c include/destina
 	$(PYTHON) tools/trim_padding.py build/us/session_mode_advance.raw.o $@ .text 0x84
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
 
-build/us/resource_selection_clear.o: src/game/resource_selection_clear.c $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
+build/us/resource_selection_clear.o: src/game/resource_selection_clear.c include/actor.h include/actor_behavior_internal.h include/destination_format.h include/early_game_state.h include/front_menu_internal.h include/game_memory.h include/menu_label_internal.h include/object.h include/object_recovery.h include/pak_file.h include/player_selection_internal.h include/save_game.h include/scalar_math.h include/scene_action_internal.h include/scene_definition.h include/scene_player_runtime_internal.h include/static_menu_internal.h include/text.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/resource_selection_clear.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/resource_selection_clear.raw.o $@ .text 0x84

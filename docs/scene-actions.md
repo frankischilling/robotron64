@@ -33,13 +33,13 @@ and records the counter as four uninitialized bytes at `800BAE8C..800BAE90`.
 This BSS definition claims no ROM data. The other state globals and resource
 storage retain their existing ownership or fallback status.
 
-The retail menu caller at `800338F0` supplies only the selection argument for
-actions zero, twelve and thirteen. Those paths never inspect the player.
-Its unprototyped C declaration preserves the observed one-argument call
-sequence; the shared header records the full handler interface for callers
-that supply a player. This historical argument-count mismatch remains a C
-language limitation. The pinned compiler's generated calls and their MIPS
-behavior are verified, including execution with an unmapped player argument.
+The selection-clear helper at `800338F0` forwards its incoming `a1` player
+word to the action handler for actions zero, twelve and thirteen. Those paths
+never inspect the player. Its shared two-argument declaration reproduces all
+132 natural instruction bytes and the original 40-byte frame. Both ability
+calls in the larger player-behavior candidate explicitly supply the player
+allocation. The pinned compiler's generated calls and their MIPS behavior are
+verified, including helper execution with an unmapped player argument.
 The existing signature-gated caller now uses the shared two-argument header;
 its complete 148-byte body continues to match.
 
@@ -74,12 +74,15 @@ python3 tools/check_scene_actions.py
 ```
 
 The integrated ROM matches all 8,388,608 target bytes. Independent comparisons
-pass for 856 runtime units, two startup units, eighteen assembly units and
-95 data-only units; all 152 tooling tests pass.
-[The provenance ledger](scene-actions-provenance.json) records current inputs,
+pass for 918 runtime units, two startup units, eighteen assembly units and
+219 data-only units; all 181 tooling tests pass.
+[The provenance ledger](scene-actions-provenance.json) records the original recovery inputs,
 compiler identity, ELF ownership, execution results and Ghidra evidence.
-The provisional CPU inventory retains 186,596 fallback bytes in 213 ranges;
-function and executable-byte denominators remain unknown.
+The provisional CPU inventory retains 129,236 fallback bytes in 179 ranges
+and 164 unclassified bytes. Function and executable-byte denominators remain
+unknown. This interface refinement adds no matching bytes.
+The interface refinement and its current validation are recorded in
+[player selection interface provenance](player-selection-interface-provenance.json).
 
 The compiler and comparison workflow follow the local SM64 and IDO references
 listed in [reference study](reference-study.md). Robotron's retail instructions

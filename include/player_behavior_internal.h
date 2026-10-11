@@ -7,6 +7,7 @@
 #include "early_input_internal.h"
 #include "sound_bridge_internal.h"
 #include "player_navigation_internal.h"
+#include "player_selection_internal.h"
 
 /* The session and each player's input at +0x34 share this 40-byte prefix.
  * The final word is outside EarlyPlayerInputState's 36-byte sampling view. */
@@ -71,7 +72,6 @@ void func_80029194(ActorBehaviorActorInternal *actor);
 void func_800290B0(int object, int *position);
 void func_80032F70(void);
 int func_800338CC(int value, int bits);
-void func_800338F0(int *selection);
 void func_80035E3C(ActorBehaviorActorInternal *actor, int speed,
                    EarlyPlayerInputState *input);
 EarlyGameActor *func_80038D8C(EarlyGamePosition *position, int kind,

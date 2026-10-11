@@ -222,11 +222,11 @@ void func_80033974(ActorBehaviorActorInternal *actor,int unused)
       bits = input->input.pressed20;
       otherBits = bits & 0x1000;
       if (((bits & 0x800) != 0) && (otherBits = bits & 0x1000, player->selection70 != 0)) {
-        func_800338F0(&player->selection70);
+        func_800338F0(&player->selection70, (ScenePlayerRuntime *)player);
         otherBits = input->input.pressed20 & 0x1000;
       }
       if ((otherBits != 0) && (player->selection74 != 0)) {
-        func_800338F0(&player->selection74);
+        func_800338F0(&player->selection74, (ScenePlayerRuntime *)player);
       }
       temporary = D_800B6FD0 * 0x500;
       value = (player->value7C + 5) * actor->resource24->speed *
