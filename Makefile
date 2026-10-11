@@ -6404,6 +6404,8 @@ build/us/audio_timing_data.o: src/game/audio_timing_data.c include/audio_host_in
 
 RUNTIME_OBJECTS += build/us/audio_timing_data.o
 
+RUNTIME_OBJECTS += build/us/history_prism.o
+
 build/us/early_render_quad.o: src/game/early_render_quad.c include/debug_output.h include/early_game_helpers.h include/early_render_internal.h include/frame.h include/graphics_state_internal.h include/heap.h include/renderer_geometry_internal.h include/rom_files.h $(IDO) Makefile tools/trim_padding.py tools/provenance.py tools/compiler.py tools/toolchain.py config/toolchain_files.json include/palette.h
 	mkdir -p $(@D)
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/early_render_quad.raw.o $<
@@ -8950,5 +8952,3 @@ build/us/history_prism.o: src/game/early_local_effects/history_prism.c include/a
 	$(PYTHON) tools/compiler.py --cc $(IDO) -o build/us/history_prism.raw.o $<
 	$(PYTHON) tools/trim_padding.py build/us/history_prism.raw.o $@ .text 0x35c
 	$(PYTHON) tools/provenance.py $< $@ $(filter include/%,$^)
-
-RUNTIME_OBJECTS += build/us/history_prism.o
