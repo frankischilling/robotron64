@@ -448,6 +448,11 @@ adds 24 initialized bytes and twelve BSS bytes. Five full C candidates cover
 4,164 retail instruction bytes; all remain excluded from matching progress.
 Both image wrappers differ only in four stack/argument instructions each.
 
+[History prisms and ground discs](docs/early-local-effects.md) add two excluded
+source candidates and `make check-early-local-effects`. The guard checks complete
+vertex and command writes with real matched renderer helpers; instruction
+matching remains incomplete.
+
 [Early tube and star rendering](docs/early-render-effects.md) reconstructs three
 nonmatching C candidates covering 3,116 retail instruction bytes and owns
 104 initialized bytes for their shared angle, depth, and RGB palette. These

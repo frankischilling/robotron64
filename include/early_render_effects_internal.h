@@ -12,6 +12,7 @@ extern int D_800730D8;
 extern int D_800730DC;
 extern int D_800730E0[8][3];
 
+void func_8000AC6C(int x, int y, int z, int black);
 void func_8000B1E4(void);
 void func_8000B5AC(void);
 int func_8000B9D4(EarlyGameActor *actor, int mode);
