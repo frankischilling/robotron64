@@ -13,6 +13,6 @@ extern ActorResource5CInternal D_800ACA50;
 extern ActorResource5CInternal D_800ACAAC;
 
 EarlyGameActor *func_80038D8C(EarlyGamePosition *position, int kind,
-                            ActorBehaviorPlayerInternal *owner, int angle);
+                            ActorBehaviorPlayerInternal *owner, int angle, int unused);
 
 #endif

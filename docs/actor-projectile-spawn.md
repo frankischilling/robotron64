@@ -20,8 +20,10 @@ is consumed in the first resource-selection condition; this ordering produces
 the retail branch and register allocation without identity expressions.
 
 Run `make audit-actor-projectile-spawn`. The audit compiles the full accepted
-body and six real matching support units, then checks 606 paired fixtures
-against separate call, result and complete guarded-memory oracles. It runs
+body and six real matching support units, then checks 1,818 pairs over 606 fixtures
+against separate call, result and complete guarded-memory oracles. Each
+fixture runs with fifth argument 185, minus one and signed INT_MIN, and the
+complete results must remain identical across those three values. It runs
 actual trig, RNG and object-angle implementations, preserves twelve distinct
 saved FPU words, and checks instruction/read/write bounds and integer ABI
 state. Eight semantic source mutations, twelve saved-FPU corruptions and
@@ -42,3 +44,22 @@ Tools and reference projects are credited in [CREDITS.md](../CREDITS.md).
 The [acceptance ledger](actor-projectile-spawn-provenance.json) records all
 34 fresh acceptance stages and the bounded audit. All 1,994 frozen public
 inputs remained unchanged throughout execution.
+
+## Caller argument words
+
+All thirteen calls in `func_80033974` explicitly store an outgoing fifth
+word at O32 `sp+0x10`. The default and case-zero calls use 185; cases one
+and two use 185 for their first projectile and minus one for the remaining
+projectiles. Cases three and four use minus one throughout. The shared C
+interface names this parameter `unused` because the complete retail callee
+never loads that argument slot. The original source parameter count and
+name cannot be recovered from that absence alone. The five-parameter
+declaration represents the observed call interface and preserves the
+already matched 1,040-byte callee and its 104-byte frame.
+
+The caller remains excluded from source ownership. Keeping these outgoing
+words improves its reconstruction but does not establish a byte match.
+The [argument evidence](player-projectile-argument-provenance.json) records
+all thirteen call addresses, literal words, complete callee comparison and
+bounded caller controls. This refinement adds zero owned instruction,
+initialized-data or BSS bytes.

@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "verified_date": "2026-10-11",
+  "baseline_head": "1a8efdc91aac9cc29c90065d1c78272779c6b4d0",
+  "kind": "Observed outgoing projectile word; no additional source ownership",
+  "implementation_inputs_sha256": {
+    "include/actor_projectile_spawn_internal.h": "0658074b8570e1e1e4ad297110e9049afffa91c8119df05ebbb42221dbe31d79",
+    "include/player_behavior_internal.h": "ac13ab53b72bf18004b8b1553c6583715a8a6dd542a52724d1313abbcbf1bf81",
+    "src/game/actor_projectiles/spawn.c": "ab63e2b82204d0d06ec98470b731a037b8a39f2a5f51033ac713712fd50d9a9a",
+    "src/game/player/behavior.c": "5a9b0665f308fd3518f32915aabf7672e1c4d56256c8d79b68980fc882fb488d",
+    "tools/check_player_behavior.py": "d170e7c6ed77860b016cf2334d25e08fa46d646798e025a969f116b98d957f87",
+    "tools/check_actor_projectile_spawn.py": "200fb6ec5bd4433722e7f98be23a3f7e34128da29c01aba3785fc4823e7316e6",
+    "tools/projectile_spawn_execution.py": "0f0a6b1c62c63c4b6bce64816db8810f7dc3e2a1d1103949d3dbb2e4f3d07aac"
+  },
+  "helper": {
+    "name": "func_80038D8C",
+    "start": "0x80038D8C",
+    "end": "0x8003919C",
+    "natural_instruction_bytes": 1040,
+    "frame_bytes": 104,
+    "matches": true,
+    "code_sha256": "16a781cecfbf500dde2a6cbb85a33007f4682837f234ef56315583d1fafd6ead",
+    "fifth_word_storage": "O32 incoming sp+0x10",
+    "fifth_word_read": false,
+    "original_formal_parameter_count_unknown": true,
+    "parameter_name_inferred": "unused",
+    "compiler_profile": {
+      "name": "game",
+      "version": "5.3",
+      "flags": [
+        "-O2",
+        "-G",
+        "0",
+        "-non_shared",
+        "-mips1",
+        "-32"
+      ]
+    },
+    "toolchain_identity": {
+      "version": "5.3",
+      "archive_sha256": "ab5c741561f80913d58c8b074771f23941a3edd312505a8ebed6d1dfeb65e506",
+      "compiler_sha256": "76d796c9591c9f5504949f85b29c32a6039a663791afe2f36f34ca18425b64d0",
+      "toolchain_files_sha256": "8ca550d30c1fef7c14b1470a1ef93cc6d415a507c6e18c04a7bfeaf8016a7b89"
+    }
+  },
+  "calls": [
+    {
+      "vram": "80034e34",
+      "store_vram": "80034e38",
+      "unused_word": 185
+    },
+    {
+      "vram": "80034e70",
+      "store_vram": "80034e74",
+      "unused_word": 185
+    },
+    {
+      "vram": "80034e9c",
+      "store_vram": "80034e98",
+      "unused_word": 185
+    },
+    {
+      "vram": "80034ed8",
+      "store_vram": "80034edc",
+      "unused_word": 185
+    },
+    {
+      "vram": "80034f04",
+      "store_vram": "80034f00",
+      "unused_word": -1
+    },
+    {
+      "vram": "80034f30",
+      "store_vram": "80034f2c",
+      "unused_word": -1
+    },
+    {
+      "vram": "80034f6c",
+      "store_vram": "80034f70",
+      "unused_word": 185
+    },
+    {
+      "vram": "80034f98",
+      "store_vram": "80034f90",
+      "unused_word": -1
+    },
+    {
+      "vram": "80034fc4",
+      "store_vram": "80034fc0",
+      "unused_word": -1
+    },
+    {
+      "vram": "80034ff0",
+      "store_vram": "80034fec",
+      "unused_word": -1
+    },
+    {
+      "vram": "80035040",
+      "store_vram": "80035044",
+      "unused_word": -1
+    },
+    {
+      "vram": "8003507c",
+      "store_vram": "80035080",
+      "unused_word": -1
+    },
+    {
+      "vram": "80035114",
+      "store_vram": "800350f8",
+      "unused_word": -1
+    }
+  ],
+  "ghidra": {
+    "program": "robotron64.elf",
+    "parameters": [
+      {
+        "ordinal": 0,
+        "name": "position",
+        "type": "EarlyGamePosition *",
+        "storage": "a0:4"
+      },
+      {
+        "ordinal": 1,
+        "name": "kind",
+        "type": "int",
+        "storage": "a1:4"
+      },
+      {
+        "ordinal": 2,
+        "name": "owner",
+        "type": "ActorBehaviorPlayerInternal *",
+        "storage": "a2:4"
+      },
+      {
+        "ordinal": 3,
+        "name": "angle",
+        "type": "int",
+        "storage": "a3:4"
+      },
+      {
+        "ordinal": 4,
+        "name": "unused",
+        "type": "int",
+        "storage": "Stack[0x10]:4"
+      }
+    ],
+    "saved": true
+  },
+  "caller": {
+    "excluded": true,
+    "natural_instruction_bytes": 6092,
+    "frame_bytes": 200,
+    "retail_instruction_bytes": 6172,
+    "retail_frame_bytes": 184,
+    "different_code_words": 1509,
+    "different_table_words": 16,
+    "code_sha256": "2c26174c8b5ec77eb2b5b6b6d7c3a5ea6edd275c11698953330b8c18dabc1e4a",
+    "tables_sha256": "75989dfb38d5257230885e2f0d190810979e0ce2012475fc12b3a7dcb5bfb948"
+  },
+  "bounded_caller_audit": {
+    "pairs": 1536,
+    "guest_steps": 587659,
+    "source_controls": 9,
+    "guest_fault_controls": 7,
+    "real_matching_callees": 4,
+    "returning_o32_observers": 22,
+    "projectile_argument_words_observed": 5
+  },
+  "projectile_audit_configuration": {
+    "base_fixtures": 606,
+    "unused_words": [
+      185,
+      -1,
+      -2147483648
+    ],
+    "required_pairs": 1818,
+    "controls": 23
+  },
+  "source_ownership_added": 0,
+  "limits": [
+    "The callee already owned all 1040 instruction bytes. Its unused argument has no established gameplay effect.",
+    "The caller remains nonmatching over complete instructions and all 64 table bytes.",
+    "Caller observers and finite execution cases do not prove unrestricted gameplay.",
+    "Fresh full delivery gates and exact-head CI are recorded in the pull request."
+  ]
+}

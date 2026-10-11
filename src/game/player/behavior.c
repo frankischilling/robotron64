@@ -515,35 +515,35 @@ aim_ready:
           switch(player->selection6C) {
           case 0:
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C, 185);
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C + 0x800U & 0xfff);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C + 0x800U & 0xfff, 185);
             func_8003614C(100,0,1,0);
             break;
           case 1:
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C, 185);
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C + 0x200U & 0xfff);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C + 0x200U & 0xfff, -1);
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C - 0x200U & 0xfff);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C - 0x200U & 0xfff, -1);
             func_8003614C(0x65,0,1,0);
             break;
           case 2:
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C, 185);
             func_80038D8C((EarlyGamePosition *)position,3,(ActorBehaviorPlayerInternal *)player,
-                          D_800BEF6C + 0x800U & 0xfff);
+                          D_800BEF6C + 0x800U & 0xfff, -1);
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C + 0x200U & 0xfff);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C + 0x200U & 0xfff, -1);
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C - 0x200U & 0xfff);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C - 0x200U & 0xfff, -1);
             func_8003614C(0x66,0,1,0);
             break;
           case 3:
             func_8003614C(0x69,0,1,0);
             projectile = func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                                    (ActorBehaviorPlayerInternal *)player,D_800BEF6C);
+                                    (ActorBehaviorPlayerInternal *)player,D_800BEF6C, -1);
             projectilePosition.value[2] = actor->position[2];
             value = D_8009EF94 * projectile->field6C;
             if (value < 0) {
@@ -555,17 +555,17 @@ aim_ready:
               value = value + 1;
             }
             projectilePosition.value[1] = actor->position[1] + (value >> 1);
-            func_80038D8C(&projectilePosition,projectileKind,(ActorBehaviorPlayerInternal *)player,D_800BEF6C);
+            func_80038D8C(&projectilePosition,projectileKind,(ActorBehaviorPlayerInternal *)player,D_800BEF6C, -1);
             break;
           case 4:
             func_8003614C(0x69,0,1,0);
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C, -1);
             break;
           case -1:
           default:
             func_80038D8C((EarlyGamePosition *)position,projectileKind,
-                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C);
+                          (ActorBehaviorPlayerInternal *)player,D_800BEF6C, 185);
             func_8003614C(6,0,1,0);
           }
           goto finish;
