@@ -239,7 +239,7 @@ void func_80033974(ActorBehaviorActorInternal *actor,int unused)
       moveX = 0;
       if (D_800AD288 != 7) {
         if (D_800AD280 == 6) {
-          target = (ActorBehaviorActorInternal *) func_800330F8(player,actor,&moveX,&moveY,speed);
+          target = (ActorBehaviorActorInternal *) func_800330F8((GamePlayerState *)player,actor,&moveX,&moveY,speed);
         }
         else {
           value = controller * 4;

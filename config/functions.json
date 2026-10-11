@@ -16140,5 +16140,16 @@
     "section": ".scene_arrival_insert",
     "section_vram": 2147613924,
     "evidence": "docs/scene-arrival-insertion.md"
+  },
+  {
+    "name": "func_800330F8",
+    "rom": 212216,
+    "vram": 2147692792,
+    "size": 2004,
+    "source": "src/game/player/navigation.c",
+    "object": "build/us/player_navigation.o",
+    "section": ".player_navigation",
+    "section_vram": 2147692792,
+    "evidence": "docs/player-navigation.md"
   }
 ]
