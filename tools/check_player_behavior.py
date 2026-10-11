@@ -63,8 +63,9 @@ def execute(fixture,elf=None,fault=None):
  for index in range(2):w(uc,0x8009B190+index*0xDB4+0x1C,fixture['lives'] if index==fixture['player'] else fixture['other_lives'])
  for input_address in (0x800AD138,player+0x34):
   w(uc,input_address,fixture['input_flags']);w(uc,input_address+0x1C,fixture['held']);w(uc,input_address+0x20,fixture['pressed'])
- w(uc,0x800AD168,2);w(uc,0x800AD16C,fixture['player']);w(uc,0x800AD170,0)
- w(uc,0x800AD174,0);w(uc,0x800AD178,1);w(uc,0x800AD180,fixture['session_mode'])
+ w(uc,0x800AD164,fixture.get('player_count',0));w(uc,0x800AD168,2);w(uc,0x800AD16C,fixture['player'])
+ w(uc,0x800AD170,fixture.get('first_choice',0));w(uc,0x800AD174,fixture.get('second_choice',0))
+ w(uc,0x800AD178,1);w(uc,0x800AD180,fixture['session_mode'])
  for address,value in ((0x8007394C,fixture['relative']), (0x80073A40,fixture['pause']), (0x8007BB18,1),
   (0x8007C334,fixture['controllers']),(0x80097644,u32(fixture['now']-fixture['elapsed'])),(0x8009EF94,fixture['delta']),
   (0x8009EFA0,fixture['now']),(0x800AD280,fixture['game_state']),(0x800AD288,fixture['game_mode']),
@@ -210,7 +211,7 @@ def execute(fixture,elf=None,fault=None):
 def fixtures():
  rng=random.Random(0x339742026)
  for i in range(1536):
-  yield {'player':i%2,'animation':(0,0,8,8,1,1,1,2,3,4,5,6,7,9)[i%14],'angle':rng.choice((-2048,-1,0,2048,4095)),
+  fixture={'player':i%2,'animation':(0,0,8,8,1,1,1,2,3,4,5,6,7,9)[i%14],'angle':rng.choice((-2048,-1,0,2048,4095)),
    'flags':rng.choice((0,1,0x40,0x400,0x4000,0x4401)), 'frame':rng.choice((0,1000,4000,8000)),
    'now':rng.choice((30000,0xFFFFFFF0,0x30)), 'elapsed':rng.choice((99,100,1000,1001,2000,2001,10000,10001)),
    'x':rng.choice((-31000,-29000,0,29000,31000)),'y':rng.choice((-31000,0,31000)),
@@ -230,12 +231,51 @@ def fixtures():
    'ai_x':rng.choice((-100,0,100)), 'ai_y':rng.choice((-100,0,100)), 'ai_target':i%2,
    'aim_x':rng.choice((0,10000,60000)), 'aim_y':rng.choice((0,10000,60000)),
    'animation_id':rng.choice((0,110)), 'frame_count':20,'random':rng.choice((-32,-8,0,8,32))}
+  if i==0:template=dict(fixture)
+  yield fixture
+ # The random corpus leaves the separate count at session +0x2C zero.
+ # Exercise the positive-count search without exceeding the two allocations.
+ template.update(animation=1,session_mode=3,lives=0,
+                 pause=False,game_mode=3,animation_id=0,death_ready=-1)
+ for player,count,choices,other,elapsed in itertools.product(
+     (0,1),(0,1,2),((0,1),(1,0),(0,0),(1,1)),(0,1,2),(1000,1001,2001)):
+  yield dict(template,player=player,player_count=count,first_choice=choices[0],
+             second_choice=choices[1],other_lives=other,elapsed=elapsed)
+
+def search_outcome(fixture,execution):
+ """Check the bounded handoff against the initialized live-player choices."""
+ if 'player_count' not in fixture:return None
+ expired=fixture['elapsed']>=1001
+ count=fixture['player_count']
+ choices=(fixture['first_choice'],fixture['second_choice'])
+ eligible=lambda player:player!=fixture['player'] and fixture['other_lives']>0
+ found=None;selection=fixture['player']
+ if expired:
+  for _ in range(count):
+   selection+=1
+   if selection>=count:selection=0
+   if eligible(choices[selection]):found=choices[selection];break
+ addresses=[row[0] for row in execution[1]]
+ copied='0x8003b520' in addresses
+ exhausted='0x80032f70' in addresses
+ assert copied==(expired and found is not None),('handoff copy',fixture,addresses)
+ assert exhausted==(expired and found is None),('handoff exhaustion',fixture,addresses)
+ if expired:
+  assert s32(r(execution[0],0x800AD16C))==selection,('handoff selection',fixture)
+  if count:
+   assert r(execution[0],0x800AD168)==choices[selection],('handoff player',fixture)
+  if found is not None:
+   source=0x8009B190+found*0xDB4+0x34
+   assert bytes(execution[0].mem_read(0x800AD138,40))==bytes(execution[0].mem_read(source,40)),('handoff bytes',fixture)
+ return dict(expired=expired,handoff=copied,exhausted=exhausted,
+             wrapped=expired and count>0 and selection==0,count=count)
 def main():
- out=n/'build/player-behavior-audit';out.mkdir(exist_ok=True)
+ out=n/'build/player-behavior-audit';out.mkdir(parents=True,exist_ok=True)
  validate(rom);layout=SymbolLayoutSnapshot()
  report=compare_candidate_block('player_behavior',SOURCE,rom,layout,'player-behavior-audit')
  helpers=verify_helpers(rom,layout)
  candidate=n/report['elf'];seen=set();steps=0
+ search={'fixtures':0,'expired':0,'handoffs':0,'exhausted':0,'wrapped':0};search_counts=set()
  family='player-behavior'
  for index,fixture in enumerate(fixtures()):
   try:
@@ -244,22 +284,32 @@ def main():
    changed=original[2]|current[2]
    differences=[hex(address) for address in sorted(changed) if original[0].mem_read(address,1)!=current[0].mem_read(address,1)]
    assert not differences,('memory',differences)
+   outcome=search_outcome(fixture,original)
+   assert outcome==search_outcome(fixture,current),('search outcome',fixture)
+   if outcome is not None:
+    search['fixtures']+=1;search['expired']+=outcome['expired']
+    search['handoffs']+=outcome['handoff'];search['exhausted']+=outcome['exhausted'];search['wrapped']+=outcome['wrapped']
+    search_counts.add(outcome['count'])
    seen|=original[4]|current[4];steps+=original[3]+current[3]
   except Exception as error:
    (out/(family+'-failure.json')).write_text(json.dumps({'index':index,'fixture':fixture,'error':str(error)},indent=2)+'\n')
    print('FAILED fixture',index,str(error)[:2500],flush=True);raise
   if index%64==63:print('Passed',index+1,'pairs',flush=True)
  assert seen==set(HELPERS),('uncovered callees',set(HELPERS)-seen)
+ assert search['fixtures']==216 and search['expired']==144 and search_counts=={0,1,2},search
+ assert search['handoffs']>0 and search['exhausted']>0 and search['wrapped']>0,search
+ assert search['handoffs']+search['exhausted']==search['expired'],search
+ search['player_counts']=sorted(search_counts)
  controls=run_controls(candidate,list(fixtures()),layout)
  record={'pairs':index+1,'executions':2*(index+1),'guest_steps':steps,'observed_callees':[hex(x) for x in sorted(seen)],
   'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
   'fixtures_sha256':hashlib.sha256(json.dumps(list(fixtures()),sort_keys=True).encode()).hexdigest(),
-  'candidate_sha256':hashlib.sha256(candidate.read_bytes()).hexdigest(),'comparison':report,'verified_helpers':helpers,'controls':controls,'source_ownership_added':0,
-  'limits':['Four independently compared matching helpers execute their real instructions. Other callees use explicit returning O32 observers.','Caller effects and traces under 1536 finite fixtures do not prove gameplay or matching source.','Guest accesses checked against fixture allocations, natural stack frame and original tables. Host observer effects remain explicit synthetic models.']}
+  'candidate_sha256':hashlib.sha256(candidate.read_bytes()).hexdigest(),'comparison':report,'verified_helpers':helpers,'controls':controls,'player_search':search,'source_ownership_added':0,
+  'limits':['Four independently compared matching helpers execute their real instructions. Other callees use explicit returning O32 observers.','Caller effects and traces under 1752 finite fixtures do not prove gameplay or matching source.','Guest accesses checked against fixture allocations, natural stack frame and original tables. Host observer effects remain explicit synthetic models.']}
  (out/(family+'-receipt.json')).write_text(json.dumps(record,indent=2)+'\n')
  layout.verify()
  for path,digest in report['inputs_sha256'].items():assert hashlib.sha256((n/path).read_bytes()).hexdigest()==digest,path
- print(json.dumps(dict(pairs=index+1,guest_steps=steps,controls=len(controls),matches=report['matches'],natural_bytes=report['actual_size'],frame=report['frame'],different_words=len(report['different_words']),different_dispatch_words=len(report['dispatch']['differing_words']),source_ownership_added=0)),flush=True)
+ print(json.dumps(dict(pairs=index+1,guest_steps=steps,controls=len(controls),player_search=search,matches=report['matches'],natural_bytes=report['actual_size'],frame=report['frame'],different_words=len(report['different_words']),different_dispatch_words=len(report['dispatch']['differing_words']),source_ownership_added=0)),flush=True)
 
 def equivalent(first,second):
  if first[1]!=second[1]:return False
@@ -277,12 +327,18 @@ def run_controls(candidate,corpus,layout):
   ('projectile_primary_word','D_800BEF6C, 185);','D_800BEF6C, 184);'),
   ('projectile_secondary_word','D_800BEF6C + 0x200U & 0xfff, -1);','D_800BEF6C + 0x200U & 0xfff, 0);'),
   ('clamp_restore','restorePosition = 1;','restorePosition = 0;'),
-  ('stick_y','D_8013DBC8[controller]','D_8013DBB8[controller]')):
+  ('stick_y','D_8013DBC8[controller]','D_8013DBB8[controller]'),
+  ('handoff_wrap','if (D_800AD138.saved.mode <= D_800AD138.saved.selection34)', 'if (D_800AD138.saved.mode < D_800AD138.saved.selection34)'),
+  ('handoff_choice','D_800AD138.saved.playerChoices38[D_800AD138.saved.selection34]', 'D_800AD138.saved.playerChoices38[0]'),
+  ('handoff_liveness','if (0 < D_8009B190[D_800AD138.saved.currentPlayer].saved.active)', 'if (0 <= D_8009B190[D_800AD138.saved.currentPlayer].saved.active)'),
+  ('handoff_copy','func_8003B520(&D_800AD138,&D_8009B190[D_800AD138.saved.currentPlayer].saved.field34,0x28);', 'func_8003B520(&D_800AD138,&D_8009B190[D_800AD138.saved.currentPlayer].saved.field34,0x24);'),
+  ('handoff_count','value = value + 1;\n          } while (value < D_800AD138.saved.mode);', 'value = value + 2;\n          } while (value < D_800AD138.saved.mode);')):
   assert before in source,name
   mutant_source=out/(name+'.c');mutant_source.write_text(source.replace(before,after,1))
   result=compare_candidate_block(name,mutant_source.relative_to(n).as_posix(),rom,layout,'player-behavior-audit/controls')
   mutant=n/result['elf'];rejected=None
   for index,fixture in enumerate(corpus):
+   if name.startswith('handoff_') and not (fixture.get('player_count',0)>0 and fixture['elapsed']>=1001):continue
    baseline=execute(fixture)
    assert equivalent(baseline,execute(fixture,candidate)),('control baseline',name,index)
    try:different=not equivalent(baseline,execute(fixture,mutant))
