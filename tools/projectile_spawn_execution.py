@@ -101,7 +101,7 @@ def fixtures(case):
  panels += [(a,x,y) for a,x,y in zip(ACTORS,actor_images,expected)]
  panels += [(a,x,y) for a,x,y in zip(TRANSFORMS,transforms,transform_end)]
  return count,panels,calls,alloc_calls,last
-def run(body,support,entries,case,fpu_fault=None,input_fault=None):
+def run(body,support,entries,case,fpu_fault=None,input_fault=None,unused_word=None):
  count,panels,wanted,allocation_positions,last=fixtures(case)
  uc,write,execute,code=literal_machine([(ENTRY,body)]+support,ENTRY)
  if fpu_fault is not None:
@@ -133,6 +133,7 @@ def run(body,support,entries,case,fpu_fault=None,input_fault=None):
    reads.append((address,address+len(data)))
  reads.extend([(STACK-1024,STACK+32),(FP_SEED,FP_SEED+132)])
  write(STACK-1040,b'\xa7'*16);write(STACK-1024,b'\xc9'*1056);write(STACK+32,b'\xb9'*16)
+ if unused_word is not None:write(STACK+16,word(unused_word&0xffffffff))
  guards.extend([(STACK-1040,b'\xa7'*16),(STACK+32,b'\xb9'*16)])
  uc.reg_write(reg.UC_MIPS_REG_A0,INPUT if input_fault is None else input_fault)
  for n,value in [('A1',case[0]),('A2',OWNER),('A3',case[1])]:uc.reg_write(getattr(reg,'UC_MIPS_REG_'+n),value&0xffffffff)

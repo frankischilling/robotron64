@@ -48,13 +48,20 @@ def controls(retail,body,support,entries,rom,layout):
 def main():
  retail,body,support,entries,comparison,comparisons,rom,layout=execution.prepare()
  digest=hashlib.sha256();all_cases=list(execution.cases());calls=0
+ unused_words=(185,-1,-2147483648)
  for case in all_cases:
-  a=execution.run(retail,support,entries,case);b=execution.run(body,support,entries,case)
-  assert a==b;calls+=a['support_calls'];digest.update(json.dumps(a,sort_keys=True).encode()+b'\n')
+  baseline=None
+  for unused in unused_words:
+   a=execution.run(retail,support,entries,case,unused_word=unused)
+   b=execution.run(body,support,entries,case,unused_word=unused)
+   assert a==b
+   if baseline is None:baseline=a
+   else:assert a==baseline,('Unused projectile argument changed results',case,unused)
+   calls+=a['support_calls'];digest.update(json.dumps(a,sort_keys=True).encode()+b'\n')
  faults=controls(retail,body,support,entries,rom,layout)
  assert len(all_cases)==606 and len(faults)==23 and all(x['rejected'] for x in faults)
- report={'matches':True,'comparison':comparison,'support_comparisons':comparisons,'paired_cases':606,'principal_executions':1212,'support_calls_per_image':calls,'digest':digest.hexdigest(),'controls':faults,'source_mutants_rejected':8,'saved_fpu_faults_rejected':12,'guest_access_faults_rejected':3,'positive_retail_and_candidate_before_every_fault':True,'candidate_positive_after_every_fault':True,'complete_support_instruction_bytes':sum(len(b) for a,b in support if a in entries),'initialized_support_bytes':sum(len(b) for a,b in support if a not in entries),'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'runner_sha256':hashlib.sha256((ROOT/'tools/projectile_spawn_execution.py').read_bytes()).hexdigest(),'limitations':['Allocation alone uses an argument-checked ABI boundary with synthetic actors; all six matching support units execute.','Allocation-time position mutations are adversarial fixtures, not asserted allocator behavior.','Finite valid resource kinds and mapped objects only; unsafe kinds, arbitrary aliasing and full gameplay remain unverified.','Stack interiors are bounded and preserved integer/FPU registers are checked; stack byte identity is not claimed.']}
+ report={'matches':True,'comparison':comparison,'support_comparisons':comparisons,'base_fixtures':606,'unused_argument_words':list(unused_words),'unused_word_invariance_passed':True,'paired_cases':1818,'principal_executions':3636,'support_calls_per_image':calls,'digest':digest.hexdigest(),'controls':faults,'source_mutants_rejected':8,'saved_fpu_faults_rejected':12,'guest_access_faults_rejected':3,'positive_retail_and_candidate_before_every_fault':True,'candidate_positive_after_every_fault':True,'complete_support_instruction_bytes':sum(len(b) for a,b in support if a in entries),'initialized_support_bytes':sum(len(b) for a,b in support if a not in entries),'checker_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'runner_sha256':hashlib.sha256((ROOT/'tools/projectile_spawn_execution.py').read_bytes()).hexdigest(),'limitations':['Allocation alone uses an argument-checked ABI boundary with synthetic actors; all six matching support units execute.','Allocation-time position mutations are adversarial fixtures, not asserted allocator behavior.','Finite valid resource kinds and mapped objects only; unsafe kinds, arbitrary aliasing and full gameplay remain unverified.','Stack interiors are bounded and preserved integer/FPU registers are checked; stack byte identity is not claimed.']}
  (ROOT/'build/projectile-spawn-check/report.json').write_text(json.dumps(report,indent=2)+'\n')
- print('Projectile: 1040 complete bytes, 606 paired cases, 23 actual rejected faults; all checks passed',flush=True)
+ print('Projectile: 1040 complete bytes, 1818 paired cases over three unused words, 23 actual rejected faults; all checks passed',flush=True)
 
 if __name__=='__main__':main()

@@ -1,6 +1,6 @@
 #include "../../../include/actor_projectile_spawn_internal.h"
 
-EarlyGameActor *func_80038D8C(EarlyGamePosition *position, int kind, ActorBehaviorPlayerInternal *owner, int angle)
+EarlyGameActor *func_80038D8C(EarlyGamePosition *position, int kind, ActorBehaviorPlayerInternal *owner, int angle, int unused)
 {
   EarlyGameActor *actor;
   int i;

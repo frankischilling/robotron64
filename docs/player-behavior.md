@@ -7,7 +7,7 @@ six-entry weapon table follows at `8009427C`. Together they occupy all
 reassemble the complete code and both tables exactly. The original ROM
 remains the authority for these boundaries and behaviors.
 
-The C candidate is `src/game/player/behavior.c`. It has 5,988 natural
+The C candidate is `src/game/player/behavior.c`. It has 6,092 natural
 instruction bytes, a 200-byte frame and 64 generated dispatch bytes.
 Retail uses a 184-byte frame. The complete comparison differs in 1,509
 code words and sixteen table addresses. The source is excluded from the
@@ -49,8 +49,11 @@ position is checked against square bounds and the optional diamond bound.
 A boundary call restores the saved position at the common exit. Aiming
 uses directional input or an AI target, then selects single, opposite,
 spread or offset projectile patterns from the signed weapon selection.
-The projectile constructor takes four arguments; its returned actor's
-velocity controls the second position in the offset pattern.
+The projectile calls supply five O32 words. The fifth is 185 or minus one,
+according to the weapon pattern. The constructor ignores this word; its
+returned actor's velocity controls the second position in the offset pattern.
+The shared declaration preserves the observed outgoing argument without
+assigning it a gameplay meaning.
 
 Death handling includes invulnerability timing, display blinking, animated
 scale and Z updates, life decrement and selection of another live player.
@@ -75,7 +78,7 @@ All 26 callee entries are exercised. The checker compares call traces and
 every nonstack byte written by either execution, enforces guest memory
 widths and fixture allocation bounds, checks the natural stack frame and
 guards, and verifies preserved integer and floating-point registers.
-Seven source mutations and seven guest faults must fail between passing
+Nine source mutations and seven guest faults must fail between passing
 retail/source baselines.
 Two source controls deliberately pass the actor instead of the player to
 each ability slot. The observer records both O32 argument words, so these
@@ -83,6 +86,10 @@ mistakes fail even though its synthetic selection-clearing effect ignores
 the forwarded player. The helper and actual scene action handler are also
 covered by `tools/check_scene_actions.py`, including an unmapped unused
 player word for the clear helper's selected actions.
+
+Two further source controls corrupt the primary and secondary projectile
+words. All five constructor arguments are observed, including the unused
+stack word. These controls check the retail call trace, not a gameplay effect.
 
 The remaining 22 callees use explicit returning O32 observers. Their
 effects and returns are synthetic fixture models. Observers clobber
@@ -105,5 +112,5 @@ range. Its separate audit executes ten real callees. The larger caller remains
 excluded, and its existing audit still uses the explicit AI-output observer
 described above. The shared declaration uses the existing `GamePlayerState`
 view; the call casts the identical player storage without changing the O32
-arguments. The caller's complete 5,988-byte candidate and 64 dispatch bytes
-are rechecked after the navigation and selection-clear declarations.
+arguments. The caller's complete 6,092-byte candidate and 64 dispatch bytes
+are rechecked with the navigation, selection-clear and projectile declarations.

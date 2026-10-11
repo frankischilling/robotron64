@@ -75,7 +75,7 @@ int func_800338CC(int value, int bits);
 void func_80035E3C(ActorBehaviorActorInternal *actor, int speed,
                    EarlyPlayerInputState *input);
 EarlyGameActor *func_80038D8C(EarlyGamePosition *position, int kind,
-                            ActorBehaviorPlayerInternal *owner, int angle);
+                            ActorBehaviorPlayerInternal *owner, int angle, int unused);
 int func_800393FC(int object);
 void func_8003945C(int object, int value);
 int func_8004CDE8(void);
