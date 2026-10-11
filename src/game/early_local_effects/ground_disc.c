@@ -7,6 +7,9 @@ void func_8000AC6C(int x, int y, int z, int black)
     int position[3];
     PaletteColor color;
     int count;
+    int red;
+    int green;
+    int blue;
     int alpha;
     int index;
     int angle;
@@ -25,31 +28,34 @@ void func_8000AC6C(int x, int y, int z, int black)
     D_80123AE4 = func_80047048();
     if (D_80123AE4 != -1) {
         func_8003C14C(&color, 1);
+        red = color.red;
+        green = color.green;
+        blue = color.blue;
         alpha = 0;
         if (black) {
-            color.red = 0;
-            color.green = 0;
-            color.blue = 0;
+            red = 0;
+            green = 0;
+            blue = 0;
             alpha = 160;
         }
         D_800CDBD0[D_80123AE4].color.position[0] = 0;
         D_800CDBD0[D_80123AE4].color.position[1] = 0;
         D_800CDBD0[D_80123AE4].color.position[2] = 0;
-        D_800CDBD0[D_80123AE4].color.color[0] = color.red;
-        D_800CDBD0[D_80123AE4].color.color[1] = color.green;
-        D_800CDBD0[D_80123AE4].color.color[2] = color.blue;
+        D_800CDBD0[D_80123AE4].color.color[0] = red;
+        D_800CDBD0[D_80123AE4].color.color[1] = green;
+        D_800CDBD0[D_80123AE4].color.color[2] = blue;
         D_800CDBD0[D_80123AE4].color.color[3] = alpha;
         for (index = 1; index <= count; index++) {
             angle = (index - 1) * 4096 / count;
-            cosine = func_8003CC88(angle);
-            sine = func_8003CC58(angle);
-            D_800CDBD0[D_80123AE4 + index].color.position[0] = cosine * 200 >> 12;
-            D_800CDBD0[D_80123AE4 + index].color.position[1] = 0;
-            D_800CDBD0[D_80123AE4 + index].color.position[2] = sine * 200 >> 12;
-            D_800CDBD0[D_80123AE4 + index].color.color[3] = 160;
-            D_800CDBD0[D_80123AE4 + index].color.color[0] = color.red;
-            D_800CDBD0[D_80123AE4 + index].color.color[1] = color.green;
-            D_800CDBD0[D_80123AE4 + index].color.color[2] = color.blue;
+            cosine = func_8003CC88(angle) * 200 >> 12;
+            sine = func_8003CC58(angle) * 200 >> 12;
+            D_800CDBD0[index + D_80123AE4].color.position[0] = cosine;
+            D_800CDBD0[index + D_80123AE4].color.position[1] = 0;
+            D_800CDBD0[index + D_80123AE4].color.position[2] = sine;
+            D_800CDBD0[index + D_80123AE4].color.color[3] = 160;
+            D_800CDBD0[index + D_80123AE4].color.color[0] = red;
+            D_800CDBD0[index + D_80123AE4].color.color[1] = green;
+            D_800CDBD0[index + D_80123AE4].color.color[2] = blue;
         }
         FRAME_COMMAND(0x04002CAF, &D_800CDBD0[D_80123AE4]);
         for (index = 1; index <= count; index++) {

@@ -6,7 +6,7 @@ excluded from the ROM build and the source ownership count.
 | Helper | Retail range | Natural IDO bytes | Differing words |
 | --- | --- | ---: | ---: |
 | `func_8000A910` | `8000A910..8000AC6C` | 860 / 860 | 4 |
-| `func_8000AC6C` | `8000AC6C..8000B06C` | 1,000 / 1,024 | 252 |
+| `func_8000AC6C` | `8000AC6C..8000B06C` | 1,024 / 1,024 | 194 |
 
 The profiles use pinned IDO 5.3 with `-O2 -G 0 -non_shared -mips1 -32`.
 Complete splat and spimdisasm references independently reassemble to every
@@ -84,11 +84,30 @@ RGB and center alpha zero. Ten perimeter vertices use cosine and sine at
 packets follow. It commits eleven vertices while leaving the current index at
 the allocation base. Vertex flags and texture coordinates are untouched.
 
-The original frame is 248 bytes. Its projected-vector and temporary slots are
-verified, but the original C storage declarations and unused frame areas remain
-unknown. The candidate uses a real three-word position array and the existing
+The original frame is 248 bytes; the candidate frame is 208 bytes. The complete
+natural body is 1,024 bytes and differs in 194 words. The retail projected-vector
+and temporary slots are verified, but the original C storage declarations and
+unused frame areas remain unknown. The candidate uses a real three-word position array and the existing
 draw prefix. It does not enlarge structures or add unused locals to reproduce
 the retail frame.
+
+Palette RGB values are loaded into word locals before the black override and
+remain live across the trigonometric calls. Retail scales and shifts the cosine
+result before calling sine. The candidate follows those lifetimes and uses
+`index + currentVertex` for the perimeter address. These source changes reproduce
+more of the retail instructions while keeping the same vertex and packet effects.
+The radius mutation changes the factor at the cosine call and must still fail
+the independent geometry oracle.
+
+The local investigation compared 148 complete forms covering color lifetimes,
+trig scheduling, old-index loop termination, vertex cursors, triangle macros,
+aggregate declarations, allocation/load counts, palette storage, and index
+promotion. Reordering aggregate declarations did not affect code generation.
+Using the existing full object record increased the frame to 272 bytes without
+improving instruction matching, so that form was rejected. Three-byte and
+four-byte palette buffers also gave no instruction improvement. The published
+candidate retains the established draw prefix, a real three-word position array,
+and one palette entry. It does not add unused storage to force the retail frame.
 
 The perimeter loop has ten iterations: its branch compares the old index before
 the delay slot increments it. The initial typed m2c output misleadingly showed
